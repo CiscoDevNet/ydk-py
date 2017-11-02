@@ -52,15 +52,15 @@ class HwModuleSubslot(Entity):
         """
         
         
-        .. attribute:: reload
-        
-        	Cycle subslot h/w reset
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
         .. attribute:: subslot
         
         	Fully qualified location specification
         	**type**\:  str
+        
+        .. attribute:: reload
+        
+        	Cycle subslot h/w reset
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -79,14 +79,14 @@ class HwModuleSubslot(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.reload = YLeaf(YType.empty, "reload")
-
             self.subslot = YLeaf(YType.str, "subslot")
+
+            self.reload = YLeaf(YType.empty, "reload")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(HwModuleSubslot.Input, ['reload', 'subslot'], name, value)
+            self._perform_setattr(HwModuleSubslot.Input, ['subslot', 'reload'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HwModuleSubslot()

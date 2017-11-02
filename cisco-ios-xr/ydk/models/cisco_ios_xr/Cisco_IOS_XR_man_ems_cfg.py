@@ -22,9 +22,26 @@ class Grpc(Entity):
     """
     GRPC configruation
     
-    .. attribute:: address_family
+    .. attribute:: service_layer
     
-    	Address family identifier type
+    	Service Layer
+    	**type**\:   :py:class:`ServiceLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.ServiceLayer>`
+    
+    .. attribute:: tls
+    
+    	Transport Layer Security (TLS)
+    	**type**\:   :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
+    
+    .. attribute:: port
+    
+    	Server listening port
+    	**type**\:  int
+    
+    	**range:** 10000..57999
+    
+    .. attribute:: vrf
+    
+    	Server vrf name
     	**type**\:  str
     
     .. attribute:: enable
@@ -39,34 +56,17 @@ class Grpc(Entity):
     
     	**range:** 1..32
     
+    .. attribute:: address_family
+    
+    	Address family identifier type
+    	**type**\:  str
+    
     .. attribute:: max_request_total
     
     	Maximum concurrent requests in total
     	**type**\:  int
     
     	**range:** 1..256
-    
-    .. attribute:: port
-    
-    	Server listening port
-    	**type**\:  int
-    
-    	**range:** 10000..57999
-    
-    .. attribute:: service_layer
-    
-    	Service Layer
-    	**type**\:   :py:class:`ServiceLayer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.ServiceLayer>`
-    
-    .. attribute:: tls
-    
-    	Transport Layer Security (TLS)
-    	**type**\:   :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
-    
-    .. attribute:: vrf
-    
-    	Server vrf name
-    	**type**\:  str
     
     
 
@@ -86,17 +86,17 @@ class Grpc(Entity):
         self._child_container_classes = {"service-layer" : ("service_layer", Grpc.ServiceLayer), "tls" : ("tls", Grpc.Tls)}
         self._child_list_classes = {}
 
-        self.address_family = YLeaf(YType.str, "address-family")
+        self.port = YLeaf(YType.uint32, "port")
+
+        self.vrf = YLeaf(YType.str, "vrf")
 
         self.enable = YLeaf(YType.empty, "enable")
 
         self.max_request_per_user = YLeaf(YType.uint32, "max-request-per-user")
 
+        self.address_family = YLeaf(YType.str, "address-family")
+
         self.max_request_total = YLeaf(YType.uint32, "max-request-total")
-
-        self.port = YLeaf(YType.uint32, "port")
-
-        self.vrf = YLeaf(YType.str, "vrf")
 
         self.service_layer = Grpc.ServiceLayer()
         self.service_layer.parent = self
@@ -110,7 +110,7 @@ class Grpc(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Grpc, ['address_family', 'enable', 'max_request_per_user', 'max_request_total', 'port', 'vrf'], name, value)
+        self._perform_setattr(Grpc, ['port', 'vrf', 'enable', 'max_request_per_user', 'address_family', 'max_request_total'], name, value)
 
 
     class ServiceLayer(Entity):
@@ -151,15 +151,15 @@ class Grpc(Entity):
         """
         Transport Layer Security (TLS)
         
-        .. attribute:: enable
-        
-        	Enable TLS
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
         .. attribute:: trustpoint
         
         	Trustpoint Name
         	**type**\:  str
+        
+        .. attribute:: enable
+        
+        	Enable TLS
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -178,14 +178,14 @@ class Grpc(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.enable = YLeaf(YType.empty, "enable")
-
             self.trustpoint = YLeaf(YType.str, "trustpoint")
+
+            self.enable = YLeaf(YType.empty, "enable")
             self._segment_path = lambda: "tls"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-cfg:grpc/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Tls, ['enable', 'trustpoint'], name, value)
+            self._perform_setattr(Grpc.Tls, ['trustpoint', 'enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Grpc()

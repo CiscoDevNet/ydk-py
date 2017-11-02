@@ -12,6 +12,36 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class Rip(Identity):
+    """
+    RIP.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self):
+        super(Rip, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:rip")
+
+
+class IsIs(Identity):
+    """
+    IS\-IS.
+    
+    
+
+    """
+
+    _prefix = 'rt-ext'
+    _revision = '2016-07-09'
+
+    def __init__(self):
+        super(IsIs, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:is-is")
+
+
 class Bgp(Identity):
     """
     BGP.
@@ -42,21 +72,6 @@ class Eigrp(Identity):
         super(Eigrp, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:eigrp")
 
 
-class IsIs(Identity):
-    """
-    IS\-IS.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self):
-        super(IsIs, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:is-is")
-
-
 class Mobile(Identity):
     """
     Mobile.
@@ -70,20 +85,5 @@ class Mobile(Identity):
 
     def __init__(self):
         super(Mobile, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:mobile")
-
-
-class Rip(Identity):
-    """
-    RIP.
-    
-    
-
-    """
-
-    _prefix = 'rt-ext'
-    _revision = '2016-07-09'
-
-    def __init__(self):
-        super(Rip, self).__init__("urn:cisco:params:xml:ns:yang:cisco-routing-ext", "cisco-routing-ext", "cisco-routing-ext:rip")
 
 

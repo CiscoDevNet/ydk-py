@@ -59,6 +59,11 @@ class CISCOUBEMIB(Entity):
         	This object represents, whether the Cisco Unified Border Element (CUBE) is enabled  on the device or not.  The value 'true' means that the CUBE feature  is enabled on the device.  The value 'false' means that the CUBE feature  is disabled
         	**type**\:  bool
         
+        .. attribute:: cubeversion
+        
+        	This object represents the version of Cisco Unified Border Element on the device
+        	**type**\:  str
+        
         .. attribute:: cubetotalsessionallowed
         
         	This object provides the total number of CUBE session allowed on the device. The value zero  means no sessions are allowed with CUBE
@@ -67,11 +72,6 @@ class CISCOUBEMIB(Entity):
         	**range:** 0..999999
         
         	**units**\: session
-        
-        .. attribute:: cubeversion
-        
-        	This object represents the version of Cisco Unified Border Element on the device
-        	**type**\:  str
         
         
 
@@ -92,14 +92,14 @@ class CISCOUBEMIB(Entity):
 
             self.cubeenabled = YLeaf(YType.boolean, "cubeEnabled")
 
-            self.cubetotalsessionallowed = YLeaf(YType.uint32, "cubeTotalSessionAllowed")
-
             self.cubeversion = YLeaf(YType.str, "cubeVersion")
+
+            self.cubetotalsessionallowed = YLeaf(YType.uint32, "cubeTotalSessionAllowed")
             self._segment_path = lambda: "ciscoUbeMIBObjects"
             self._absolute_path = lambda: "CISCO-UBE-MIB:CISCO-UBE-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOUBEMIB.Ciscoubemibobjects, ['cubeenabled', 'cubetotalsessionallowed', 'cubeversion'], name, value)
+            self._perform_setattr(CISCOUBEMIB.Ciscoubemibobjects, ['cubeenabled', 'cubeversion', 'cubetotalsessionallowed'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOUBEMIB()

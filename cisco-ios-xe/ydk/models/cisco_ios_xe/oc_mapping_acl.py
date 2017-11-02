@@ -141,10 +141,10 @@ class AclMapping(Entity):
                 """
                 Access list config
                 
-                .. attribute:: acl_entries
+                .. attribute:: name
                 
-                	Access list entries container
-                	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.AclSets.AclSet.Config.AclEntries>`
+                	The name of the access\-list set
+                	**type**\:  str
                 
                 .. attribute:: acl_type
                 
@@ -156,10 +156,10 @@ class AclMapping(Entity):
                 	Description, or comment, for the ACL set
                 	**type**\:  str
                 
-                .. attribute:: name
+                .. attribute:: acl_entries
                 
-                	The name of the access\-list set
-                	**type**\:  str
+                	Access list entries container
+                	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.AclSets.AclSet.Config.AclEntries>`
                 
                 
 
@@ -178,11 +178,11 @@ class AclMapping(Entity):
                     self._child_container_classes = {"acl-entries" : ("acl_entries", AclMapping.AclSets.AclSet.Config.AclEntries)}
                     self._child_list_classes = {}
 
+                    self.name = YLeaf(YType.str, "name")
+
                     self.acl_type = YLeaf(YType.enumeration, "acl-type")
 
                     self.description = YLeaf(YType.str, "description")
-
-                    self.name = YLeaf(YType.str, "name")
 
                     self.acl_entries = AclMapping.AclSets.AclSet.Config.AclEntries()
                     self.acl_entries.parent = self
@@ -191,7 +191,7 @@ class AclMapping(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AclMapping.AclSets.AclSet.Config, ['acl_type', 'description', 'name'], name, value)
+                    self._perform_setattr(AclMapping.AclSets.AclSet.Config, ['name', 'acl_type', 'description'], name, value)
 
 
                 class AclEntries(Entity):
@@ -318,20 +318,20 @@ class AclMapping(Entity):
             	Configuration for ACL per\-interface data
             	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.Config>`
             
-            .. attribute:: egress_acl_sets
+            .. attribute:: interface_ref
             
-            	Enclosing container the list of egress ACLs on the interface
-            	**type**\:   :py:class:`EgressAclSets <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets>`
+            	Reference to an interface or subinterface
+            	**type**\:   :py:class:`InterfaceRef <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.InterfaceRef>`
             
             .. attribute:: ingress_acl_sets
             
             	Enclosing container the list of ingress ACLs on the interface
             	**type**\:   :py:class:`IngressAclSets <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets>`
             
-            .. attribute:: interface_ref
+            .. attribute:: egress_acl_sets
             
-            	Reference to an interface or subinterface
-            	**type**\:   :py:class:`InterfaceRef <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.InterfaceRef>`
+            	Enclosing container the list of egress ACLs on the interface
+            	**type**\:   :py:class:`EgressAclSets <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets>`
             
             
 
@@ -347,7 +347,7 @@ class AclMapping(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", AclMapping.Interfaces.Interface.Config), "egress-acl-sets" : ("egress_acl_sets", AclMapping.Interfaces.Interface.EgressAclSets), "ingress-acl-sets" : ("ingress_acl_sets", AclMapping.Interfaces.Interface.IngressAclSets), "interface-ref" : ("interface_ref", AclMapping.Interfaces.Interface.InterfaceRef)}
+                self._child_container_classes = {"config" : ("config", AclMapping.Interfaces.Interface.Config), "interface-ref" : ("interface_ref", AclMapping.Interfaces.Interface.InterfaceRef), "ingress-acl-sets" : ("ingress_acl_sets", AclMapping.Interfaces.Interface.IngressAclSets), "egress-acl-sets" : ("egress_acl_sets", AclMapping.Interfaces.Interface.EgressAclSets)}
                 self._child_list_classes = {}
 
                 self.id = YLeaf(YType.str, "id")
@@ -357,20 +357,20 @@ class AclMapping(Entity):
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.egress_acl_sets = AclMapping.Interfaces.Interface.EgressAclSets()
-                self.egress_acl_sets.parent = self
-                self._children_name_map["egress_acl_sets"] = "egress-acl-sets"
-                self._children_yang_names.add("egress-acl-sets")
+                self.interface_ref = AclMapping.Interfaces.Interface.InterfaceRef()
+                self.interface_ref.parent = self
+                self._children_name_map["interface_ref"] = "interface-ref"
+                self._children_yang_names.add("interface-ref")
 
                 self.ingress_acl_sets = AclMapping.Interfaces.Interface.IngressAclSets()
                 self.ingress_acl_sets.parent = self
                 self._children_name_map["ingress_acl_sets"] = "ingress-acl-sets"
                 self._children_yang_names.add("ingress-acl-sets")
 
-                self.interface_ref = AclMapping.Interfaces.Interface.InterfaceRef()
-                self.interface_ref.parent = self
-                self._children_name_map["interface_ref"] = "interface-ref"
-                self._children_yang_names.add("interface-ref")
+                self.egress_acl_sets = AclMapping.Interfaces.Interface.EgressAclSets()
+                self.egress_acl_sets.parent = self
+                self._children_name_map["egress_acl_sets"] = "egress-acl-sets"
+                self._children_yang_names.add("egress-acl-sets")
                 self._segment_path = lambda: "interface" + "[id='" + self.id.get() + "']"
                 self._absolute_path = lambda: "oc-mapping-acl:acl-mapping/interfaces/%s" % self._segment_path()
 
@@ -409,421 +409,6 @@ class AclMapping(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AclMapping.Interfaces.Interface.Config, ['id'], name, value)
-
-
-            class EgressAclSets(Entity):
-                """
-                Enclosing container the list of egress ACLs on the
-                interface
-                
-                .. attribute:: egress_acl_set
-                
-                	List of egress ACLs on the interface
-                	**type**\: list of    :py:class:`EgressAclSet <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet>`
-                
-                
-
-                """
-
-                _prefix = 'oc-map-acl'
-                _revision = '2017-01-17'
-
-                def __init__(self):
-                    super(AclMapping.Interfaces.Interface.EgressAclSets, self).__init__()
-
-                    self.yang_name = "egress-acl-sets"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"egress-acl-set" : ("egress_acl_set", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet)}
-
-                    self.egress_acl_set = YList(self)
-                    self._segment_path = lambda: "egress-acl-sets"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets, [], name, value)
-
-
-                class EgressAclSet(Entity):
-                    """
-                    List of egress ACLs on the interface
-                    
-                    .. attribute:: set_name  <key>
-                    
-                    	Reference to set name list key
-                    	**type**\:  str
-                    
-                    .. attribute:: acl_entries
-                    
-                    	Enclosing container for list of references to ACLs
-                    	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries>`
-                    
-                    .. attribute:: config
-                    
-                    	Configuration data 
-                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-map-acl'
-                    _revision = '2017-01-17'
-
-                    def __init__(self):
-                        super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet, self).__init__()
-
-                        self.yang_name = "egress-acl-set"
-                        self.yang_parent_name = "egress-acl-sets"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"acl-entries" : ("acl_entries", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries), "config" : ("config", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config)}
-                        self._child_list_classes = {}
-
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.acl_entries = AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries()
-                        self.acl_entries.parent = self
-                        self._children_name_map["acl_entries"] = "acl-entries"
-                        self._children_yang_names.add("acl-entries")
-
-                        self.config = AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-                        self._segment_path = lambda: "egress-acl-set" + "[set-name='" + self.set_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet, ['set_name'], name, value)
-
-
-                    class AclEntries(Entity):
-                        """
-                        Enclosing container for list of references to ACLs
-                        
-                        .. attribute:: acl_entry
-                        
-                        	List of ACL entries assigned to an interface
-                        	**type**\: list of    :py:class:`AclEntry <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-map-acl'
-                        _revision = '2017-01-17'
-
-                        def __init__(self):
-                            super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, self).__init__()
-
-                            self.yang_name = "acl-entries"
-                            self.yang_parent_name = "egress-acl-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"acl-entry" : ("acl_entry", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry)}
-
-                            self.acl_entry = YList(self)
-                            self._segment_path = lambda: "acl-entries"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, [], name, value)
-
-
-                        class AclEntry(Entity):
-                            """
-                            List of ACL entries assigned to an interface
-                            
-                            .. attribute:: sequence_id  <key>
-                            
-                            	Reference to per\-interface acl entry key
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-map-acl'
-                            _revision = '2017-01-17'
-
-                            def __init__(self):
-                                super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, self).__init__()
-
-                                self.yang_name = "acl-entry"
-                                self.yang_parent_name = "acl-entries"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sequence_id = YLeaf(YType.str, "sequence-id")
-                                self._segment_path = lambda: "acl-entry" + "[sequence-id='" + self.sequence_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
-
-
-                    class Config(Entity):
-                        """
-                        Configuration data 
-                        
-                        .. attribute:: set_name
-                        
-                        	Reference to the ACL set applied on egress
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-map-acl'
-                        _revision = '2017-01-17'
-
-                        def __init__(self):
-                            super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "egress-acl-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_name = YLeaf(YType.str, "set-name")
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, ['set_name'], name, value)
-
-
-            class IngressAclSets(Entity):
-                """
-                Enclosing container the list of ingress ACLs on the
-                interface
-                
-                .. attribute:: ingress_acl_set
-                
-                	List of ingress ACLs on the interface
-                	**type**\: list of    :py:class:`IngressAclSet <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet>`
-                
-                
-
-                """
-
-                _prefix = 'oc-map-acl'
-                _revision = '2017-01-17'
-
-                def __init__(self):
-                    super(AclMapping.Interfaces.Interface.IngressAclSets, self).__init__()
-
-                    self.yang_name = "ingress-acl-sets"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"ingress-acl-set" : ("ingress_acl_set", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet)}
-
-                    self.ingress_acl_set = YList(self)
-                    self._segment_path = lambda: "ingress-acl-sets"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets, [], name, value)
-
-
-                class IngressAclSet(Entity):
-                    """
-                    List of ingress ACLs on the interface
-                    
-                    .. attribute:: set_name  <key>
-                    
-                    	Reference to set name list key
-                    	**type**\:  str
-                    
-                    .. attribute:: acl_entries
-                    
-                    	Enclosing container for list of references to ACLs
-                    	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries>`
-                    
-                    .. attribute:: config
-                    
-                    	Configuration data 
-                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config>`
-                    
-                    .. attribute:: state
-                    
-                    	Operational state data for interface ingress ACLs
-                    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-map-acl'
-                    _revision = '2017-01-17'
-
-                    def __init__(self):
-                        super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet, self).__init__()
-
-                        self.yang_name = "ingress-acl-set"
-                        self.yang_parent_name = "ingress-acl-sets"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"acl-entries" : ("acl_entries", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries), "config" : ("config", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config), "state" : ("state", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State)}
-                        self._child_list_classes = {}
-
-                        self.set_name = YLeaf(YType.str, "set-name")
-
-                        self.acl_entries = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries()
-                        self.acl_entries.parent = self
-                        self._children_name_map["acl_entries"] = "acl-entries"
-                        self._children_yang_names.add("acl-entries")
-
-                        self.config = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config()
-                        self.config.parent = self
-                        self._children_name_map["config"] = "config"
-                        self._children_yang_names.add("config")
-
-                        self.state = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State()
-                        self.state.parent = self
-                        self._children_name_map["state"] = "state"
-                        self._children_yang_names.add("state")
-                        self._segment_path = lambda: "ingress-acl-set" + "[set-name='" + self.set_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet, ['set_name'], name, value)
-
-
-                    class AclEntries(Entity):
-                        """
-                        Enclosing container for list of references to ACLs
-                        
-                        .. attribute:: acl_entry
-                        
-                        	List of ACL entries assigned to an interface
-                        	**type**\: list of    :py:class:`AclEntry <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-map-acl'
-                        _revision = '2017-01-17'
-
-                        def __init__(self):
-                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, self).__init__()
-
-                            self.yang_name = "acl-entries"
-                            self.yang_parent_name = "ingress-acl-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"acl-entry" : ("acl_entry", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry)}
-
-                            self.acl_entry = YList(self)
-                            self._segment_path = lambda: "acl-entries"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, [], name, value)
-
-
-                        class AclEntry(Entity):
-                            """
-                            List of ACL entries assigned to an interface
-                            
-                            .. attribute:: sequence_id  <key>
-                            
-                            	Reference to per\-interface acl entry key
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'oc-map-acl'
-                            _revision = '2017-01-17'
-
-                            def __init__(self):
-                                super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, self).__init__()
-
-                                self.yang_name = "acl-entry"
-                                self.yang_parent_name = "acl-entries"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.sequence_id = YLeaf(YType.str, "sequence-id")
-                                self._segment_path = lambda: "acl-entry" + "[sequence-id='" + self.sequence_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
-
-
-                    class Config(Entity):
-                        """
-                        Configuration data 
-                        
-                        .. attribute:: set_name
-                        
-                        	Reference to the ACL set applied on ingress
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-map-acl'
-                        _revision = '2017-01-17'
-
-                        def __init__(self):
-                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, self).__init__()
-
-                            self.yang_name = "config"
-                            self.yang_parent_name = "ingress-acl-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_name = YLeaf(YType.str, "set-name")
-                            self._segment_path = lambda: "config"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, ['set_name'], name, value)
-
-
-                    class State(Entity):
-                        """
-                        Operational state data for interface ingress ACLs
-                        
-                        .. attribute:: set_name
-                        
-                        	Reference to the ACL set applied on ingress
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-map-acl'
-                        _revision = '2017-01-17'
-
-                        def __init__(self):
-                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State, self).__init__()
-
-                            self.yang_name = "state"
-                            self.yang_parent_name = "ingress-acl-set"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.set_name = YLeaf(YType.str, "set-name")
-                            self._segment_path = lambda: "state"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State, ['set_name'], name, value)
 
 
             class InterfaceRef(Entity):
@@ -959,6 +544,421 @@ class AclMapping(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AclMapping.Interfaces.Interface.InterfaceRef.State, ['interface', 'subinterface'], name, value)
+
+
+            class IngressAclSets(Entity):
+                """
+                Enclosing container the list of ingress ACLs on the
+                interface
+                
+                .. attribute:: ingress_acl_set
+                
+                	List of ingress ACLs on the interface
+                	**type**\: list of    :py:class:`IngressAclSet <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet>`
+                
+                
+
+                """
+
+                _prefix = 'oc-map-acl'
+                _revision = '2017-01-17'
+
+                def __init__(self):
+                    super(AclMapping.Interfaces.Interface.IngressAclSets, self).__init__()
+
+                    self.yang_name = "ingress-acl-sets"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"ingress-acl-set" : ("ingress_acl_set", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet)}
+
+                    self.ingress_acl_set = YList(self)
+                    self._segment_path = lambda: "ingress-acl-sets"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets, [], name, value)
+
+
+                class IngressAclSet(Entity):
+                    """
+                    List of ingress ACLs on the interface
+                    
+                    .. attribute:: set_name  <key>
+                    
+                    	Reference to set name list key
+                    	**type**\:  str
+                    
+                    .. attribute:: config
+                    
+                    	Configuration data 
+                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config>`
+                    
+                    .. attribute:: state
+                    
+                    	Operational state data for interface ingress ACLs
+                    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State>`
+                    
+                    .. attribute:: acl_entries
+                    
+                    	Enclosing container for list of references to ACLs
+                    	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-map-acl'
+                    _revision = '2017-01-17'
+
+                    def __init__(self):
+                        super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet, self).__init__()
+
+                        self.yang_name = "ingress-acl-set"
+                        self.yang_parent_name = "ingress-acl-sets"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"config" : ("config", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config), "state" : ("state", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State), "acl-entries" : ("acl_entries", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries)}
+                        self._child_list_classes = {}
+
+                        self.set_name = YLeaf(YType.str, "set-name")
+
+                        self.config = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
+                        self.state = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State()
+                        self.state.parent = self
+                        self._children_name_map["state"] = "state"
+                        self._children_yang_names.add("state")
+
+                        self.acl_entries = AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries()
+                        self.acl_entries.parent = self
+                        self._children_name_map["acl_entries"] = "acl-entries"
+                        self._children_yang_names.add("acl-entries")
+                        self._segment_path = lambda: "ingress-acl-set" + "[set-name='" + self.set_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet, ['set_name'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data 
+                        
+                        .. attribute:: set_name
+                        
+                        	Reference to the ACL set applied on ingress
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-map-acl'
+                        _revision = '2017-01-17'
+
+                        def __init__(self):
+                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "ingress-acl-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.set_name = YLeaf(YType.str, "set-name")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, ['set_name'], name, value)
+
+
+                    class State(Entity):
+                        """
+                        Operational state data for interface ingress ACLs
+                        
+                        .. attribute:: set_name
+                        
+                        	Reference to the ACL set applied on ingress
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-map-acl'
+                        _revision = '2017-01-17'
+
+                        def __init__(self):
+                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State, self).__init__()
+
+                            self.yang_name = "state"
+                            self.yang_parent_name = "ingress-acl-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.set_name = YLeaf(YType.str, "set-name")
+                            self._segment_path = lambda: "state"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.State, ['set_name'], name, value)
+
+
+                    class AclEntries(Entity):
+                        """
+                        Enclosing container for list of references to ACLs
+                        
+                        .. attribute:: acl_entry
+                        
+                        	List of ACL entries assigned to an interface
+                        	**type**\: list of    :py:class:`AclEntry <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-map-acl'
+                        _revision = '2017-01-17'
+
+                        def __init__(self):
+                            super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, self).__init__()
+
+                            self.yang_name = "acl-entries"
+                            self.yang_parent_name = "ingress-acl-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"acl-entry" : ("acl_entry", AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry)}
+
+                            self.acl_entry = YList(self)
+                            self._segment_path = lambda: "acl-entries"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, [], name, value)
+
+
+                        class AclEntry(Entity):
+                            """
+                            List of ACL entries assigned to an interface
+                            
+                            .. attribute:: sequence_id  <key>
+                            
+                            	Reference to per\-interface acl entry key
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-map-acl'
+                            _revision = '2017-01-17'
+
+                            def __init__(self):
+                                super(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, self).__init__()
+
+                                self.yang_name = "acl-entry"
+                                self.yang_parent_name = "acl-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.sequence_id = YLeaf(YType.str, "sequence-id")
+                                self._segment_path = lambda: "acl-entry" + "[sequence-id='" + self.sequence_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AclMapping.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
+
+
+            class EgressAclSets(Entity):
+                """
+                Enclosing container the list of egress ACLs on the
+                interface
+                
+                .. attribute:: egress_acl_set
+                
+                	List of egress ACLs on the interface
+                	**type**\: list of    :py:class:`EgressAclSet <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet>`
+                
+                
+
+                """
+
+                _prefix = 'oc-map-acl'
+                _revision = '2017-01-17'
+
+                def __init__(self):
+                    super(AclMapping.Interfaces.Interface.EgressAclSets, self).__init__()
+
+                    self.yang_name = "egress-acl-sets"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"egress-acl-set" : ("egress_acl_set", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet)}
+
+                    self.egress_acl_set = YList(self)
+                    self._segment_path = lambda: "egress-acl-sets"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets, [], name, value)
+
+
+                class EgressAclSet(Entity):
+                    """
+                    List of egress ACLs on the interface
+                    
+                    .. attribute:: set_name  <key>
+                    
+                    	Reference to set name list key
+                    	**type**\:  str
+                    
+                    .. attribute:: config
+                    
+                    	Configuration data 
+                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config>`
+                    
+                    .. attribute:: acl_entries
+                    
+                    	Enclosing container for list of references to ACLs
+                    	**type**\:   :py:class:`AclEntries <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-map-acl'
+                    _revision = '2017-01-17'
+
+                    def __init__(self):
+                        super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet, self).__init__()
+
+                        self.yang_name = "egress-acl-set"
+                        self.yang_parent_name = "egress-acl-sets"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"config" : ("config", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config), "acl-entries" : ("acl_entries", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries)}
+                        self._child_list_classes = {}
+
+                        self.set_name = YLeaf(YType.str, "set-name")
+
+                        self.config = AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config()
+                        self.config.parent = self
+                        self._children_name_map["config"] = "config"
+                        self._children_yang_names.add("config")
+
+                        self.acl_entries = AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries()
+                        self.acl_entries.parent = self
+                        self._children_name_map["acl_entries"] = "acl-entries"
+                        self._children_yang_names.add("acl-entries")
+                        self._segment_path = lambda: "egress-acl-set" + "[set-name='" + self.set_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet, ['set_name'], name, value)
+
+
+                    class Config(Entity):
+                        """
+                        Configuration data 
+                        
+                        .. attribute:: set_name
+                        
+                        	Reference to the ACL set applied on egress
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-map-acl'
+                        _revision = '2017-01-17'
+
+                        def __init__(self):
+                            super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, self).__init__()
+
+                            self.yang_name = "config"
+                            self.yang_parent_name = "egress-acl-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.set_name = YLeaf(YType.str, "set-name")
+                            self._segment_path = lambda: "config"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, ['set_name'], name, value)
+
+
+                    class AclEntries(Entity):
+                        """
+                        Enclosing container for list of references to ACLs
+                        
+                        .. attribute:: acl_entry
+                        
+                        	List of ACL entries assigned to an interface
+                        	**type**\: list of    :py:class:`AclEntry <ydk.models.cisco_ios_xe.oc_mapping_acl.AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-map-acl'
+                        _revision = '2017-01-17'
+
+                        def __init__(self):
+                            super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, self).__init__()
+
+                            self.yang_name = "acl-entries"
+                            self.yang_parent_name = "egress-acl-set"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"acl-entry" : ("acl_entry", AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry)}
+
+                            self.acl_entry = YList(self)
+                            self._segment_path = lambda: "acl-entries"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, [], name, value)
+
+
+                        class AclEntry(Entity):
+                            """
+                            List of ACL entries assigned to an interface
+                            
+                            .. attribute:: sequence_id  <key>
+                            
+                            	Reference to per\-interface acl entry key
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'oc-map-acl'
+                            _revision = '2017-01-17'
+
+                            def __init__(self):
+                                super(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, self).__init__()
+
+                                self.yang_name = "acl-entry"
+                                self.yang_parent_name = "acl-entries"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.sequence_id = YLeaf(YType.str, "sequence-id")
+                                self._segment_path = lambda: "acl-entry" + "[sequence-id='" + self.sequence_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AclMapping.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AclMapping()

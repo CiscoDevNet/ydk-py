@@ -14,9 +14,9 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class All(Entity):
+class SnmpColdStart(Entity):
     """
-    generate all the supported traps
+    Generate SNMPv2\-MIB\:\:coldStart
     
     
 
@@ -26,29 +26,56 @@ class All(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(All, self).__init__()
+        super(SnmpColdStart, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "all"
+        self.yang_name = "snmp-cold-start"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:all"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start"
 
     def clone_ptr(self):
-        self._top_entity = All()
+        self._top_entity = SnmpColdStart()
         return self._top_entity
 
-class EntityFruFanTrayInserted(Entity):
+class SnmpWarmStart(Entity):
     """
-    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRUInserted
+    Generate SNMPv2\-MIB\:\:warmStart
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(SnmpWarmStart, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "snmp-warm-start"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start"
+
+    def clone_ptr(self):
+        self._top_entity = SnmpWarmStart()
+        return self._top_entity
+
+class InterfaceLinkUp(Entity):
+    """
+    Generate IF\-MIB\:\:linkUp
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInserted.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUp.Input>`
     
     
 
@@ -58,30 +85,30 @@ class EntityFruFanTrayInserted(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayInserted, self).__init__()
+        super(InterfaceLinkUp, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-fan-tray-inserted"
+        self.yang_name = "interface-link-up"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = EntityFruFanTrayInserted.Input()
+        self.input = InterfaceLinkUp.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: entindex
+        .. attribute:: ifindex
         
-        	entity Physical Index for which to generate trap
+        	interface index for which to generate LinkUp trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -94,34 +121,34 @@ class EntityFruFanTrayInserted(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayInserted.Input, self).__init__()
+            super(InterfaceLinkUp.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-fan-tray-inserted"
+            self.yang_parent_name = "interface-link-up"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruFanTrayInserted.Input, ['entindex'], name, value)
+            self._perform_setattr(InterfaceLinkUp.Input, ['ifindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EntityFruFanTrayInserted()
+        self._top_entity = InterfaceLinkUp()
         return self._top_entity
 
-class EntityFruFanTrayOperStatusUp(Entity):
+class InterfaceLinkDown(Entity):
     """
-    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFanTrayStatusChange
+    Generate IF\-MIB\:\:linkDown
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUp.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDown.Input>`
     
     
 
@@ -131,30 +158,30 @@ class EntityFruFanTrayOperStatusUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayOperStatusUp, self).__init__()
+        super(InterfaceLinkDown, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-fan-tray-oper-status-up"
+        self.yang_name = "interface-link-down"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = EntityFruFanTrayOperStatusUp.Input()
+        self.input = InterfaceLinkDown.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: entindex
+        .. attribute:: ifindex
         
-        	entity Physical Index for which to generate trap
+        	interface index for which to generate LinkDown trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -167,34 +194,34 @@ class EntityFruFanTrayOperStatusUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayOperStatusUp.Input, self).__init__()
+            super(InterfaceLinkDown.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-fan-tray-oper-status-up"
+            self.yang_parent_name = "interface-link-down"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruFanTrayOperStatusUp.Input, ['entindex'], name, value)
+            self._perform_setattr(InterfaceLinkDown.Input, ['ifindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EntityFruFanTrayOperStatusUp()
+        self._top_entity = InterfaceLinkDown()
         return self._top_entity
 
-class EntityFruFanTrayRemoved(Entity):
+class SonetSectionStatus(Entity):
     """
-    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRURemoved
+    Generate CISCO\-SONET\-MIB\:\:ciscoSonetSectionStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemoved.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatus.Input>`
     
     
 
@@ -204,30 +231,30 @@ class EntityFruFanTrayRemoved(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruFanTrayRemoved, self).__init__()
+        super(SonetSectionStatus, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-fan-tray-removed"
+        self.yang_name = "sonet-section-status"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = EntityFruFanTrayRemoved.Input()
+        self.input = SonetSectionStatus.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: entindex
+        .. attribute:: ifindex
         
-        	entity Physical Index for which to generate trap
+        	interface index for which to generate ciscoSonetSectionStatusChange trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -240,34 +267,34 @@ class EntityFruFanTrayRemoved(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruFanTrayRemoved.Input, self).__init__()
+            super(SonetSectionStatus.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-fan-tray-removed"
+            self.yang_parent_name = "sonet-section-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruFanTrayRemoved.Input, ['entindex'], name, value)
+            self._perform_setattr(SonetSectionStatus.Input, ['ifindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EntityFruFanTrayRemoved()
+        self._top_entity = SonetSectionStatus()
         return self._top_entity
 
-class EntityFruModuleStatusChangeDown(Entity):
+class SonetLineStatus(Entity):
     """
-    fu trap module status changed as failed
+    Generate CISCO\-SONET\-MIB\:\:ciscoSonetLineStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDown.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatus.Input>`
     
     
 
@@ -277,30 +304,30 @@ class EntityFruModuleStatusChangeDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruModuleStatusChangeDown, self).__init__()
+        super(SonetLineStatus, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-module-status-change-down"
+        self.yang_name = "sonet-line-status"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = EntityFruModuleStatusChangeDown.Input()
+        self.input = SonetLineStatus.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: entindex
+        .. attribute:: ifindex
         
-        	entity Physical Index for which to generate trap
+        	interface index for which to generate ciscoSonetLineStatusChange trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -313,34 +340,34 @@ class EntityFruModuleStatusChangeDown(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruModuleStatusChangeDown.Input, self).__init__()
+            super(SonetLineStatus.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-module-status-change-down"
+            self.yang_parent_name = "sonet-line-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruModuleStatusChangeDown.Input, ['entindex'], name, value)
+            self._perform_setattr(SonetLineStatus.Input, ['ifindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EntityFruModuleStatusChangeDown()
+        self._top_entity = SonetLineStatus()
         return self._top_entity
 
-class EntityFruModuleStatusChangeUp(Entity):
+class SonetPathStatus(Entity):
     """
-    fu trap module status changed as ok
+    Generate CISCO\-SONET\-MIB\:\:ciscoSonetPathStatusChange
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUp.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatus.Input>`
     
     
 
@@ -350,30 +377,30 @@ class EntityFruModuleStatusChangeUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruModuleStatusChangeUp, self).__init__()
+        super(SonetPathStatus, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-module-status-change-up"
+        self.yang_name = "sonet-path-status"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = EntityFruModuleStatusChangeUp.Input()
+        self.input = SonetPathStatus.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: entindex
+        .. attribute:: ifindex
         
-        	entity Physical Index for which to generate trap
+        	interface index for which to generate ciscoSonetPathStatusChange trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -386,34 +413,29 @@ class EntityFruModuleStatusChangeUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(EntityFruModuleStatusChangeUp.Input, self).__init__()
+            super(SonetPathStatus.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-module-status-change-up"
+            self.yang_parent_name = "sonet-path-status"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.entindex = YLeaf(YType.uint32, "entindex")
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruModuleStatusChangeUp.Input, ['entindex'], name, value)
+            self._perform_setattr(SonetPathStatus.Input, ['ifindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = EntityFruModuleStatusChangeUp()
+        self._top_entity = SonetPathStatus()
         return self._top_entity
 
-class EntityFruPowerStatusChangeFailed(Entity):
+class InfraSyslogMessageGenerated(Entity):
     """
-    oper status changed to failed
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailed.Input>`
+    Generate CISCO\-SYSLOG\-MIB\:\:clogMessageGenerated
     
     
 
@@ -423,214 +445,19 @@ class EntityFruPowerStatusChangeFailed(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(EntityFruPowerStatusChangeFailed, self).__init__()
+        super(InfraSyslogMessageGenerated, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "entity-fru-power-status-change-failed"
+        self.yang_name = "infra-syslog-message-generated"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-
-        self.input = EntityFruPowerStatusChangeFailed.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: entindex
-        
-        	entity Physical Index for which to generate trap
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(EntityFruPowerStatusChangeFailed.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "entity-fru-power-status-change-failed"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(EntityFruPowerStatusChangeFailed.Input, ['entindex'], name, value)
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated"
 
     def clone_ptr(self):
-        self._top_entity = EntityFruPowerStatusChangeFailed()
-        return self._top_entity
-
-class EntitySensorThresholdNotification(Entity):
-    """
-    Generate CISCO\-ENTITY\-SENSOR\-MIB\:\:entSensorThresholdNotification
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotification.Input>`
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(EntitySensorThresholdNotification, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "entity-sensor-threshold-notification"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = EntitySensorThresholdNotification.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: entindex
-        
-        	entity Physical Index for which to generate trap
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(EntitySensorThresholdNotification.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "entity-sensor-threshold-notification"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.entindex = YLeaf(YType.uint32, "entindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(EntitySensorThresholdNotification.Input, ['entindex'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = EntitySensorThresholdNotification()
-        return self._top_entity
-
-class InfraBridgeNewRoot(Entity):
-    """
-    Generate BRIDGE\-MIB\:\:newRoot
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(InfraBridgeNewRoot, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "infra-bridge-new-root"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root"
-
-    def clone_ptr(self):
-        self._top_entity = InfraBridgeNewRoot()
-        return self._top_entity
-
-class InfraBridgeTopologyChange(Entity):
-    """
-    Generate BRIDGE\-MIB\:\:topologyChange
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(InfraBridgeTopologyChange, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "infra-bridge-topology-change"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change"
-
-    def clone_ptr(self):
-        self._top_entity = InfraBridgeTopologyChange()
-        return self._top_entity
-
-class InfraConfigEvent(Entity):
-    """
-    Generate CISCO\-CONFIG\-MAN\-MIB\:\:ciscoConfigManEvent
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(InfraConfigEvent, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "infra-config-event"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-config-event"
-
-    def clone_ptr(self):
-        self._top_entity = InfraConfigEvent()
+        self._top_entity = InfraSyslogMessageGenerated()
         return self._top_entity
 
 class InfraFlashDeviceInserted(Entity):
@@ -741,9 +568,9 @@ class InfraRedundancySwitch(Entity):
         self._top_entity = InfraRedundancySwitch()
         return self._top_entity
 
-class InfraSyslogMessageGenerated(Entity):
+class InfraBridgeNewRoot(Entity):
     """
-    Generate CISCO\-SYSLOG\-MIB\:\:clogMessageGenerated
+    Generate BRIDGE\-MIB\:\:newRoot
     
     
 
@@ -753,29 +580,83 @@ class InfraSyslogMessageGenerated(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InfraSyslogMessageGenerated, self).__init__()
+        super(InfraBridgeNewRoot, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "infra-syslog-message-generated"
+        self.yang_name = "infra-bridge-new-root"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root"
 
     def clone_ptr(self):
-        self._top_entity = InfraSyslogMessageGenerated()
+        self._top_entity = InfraBridgeNewRoot()
         return self._top_entity
 
-class InterfaceLinkDown(Entity):
+class InfraBridgeTopologyChange(Entity):
     """
-    Generate IF\-MIB\:\:linkDown
+    Generate BRIDGE\-MIB\:\:topologyChange
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(InfraBridgeTopologyChange, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "infra-bridge-topology-change"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change"
+
+    def clone_ptr(self):
+        self._top_entity = InfraBridgeTopologyChange()
+        return self._top_entity
+
+class InfraConfigEvent(Entity):
+    """
+    Generate CISCO\-CONFIG\-MAN\-MIB\:\:ciscoConfigManEvent
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(InfraConfigEvent, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "infra-config-event"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:infra-config-event"
+
+    def clone_ptr(self):
+        self._top_entity = InfraConfigEvent()
+        return self._top_entity
+
+class EntitySensorThresholdNotification(Entity):
+    """
+    Generate CISCO\-ENTITY\-SENSOR\-MIB\:\:entSensorThresholdNotification
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkDown.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntitySensorThresholdNotification.Input>`
     
     
 
@@ -785,30 +666,30 @@ class InterfaceLinkDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InterfaceLinkDown, self).__init__()
+        super(EntitySensorThresholdNotification, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "interface-link-down"
+        self.yang_name = "entity-sensor-threshold-notification"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = InterfaceLinkDown.Input()
+        self.input = EntitySensorThresholdNotification.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: ifindex
+        .. attribute:: entindex
         
-        	interface index for which to generate LinkDown trap
+        	entity Physical Index for which to generate trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -821,34 +702,34 @@ class InterfaceLinkDown(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(InterfaceLinkDown.Input, self).__init__()
+            super(EntitySensorThresholdNotification.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "interface-link-down"
+            self.yang_parent_name = "entity-sensor-threshold-notification"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.entindex = YLeaf(YType.uint32, "entindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(InterfaceLinkDown.Input, ['ifindex'], name, value)
+            self._perform_setattr(EntitySensorThresholdNotification.Input, ['entindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = InterfaceLinkDown()
+        self._top_entity = EntitySensorThresholdNotification()
         return self._top_entity
 
-class InterfaceLinkUp(Entity):
+class EntityFruPowerStatusChangeFailed(Entity):
     """
-    Generate IF\-MIB\:\:linkUp
+    oper status changed to failed
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.InterfaceLinkUp.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruPowerStatusChangeFailed.Input>`
     
     
 
@@ -858,30 +739,30 @@ class InterfaceLinkUp(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(InterfaceLinkUp, self).__init__()
+        super(EntityFruPowerStatusChangeFailed, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "interface-link-up"
+        self.yang_name = "entity-fru-power-status-change-failed"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = InterfaceLinkUp.Input()
+        self.input = EntityFruPowerStatusChangeFailed.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: ifindex
+        .. attribute:: entindex
         
-        	interface index for which to generate LinkUp trap
+        	entity Physical Index for which to generate trap
         	**type**\:  int
         
         	**range:** 1..2147483647
@@ -894,24 +775,389 @@ class InterfaceLinkUp(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(InterfaceLinkUp.Input, self).__init__()
+            super(EntityFruPowerStatusChangeFailed.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "interface-link-up"
+            self.yang_parent_name = "entity-fru-power-status-change-failed"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self.entindex = YLeaf(YType.uint32, "entindex")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(InterfaceLinkUp.Input, ['ifindex'], name, value)
+            self._perform_setattr(EntityFruPowerStatusChangeFailed.Input, ['entindex'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = InterfaceLinkUp()
+        self._top_entity = EntityFruPowerStatusChangeFailed()
+        return self._top_entity
+
+class EntityFruModuleStatusChangeUp(Entity):
+    """
+    fu trap module status changed as ok
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeUp.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(EntityFruModuleStatusChangeUp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-module-status-change-up"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = EntityFruModuleStatusChangeUp.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: entindex
+        
+        	entity Physical Index for which to generate trap
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(EntityFruModuleStatusChangeUp.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-module-status-change-up"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.entindex = YLeaf(YType.uint32, "entindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EntityFruModuleStatusChangeUp.Input, ['entindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EntityFruModuleStatusChangeUp()
+        return self._top_entity
+
+class EntityFruModuleStatusChangeDown(Entity):
+    """
+    fu trap module status changed as failed
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruModuleStatusChangeDown.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(EntityFruModuleStatusChangeDown, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-module-status-change-down"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = EntityFruModuleStatusChangeDown.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: entindex
+        
+        	entity Physical Index for which to generate trap
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(EntityFruModuleStatusChangeDown.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-module-status-change-down"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.entindex = YLeaf(YType.uint32, "entindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EntityFruModuleStatusChangeDown.Input, ['entindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EntityFruModuleStatusChangeDown()
+        return self._top_entity
+
+class EntityFruFanTrayOperStatusUp(Entity):
+    """
+    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFanTrayStatusChange
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayOperStatusUp.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(EntityFruFanTrayOperStatusUp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-oper-status-up"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = EntityFruFanTrayOperStatusUp.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: entindex
+        
+        	entity Physical Index for which to generate trap
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(EntityFruFanTrayOperStatusUp.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-oper-status-up"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.entindex = YLeaf(YType.uint32, "entindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EntityFruFanTrayOperStatusUp.Input, ['entindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayOperStatusUp()
+        return self._top_entity
+
+class EntityFruFanTrayInserted(Entity):
+    """
+    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRUInserted
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayInserted.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(EntityFruFanTrayInserted, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-inserted"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = EntityFruFanTrayInserted.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: entindex
+        
+        	entity Physical Index for which to generate trap
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(EntityFruFanTrayInserted.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-inserted"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.entindex = YLeaf(YType.uint32, "entindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EntityFruFanTrayInserted.Input, ['entindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayInserted()
+        return self._top_entity
+
+class EntityFruFanTrayRemoved(Entity):
+    """
+    Generate CISCO\-ENTITY\-FRU\-CONTROL\-MIB\:\:cefcFRURemoved
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.EntityFruFanTrayRemoved.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(EntityFruFanTrayRemoved, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "entity-fru-fan-tray-removed"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = EntityFruFanTrayRemoved.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: entindex
+        
+        	entity Physical Index for which to generate trap
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(EntityFruFanTrayRemoved.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "entity-fru-fan-tray-removed"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.entindex = YLeaf(YType.uint32, "entindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(EntityFruFanTrayRemoved.Input, ['entindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = EntityFruFanTrayRemoved()
         return self._top_entity
 
 class PlatformHfrBundleDownedLink(Entity):
@@ -1199,8 +1445,6 @@ class RoutingBgpEstablishedRemotePeer(Entity):
         	BGP remote peer IP address for which to generate the trap
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
         	**mandatory**\: True
         
         
@@ -1301,8 +1545,6 @@ class RoutingBgpStateChangeRemotePeer(Entity):
         	BGP remote peer IP address for which to generate the trap
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
         	**mandatory**\: True
         
         
@@ -1331,6 +1573,117 @@ class RoutingBgpStateChangeRemotePeer(Entity):
 
     def clone_ptr(self):
         self._top_entity = RoutingBgpStateChangeRemotePeer()
+        return self._top_entity
+
+class RoutingOspfNeighborStateChange(Entity):
+    """
+    Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(RoutingOspfNeighborStateChange, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-ospf-neighbor-state-change"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change"
+
+    def clone_ptr(self):
+        self._top_entity = RoutingOspfNeighborStateChange()
+        return self._top_entity
+
+class RoutingOspfNeighborStateChangeAddress(Entity):
+    """
+    Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange address
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddress.Input>`
+    
+    
+
+    """
+
+    _prefix = 'snmp-test-trap-act'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(RoutingOspfNeighborStateChangeAddress, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "routing-ospf-neighbor-state-change-address"
+        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = RoutingOspfNeighborStateChangeAddress.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: address
+        
+        	neighbor's IP source address for which to generate the trap
+        	**type**\:  str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: ifindex
+        
+        	0 for interfaces having IP addresses or IF\-MIB ifindex of addressless interface
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'snmp-test-trap-act'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(RoutingOspfNeighborStateChangeAddress.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "routing-ospf-neighbor-state-change-address"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.address = YLeaf(YType.str, "address")
+
+            self.ifindex = YLeaf(YType.uint32, "ifindex")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(RoutingOspfNeighborStateChangeAddress.Input, ['address', 'ifindex'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = RoutingOspfNeighborStateChangeAddress()
         return self._top_entity
 
 class RoutingMplsLdpSessionDown(Entity):
@@ -1457,9 +1810,9 @@ class RoutingMplsLdpSessionDownEntityId(Entity):
         self._top_entity = RoutingMplsLdpSessionDownEntityId()
         return self._top_entity
 
-class RoutingMplsTunnelDown(Entity):
+class RoutingMplsTunnelReRouted(Entity):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted
     
     
 
@@ -1469,29 +1822,29 @@ class RoutingMplsTunnelDown(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelDown, self).__init__()
+        super(RoutingMplsTunnelReRouted, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "routing-mpls-tunnel-down"
+        self.yang_name = "routing-mpls-tunnel-re-routed"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed"
 
     def clone_ptr(self):
-        self._top_entity = RoutingMplsTunnelDown()
+        self._top_entity = RoutingMplsTunnelReRouted()
         return self._top_entity
 
-class RoutingMplsTunnelDownIndex(Entity):
+class RoutingMplsTunnelReRoutedIndex(Entity):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown index
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndex.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndex.Input>`
     
     
 
@@ -1501,35 +1854,26 @@ class RoutingMplsTunnelDownIndex(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelDownIndex, self).__init__()
+        super(RoutingMplsTunnelReRoutedIndex, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "routing-mpls-tunnel-down-index"
+        self.yang_name = "routing-mpls-tunnel-re-routed-index"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = RoutingMplsTunnelDownIndex.Input()
+        self.input = RoutingMplsTunnelReRoutedIndex.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index"
 
 
     class Input(Entity):
         """
         
-        
-        .. attribute:: destination
-        
-        	destination address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        	**mandatory**\: True
         
         .. attribute:: index
         
@@ -1551,10 +1895,15 @@ class RoutingMplsTunnelDownIndex(Entity):
         
         .. attribute:: source
         
-        	src address
+        	source address for which to generate the trap
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        	**mandatory**\: True
+        
+        .. attribute:: destination
+        
+        	destination address for which to generate the trap
+        	**type**\:  str
         
         	**mandatory**\: True
         
@@ -1566,30 +1915,30 @@ class RoutingMplsTunnelDownIndex(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsTunnelDownIndex.Input, self).__init__()
+            super(RoutingMplsTunnelReRoutedIndex.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "routing-mpls-tunnel-down-index"
+            self.yang_parent_name = "routing-mpls-tunnel-re-routed-index"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
-
-            self.destination = YLeaf(YType.str, "destination")
 
             self.index = YLeaf(YType.uint32, "index")
 
             self.instance = YLeaf(YType.uint32, "instance")
 
             self.source = YLeaf(YType.str, "source")
+
+            self.destination = YLeaf(YType.str, "destination")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingMplsTunnelDownIndex.Input, ['destination', 'index', 'instance', 'source'], name, value)
+            self._perform_setattr(RoutingMplsTunnelReRoutedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = RoutingMplsTunnelDownIndex()
+        self._top_entity = RoutingMplsTunnelReRoutedIndex()
         return self._top_entity
 
 class RoutingMplsTunnelReOptimized(Entity):
@@ -1657,15 +2006,6 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         """
         
         
-        .. attribute:: destination
-        
-        	destination address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        	**mandatory**\: True
-        
         .. attribute:: index
         
         	tunnel index for which to generate the trap
@@ -1689,7 +2029,12 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
         	source address for which to generate the trap
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        	**mandatory**\: True
+        
+        .. attribute:: destination
+        
+        	destination address for which to generate the trap
+        	**type**\:  str
         
         	**mandatory**\: True
         
@@ -1710,26 +2055,26 @@ class RoutingMplsTunnelReOptimizedIndex(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.destination = YLeaf(YType.str, "destination")
-
             self.index = YLeaf(YType.uint32, "index")
 
             self.instance = YLeaf(YType.uint32, "instance")
 
             self.source = YLeaf(YType.str, "source")
+
+            self.destination = YLeaf(YType.str, "destination")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingMplsTunnelReOptimizedIndex.Input, ['destination', 'index', 'instance', 'source'], name, value)
+            self._perform_setattr(RoutingMplsTunnelReOptimizedIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RoutingMplsTunnelReOptimizedIndex()
         return self._top_entity
 
-class RoutingMplsTunnelReRouted(Entity):
+class RoutingMplsTunnelDown(Entity):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown
     
     
 
@@ -1739,29 +2084,29 @@ class RoutingMplsTunnelReRouted(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReRouted, self).__init__()
+        super(RoutingMplsTunnelDown, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "routing-mpls-tunnel-re-routed"
+        self.yang_name = "routing-mpls-tunnel-down"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down"
 
     def clone_ptr(self):
-        self._top_entity = RoutingMplsTunnelReRouted()
+        self._top_entity = RoutingMplsTunnelDown()
         return self._top_entity
 
-class RoutingMplsTunnelReRoutedIndex(Entity):
+class RoutingMplsTunnelDownIndex(Entity):
     """
-    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelRerouted index
+    Generate MPLS\-TE\-STD\-MIB\:\:mplsTunnelDown index
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelReRoutedIndex.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingMplsTunnelDownIndex.Input>`
     
     
 
@@ -1771,35 +2116,26 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingMplsTunnelReRoutedIndex, self).__init__()
+        super(RoutingMplsTunnelDownIndex, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "routing-mpls-tunnel-re-routed-index"
+        self.yang_name = "routing-mpls-tunnel-down-index"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = RoutingMplsTunnelReRoutedIndex.Input()
+        self.input = RoutingMplsTunnelDownIndex.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index"
 
 
     class Input(Entity):
         """
         
-        
-        .. attribute:: destination
-        
-        	destination address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        	**mandatory**\: True
         
         .. attribute:: index
         
@@ -1821,10 +2157,15 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         
         .. attribute:: source
         
-        	source address for which to generate the trap
+        	src address
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        	**mandatory**\: True
+        
+        .. attribute:: destination
+        
+        	destination address for which to generate the trap
+        	**type**\:  str
         
         	**mandatory**\: True
         
@@ -1836,35 +2177,35 @@ class RoutingMplsTunnelReRoutedIndex(Entity):
         _revision = '2017-05-01'
 
         def __init__(self):
-            super(RoutingMplsTunnelReRoutedIndex.Input, self).__init__()
+            super(RoutingMplsTunnelDownIndex.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "routing-mpls-tunnel-re-routed-index"
+            self.yang_parent_name = "routing-mpls-tunnel-down-index"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
             self._child_list_classes = {}
-
-            self.destination = YLeaf(YType.str, "destination")
 
             self.index = YLeaf(YType.uint32, "index")
 
             self.instance = YLeaf(YType.uint32, "instance")
 
             self.source = YLeaf(YType.str, "source")
+
+            self.destination = YLeaf(YType.str, "destination")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(RoutingMplsTunnelReRoutedIndex.Input, ['destination', 'index', 'instance', 'source'], name, value)
+            self._perform_setattr(RoutingMplsTunnelDownIndex.Input, ['index', 'instance', 'source', 'destination'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = RoutingMplsTunnelReRoutedIndex()
+        self._top_entity = RoutingMplsTunnelDownIndex()
         return self._top_entity
 
-class RoutingOspfNeighborStateChange(Entity):
+class All(Entity):
     """
-    Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange
+    generate all the supported traps
     
     
 
@@ -1874,377 +2215,18 @@ class RoutingOspfNeighborStateChange(Entity):
     _revision = '2017-05-01'
 
     def __init__(self):
-        super(RoutingOspfNeighborStateChange, self).__init__()
+        super(All, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "routing-ospf-neighbor-state-change"
+        self.yang_name = "all"
         self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change"
+        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:all"
 
     def clone_ptr(self):
-        self._top_entity = RoutingOspfNeighborStateChange()
-        return self._top_entity
-
-class RoutingOspfNeighborStateChangeAddress(Entity):
-    """
-    Generate OSPF\-TRAP\-MIB\:\:ospfNbrStateChange address
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.RoutingOspfNeighborStateChangeAddress.Input>`
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(RoutingOspfNeighborStateChangeAddress, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "routing-ospf-neighbor-state-change-address"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = RoutingOspfNeighborStateChangeAddress.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: address
-        
-        	neighbor's IP source address for which to generate the trap
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        	**mandatory**\: True
-        
-        .. attribute:: ifindex
-        
-        	0 for interfaces having IP addresses or IF\-MIB ifindex of addressless interface
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**mandatory**\: True
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(RoutingOspfNeighborStateChangeAddress.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "routing-ospf-neighbor-state-change-address"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.address = YLeaf(YType.str, "address")
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(RoutingOspfNeighborStateChangeAddress.Input, ['address', 'ifindex'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = RoutingOspfNeighborStateChangeAddress()
-        return self._top_entity
-
-class SnmpColdStart(Entity):
-    """
-    Generate SNMPv2\-MIB\:\:coldStart
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(SnmpColdStart, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "snmp-cold-start"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start"
-
-    def clone_ptr(self):
-        self._top_entity = SnmpColdStart()
-        return self._top_entity
-
-class SnmpWarmStart(Entity):
-    """
-    Generate SNMPv2\-MIB\:\:warmStart
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(SnmpWarmStart, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "snmp-warm-start"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start"
-
-    def clone_ptr(self):
-        self._top_entity = SnmpWarmStart()
-        return self._top_entity
-
-class SonetLineStatus(Entity):
-    """
-    Generate CISCO\-SONET\-MIB\:\:ciscoSonetLineStatusChange
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetLineStatus.Input>`
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(SonetLineStatus, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "sonet-line-status"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = SonetLineStatus.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: ifindex
-        
-        	interface index for which to generate ciscoSonetLineStatusChange trap
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(SonetLineStatus.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "sonet-line-status"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SonetLineStatus.Input, ['ifindex'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SonetLineStatus()
-        return self._top_entity
-
-class SonetPathStatus(Entity):
-    """
-    Generate CISCO\-SONET\-MIB\:\:ciscoSonetPathStatusChange
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetPathStatus.Input>`
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(SonetPathStatus, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "sonet-path-status"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = SonetPathStatus.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: ifindex
-        
-        	interface index for which to generate ciscoSonetPathStatusChange trap
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(SonetPathStatus.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "sonet-path-status"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SonetPathStatus.Input, ['ifindex'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SonetPathStatus()
-        return self._top_entity
-
-class SonetSectionStatus(Entity):
-    """
-    Generate CISCO\-SONET\-MIB\:\:ciscoSonetSectionStatusChange
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act.SonetSectionStatus.Input>`
-    
-    
-
-    """
-
-    _prefix = 'snmp-test-trap-act'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(SonetSectionStatus, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "sonet-section-status"
-        self.yang_parent_name = "Cisco-IOS-XR-snmp-test-trap-act"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = SonetSectionStatus.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: ifindex
-        
-        	interface index for which to generate ciscoSonetSectionStatusChange trap
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        
-
-        """
-
-        _prefix = 'snmp-test-trap-act'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(SonetSectionStatus.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "sonet-section-status"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ifindex = YLeaf(YType.uint32, "ifindex")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(SonetSectionStatus.Input, ['ifindex'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = SonetSectionStatus()
+        self._top_entity = All()
         return self._top_entity
 

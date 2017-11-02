@@ -45,113 +45,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class AbortTransaction(Entity):
-    """
-    Aborts the ongoing transaction, and all pending changes are
-    discarded.  <abort\-transaction> can be given at any time during an
-    ongoing transaction.
-    
-    If there is no ongoing transaction in this session, an error MUST
-    be returned with <error\-app\-tag> set to 'bad\-state'.
-    
-    
-
-    """
-
-    _prefix = 'tr'
-
-    def __init__(self):
-        super(AbortTransaction, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "abort-transaction"
-        self.yang_parent_name = "tailf-netconf-transactions"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "tailf-netconf-transactions:abort-transaction"
-
-    def clone_ptr(self):
-        self._top_entity = AbortTransaction()
-        return self._top_entity
-
-class CommitTransaction(Entity):
-    """
-    Applies the changes made in the transaction to the configuration
-    datatore.  The transaction is closed after a <commit\-transaction>.
-    
-    If there is no ongoing transaction in this session, or if the
-    ongoing transaction already has not been prepared, an error
-    MUST be returned with <error\-app\-tag> set to 'bad\-state'.
-    
-    
-
-    """
-
-    _prefix = 'tr'
-
-    def __init__(self):
-        super(CommitTransaction, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "commit-transaction"
-        self.yang_parent_name = "tailf-netconf-transactions"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "tailf-netconf-transactions:commit-transaction"
-
-    def clone_ptr(self):
-        self._top_entity = CommitTransaction()
-        return self._top_entity
-
-class PrepareTransaction(Entity):
-    """
-    Prepares the transaction state for commit.  The server may reject
-    the prepare request for any reason, for example due to lack of
-    resources or if the combined changes would result in an invalid
-    configuration datastore.
-    
-    After a successful <prepare\-transaction>, the next transaction
-    related rpc operation must be <commit\-transaction> or
-    <abort\-transaction>.  Note that an <edit\-config> cannot be sent
-    before the transaction is either committed or aborted.
-    
-    Care must be taken by the server to make sure that if
-    <prepare\-transaction> succeeds then the <commit\-transaction>
-    SHOULD not fail, since this might result in an inconsistent
-    distributed state.  Thus, <prepare\-transaction> should allocate
-    any resources needed to make sure the <commit\-transaction> will
-    succeed.
-    
-    If there is no ongoing transaction in this session, or if the
-    ongoing transaction already has been prepared, an error MUST be
-    returned with <error\-app\-tag> set to 'bad\-state'.
-    
-    
-
-    """
-
-    _prefix = 'tr'
-
-    def __init__(self):
-        super(PrepareTransaction, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "prepare-transaction"
-        self.yang_parent_name = "tailf-netconf-transactions"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "tailf-netconf-transactions:prepare-transaction"
-
-    def clone_ptr(self):
-        self._top_entity = PrepareTransaction()
-        return self._top_entity
-
 class StartTransaction(Entity):
     """
     Starts a transaction towards a configuration datastore.  There
@@ -256,7 +149,7 @@ class StartTransaction(Entity):
             Name of the configuration datastore towards which the
             transaction is started.
             
-            .. attribute:: candidate
+            .. attribute:: startup
             
             	
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
@@ -266,7 +159,7 @@ class StartTransaction(Entity):
             	
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: startup
+            .. attribute:: candidate
             
             	
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
@@ -287,18 +180,125 @@ class StartTransaction(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.candidate = YLeaf(YType.empty, "candidate")
+                self.startup = YLeaf(YType.empty, "startup")
 
                 self.running = YLeaf(YType.empty, "running")
 
-                self.startup = YLeaf(YType.empty, "startup")
+                self.candidate = YLeaf(YType.empty, "candidate")
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(StartTransaction.Input.Target, ['candidate', 'running', 'startup'], name, value)
+                self._perform_setattr(StartTransaction.Input.Target, ['startup', 'running', 'candidate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = StartTransaction()
+        return self._top_entity
+
+class PrepareTransaction(Entity):
+    """
+    Prepares the transaction state for commit.  The server may reject
+    the prepare request for any reason, for example due to lack of
+    resources or if the combined changes would result in an invalid
+    configuration datastore.
+    
+    After a successful <prepare\-transaction>, the next transaction
+    related rpc operation must be <commit\-transaction> or
+    <abort\-transaction>.  Note that an <edit\-config> cannot be sent
+    before the transaction is either committed or aborted.
+    
+    Care must be taken by the server to make sure that if
+    <prepare\-transaction> succeeds then the <commit\-transaction>
+    SHOULD not fail, since this might result in an inconsistent
+    distributed state.  Thus, <prepare\-transaction> should allocate
+    any resources needed to make sure the <commit\-transaction> will
+    succeed.
+    
+    If there is no ongoing transaction in this session, or if the
+    ongoing transaction already has been prepared, an error MUST be
+    returned with <error\-app\-tag> set to 'bad\-state'.
+    
+    
+
+    """
+
+    _prefix = 'tr'
+
+    def __init__(self):
+        super(PrepareTransaction, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "prepare-transaction"
+        self.yang_parent_name = "tailf-netconf-transactions"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "tailf-netconf-transactions:prepare-transaction"
+
+    def clone_ptr(self):
+        self._top_entity = PrepareTransaction()
+        return self._top_entity
+
+class CommitTransaction(Entity):
+    """
+    Applies the changes made in the transaction to the configuration
+    datatore.  The transaction is closed after a <commit\-transaction>.
+    
+    If there is no ongoing transaction in this session, or if the
+    ongoing transaction already has not been prepared, an error
+    MUST be returned with <error\-app\-tag> set to 'bad\-state'.
+    
+    
+
+    """
+
+    _prefix = 'tr'
+
+    def __init__(self):
+        super(CommitTransaction, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "commit-transaction"
+        self.yang_parent_name = "tailf-netconf-transactions"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "tailf-netconf-transactions:commit-transaction"
+
+    def clone_ptr(self):
+        self._top_entity = CommitTransaction()
+        return self._top_entity
+
+class AbortTransaction(Entity):
+    """
+    Aborts the ongoing transaction, and all pending changes are
+    discarded.  <abort\-transaction> can be given at any time during an
+    ongoing transaction.
+    
+    If there is no ongoing transaction in this session, an error MUST
+    be returned with <error\-app\-tag> set to 'bad\-state'.
+    
+    
+
+    """
+
+    _prefix = 'tr'
+
+    def __init__(self):
+        super(AbortTransaction, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "abort-transaction"
+        self.yang_parent_name = "tailf-netconf-transactions"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "tailf-netconf-transactions:abort-transaction"
+
+    def clone_ptr(self):
+        self._top_entity = AbortTransaction()
         return self._top_entity
 

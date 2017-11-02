@@ -81,15 +81,20 @@ class Dhcpv6(Entity):
     """
     None
     
-    .. attribute:: allow_duid_change
-    
-    	For BNG session, allow duid change for a client MAC
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: database
     
     	Enable DHCP binding database storage to file system
     	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Database>`
+    
+    .. attribute:: profiles
+    
+    	Table of Profile
+    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
+    
+    .. attribute:: interfaces
+    
+    	Table of Interface
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
     
     .. attribute:: enable
     
@@ -98,15 +103,10 @@ class Dhcpv6(Entity):
     
     	**mandatory**\: True
     
-    .. attribute:: interfaces
+    .. attribute:: allow_duid_change
     
-    	Table of Interface
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces>`
-    
-    .. attribute:: profiles
-    
-    	Table of Profile
-    	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles>`
+    	For BNG session, allow duid change for a client MAC
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -125,38 +125,53 @@ class Dhcpv6(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"database" : ("database", Dhcpv6.Database), "interfaces" : ("interfaces", Dhcpv6.Interfaces), "profiles" : ("profiles", Dhcpv6.Profiles)}
+        self._child_container_classes = {"database" : ("database", Dhcpv6.Database), "profiles" : ("profiles", Dhcpv6.Profiles), "interfaces" : ("interfaces", Dhcpv6.Interfaces)}
         self._child_list_classes = {}
         self.is_presence_container = True
 
-        self.allow_duid_change = YLeaf(YType.empty, "allow-duid-change")
-
         self.enable = YLeaf(YType.empty, "enable")
+
+        self.allow_duid_change = YLeaf(YType.empty, "allow-duid-change")
 
         self.database = Dhcpv6.Database()
         self.database.parent = self
         self._children_name_map["database"] = "database"
         self._children_yang_names.add("database")
 
-        self.interfaces = Dhcpv6.Interfaces()
-        self.interfaces.parent = self
-        self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
-
         self.profiles = Dhcpv6.Profiles()
         self.profiles.parent = self
         self._children_name_map["profiles"] = "profiles"
         self._children_yang_names.add("profiles")
+
+        self.interfaces = Dhcpv6.Interfaces()
+        self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Dhcpv6, ['allow_duid_change', 'enable'], name, value)
+        self._perform_setattr(Dhcpv6, ['enable', 'allow_duid_change'], name, value)
 
 
     class Database(Entity):
         """
         Enable DHCP binding database storage to file
         system
+        
+        .. attribute:: proxy
+        
+        	Enable DHCP proxy binding database storage to file system
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: server
+        
+        	Enable DHCP server binding database storage to file system
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: relay
+        
+        	Enable DHCP relay binding database storage to file system
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: full_write_interval
         
@@ -176,21 +191,6 @@ class Dhcpv6(Entity):
         
         	**default value**\: 1
         
-        .. attribute:: proxy
-        
-        	Enable DHCP proxy binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: relay
-        
-        	Enable DHCP relay binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: server
-        
-        	Enable DHCP server binding database storage to file system
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
         
 
         """
@@ -208,315 +208,20 @@ class Dhcpv6(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.full_write_interval = YLeaf(YType.uint32, "full-write-interval")
-
-            self.incremental_write_interval = YLeaf(YType.uint32, "incremental-write-interval")
-
             self.proxy = YLeaf(YType.empty, "proxy")
+
+            self.server = YLeaf(YType.empty, "server")
 
             self.relay = YLeaf(YType.empty, "relay")
 
-            self.server = YLeaf(YType.empty, "server")
+            self.full_write_interval = YLeaf(YType.uint32, "full-write-interval")
+
+            self.incremental_write_interval = YLeaf(YType.uint32, "incremental-write-interval")
             self._segment_path = lambda: "database"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Dhcpv6.Database, ['full_write_interval', 'incremental_write_interval', 'proxy', 'relay', 'server'], name, value)
-
-
-    class Interfaces(Entity):
-        """
-        Table of Interface
-        
-        .. attribute:: interface
-        
-        	None
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface>`
-        
-        
-
-        """
-
-        _prefix = 'ipv6-new-dhcpv6d-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Dhcpv6.Interfaces, self).__init__()
-
-            self.yang_name = "interfaces"
-            self.yang_parent_name = "dhcpv6"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Dhcpv6.Interfaces.Interface)}
-
-            self.interface = YList(self)
-            self._segment_path = lambda: "interfaces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Dhcpv6.Interfaces, [], name, value)
-
-
-        class Interface(Entity):
-            """
-            None
-            
-            .. attribute:: interface_name  <key>
-            
-            	Interface to configure
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: base
-            
-            	Assign a base profile to interface
-            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Base>`
-            
-            .. attribute:: pppoe
-            
-            	PPPoE subscriber interface
-            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Pppoe>`
-            
-            .. attribute:: proxy
-            
-            	Assign a proxy profile to interface
-            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Proxy>`
-            
-            .. attribute:: relay
-            
-            	Assign a relay profile to interface
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Relay>`
-            
-            .. attribute:: server
-            
-            	Assign a server profile to interface
-            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
-            
-            
-
-            """
-
-            _prefix = 'ipv6-new-dhcpv6d-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Dhcpv6.Interfaces.Interface, self).__init__()
-
-                self.yang_name = "interface"
-                self.yang_parent_name = "interfaces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"base" : ("base", Dhcpv6.Interfaces.Interface.Base), "pppoe" : ("pppoe", Dhcpv6.Interfaces.Interface.Pppoe), "proxy" : ("proxy", Dhcpv6.Interfaces.Interface.Proxy), "relay" : ("relay", Dhcpv6.Interfaces.Interface.Relay), "server" : ("server", Dhcpv6.Interfaces.Interface.Server)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.base = Dhcpv6.Interfaces.Interface.Base()
-                self.base.parent = self
-                self._children_name_map["base"] = "base"
-                self._children_yang_names.add("base")
-
-                self.pppoe = Dhcpv6.Interfaces.Interface.Pppoe()
-                self.pppoe.parent = self
-                self._children_name_map["pppoe"] = "pppoe"
-                self._children_yang_names.add("pppoe")
-
-                self.proxy = Dhcpv6.Interfaces.Interface.Proxy()
-                self.proxy.parent = self
-                self._children_name_map["proxy"] = "proxy"
-                self._children_yang_names.add("proxy")
-
-                self.relay = Dhcpv6.Interfaces.Interface.Relay()
-                self.relay.parent = self
-                self._children_name_map["relay"] = "relay"
-                self._children_yang_names.add("relay")
-
-                self.server = Dhcpv6.Interfaces.Interface.Server()
-                self.server.parent = self
-                self._children_name_map["server"] = "server"
-                self._children_yang_names.add("server")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Dhcpv6.Interfaces.Interface, ['interface_name'], name, value)
-
-
-            class Base(Entity):
-                """
-                Assign a base profile to interface
-                
-                .. attribute:: profile
-                
-                	Enter profile name
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Interfaces.Interface.Base, self).__init__()
-
-                    self.yang_name = "base"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
-                    self._segment_path = lambda: "base"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Base, ['profile'], name, value)
-
-
-            class Pppoe(Entity):
-                """
-                PPPoE subscriber interface
-                
-                .. attribute:: profile
-                
-                	Enter profile name
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Interfaces.Interface.Pppoe, self).__init__()
-
-                    self.yang_name = "pppoe"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
-                    self._segment_path = lambda: "pppoe"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Pppoe, ['profile'], name, value)
-
-
-            class Proxy(Entity):
-                """
-                Assign a proxy profile to interface
-                
-                .. attribute:: profile
-                
-                	Enter profile name
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Interfaces.Interface.Proxy, self).__init__()
-
-                    self.yang_name = "proxy"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
-                    self._segment_path = lambda: "proxy"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Proxy, ['profile'], name, value)
-
-
-            class Relay(Entity):
-                """
-                Assign a relay profile to interface
-                
-                .. attribute:: profile
-                
-                	Enter profile name
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Interfaces.Interface.Relay, self).__init__()
-
-                    self.yang_name = "relay"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
-                    self._segment_path = lambda: "relay"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Relay, ['profile'], name, value)
-
-
-            class Server(Entity):
-                """
-                Assign a server profile to interface
-                
-                .. attribute:: profile
-                
-                	Enter profile name
-                	**type**\:  str
-                
-                	**length:** 1..64
-                
-                
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Interfaces.Interface.Server, self).__init__()
-
-                    self.yang_name = "server"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile = YLeaf(YType.str, "profile")
-                    self._segment_path = lambda: "server"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Server, ['profile'], name, value)
+            self._perform_setattr(Dhcpv6.Database, ['proxy', 'server', 'relay', 'full_write_interval', 'incremental_write_interval'], name, value)
 
 
     class Profiles(Entity):
@@ -562,7 +267,12 @@ class Dhcpv6(Entity):
             	Profile name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: relay
+            
+            	None
+            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
+            
+            	**presence node**\: True
             
             .. attribute:: base
             
@@ -575,13 +285,6 @@ class Dhcpv6(Entity):
             
             	None
             	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy>`
-            
-            	**presence node**\: True
-            
-            .. attribute:: relay
-            
-            	None
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay>`
             
             	**presence node**\: True
             
@@ -606,10 +309,14 @@ class Dhcpv6(Entity):
                 self.yang_parent_name = "profiles"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"base" : ("base", Dhcpv6.Profiles.Profile.Base), "proxy" : ("proxy", Dhcpv6.Profiles.Profile.Proxy), "relay" : ("relay", Dhcpv6.Profiles.Profile.Relay), "server" : ("server", Dhcpv6.Profiles.Profile.Server)}
+                self._child_container_classes = {"relay" : ("relay", Dhcpv6.Profiles.Profile.Relay), "base" : ("base", Dhcpv6.Profiles.Profile.Base), "proxy" : ("proxy", Dhcpv6.Profiles.Profile.Proxy), "server" : ("server", Dhcpv6.Profiles.Profile.Server)}
                 self._child_list_classes = {}
 
                 self.profile_name = YLeaf(YType.str, "profile-name")
+
+                self.relay = None
+                self._children_name_map["relay"] = "relay"
+                self._children_yang_names.add("relay")
 
                 self.base = None
                 self._children_name_map["base"] = "base"
@@ -618,10 +325,6 @@ class Dhcpv6(Entity):
                 self.proxy = None
                 self._children_name_map["proxy"] = "proxy"
                 self._children_yang_names.add("proxy")
-
-                self.relay = None
-                self._children_name_map["relay"] = "relay"
-                self._children_yang_names.add("relay")
 
                 self.server = None
                 self._children_name_map["server"] = "server"
@@ -633,6 +336,136 @@ class Dhcpv6(Entity):
                 self._perform_setattr(Dhcpv6.Profiles.Profile, ['profile_name'], name, value)
 
 
+            class Relay(Entity):
+                """
+                None
+                
+                .. attribute:: helper_addresses
+                
+                	Table of HelperAddress
+                	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
+                
+                .. attribute:: enable
+                
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Relay
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                	**mandatory**\: True
+                
+                .. attribute:: iana_route_add
+                
+                	Enable route addition for IANA
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Dhcpv6.Profiles.Profile.Relay, self).__init__()
+
+                    self.yang_name = "relay"
+                    self.yang_parent_name = "profile"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"helper-addresses" : ("helper_addresses", Dhcpv6.Profiles.Profile.Relay.HelperAddresses)}
+                    self._child_list_classes = {}
+                    self.is_presence_container = True
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.iana_route_add = YLeaf(YType.empty, "iana-route-add")
+
+                    self.helper_addresses = Dhcpv6.Profiles.Profile.Relay.HelperAddresses()
+                    self.helper_addresses.parent = self
+                    self._children_name_map["helper_addresses"] = "helper-addresses"
+                    self._children_yang_names.add("helper-addresses")
+                    self._segment_path = lambda: "relay"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['enable', 'iana_route_add'], name, value)
+
+
+                class HelperAddresses(Entity):
+                    """
+                    Table of HelperAddress
+                    
+                    .. attribute:: helper_address
+                    
+                    	Specify the server helper address
+                    	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Relay.HelperAddresses, self).__init__()
+
+                        self.yang_name = "helper-addresses"
+                        self.yang_parent_name = "relay"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"helper-address" : ("helper_address", Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress)}
+
+                        self.helper_address = YList(self)
+                        self._segment_path = lambda: "helper-addresses"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses, [], name, value)
+
+
+                    class HelperAddress(Entity):
+                        """
+                        Specify the server helper address
+                        
+                        .. attribute:: vrf_name  <key>
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 1..32
+                        
+                        .. attribute:: helper_address  <key>
+                        
+                        	Server Global unicast address
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, self).__init__()
+
+                            self.yang_name = "helper-address"
+                            self.yang_parent_name = "helper-addresses"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.helper_address = YLeaf(YType.str, "helper-address")
+                            self._segment_path = lambda: "helper-address" + "[vrf-name='" + self.vrf_name.get() + "']" + "[helper-address='" + self.helper_address.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address'], name, value)
+
+
             class Base(Entity):
                 """
                 None
@@ -642,17 +475,17 @@ class Dhcpv6(Entity):
                 	Default match option
                 	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Default>`
                 
+                .. attribute:: match
+                
+                	Enter match option
+                	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match>`
+                
                 .. attribute:: enable
                 
                 	Enable None. Deletion of this object also causes deletion of all associated objects under Base
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
-                
-                .. attribute:: match
-                
-                	Enter match option
-                	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Base.Match>`
                 
                 
 
@@ -735,14 +568,14 @@ class Dhcpv6(Entity):
                         
                         	**length:** 1..64
                         
-                        .. attribute:: proxy_mode
-                        
-                        	Specify mode\-class based Proxy Option
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
                         .. attribute:: server_mode
                         
                         	Specify mode\-class based Server option
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: proxy_mode
+                        
+                        	Specify mode\-class based Proxy Option
                         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
@@ -764,13 +597,13 @@ class Dhcpv6(Entity):
 
                             self.profile_name = YLeaf(YType.str, "profile-name")
 
-                            self.proxy_mode = YLeaf(YType.empty, "proxy-mode")
-
                             self.server_mode = YLeaf(YType.empty, "server-mode")
+
+                            self.proxy_mode = YLeaf(YType.empty, "proxy-mode")
                             self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default.Profile, ['profile_name', 'proxy_mode', 'server_mode'], name, value)
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default.Profile, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
 
 
                 class Match(Entity):
@@ -892,14 +725,14 @@ class Dhcpv6(Entity):
                                 
                                 	**length:** 1..64
                                 
-                                .. attribute:: proxy_mode
-                                
-                                	Specify mode\-class based Proxy Option
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                                
                                 .. attribute:: server_mode
                                 
                                 	Specify mode\-class based Server option
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: proxy_mode
+                                
+                                	Specify mode\-class based Proxy Option
                                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
@@ -921,18 +754,33 @@ class Dhcpv6(Entity):
 
                                     self.profile_name = YLeaf(YType.str, "profile-name")
 
-                                    self.proxy_mode = YLeaf(YType.empty, "proxy-mode")
-
                                     self.server_mode = YLeaf(YType.empty, "server-mode")
+
+                                    self.proxy_mode = YLeaf(YType.empty, "proxy-mode")
                                     self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile, ['profile_name', 'proxy_mode', 'server_mode'], name, value)
+                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
 
 
             class Proxy(Entity):
                 """
                 None
+                
+                .. attribute:: interfaces
+                
+                	Table of Interface
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
+                
+                .. attribute:: relay
+                
+                	Specify relay configuration
+                	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
+                
+                .. attribute:: vrfs
+                
+                	VRF related configuration
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
                 
                 .. attribute:: authentication
                 
@@ -944,17 +792,20 @@ class Dhcpv6(Entity):
                 	Table of Class
                 	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Classes>`
                 
-                .. attribute:: enable
+                .. attribute:: sessions
                 
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Proxy
+                	Change sessions configuration
+                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
+                
+                .. attribute:: linkaddress_from_ra_enable
+                
+                	Fill linkaddress in Relay fwd msg with Prefix from Router Advertisement for PPPoE sessions
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                	**mandatory**\: True
+                .. attribute:: route_add_disable
                 
-                .. attribute:: interfaces
-                
-                	Table of Interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces>`
+                	RouteDisable
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: link_address
                 
@@ -963,47 +814,23 @@ class Dhcpv6(Entity):
                 
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
                 
                 ----
                 	**type**\:  str
                 
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
                 
                 ----
-                .. attribute:: linkaddress_from_ra_enable
-                
-                	Fill linkaddress in Relay fwd msg with Prefix from Router Advertisement for PPPoE sessions
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: relay
-                
-                	Specify relay configuration
-                	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay>`
-                
-                .. attribute:: route_add_disable
-                
-                	RouteDisable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: sessions
-                
-                	Change sessions configuration
-                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Sessions>`
-                
                 .. attribute:: src_intf_name
                 
                 	Create or enter proxy profile Source Interface Name
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: enable
                 
-                .. attribute:: vrfs
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Proxy
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                	VRF related configuration
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs>`
+                	**mandatory**\: True
                 
                 
 
@@ -1021,29 +848,19 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"authentication" : ("authentication", Dhcpv6.Profiles.Profile.Proxy.Authentication), "classes" : ("classes", Dhcpv6.Profiles.Profile.Proxy.Classes), "interfaces" : ("interfaces", Dhcpv6.Profiles.Profile.Proxy.Interfaces), "relay" : ("relay", Dhcpv6.Profiles.Profile.Proxy.Relay), "sessions" : ("sessions", Dhcpv6.Profiles.Profile.Proxy.Sessions), "vrfs" : ("vrfs", Dhcpv6.Profiles.Profile.Proxy.Vrfs)}
+                    self._child_container_classes = {"interfaces" : ("interfaces", Dhcpv6.Profiles.Profile.Proxy.Interfaces), "relay" : ("relay", Dhcpv6.Profiles.Profile.Proxy.Relay), "vrfs" : ("vrfs", Dhcpv6.Profiles.Profile.Proxy.Vrfs), "authentication" : ("authentication", Dhcpv6.Profiles.Profile.Proxy.Authentication), "classes" : ("classes", Dhcpv6.Profiles.Profile.Proxy.Classes), "sessions" : ("sessions", Dhcpv6.Profiles.Profile.Proxy.Sessions)}
                     self._child_list_classes = {}
                     self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.link_address = YLeaf(YType.str, "link-address")
 
                     self.linkaddress_from_ra_enable = YLeaf(YType.empty, "linkaddress-from-ra-enable")
 
                     self.route_add_disable = YLeaf(YType.empty, "route-add-disable")
 
+                    self.link_address = YLeaf(YType.str, "link-address")
+
                     self.src_intf_name = YLeaf(YType.str, "src-intf-name")
 
-                    self.authentication = Dhcpv6.Profiles.Profile.Proxy.Authentication()
-                    self.authentication.parent = self
-                    self._children_name_map["authentication"] = "authentication"
-                    self._children_yang_names.add("authentication")
-
-                    self.classes = Dhcpv6.Profiles.Profile.Proxy.Classes()
-                    self.classes.parent = self
-                    self._children_name_map["classes"] = "classes"
-                    self._children_yang_names.add("classes")
+                    self.enable = YLeaf(YType.empty, "enable")
 
                     self.interfaces = Dhcpv6.Profiles.Profile.Proxy.Interfaces()
                     self.interfaces.parent = self
@@ -1055,19 +872,392 @@ class Dhcpv6(Entity):
                     self._children_name_map["relay"] = "relay"
                     self._children_yang_names.add("relay")
 
-                    self.sessions = Dhcpv6.Profiles.Profile.Proxy.Sessions()
-                    self.sessions.parent = self
-                    self._children_name_map["sessions"] = "sessions"
-                    self._children_yang_names.add("sessions")
-
                     self.vrfs = Dhcpv6.Profiles.Profile.Proxy.Vrfs()
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
                     self._children_yang_names.add("vrfs")
+
+                    self.authentication = Dhcpv6.Profiles.Profile.Proxy.Authentication()
+                    self.authentication.parent = self
+                    self._children_name_map["authentication"] = "authentication"
+                    self._children_yang_names.add("authentication")
+
+                    self.classes = Dhcpv6.Profiles.Profile.Proxy.Classes()
+                    self.classes.parent = self
+                    self._children_name_map["classes"] = "classes"
+                    self._children_yang_names.add("classes")
+
+                    self.sessions = Dhcpv6.Profiles.Profile.Proxy.Sessions()
+                    self.sessions.parent = self
+                    self._children_name_map["sessions"] = "sessions"
+                    self._children_yang_names.add("sessions")
                     self._segment_path = lambda: "proxy"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy, ['enable', 'link_address', 'linkaddress_from_ra_enable', 'route_add_disable', 'src_intf_name'], name, value)
+                    self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy, ['linkaddress_from_ra_enable', 'route_add_disable', 'link_address', 'src_intf_name', 'enable'], name, value)
+
+
+                class Interfaces(Entity):
+                    """
+                    Table of Interface
+                    
+                    .. attribute:: interface
+                    
+                    	None
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Proxy.Interfaces, self).__init__()
+
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface)}
+
+                        self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces, [], name, value)
+
+
+                    class Interface(Entity):
+                        """
+                        None
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	Interface to configure
+                        	**type**\:  str
+                        
+                        .. attribute:: interface_id
+                        
+                        	Physical interface ID
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, self).__init__()
+
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.interface_id = YLeaf(YType.str, "interface-id")
+                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
+
+
+                class Relay(Entity):
+                    """
+                    Specify relay configuration
+                    
+                    .. attribute:: option
+                    
+                    	Specify relay option configuration
+                    	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Proxy.Relay, self).__init__()
+
+                        self.yang_name = "relay"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"option" : ("option", Dhcpv6.Profiles.Profile.Proxy.Relay.Option)}
+                        self._child_list_classes = {}
+
+                        self.option = Dhcpv6.Profiles.Profile.Proxy.Relay.Option()
+                        self.option.parent = self
+                        self._children_name_map["option"] = "option"
+                        self._children_yang_names.add("option")
+                        self._segment_path = lambda: "relay"
+
+
+                    class Option(Entity):
+                        """
+                        Specify relay option configuration
+                        
+                        .. attribute:: interface_id
+                        
+                        	Interface Id option
+                        	**type**\:   :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId>`
+                        
+                        .. attribute:: subscriber_id
+                        
+                        	Configure Received SubscriberID
+                        	**type**\:   :py:class:`SubscriberId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.SubscriberId>`
+                        
+                        .. attribute:: link_layer_addr
+                        
+                        	Configure Received link\-layer\-Addr
+                        	**type**\:   :py:class:`LinkLayerAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.LinkLayerAddr>`
+                        
+                        .. attribute:: remote_i_dreceived
+                        
+                        	Set remote\-id value from SADB
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: remote_id
+                        
+                        	Enter remote\-id value
+                        	**type**\:  str
+                        
+                        	**length:** 1..256
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Proxy.Relay.Option, self).__init__()
+
+                            self.yang_name = "option"
+                            self.yang_parent_name = "relay"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"interface-id" : ("interface_id", Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId)}
+                            self._child_list_classes = {}
+
+                            self.subscriber_id = YLeaf(YType.enumeration, "subscriber-id")
+
+                            self.link_layer_addr = YLeaf(YType.enumeration, "link-layer-addr")
+
+                            self.remote_i_dreceived = YLeaf(YType.int32, "remote-i-dreceived")
+
+                            self.remote_id = YLeaf(YType.str, "remote-id")
+
+                            self.interface_id = Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId()
+                            self.interface_id.parent = self
+                            self._children_name_map["interface_id"] = "interface-id"
+                            self._children_yang_names.add("interface-id")
+                            self._segment_path = lambda: "option"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option, ['subscriber_id', 'link_layer_addr', 'remote_i_dreceived', 'remote_id'], name, value)
+
+
+                        class InterfaceId(Entity):
+                            """
+                            Interface Id option
+                            
+                            .. attribute:: insert
+                            
+                            	Configure InterfaceID insert type
+                            	**type**\:   :py:class:`Insert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Insert>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, self).__init__()
+
+                                self.yang_name = "interface-id"
+                                self.yang_parent_name = "option"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.insert = YLeaf(YType.enumeration, "insert")
+                                self._segment_path = lambda: "interface-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, ['insert'], name, value)
+
+
+                class Vrfs(Entity):
+                    """
+                    VRF related configuration
+                    
+                    .. attribute:: vrf
+                    
+                    	IPv6 DHCP proxy VRF name
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Proxy.Vrfs, self).__init__()
+
+                        self.yang_name = "vrfs"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"vrf" : ("vrf", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf)}
+
+                        self.vrf = YList(self)
+                        self._segment_path = lambda: "vrfs"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs, [], name, value)
+
+
+                    class Vrf(Entity):
+                        """
+                        IPv6 DHCP proxy VRF name
+                        
+                        .. attribute:: vrf_name  <key>
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        .. attribute:: helper_addresses
+                        
+                        	Table of HelperAddress
+                        	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf, self).__init__()
+
+                            self.yang_name = "vrf"
+                            self.yang_parent_name = "vrfs"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"helper-addresses" : ("helper_addresses", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses)}
+                            self._child_list_classes = {}
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.helper_addresses = Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses()
+                            self.helper_addresses.parent = self
+                            self._children_name_map["helper_addresses"] = "helper-addresses"
+                            self._children_yang_names.add("helper-addresses")
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
+
+
+                        class HelperAddresses(Entity):
+                            """
+                            Table of HelperAddress
+                            
+                            .. attribute:: helper_address
+                            
+                            	DHCPv6 Helper Address
+                            	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses, self).__init__()
+
+                                self.yang_name = "helper-addresses"
+                                self.yang_parent_name = "vrf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"helper-address" : ("helper_address", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress)}
+
+                                self.helper_address = YList(self)
+                                self._segment_path = lambda: "helper-addresses"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses, [], name, value)
+
+
+                            class HelperAddress(Entity):
+                                """
+                                DHCPv6 Helper Address
+                                
+                                .. attribute:: helper_address  <key>
+                                
+                                	DHCPv6 Helper Address
+                                	**type**\:  str
+                                
+                                .. attribute:: out_interface
+                                
+                                	DHCPv6 HelperAddress Specific Output Interface
+                                	**type**\:  str
+                                
+                                .. attribute:: any_out_interface
+                                
+                                	DHCPv6 HelperAddress Output Interface
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
+
+                                    self.yang_name = "helper-address"
+                                    self.yang_parent_name = "helper-addresses"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.helper_address = YLeaf(YType.str, "helper-address")
+
+                                    self.out_interface = YLeaf(YType.str, "out-interface")
+
+                                    self.any_out_interface = YLeaf(YType.empty, "any-out-interface")
+                                    self._segment_path = lambda: "helper-address" + "[helper-address='" + self.helper_address.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['helper_address', 'out_interface', 'any_out_interface'], name, value)
 
 
                 class Authentication(Entity):
@@ -1159,13 +1349,9 @@ class Dhcpv6(Entity):
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
                         ----
@@ -1249,8 +1435,6 @@ class Dhcpv6(Entity):
                                 	Server address
                                 	**type**\:  str
                                 
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
                                 
 
                                 """
@@ -1275,215 +1459,6 @@ class Dhcpv6(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes.Class_.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address'], name, value)
-
-
-                class Interfaces(Entity):
-                    """
-                    Table of Interface
-                    
-                    .. attribute:: interface
-                    
-                    	None
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Proxy.Interfaces, self).__init__()
-
-                        self.yang_name = "interfaces"
-                        self.yang_parent_name = "proxy"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface)}
-
-                        self.interface = YList(self)
-                        self._segment_path = lambda: "interfaces"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces, [], name, value)
-
-
-                    class Interface(Entity):
-                        """
-                        None
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	Interface to configure
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: interface_id
-                        
-                        	Physical interface ID
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, self).__init__()
-
-                            self.yang_name = "interface"
-                            self.yang_parent_name = "interfaces"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_id = YLeaf(YType.str, "interface-id")
-                            self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
-
-
-                class Relay(Entity):
-                    """
-                    Specify relay configuration
-                    
-                    .. attribute:: option
-                    
-                    	Specify relay option configuration
-                    	**type**\:   :py:class:`Option <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Proxy.Relay, self).__init__()
-
-                        self.yang_name = "relay"
-                        self.yang_parent_name = "proxy"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"option" : ("option", Dhcpv6.Profiles.Profile.Proxy.Relay.Option)}
-                        self._child_list_classes = {}
-
-                        self.option = Dhcpv6.Profiles.Profile.Proxy.Relay.Option()
-                        self.option.parent = self
-                        self._children_name_map["option"] = "option"
-                        self._children_yang_names.add("option")
-                        self._segment_path = lambda: "relay"
-
-
-                    class Option(Entity):
-                        """
-                        Specify relay option configuration
-                        
-                        .. attribute:: interface_id
-                        
-                        	Interface Id option
-                        	**type**\:   :py:class:`InterfaceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId>`
-                        
-                        .. attribute:: link_layer_addr
-                        
-                        	Configure Received link\-layer\-Addr
-                        	**type**\:   :py:class:`LinkLayerAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.LinkLayerAddr>`
-                        
-                        .. attribute:: remote_i_dreceived
-                        
-                        	Set remote\-id value from SADB
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: remote_id
-                        
-                        	Enter remote\-id value
-                        	**type**\:  str
-                        
-                        	**length:** 1..256
-                        
-                        .. attribute:: subscriber_id
-                        
-                        	Configure Received SubscriberID
-                        	**type**\:   :py:class:`SubscriberId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.SubscriberId>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Proxy.Relay.Option, self).__init__()
-
-                            self.yang_name = "option"
-                            self.yang_parent_name = "relay"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"interface-id" : ("interface_id", Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId)}
-                            self._child_list_classes = {}
-
-                            self.link_layer_addr = YLeaf(YType.enumeration, "link-layer-addr")
-
-                            self.remote_i_dreceived = YLeaf(YType.int32, "remote-i-dreceived")
-
-                            self.remote_id = YLeaf(YType.str, "remote-id")
-
-                            self.subscriber_id = YLeaf(YType.enumeration, "subscriber-id")
-
-                            self.interface_id = Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId()
-                            self.interface_id.parent = self
-                            self._children_name_map["interface_id"] = "interface-id"
-                            self._children_yang_names.add("interface-id")
-                            self._segment_path = lambda: "option"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option, ['link_layer_addr', 'remote_i_dreceived', 'remote_id', 'subscriber_id'], name, value)
-
-
-                        class InterfaceId(Entity):
-                            """
-                            Interface Id option
-                            
-                            .. attribute:: insert
-                            
-                            	Configure InterfaceID insert type
-                            	**type**\:   :py:class:`Insert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Insert>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, self).__init__()
-
-                                self.yang_name = "interface-id"
-                                self.yang_parent_name = "option"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.insert = YLeaf(YType.enumeration, "insert")
-                                self._segment_path = lambda: "interface-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, ['insert'], name, value)
 
 
                 class Sessions(Entity):
@@ -1557,15 +1532,6 @@ class Dhcpv6(Entity):
                             Throttle DHCP sessions from any one MAC
                             address
                             
-                            .. attribute:: block
-                            
-                            	Throttle blocking period (in secs)
-                            	**type**\:  int
-                            
-                            	**range:** 1..100
-                            
-                            	**units**\: second
-                            
                             .. attribute:: limit
                             
                             	Number of solicits at which to throttle
@@ -1576,6 +1542,15 @@ class Dhcpv6(Entity):
                             .. attribute:: request
                             
                             	Throttle request period (in secs)
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: block
+                            
+                            	Throttle blocking period (in secs)
                             	**type**\:  int
                             
                             	**range:** 1..100
@@ -1599,314 +1574,45 @@ class Dhcpv6(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.block = YLeaf(YType.uint32, "block")
-
                                 self.limit = YLeaf(YType.uint32, "limit")
 
                                 self.request = YLeaf(YType.uint32, "request")
+
+                                self.block = YLeaf(YType.uint32, "block")
                                 self._segment_path = lambda: "throttle"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle, ['block', 'limit', 'request'], name, value)
-
-
-                class Vrfs(Entity):
-                    """
-                    VRF related configuration
-                    
-                    .. attribute:: vrf
-                    
-                    	IPv6 DHCP proxy VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Proxy.Vrfs, self).__init__()
-
-                        self.yang_name = "vrfs"
-                        self.yang_parent_name = "proxy"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf)}
-
-                        self.vrf = YList(self)
-                        self._segment_path = lambda: "vrfs"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs, [], name, value)
-
-
-                    class Vrf(Entity):
-                        """
-                        IPv6 DHCP proxy VRF name
-                        
-                        .. attribute:: vrf_name  <key>
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: helper_addresses
-                        
-                        	Table of HelperAddress
-                        	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf, self).__init__()
-
-                            self.yang_name = "vrf"
-                            self.yang_parent_name = "vrfs"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"helper-addresses" : ("helper_addresses", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.helper_addresses = Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses()
-                            self.helper_addresses.parent = self
-                            self._children_name_map["helper_addresses"] = "helper-addresses"
-                            self._children_yang_names.add("helper-addresses")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
-
-
-                        class HelperAddresses(Entity):
-                            """
-                            Table of HelperAddress
-                            
-                            .. attribute:: helper_address
-                            
-                            	DHCPv6 Helper Address
-                            	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses, self).__init__()
-
-                                self.yang_name = "helper-addresses"
-                                self.yang_parent_name = "vrf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"helper-address" : ("helper_address", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress)}
-
-                                self.helper_address = YList(self)
-                                self._segment_path = lambda: "helper-addresses"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses, [], name, value)
-
-
-                            class HelperAddress(Entity):
-                                """
-                                DHCPv6 Helper Address
-                                
-                                .. attribute:: helper_address  <key>
-                                
-                                	DHCPv6 Helper Address
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: any_out_interface
-                                
-                                	DHCPv6 HelperAddress Output Interface
-                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                                
-                                .. attribute:: out_interface
-                                
-                                	DHCPv6 HelperAddress Specific Output Interface
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, self).__init__()
-
-                                    self.yang_name = "helper-address"
-                                    self.yang_parent_name = "helper-addresses"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.helper_address = YLeaf(YType.str, "helper-address")
-
-                                    self.any_out_interface = YLeaf(YType.empty, "any-out-interface")
-
-                                    self.out_interface = YLeaf(YType.str, "out-interface")
-                                    self._segment_path = lambda: "helper-address" + "[helper-address='" + self.helper_address.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['helper_address', 'any_out_interface', 'out_interface'], name, value)
-
-
-            class Relay(Entity):
-                """
-                None
-                
-                .. attribute:: enable
-                
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Relay
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: helper_addresses
-                
-                	Table of HelperAddress
-                	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses>`
-                
-                .. attribute:: iana_route_add
-                
-                	Enable route addition for IANA
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ipv6-new-dhcpv6d-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Dhcpv6.Profiles.Profile.Relay, self).__init__()
-
-                    self.yang_name = "relay"
-                    self.yang_parent_name = "profile"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"helper-addresses" : ("helper_addresses", Dhcpv6.Profiles.Profile.Relay.HelperAddresses)}
-                    self._child_list_classes = {}
-                    self.is_presence_container = True
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.iana_route_add = YLeaf(YType.empty, "iana-route-add")
-
-                    self.helper_addresses = Dhcpv6.Profiles.Profile.Relay.HelperAddresses()
-                    self.helper_addresses.parent = self
-                    self._children_name_map["helper_addresses"] = "helper-addresses"
-                    self._children_yang_names.add("helper-addresses")
-                    self._segment_path = lambda: "relay"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['enable', 'iana_route_add'], name, value)
-
-
-                class HelperAddresses(Entity):
-                    """
-                    Table of HelperAddress
-                    
-                    .. attribute:: helper_address
-                    
-                    	Specify the server helper address
-                    	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Relay.HelperAddresses, self).__init__()
-
-                        self.yang_name = "helper-addresses"
-                        self.yang_parent_name = "relay"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"helper-address" : ("helper_address", Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress)}
-
-                        self.helper_address = YList(self)
-                        self._segment_path = lambda: "helper-addresses"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses, [], name, value)
-
-
-                    class HelperAddress(Entity):
-                        """
-                        Specify the server helper address
-                        
-                        .. attribute:: vrf_name  <key>
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        	**length:** 1..32
-                        
-                        .. attribute:: helper_address  <key>
-                        
-                        	Server Global unicast address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, self).__init__()
-
-                            self.yang_name = "helper-address"
-                            self.yang_parent_name = "helper-addresses"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.helper_address = YLeaf(YType.str, "helper-address")
-                            self._segment_path = lambda: "helper-address" + "[vrf-name='" + self.vrf_name.get() + "']" + "[helper-address='" + self.helper_address.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address'], name, value)
+                                self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
 
 
             class Server(Entity):
                 """
                 None
+                
+                .. attribute:: sessions
+                
+                	Change sessions configuration
+                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
+                
+                .. attribute:: dns_servers
+                
+                	DNS servers
+                	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
+                
+                .. attribute:: classes
+                
+                	Table of Class
+                	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
+                
+                .. attribute:: lease
+                
+                	lease
+                	**type**\:   :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
+                
+                .. attribute:: dhcpv6_options
+                
+                	DHCPv6 options
+                	**type**\:   :py:class:`Dhcpv6Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options>`
                 
                 .. attribute:: address_pool
                 
@@ -1922,39 +1628,12 @@ class Dhcpv6(Entity):
                 
                 	**length:** 1..64
                 
-                .. attribute:: classes
-                
-                	Table of Class
-                	**type**\:   :py:class:`Classes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes>`
-                
-                .. attribute:: dhcpv6_options
-                
-                	DHCPv6 options
-                	**type**\:   :py:class:`Dhcpv6Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Dhcpv6Options>`
-                
-                .. attribute:: dns_servers
-                
-                	DNS servers
-                	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.DnsServers>`
-                
                 .. attribute:: domain_name
                 
                 	Domain name
                 	**type**\:  str
                 
                 	**length:** 1..64
-                
-                .. attribute:: enable
-                
-                	Enable None. Deletion of this object also causes deletion of all associated objects under Server
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: lease
-                
-                	lease
-                	**type**\:   :py:class:`Lease <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Lease>`
                 
                 .. attribute:: preference
                 
@@ -1963,22 +1642,24 @@ class Dhcpv6(Entity):
                 
                 	**range:** 0..255
                 
+                .. attribute:: rapid_commit
+                
+                	Allow RAPID Commit
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: enable
+                
+                	Enable None. Deletion of this object also causes deletion of all associated objects under Server
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                	**mandatory**\: True
+                
                 .. attribute:: prefix_pool
                 
                 	Prefix pool name
                 	**type**\:  str
                 
                 	**length:** 1..64
-                
-                .. attribute:: rapid_commit
-                
-                	Allow RAPID Commit
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: sessions
-                
-                	Change sessions configuration
-                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions>`
                 
                 
 
@@ -1996,7 +1677,7 @@ class Dhcpv6(Entity):
                     self.yang_parent_name = "profile"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"classes" : ("classes", Dhcpv6.Profiles.Profile.Server.Classes), "dhcpv6-options" : ("dhcpv6_options", Dhcpv6.Profiles.Profile.Server.Dhcpv6Options), "dns-servers" : ("dns_servers", Dhcpv6.Profiles.Profile.Server.DnsServers), "lease" : ("lease", Dhcpv6.Profiles.Profile.Server.Lease), "sessions" : ("sessions", Dhcpv6.Profiles.Profile.Server.Sessions)}
+                    self._child_container_classes = {"sessions" : ("sessions", Dhcpv6.Profiles.Profile.Server.Sessions), "dns-servers" : ("dns_servers", Dhcpv6.Profiles.Profile.Server.DnsServers), "classes" : ("classes", Dhcpv6.Profiles.Profile.Server.Classes), "lease" : ("lease", Dhcpv6.Profiles.Profile.Server.Lease), "dhcpv6-options" : ("dhcpv6_options", Dhcpv6.Profiles.Profile.Server.Dhcpv6Options)}
                     self._child_list_classes = {}
                     self.is_presence_container = True
 
@@ -2006,42 +1687,207 @@ class Dhcpv6(Entity):
 
                     self.domain_name = YLeaf(YType.str, "domain-name")
 
-                    self.enable = YLeaf(YType.empty, "enable")
-
                     self.preference = YLeaf(YType.uint32, "preference")
-
-                    self.prefix_pool = YLeaf(YType.str, "prefix-pool")
 
                     self.rapid_commit = YLeaf(YType.empty, "rapid-commit")
 
-                    self.classes = Dhcpv6.Profiles.Profile.Server.Classes()
-                    self.classes.parent = self
-                    self._children_name_map["classes"] = "classes"
-                    self._children_yang_names.add("classes")
+                    self.enable = YLeaf(YType.empty, "enable")
 
-                    self.dhcpv6_options = Dhcpv6.Profiles.Profile.Server.Dhcpv6Options()
-                    self.dhcpv6_options.parent = self
-                    self._children_name_map["dhcpv6_options"] = "dhcpv6-options"
-                    self._children_yang_names.add("dhcpv6-options")
+                    self.prefix_pool = YLeaf(YType.str, "prefix-pool")
+
+                    self.sessions = Dhcpv6.Profiles.Profile.Server.Sessions()
+                    self.sessions.parent = self
+                    self._children_name_map["sessions"] = "sessions"
+                    self._children_yang_names.add("sessions")
 
                     self.dns_servers = Dhcpv6.Profiles.Profile.Server.DnsServers()
                     self.dns_servers.parent = self
                     self._children_name_map["dns_servers"] = "dns-servers"
                     self._children_yang_names.add("dns-servers")
 
+                    self.classes = Dhcpv6.Profiles.Profile.Server.Classes()
+                    self.classes.parent = self
+                    self._children_name_map["classes"] = "classes"
+                    self._children_yang_names.add("classes")
+
                     self.lease = Dhcpv6.Profiles.Profile.Server.Lease()
                     self.lease.parent = self
                     self._children_name_map["lease"] = "lease"
                     self._children_yang_names.add("lease")
 
-                    self.sessions = Dhcpv6.Profiles.Profile.Server.Sessions()
-                    self.sessions.parent = self
-                    self._children_name_map["sessions"] = "sessions"
-                    self._children_yang_names.add("sessions")
+                    self.dhcpv6_options = Dhcpv6.Profiles.Profile.Server.Dhcpv6Options()
+                    self.dhcpv6_options.parent = self
+                    self._children_name_map["dhcpv6_options"] = "dhcpv6-options"
+                    self._children_yang_names.add("dhcpv6-options")
                     self._segment_path = lambda: "server"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Profiles.Profile.Server, ['address_pool', 'aftr_name', 'domain_name', 'enable', 'preference', 'prefix_pool', 'rapid_commit'], name, value)
+                    self._perform_setattr(Dhcpv6.Profiles.Profile.Server, ['address_pool', 'aftr_name', 'domain_name', 'preference', 'rapid_commit', 'enable', 'prefix_pool'], name, value)
+
+
+                class Sessions(Entity):
+                    """
+                    Change sessions configuration
+                    
+                    .. attribute:: mac
+                    
+                    	Throttle DHCP sessions based on MAC address
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Server.Sessions, self).__init__()
+
+                        self.yang_name = "sessions"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"mac" : ("mac", Dhcpv6.Profiles.Profile.Server.Sessions.Mac)}
+                        self._child_list_classes = {}
+
+                        self.mac = Dhcpv6.Profiles.Profile.Server.Sessions.Mac()
+                        self.mac.parent = self
+                        self._children_name_map["mac"] = "mac"
+                        self._children_yang_names.add("mac")
+                        self._segment_path = lambda: "sessions"
+
+
+                    class Mac(Entity):
+                        """
+                        Throttle DHCP sessions based on MAC address
+                        
+                        .. attribute:: throttle
+                        
+                        	Throttle DHCP sessions from any one MAC address
+                        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Dhcpv6.Profiles.Profile.Server.Sessions.Mac, self).__init__()
+
+                            self.yang_name = "mac"
+                            self.yang_parent_name = "sessions"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"throttle" : ("throttle", Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle)}
+                            self._child_list_classes = {}
+
+                            self.throttle = Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle()
+                            self.throttle.parent = self
+                            self._children_name_map["throttle"] = "throttle"
+                            self._children_yang_names.add("throttle")
+                            self._segment_path = lambda: "mac"
+
+
+                        class Throttle(Entity):
+                            """
+                            Throttle DHCP sessions from any one MAC
+                            address
+                            
+                            .. attribute:: limit
+                            
+                            	Number of solicits at which to throttle
+                            	**type**\:  int
+                            
+                            	**range:** 1..65535
+                            
+                            .. attribute:: request
+                            
+                            	Throttle request period (in secs)
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: block
+                            
+                            	Throttle blocking period (in secs)
+                            	**type**\:  int
+                            
+                            	**range:** 1..100
+                            
+                            	**units**\: second
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, self).__init__()
+
+                                self.yang_name = "throttle"
+                                self.yang_parent_name = "mac"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.limit = YLeaf(YType.uint32, "limit")
+
+                                self.request = YLeaf(YType.uint32, "request")
+
+                                self.block = YLeaf(YType.uint32, "block")
+                                self._segment_path = lambda: "throttle"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
+
+
+                class DnsServers(Entity):
+                    """
+                    DNS servers
+                    
+                    .. attribute:: dns_server
+                    
+                    	Server's IPv6 address
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  list of str
+                    
+                    
+                    ----
+                    	**type**\:  list of str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Server.DnsServers, self).__init__()
+
+                        self.yang_name = "dns-servers"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.dns_server = YLeafList(YType.str, "dns-server")
+                        self._segment_path = lambda: "dns-servers"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Server.DnsServers, ['dns_server'], name, value)
 
 
                 class Classes(Entity):
@@ -2088,17 +1934,17 @@ class Dhcpv6(Entity):
                         
                         	**length:** 1..128
                         
+                        .. attribute:: dns_servers
+                        
+                        	DNS servers
+                        	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers>`
+                        
                         .. attribute:: address_pool
                         
                         	Address pool name
                         	**type**\:  str
                         
                         	**length:** 1..64
-                        
-                        .. attribute:: dns_servers
-                        
-                        	DNS servers
-                        	**type**\:   :py:class:`DnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers>`
                         
                         .. attribute:: domain_name
                         
@@ -2169,13 +2015,9 @@ class Dhcpv6(Entity):
                             
                             	**type**\:  list of str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             
                             ----
                             	**type**\:  list of str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
                             ----
@@ -2201,6 +2043,72 @@ class Dhcpv6(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class_.DnsServers, ['dns_server'], name, value)
+
+
+                class Lease(Entity):
+                    """
+                    lease
+                    
+                    .. attribute:: days
+                    
+                    	Days
+                    	**type**\:  int
+                    
+                    	**range:** 0..365
+                    
+                    	**units**\: day
+                    
+                    .. attribute:: hours
+                    
+                    	Hours
+                    	**type**\:  int
+                    
+                    	**range:** 0..23
+                    
+                    	**units**\: hour
+                    
+                    .. attribute:: minutes
+                    
+                    	Minutes
+                    	**type**\:  int
+                    
+                    	**range:** 1..59
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: infinite
+                    
+                    	Set string
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Dhcpv6.Profiles.Profile.Server.Lease, self).__init__()
+
+                        self.yang_name = "lease"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.days = YLeaf(YType.uint32, "days")
+
+                        self.hours = YLeaf(YType.uint32, "hours")
+
+                        self.minutes = YLeaf(YType.uint32, "minutes")
+
+                        self.infinite = YLeaf(YType.str, "infinite")
+                        self._segment_path = lambda: "lease"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Lease, ['days', 'hours', 'minutes', 'infinite'], name, value)
 
 
                 class Dhcpv6Options(Entity):
@@ -2278,239 +2186,297 @@ class Dhcpv6(Entity):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions, ['type', 'vendor_options'], name, value)
 
 
-                class DnsServers(Entity):
-                    """
-                    DNS servers
-                    
-                    .. attribute:: dns_server
-                    
-                    	Server's IPv6 address
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  list of str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  list of str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    
+    class Interfaces(Entity):
+        """
+        Table of Interface
+        
+        .. attribute:: interface
+        
+        	None
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface>`
+        
+        
 
-                    """
+        """
 
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
+        _prefix = 'ipv6-new-dhcpv6d-cfg'
+        _revision = '2017-05-01'
 
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Server.DnsServers, self).__init__()
+        def __init__(self):
+            super(Dhcpv6.Interfaces, self).__init__()
 
-                        self.yang_name = "dns-servers"
-                        self.yang_parent_name = "server"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "dhcpv6"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"interface" : ("interface", Dhcpv6.Interfaces.Interface)}
 
-                        self.dns_server = YLeafList(YType.str, "dns-server")
-                        self._segment_path = lambda: "dns-servers"
+            self.interface = YList(self)
+            self._segment_path = lambda: "interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Server.DnsServers, ['dns_server'], name, value)
+        def __setattr__(self, name, value):
+            self._perform_setattr(Dhcpv6.Interfaces, [], name, value)
 
 
-                class Lease(Entity):
-                    """
-                    lease
-                    
-                    .. attribute:: days
-                    
-                    	Days
-                    	**type**\:  int
-                    
-                    	**range:** 0..365
-                    
-                    	**units**\: day
-                    
-                    .. attribute:: hours
-                    
-                    	Hours
-                    	**type**\:  int
-                    
-                    	**range:** 0..23
-                    
-                    	**units**\: hour
-                    
-                    .. attribute:: infinite
-                    
-                    	Set string
-                    	**type**\:  str
-                    
-                    .. attribute:: minutes
-                    
-                    	Minutes
-                    	**type**\:  int
-                    
-                    	**range:** 1..59
-                    
-                    	**units**\: minute
-                    
-                    
+        class Interface(Entity):
+            """
+            None
+            
+            .. attribute:: interface_name  <key>
+            
+            	Interface to configure
+            	**type**\:  str
+            
+            .. attribute:: pppoe
+            
+            	PPPoE subscriber interface
+            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Pppoe>`
+            
+            .. attribute:: proxy
+            
+            	Assign a proxy profile to interface
+            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Proxy>`
+            
+            .. attribute:: base
+            
+            	Assign a base profile to interface
+            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Base>`
+            
+            .. attribute:: server
+            
+            	Assign a server profile to interface
+            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Server>`
+            
+            .. attribute:: relay
+            
+            	Assign a relay profile to interface
+            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Interfaces.Interface.Relay>`
+            
+            
 
-                    """
+            """
 
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
+            _prefix = 'ipv6-new-dhcpv6d-cfg'
+            _revision = '2017-05-01'
 
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Server.Lease, self).__init__()
+            def __init__(self):
+                super(Dhcpv6.Interfaces.Interface, self).__init__()
 
-                        self.yang_name = "lease"
-                        self.yang_parent_name = "server"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"pppoe" : ("pppoe", Dhcpv6.Interfaces.Interface.Pppoe), "proxy" : ("proxy", Dhcpv6.Interfaces.Interface.Proxy), "base" : ("base", Dhcpv6.Interfaces.Interface.Base), "server" : ("server", Dhcpv6.Interfaces.Interface.Server), "relay" : ("relay", Dhcpv6.Interfaces.Interface.Relay)}
+                self._child_list_classes = {}
 
-                        self.days = YLeaf(YType.uint32, "days")
+                self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.hours = YLeaf(YType.uint32, "hours")
+                self.pppoe = Dhcpv6.Interfaces.Interface.Pppoe()
+                self.pppoe.parent = self
+                self._children_name_map["pppoe"] = "pppoe"
+                self._children_yang_names.add("pppoe")
 
-                        self.infinite = YLeaf(YType.str, "infinite")
+                self.proxy = Dhcpv6.Interfaces.Interface.Proxy()
+                self.proxy.parent = self
+                self._children_name_map["proxy"] = "proxy"
+                self._children_yang_names.add("proxy")
 
-                        self.minutes = YLeaf(YType.uint32, "minutes")
-                        self._segment_path = lambda: "lease"
+                self.base = Dhcpv6.Interfaces.Interface.Base()
+                self.base.parent = self
+                self._children_name_map["base"] = "base"
+                self._children_yang_names.add("base")
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Lease, ['days', 'hours', 'infinite', 'minutes'], name, value)
+                self.server = Dhcpv6.Interfaces.Interface.Server()
+                self.server.parent = self
+                self._children_name_map["server"] = "server"
+                self._children_yang_names.add("server")
 
+                self.relay = Dhcpv6.Interfaces.Interface.Relay()
+                self.relay.parent = self
+                self._children_name_map["relay"] = "relay"
+                self._children_yang_names.add("relay")
+                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/%s" % self._segment_path()
 
-                class Sessions(Entity):
-                    """
-                    Change sessions configuration
-                    
-                    .. attribute:: mac
-                    
-                    	Throttle DHCP sessions based on MAC address
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv6-new-dhcpv6d-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Dhcpv6.Profiles.Profile.Server.Sessions, self).__init__()
-
-                        self.yang_name = "sessions"
-                        self.yang_parent_name = "server"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"mac" : ("mac", Dhcpv6.Profiles.Profile.Server.Sessions.Mac)}
-                        self._child_list_classes = {}
-
-                        self.mac = Dhcpv6.Profiles.Profile.Server.Sessions.Mac()
-                        self.mac.parent = self
-                        self._children_name_map["mac"] = "mac"
-                        self._children_yang_names.add("mac")
-                        self._segment_path = lambda: "sessions"
+            def __setattr__(self, name, value):
+                self._perform_setattr(Dhcpv6.Interfaces.Interface, ['interface_name'], name, value)
 
 
-                    class Mac(Entity):
-                        """
-                        Throttle DHCP sessions based on MAC address
-                        
-                        .. attribute:: throttle
-                        
-                        	Throttle DHCP sessions from any one MAC address
-                        	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg.Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle>`
-                        
-                        
+            class Pppoe(Entity):
+                """
+                PPPoE subscriber interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
 
-                        """
+                """
 
-                        _prefix = 'ipv6-new-dhcpv6d-cfg'
-                        _revision = '2017-05-01'
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
 
-                        def __init__(self):
-                            super(Dhcpv6.Profiles.Profile.Server.Sessions.Mac, self).__init__()
+                def __init__(self):
+                    super(Dhcpv6.Interfaces.Interface.Pppoe, self).__init__()
 
-                            self.yang_name = "mac"
-                            self.yang_parent_name = "sessions"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"throttle" : ("throttle", Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle)}
-                            self._child_list_classes = {}
+                    self.yang_name = "pppoe"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-                            self.throttle = Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle()
-                            self.throttle.parent = self
-                            self._children_name_map["throttle"] = "throttle"
-                            self._children_yang_names.add("throttle")
-                            self._segment_path = lambda: "mac"
+                    self.profile = YLeaf(YType.str, "profile")
+                    self._segment_path = lambda: "pppoe"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Pppoe, ['profile'], name, value)
 
 
-                        class Throttle(Entity):
-                            """
-                            Throttle DHCP sessions from any one MAC
-                            address
-                            
-                            .. attribute:: block
-                            
-                            	Throttle blocking period (in secs)
-                            	**type**\:  int
-                            
-                            	**range:** 1..100
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: limit
-                            
-                            	Number of solicits at which to throttle
-                            	**type**\:  int
-                            
-                            	**range:** 1..65535
-                            
-                            .. attribute:: request
-                            
-                            	Throttle request period (in secs)
-                            	**type**\:  int
-                            
-                            	**range:** 1..100
-                            
-                            	**units**\: second
-                            
-                            
+            class Proxy(Entity):
+                """
+                Assign a proxy profile to interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
 
-                            """
+                """
 
-                            _prefix = 'ipv6-new-dhcpv6d-cfg'
-                            _revision = '2017-05-01'
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
 
-                            def __init__(self):
-                                super(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, self).__init__()
+                def __init__(self):
+                    super(Dhcpv6.Interfaces.Interface.Proxy, self).__init__()
 
-                                self.yang_name = "throttle"
-                                self.yang_parent_name = "mac"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
+                    self.yang_name = "proxy"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-                                self.block = YLeaf(YType.uint32, "block")
+                    self.profile = YLeaf(YType.str, "profile")
+                    self._segment_path = lambda: "proxy"
 
-                                self.limit = YLeaf(YType.uint32, "limit")
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Proxy, ['profile'], name, value)
 
-                                self.request = YLeaf(YType.uint32, "request")
-                                self._segment_path = lambda: "throttle"
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, ['block', 'limit', 'request'], name, value)
+            class Base(Entity):
+                """
+                Assign a base profile to interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Dhcpv6.Interfaces.Interface.Base, self).__init__()
+
+                    self.yang_name = "base"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.profile = YLeaf(YType.str, "profile")
+                    self._segment_path = lambda: "base"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Base, ['profile'], name, value)
+
+
+            class Server(Entity):
+                """
+                Assign a server profile to interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Dhcpv6.Interfaces.Interface.Server, self).__init__()
+
+                    self.yang_name = "server"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.profile = YLeaf(YType.str, "profile")
+                    self._segment_path = lambda: "server"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Server, ['profile'], name, value)
+
+
+            class Relay(Entity):
+                """
+                Assign a relay profile to interface
+                
+                .. attribute:: profile
+                
+                	Enter profile name
+                	**type**\:  str
+                
+                	**length:** 1..64
+                
+                
+
+                """
+
+                _prefix = 'ipv6-new-dhcpv6d-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Dhcpv6.Interfaces.Interface.Relay, self).__init__()
+
+                    self.yang_name = "relay"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.profile = YLeaf(YType.str, "profile")
+                    self._segment_path = lambda: "relay"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Dhcpv6.Interfaces.Interface.Relay, ['profile'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Dhcpv6()

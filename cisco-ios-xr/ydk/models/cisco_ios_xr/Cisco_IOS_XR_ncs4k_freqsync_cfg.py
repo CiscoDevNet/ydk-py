@@ -164,8 +164,6 @@ class ClockInterface(Entity):
             	Clock Name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: frequency_synchronization
             
             	Frequency Synchronization clock configuraiton
@@ -215,6 +213,29 @@ class ClockInterface(Entity):
                 	Set the output quality level
                 	**type**\:   :py:class:`OutputQualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel>`
                 
+                .. attribute:: ssm_disable
+                
+                	Disable SSM on this source
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: wait_to_restore_time
+                
+                	Set the wait\-to\-restore time for this source
+                	**type**\:  int
+                
+                	**range:** 0..12
+                
+                	**default value**\: 5
+                
+                .. attribute:: time_of_day_priority
+                
+                	Set the time\-of\-day priority of this source
+                	**type**\:  int
+                
+                	**range:** 1..254
+                
+                	**default value**\: 100
+                
                 .. attribute:: priority
                 
                 	Set the priority of this source
@@ -228,29 +249,6 @@ class ClockInterface(Entity):
                 
                 	Assign this source as a selection input
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: ssm_disable
-                
-                	Disable SSM on this source
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: time_of_day_priority
-                
-                	Set the time\-of\-day priority of this source
-                	**type**\:  int
-                
-                	**range:** 1..254
-                
-                	**default value**\: 100
-                
-                .. attribute:: wait_to_restore_time
-                
-                	Set the wait\-to\-restore time for this source
-                	**type**\:  int
-                
-                	**range:** 0..12
-                
-                	**default value**\: 5
                 
                 
 
@@ -269,15 +267,15 @@ class ClockInterface(Entity):
                     self._child_container_classes = {"input-quality-level" : ("input_quality_level", ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel), "output-quality-level" : ("output_quality_level", ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel)}
                     self._child_list_classes = {}
 
-                    self.priority = YLeaf(YType.uint32, "priority")
-
-                    self.selection_input = YLeaf(YType.empty, "selection-input")
-
                     self.ssm_disable = YLeaf(YType.empty, "ssm-disable")
+
+                    self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
 
                     self.time_of_day_priority = YLeaf(YType.uint32, "time-of-day-priority")
 
-                    self.wait_to_restore_time = YLeaf(YType.uint32, "wait-to-restore-time")
+                    self.priority = YLeaf(YType.uint32, "priority")
+
+                    self.selection_input = YLeaf(YType.empty, "selection-input")
 
                     self.input_quality_level = ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel()
                     self.input_quality_level.parent = self
@@ -291,21 +289,21 @@ class ClockInterface(Entity):
                     self._segment_path = lambda: "frequency-synchronization"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization, ['priority', 'selection_input', 'ssm_disable', 'time_of_day_priority', 'wait_to_restore_time'], name, value)
+                    self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization, ['ssm_disable', 'wait_to_restore_time', 'time_of_day_priority', 'priority', 'selection_input'], name, value)
 
 
                 class InputQualityLevel(Entity):
                     """
                     Set the input quality level
                     
+                    .. attribute:: quality_level_option
+                    
+                    	Quality level option
+                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    
                     .. attribute:: exact_quality_level_value
                     
                     	Exact quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                    
-                    .. attribute:: max_quality_level_value
-                    
-                    	Maximum quality level value
                     	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: min_quality_level_value
@@ -313,10 +311,10 @@ class ClockInterface(Entity):
                     	Minimum quality level value
                     	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
-                    .. attribute:: quality_level_option
+                    .. attribute:: max_quality_level_value
                     
-                    	Quality level option
-                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    	Maximum quality level value
+                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     
 
@@ -335,31 +333,31 @@ class ClockInterface(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
-                        self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                        self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
 
                         self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
 
-                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+                        self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
                         self._segment_path = lambda: "input-quality-level"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                        self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization.InputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
 
 
                 class OutputQualityLevel(Entity):
                     """
                     Set the output quality level
                     
+                    .. attribute:: quality_level_option
+                    
+                    	Quality level option
+                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    
                     .. attribute:: exact_quality_level_value
                     
                     	Exact quality level value
-                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
-                    
-                    .. attribute:: max_quality_level_value
-                    
-                    	Maximum quality level value
                     	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     .. attribute:: min_quality_level_value
@@ -367,10 +365,10 @@ class ClockInterface(Entity):
                     	Minimum quality level value
                     	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
-                    .. attribute:: quality_level_option
+                    .. attribute:: max_quality_level_value
                     
-                    	Quality level option
-                    	**type**\:   :py:class:`FsyncQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlOption>`
+                    	Maximum quality level value
+                    	**type**\:   :py:class:`FsyncQlValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes.FsyncQlValue>`
                     
                     
 
@@ -389,17 +387,17 @@ class ClockInterface(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
+                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
-                        self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
+                        self.exact_quality_level_value = YLeaf(YType.enumeration, "exact-quality-level-value")
 
                         self.min_quality_level_value = YLeaf(YType.enumeration, "min-quality-level-value")
 
-                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+                        self.max_quality_level_value = YLeaf(YType.enumeration, "max-quality-level-value")
                         self._segment_path = lambda: "output-quality-level"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['exact_quality_level_value', 'max_quality_level_value', 'min_quality_level_value', 'quality_level_option'], name, value)
+                        self._perform_setattr(ClockInterface.Clocks.Clock.FrequencySynchronization.OutputQualityLevel, ['quality_level_option', 'exact_quality_level_value', 'min_quality_level_value', 'max_quality_level_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ClockInterface()
@@ -409,16 +407,6 @@ class FrequencySynchronization(Entity):
     """
     frequency synchronization
     
-    .. attribute:: clock_interface_source_type
-    
-    	Clock interface source type
-    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncClockSource>`
-    
-    .. attribute:: enable
-    
-    	Enable Frequency Synchronization
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: quality_level_option
     
     	Quality level option
@@ -426,10 +414,20 @@ class FrequencySynchronization(Entity):
     
     	**default value**\: option-1
     
+    .. attribute:: enable
+    
+    	Enable Frequency Synchronization
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
     .. attribute:: source_selection_logging
     
     	Source selection logging option
     	**type**\:   :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncSourceSelectionLogging>`
+    
+    .. attribute:: clock_interface_source_type
+    
+    	Clock interface source type
+    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_cfg.FsyncClockSource>`
     
     .. attribute:: system_timing_mode
     
@@ -454,19 +452,19 @@ class FrequencySynchronization(Entity):
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
+        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
         self.source_selection_logging = YLeaf(YType.enumeration, "source-selection-logging")
+
+        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
 
         self.system_timing_mode = YLeaf(YType.enumeration, "system-timing-mode")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-cfg:frequency-synchronization"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(FrequencySynchronization, ['clock_interface_source_type', 'enable', 'quality_level_option', 'source_selection_logging', 'system_timing_mode'], name, value)
+        self._perform_setattr(FrequencySynchronization, ['quality_level_option', 'enable', 'source_selection_logging', 'clock_interface_source_type', 'system_timing_mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()

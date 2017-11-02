@@ -15,40 +15,45 @@ class NHRPMIB(Entity):
     """
     
     
+    .. attribute:: nhrpgeneralobjects
+    
+    	
+    	**type**\:   :py:class:`Nhrpgeneralobjects <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpgeneralobjects>`
+    
     .. attribute:: nhrpcachetable
     
     	This table contains mappings between internetwork layer addresses and NBMA subnetwork layer addresses
     	**type**\:   :py:class:`Nhrpcachetable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable>`
     
-    .. attribute:: nhrpclientnhstable
+    .. attribute:: nhrppurgereqtable
     
-    	A table of NHSes that are available for use by this NHC (client). By default, the agent will add an entry to this table that corresponds to the client's default router
-    	**type**\:   :py:class:`Nhrpclientnhstable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable>`
-    
-    .. attribute:: nhrpclientregistrationtable
-    
-    	A table of Registration Request Information that needs to be maintained by the NHCs (clients)
-    	**type**\:   :py:class:`Nhrpclientregistrationtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable>`
-    
-    .. attribute:: nhrpclientstattable
-    
-    	This table contains statistics collected by NHRP clients
-    	**type**\:   :py:class:`Nhrpclientstattable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientstattable>`
+    	This table will track Purge Request Information
+    	**type**\:   :py:class:`Nhrppurgereqtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable>`
     
     .. attribute:: nhrpclienttable
     
     	Information about NHRP clients (NHCs) managed by this agent
     	**type**\:   :py:class:`Nhrpclienttable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable>`
     
-    .. attribute:: nhrpgeneralobjects
+    .. attribute:: nhrpclientregistrationtable
     
-    	
-    	**type**\:   :py:class:`Nhrpgeneralobjects <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpgeneralobjects>`
+    	A table of Registration Request Information that needs to be maintained by the NHCs (clients)
+    	**type**\:   :py:class:`Nhrpclientregistrationtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable>`
     
-    .. attribute:: nhrppurgereqtable
+    .. attribute:: nhrpclientnhstable
     
-    	This table will track Purge Request Information
-    	**type**\:   :py:class:`Nhrppurgereqtable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable>`
+    	A table of NHSes that are available for use by this NHC (client). By default, the agent will add an entry to this table that corresponds to the client's default router
+    	**type**\:   :py:class:`Nhrpclientnhstable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable>`
+    
+    .. attribute:: nhrpclientstattable
+    
+    	This table contains statistics collected by NHRP clients
+    	**type**\:   :py:class:`Nhrpclientstattable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientstattable>`
+    
+    .. attribute:: nhrpservertable
+    
+    	This table contains information for a set of NHSes associated with this agent
+    	**type**\:   :py:class:`Nhrpservertable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable>`
     
     .. attribute:: nhrpservercachetable
     
@@ -65,11 +70,6 @@ class NHRPMIB(Entity):
     	Statistics collected by Next Hop Servers
     	**type**\:   :py:class:`Nhrpserverstattable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpserverstattable>`
     
-    .. attribute:: nhrpservertable
-    
-    	This table contains information for a set of NHSes associated with this agent
-    	**type**\:   :py:class:`Nhrpservertable <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable>`
-    
     
 
     """
@@ -85,43 +85,48 @@ class NHRPMIB(Entity):
         self.yang_parent_name = "NHRP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nhrpCacheTable" : ("nhrpcachetable", NHRPMIB.Nhrpcachetable), "nhrpClientNhsTable" : ("nhrpclientnhstable", NHRPMIB.Nhrpclientnhstable), "nhrpClientRegistrationTable" : ("nhrpclientregistrationtable", NHRPMIB.Nhrpclientregistrationtable), "nhrpClientStatTable" : ("nhrpclientstattable", NHRPMIB.Nhrpclientstattable), "nhrpClientTable" : ("nhrpclienttable", NHRPMIB.Nhrpclienttable), "nhrpGeneralObjects" : ("nhrpgeneralobjects", NHRPMIB.Nhrpgeneralobjects), "nhrpPurgeReqTable" : ("nhrppurgereqtable", NHRPMIB.Nhrppurgereqtable), "nhrpServerCacheTable" : ("nhrpservercachetable", NHRPMIB.Nhrpservercachetable), "nhrpServerNhcTable" : ("nhrpservernhctable", NHRPMIB.Nhrpservernhctable), "nhrpServerStatTable" : ("nhrpserverstattable", NHRPMIB.Nhrpserverstattable), "nhrpServerTable" : ("nhrpservertable", NHRPMIB.Nhrpservertable)}
+        self._child_container_classes = {"nhrpGeneralObjects" : ("nhrpgeneralobjects", NHRPMIB.Nhrpgeneralobjects), "nhrpCacheTable" : ("nhrpcachetable", NHRPMIB.Nhrpcachetable), "nhrpPurgeReqTable" : ("nhrppurgereqtable", NHRPMIB.Nhrppurgereqtable), "nhrpClientTable" : ("nhrpclienttable", NHRPMIB.Nhrpclienttable), "nhrpClientRegistrationTable" : ("nhrpclientregistrationtable", NHRPMIB.Nhrpclientregistrationtable), "nhrpClientNhsTable" : ("nhrpclientnhstable", NHRPMIB.Nhrpclientnhstable), "nhrpClientStatTable" : ("nhrpclientstattable", NHRPMIB.Nhrpclientstattable), "nhrpServerTable" : ("nhrpservertable", NHRPMIB.Nhrpservertable), "nhrpServerCacheTable" : ("nhrpservercachetable", NHRPMIB.Nhrpservercachetable), "nhrpServerNhcTable" : ("nhrpservernhctable", NHRPMIB.Nhrpservernhctable), "nhrpServerStatTable" : ("nhrpserverstattable", NHRPMIB.Nhrpserverstattable)}
         self._child_list_classes = {}
-
-        self.nhrpcachetable = NHRPMIB.Nhrpcachetable()
-        self.nhrpcachetable.parent = self
-        self._children_name_map["nhrpcachetable"] = "nhrpCacheTable"
-        self._children_yang_names.add("nhrpCacheTable")
-
-        self.nhrpclientnhstable = NHRPMIB.Nhrpclientnhstable()
-        self.nhrpclientnhstable.parent = self
-        self._children_name_map["nhrpclientnhstable"] = "nhrpClientNhsTable"
-        self._children_yang_names.add("nhrpClientNhsTable")
-
-        self.nhrpclientregistrationtable = NHRPMIB.Nhrpclientregistrationtable()
-        self.nhrpclientregistrationtable.parent = self
-        self._children_name_map["nhrpclientregistrationtable"] = "nhrpClientRegistrationTable"
-        self._children_yang_names.add("nhrpClientRegistrationTable")
-
-        self.nhrpclientstattable = NHRPMIB.Nhrpclientstattable()
-        self.nhrpclientstattable.parent = self
-        self._children_name_map["nhrpclientstattable"] = "nhrpClientStatTable"
-        self._children_yang_names.add("nhrpClientStatTable")
-
-        self.nhrpclienttable = NHRPMIB.Nhrpclienttable()
-        self.nhrpclienttable.parent = self
-        self._children_name_map["nhrpclienttable"] = "nhrpClientTable"
-        self._children_yang_names.add("nhrpClientTable")
 
         self.nhrpgeneralobjects = NHRPMIB.Nhrpgeneralobjects()
         self.nhrpgeneralobjects.parent = self
         self._children_name_map["nhrpgeneralobjects"] = "nhrpGeneralObjects"
         self._children_yang_names.add("nhrpGeneralObjects")
 
+        self.nhrpcachetable = NHRPMIB.Nhrpcachetable()
+        self.nhrpcachetable.parent = self
+        self._children_name_map["nhrpcachetable"] = "nhrpCacheTable"
+        self._children_yang_names.add("nhrpCacheTable")
+
         self.nhrppurgereqtable = NHRPMIB.Nhrppurgereqtable()
         self.nhrppurgereqtable.parent = self
         self._children_name_map["nhrppurgereqtable"] = "nhrpPurgeReqTable"
         self._children_yang_names.add("nhrpPurgeReqTable")
+
+        self.nhrpclienttable = NHRPMIB.Nhrpclienttable()
+        self.nhrpclienttable.parent = self
+        self._children_name_map["nhrpclienttable"] = "nhrpClientTable"
+        self._children_yang_names.add("nhrpClientTable")
+
+        self.nhrpclientregistrationtable = NHRPMIB.Nhrpclientregistrationtable()
+        self.nhrpclientregistrationtable.parent = self
+        self._children_name_map["nhrpclientregistrationtable"] = "nhrpClientRegistrationTable"
+        self._children_yang_names.add("nhrpClientRegistrationTable")
+
+        self.nhrpclientnhstable = NHRPMIB.Nhrpclientnhstable()
+        self.nhrpclientnhstable.parent = self
+        self._children_name_map["nhrpclientnhstable"] = "nhrpClientNhsTable"
+        self._children_yang_names.add("nhrpClientNhsTable")
+
+        self.nhrpclientstattable = NHRPMIB.Nhrpclientstattable()
+        self.nhrpclientstattable.parent = self
+        self._children_name_map["nhrpclientstattable"] = "nhrpClientStatTable"
+        self._children_yang_names.add("nhrpClientStatTable")
+
+        self.nhrpservertable = NHRPMIB.Nhrpservertable()
+        self.nhrpservertable.parent = self
+        self._children_name_map["nhrpservertable"] = "nhrpServerTable"
+        self._children_yang_names.add("nhrpServerTable")
 
         self.nhrpservercachetable = NHRPMIB.Nhrpservercachetable()
         self.nhrpservercachetable.parent = self
@@ -137,12 +142,43 @@ class NHRPMIB(Entity):
         self.nhrpserverstattable.parent = self
         self._children_name_map["nhrpserverstattable"] = "nhrpServerStatTable"
         self._children_yang_names.add("nhrpServerStatTable")
-
-        self.nhrpservertable = NHRPMIB.Nhrpservertable()
-        self.nhrpservertable.parent = self
-        self._children_name_map["nhrpservertable"] = "nhrpServerTable"
-        self._children_yang_names.add("nhrpServerTable")
         self._segment_path = lambda: "NHRP-MIB:NHRP-MIB"
+
+
+    class Nhrpgeneralobjects(Entity):
+        """
+        
+        
+        .. attribute:: nhrpnextindex
+        
+        	This scalar is used for creating rows in the nhrpClientTable and the nhrpServerTable. The value of this variable is a currently unused value for nhrpClientIndex and nhrpServerIndex.     The value returned when reading this variable must be unique for the NHC's and NHS's indices associated with this row. Subsequent attempts to read this variable must return different values.  NOTE\:  this object exists in the General Group because it is to be used in establishing rows in the nhrpClientTable and the nhrpServerTable.  In other words, the value retrieved from this object could become the value of nhrpClientIndex and nhprServerIndex.  In the situation of an agent re\-initialization the value of this object must be saved in non\-volatile storage.  This variable will return the special value 0 if no new rows can be created
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'NHRP-MIB'
+        _revision = '1999-08-26'
+
+        def __init__(self):
+            super(NHRPMIB.Nhrpgeneralobjects, self).__init__()
+
+            self.yang_name = "nhrpGeneralObjects"
+            self.yang_parent_name = "NHRP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.nhrpnextindex = YLeaf(YType.uint32, "nhrpNextIndex")
+            self._segment_path = lambda: "nhrpGeneralObjects"
+            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NHRPMIB.Nhrpgeneralobjects, ['nhrpnextindex'], name, value)
 
 
     class Nhrpcachetable(Entity):
@@ -226,23 +262,16 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: nhrpcacheholdingtime
+            .. attribute:: nhrpcacheprefixlength
             
-            	If the value of 'nhrpCacheHoldingTimeValid is true(1) then this object represents the number of seconds that the cache entry will remain in this table.  When this value reaches 0 (zero) the row should be deleted.  If the value of 'nhrpCacheHoldingTimeValid is false(2) then this object is undefined
+            	The number of bits that define the internetwork layer prefix associated with the nhrpCacheInternetworkAddr
             	**type**\:  int
             
-            	**range:** 0..65535
+            	**range:** 0..255
             
-            	**units**\: seconds
+            .. attribute:: nhrpcachenexthopinternetworkaddr
             
-            .. attribute:: nhrpcacheholdingtimevalid
-            
-            	True(1) is returned if the value of 'nhrpCacheType' is not 'administrativelyAdded'.  Since the value of 'nhrpCacheType' was not configured by a user, the value of 'nhrpCacheHoldingTime' is considered valid.  In other words, the value of 'nhrpCacheHoldingTime' represents the Holding Time for the cache Entry.  If 'nhrpCacheType has been configured by a user, (i.e. the value of 'nhrpCacheType' is 'administrativelyAdded') then false(2) will be returned. This indicates that the value of 'nhrpCacheHoldingTime' is undefined because this row could possibly be backed up in nonvolatile storage
-            	**type**\:  bool
-            
-            .. attribute:: nhrpcachenbmaaddr
-            
-            	The value of the NBMA subnetwork address of the next hop
+            	The value of the internetwork address of the next hop
             	**type**\:  str
             
             	**length:** 0..64
@@ -252,12 +281,43 @@ class NHRPMIB(Entity):
             	The NBMA address type. The value of this object indicates how to interpret the values of nhrpCacheNbmaAddr and nhrpCacheNbmaSubaddr
             	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
+            .. attribute:: nhrpcachenbmaaddr
+            
+            	The value of the NBMA subnetwork address of the next hop
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
             .. attribute:: nhrpcachenbmasubaddr
             
             	The value of the NBMA subaddress of the next hop. If there is no subaddress concept for the NBMA address family, this value will be a zero\-length OCTET STRING
             	**type**\:  str
             
             	**length:** 0..64
+            
+            .. attribute:: nhrpcachetype
+            
+            	An indication of how this cache entry was created. The values are\:  'other(1)'                   The entry was added by some                              other means.  'register(2)'                In a server, added based on a                              client registration.  'resolveAuthoritative(3)'    In a client, added based on                              receiving an Authoritative                              NHRP Resolution Reply.     'resolveNonauthoritative(4)' In a client, added based on                              receiving a Nonauthoritative                              NHRP Resolution Reply.  'transit(5)'                 In a transit server, added by                              examining a forwarded NHRP                              packet.  'administrativelyAdded(6)'   In a client or server,                              manually added by the                              administrator. The                              StorageType of this entry is                              reflected in                              'nhrpCacheStorageType'.  'atmarp(7)'                  The entry was added due to an                              ATMARP.  'scsp(8)'                    The entry was added due to                              SCSP.   When the entry is under creation using the nhrpCacheRowStatus column, the only value that can be specified by the administrator is 'administrativelyAdded'. Attempting to set any other value will cause an 'inconsistentValue' error.  The value cannot be modified once the entry is active
+            	**type**\:   :py:class:`Nhrpcachetype <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachetype>`
+            
+            .. attribute:: nhrpcachestate
+            
+            	An indication of the state of this entry. The values are\:  'incomplete(1)' The client has sent a NHRP Resolution                 Request but has not yet received the                 NHRP Resolution Reply.   'ackReply(2)'   For a client or server, this is a                 cached valid mapping.  'nakReply(3)'   For a client or server, this is a                 cached NAK mapping
+            	**type**\:   :py:class:`Nhrpcachestate <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachestate>`
+            
+            .. attribute:: nhrpcacheholdingtimevalid
+            
+            	True(1) is returned if the value of 'nhrpCacheType' is not 'administrativelyAdded'.  Since the value of 'nhrpCacheType' was not configured by a user, the value of 'nhrpCacheHoldingTime' is considered valid.  In other words, the value of 'nhrpCacheHoldingTime' represents the Holding Time for the cache Entry.  If 'nhrpCacheType has been configured by a user, (i.e. the value of 'nhrpCacheType' is 'administrativelyAdded') then false(2) will be returned. This indicates that the value of 'nhrpCacheHoldingTime' is undefined because this row could possibly be backed up in nonvolatile storage
+            	**type**\:  bool
+            
+            .. attribute:: nhrpcacheholdingtime
+            
+            	If the value of 'nhrpCacheHoldingTimeValid is true(1) then this object represents the number of seconds that the cache entry will remain in this table.  When this value reaches 0 (zero) the row should be deleted.  If the value of 'nhrpCacheHoldingTimeValid is false(2) then this object is undefined
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            	**units**\: seconds
             
             .. attribute:: nhrpcachenegotiatedmtu
             
@@ -266,13 +326,6 @@ class NHRPMIB(Entity):
             
             	**range:** 0..65535
             
-            .. attribute:: nhrpcachenexthopinternetworkaddr
-            
-            	The value of the internetwork address of the next hop
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
             .. attribute:: nhrpcachepreference
             
             	An object which reflects the Preference value of the Client Information Entry (CIE).  Zero or more Client Information Entries (CIEs) may be included in the NHRP Packet.  One of the fields in the CIE is the Preference.  For a complete description of the CIE, refer to Section 5.2.0.1 of  RFC 2332 [17]
@@ -280,32 +333,15 @@ class NHRPMIB(Entity):
             
             	**range:** 0..255
             
-            .. attribute:: nhrpcacheprefixlength
-            
-            	The number of bits that define the internetwork layer prefix associated with the nhrpCacheInternetworkAddr
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: nhrpcacherowstatus
-            
-            	An object that allows entries in this table to be created and deleted using the RowStatus convention
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: nhrpcachestate
-            
-            	An indication of the state of this entry. The values are\:  'incomplete(1)' The client has sent a NHRP Resolution                 Request but has not yet received the                 NHRP Resolution Reply.   'ackReply(2)'   For a client or server, this is a                 cached valid mapping.  'nakReply(3)'   For a client or server, this is a                 cached NAK mapping
-            	**type**\:   :py:class:`Nhrpcachestate <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachestate>`
-            
             .. attribute:: nhrpcachestoragetype
             
             	This value only has meaning when the 'nhrpCacheType' has the value of 'administrativelyAdded'.  When the row is created due to being 'administrativelyAdded', this object reflects whether this row is kept in volatile storage and lost upon reboot or if this row is backed up by non\-volatile or permanent storage.  If the value of 'nhrpCacheType' has a value which is not 'administrativelyAdded, then the value of this object is 'other(1)'
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
-            .. attribute:: nhrpcachetype
+            .. attribute:: nhrpcacherowstatus
             
-            	An indication of how this cache entry was created. The values are\:  'other(1)'                   The entry was added by some                              other means.  'register(2)'                In a server, added based on a                              client registration.  'resolveAuthoritative(3)'    In a client, added based on                              receiving an Authoritative                              NHRP Resolution Reply.     'resolveNonauthoritative(4)' In a client, added based on                              receiving a Nonauthoritative                              NHRP Resolution Reply.  'transit(5)'                 In a transit server, added by                              examining a forwarded NHRP                              packet.  'administrativelyAdded(6)'   In a client or server,                              manually added by the                              administrator. The                              StorageType of this entry is                              reflected in                              'nhrpCacheStorageType'.  'atmarp(7)'                  The entry was added due to an                              ATMARP.  'scsp(8)'                    The entry was added due to                              SCSP.   When the entry is under creation using the nhrpCacheRowStatus column, the only value that can be specified by the administrator is 'administrativelyAdded'. Attempting to set any other value will cause an 'inconsistentValue' error.  The value cannot be modified once the entry is active
-            	**type**\:   :py:class:`Nhrpcachetype <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpcachetable.Nhrpcacheentry.Nhrpcachetype>`
+            	An object that allows entries in this table to be created and deleted using the RowStatus convention
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -332,36 +368,36 @@ class NHRPMIB(Entity):
 
                 self.nhrpcacheindex = YLeaf(YType.uint32, "nhrpCacheIndex")
 
-                self.nhrpcacheholdingtime = YLeaf(YType.uint32, "nhrpCacheHoldingTime")
-
-                self.nhrpcacheholdingtimevalid = YLeaf(YType.boolean, "nhrpCacheHoldingTimeValid")
-
-                self.nhrpcachenbmaaddr = YLeaf(YType.str, "nhrpCacheNbmaAddr")
-
-                self.nhrpcachenbmaaddrtype = YLeaf(YType.enumeration, "nhrpCacheNbmaAddrType")
-
-                self.nhrpcachenbmasubaddr = YLeaf(YType.str, "nhrpCacheNbmaSubaddr")
-
-                self.nhrpcachenegotiatedmtu = YLeaf(YType.int32, "nhrpCacheNegotiatedMtu")
+                self.nhrpcacheprefixlength = YLeaf(YType.int32, "nhrpCachePrefixLength")
 
                 self.nhrpcachenexthopinternetworkaddr = YLeaf(YType.str, "nhrpCacheNextHopInternetworkAddr")
 
-                self.nhrpcachepreference = YLeaf(YType.int32, "nhrpCachePreference")
+                self.nhrpcachenbmaaddrtype = YLeaf(YType.enumeration, "nhrpCacheNbmaAddrType")
 
-                self.nhrpcacheprefixlength = YLeaf(YType.int32, "nhrpCachePrefixLength")
+                self.nhrpcachenbmaaddr = YLeaf(YType.str, "nhrpCacheNbmaAddr")
 
-                self.nhrpcacherowstatus = YLeaf(YType.enumeration, "nhrpCacheRowStatus")
+                self.nhrpcachenbmasubaddr = YLeaf(YType.str, "nhrpCacheNbmaSubaddr")
+
+                self.nhrpcachetype = YLeaf(YType.enumeration, "nhrpCacheType")
 
                 self.nhrpcachestate = YLeaf(YType.enumeration, "nhrpCacheState")
 
+                self.nhrpcacheholdingtimevalid = YLeaf(YType.boolean, "nhrpCacheHoldingTimeValid")
+
+                self.nhrpcacheholdingtime = YLeaf(YType.uint32, "nhrpCacheHoldingTime")
+
+                self.nhrpcachenegotiatedmtu = YLeaf(YType.int32, "nhrpCacheNegotiatedMtu")
+
+                self.nhrpcachepreference = YLeaf(YType.int32, "nhrpCachePreference")
+
                 self.nhrpcachestoragetype = YLeaf(YType.enumeration, "nhrpCacheStorageType")
 
-                self.nhrpcachetype = YLeaf(YType.enumeration, "nhrpCacheType")
+                self.nhrpcacherowstatus = YLeaf(YType.enumeration, "nhrpCacheRowStatus")
                 self._segment_path = lambda: "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + self.nhrpcacheinternetworkaddrtype.get() + "']" + "[nhrpCacheInternetworkAddr='" + self.nhrpcacheinternetworkaddr.get() + "']" + "[ifIndex='" + self.ifindex.get() + "']" + "[nhrpCacheIndex='" + self.nhrpcacheindex.get() + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpCacheTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpcachetable.Nhrpcacheentry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpcacheholdingtime', 'nhrpcacheholdingtimevalid', 'nhrpcachenbmaaddr', 'nhrpcachenbmaaddrtype', 'nhrpcachenbmasubaddr', 'nhrpcachenegotiatedmtu', 'nhrpcachenexthopinternetworkaddr', 'nhrpcachepreference', 'nhrpcacheprefixlength', 'nhrpcacherowstatus', 'nhrpcachestate', 'nhrpcachestoragetype', 'nhrpcachetype'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpcachetable.Nhrpcacheentry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpcacheprefixlength', 'nhrpcachenexthopinternetworkaddr', 'nhrpcachenbmaaddrtype', 'nhrpcachenbmaaddr', 'nhrpcachenbmasubaddr', 'nhrpcachetype', 'nhrpcachestate', 'nhrpcacheholdingtimevalid', 'nhrpcacheholdingtime', 'nhrpcachenegotiatedmtu', 'nhrpcachepreference', 'nhrpcachestoragetype', 'nhrpcacherowstatus'], name, value)
 
             class Nhrpcachestate(Enum):
                 """
@@ -500,16 +536,14 @@ class NHRPMIB(Entity):
 
 
 
-    class Nhrpclientnhstable(Entity):
+    class Nhrppurgereqtable(Entity):
         """
-        A table of NHSes that are available for use by this NHC
-        (client). By default, the agent will add an entry to this
-        table that corresponds to the client's default router.
+        This table will track Purge Request Information.
         
-        .. attribute:: nhrpclientnhsentry
+        .. attribute:: nhrppurgereqentry
         
-        	An NHS that may be used by an NHC
-        	**type**\: list of    :py:class:`Nhrpclientnhsentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry>`
+        	Information regarding a Purge Request
+        	**type**\: list of    :py:class:`Nhrppurgereqentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry>`
         
         
 
@@ -519,80 +553,61 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclientnhstable, self).__init__()
+            super(NHRPMIB.Nhrppurgereqtable, self).__init__()
 
-            self.yang_name = "nhrpClientNhsTable"
+            self.yang_name = "nhrpPurgeReqTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientNhsEntry" : ("nhrpclientnhsentry", NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry)}
+            self._child_list_classes = {"nhrpPurgeReqEntry" : ("nhrppurgereqentry", NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry)}
 
-            self.nhrpclientnhsentry = YList(self)
-            self._segment_path = lambda: "nhrpClientNhsTable"
+            self.nhrppurgereqentry = YList(self)
+            self._segment_path = lambda: "nhrpPurgeReqTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclientnhstable, [], name, value)
+            self._perform_setattr(NHRPMIB.Nhrppurgereqtable, [], name, value)
 
 
-        class Nhrpclientnhsentry(Entity):
+        class Nhrppurgereqentry(Entity):
             """
-            An NHS that may be used by an NHC.
+            Information regarding a Purge Request.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrppurgeindex  <key>
             
-            	
+            	An index for this entry that has local significance within the scope of this table
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+            .. attribute:: nhrppurgecacheidentifier
             
-            .. attribute:: nhrpclientnhsindex  <key>
-            
-            	An identifier for an NHS available to an NHC
+            	This object identifies which row in 'nhrpCacheTable' is being purged.  This object should have the same value as the 'nhrpCacheIndex' in the 'nhrpCacheTable'
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: nhrpclientnhsinternetworkaddr
+            .. attribute:: nhrppurgeprefixlength
             
-            	The value of the destination internetwork layer address of the NHRP server represented by this    entry.  If this value is not known, this will be a zero\-length OCTET STRING
-            	**type**\:  str
+            	In the case of NHRP Purge Requests, this specifies the equivalence class of addresses which match the first 'Prefix Length' bit positions of the Client Protocol Address specified in the Client Information Entry (CIE)
+            	**type**\:  int
             
-            	**length:** 0..64
+            	**range:** 0..255
             
-            .. attribute:: nhrpclientnhsinternetworkaddrtype
+            .. attribute:: nhrppurgerequestid
             
-            	The type of the internetwork layer address of the NHRP server represented in this entry. This object indicates how the value of nhrpClientNhsInternetworkAddr is to be interpreted
-            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            	The Request ID used in the purge request
+            	**type**\:  int
             
-            .. attribute:: nhrpclientnhsinuse
+            	**range:** 0..4294967295
             
-            	An indication of whether this NHS is in use by the NHC
+            .. attribute:: nhrppurgereplyexpected
+            
+            	An indication of whether this Purge Request has the 'N' Bit cleared (off)
             	**type**\:  bool
             
-            .. attribute:: nhrpclientnhsnbmaaddr
-            
-            	The NBMA subnetwork address of the NHS. The type of the address is indicated by the corresponding value of nhrpClientNhsNbmaAddrType
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpclientnhsnbmaaddrtype
-            
-            	The type of the NBMA subnetwork address of the NHRP Server represented by this entry. This object indicates how the values of nhrpClientNhsNbmaAddr and nhrpClientNhsNbmaSubaddr are to be interpreted
-            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
-            
-            .. attribute:: nhrpclientnhsnbmasubaddr
-            
-            	The NBMA subaddress of the NHS. For NMBA address families that do not have the concept of subaddress,      this will be a zero\-length OCTET STRING
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpclientnhsrowstatus
+            .. attribute:: nhrppurgerowstatus
             
             	An object that allows entries in this table to be created and deleted using the RowStatus convention
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
@@ -605,37 +620,224 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, self).__init__()
+                super(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, self).__init__()
 
-                self.yang_name = "nhrpClientNhsEntry"
-                self.yang_parent_name = "nhrpClientNhsTable"
+                self.yang_name = "nhrpPurgeReqEntry"
+                self.yang_parent_name = "nhrpPurgeReqTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
+                self.nhrppurgeindex = YLeaf(YType.uint32, "nhrpPurgeIndex")
 
-                self.nhrpclientnhsindex = YLeaf(YType.uint32, "nhrpClientNhsIndex")
+                self.nhrppurgecacheidentifier = YLeaf(YType.uint32, "nhrpPurgeCacheIdentifier")
 
-                self.nhrpclientnhsinternetworkaddr = YLeaf(YType.str, "nhrpClientNhsInternetworkAddr")
+                self.nhrppurgeprefixlength = YLeaf(YType.int32, "nhrpPurgePrefixLength")
 
-                self.nhrpclientnhsinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsInternetworkAddrType")
+                self.nhrppurgerequestid = YLeaf(YType.uint32, "nhrpPurgeRequestID")
 
-                self.nhrpclientnhsinuse = YLeaf(YType.boolean, "nhrpClientNhsInUse")
+                self.nhrppurgereplyexpected = YLeaf(YType.boolean, "nhrpPurgeReplyExpected")
 
-                self.nhrpclientnhsnbmaaddr = YLeaf(YType.str, "nhrpClientNhsNbmaAddr")
-
-                self.nhrpclientnhsnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsNbmaAddrType")
-
-                self.nhrpclientnhsnbmasubaddr = YLeaf(YType.str, "nhrpClientNhsNbmaSubaddr")
-
-                self.nhrpclientnhsrowstatus = YLeaf(YType.enumeration, "nhrpClientNhsRowStatus")
-                self._segment_path = lambda: "nhrpClientNhsEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']" + "[nhrpClientNhsIndex='" + self.nhrpclientnhsindex.get() + "']"
-                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/%s" % self._segment_path()
+                self.nhrppurgerowstatus = YLeaf(YType.enumeration, "nhrpPurgeRowStatus")
+                self._segment_path = lambda: "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + self.nhrppurgeindex.get() + "']"
+                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, ['nhrpclientindex', 'nhrpclientnhsindex', 'nhrpclientnhsinternetworkaddr', 'nhrpclientnhsinternetworkaddrtype', 'nhrpclientnhsinuse', 'nhrpclientnhsnbmaaddr', 'nhrpclientnhsnbmaaddrtype', 'nhrpclientnhsnbmasubaddr', 'nhrpclientnhsrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, ['nhrppurgeindex', 'nhrppurgecacheidentifier', 'nhrppurgeprefixlength', 'nhrppurgerequestid', 'nhrppurgereplyexpected', 'nhrppurgerowstatus'], name, value)
+
+
+    class Nhrpclienttable(Entity):
+        """
+        Information about NHRP clients (NHCs) managed by this
+        agent.
+        
+        .. attribute:: nhrpcliententry
+        
+        	Information about a single NHC
+        	**type**\: list of    :py:class:`Nhrpcliententry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+        
+        
+
+        """
+
+        _prefix = 'NHRP-MIB'
+        _revision = '1999-08-26'
+
+        def __init__(self):
+            super(NHRPMIB.Nhrpclienttable, self).__init__()
+
+            self.yang_name = "nhrpClientTable"
+            self.yang_parent_name = "NHRP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"nhrpClientEntry" : ("nhrpcliententry", NHRPMIB.Nhrpclienttable.Nhrpcliententry)}
+
+            self.nhrpcliententry = YList(self)
+            self._segment_path = lambda: "nhrpClientTable"
+            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NHRPMIB.Nhrpclienttable, [], name, value)
+
+
+        class Nhrpcliententry(Entity):
+            """
+            Information about a single NHC.
+            
+            .. attribute:: nhrpclientindex  <key>
+            
+            	An identifier for the NHRP client that is unique within the scope of this agent.  The 'nhrpNextIndex' value should be consulted (read), prior to creating a row in this table, and the value returned from reading 'nhrpNextIndex' should be used as this object's value
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: nhrpclientinternetworkaddrtype
+            
+            	The type of the internetwork layer address of this client. This object indicates how the value of nhrpClientInternetworkAddr is to be interpreted
+            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            .. attribute:: nhrpclientinternetworkaddr
+            
+            	The value of the internetwork layer address of this client
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientnbmaaddrtype
+            
+            	The type of the NBMA subnetwork address of this client. This object indicates how the values of nhrpClientNbmaAddr and nhrpClientNbmaSubaddr are to be interpreted
+            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            .. attribute:: nhrpclientnbmaaddr
+            
+            	The NBMA subnetwork address of this client
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientnbmasubaddr
+            
+            	The NBMA subaddress of this client. For NBMA address families without a subaddress concept, this will be a zero\-length OCTET STRING
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientinitialrequesttimeout
+            
+            	The number of seconds that the client will wait before timing out an NHRP initial request.  This object only has meaning for the initial timeout period
+            	**type**\:  int
+            
+            	**range:** 1..900
+            
+            	**units**\: seconds
+            
+            .. attribute:: nhrpclientregistrationrequestretries
+            
+            	The number of times the client will retry the registration request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: nhrpclientresolutionrequestretries
+            
+            	The number of times the client will retry the resolution request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: nhrpclientpurgerequestretries
+            
+            	The number of times the client will retry a purge request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: nhrpclientdefaultmtu
+            
+            	The default maximum transmission unit (MTU) of the LIS/LAG which this client should use. This object will be initialized by the agent to the default MTU of the LIS/LAG (which is 9180) unless a different MTU value is specified during creation of this Client
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: nhrpclientholdtime
+            
+            	The hold time the client will register
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: nhrpclientrequestid
+            
+            	The Request ID used to register this client with its server. According to Section 5.2.3 of the NHRP Specification, RFC 2332 [17], the Request ID must be kept in non\-volatile storage, so that if an NHC crashes and  re\-initializes, it will use a different  Request ID during the registration process when reregistering with the same NHS
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstoragetype
+            
+            	This object defines whether this row is kept in volatile storage and lost upon a Client crash or reboot situation, or if this row is backed up by nonvolatile or permanent storage
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: nhrpclientrowstatus
+            
+            	An object that allows entries in this table to be created and deleted using the RowStatus convention
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'NHRP-MIB'
+            _revision = '1999-08-26'
+
+            def __init__(self):
+                super(NHRPMIB.Nhrpclienttable.Nhrpcliententry, self).__init__()
+
+                self.yang_name = "nhrpClientEntry"
+                self.yang_parent_name = "nhrpClientTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.nhrpclientindex = YLeaf(YType.uint32, "nhrpClientIndex")
+
+                self.nhrpclientinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientInternetworkAddrType")
+
+                self.nhrpclientinternetworkaddr = YLeaf(YType.str, "nhrpClientInternetworkAddr")
+
+                self.nhrpclientnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNbmaAddrType")
+
+                self.nhrpclientnbmaaddr = YLeaf(YType.str, "nhrpClientNbmaAddr")
+
+                self.nhrpclientnbmasubaddr = YLeaf(YType.str, "nhrpClientNbmaSubaddr")
+
+                self.nhrpclientinitialrequesttimeout = YLeaf(YType.int32, "nhrpClientInitialRequestTimeout")
+
+                self.nhrpclientregistrationrequestretries = YLeaf(YType.int32, "nhrpClientRegistrationRequestRetries")
+
+                self.nhrpclientresolutionrequestretries = YLeaf(YType.int32, "nhrpClientResolutionRequestRetries")
+
+                self.nhrpclientpurgerequestretries = YLeaf(YType.int32, "nhrpClientPurgeRequestRetries")
+
+                self.nhrpclientdefaultmtu = YLeaf(YType.uint32, "nhrpClientDefaultMtu")
+
+                self.nhrpclientholdtime = YLeaf(YType.uint32, "nhrpClientHoldTime")
+
+                self.nhrpclientrequestid = YLeaf(YType.uint32, "nhrpClientRequestID")
+
+                self.nhrpclientstoragetype = YLeaf(YType.enumeration, "nhrpClientStorageType")
+
+                self.nhrpclientrowstatus = YLeaf(YType.enumeration, "nhrpClientRowStatus")
+                self._segment_path = lambda: "nhrpClientEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']"
+                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NHRPMIB.Nhrpclienttable.Nhrpcliententry, ['nhrpclientindex', 'nhrpclientinternetworkaddrtype', 'nhrpclientinternetworkaddr', 'nhrpclientnbmaaddrtype', 'nhrpclientnbmaaddr', 'nhrpclientnbmasubaddr', 'nhrpclientinitialrequesttimeout', 'nhrpclientregistrationrequestretries', 'nhrpclientresolutionrequestretries', 'nhrpclientpurgerequestretries', 'nhrpclientdefaultmtu', 'nhrpclientholdtime', 'nhrpclientrequestid', 'nhrpclientstoragetype', 'nhrpclientrowstatus'], name, value)
 
 
     class Nhrpclientregistrationtable(Entity):
@@ -695,20 +897,20 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: nhrpclientregrowstatus
+            .. attribute:: nhrpclientreguniqueness
             
-            	An object that allows entries in this table to be created and deleted using the RowStatus convention
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	The Uniqueness indicator for this Registration Request. If this object has the value of requestUnique(1), then the Uniqueness bit is set in the the NHRP Registration Request represented by this row.  The value cannot be changed once the row is created
+            	**type**\:   :py:class:`Nhrpclientreguniqueness <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry.Nhrpclientreguniqueness>`
             
             .. attribute:: nhrpclientregstate
             
             	The registration state of this client. The values are\: 'other(1)'             The state of the registration                        request is not one of                        'registering',                        'ackRegisterReply' or                        'nakRegisterReply'.  'registering(2)'        A registration request has                         been issued and a registration                         reply is expected.  'ackRegisterReply(3)'   A positive registration reply                         has been received.  'nakRegisterReply(4)'   The client has received a                         negative registration                         reply (NAK)
             	**type**\:   :py:class:`Nhrpclientregstate <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry.Nhrpclientregstate>`
             
-            .. attribute:: nhrpclientreguniqueness
+            .. attribute:: nhrpclientregrowstatus
             
-            	The Uniqueness indicator for this Registration Request. If this object has the value of requestUnique(1), then the Uniqueness bit is set in the the NHRP Registration Request represented by this row.  The value cannot be changed once the row is created
-            	**type**\:   :py:class:`Nhrpclientreguniqueness <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry.Nhrpclientreguniqueness>`
+            	An object that allows entries in this table to be created and deleted using the RowStatus convention
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -731,16 +933,16 @@ class NHRPMIB(Entity):
 
                 self.nhrpclientregindex = YLeaf(YType.uint32, "nhrpClientRegIndex")
 
-                self.nhrpclientregrowstatus = YLeaf(YType.enumeration, "nhrpClientRegRowStatus")
+                self.nhrpclientreguniqueness = YLeaf(YType.enumeration, "nhrpClientRegUniqueness")
 
                 self.nhrpclientregstate = YLeaf(YType.enumeration, "nhrpClientRegState")
 
-                self.nhrpclientreguniqueness = YLeaf(YType.enumeration, "nhrpClientRegUniqueness")
+                self.nhrpclientregrowstatus = YLeaf(YType.enumeration, "nhrpClientRegRowStatus")
                 self._segment_path = lambda: "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']" + "[nhrpClientRegIndex='" + self.nhrpclientregindex.get() + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientRegistrationTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry, ['nhrpclientindex', 'nhrpclientregindex', 'nhrpclientregrowstatus', 'nhrpclientregstate', 'nhrpclientreguniqueness'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpclientregistrationtable.Nhrpclientregistrationentry, ['nhrpclientindex', 'nhrpclientregindex', 'nhrpclientreguniqueness', 'nhrpclientregstate', 'nhrpclientregrowstatus'], name, value)
 
             class Nhrpclientregstate(Enum):
                 """
@@ -819,6 +1021,144 @@ class NHRPMIB(Entity):
 
 
 
+    class Nhrpclientnhstable(Entity):
+        """
+        A table of NHSes that are available for use by this NHC
+        (client). By default, the agent will add an entry to this
+        table that corresponds to the client's default router.
+        
+        .. attribute:: nhrpclientnhsentry
+        
+        	An NHS that may be used by an NHC
+        	**type**\: list of    :py:class:`Nhrpclientnhsentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry>`
+        
+        
+
+        """
+
+        _prefix = 'NHRP-MIB'
+        _revision = '1999-08-26'
+
+        def __init__(self):
+            super(NHRPMIB.Nhrpclientnhstable, self).__init__()
+
+            self.yang_name = "nhrpClientNhsTable"
+            self.yang_parent_name = "NHRP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"nhrpClientNhsEntry" : ("nhrpclientnhsentry", NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry)}
+
+            self.nhrpclientnhsentry = YList(self)
+            self._segment_path = lambda: "nhrpClientNhsTable"
+            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(NHRPMIB.Nhrpclientnhstable, [], name, value)
+
+
+        class Nhrpclientnhsentry(Entity):
+            """
+            An NHS that may be used by an NHC.
+            
+            .. attribute:: nhrpclientindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+            
+            .. attribute:: nhrpclientnhsindex  <key>
+            
+            	An identifier for an NHS available to an NHC
+            	**type**\:  int
+            
+            	**range:** 1..4294967295
+            
+            .. attribute:: nhrpclientnhsinternetworkaddrtype
+            
+            	The type of the internetwork layer address of the NHRP server represented in this entry. This object indicates how the value of nhrpClientNhsInternetworkAddr is to be interpreted
+            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            .. attribute:: nhrpclientnhsinternetworkaddr
+            
+            	The value of the destination internetwork layer address of the NHRP server represented by this    entry.  If this value is not known, this will be a zero\-length OCTET STRING
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientnhsnbmaaddrtype
+            
+            	The type of the NBMA subnetwork address of the NHRP Server represented by this entry. This object indicates how the values of nhrpClientNhsNbmaAddr and nhrpClientNhsNbmaSubaddr are to be interpreted
+            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            .. attribute:: nhrpclientnhsnbmaaddr
+            
+            	The NBMA subnetwork address of the NHS. The type of the address is indicated by the corresponding value of nhrpClientNhsNbmaAddrType
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientnhsnbmasubaddr
+            
+            	The NBMA subaddress of the NHS. For NMBA address families that do not have the concept of subaddress,      this will be a zero\-length OCTET STRING
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: nhrpclientnhsinuse
+            
+            	An indication of whether this NHS is in use by the NHC
+            	**type**\:  bool
+            
+            .. attribute:: nhrpclientnhsrowstatus
+            
+            	An object that allows entries in this table to be created and deleted using the RowStatus convention
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'NHRP-MIB'
+            _revision = '1999-08-26'
+
+            def __init__(self):
+                super(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, self).__init__()
+
+                self.yang_name = "nhrpClientNhsEntry"
+                self.yang_parent_name = "nhrpClientNhsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
+
+                self.nhrpclientnhsindex = YLeaf(YType.uint32, "nhrpClientNhsIndex")
+
+                self.nhrpclientnhsinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsInternetworkAddrType")
+
+                self.nhrpclientnhsinternetworkaddr = YLeaf(YType.str, "nhrpClientNhsInternetworkAddr")
+
+                self.nhrpclientnhsnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNhsNbmaAddrType")
+
+                self.nhrpclientnhsnbmaaddr = YLeaf(YType.str, "nhrpClientNhsNbmaAddr")
+
+                self.nhrpclientnhsnbmasubaddr = YLeaf(YType.str, "nhrpClientNhsNbmaSubaddr")
+
+                self.nhrpclientnhsinuse = YLeaf(YType.boolean, "nhrpClientNhsInUse")
+
+                self.nhrpclientnhsrowstatus = YLeaf(YType.enumeration, "nhrpClientNhsRowStatus")
+                self._segment_path = lambda: "nhrpClientNhsEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']" + "[nhrpClientNhsIndex='" + self.nhrpclientnhsindex.get() + "']"
+                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NHRPMIB.Nhrpclientnhstable.Nhrpclientnhsentry, ['nhrpclientindex', 'nhrpclientnhsindex', 'nhrpclientnhsinternetworkaddrtype', 'nhrpclientnhsinternetworkaddr', 'nhrpclientnhsnbmaaddrtype', 'nhrpclientnhsnbmaaddr', 'nhrpclientnhsnbmasubaddr', 'nhrpclientnhsinuse', 'nhrpclientnhsrowstatus'], name, value)
+
+
     class Nhrpclientstattable(Entity):
         """
         This table contains statistics collected by NHRP
@@ -867,30 +1207,121 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpclientindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
             
-            .. attribute:: nhrpclientstatdiscontinuitytime
+            .. attribute:: nhrpclientstattxresolvereq
             
-            	The value of sysUpTime on the most recent occasion at which any one or more of this Client's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem or the NHRP Client re\-initialization associated with this entry, then this object contains a zero value
+            	The number of NHRP Resolution Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxerrauthenticationfailure
+            .. attribute:: nhrpclientstatrxresolvereplyack
             
-            	The number of NHRP Error Indication packets received by this client with the error code 'Authentication Failure'.      Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of positively acknowledged NHRP Resolution Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxerrhopcountexceeded
+            .. attribute:: nhrpclientstatrxresolvereplynakprohibited
             
-            	The number of NHRP Error Indication packets received by this client with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Administratively Prohibited'.   Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxerrinvalidextension
+            .. attribute:: nhrpclientstatrxresolvereplynakinsufresources
             
-            	The number of NHRP Error Indication packets received by this client with the error code 'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxresolvereplynaknobinding
+            
+            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'No Internetworking Layer Address to NBMA Address Binding Exists'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxresolvereplynaknotunique
+            
+            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Binding Exists But Is Not Unique'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstattxregisterreq
+            
+            	The number of NHRP Registration Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxregisterack
+            
+            	The number of positively acknowledged NHRP Registration Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxregisternakprohibited
+            
+            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxregisternakinsufresources
+            
+            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxregisternakalreadyreg
+            
+            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Unique Internetworking Layer Address Already Registered'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxpurgereq
+            
+            	The number of NHRP Purge Requests received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstattxpurgereq
+            
+            	The number of NHRP Purge Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxpurgereply
+            
+            	The number of NHRP Purge Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstattxpurgereply
+            
+            	The number of NHRP Purge Replies transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstattxerrorindication
+            
+            	The number of NHRP Error Indication packets transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpclientstatrxerrunrecognizedextension
+            
+            	The number of NHRP Error Indication packets received by this client with the error code 'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -923,121 +1354,30 @@ class NHRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxerrunrecognizedextension
+            .. attribute:: nhrpclientstatrxerrinvalidextension
             
-            	The number of NHRP Error Indication packets received by this client with the error code 'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this client with the error code 'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxpurgereply
+            .. attribute:: nhrpclientstatrxerrauthenticationfailure
             
-            	The number of NHRP Purge Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this client with the error code 'Authentication Failure'.      Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxpurgereq
+            .. attribute:: nhrpclientstatrxerrhopcountexceeded
             
-            	The number of NHRP Purge Requests received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this client with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpclientstatrxregisterack
+            .. attribute:: nhrpclientstatdiscontinuitytime
             
-            	The number of positively acknowledged NHRP Registration Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxregisternakalreadyreg
-            
-            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Unique Internetworking Layer Address Already Registered'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxregisternakinsufresources
-            
-            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxregisternakprohibited
-            
-            	The number of NAKed NHRP Registration Replies received by this client that contained the code indicating 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxresolvereplyack
-            
-            	The number of positively acknowledged NHRP Resolution Replies received by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxresolvereplynakinsufresources
-            
-            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxresolvereplynaknobinding
-            
-            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'No Internetworking Layer Address to NBMA Address Binding Exists'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxresolvereplynaknotunique
-            
-            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Binding Exists But Is Not Unique'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstatrxresolvereplynakprohibited
-            
-            	The number of NAKed NHRP Resolution Replies received by this client that contained the code indicating 'Administratively Prohibited'.   Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstattxerrorindication
-            
-            	The number of NHRP Error Indication packets transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstattxpurgereply
-            
-            	The number of NHRP Purge Replies transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstattxpurgereq
-            
-            	The number of NHRP Purge Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstattxregisterreq
-            
-            	The number of NHRP Registration Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientstattxresolvereq
-            
-            	The number of NHRP Resolution Requests transmitted by this client.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Client re\-initialization and at other times as indicated by the value of nhrpClientStatDiscontinuityTime
+            	The value of sysUpTime on the most recent occasion at which any one or more of this Client's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the local management subsystem or the NHRP Client re\-initialization associated with this entry, then this object contains a zero value
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1061,13 +1401,39 @@ class NHRPMIB(Entity):
 
                 self.nhrpclientindex = YLeaf(YType.str, "nhrpClientIndex")
 
-                self.nhrpclientstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpClientStatDiscontinuityTime")
+                self.nhrpclientstattxresolvereq = YLeaf(YType.uint32, "nhrpClientStatTxResolveReq")
 
-                self.nhrpclientstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpClientStatRxErrAuthenticationFailure")
+                self.nhrpclientstatrxresolvereplyack = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyAck")
 
-                self.nhrpclientstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpClientStatRxErrHopCountExceeded")
+                self.nhrpclientstatrxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakProhibited")
 
-                self.nhrpclientstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpClientStatRxErrInvalidExtension")
+                self.nhrpclientstatrxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakInsufResources")
+
+                self.nhrpclientstatrxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNoBinding")
+
+                self.nhrpclientstatrxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNotUnique")
+
+                self.nhrpclientstattxregisterreq = YLeaf(YType.uint32, "nhrpClientStatTxRegisterReq")
+
+                self.nhrpclientstatrxregisterack = YLeaf(YType.uint32, "nhrpClientStatRxRegisterAck")
+
+                self.nhrpclientstatrxregisternakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakProhibited")
+
+                self.nhrpclientstatrxregisternakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakInsufResources")
+
+                self.nhrpclientstatrxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakAlreadyReg")
+
+                self.nhrpclientstatrxpurgereq = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReq")
+
+                self.nhrpclientstattxpurgereq = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReq")
+
+                self.nhrpclientstatrxpurgereply = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReply")
+
+                self.nhrpclientstattxpurgereply = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReply")
+
+                self.nhrpclientstattxerrorindication = YLeaf(YType.uint32, "nhrpClientStatTxErrorIndication")
+
+                self.nhrpclientstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpClientStatRxErrUnrecognizedExtension")
 
                 self.nhrpclientstatrxerrloopdetected = YLeaf(YType.uint32, "nhrpClientStatRxErrLoopDetected")
 
@@ -1077,55 +1443,29 @@ class NHRPMIB(Entity):
 
                 self.nhrpclientstatrxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpClientStatRxErrSduSizeExceeded")
 
-                self.nhrpclientstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpClientStatRxErrUnrecognizedExtension")
+                self.nhrpclientstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpClientStatRxErrInvalidExtension")
 
-                self.nhrpclientstatrxpurgereply = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReply")
+                self.nhrpclientstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpClientStatRxErrAuthenticationFailure")
 
-                self.nhrpclientstatrxpurgereq = YLeaf(YType.uint32, "nhrpClientStatRxPurgeReq")
+                self.nhrpclientstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpClientStatRxErrHopCountExceeded")
 
-                self.nhrpclientstatrxregisterack = YLeaf(YType.uint32, "nhrpClientStatRxRegisterAck")
-
-                self.nhrpclientstatrxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakAlreadyReg")
-
-                self.nhrpclientstatrxregisternakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakInsufResources")
-
-                self.nhrpclientstatrxregisternakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxRegisterNakProhibited")
-
-                self.nhrpclientstatrxresolvereplyack = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyAck")
-
-                self.nhrpclientstatrxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakInsufResources")
-
-                self.nhrpclientstatrxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNoBinding")
-
-                self.nhrpclientstatrxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakNotUnique")
-
-                self.nhrpclientstatrxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpClientStatRxResolveReplyNakProhibited")
-
-                self.nhrpclientstattxerrorindication = YLeaf(YType.uint32, "nhrpClientStatTxErrorIndication")
-
-                self.nhrpclientstattxpurgereply = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReply")
-
-                self.nhrpclientstattxpurgereq = YLeaf(YType.uint32, "nhrpClientStatTxPurgeReq")
-
-                self.nhrpclientstattxregisterreq = YLeaf(YType.uint32, "nhrpClientStatTxRegisterReq")
-
-                self.nhrpclientstattxresolvereq = YLeaf(YType.uint32, "nhrpClientStatTxResolveReq")
+                self.nhrpclientstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpClientStatDiscontinuityTime")
                 self._segment_path = lambda: "nhrpClientStatEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry, ['nhrpclientindex', 'nhrpclientstatdiscontinuitytime', 'nhrpclientstatrxerrauthenticationfailure', 'nhrpclientstatrxerrhopcountexceeded', 'nhrpclientstatrxerrinvalidextension', 'nhrpclientstatrxerrloopdetected', 'nhrpclientstatrxerrprotoaddrunreachable', 'nhrpclientstatrxerrprotoerror', 'nhrpclientstatrxerrsdusizeexceeded', 'nhrpclientstatrxerrunrecognizedextension', 'nhrpclientstatrxpurgereply', 'nhrpclientstatrxpurgereq', 'nhrpclientstatrxregisterack', 'nhrpclientstatrxregisternakalreadyreg', 'nhrpclientstatrxregisternakinsufresources', 'nhrpclientstatrxregisternakprohibited', 'nhrpclientstatrxresolvereplyack', 'nhrpclientstatrxresolvereplynakinsufresources', 'nhrpclientstatrxresolvereplynaknobinding', 'nhrpclientstatrxresolvereplynaknotunique', 'nhrpclientstatrxresolvereplynakprohibited', 'nhrpclientstattxerrorindication', 'nhrpclientstattxpurgereply', 'nhrpclientstattxpurgereq', 'nhrpclientstattxregisterreq', 'nhrpclientstattxresolvereq'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpclientstattable.Nhrpclientstatentry, ['nhrpclientindex', 'nhrpclientstattxresolvereq', 'nhrpclientstatrxresolvereplyack', 'nhrpclientstatrxresolvereplynakprohibited', 'nhrpclientstatrxresolvereplynakinsufresources', 'nhrpclientstatrxresolvereplynaknobinding', 'nhrpclientstatrxresolvereplynaknotunique', 'nhrpclientstattxregisterreq', 'nhrpclientstatrxregisterack', 'nhrpclientstatrxregisternakprohibited', 'nhrpclientstatrxregisternakinsufresources', 'nhrpclientstatrxregisternakalreadyreg', 'nhrpclientstatrxpurgereq', 'nhrpclientstattxpurgereq', 'nhrpclientstatrxpurgereply', 'nhrpclientstattxpurgereply', 'nhrpclientstattxerrorindication', 'nhrpclientstatrxerrunrecognizedextension', 'nhrpclientstatrxerrloopdetected', 'nhrpclientstatrxerrprotoaddrunreachable', 'nhrpclientstatrxerrprotoerror', 'nhrpclientstatrxerrsdusizeexceeded', 'nhrpclientstatrxerrinvalidextension', 'nhrpclientstatrxerrauthenticationfailure', 'nhrpclientstatrxerrhopcountexceeded', 'nhrpclientstatdiscontinuitytime'], name, value)
 
 
-    class Nhrpclienttable(Entity):
+    class Nhrpservertable(Entity):
         """
-        Information about NHRP clients (NHCs) managed by this
-        agent.
+        This table contains information for a set of NHSes
+        associated with this agent.
         
-        .. attribute:: nhrpcliententry
+        .. attribute:: nhrpserverentry
         
-        	Information about a single NHC
-        	**type**\: list of    :py:class:`Nhrpcliententry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpclienttable.Nhrpcliententry>`
+        	Information about a single NHS
+        	**type**\: list of    :py:class:`Nhrpserverentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
         
         
 
@@ -1135,289 +1475,71 @@ class NHRPMIB(Entity):
         _revision = '1999-08-26'
 
         def __init__(self):
-            super(NHRPMIB.Nhrpclienttable, self).__init__()
+            super(NHRPMIB.Nhrpservertable, self).__init__()
 
-            self.yang_name = "nhrpClientTable"
+            self.yang_name = "nhrpServerTable"
             self.yang_parent_name = "NHRP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"nhrpClientEntry" : ("nhrpcliententry", NHRPMIB.Nhrpclienttable.Nhrpcliententry)}
+            self._child_list_classes = {"nhrpServerEntry" : ("nhrpserverentry", NHRPMIB.Nhrpservertable.Nhrpserverentry)}
 
-            self.nhrpcliententry = YList(self)
-            self._segment_path = lambda: "nhrpClientTable"
+            self.nhrpserverentry = YList(self)
+            self._segment_path = lambda: "nhrpServerTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpclienttable, [], name, value)
+            self._perform_setattr(NHRPMIB.Nhrpservertable, [], name, value)
 
 
-        class Nhrpcliententry(Entity):
+        class Nhrpserverentry(Entity):
             """
-            Information about a single NHC.
+            Information about a single NHS.
             
-            .. attribute:: nhrpclientindex  <key>
+            .. attribute:: nhrpserverindex  <key>
             
-            	An identifier for the NHRP client that is unique within the scope of this agent.  The 'nhrpNextIndex' value should be consulted (read), prior to creating a row in this table, and the value returned from reading 'nhrpNextIndex' should be used as this object's value
+            	An identifier for the server that is unique within the scope of this agent
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: nhrpclientdefaultmtu
+            .. attribute:: nhrpserverinternetworkaddrtype
             
-            	The default maximum transmission unit (MTU) of the LIS/LAG which this client should use. This object will be initialized by the agent to the default MTU of the LIS/LAG (which is 9180) unless a different MTU value is specified during creation of this Client
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: nhrpclientholdtime
-            
-            	The hold time the client will register
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            	**units**\: seconds
-            
-            .. attribute:: nhrpclientinitialrequesttimeout
-            
-            	The number of seconds that the client will wait before timing out an NHRP initial request.  This object only has meaning for the initial timeout period
-            	**type**\:  int
-            
-            	**range:** 1..900
-            
-            	**units**\: seconds
-            
-            .. attribute:: nhrpclientinternetworkaddr
-            
-            	The value of the internetwork layer address of this client
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpclientinternetworkaddrtype
-            
-            	The type of the internetwork layer address of this client. This object indicates how the value of nhrpClientInternetworkAddr is to be interpreted
+            	The type of the internetwork layer address of this server. This object is used to interpret the value of nhrpServerInternetworkAddr
             	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: nhrpclientnbmaaddr
+            .. attribute:: nhrpserverinternetworkaddr
             
-            	The NBMA subnetwork address of this client
+            	The value of the internetwork layer address of this server
             	**type**\:  str
             
             	**length:** 0..64
             
-            .. attribute:: nhrpclientnbmaaddrtype
+            .. attribute:: nhrpservernbmaaddrtype
             
-            	The type of the NBMA subnetwork address of this client. This object indicates how the values of nhrpClientNbmaAddr and nhrpClientNbmaSubaddr are to be interpreted
+            	The type of the NBMA subnetwork address of this server. This object is used to interpret the value of nhrpServerNbmaAddr
             	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: nhrpclientnbmasubaddr
+            .. attribute:: nhrpservernbmaaddr
             
-            	The NBMA subaddress of this client. For NBMA address families without a subaddress concept, this will be a zero\-length OCTET STRING
+            	The value of the NBMA subnetwork address of this server
             	**type**\:  str
             
             	**length:** 0..64
             
-            .. attribute:: nhrpclientpurgerequestretries
+            .. attribute:: nhrpservernbmasubaddr
             
-            	The number of times the client will retry a purge request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
-            	**type**\:  int
+            	The value of the NBMA subaddress of this server. For NBMA address families without a subaddress concept, this will be a zero\-length OCTET STRING
+            	**type**\:  str
             
-            	**range:** 0..65535
+            	**length:** 0..64
             
-            .. attribute:: nhrpclientregistrationrequestretries
+            .. attribute:: nhrpserverstoragetype
             
-            	The number of times the client will retry the registration request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: nhrpclientrequestid
-            
-            	The Request ID used to register this client with its server. According to Section 5.2.3 of the NHRP Specification, RFC 2332 [17], the Request ID must be kept in non\-volatile storage, so that if an NHC crashes and  re\-initializes, it will use a different  Request ID during the registration process when reregistering with the same NHS
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpclientresolutionrequestretries
-            
-            	The number of times the client will retry the resolution request before failure. A value of 0 means don't retry. A value of 65535 means retry forever
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: nhrpclientrowstatus
-            
-            	An object that allows entries in this table to be created and deleted using the RowStatus convention
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: nhrpclientstoragetype
-            
-            	This object defines whether this row is kept in volatile storage and lost upon a Client crash or reboot situation, or if this row is backed up by nonvolatile or permanent storage
+            	This object defines whether this row is kept in volatile storage and lost upon a Server crash or reboot situation, or if this row is backed up by nonvolatile or permanent storage
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
-            
-
-            """
-
-            _prefix = 'NHRP-MIB'
-            _revision = '1999-08-26'
-
-            def __init__(self):
-                super(NHRPMIB.Nhrpclienttable.Nhrpcliententry, self).__init__()
-
-                self.yang_name = "nhrpClientEntry"
-                self.yang_parent_name = "nhrpClientTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpclientindex = YLeaf(YType.uint32, "nhrpClientIndex")
-
-                self.nhrpclientdefaultmtu = YLeaf(YType.uint32, "nhrpClientDefaultMtu")
-
-                self.nhrpclientholdtime = YLeaf(YType.uint32, "nhrpClientHoldTime")
-
-                self.nhrpclientinitialrequesttimeout = YLeaf(YType.int32, "nhrpClientInitialRequestTimeout")
-
-                self.nhrpclientinternetworkaddr = YLeaf(YType.str, "nhrpClientInternetworkAddr")
-
-                self.nhrpclientinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpClientInternetworkAddrType")
-
-                self.nhrpclientnbmaaddr = YLeaf(YType.str, "nhrpClientNbmaAddr")
-
-                self.nhrpclientnbmaaddrtype = YLeaf(YType.enumeration, "nhrpClientNbmaAddrType")
-
-                self.nhrpclientnbmasubaddr = YLeaf(YType.str, "nhrpClientNbmaSubaddr")
-
-                self.nhrpclientpurgerequestretries = YLeaf(YType.int32, "nhrpClientPurgeRequestRetries")
-
-                self.nhrpclientregistrationrequestretries = YLeaf(YType.int32, "nhrpClientRegistrationRequestRetries")
-
-                self.nhrpclientrequestid = YLeaf(YType.uint32, "nhrpClientRequestID")
-
-                self.nhrpclientresolutionrequestretries = YLeaf(YType.int32, "nhrpClientResolutionRequestRetries")
-
-                self.nhrpclientrowstatus = YLeaf(YType.enumeration, "nhrpClientRowStatus")
-
-                self.nhrpclientstoragetype = YLeaf(YType.enumeration, "nhrpClientStorageType")
-                self._segment_path = lambda: "nhrpClientEntry" + "[nhrpClientIndex='" + self.nhrpclientindex.get() + "']"
-                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpclienttable.Nhrpcliententry, ['nhrpclientindex', 'nhrpclientdefaultmtu', 'nhrpclientholdtime', 'nhrpclientinitialrequesttimeout', 'nhrpclientinternetworkaddr', 'nhrpclientinternetworkaddrtype', 'nhrpclientnbmaaddr', 'nhrpclientnbmaaddrtype', 'nhrpclientnbmasubaddr', 'nhrpclientpurgerequestretries', 'nhrpclientregistrationrequestretries', 'nhrpclientrequestid', 'nhrpclientresolutionrequestretries', 'nhrpclientrowstatus', 'nhrpclientstoragetype'], name, value)
-
-
-    class Nhrpgeneralobjects(Entity):
-        """
-        
-        
-        .. attribute:: nhrpnextindex
-        
-        	This scalar is used for creating rows in the nhrpClientTable and the nhrpServerTable. The value of this variable is a currently unused value for nhrpClientIndex and nhrpServerIndex.     The value returned when reading this variable must be unique for the NHC's and NHS's indices associated with this row. Subsequent attempts to read this variable must return different values.  NOTE\:  this object exists in the General Group because it is to be used in establishing rows in the nhrpClientTable and the nhrpServerTable.  In other words, the value retrieved from this object could become the value of nhrpClientIndex and nhprServerIndex.  In the situation of an agent re\-initialization the value of this object must be saved in non\-volatile storage.  This variable will return the special value 0 if no new rows can be created
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'NHRP-MIB'
-        _revision = '1999-08-26'
-
-        def __init__(self):
-            super(NHRPMIB.Nhrpgeneralobjects, self).__init__()
-
-            self.yang_name = "nhrpGeneralObjects"
-            self.yang_parent_name = "NHRP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.nhrpnextindex = YLeaf(YType.uint32, "nhrpNextIndex")
-            self._segment_path = lambda: "nhrpGeneralObjects"
-            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpgeneralobjects, ['nhrpnextindex'], name, value)
-
-
-    class Nhrppurgereqtable(Entity):
-        """
-        This table will track Purge Request Information.
-        
-        .. attribute:: nhrppurgereqentry
-        
-        	Information regarding a Purge Request
-        	**type**\: list of    :py:class:`Nhrppurgereqentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry>`
-        
-        
-
-        """
-
-        _prefix = 'NHRP-MIB'
-        _revision = '1999-08-26'
-
-        def __init__(self):
-            super(NHRPMIB.Nhrppurgereqtable, self).__init__()
-
-            self.yang_name = "nhrpPurgeReqTable"
-            self.yang_parent_name = "NHRP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpPurgeReqEntry" : ("nhrppurgereqentry", NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry)}
-
-            self.nhrppurgereqentry = YList(self)
-            self._segment_path = lambda: "nhrpPurgeReqTable"
-            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrppurgereqtable, [], name, value)
-
-
-        class Nhrppurgereqentry(Entity):
-            """
-            Information regarding a Purge Request.
-            
-            .. attribute:: nhrppurgeindex  <key>
-            
-            	An index for this entry that has local significance within the scope of this table
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: nhrppurgecacheidentifier
-            
-            	This object identifies which row in 'nhrpCacheTable' is being purged.  This object should have the same value as the 'nhrpCacheIndex' in the 'nhrpCacheTable'
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: nhrppurgeprefixlength
-            
-            	In the case of NHRP Purge Requests, this specifies the equivalence class of addresses which match the first 'Prefix Length' bit positions of the Client Protocol Address specified in the Client Information Entry (CIE)
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: nhrppurgereplyexpected
-            
-            	An indication of whether this Purge Request has the 'N' Bit cleared (off)
-            	**type**\:  bool
-            
-            .. attribute:: nhrppurgerequestid
-            
-            	The Request ID used in the purge request
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrppurgerowstatus
+            .. attribute:: nhrpserverrowstatus
             
             	An object that allows entries in this table to be created and deleted using the RowStatus convention
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
@@ -1430,31 +1552,35 @@ class NHRPMIB(Entity):
             _revision = '1999-08-26'
 
             def __init__(self):
-                super(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, self).__init__()
+                super(NHRPMIB.Nhrpservertable.Nhrpserverentry, self).__init__()
 
-                self.yang_name = "nhrpPurgeReqEntry"
-                self.yang_parent_name = "nhrpPurgeReqTable"
+                self.yang_name = "nhrpServerEntry"
+                self.yang_parent_name = "nhrpServerTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.nhrppurgeindex = YLeaf(YType.uint32, "nhrpPurgeIndex")
+                self.nhrpserverindex = YLeaf(YType.uint32, "nhrpServerIndex")
 
-                self.nhrppurgecacheidentifier = YLeaf(YType.uint32, "nhrpPurgeCacheIdentifier")
+                self.nhrpserverinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpServerInternetworkAddrType")
 
-                self.nhrppurgeprefixlength = YLeaf(YType.int32, "nhrpPurgePrefixLength")
+                self.nhrpserverinternetworkaddr = YLeaf(YType.str, "nhrpServerInternetworkAddr")
 
-                self.nhrppurgereplyexpected = YLeaf(YType.boolean, "nhrpPurgeReplyExpected")
+                self.nhrpservernbmaaddrtype = YLeaf(YType.enumeration, "nhrpServerNbmaAddrType")
 
-                self.nhrppurgerequestid = YLeaf(YType.uint32, "nhrpPurgeRequestID")
+                self.nhrpservernbmaaddr = YLeaf(YType.str, "nhrpServerNbmaAddr")
 
-                self.nhrppurgerowstatus = YLeaf(YType.enumeration, "nhrpPurgeRowStatus")
-                self._segment_path = lambda: "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + self.nhrppurgeindex.get() + "']"
-                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/%s" % self._segment_path()
+                self.nhrpservernbmasubaddr = YLeaf(YType.str, "nhrpServerNbmaSubaddr")
+
+                self.nhrpserverstoragetype = YLeaf(YType.enumeration, "nhrpServerStorageType")
+
+                self.nhrpserverrowstatus = YLeaf(YType.enumeration, "nhrpServerRowStatus")
+                self._segment_path = lambda: "nhrpServerEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']"
+                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrppurgereqtable.Nhrppurgereqentry, ['nhrppurgeindex', 'nhrppurgecacheidentifier', 'nhrppurgeprefixlength', 'nhrppurgereplyexpected', 'nhrppurgerequestid', 'nhrppurgerowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpservertable.Nhrpserverentry, ['nhrpserverindex', 'nhrpserverinternetworkaddrtype', 'nhrpserverinternetworkaddr', 'nhrpservernbmaaddrtype', 'nhrpservernbmaaddr', 'nhrpservernbmasubaddr', 'nhrpserverstoragetype', 'nhrpserverrowstatus'], name, value)
 
 
     class Nhrpservercachetable(Entity):
@@ -1639,26 +1765,21 @@ class NHRPMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: nhrpservernhcinternetworkaddr
+            .. attribute:: nhrpservernhcprefixlength
             
-            	The value of the internetwork layer address of the NHRP Client represented by this entry.  If this value is not known, this will be a zero\-length OCTET STRING
-            	**type**\:  str
+            	The number of bits that define the internetwork layer prefix associated with the nhrpServerNhcInternetworkAddr
+            	**type**\:  int
             
-            	**length:** 0..64
+            	**range:** 0..255
             
             .. attribute:: nhrpservernhcinternetworkaddrtype
             
             	The type of the internetwork layer address of the NHRP Client represented in this entry. This object indicates how the value of nhrpServerNhcInternetworkAddr is to be interpreted
             	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
-            .. attribute:: nhrpservernhcinuse
+            .. attribute:: nhrpservernhcinternetworkaddr
             
-            	An indication of whether this NHC is in use by the NHS
-            	**type**\:  bool
-            
-            .. attribute:: nhrpservernhcnbmaaddr
-            
-            	The NBMA subnetwork address of the NHC. The type of the address is indicated by the corresponding value of nhrpServerNbmaAddrType
+            	The value of the internetwork layer address of the NHRP Client represented by this entry.  If this value is not known, this will be a zero\-length OCTET STRING
             	**type**\:  str
             
             	**length:** 0..64
@@ -1668,6 +1789,13 @@ class NHRPMIB(Entity):
             	The type of the NBMA subnetwork address of the NHRP Client represented by this entry. This object indicates how the values of nhrpServerNhcNbmaAddr and nhrpServerNhcNbmaSubaddr are to be interpreted
             	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
             
+            .. attribute:: nhrpservernhcnbmaaddr
+            
+            	The NBMA subnetwork address of the NHC. The type of the address is indicated by the corresponding value of nhrpServerNbmaAddrType
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
             .. attribute:: nhrpservernhcnbmasubaddr
             
             	The NBMA subaddress of the NHC. For NMBA address familes that do not have the concept of subaddress, this will be a zero\-length OCTET STRING
@@ -1675,12 +1803,10 @@ class NHRPMIB(Entity):
             
             	**length:** 0..64
             
-            .. attribute:: nhrpservernhcprefixlength
+            .. attribute:: nhrpservernhcinuse
             
-            	The number of bits that define the internetwork layer prefix associated with the nhrpServerNhcInternetworkAddr
-            	**type**\:  int
-            
-            	**range:** 0..255
+            	An indication of whether this NHC is in use by the NHS
+            	**type**\:  bool
             
             .. attribute:: nhrpservernhcrowstatus
             
@@ -1708,26 +1834,26 @@ class NHRPMIB(Entity):
 
                 self.nhrpservernhcindex = YLeaf(YType.uint32, "nhrpServerNhcIndex")
 
-                self.nhrpservernhcinternetworkaddr = YLeaf(YType.str, "nhrpServerNhcInternetworkAddr")
+                self.nhrpservernhcprefixlength = YLeaf(YType.int32, "nhrpServerNhcPrefixLength")
 
                 self.nhrpservernhcinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpServerNhcInternetworkAddrType")
 
-                self.nhrpservernhcinuse = YLeaf(YType.boolean, "nhrpServerNhcInUse")
-
-                self.nhrpservernhcnbmaaddr = YLeaf(YType.str, "nhrpServerNhcNbmaAddr")
+                self.nhrpservernhcinternetworkaddr = YLeaf(YType.str, "nhrpServerNhcInternetworkAddr")
 
                 self.nhrpservernhcnbmaaddrtype = YLeaf(YType.enumeration, "nhrpServerNhcNbmaAddrType")
 
+                self.nhrpservernhcnbmaaddr = YLeaf(YType.str, "nhrpServerNhcNbmaAddr")
+
                 self.nhrpservernhcnbmasubaddr = YLeaf(YType.str, "nhrpServerNhcNbmaSubaddr")
 
-                self.nhrpservernhcprefixlength = YLeaf(YType.int32, "nhrpServerNhcPrefixLength")
+                self.nhrpservernhcinuse = YLeaf(YType.boolean, "nhrpServerNhcInUse")
 
                 self.nhrpservernhcrowstatus = YLeaf(YType.enumeration, "nhrpServerNhcRowStatus")
                 self._segment_path = lambda: "nhrpServerNhcEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']" + "[nhrpServerNhcIndex='" + self.nhrpservernhcindex.get() + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerNhcTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry, ['nhrpserverindex', 'nhrpservernhcindex', 'nhrpservernhcinternetworkaddr', 'nhrpservernhcinternetworkaddrtype', 'nhrpservernhcinuse', 'nhrpservernhcnbmaaddr', 'nhrpservernhcnbmaaddrtype', 'nhrpservernhcnbmasubaddr', 'nhrpservernhcprefixlength', 'nhrpservernhcrowstatus'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpservernhctable.Nhrpservernhcentry, ['nhrpserverindex', 'nhrpservernhcindex', 'nhrpservernhcprefixlength', 'nhrpservernhcinternetworkaddrtype', 'nhrpservernhcinternetworkaddr', 'nhrpservernhcnbmaaddrtype', 'nhrpservernhcnbmaaddr', 'nhrpservernhcnbmasubaddr', 'nhrpservernhcinuse', 'nhrpservernhcrowstatus'], name, value)
 
 
     class Nhrpserverstattable(Entity):
@@ -1780,86 +1906,114 @@ class NHRPMIB(Entity):
             
             	**refers to**\:  :py:class:`nhrpserverindex <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
             
-            .. attribute:: nhrpserverstatdiscontinuitytime
+            .. attribute:: nhrpserverstatrxresolvereq
             
-            	The value of sysUpTime on the most recent occasion at which any one or more of this Server's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the    local management subsystem or the NHRP Server re\-initialization associated with this entry, then this object contains a zero value
+            	The number of NHRP Resolution Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwerrorindication
+            .. attribute:: nhrpserverstattxresolvereplyack
             
-            	The number of NHRP Error Indication packets forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of positively acknowledged NHRP Resolution Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwpurgereply
+            .. attribute:: nhrpserverstattxresolvereplynakprohibited
             
-            	The number of NHRP Purge Replies forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwpurgereq
+            .. attribute:: nhrpserverstattxresolvereplynakinsufresources
             
-            	The number of NHRP Purge Requests forwarded by this server acting as a transit NHS.   Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwregisterreply
+            .. attribute:: nhrpserverstattxresolvereplynaknobinding
             
-            	The number of NHRP Registration Replies forwarded by this server acting as a transit NHS. Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'No Internetworking Layer Address to NBMA Address Binding Exists'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwregisterreq
+            .. attribute:: nhrpserverstattxresolvereplynaknotunique
             
-            	The number of NHRP Registration Requests forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Binding Exists But Is Not Unique'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwresolvereply
+            .. attribute:: nhrpserverstatrxregisterreq
             
-            	The number of NHRP Resolution Replies forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Registration Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatfwresolvereq
+            .. attribute:: nhrpserverstattxregisterack
             
-            	The number of NHRP Resolution Requests forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of positively acknowledged NHRP Registration Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxerrauthenticationfailure
+            .. attribute:: nhrpserverstattxregisternakprohibited
             
-            	The number of NHRP Error Indication packets received by this server with the error code 'Authentication Failure'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxerrhopcountexceeded
+            .. attribute:: nhrpserverstattxregisternakinsufresources
             
-            	The number of NHRP Error Indication packets received by this server with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxerrinvalidextension
+            .. attribute:: nhrpserverstattxregisternakalreadyreg
             
-            	The number of NHRP Error Indication packets received by this server with the error code 'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Unique Internetworking Layer Address Already Registered'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxerrinvalidresreplyreceived
+            .. attribute:: nhrpserverstatrxpurgereq
             
-            	The number of NHRP Error Indication packets received by this server with the error code 'Invalid Resolution Reply Received'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Purge Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpserverstattxpurgereq
+            
+            	The number of NHRP Purge Requests transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpserverstatrxpurgereply
+            
+            	The number of NHRP Purge Replies received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpserverstattxpurgereply
+            
+            	The number of NHRP Purge Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: nhrpserverstatrxerrunrecognizedextension
+            
+            	The number of NHRP Error Indication packets received by this server with the error code  'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1892,58 +2046,37 @@ class NHRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxerrunrecognizedextension
+            .. attribute:: nhrpserverstatrxerrinvalidextension
             
-            	The number of NHRP Error Indication packets received by this server with the error code  'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this server with the error code 'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxpurgereply
+            .. attribute:: nhrpserverstatrxerrinvalidresreplyreceived
             
-            	The number of NHRP Purge Replies received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this server with the error code 'Invalid Resolution Reply Received'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxpurgereq
+            .. attribute:: nhrpserverstatrxerrauthenticationfailure
             
-            	The number of NHRP Purge Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this server with the error code 'Authentication Failure'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxregisterreq
+            .. attribute:: nhrpserverstatrxerrhopcountexceeded
             
-            	The number of NHRP Registration Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets received by this server with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstatrxresolvereq
+            .. attribute:: nhrpserverstattxerrunrecognizedextension
             
-            	The number of NHRP Resolution Requests received by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpserverstattxerrauthenticationfailure
-            
-            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Authentication Failure'.     Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpserverstattxerrhopcountexceeded
-            
-            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpserverstattxerrinvalidextension
-            
-            	The number of NHRP Error Indication packets transmitted by this server with the error code  'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1976,86 +2109,79 @@ class NHRPMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxerrunrecognizedextension
+            .. attribute:: nhrpserverstattxerrinvalidextension
             
-            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Unrecognized Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets transmitted by this server with the error code  'Invalid Extension'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxpurgereply
+            .. attribute:: nhrpserverstattxerrauthenticationfailure
             
-            	The number of NHRP Purge Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Authentication Failure'.     Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxpurgereq
+            .. attribute:: nhrpserverstattxerrhopcountexceeded
             
-            	The number of NHRP Purge Requests transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets transmitted by this server with the error code 'Hop Count Exceeded'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxregisterack
+            .. attribute:: nhrpserverstatfwresolvereq
             
-            	The number of positively acknowledged NHRP Registration Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Resolution Requests forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxregisternakalreadyreg
+            .. attribute:: nhrpserverstatfwresolvereply
             
-            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Unique Internetworking Layer Address Already Registered'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Resolution Replies forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxregisternakinsufresources
+            .. attribute:: nhrpserverstatfwregisterreq
             
-            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Registration Requests forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxregisternakprohibited
+            .. attribute:: nhrpserverstatfwregisterreply
             
-            	The number of NAKed NHRP Registration Replies transmitted by this server with the code 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Registration Replies forwarded by this server acting as a transit NHS. Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxresolvereplyack
+            .. attribute:: nhrpserverstatfwpurgereq
             
-            	The number of positively acknowledged NHRP Resolution Replies transmitted by this server.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Purge Requests forwarded by this server acting as a transit NHS.   Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxresolvereplynakinsufresources
+            .. attribute:: nhrpserverstatfwpurgereply
             
-            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Insufficient Resources'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Purge Replies forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxresolvereplynaknobinding
+            .. attribute:: nhrpserverstatfwerrorindication
             
-            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'No Internetworking Layer Address to NBMA Address Binding Exists'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The number of NHRP Error Indication packets forwarded by this server acting as a transit NHS.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: nhrpserverstattxresolvereplynaknotunique
+            .. attribute:: nhrpserverstatdiscontinuitytime
             
-            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Binding Exists But Is Not Unique'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: nhrpserverstattxresolvereplynakprohibited
-            
-            	The number of NAKed NHRP Resolution Replies transmitted by this server with the code 'Administratively Prohibited'.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, at NHRP Server re\-initialization and at other times as indicated by the value of nhrpServerStatDiscontinuityTime
+            	The value of sysUpTime on the most recent occasion at which any one or more of this Server's counters suffered a discontinuity.  If no such discontinuities have occurred since the last re\-initialization of the    local management subsystem or the NHRP Server re\-initialization associated with this entry, then this object contains a zero value
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -2079,29 +2205,37 @@ class NHRPMIB(Entity):
 
                 self.nhrpserverindex = YLeaf(YType.str, "nhrpServerIndex")
 
-                self.nhrpserverstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpServerStatDiscontinuityTime")
+                self.nhrpserverstatrxresolvereq = YLeaf(YType.uint32, "nhrpServerStatRxResolveReq")
 
-                self.nhrpserverstatfwerrorindication = YLeaf(YType.uint32, "nhrpServerStatFwErrorIndication")
+                self.nhrpserverstattxresolvereplyack = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyAck")
 
-                self.nhrpserverstatfwpurgereply = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReply")
+                self.nhrpserverstattxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakProhibited")
 
-                self.nhrpserverstatfwpurgereq = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReq")
+                self.nhrpserverstattxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakInsufResources")
 
-                self.nhrpserverstatfwregisterreply = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReply")
+                self.nhrpserverstattxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNoBinding")
 
-                self.nhrpserverstatfwregisterreq = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReq")
+                self.nhrpserverstattxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNotUnique")
 
-                self.nhrpserverstatfwresolvereply = YLeaf(YType.uint32, "nhrpServerStatFwResolveReply")
+                self.nhrpserverstatrxregisterreq = YLeaf(YType.uint32, "nhrpServerStatRxRegisterReq")
 
-                self.nhrpserverstatfwresolvereq = YLeaf(YType.uint32, "nhrpServerStatFwResolveReq")
+                self.nhrpserverstattxregisterack = YLeaf(YType.uint32, "nhrpServerStatTxRegisterAck")
 
-                self.nhrpserverstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatRxErrAuthenticationFailure")
+                self.nhrpserverstattxregisternakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakProhibited")
 
-                self.nhrpserverstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatRxErrHopCountExceeded")
+                self.nhrpserverstattxregisternakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakInsufResources")
 
-                self.nhrpserverstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidExtension")
+                self.nhrpserverstattxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakAlreadyReg")
 
-                self.nhrpserverstatrxerrinvalidresreplyreceived = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidResReplyReceived")
+                self.nhrpserverstatrxpurgereq = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReq")
+
+                self.nhrpserverstattxpurgereq = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReq")
+
+                self.nhrpserverstatrxpurgereply = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReply")
+
+                self.nhrpserverstattxpurgereply = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReply")
+
+                self.nhrpserverstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatRxErrUnrecognizedExtension")
 
                 self.nhrpserverstatrxerrloopdetected = YLeaf(YType.uint32, "nhrpServerStatRxErrLoopDetected")
 
@@ -2111,21 +2245,15 @@ class NHRPMIB(Entity):
 
                 self.nhrpserverstatrxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpServerStatRxErrSduSizeExceeded")
 
-                self.nhrpserverstatrxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatRxErrUnrecognizedExtension")
+                self.nhrpserverstatrxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidExtension")
 
-                self.nhrpserverstatrxpurgereply = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReply")
+                self.nhrpserverstatrxerrinvalidresreplyreceived = YLeaf(YType.uint32, "nhrpServerStatRxErrInvalidResReplyReceived")
 
-                self.nhrpserverstatrxpurgereq = YLeaf(YType.uint32, "nhrpServerStatRxPurgeReq")
+                self.nhrpserverstatrxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatRxErrAuthenticationFailure")
 
-                self.nhrpserverstatrxregisterreq = YLeaf(YType.uint32, "nhrpServerStatRxRegisterReq")
+                self.nhrpserverstatrxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatRxErrHopCountExceeded")
 
-                self.nhrpserverstatrxresolvereq = YLeaf(YType.uint32, "nhrpServerStatRxResolveReq")
-
-                self.nhrpserverstattxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatTxErrAuthenticationFailure")
-
-                self.nhrpserverstattxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatTxErrHopCountExceeded")
-
-                self.nhrpserverstattxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatTxErrInvalidExtension")
+                self.nhrpserverstattxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatTxErrUnrecognizedExtension")
 
                 self.nhrpserverstattxerrloopdetected = YLeaf(YType.uint32, "nhrpServerStatTxErrLoopDetected")
 
@@ -2135,160 +2263,32 @@ class NHRPMIB(Entity):
 
                 self.nhrpserverstattxerrsdusizeexceeded = YLeaf(YType.uint32, "nhrpServerStatTxErrSduSizeExceeded")
 
-                self.nhrpserverstattxerrunrecognizedextension = YLeaf(YType.uint32, "nhrpServerStatTxErrUnrecognizedExtension")
+                self.nhrpserverstattxerrinvalidextension = YLeaf(YType.uint32, "nhrpServerStatTxErrInvalidExtension")
 
-                self.nhrpserverstattxpurgereply = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReply")
+                self.nhrpserverstattxerrauthenticationfailure = YLeaf(YType.uint32, "nhrpServerStatTxErrAuthenticationFailure")
 
-                self.nhrpserverstattxpurgereq = YLeaf(YType.uint32, "nhrpServerStatTxPurgeReq")
+                self.nhrpserverstattxerrhopcountexceeded = YLeaf(YType.uint32, "nhrpServerStatTxErrHopCountExceeded")
 
-                self.nhrpserverstattxregisterack = YLeaf(YType.uint32, "nhrpServerStatTxRegisterAck")
+                self.nhrpserverstatfwresolvereq = YLeaf(YType.uint32, "nhrpServerStatFwResolveReq")
 
-                self.nhrpserverstattxregisternakalreadyreg = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakAlreadyReg")
+                self.nhrpserverstatfwresolvereply = YLeaf(YType.uint32, "nhrpServerStatFwResolveReply")
 
-                self.nhrpserverstattxregisternakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakInsufResources")
+                self.nhrpserverstatfwregisterreq = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReq")
 
-                self.nhrpserverstattxregisternakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxRegisterNakProhibited")
+                self.nhrpserverstatfwregisterreply = YLeaf(YType.uint32, "nhrpServerStatFwRegisterReply")
 
-                self.nhrpserverstattxresolvereplyack = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyAck")
+                self.nhrpserverstatfwpurgereq = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReq")
 
-                self.nhrpserverstattxresolvereplynakinsufresources = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakInsufResources")
+                self.nhrpserverstatfwpurgereply = YLeaf(YType.uint32, "nhrpServerStatFwPurgeReply")
 
-                self.nhrpserverstattxresolvereplynaknobinding = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNoBinding")
+                self.nhrpserverstatfwerrorindication = YLeaf(YType.uint32, "nhrpServerStatFwErrorIndication")
 
-                self.nhrpserverstattxresolvereplynaknotunique = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakNotUnique")
-
-                self.nhrpserverstattxresolvereplynakprohibited = YLeaf(YType.uint32, "nhrpServerStatTxResolveReplyNakProhibited")
+                self.nhrpserverstatdiscontinuitytime = YLeaf(YType.uint32, "nhrpServerStatDiscontinuityTime")
                 self._segment_path = lambda: "nhrpServerStatEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerStatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry, ['nhrpserverindex', 'nhrpserverstatdiscontinuitytime', 'nhrpserverstatfwerrorindication', 'nhrpserverstatfwpurgereply', 'nhrpserverstatfwpurgereq', 'nhrpserverstatfwregisterreply', 'nhrpserverstatfwregisterreq', 'nhrpserverstatfwresolvereply', 'nhrpserverstatfwresolvereq', 'nhrpserverstatrxerrauthenticationfailure', 'nhrpserverstatrxerrhopcountexceeded', 'nhrpserverstatrxerrinvalidextension', 'nhrpserverstatrxerrinvalidresreplyreceived', 'nhrpserverstatrxerrloopdetected', 'nhrpserverstatrxerrprotoaddrunreachable', 'nhrpserverstatrxerrprotoerror', 'nhrpserverstatrxerrsdusizeexceeded', 'nhrpserverstatrxerrunrecognizedextension', 'nhrpserverstatrxpurgereply', 'nhrpserverstatrxpurgereq', 'nhrpserverstatrxregisterreq', 'nhrpserverstatrxresolvereq', 'nhrpserverstattxerrauthenticationfailure', 'nhrpserverstattxerrhopcountexceeded', 'nhrpserverstattxerrinvalidextension', 'nhrpserverstattxerrloopdetected', 'nhrpserverstattxerrprotoaddrunreachable', 'nhrpserverstattxerrprotoerror', 'nhrpserverstattxerrsdusizeexceeded', 'nhrpserverstattxerrunrecognizedextension', 'nhrpserverstattxpurgereply', 'nhrpserverstattxpurgereq', 'nhrpserverstattxregisterack', 'nhrpserverstattxregisternakalreadyreg', 'nhrpserverstattxregisternakinsufresources', 'nhrpserverstattxregisternakprohibited', 'nhrpserverstattxresolvereplyack', 'nhrpserverstattxresolvereplynakinsufresources', 'nhrpserverstattxresolvereplynaknobinding', 'nhrpserverstattxresolvereplynaknotunique', 'nhrpserverstattxresolvereplynakprohibited'], name, value)
-
-
-    class Nhrpservertable(Entity):
-        """
-        This table contains information for a set of NHSes
-        associated with this agent.
-        
-        .. attribute:: nhrpserverentry
-        
-        	Information about a single NHS
-        	**type**\: list of    :py:class:`Nhrpserverentry <ydk.models.cisco_ios_xe.NHRP_MIB.NHRPMIB.Nhrpservertable.Nhrpserverentry>`
-        
-        
-
-        """
-
-        _prefix = 'NHRP-MIB'
-        _revision = '1999-08-26'
-
-        def __init__(self):
-            super(NHRPMIB.Nhrpservertable, self).__init__()
-
-            self.yang_name = "nhrpServerTable"
-            self.yang_parent_name = "NHRP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"nhrpServerEntry" : ("nhrpserverentry", NHRPMIB.Nhrpservertable.Nhrpserverentry)}
-
-            self.nhrpserverentry = YList(self)
-            self._segment_path = lambda: "nhrpServerTable"
-            self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(NHRPMIB.Nhrpservertable, [], name, value)
-
-
-        class Nhrpserverentry(Entity):
-            """
-            Information about a single NHS.
-            
-            .. attribute:: nhrpserverindex  <key>
-            
-            	An identifier for the server that is unique within the scope of this agent
-            	**type**\:  int
-            
-            	**range:** 1..4294967295
-            
-            .. attribute:: nhrpserverinternetworkaddr
-            
-            	The value of the internetwork layer address of this server
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpserverinternetworkaddrtype
-            
-            	The type of the internetwork layer address of this server. This object is used to interpret the value of nhrpServerInternetworkAddr
-            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
-            
-            .. attribute:: nhrpservernbmaaddr
-            
-            	The value of the NBMA subnetwork address of this server
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpservernbmaaddrtype
-            
-            	The type of the NBMA subnetwork address of this server. This object is used to interpret the value of nhrpServerNbmaAddr
-            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
-            
-            .. attribute:: nhrpservernbmasubaddr
-            
-            	The value of the NBMA subaddress of this server. For NBMA address families without a subaddress concept, this will be a zero\-length OCTET STRING
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: nhrpserverrowstatus
-            
-            	An object that allows entries in this table to be created and deleted using the RowStatus convention
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: nhrpserverstoragetype
-            
-            	This object defines whether this row is kept in volatile storage and lost upon a Server crash or reboot situation, or if this row is backed up by nonvolatile or permanent storage
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            
-
-            """
-
-            _prefix = 'NHRP-MIB'
-            _revision = '1999-08-26'
-
-            def __init__(self):
-                super(NHRPMIB.Nhrpservertable.Nhrpserverentry, self).__init__()
-
-                self.yang_name = "nhrpServerEntry"
-                self.yang_parent_name = "nhrpServerTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.nhrpserverindex = YLeaf(YType.uint32, "nhrpServerIndex")
-
-                self.nhrpserverinternetworkaddr = YLeaf(YType.str, "nhrpServerInternetworkAddr")
-
-                self.nhrpserverinternetworkaddrtype = YLeaf(YType.enumeration, "nhrpServerInternetworkAddrType")
-
-                self.nhrpservernbmaaddr = YLeaf(YType.str, "nhrpServerNbmaAddr")
-
-                self.nhrpservernbmaaddrtype = YLeaf(YType.enumeration, "nhrpServerNbmaAddrType")
-
-                self.nhrpservernbmasubaddr = YLeaf(YType.str, "nhrpServerNbmaSubaddr")
-
-                self.nhrpserverrowstatus = YLeaf(YType.enumeration, "nhrpServerRowStatus")
-
-                self.nhrpserverstoragetype = YLeaf(YType.enumeration, "nhrpServerStorageType")
-                self._segment_path = lambda: "nhrpServerEntry" + "[nhrpServerIndex='" + self.nhrpserverindex.get() + "']"
-                self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NHRPMIB.Nhrpservertable.Nhrpserverentry, ['nhrpserverindex', 'nhrpserverinternetworkaddr', 'nhrpserverinternetworkaddrtype', 'nhrpservernbmaaddr', 'nhrpservernbmaaddrtype', 'nhrpservernbmasubaddr', 'nhrpserverrowstatus', 'nhrpserverstoragetype'], name, value)
+                self._perform_setattr(NHRPMIB.Nhrpserverstattable.Nhrpserverstatentry, ['nhrpserverindex', 'nhrpserverstatrxresolvereq', 'nhrpserverstattxresolvereplyack', 'nhrpserverstattxresolvereplynakprohibited', 'nhrpserverstattxresolvereplynakinsufresources', 'nhrpserverstattxresolvereplynaknobinding', 'nhrpserverstattxresolvereplynaknotunique', 'nhrpserverstatrxregisterreq', 'nhrpserverstattxregisterack', 'nhrpserverstattxregisternakprohibited', 'nhrpserverstattxregisternakinsufresources', 'nhrpserverstattxregisternakalreadyreg', 'nhrpserverstatrxpurgereq', 'nhrpserverstattxpurgereq', 'nhrpserverstatrxpurgereply', 'nhrpserverstattxpurgereply', 'nhrpserverstatrxerrunrecognizedextension', 'nhrpserverstatrxerrloopdetected', 'nhrpserverstatrxerrprotoaddrunreachable', 'nhrpserverstatrxerrprotoerror', 'nhrpserverstatrxerrsdusizeexceeded', 'nhrpserverstatrxerrinvalidextension', 'nhrpserverstatrxerrinvalidresreplyreceived', 'nhrpserverstatrxerrauthenticationfailure', 'nhrpserverstatrxerrhopcountexceeded', 'nhrpserverstattxerrunrecognizedextension', 'nhrpserverstattxerrloopdetected', 'nhrpserverstattxerrprotoaddrunreachable', 'nhrpserverstattxerrprotoerror', 'nhrpserverstattxerrsdusizeexceeded', 'nhrpserverstattxerrinvalidextension', 'nhrpserverstattxerrauthenticationfailure', 'nhrpserverstattxerrhopcountexceeded', 'nhrpserverstatfwresolvereq', 'nhrpserverstatfwresolvereply', 'nhrpserverstatfwregisterreq', 'nhrpserverstatfwregisterreply', 'nhrpserverstatfwpurgereq', 'nhrpserverstatfwpurgereply', 'nhrpserverstatfwerrorindication', 'nhrpserverstatdiscontinuitytime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NHRPMIB()

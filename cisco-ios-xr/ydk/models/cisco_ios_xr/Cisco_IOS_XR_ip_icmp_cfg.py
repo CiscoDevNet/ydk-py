@@ -43,15 +43,15 @@ class Icmp(Entity):
     """
     IP ICMP configuration data
     
-    .. attribute:: ipv4
-    
-    	IP Protocol Type
-    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4>`
-    
     .. attribute:: ipv6
     
     	IP Protocol Type
     	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv6>`
+    
+    .. attribute:: ipv4
+    
+    	IP Protocol Type
+    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4>`
     
     
 
@@ -68,176 +68,19 @@ class Icmp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-icmp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ipv4" : ("ipv4", Icmp.Ipv4), "ipv6" : ("ipv6", Icmp.Ipv6)}
+        self._child_container_classes = {"ipv6" : ("ipv6", Icmp.Ipv6), "ipv4" : ("ipv4", Icmp.Ipv4)}
         self._child_list_classes = {}
-
-        self.ipv4 = Icmp.Ipv4()
-        self.ipv4.parent = self
-        self._children_name_map["ipv4"] = "ipv4"
-        self._children_yang_names.add("ipv4")
 
         self.ipv6 = Icmp.Ipv6()
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
         self._children_yang_names.add("ipv6")
+
+        self.ipv4 = Icmp.Ipv4()
+        self.ipv4.parent = self
+        self._children_name_map["ipv4"] = "ipv4"
+        self._children_yang_names.add("ipv4")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp"
-
-
-    class Ipv4(Entity):
-        """
-        IP Protocol Type
-        
-        .. attribute:: rate_limit
-        
-        	Set ratelimit of ICMP packets
-        	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit>`
-        
-        .. attribute:: source
-        
-        	IP ICMP Source Address Selection Policy
-        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.Source>`
-        
-        
-
-        """
-
-        _prefix = 'ip-icmp-cfg'
-        _revision = '2017-06-08'
-
-        def __init__(self):
-            super(Icmp.Ipv4, self).__init__()
-
-            self.yang_name = "ipv4"
-            self.yang_parent_name = "icmp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"rate-limit" : ("rate_limit", Icmp.Ipv4.RateLimit), "source" : ("source", Icmp.Ipv4.Source)}
-            self._child_list_classes = {}
-
-            self.rate_limit = Icmp.Ipv4.RateLimit()
-            self.rate_limit.parent = self
-            self._children_name_map["rate_limit"] = "rate-limit"
-            self._children_yang_names.add("rate-limit")
-
-            self.source = Icmp.Ipv4.Source()
-            self.source.parent = self
-            self._children_name_map["source"] = "source"
-            self._children_yang_names.add("source")
-            self._segment_path = lambda: "ipv4"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/%s" % self._segment_path()
-
-
-        class RateLimit(Entity):
-            """
-            Set ratelimit of ICMP packets
-            
-            .. attribute:: unreachable
-            
-            	Set unreachable ICMP packets ratelimit
-            	**type**\:   :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit.Unreachable>`
-            
-            
-
-            """
-
-            _prefix = 'ip-icmp-cfg'
-            _revision = '2017-06-08'
-
-            def __init__(self):
-                super(Icmp.Ipv4.RateLimit, self).__init__()
-
-                self.yang_name = "rate-limit"
-                self.yang_parent_name = "ipv4"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"unreachable" : ("unreachable", Icmp.Ipv4.RateLimit.Unreachable)}
-                self._child_list_classes = {}
-
-                self.unreachable = Icmp.Ipv4.RateLimit.Unreachable()
-                self.unreachable.parent = self
-                self._children_name_map["unreachable"] = "unreachable"
-                self._children_yang_names.add("unreachable")
-                self._segment_path = lambda: "rate-limit"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
-
-
-            class Unreachable(Entity):
-                """
-                Set unreachable ICMP packets ratelimit
-                
-                .. attribute:: fragmentation
-                
-                	Rate Limit of Unreachable DF packets
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: rate
-                
-                	Rate Limit of Unreachable ICMP packets
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ip-icmp-cfg'
-                _revision = '2017-06-08'
-
-                def __init__(self):
-                    super(Icmp.Ipv4.RateLimit.Unreachable, self).__init__()
-
-                    self.yang_name = "unreachable"
-                    self.yang_parent_name = "rate-limit"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
-
-                    self.rate = YLeaf(YType.uint32, "rate")
-                    self._segment_path = lambda: "unreachable"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/rate-limit/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Icmp.Ipv4.RateLimit.Unreachable, ['fragmentation', 'rate'], name, value)
-
-
-        class Source(Entity):
-            """
-            IP ICMP Source Address Selection Policy
-            
-            .. attribute:: source_address_policy
-            
-            	Configure Source Address Policy
-            	**type**\:   :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
-            
-            
-
-            """
-
-            _prefix = 'ip-icmp-cfg'
-            _revision = '2017-06-08'
-
-            def __init__(self):
-                super(Icmp.Ipv4.Source, self).__init__()
-
-                self.yang_name = "source"
-                self.yang_parent_name = "ipv4"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.source_address_policy = YLeaf(YType.enumeration, "source-address-policy")
-                self._segment_path = lambda: "source"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Icmp.Ipv4.Source, ['source_address_policy'], name, value)
 
 
     class Ipv6(Entity):
@@ -322,16 +165,16 @@ class Icmp(Entity):
                 """
                 Set unreachable ICMP packets ratelimit
                 
-                .. attribute:: fragmentation
+                .. attribute:: rate
                 
-                	Rate Limit of Unreachable DF packets
+                	Rate Limit of Unreachable ICMP packets
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: rate
+                .. attribute:: fragmentation
                 
-                	Rate Limit of Unreachable ICMP packets
+                	Rate Limit of Unreachable DF packets
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -353,14 +196,14 @@ class Icmp(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
-
                     self.rate = YLeaf(YType.uint32, "rate")
+
+                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
                     self._segment_path = lambda: "unreachable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/rate-limit/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Icmp.Ipv6.RateLimit.Unreachable, ['fragmentation', 'rate'], name, value)
+                    self._perform_setattr(Icmp.Ipv6.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
 
 
         class Source(Entity):
@@ -395,6 +238,163 @@ class Icmp(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv6.Source, ['source_address_policy'], name, value)
+
+
+    class Ipv4(Entity):
+        """
+        IP Protocol Type
+        
+        .. attribute:: rate_limit
+        
+        	Set ratelimit of ICMP packets
+        	**type**\:   :py:class:`RateLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit>`
+        
+        .. attribute:: source
+        
+        	IP ICMP Source Address Selection Policy
+        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.Source>`
+        
+        
+
+        """
+
+        _prefix = 'ip-icmp-cfg'
+        _revision = '2017-06-08'
+
+        def __init__(self):
+            super(Icmp.Ipv4, self).__init__()
+
+            self.yang_name = "ipv4"
+            self.yang_parent_name = "icmp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"rate-limit" : ("rate_limit", Icmp.Ipv4.RateLimit), "source" : ("source", Icmp.Ipv4.Source)}
+            self._child_list_classes = {}
+
+            self.rate_limit = Icmp.Ipv4.RateLimit()
+            self.rate_limit.parent = self
+            self._children_name_map["rate_limit"] = "rate-limit"
+            self._children_yang_names.add("rate-limit")
+
+            self.source = Icmp.Ipv4.Source()
+            self.source.parent = self
+            self._children_name_map["source"] = "source"
+            self._children_yang_names.add("source")
+            self._segment_path = lambda: "ipv4"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/%s" % self._segment_path()
+
+
+        class RateLimit(Entity):
+            """
+            Set ratelimit of ICMP packets
+            
+            .. attribute:: unreachable
+            
+            	Set unreachable ICMP packets ratelimit
+            	**type**\:   :py:class:`Unreachable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.Icmp.Ipv4.RateLimit.Unreachable>`
+            
+            
+
+            """
+
+            _prefix = 'ip-icmp-cfg'
+            _revision = '2017-06-08'
+
+            def __init__(self):
+                super(Icmp.Ipv4.RateLimit, self).__init__()
+
+                self.yang_name = "rate-limit"
+                self.yang_parent_name = "ipv4"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"unreachable" : ("unreachable", Icmp.Ipv4.RateLimit.Unreachable)}
+                self._child_list_classes = {}
+
+                self.unreachable = Icmp.Ipv4.RateLimit.Unreachable()
+                self.unreachable.parent = self
+                self._children_name_map["unreachable"] = "unreachable"
+                self._children_yang_names.add("unreachable")
+                self._segment_path = lambda: "rate-limit"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
+
+
+            class Unreachable(Entity):
+                """
+                Set unreachable ICMP packets ratelimit
+                
+                .. attribute:: rate
+                
+                	Rate Limit of Unreachable ICMP packets
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: fragmentation
+                
+                	Rate Limit of Unreachable DF packets
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ip-icmp-cfg'
+                _revision = '2017-06-08'
+
+                def __init__(self):
+                    super(Icmp.Ipv4.RateLimit.Unreachable, self).__init__()
+
+                    self.yang_name = "unreachable"
+                    self.yang_parent_name = "rate-limit"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.rate = YLeaf(YType.uint32, "rate")
+
+                    self.fragmentation = YLeaf(YType.uint32, "fragmentation")
+                    self._segment_path = lambda: "unreachable"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/rate-limit/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Icmp.Ipv4.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
+
+
+        class Source(Entity):
+            """
+            IP ICMP Source Address Selection Policy
+            
+            .. attribute:: source_address_policy
+            
+            	Configure Source Address Policy
+            	**type**\:   :py:class:`SourcePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg.SourcePolicy>`
+            
+            
+
+            """
+
+            _prefix = 'ip-icmp-cfg'
+            _revision = '2017-06-08'
+
+            def __init__(self):
+                super(Icmp.Ipv4.Source, self).__init__()
+
+                self.yang_name = "source"
+                self.yang_parent_name = "ipv4"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.source_address_policy = YLeaf(YType.enumeration, "source-address-policy")
+                self._segment_path = lambda: "source"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Icmp.Ipv4.Source, ['source_address_policy'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Icmp()

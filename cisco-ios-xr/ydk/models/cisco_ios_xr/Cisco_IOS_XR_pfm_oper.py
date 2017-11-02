@@ -139,8 +139,6 @@ class PlatformFaultManager(Entity):
                 	hw fault 1
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
                 .. attribute:: fault_type2s
                 
                 	Table of Hardware Failure Device
@@ -228,8 +226,6 @@ class PlatformFaultManager(Entity):
                         	hw fault 2
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
                         .. attribute:: fault_type3s
                         
                         	Table of Hardware Failure Device
@@ -315,8 +311,6 @@ class PlatformFaultManager(Entity):
                                 
                                 	hw fault 3
                                 	**type**\:  str
-                                
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                 
                                 .. attribute:: racks
                                 
@@ -472,8 +466,6 @@ class PlatformFaultManager(Entity):
                                                 	Slot name
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                                
                                                 .. attribute:: fault_summary
                                                 
                                                 	Table of Hardware Summary
@@ -536,16 +528,16 @@ class PlatformFaultManager(Entity):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: severity_error_count
+                                                    .. attribute:: total
                                                     
-                                                    	Fault Severity Error count
+                                                    	Faulty Hardware total count
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
-                                                    .. attribute:: total
+                                                    .. attribute:: severity_error_count
                                                     
-                                                    	Faulty Hardware total count
+                                                    	Fault Severity Error count
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
@@ -571,13 +563,13 @@ class PlatformFaultManager(Entity):
 
                                                         self.severity_emergency_or_alert_count = YLeaf(YType.int32, "severity-emergency-or-alert-count")
 
-                                                        self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
-
                                                         self.total = YLeaf(YType.int32, "total")
+
+                                                        self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
                                                         self._segment_path = lambda: "fault-summary"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
+                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
 
                                                 class HardwareFaultDevices(Entity):
@@ -622,8 +614,6 @@ class PlatformFaultManager(Entity):
                                                         	hw fault device list
                                                         	**type**\:  str
                                                         
-                                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                                        
                                                         .. attribute:: hardware_fault_type
                                                         
                                                         	Table of Hardware Failure Type
@@ -664,8 +654,6 @@ class PlatformFaultManager(Entity):
                                                             	hw fault type list
                                                             	**type**\:  str
                                                             
-                                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                                            
                                                             .. attribute:: condition_description
                                                             
                                                             	Faulty Hardware Condition Description
@@ -674,21 +662,6 @@ class PlatformFaultManager(Entity):
                                                             .. attribute:: condition_name
                                                             
                                                             	Faulty Hardware Condition Name
-                                                            	**type**\:  str
-                                                            
-                                                            .. attribute:: condition_raised_timestamp
-                                                            
-                                                            	Fault Raised Timestamp
-                                                            	**type**\:  str
-                                                            
-                                                            .. attribute:: condition_severity
-                                                            
-                                                            	Faulty Hardware Condition Severity
-                                                            	**type**\:  str
-                                                            
-                                                            .. attribute:: device_description
-                                                            
-                                                            	Faulty Hardware Device Description
                                                             	**type**\:  str
                                                             
                                                             .. attribute:: device_key
@@ -703,12 +676,27 @@ class PlatformFaultManager(Entity):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            .. attribute:: condition_raised_timestamp
+                                                            
+                                                            	Fault Raised Timestamp
+                                                            	**type**\:  str
+                                                            
                                                             .. attribute:: process_id
                                                             
                                                             	Faulty Hardware Process ID
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            .. attribute:: device_description
+                                                            
+                                                            	Faulty Hardware Device Description
+                                                            	**type**\:  str
+                                                            
+                                                            .. attribute:: condition_severity
+                                                            
+                                                            	Faulty Hardware Condition Severity
+                                                            	**type**\:  str
                                                             
                                                             
 
@@ -733,21 +721,21 @@ class PlatformFaultManager(Entity):
 
                                                                 self.condition_name = YLeaf(YType.str, "condition-name")
 
-                                                                self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
-
-                                                                self.condition_severity = YLeaf(YType.str, "condition-severity")
-
-                                                                self.device_description = YLeaf(YType.str, "device-description")
-
                                                                 self.device_key = YLeaf(YType.str, "device-key")
 
                                                                 self.device_version = YLeaf(YType.int32, "device-version")
 
+                                                                self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
+
                                                                 self.process_id = YLeaf(YType.int32, "process-id")
+
+                                                                self.device_description = YLeaf(YType.str, "device-description")
+
+                                                                self.condition_severity = YLeaf(YType.str, "condition-severity")
                                                                 self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                                             def __setattr__(self, name, value):
-                                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
+                                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.FaultType3S.FaultType3.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
 
                         class Racks(Entity):
@@ -870,8 +858,6 @@ class PlatformFaultManager(Entity):
                                         	Slot name
                                         	**type**\:  str
                                         
-                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                        
                                         .. attribute:: fault_summary
                                         
                                         	Table of Hardware Summary
@@ -934,16 +920,16 @@ class PlatformFaultManager(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: severity_error_count
+                                            .. attribute:: total
                                             
-                                            	Fault Severity Error count
+                                            	Faulty Hardware total count
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
                                             
-                                            .. attribute:: total
+                                            .. attribute:: severity_error_count
                                             
-                                            	Faulty Hardware total count
+                                            	Fault Severity Error count
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
@@ -969,13 +955,13 @@ class PlatformFaultManager(Entity):
 
                                                 self.severity_emergency_or_alert_count = YLeaf(YType.int32, "severity-emergency-or-alert-count")
 
-                                                self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
-
                                                 self.total = YLeaf(YType.int32, "total")
+
+                                                self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
                                                 self._segment_path = lambda: "fault-summary"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
 
                                         class HardwareFaultDevices(Entity):
@@ -1020,8 +1006,6 @@ class PlatformFaultManager(Entity):
                                                 	hw fault device list
                                                 	**type**\:  str
                                                 
-                                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                                
                                                 .. attribute:: hardware_fault_type
                                                 
                                                 	Table of Hardware Failure Type
@@ -1062,8 +1046,6 @@ class PlatformFaultManager(Entity):
                                                     	hw fault type list
                                                     	**type**\:  str
                                                     
-                                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                                    
                                                     .. attribute:: condition_description
                                                     
                                                     	Faulty Hardware Condition Description
@@ -1072,21 +1054,6 @@ class PlatformFaultManager(Entity):
                                                     .. attribute:: condition_name
                                                     
                                                     	Faulty Hardware Condition Name
-                                                    	**type**\:  str
-                                                    
-                                                    .. attribute:: condition_raised_timestamp
-                                                    
-                                                    	Fault Raised Timestamp
-                                                    	**type**\:  str
-                                                    
-                                                    .. attribute:: condition_severity
-                                                    
-                                                    	Faulty Hardware Condition Severity
-                                                    	**type**\:  str
-                                                    
-                                                    .. attribute:: device_description
-                                                    
-                                                    	Faulty Hardware Device Description
                                                     	**type**\:  str
                                                     
                                                     .. attribute:: device_key
@@ -1101,12 +1068,27 @@ class PlatformFaultManager(Entity):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    .. attribute:: condition_raised_timestamp
+                                                    
+                                                    	Fault Raised Timestamp
+                                                    	**type**\:  str
+                                                    
                                                     .. attribute:: process_id
                                                     
                                                     	Faulty Hardware Process ID
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    .. attribute:: device_description
+                                                    
+                                                    	Faulty Hardware Device Description
+                                                    	**type**\:  str
+                                                    
+                                                    .. attribute:: condition_severity
+                                                    
+                                                    	Faulty Hardware Condition Severity
+                                                    	**type**\:  str
                                                     
                                                     
 
@@ -1131,21 +1113,21 @@ class PlatformFaultManager(Entity):
 
                                                         self.condition_name = YLeaf(YType.str, "condition-name")
 
-                                                        self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
-
-                                                        self.condition_severity = YLeaf(YType.str, "condition-severity")
-
-                                                        self.device_description = YLeaf(YType.str, "device-description")
-
                                                         self.device_key = YLeaf(YType.str, "device-key")
 
                                                         self.device_version = YLeaf(YType.int32, "device-version")
 
+                                                        self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
+
                                                         self.process_id = YLeaf(YType.int32, "process-id")
+
+                                                        self.device_description = YLeaf(YType.str, "device-description")
+
+                                                        self.condition_severity = YLeaf(YType.str, "condition-severity")
                                                         self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
+                                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.FaultType2S.FaultType2.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
 
                 class Racks(Entity):
@@ -1268,8 +1250,6 @@ class PlatformFaultManager(Entity):
                                 	Slot name
                                 	**type**\:  str
                                 
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                
                                 .. attribute:: fault_summary
                                 
                                 	Table of Hardware Summary
@@ -1332,16 +1312,16 @@ class PlatformFaultManager(Entity):
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: severity_error_count
+                                    .. attribute:: total
                                     
-                                    	Fault Severity Error count
+                                    	Faulty Hardware total count
                                     	**type**\:  int
                                     
                                     	**range:** \-2147483648..2147483647
                                     
-                                    .. attribute:: total
+                                    .. attribute:: severity_error_count
                                     
-                                    	Faulty Hardware total count
+                                    	Fault Severity Error count
                                     	**type**\:  int
                                     
                                     	**range:** \-2147483648..2147483647
@@ -1367,13 +1347,13 @@ class PlatformFaultManager(Entity):
 
                                         self.severity_emergency_or_alert_count = YLeaf(YType.int32, "severity-emergency-or-alert-count")
 
-                                        self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
-
                                         self.total = YLeaf(YType.int32, "total")
+
+                                        self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
                                         self._segment_path = lambda: "fault-summary"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
+                                        self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
 
                                 class HardwareFaultDevices(Entity):
@@ -1418,8 +1398,6 @@ class PlatformFaultManager(Entity):
                                         	hw fault device list
                                         	**type**\:  str
                                         
-                                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                        
                                         .. attribute:: hardware_fault_type
                                         
                                         	Table of Hardware Failure Type
@@ -1460,8 +1438,6 @@ class PlatformFaultManager(Entity):
                                             	hw fault type list
                                             	**type**\:  str
                                             
-                                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                            
                                             .. attribute:: condition_description
                                             
                                             	Faulty Hardware Condition Description
@@ -1470,21 +1446,6 @@ class PlatformFaultManager(Entity):
                                             .. attribute:: condition_name
                                             
                                             	Faulty Hardware Condition Name
-                                            	**type**\:  str
-                                            
-                                            .. attribute:: condition_raised_timestamp
-                                            
-                                            	Fault Raised Timestamp
-                                            	**type**\:  str
-                                            
-                                            .. attribute:: condition_severity
-                                            
-                                            	Faulty Hardware Condition Severity
-                                            	**type**\:  str
-                                            
-                                            .. attribute:: device_description
-                                            
-                                            	Faulty Hardware Device Description
                                             	**type**\:  str
                                             
                                             .. attribute:: device_key
@@ -1499,12 +1460,27 @@ class PlatformFaultManager(Entity):
                                             
                                             	**range:** \-2147483648..2147483647
                                             
+                                            .. attribute:: condition_raised_timestamp
+                                            
+                                            	Fault Raised Timestamp
+                                            	**type**\:  str
+                                            
                                             .. attribute:: process_id
                                             
                                             	Faulty Hardware Process ID
                                             	**type**\:  int
                                             
                                             	**range:** \-2147483648..2147483647
+                                            
+                                            .. attribute:: device_description
+                                            
+                                            	Faulty Hardware Device Description
+                                            	**type**\:  str
+                                            
+                                            .. attribute:: condition_severity
+                                            
+                                            	Faulty Hardware Condition Severity
+                                            	**type**\:  str
                                             
                                             
 
@@ -1529,21 +1505,21 @@ class PlatformFaultManager(Entity):
 
                                                 self.condition_name = YLeaf(YType.str, "condition-name")
 
-                                                self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
-
-                                                self.condition_severity = YLeaf(YType.str, "condition-severity")
-
-                                                self.device_description = YLeaf(YType.str, "device-description")
-
                                                 self.device_key = YLeaf(YType.str, "device-key")
 
                                                 self.device_version = YLeaf(YType.int32, "device-version")
 
+                                                self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
+
                                                 self.process_id = YLeaf(YType.int32, "process-id")
+
+                                                self.device_description = YLeaf(YType.str, "device-description")
+
+                                                self.condition_severity = YLeaf(YType.str, "condition-severity")
                                                 self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
+                                                self._perform_setattr(PlatformFaultManager.Exclude.FaultType1S.FaultType1.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
 
     class Racks(Entity):
@@ -1668,8 +1644,6 @@ class PlatformFaultManager(Entity):
                     	Slot name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: fault_summary
                     
                     	Table of Hardware Summary
@@ -1732,16 +1706,16 @@ class PlatformFaultManager(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: severity_error_count
+                        .. attribute:: total
                         
-                        	Fault Severity Error count
+                        	Faulty Hardware total count
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: total
+                        .. attribute:: severity_error_count
                         
-                        	Faulty Hardware total count
+                        	Fault Severity Error count
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
@@ -1767,13 +1741,13 @@ class PlatformFaultManager(Entity):
 
                             self.severity_emergency_or_alert_count = YLeaf(YType.int32, "severity-emergency-or-alert-count")
 
-                            self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
-
                             self.total = YLeaf(YType.int32, "total")
+
+                            self.severity_error_count = YLeaf(YType.int32, "severity-error-count")
                             self._segment_path = lambda: "fault-summary"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'severity_error_count', 'total'], name, value)
+                            self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.FaultSummary, ['severity_critical_count', 'severity_emergency_or_alert_count', 'total', 'severity_error_count'], name, value)
 
 
                     class HardwareFaultDevices(Entity):
@@ -1818,8 +1792,6 @@ class PlatformFaultManager(Entity):
                             	hw fault device list
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
                             .. attribute:: hardware_fault_type
                             
                             	Table of Hardware Failure Type
@@ -1860,8 +1832,6 @@ class PlatformFaultManager(Entity):
                                 	hw fault type list
                                 	**type**\:  str
                                 
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                
                                 .. attribute:: condition_description
                                 
                                 	Faulty Hardware Condition Description
@@ -1870,21 +1840,6 @@ class PlatformFaultManager(Entity):
                                 .. attribute:: condition_name
                                 
                                 	Faulty Hardware Condition Name
-                                	**type**\:  str
-                                
-                                .. attribute:: condition_raised_timestamp
-                                
-                                	Fault Raised Timestamp
-                                	**type**\:  str
-                                
-                                .. attribute:: condition_severity
-                                
-                                	Faulty Hardware Condition Severity
-                                	**type**\:  str
-                                
-                                .. attribute:: device_description
-                                
-                                	Faulty Hardware Device Description
                                 	**type**\:  str
                                 
                                 .. attribute:: device_key
@@ -1899,12 +1854,27 @@ class PlatformFaultManager(Entity):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                .. attribute:: condition_raised_timestamp
+                                
+                                	Fault Raised Timestamp
+                                	**type**\:  str
+                                
                                 .. attribute:: process_id
                                 
                                 	Faulty Hardware Process ID
                                 	**type**\:  int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: device_description
+                                
+                                	Faulty Hardware Device Description
+                                	**type**\:  str
+                                
+                                .. attribute:: condition_severity
+                                
+                                	Faulty Hardware Condition Severity
+                                	**type**\:  str
                                 
                                 
 
@@ -1929,21 +1899,21 @@ class PlatformFaultManager(Entity):
 
                                     self.condition_name = YLeaf(YType.str, "condition-name")
 
-                                    self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
-
-                                    self.condition_severity = YLeaf(YType.str, "condition-severity")
-
-                                    self.device_description = YLeaf(YType.str, "device-description")
-
                                     self.device_key = YLeaf(YType.str, "device-key")
 
                                     self.device_version = YLeaf(YType.int32, "device-version")
 
+                                    self.condition_raised_timestamp = YLeaf(YType.str, "condition-raised-timestamp")
+
                                     self.process_id = YLeaf(YType.int32, "process-id")
+
+                                    self.device_description = YLeaf(YType.str, "device-description")
+
+                                    self.condition_severity = YLeaf(YType.str, "condition-severity")
                                     self._segment_path = lambda: "hardware-fault-type" + "[hw-fault-type='" + self.hw_fault_type.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'condition_raised_timestamp', 'condition_severity', 'device_description', 'device_key', 'device_version', 'process_id'], name, value)
+                                    self._perform_setattr(PlatformFaultManager.Racks.Rack.Slots.Slot.HardwareFaultDevices.HardwareFaultDevice.HardwareFaultType, ['hw_fault_type', 'condition_description', 'condition_name', 'device_key', 'device_version', 'condition_raised_timestamp', 'process_id', 'device_description', 'condition_severity'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PlatformFaultManager()

@@ -702,15 +702,15 @@ class ObjectGroup(Entity):
     """
     Object\-group configuration
     
-    .. attribute:: network
-    
-    	Network object group
-    	**type**\:   :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
-    
     .. attribute:: port
     
     	Port object group
     	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port>`
+    
+    .. attribute:: network
+    
+    	Network object group
+    	**type**\:   :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network>`
     
     
 
@@ -727,1029 +727,19 @@ class ObjectGroup(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-objmgr-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"network" : ("network", ObjectGroup.Network), "port" : ("port", ObjectGroup.Port)}
+        self._child_container_classes = {"port" : ("port", ObjectGroup.Port), "network" : ("network", ObjectGroup.Network)}
         self._child_list_classes = {}
-
-        self.network = ObjectGroup.Network()
-        self.network.parent = self
-        self._children_name_map["network"] = "network"
-        self._children_yang_names.add("network")
 
         self.port = ObjectGroup.Port()
         self.port.parent = self
         self._children_name_map["port"] = "port"
         self._children_yang_names.add("port")
+
+        self.network = ObjectGroup.Network()
+        self.network.parent = self
+        self._children_name_map["network"] = "network"
+        self._children_yang_names.add("network")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group"
-
-
-    class Network(Entity):
-        """
-        Network object group
-        
-        .. attribute:: ipv4
-        
-        	IPv4 object group
-        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
-        
-        .. attribute:: ipv6
-        
-        	IPv6 object group
-        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
-        
-        
-
-        """
-
-        _prefix = 'infra-objmgr-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(ObjectGroup.Network, self).__init__()
-
-            self.yang_name = "network"
-            self.yang_parent_name = "object-group"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"ipv4" : ("ipv4", ObjectGroup.Network.Ipv4), "ipv6" : ("ipv6", ObjectGroup.Network.Ipv6)}
-            self._child_list_classes = {}
-
-            self.ipv4 = ObjectGroup.Network.Ipv4()
-            self.ipv4.parent = self
-            self._children_name_map["ipv4"] = "ipv4"
-            self._children_yang_names.add("ipv4")
-
-            self.ipv6 = ObjectGroup.Network.Ipv6()
-            self.ipv6.parent = self
-            self._children_name_map["ipv6"] = "ipv6"
-            self._children_yang_names.add("ipv6")
-            self._segment_path = lambda: "network"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/%s" % self._segment_path()
-
-
-        class Ipv4(Entity):
-            """
-            IPv4 object group
-            
-            .. attribute:: udf_objects
-            
-            	Table of ipv4 object groups
-            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects>`
-            
-            
-
-            """
-
-            _prefix = 'infra-objmgr-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(ObjectGroup.Network.Ipv4, self).__init__()
-
-                self.yang_name = "ipv4"
-                self.yang_parent_name = "network"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"udf-objects" : ("udf_objects", ObjectGroup.Network.Ipv4.UdfObjects)}
-                self._child_list_classes = {}
-
-                self.udf_objects = ObjectGroup.Network.Ipv4.UdfObjects()
-                self.udf_objects.parent = self
-                self._children_name_map["udf_objects"] = "udf-objects"
-                self._children_yang_names.add("udf-objects")
-                self._segment_path = lambda: "ipv4"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
-
-
-            class UdfObjects(Entity):
-                """
-                Table of ipv4 object groups
-                
-                .. attribute:: udf_object
-                
-                	IPv4 object group
-                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject>`
-                
-                
-
-                """
-
-                _prefix = 'infra-objmgr-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(ObjectGroup.Network.Ipv4.UdfObjects, self).__init__()
-
-                    self.yang_name = "udf-objects"
-                    self.yang_parent_name = "ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"udf-object" : ("udf_object", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject)}
-
-                    self.udf_object = YList(self)
-                    self._segment_path = lambda: "udf-objects"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects, [], name, value)
-
-
-                class UdfObject(Entity):
-                    """
-                    IPv4 object group
-                    
-                    .. attribute:: object_name  <key>
-                    
-                    	IPv4 object group name \- maximum 64 characters
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: address_ranges
-                    
-                    	Table of ipv4 host address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges>`
-                    
-                    .. attribute:: addresses
-                    
-                    	Table of addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses>`
-                    
-                    .. attribute:: description
-                    
-                    	Up to 100 characters describing this object
-                    	**type**\:  str
-                    
-                    	**length:** 1..100
-                    
-                    .. attribute:: hosts
-                    
-                    	Table of host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts>`
-                    
-                    .. attribute:: nested_groups
-                    
-                    	Table of nested ipv4 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-objmgr-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, self).__init__()
-
-                        self.yang_name = "udf-object"
-                        self.yang_parent_name = "udf-objects"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges), "addresses" : ("addresses", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses), "hosts" : ("hosts", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts), "nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups)}
-                        self._child_list_classes = {}
-
-                        self.object_name = YLeaf(YType.str, "object-name")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.address_ranges = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges()
-                        self.address_ranges.parent = self
-                        self._children_name_map["address_ranges"] = "address-ranges"
-                        self._children_yang_names.add("address-ranges")
-
-                        self.addresses = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses()
-                        self.addresses.parent = self
-                        self._children_name_map["addresses"] = "addresses"
-                        self._children_yang_names.add("addresses")
-
-                        self.hosts = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts()
-                        self.hosts.parent = self
-                        self._children_name_map["hosts"] = "hosts"
-                        self._children_yang_names.add("hosts")
-
-                        self.nested_groups = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups()
-                        self.nested_groups.parent = self
-                        self._children_name_map["nested_groups"] = "nested-groups"
-                        self._children_yang_names.add("nested-groups")
-                        self._segment_path = lambda: "udf-object" + "[object-name='" + self.object_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
-
-
-                    class AddressRanges(Entity):
-                        """
-                        Table of ipv4 host address ranges
-                        
-                        .. attribute:: address_range
-                        
-                        	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, self).__init__()
-
-                            self.yang_name = "address-ranges"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange)}
-
-                            self.address_range = YList(self)
-                            self._segment_path = lambda: "address-ranges"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, [], name, value)
-
-
-                        class AddressRange(Entity):
-                            """
-                            Range of host addresses
-                            
-                            .. attribute:: start_address  <key>
-                            
-                            	IPv4 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: end_address  <key>
-                            
-                            	IPv4 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
-
-                                self.yang_name = "address-range"
-                                self.yang_parent_name = "address-ranges"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.start_address = YLeaf(YType.str, "start-address")
-
-                                self.end_address = YLeaf(YType.str, "end-address")
-                                self._segment_path = lambda: "address-range" + "[start-address='" + self.start_address.get() + "']" + "[end-address='" + self.end_address.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
-
-
-                    class Addresses(Entity):
-                        """
-                        Table of addresses
-                        
-                        .. attribute:: address
-                        
-                        	IPv4 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, self).__init__()
-
-                            self.yang_name = "addresses"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address)}
-
-                            self.address = YList(self)
-                            self._segment_path = lambda: "addresses"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, [], name, value)
-
-
-                        class Address(Entity):
-                            """
-                            IPv4 address
-                            
-                            .. attribute:: prefix  <key>
-                            
-                            	IPv4 address/prefix
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: prefix_length  <key>
-                            
-                            	Prefix of the IP Address
-                            	**type**\:  int
-                            
-                            	**range:** 0..32
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, self).__init__()
-
-                                self.yang_name = "address"
-                                self.yang_parent_name = "addresses"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                                self._segment_path = lambda: "address" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
-
-
-                    class Hosts(Entity):
-                        """
-                        Table of host addresses
-                        
-                        .. attribute:: host
-                        
-                        	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, self).__init__()
-
-                            self.yang_name = "hosts"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host)}
-
-                            self.host = YList(self)
-                            self._segment_path = lambda: "hosts"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, [], name, value)
-
-
-                        class Host(Entity):
-                            """
-                            A single host address
-                            
-                            .. attribute:: host_address  <key>
-                            
-                            	Host ipv4 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, self).__init__()
-
-                                self.yang_name = "host"
-                                self.yang_parent_name = "hosts"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
-
-
-                    class NestedGroups(Entity):
-                        """
-                        Table of nested ipv4 object groups
-                        
-                        .. attribute:: nested_group
-                        
-                        	Nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, self).__init__()
-
-                            self.yang_name = "nested-groups"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
-
-                            self.nested_group = YList(self)
-                            self._segment_path = lambda: "nested-groups"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, [], name, value)
-
-
-                        class NestedGroup(Entity):
-                            """
-                            Nested object group
-                            
-                            .. attribute:: nested_group_name  <key>
-                            
-                            	Nested object group
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
-
-                                self.yang_name = "nested-group"
-                                self.yang_parent_name = "nested-groups"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
-
-
-        class Ipv6(Entity):
-            """
-            IPv6 object group
-            
-            .. attribute:: udf_objects
-            
-            	Table of ipv6 object groups
-            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects>`
-            
-            
-
-            """
-
-            _prefix = 'infra-objmgr-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(ObjectGroup.Network.Ipv6, self).__init__()
-
-                self.yang_name = "ipv6"
-                self.yang_parent_name = "network"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"udf-objects" : ("udf_objects", ObjectGroup.Network.Ipv6.UdfObjects)}
-                self._child_list_classes = {}
-
-                self.udf_objects = ObjectGroup.Network.Ipv6.UdfObjects()
-                self.udf_objects.parent = self
-                self._children_name_map["udf_objects"] = "udf-objects"
-                self._children_yang_names.add("udf-objects")
-                self._segment_path = lambda: "ipv6"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
-
-
-            class UdfObjects(Entity):
-                """
-                Table of ipv6 object groups
-                
-                .. attribute:: udf_object
-                
-                	IPv6 object group
-                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject>`
-                
-                
-
-                """
-
-                _prefix = 'infra-objmgr-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(ObjectGroup.Network.Ipv6.UdfObjects, self).__init__()
-
-                    self.yang_name = "udf-objects"
-                    self.yang_parent_name = "ipv6"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"udf-object" : ("udf_object", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject)}
-
-                    self.udf_object = YList(self)
-                    self._segment_path = lambda: "udf-objects"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects, [], name, value)
-
-
-                class UdfObject(Entity):
-                    """
-                    IPv6 object group
-                    
-                    .. attribute:: object_name  <key>
-                    
-                    	IPv6 object group name \- maximum 64 characters
-                    	**type**\:  str
-                    
-                    	**length:** 1..64
-                    
-                    .. attribute:: address_ranges
-                    
-                    	Table of ipv6 address ranges
-                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges>`
-                    
-                    .. attribute:: addresses
-                    
-                    	Table of ipv6 addresses
-                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses>`
-                    
-                    .. attribute:: description
-                    
-                    	Up to 100 characters describing this object
-                    	**type**\:  str
-                    
-                    	**length:** 1..100
-                    
-                    .. attribute:: hosts
-                    
-                    	Table of ipv6 host addresses
-                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts>`
-                    
-                    .. attribute:: nested_groups
-                    
-                    	Table of nested ipv6 object groups
-                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-objmgr-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, self).__init__()
-
-                        self.yang_name = "udf-object"
-                        self.yang_parent_name = "udf-objects"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges), "addresses" : ("addresses", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses), "hosts" : ("hosts", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts), "nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups)}
-                        self._child_list_classes = {}
-
-                        self.object_name = YLeaf(YType.str, "object-name")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.address_ranges = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges()
-                        self.address_ranges.parent = self
-                        self._children_name_map["address_ranges"] = "address-ranges"
-                        self._children_yang_names.add("address-ranges")
-
-                        self.addresses = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses()
-                        self.addresses.parent = self
-                        self._children_name_map["addresses"] = "addresses"
-                        self._children_yang_names.add("addresses")
-
-                        self.hosts = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts()
-                        self.hosts.parent = self
-                        self._children_name_map["hosts"] = "hosts"
-                        self._children_yang_names.add("hosts")
-
-                        self.nested_groups = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups()
-                        self.nested_groups.parent = self
-                        self._children_name_map["nested_groups"] = "nested-groups"
-                        self._children_yang_names.add("nested-groups")
-                        self._segment_path = lambda: "udf-object" + "[object-name='" + self.object_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
-
-
-                    class AddressRanges(Entity):
-                        """
-                        Table of ipv6 address ranges
-                        
-                        .. attribute:: address_range
-                        
-                        	Range of host addresses
-                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, self).__init__()
-
-                            self.yang_name = "address-ranges"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange)}
-
-                            self.address_range = YList(self)
-                            self._segment_path = lambda: "address-ranges"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, [], name, value)
-
-
-                        class AddressRange(Entity):
-                            """
-                            Range of host addresses
-                            
-                            .. attribute:: start_address  <key>
-                            
-                            	IPv6 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: end_address  <key>
-                            
-                            	IPv6 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
-
-                                self.yang_name = "address-range"
-                                self.yang_parent_name = "address-ranges"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.start_address = YLeaf(YType.str, "start-address")
-
-                                self.end_address = YLeaf(YType.str, "end-address")
-                                self._segment_path = lambda: "address-range" + "[start-address='" + self.start_address.get() + "']" + "[end-address='" + self.end_address.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
-
-
-                    class Addresses(Entity):
-                        """
-                        Table of ipv6 addresses
-                        
-                        .. attribute:: address
-                        
-                        	IPv6 address
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, self).__init__()
-
-                            self.yang_name = "addresses"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address)}
-
-                            self.address = YList(self)
-                            self._segment_path = lambda: "addresses"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, [], name, value)
-
-
-                        class Address(Entity):
-                            """
-                            IPv6 address
-                            
-                            .. attribute:: prefix  <key>
-                            
-                            	IPv6 prefix x\:x\:\:x/y
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: prefix_length  <key>
-                            
-                            	Prefix of the IP Address
-                            	**type**\:  int
-                            
-                            	**range:** 0..128
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, self).__init__()
-
-                                self.yang_name = "address"
-                                self.yang_parent_name = "addresses"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
-                                self._segment_path = lambda: "address" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
-
-
-                    class Hosts(Entity):
-                        """
-                        Table of ipv6 host addresses
-                        
-                        .. attribute:: host
-                        
-                        	A single host address
-                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, self).__init__()
-
-                            self.yang_name = "hosts"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host)}
-
-                            self.host = YList(self)
-                            self._segment_path = lambda: "hosts"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, [], name, value)
-
-
-                        class Host(Entity):
-                            """
-                            A single host address
-                            
-                            .. attribute:: host_address  <key>
-                            
-                            	host ipv6 address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, self).__init__()
-
-                                self.yang_name = "host"
-                                self.yang_parent_name = "hosts"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.host_address = YLeaf(YType.str, "host-address")
-                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
-
-
-                    class NestedGroups(Entity):
-                        """
-                        Table of nested ipv6 object groups
-                        
-                        .. attribute:: nested_group
-                        
-                        	nested object group
-                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, self).__init__()
-
-                            self.yang_name = "nested-groups"
-                            self.yang_parent_name = "udf-object"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
-
-                            self.nested_group = YList(self)
-                            self._segment_path = lambda: "nested-groups"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, [], name, value)
-
-
-                        class NestedGroup(Entity):
-                            """
-                            nested object group
-                            
-                            .. attribute:: nested_group_name  <key>
-                            
-                            	Enter the name of a nested object group
-                            	**type**\:  str
-                            
-                            	**length:** 1..64
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-objmgr-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
-
-                                self.yang_name = "nested-group"
-                                self.yang_parent_name = "nested-groups"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
 
     class Port(Entity):
@@ -1831,27 +821,27 @@ class ObjectGroup(Entity):
                 
                 	**length:** 1..64
                 
-                .. attribute:: description
+                .. attribute:: operators
                 
-                	Up to 100 characters describing this object
-                	**type**\:  str
-                
-                	**length:** 1..100
+                	Table of port operators
+                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators>`
                 
                 .. attribute:: nested_groups
                 
                 	Table of nested port object groups
                 	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups>`
                 
-                .. attribute:: operators
-                
-                	Table of port operators
-                	**type**\:   :py:class:`Operators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.Operators>`
-                
                 .. attribute:: port_ranges
                 
                 	Table of port range addresses
                 	**type**\:   :py:class:`PortRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.PortRanges>`
+                
+                .. attribute:: description
+                
+                	Up to 100 characters describing this object
+                	**type**\:  str
+                
+                	**length:** 1..100
                 
                 
 
@@ -1867,22 +857,22 @@ class ObjectGroup(Entity):
                     self.yang_parent_name = "udf-objects"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups), "operators" : ("operators", ObjectGroup.Port.UdfObjects.UdfObject.Operators), "port-ranges" : ("port_ranges", ObjectGroup.Port.UdfObjects.UdfObject.PortRanges)}
+                    self._child_container_classes = {"operators" : ("operators", ObjectGroup.Port.UdfObjects.UdfObject.Operators), "nested-groups" : ("nested_groups", ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups), "port-ranges" : ("port_ranges", ObjectGroup.Port.UdfObjects.UdfObject.PortRanges)}
                     self._child_list_classes = {}
 
                     self.object_name = YLeaf(YType.str, "object-name")
 
                     self.description = YLeaf(YType.str, "description")
 
-                    self.nested_groups = ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups()
-                    self.nested_groups.parent = self
-                    self._children_name_map["nested_groups"] = "nested-groups"
-                    self._children_yang_names.add("nested-groups")
-
                     self.operators = ObjectGroup.Port.UdfObjects.UdfObject.Operators()
                     self.operators.parent = self
                     self._children_name_map["operators"] = "operators"
                     self._children_yang_names.add("operators")
+
+                    self.nested_groups = ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups()
+                    self.nested_groups.parent = self
+                    self._children_name_map["nested_groups"] = "nested-groups"
+                    self._children_yang_names.add("nested-groups")
 
                     self.port_ranges = ObjectGroup.Port.UdfObjects.UdfObject.PortRanges()
                     self.port_ranges.parent = self
@@ -1893,74 +883,6 @@ class ObjectGroup(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
-
-
-                class NestedGroups(Entity):
-                    """
-                    Table of nested port object groups
-                    
-                    .. attribute:: nested_group
-                    
-                    	nested object group
-                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-objmgr-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, self).__init__()
-
-                        self.yang_name = "nested-groups"
-                        self.yang_parent_name = "udf-object"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
-
-                        self.nested_group = YList(self)
-                        self._segment_path = lambda: "nested-groups"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, [], name, value)
-
-
-                    class NestedGroup(Entity):
-                        """
-                        nested object group
-                        
-                        .. attribute:: nested_group_name  <key>
-                        
-                        	Name of a nested object group
-                        	**type**\:  str
-                        
-                        	**length:** 1..64
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-objmgr-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
-
-                            self.yang_name = "nested-group"
-                            self.yang_parent_name = "nested-groups"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nested_group_name = YLeaf(YType.str, "nested-group-name")
-                            self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
 
                 class Operators(Entity):
@@ -2044,6 +966,74 @@ class ObjectGroup(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, ['operator_type', 'port'], name, value)
+
+
+                class NestedGroups(Entity):
+                    """
+                    Table of nested port object groups
+                    
+                    .. attribute:: nested_group
+                    
+                    	nested object group
+                    	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-objmgr-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, self).__init__()
+
+                        self.yang_name = "nested-groups"
+                        self.yang_parent_name = "udf-object"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
+
+                        self.nested_group = YList(self)
+                        self._segment_path = lambda: "nested-groups"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, [], name, value)
+
+
+                    class NestedGroup(Entity):
+                        """
+                        nested object group
+                        
+                        .. attribute:: nested_group_name  <key>
+                        
+                        	Name of a nested object group
+                        	**type**\:  str
+                        
+                        	**length:** 1..64
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+
+                            self.yang_name = "nested-group"
+                            self.yang_parent_name = "nested-groups"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.nested_group_name = YLeaf(YType.str, "nested-group-name")
+                            self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
 
 
                 class PortRanges(Entity):
@@ -2137,6 +1127,984 @@ class ObjectGroup(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, ['start_port', 'end_port'], name, value)
+
+
+    class Network(Entity):
+        """
+        Network object group
+        
+        .. attribute:: ipv6
+        
+        	IPv6 object group
+        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6>`
+        
+        .. attribute:: ipv4
+        
+        	IPv4 object group
+        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4>`
+        
+        
+
+        """
+
+        _prefix = 'infra-objmgr-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(ObjectGroup.Network, self).__init__()
+
+            self.yang_name = "network"
+            self.yang_parent_name = "object-group"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"ipv6" : ("ipv6", ObjectGroup.Network.Ipv6), "ipv4" : ("ipv4", ObjectGroup.Network.Ipv4)}
+            self._child_list_classes = {}
+
+            self.ipv6 = ObjectGroup.Network.Ipv6()
+            self.ipv6.parent = self
+            self._children_name_map["ipv6"] = "ipv6"
+            self._children_yang_names.add("ipv6")
+
+            self.ipv4 = ObjectGroup.Network.Ipv4()
+            self.ipv4.parent = self
+            self._children_name_map["ipv4"] = "ipv4"
+            self._children_yang_names.add("ipv4")
+            self._segment_path = lambda: "network"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/%s" % self._segment_path()
+
+
+        class Ipv6(Entity):
+            """
+            IPv6 object group
+            
+            .. attribute:: udf_objects
+            
+            	Table of ipv6 object groups
+            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects>`
+            
+            
+
+            """
+
+            _prefix = 'infra-objmgr-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(ObjectGroup.Network.Ipv6, self).__init__()
+
+                self.yang_name = "ipv6"
+                self.yang_parent_name = "network"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"udf-objects" : ("udf_objects", ObjectGroup.Network.Ipv6.UdfObjects)}
+                self._child_list_classes = {}
+
+                self.udf_objects = ObjectGroup.Network.Ipv6.UdfObjects()
+                self.udf_objects.parent = self
+                self._children_name_map["udf_objects"] = "udf-objects"
+                self._children_yang_names.add("udf-objects")
+                self._segment_path = lambda: "ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
+
+
+            class UdfObjects(Entity):
+                """
+                Table of ipv6 object groups
+                
+                .. attribute:: udf_object
+                
+                	IPv6 object group
+                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject>`
+                
+                
+
+                """
+
+                _prefix = 'infra-objmgr-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(ObjectGroup.Network.Ipv6.UdfObjects, self).__init__()
+
+                    self.yang_name = "udf-objects"
+                    self.yang_parent_name = "ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"udf-object" : ("udf_object", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject)}
+
+                    self.udf_object = YList(self)
+                    self._segment_path = lambda: "udf-objects"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects, [], name, value)
+
+
+                class UdfObject(Entity):
+                    """
+                    IPv6 object group
+                    
+                    .. attribute:: object_name  <key>
+                    
+                    	IPv6 object group name \- maximum 64 characters
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: nested_groups
+                    
+                    	Table of nested ipv6 object groups
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups>`
+                    
+                    .. attribute:: address_ranges
+                    
+                    	Table of ipv6 address ranges
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges>`
+                    
+                    .. attribute:: addresses
+                    
+                    	Table of ipv6 addresses
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses>`
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of ipv6 host addresses
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts>`
+                    
+                    .. attribute:: description
+                    
+                    	Up to 100 characters describing this object
+                    	**type**\:  str
+                    
+                    	**length:** 1..100
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-objmgr-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, self).__init__()
+
+                        self.yang_name = "udf-object"
+                        self.yang_parent_name = "udf-objects"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups), "address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges), "addresses" : ("addresses", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses), "hosts" : ("hosts", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts)}
+                        self._child_list_classes = {}
+
+                        self.object_name = YLeaf(YType.str, "object-name")
+
+                        self.description = YLeaf(YType.str, "description")
+
+                        self.nested_groups = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups()
+                        self.nested_groups.parent = self
+                        self._children_name_map["nested_groups"] = "nested-groups"
+                        self._children_yang_names.add("nested-groups")
+
+                        self.address_ranges = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges()
+                        self.address_ranges.parent = self
+                        self._children_name_map["address_ranges"] = "address-ranges"
+                        self._children_yang_names.add("address-ranges")
+
+                        self.addresses = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses()
+                        self.addresses.parent = self
+                        self._children_name_map["addresses"] = "addresses"
+                        self._children_yang_names.add("addresses")
+
+                        self.hosts = ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts()
+                        self.hosts.parent = self
+                        self._children_name_map["hosts"] = "hosts"
+                        self._children_yang_names.add("hosts")
+                        self._segment_path = lambda: "udf-object" + "[object-name='" + self.object_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
+
+
+                    class NestedGroups(Entity):
+                        """
+                        Table of nested ipv6 object groups
+                        
+                        .. attribute:: nested_group
+                        
+                        	nested object group
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, self).__init__()
+
+                            self.yang_name = "nested-groups"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
+
+                            self.nested_group = YList(self)
+                            self._segment_path = lambda: "nested-groups"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, [], name, value)
+
+
+                        class NestedGroup(Entity):
+                            """
+                            nested object group
+                            
+                            .. attribute:: nested_group_name  <key>
+                            
+                            	Enter the name of a nested object group
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+
+                                self.yang_name = "nested-group"
+                                self.yang_parent_name = "nested-groups"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
+                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
+
+
+                    class AddressRanges(Entity):
+                        """
+                        Table of ipv6 address ranges
+                        
+                        .. attribute:: address_range
+                        
+                        	Range of host addresses
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, self).__init__()
+
+                            self.yang_name = "address-ranges"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange)}
+
+                            self.address_range = YList(self)
+                            self._segment_path = lambda: "address-ranges"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, [], name, value)
+
+
+                        class AddressRange(Entity):
+                            """
+                            Range of host addresses
+                            
+                            .. attribute:: start_address  <key>
+                            
+                            	IPv6 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: end_address  <key>
+                            
+                            	IPv6 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
+
+                                self.yang_name = "address-range"
+                                self.yang_parent_name = "address-ranges"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.start_address = YLeaf(YType.str, "start-address")
+
+                                self.end_address = YLeaf(YType.str, "end-address")
+                                self._segment_path = lambda: "address-range" + "[start-address='" + self.start_address.get() + "']" + "[end-address='" + self.end_address.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
+
+
+                    class Addresses(Entity):
+                        """
+                        Table of ipv6 addresses
+                        
+                        .. attribute:: address
+                        
+                        	IPv6 address
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, self).__init__()
+
+                            self.yang_name = "addresses"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address)}
+
+                            self.address = YList(self)
+                            self._segment_path = lambda: "addresses"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, [], name, value)
+
+
+                        class Address(Entity):
+                            """
+                            IPv6 address
+                            
+                            .. attribute:: prefix  <key>
+                            
+                            	IPv6 prefix x\:x\:\:x/y
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: prefix_length  <key>
+                            
+                            	Prefix of the IP Address
+                            	**type**\:  int
+                            
+                            	**range:** 0..128
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, self).__init__()
+
+                                self.yang_name = "address"
+                                self.yang_parent_name = "addresses"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.prefix = YLeaf(YType.str, "prefix")
+
+                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                                self._segment_path = lambda: "address" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
+
+
+                    class Hosts(Entity):
+                        """
+                        Table of ipv6 host addresses
+                        
+                        .. attribute:: host
+                        
+                        	A single host address
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, self).__init__()
+
+                            self.yang_name = "hosts"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host)}
+
+                            self.host = YList(self)
+                            self._segment_path = lambda: "hosts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, [], name, value)
+
+
+                        class Host(Entity):
+                            """
+                            A single host address
+                            
+                            .. attribute:: host_address  <key>
+                            
+                            	host ipv6 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, self).__init__()
+
+                                self.yang_name = "host"
+                                self.yang_parent_name = "hosts"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.host_address = YLeaf(YType.str, "host-address")
+                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
+
+
+        class Ipv4(Entity):
+            """
+            IPv4 object group
+            
+            .. attribute:: udf_objects
+            
+            	Table of ipv4 object groups
+            	**type**\:   :py:class:`UdfObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects>`
+            
+            
+
+            """
+
+            _prefix = 'infra-objmgr-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(ObjectGroup.Network.Ipv4, self).__init__()
+
+                self.yang_name = "ipv4"
+                self.yang_parent_name = "network"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"udf-objects" : ("udf_objects", ObjectGroup.Network.Ipv4.UdfObjects)}
+                self._child_list_classes = {}
+
+                self.udf_objects = ObjectGroup.Network.Ipv4.UdfObjects()
+                self.udf_objects.parent = self
+                self._children_name_map["udf_objects"] = "udf-objects"
+                self._children_yang_names.add("udf-objects")
+                self._segment_path = lambda: "ipv4"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
+
+
+            class UdfObjects(Entity):
+                """
+                Table of ipv4 object groups
+                
+                .. attribute:: udf_object
+                
+                	IPv4 object group
+                	**type**\: list of    :py:class:`UdfObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject>`
+                
+                
+
+                """
+
+                _prefix = 'infra-objmgr-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(ObjectGroup.Network.Ipv4.UdfObjects, self).__init__()
+
+                    self.yang_name = "udf-objects"
+                    self.yang_parent_name = "ipv4"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"udf-object" : ("udf_object", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject)}
+
+                    self.udf_object = YList(self)
+                    self._segment_path = lambda: "udf-objects"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects, [], name, value)
+
+
+                class UdfObject(Entity):
+                    """
+                    IPv4 object group
+                    
+                    .. attribute:: object_name  <key>
+                    
+                    	IPv4 object group name \- maximum 64 characters
+                    	**type**\:  str
+                    
+                    	**length:** 1..64
+                    
+                    .. attribute:: nested_groups
+                    
+                    	Table of nested ipv4 object groups
+                    	**type**\:   :py:class:`NestedGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups>`
+                    
+                    .. attribute:: address_ranges
+                    
+                    	Table of ipv4 host address ranges
+                    	**type**\:   :py:class:`AddressRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges>`
+                    
+                    .. attribute:: addresses
+                    
+                    	Table of addresses
+                    	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses>`
+                    
+                    .. attribute:: hosts
+                    
+                    	Table of host addresses
+                    	**type**\:   :py:class:`Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts>`
+                    
+                    .. attribute:: description
+                    
+                    	Up to 100 characters describing this object
+                    	**type**\:  str
+                    
+                    	**length:** 1..100
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-objmgr-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, self).__init__()
+
+                        self.yang_name = "udf-object"
+                        self.yang_parent_name = "udf-objects"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"nested-groups" : ("nested_groups", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups), "address-ranges" : ("address_ranges", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges), "addresses" : ("addresses", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses), "hosts" : ("hosts", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts)}
+                        self._child_list_classes = {}
+
+                        self.object_name = YLeaf(YType.str, "object-name")
+
+                        self.description = YLeaf(YType.str, "description")
+
+                        self.nested_groups = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups()
+                        self.nested_groups.parent = self
+                        self._children_name_map["nested_groups"] = "nested-groups"
+                        self._children_yang_names.add("nested-groups")
+
+                        self.address_ranges = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges()
+                        self.address_ranges.parent = self
+                        self._children_name_map["address_ranges"] = "address-ranges"
+                        self._children_yang_names.add("address-ranges")
+
+                        self.addresses = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses()
+                        self.addresses.parent = self
+                        self._children_name_map["addresses"] = "addresses"
+                        self._children_yang_names.add("addresses")
+
+                        self.hosts = ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts()
+                        self.hosts.parent = self
+                        self._children_name_map["hosts"] = "hosts"
+                        self._children_yang_names.add("hosts")
+                        self._segment_path = lambda: "udf-object" + "[object-name='" + self.object_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
+
+
+                    class NestedGroups(Entity):
+                        """
+                        Table of nested ipv4 object groups
+                        
+                        .. attribute:: nested_group
+                        
+                        	Nested object group
+                        	**type**\: list of    :py:class:`NestedGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, self).__init__()
+
+                            self.yang_name = "nested-groups"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"nested-group" : ("nested_group", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup)}
+
+                            self.nested_group = YList(self)
+                            self._segment_path = lambda: "nested-groups"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, [], name, value)
+
+
+                        class NestedGroup(Entity):
+                            """
+                            Nested object group
+                            
+                            .. attribute:: nested_group_name  <key>
+                            
+                            	Nested object group
+                            	**type**\:  str
+                            
+                            	**length:** 1..64
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, self).__init__()
+
+                                self.yang_name = "nested-group"
+                                self.yang_parent_name = "nested-groups"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.nested_group_name = YLeaf(YType.str, "nested-group-name")
+                                self._segment_path = lambda: "nested-group" + "[nested-group-name='" + self.nested_group_name.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
+
+
+                    class AddressRanges(Entity):
+                        """
+                        Table of ipv4 host address ranges
+                        
+                        .. attribute:: address_range
+                        
+                        	Range of host addresses
+                        	**type**\: list of    :py:class:`AddressRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, self).__init__()
+
+                            self.yang_name = "address-ranges"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"address-range" : ("address_range", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange)}
+
+                            self.address_range = YList(self)
+                            self._segment_path = lambda: "address-ranges"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, [], name, value)
+
+
+                        class AddressRange(Entity):
+                            """
+                            Range of host addresses
+                            
+                            .. attribute:: start_address  <key>
+                            
+                            	IPv4 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: end_address  <key>
+                            
+                            	IPv4 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, self).__init__()
+
+                                self.yang_name = "address-range"
+                                self.yang_parent_name = "address-ranges"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.start_address = YLeaf(YType.str, "start-address")
+
+                                self.end_address = YLeaf(YType.str, "end-address")
+                                self._segment_path = lambda: "address-range" + "[start-address='" + self.start_address.get() + "']" + "[end-address='" + self.end_address.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
+
+
+                    class Addresses(Entity):
+                        """
+                        Table of addresses
+                        
+                        .. attribute:: address
+                        
+                        	IPv4 address
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, self).__init__()
+
+                            self.yang_name = "addresses"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"address" : ("address", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address)}
+
+                            self.address = YList(self)
+                            self._segment_path = lambda: "addresses"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, [], name, value)
+
+
+                        class Address(Entity):
+                            """
+                            IPv4 address
+                            
+                            .. attribute:: prefix  <key>
+                            
+                            	IPv4 address/prefix
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: prefix_length  <key>
+                            
+                            	Prefix of the IP Address
+                            	**type**\:  int
+                            
+                            	**range:** 0..32
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, self).__init__()
+
+                                self.yang_name = "address"
+                                self.yang_parent_name = "addresses"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.prefix = YLeaf(YType.str, "prefix")
+
+                                self.prefix_length = YLeaf(YType.uint8, "prefix-length")
+                                self._segment_path = lambda: "address" + "[prefix='" + self.prefix.get() + "']" + "[prefix-length='" + self.prefix_length.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
+
+
+                    class Hosts(Entity):
+                        """
+                        Table of host addresses
+                        
+                        .. attribute:: host
+                        
+                        	A single host address
+                        	**type**\: list of    :py:class:`Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg.ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-objmgr-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, self).__init__()
+
+                            self.yang_name = "hosts"
+                            self.yang_parent_name = "udf-object"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"host" : ("host", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host)}
+
+                            self.host = YList(self)
+                            self._segment_path = lambda: "hosts"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, [], name, value)
+
+
+                        class Host(Entity):
+                            """
+                            A single host address
+                            
+                            .. attribute:: host_address  <key>
+                            
+                            	Host ipv4 address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            
+
+                            """
+
+                            _prefix = 'infra-objmgr-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, self).__init__()
+
+                                self.yang_name = "host"
+                                self.yang_parent_name = "hosts"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.host_address = YLeaf(YType.str, "host-address")
+                                self._segment_path = lambda: "host" + "[host-address='" + self.host_address.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ObjectGroup()

@@ -63,6 +63,13 @@ class MemoryUsageProcesses(Entity):
         	The name of the process
         	**type**\:  str
         
+        .. attribute:: tty
+        
+        	TTY bound to by the process
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
         .. attribute:: allocated_memory
         
         	Total memory allocated to this process (bytes)
@@ -81,13 +88,6 @@ class MemoryUsageProcesses(Entity):
         
         	**units**\: bytes
         
-        .. attribute:: get_buffers
-        
-        	Get Buffers of this process (bytes)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
         .. attribute:: holding_memory
         
         	Total memory currently held by this process (bytes)
@@ -97,19 +97,19 @@ class MemoryUsageProcesses(Entity):
         
         	**units**\: bytes
         
+        .. attribute:: get_buffers
+        
+        	Get Buffers of this process (bytes)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
         .. attribute:: ret_buffers
         
         	Return Buffers of this process (bytes)
         	**type**\:  int
         
         	**range:** 0..4294967295
-        
-        .. attribute:: tty
-        
-        	TTY bound to by the process
-        	**type**\:  int
-        
-        	**range:** 0..65535
         
         
 
@@ -132,22 +132,22 @@ class MemoryUsageProcesses(Entity):
 
             self.name = YLeaf(YType.str, "name")
 
+            self.tty = YLeaf(YType.uint16, "tty")
+
             self.allocated_memory = YLeaf(YType.uint64, "allocated-memory")
 
             self.freed_memory = YLeaf(YType.uint64, "freed-memory")
 
-            self.get_buffers = YLeaf(YType.uint32, "get-buffers")
-
             self.holding_memory = YLeaf(YType.uint64, "holding-memory")
 
-            self.ret_buffers = YLeaf(YType.uint32, "ret-buffers")
+            self.get_buffers = YLeaf(YType.uint32, "get-buffers")
 
-            self.tty = YLeaf(YType.uint16, "tty")
+            self.ret_buffers = YLeaf(YType.uint32, "ret-buffers")
             self._segment_path = lambda: "memory-usage-process" + "[pid='" + self.pid.get() + "']" + "[name='" + self.name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-process-memory-oper:memory-usage-processes/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MemoryUsageProcesses.MemoryUsageProcess, ['pid', 'name', 'allocated_memory', 'freed_memory', 'get_buffers', 'holding_memory', 'ret_buffers', 'tty'], name, value)
+            self._perform_setattr(MemoryUsageProcesses.MemoryUsageProcess, ['pid', 'name', 'tty', 'allocated_memory', 'freed_memory', 'holding_memory', 'get_buffers', 'ret_buffers'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MemoryUsageProcesses()

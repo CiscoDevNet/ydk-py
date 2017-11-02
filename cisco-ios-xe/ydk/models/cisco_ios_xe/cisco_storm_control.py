@@ -47,21 +47,6 @@ class ActionDrop(Identity):
         super(ActionDrop, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-drop")
 
 
-class ActionShutdown(Identity):
-    """
-    Shutdown service.
-    
-    
-
-    """
-
-    _prefix = 'cisco-stormctrl'
-    _revision = '2016-12-14'
-
-    def __init__(self):
-        super(ActionShutdown, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-shutdown")
-
-
 class ActionSnmpTrap(Identity):
     """
     Generate SNMP traps.
@@ -75,5 +60,20 @@ class ActionSnmpTrap(Identity):
 
     def __init__(self):
         super(ActionSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-snmp-trap")
+
+
+class ActionShutdown(Identity):
+    """
+    Shutdown service.
+    
+    
+
+    """
+
+    _prefix = 'cisco-stormctrl'
+    _revision = '2016-12-14'
+
+    def __init__(self):
+        super(ActionShutdown, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-shutdown")
 
 

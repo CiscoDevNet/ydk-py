@@ -184,8 +184,6 @@ class MacSecKeychains(Entity):
         	Name of the key chain
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: keies
         
         	Configure a Key
@@ -263,7 +261,10 @@ class MacSecKeychains(Entity):
                 	48\-bit Key identifier
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                .. attribute:: lifetime
+                
+                	Configure a key Lifetime
+                	**type**\:   :py:class:`Lifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime>`
                 
                 .. attribute:: key_string
                 
@@ -271,11 +272,6 @@ class MacSecKeychains(Entity):
                 	**type**\:   :py:class:`KeyString <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.KeyString>`
                 
                 	**presence node**\: True
-                
-                .. attribute:: lifetime
-                
-                	Configure a key Lifetime
-                	**type**\:   :py:class:`Lifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime>`
                 
                 
 
@@ -291,152 +287,28 @@ class MacSecKeychains(Entity):
                     self.yang_parent_name = "keies"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"key-string" : ("key_string", MacSecKeychains.MacSecKeychain.Keies.Key.KeyString), "lifetime" : ("lifetime", MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime)}
+                    self._child_container_classes = {"lifetime" : ("lifetime", MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime), "key-string" : ("key_string", MacSecKeychains.MacSecKeychain.Keies.Key.KeyString)}
                     self._child_list_classes = {}
 
                     self.key_id = YLeaf(YType.str, "key-id")
-
-                    self.key_string = None
-                    self._children_name_map["key_string"] = "key-string"
-                    self._children_yang_names.add("key-string")
 
                     self.lifetime = MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime()
                     self.lifetime.parent = self
                     self._children_name_map["lifetime"] = "lifetime"
                     self._children_yang_names.add("lifetime")
+
+                    self.key_string = None
+                    self._children_name_map["key_string"] = "key-string"
+                    self._children_yang_names.add("key-string")
                     self._segment_path = lambda: "key" + "[key-id='" + self.key_id.get() + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacSecKeychains.MacSecKeychain.Keies.Key, ['key_id'], name, value)
 
 
-                class KeyString(Entity):
-                    """
-                    Configure a clear text/encrypted Key string
-                    along with cryptographic algorithm
-                    
-                    .. attribute:: cryptographic_algorithm
-                    
-                    	Cryptographic Algorithm
-                    	**type**\:   :py:class:`MacSecCryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecCryptoAlg>`
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: encryption_type
-                    
-                    	encryption type used to store key
-                    	**type**\:   :py:class:`MacSecEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecEncryption>`
-                    
-                    	**default value**\: type7
-                    
-                    .. attribute:: string
-                    
-                    	Key String
-                    	**type**\:  str
-                    
-                    	**pattern:** (!.+)\|([^!].+)
-                    
-                    	**mandatory**\: True
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'lib-keychain-macsec-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(MacSecKeychains.MacSecKeychain.Keies.Key.KeyString, self).__init__()
-
-                        self.yang_name = "key-string"
-                        self.yang_parent_name = "key"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-                        self.is_presence_container = True
-
-                        self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
-
-                        self.encryption_type = YLeaf(YType.enumeration, "encryption-type")
-
-                        self.string = YLeaf(YType.str, "string")
-                        self._segment_path = lambda: "key-string"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MacSecKeychains.MacSecKeychain.Keies.Key.KeyString, ['cryptographic_algorithm', 'encryption_type', 'string'], name, value)
-
-
                 class Lifetime(Entity):
                     """
                     Configure a key Lifetime
-                    
-                    .. attribute:: end_date
-                    
-                    	End Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
-                    
-                    .. attribute:: end_hour
-                    
-                    	End Hour
-                    	**type**\:  int
-                    
-                    	**range:** 0..23
-                    
-                    .. attribute:: end_minutes
-                    
-                    	End Minutes
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: end_month
-                    
-                    	End Month
-                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
-                    
-                    .. attribute:: end_seconds
-                    
-                    	End Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..59
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: end_year
-                    
-                    	End Year
-                    	**type**\:  int
-                    
-                    	**range:** 1993..2035
-                    
-                    .. attribute:: infinite_flag
-                    
-                    	Infinite Lifetime flag
-                    	**type**\:  bool
-                    
-                    .. attribute:: life_time
-                    
-                    	Lifetime duration in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 1..2147483647
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: start_date
-                    
-                    	Start Date
-                    	**type**\:  int
-                    
-                    	**range:** 1..31
                     
                     .. attribute:: start_hour
                     
@@ -454,11 +326,6 @@ class MacSecKeychains(Entity):
                     
                     	**units**\: minute
                     
-                    .. attribute:: start_month
-                    
-                    	Start Month
-                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
-                    
                     .. attribute:: start_seconds
                     
                     	Start Seconds
@@ -468,9 +335,79 @@ class MacSecKeychains(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: start_date
+                    
+                    	Start Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: start_month
+                    
+                    	Start Month
+                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
+                    
                     .. attribute:: start_year
                     
                     	Start Year
+                    	**type**\:  int
+                    
+                    	**range:** 1993..2035
+                    
+                    .. attribute:: life_time
+                    
+                    	Lifetime duration in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..2147483647
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: infinite_flag
+                    
+                    	Infinite Lifetime flag
+                    	**type**\:  bool
+                    
+                    .. attribute:: end_hour
+                    
+                    	End Hour
+                    	**type**\:  int
+                    
+                    	**range:** 0..23
+                    
+                    .. attribute:: end_minutes
+                    
+                    	End Minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: end_seconds
+                    
+                    	End Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..59
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: end_date
+                    
+                    	End Date
+                    	**type**\:  int
+                    
+                    	**range:** 1..31
+                    
+                    .. attribute:: end_month
+                    
+                    	End Month
+                    	**type**\:   :py:class:`MacSecKeyChainMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecKeyChainMonth>`
+                    
+                    .. attribute:: end_year
+                    
+                    	End Year
                     	**type**\:  int
                     
                     	**range:** 1993..2035
@@ -492,37 +429,94 @@ class MacSecKeychains(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.end_date = YLeaf(YType.uint32, "end-date")
+                        self.start_hour = YLeaf(YType.uint32, "start-hour")
+
+                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
+
+                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
+
+                        self.start_date = YLeaf(YType.uint32, "start-date")
+
+                        self.start_month = YLeaf(YType.enumeration, "start-month")
+
+                        self.start_year = YLeaf(YType.uint32, "start-year")
+
+                        self.life_time = YLeaf(YType.uint32, "life-time")
+
+                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
 
                         self.end_hour = YLeaf(YType.uint32, "end-hour")
 
                         self.end_minutes = YLeaf(YType.uint32, "end-minutes")
 
-                        self.end_month = YLeaf(YType.enumeration, "end-month")
-
                         self.end_seconds = YLeaf(YType.uint32, "end-seconds")
 
+                        self.end_date = YLeaf(YType.uint32, "end-date")
+
+                        self.end_month = YLeaf(YType.enumeration, "end-month")
+
                         self.end_year = YLeaf(YType.uint32, "end-year")
-
-                        self.infinite_flag = YLeaf(YType.boolean, "infinite-flag")
-
-                        self.life_time = YLeaf(YType.uint32, "life-time")
-
-                        self.start_date = YLeaf(YType.uint32, "start-date")
-
-                        self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-                        self.start_minutes = YLeaf(YType.uint32, "start-minutes")
-
-                        self.start_month = YLeaf(YType.enumeration, "start-month")
-
-                        self.start_seconds = YLeaf(YType.uint32, "start-seconds")
-
-                        self.start_year = YLeaf(YType.uint32, "start-year")
                         self._segment_path = lambda: "lifetime"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime, ['end_date', 'end_hour', 'end_minutes', 'end_month', 'end_seconds', 'end_year', 'infinite_flag', 'life_time', 'start_date', 'start_hour', 'start_minutes', 'start_month', 'start_seconds', 'start_year'], name, value)
+                        self._perform_setattr(MacSecKeychains.MacSecKeychain.Keies.Key.Lifetime, ['start_hour', 'start_minutes', 'start_seconds', 'start_date', 'start_month', 'start_year', 'life_time', 'infinite_flag', 'end_hour', 'end_minutes', 'end_seconds', 'end_date', 'end_month', 'end_year'], name, value)
+
+
+                class KeyString(Entity):
+                    """
+                    Configure a clear text/encrypted Key string
+                    along with cryptographic algorithm
+                    
+                    .. attribute:: string
+                    
+                    	Key String
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: cryptographic_algorithm
+                    
+                    	Cryptographic Algorithm
+                    	**type**\:   :py:class:`MacSecCryptoAlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecCryptoAlg>`
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: encryption_type
+                    
+                    	encryption type used to store key
+                    	**type**\:   :py:class:`MacSecEncryption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_macsec_cfg.MacSecEncryption>`
+                    
+                    	**default value**\: type7
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'lib-keychain-macsec-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(MacSecKeychains.MacSecKeychain.Keies.Key.KeyString, self).__init__()
+
+                        self.yang_name = "key-string"
+                        self.yang_parent_name = "key"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+                        self.is_presence_container = True
+
+                        self.string = YLeaf(YType.str, "string")
+
+                        self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
+
+                        self.encryption_type = YLeaf(YType.enumeration, "encryption-type")
+                        self._segment_path = lambda: "key-string"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MacSecKeychains.MacSecKeychain.Keies.Key.KeyString, ['string', 'cryptographic_algorithm', 'encryption_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MacSecKeychains()

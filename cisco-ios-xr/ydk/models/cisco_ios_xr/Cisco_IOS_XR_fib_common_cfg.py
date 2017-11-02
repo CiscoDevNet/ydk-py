@@ -167,19 +167,19 @@ class Fib(Entity):
             
             
             ----
-            .. attribute:: fallback_class_number_array
-            
-            	Set PBTS fallback class number array
-            	**type**\:  list of int
-            
-            	**range:** 0..7
-            
             .. attribute:: fallback_type
             
             	Set PBTS fallback type
             	**type**\:   :py:class:`FibPbtsFallback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.FibPbtsFallback>`
             
             	**mandatory**\: True
+            
+            .. attribute:: fallback_class_number_array
+            
+            	Set PBTS fallback class number array
+            	**type**\:  list of int
+            
+            	**range:** 0..7
             
             
 
@@ -200,14 +200,14 @@ class Fib(Entity):
 
                 self.forward_class_number = YLeaf(YType.str, "forward-class-number")
 
-                self.fallback_class_number_array = YLeafList(YType.uint32, "fallback-class-number-array")
-
                 self.fallback_type = YLeaf(YType.enumeration, "fallback-type")
+
+                self.fallback_class_number_array = YLeafList(YType.uint32, "fallback-class-number-array")
                 self._segment_path = lambda: "pbts-forward-class-fallback" + "[forward-class-number='" + self.forward_class_number.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/pbts-forward-class-fallbacks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, ['forward_class_number', 'fallback_class_number_array', 'fallback_type'], name, value)
+                self._perform_setattr(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, ['forward_class_number', 'fallback_type', 'fallback_class_number_array'], name, value)
 
 
     class Platform(Entity):

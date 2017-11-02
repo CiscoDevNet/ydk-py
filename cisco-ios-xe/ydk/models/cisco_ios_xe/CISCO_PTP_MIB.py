@@ -929,50 +929,35 @@ class CISCOPTPMIB(Entity):
     	
     	**type**\:   :py:class:`Ciscoptpmibsysteminfo <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Ciscoptpmibsysteminfo>`
     
-    .. attribute:: cptpclockcurrentdstable
+    .. attribute:: cptpsystemtable
     
-    	Table of information about the PTP clock Current Datasets for all domains
-    	**type**\:   :py:class:`Cptpclockcurrentdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable>`
+    	Table of count information about the PTP system for all domains
+    	**type**\:   :py:class:`Cptpsystemtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable>`
     
-    .. attribute:: cptpclockdefaultdstable
+    .. attribute:: cptpsystemdomaintable
     
-    	Table of information about the PTP clock Default Datasets for all domains
-    	**type**\:   :py:class:`Cptpclockdefaultdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable>`
+    	Table of information about the PTP system for all clock modes \-\- ordinary, boundary or transparent
+    	**type**\:   :py:class:`Cptpsystemdomaintable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemdomaintable>`
     
     .. attribute:: cptpclocknodetable
     
     	Table of information about the PTP system for a given domain
     	**type**\:   :py:class:`Cptpclocknodetable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocknodetable>`
     
+    .. attribute:: cptpclockcurrentdstable
+    
+    	Table of information about the PTP clock Current Datasets for all domains
+    	**type**\:   :py:class:`Cptpclockcurrentdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable>`
+    
     .. attribute:: cptpclockparentdstable
     
     	Table of information about the PTP clock Parent Datasets for all domains
     	**type**\:   :py:class:`Cptpclockparentdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockparentdstable>`
     
-    .. attribute:: cptpclockportassociatetable
+    .. attribute:: cptpclockdefaultdstable
     
-    	Table of information about a given port's associated ports.  For a master port \- multiple slave ports which have established sessions with the current master port.   For a slave port \- the list of masters available for a given slave port.   Session information (pkts, errors) to be displayed based on availability and scenario
-    	**type**\:   :py:class:`Cptpclockportassociatetable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable>`
-    
-    .. attribute:: cptpclockportdstable
-    
-    	Table of information about the clock ports dataset for a particular domain
-    	**type**\:   :py:class:`Cptpclockportdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable>`
-    
-    .. attribute:: cptpclockportrunningtable
-    
-    	Table of information about the clock ports running dataset for a particular domain
-    	**type**\:   :py:class:`Cptpclockportrunningtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable>`
-    
-    .. attribute:: cptpclockporttable
-    
-    	Table of information about the clock ports for a particular domain
-    	**type**\:   :py:class:`Cptpclockporttable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable>`
-    
-    .. attribute:: cptpclockporttransdstable
-    
-    	Table of information about the Transparent clock ports running dataset for a particular domain
-    	**type**\:   :py:class:`Cptpclockporttransdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable>`
+    	Table of information about the PTP clock Default Datasets for all domains
+    	**type**\:   :py:class:`Cptpclockdefaultdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable>`
     
     .. attribute:: cptpclockrunningtable
     
@@ -989,15 +974,30 @@ class CISCOPTPMIB(Entity):
     	Table of information about the PTP Transparent clock Default Datasets for all domains
     	**type**\:   :py:class:`Cptpclocktransdefaultdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktransdefaultdstable>`
     
-    .. attribute:: cptpsystemdomaintable
+    .. attribute:: cptpclockporttable
     
-    	Table of information about the PTP system for all clock modes \-\- ordinary, boundary or transparent
-    	**type**\:   :py:class:`Cptpsystemdomaintable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemdomaintable>`
+    	Table of information about the clock ports for a particular domain
+    	**type**\:   :py:class:`Cptpclockporttable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable>`
     
-    .. attribute:: cptpsystemtable
+    .. attribute:: cptpclockportdstable
     
-    	Table of count information about the PTP system for all domains
-    	**type**\:   :py:class:`Cptpsystemtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable>`
+    	Table of information about the clock ports dataset for a particular domain
+    	**type**\:   :py:class:`Cptpclockportdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable>`
+    
+    .. attribute:: cptpclockportrunningtable
+    
+    	Table of information about the clock ports running dataset for a particular domain
+    	**type**\:   :py:class:`Cptpclockportrunningtable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable>`
+    
+    .. attribute:: cptpclockporttransdstable
+    
+    	Table of information about the Transparent clock ports running dataset for a particular domain
+    	**type**\:   :py:class:`Cptpclockporttransdstable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable>`
+    
+    .. attribute:: cptpclockportassociatetable
+    
+    	Table of information about a given port's associated ports.  For a master port \- multiple slave ports which have established sessions with the current master port.   For a slave port \- the list of masters available for a given slave port.   Session information (pkts, errors) to be displayed based on availability and scenario
+    	**type**\:   :py:class:`Cptpclockportassociatetable <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable>`
     
     
 
@@ -1014,7 +1014,7 @@ class CISCOPTPMIB(Entity):
         self.yang_parent_name = "CISCO-PTP-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoPtpMIBSystemInfo" : ("ciscoptpmibsysteminfo", CISCOPTPMIB.Ciscoptpmibsysteminfo), "cPtpClockCurrentDSTable" : ("cptpclockcurrentdstable", CISCOPTPMIB.Cptpclockcurrentdstable), "cPtpClockDefaultDSTable" : ("cptpclockdefaultdstable", CISCOPTPMIB.Cptpclockdefaultdstable), "cPtpClockNodeTable" : ("cptpclocknodetable", CISCOPTPMIB.Cptpclocknodetable), "cPtpClockParentDSTable" : ("cptpclockparentdstable", CISCOPTPMIB.Cptpclockparentdstable), "cPtpClockPortAssociateTable" : ("cptpclockportassociatetable", CISCOPTPMIB.Cptpclockportassociatetable), "cPtpClockPortDSTable" : ("cptpclockportdstable", CISCOPTPMIB.Cptpclockportdstable), "cPtpClockPortRunningTable" : ("cptpclockportrunningtable", CISCOPTPMIB.Cptpclockportrunningtable), "cPtpClockPortTable" : ("cptpclockporttable", CISCOPTPMIB.Cptpclockporttable), "cPtpClockPortTransDSTable" : ("cptpclockporttransdstable", CISCOPTPMIB.Cptpclockporttransdstable), "cPtpClockRunningTable" : ("cptpclockrunningtable", CISCOPTPMIB.Cptpclockrunningtable), "cPtpClockTimePropertiesDSTable" : ("cptpclocktimepropertiesdstable", CISCOPTPMIB.Cptpclocktimepropertiesdstable), "cPtpClockTransDefaultDSTable" : ("cptpclocktransdefaultdstable", CISCOPTPMIB.Cptpclocktransdefaultdstable), "cPtpSystemDomainTable" : ("cptpsystemdomaintable", CISCOPTPMIB.Cptpsystemdomaintable), "cPtpSystemTable" : ("cptpsystemtable", CISCOPTPMIB.Cptpsystemtable)}
+        self._child_container_classes = {"ciscoPtpMIBSystemInfo" : ("ciscoptpmibsysteminfo", CISCOPTPMIB.Ciscoptpmibsysteminfo), "cPtpSystemTable" : ("cptpsystemtable", CISCOPTPMIB.Cptpsystemtable), "cPtpSystemDomainTable" : ("cptpsystemdomaintable", CISCOPTPMIB.Cptpsystemdomaintable), "cPtpClockNodeTable" : ("cptpclocknodetable", CISCOPTPMIB.Cptpclocknodetable), "cPtpClockCurrentDSTable" : ("cptpclockcurrentdstable", CISCOPTPMIB.Cptpclockcurrentdstable), "cPtpClockParentDSTable" : ("cptpclockparentdstable", CISCOPTPMIB.Cptpclockparentdstable), "cPtpClockDefaultDSTable" : ("cptpclockdefaultdstable", CISCOPTPMIB.Cptpclockdefaultdstable), "cPtpClockRunningTable" : ("cptpclockrunningtable", CISCOPTPMIB.Cptpclockrunningtable), "cPtpClockTimePropertiesDSTable" : ("cptpclocktimepropertiesdstable", CISCOPTPMIB.Cptpclocktimepropertiesdstable), "cPtpClockTransDefaultDSTable" : ("cptpclocktransdefaultdstable", CISCOPTPMIB.Cptpclocktransdefaultdstable), "cPtpClockPortTable" : ("cptpclockporttable", CISCOPTPMIB.Cptpclockporttable), "cPtpClockPortDSTable" : ("cptpclockportdstable", CISCOPTPMIB.Cptpclockportdstable), "cPtpClockPortRunningTable" : ("cptpclockportrunningtable", CISCOPTPMIB.Cptpclockportrunningtable), "cPtpClockPortTransDSTable" : ("cptpclockporttransdstable", CISCOPTPMIB.Cptpclockporttransdstable), "cPtpClockPortAssociateTable" : ("cptpclockportassociatetable", CISCOPTPMIB.Cptpclockportassociatetable)}
         self._child_list_classes = {}
 
         self.ciscoptpmibsysteminfo = CISCOPTPMIB.Ciscoptpmibsysteminfo()
@@ -1022,50 +1022,35 @@ class CISCOPTPMIB(Entity):
         self._children_name_map["ciscoptpmibsysteminfo"] = "ciscoPtpMIBSystemInfo"
         self._children_yang_names.add("ciscoPtpMIBSystemInfo")
 
-        self.cptpclockcurrentdstable = CISCOPTPMIB.Cptpclockcurrentdstable()
-        self.cptpclockcurrentdstable.parent = self
-        self._children_name_map["cptpclockcurrentdstable"] = "cPtpClockCurrentDSTable"
-        self._children_yang_names.add("cPtpClockCurrentDSTable")
+        self.cptpsystemtable = CISCOPTPMIB.Cptpsystemtable()
+        self.cptpsystemtable.parent = self
+        self._children_name_map["cptpsystemtable"] = "cPtpSystemTable"
+        self._children_yang_names.add("cPtpSystemTable")
 
-        self.cptpclockdefaultdstable = CISCOPTPMIB.Cptpclockdefaultdstable()
-        self.cptpclockdefaultdstable.parent = self
-        self._children_name_map["cptpclockdefaultdstable"] = "cPtpClockDefaultDSTable"
-        self._children_yang_names.add("cPtpClockDefaultDSTable")
+        self.cptpsystemdomaintable = CISCOPTPMIB.Cptpsystemdomaintable()
+        self.cptpsystemdomaintable.parent = self
+        self._children_name_map["cptpsystemdomaintable"] = "cPtpSystemDomainTable"
+        self._children_yang_names.add("cPtpSystemDomainTable")
 
         self.cptpclocknodetable = CISCOPTPMIB.Cptpclocknodetable()
         self.cptpclocknodetable.parent = self
         self._children_name_map["cptpclocknodetable"] = "cPtpClockNodeTable"
         self._children_yang_names.add("cPtpClockNodeTable")
 
+        self.cptpclockcurrentdstable = CISCOPTPMIB.Cptpclockcurrentdstable()
+        self.cptpclockcurrentdstable.parent = self
+        self._children_name_map["cptpclockcurrentdstable"] = "cPtpClockCurrentDSTable"
+        self._children_yang_names.add("cPtpClockCurrentDSTable")
+
         self.cptpclockparentdstable = CISCOPTPMIB.Cptpclockparentdstable()
         self.cptpclockparentdstable.parent = self
         self._children_name_map["cptpclockparentdstable"] = "cPtpClockParentDSTable"
         self._children_yang_names.add("cPtpClockParentDSTable")
 
-        self.cptpclockportassociatetable = CISCOPTPMIB.Cptpclockportassociatetable()
-        self.cptpclockportassociatetable.parent = self
-        self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
-        self._children_yang_names.add("cPtpClockPortAssociateTable")
-
-        self.cptpclockportdstable = CISCOPTPMIB.Cptpclockportdstable()
-        self.cptpclockportdstable.parent = self
-        self._children_name_map["cptpclockportdstable"] = "cPtpClockPortDSTable"
-        self._children_yang_names.add("cPtpClockPortDSTable")
-
-        self.cptpclockportrunningtable = CISCOPTPMIB.Cptpclockportrunningtable()
-        self.cptpclockportrunningtable.parent = self
-        self._children_name_map["cptpclockportrunningtable"] = "cPtpClockPortRunningTable"
-        self._children_yang_names.add("cPtpClockPortRunningTable")
-
-        self.cptpclockporttable = CISCOPTPMIB.Cptpclockporttable()
-        self.cptpclockporttable.parent = self
-        self._children_name_map["cptpclockporttable"] = "cPtpClockPortTable"
-        self._children_yang_names.add("cPtpClockPortTable")
-
-        self.cptpclockporttransdstable = CISCOPTPMIB.Cptpclockporttransdstable()
-        self.cptpclockporttransdstable.parent = self
-        self._children_name_map["cptpclockporttransdstable"] = "cPtpClockPortTransDSTable"
-        self._children_yang_names.add("cPtpClockPortTransDSTable")
+        self.cptpclockdefaultdstable = CISCOPTPMIB.Cptpclockdefaultdstable()
+        self.cptpclockdefaultdstable.parent = self
+        self._children_name_map["cptpclockdefaultdstable"] = "cPtpClockDefaultDSTable"
+        self._children_yang_names.add("cPtpClockDefaultDSTable")
 
         self.cptpclockrunningtable = CISCOPTPMIB.Cptpclockrunningtable()
         self.cptpclockrunningtable.parent = self
@@ -1082,15 +1067,30 @@ class CISCOPTPMIB(Entity):
         self._children_name_map["cptpclocktransdefaultdstable"] = "cPtpClockTransDefaultDSTable"
         self._children_yang_names.add("cPtpClockTransDefaultDSTable")
 
-        self.cptpsystemdomaintable = CISCOPTPMIB.Cptpsystemdomaintable()
-        self.cptpsystemdomaintable.parent = self
-        self._children_name_map["cptpsystemdomaintable"] = "cPtpSystemDomainTable"
-        self._children_yang_names.add("cPtpSystemDomainTable")
+        self.cptpclockporttable = CISCOPTPMIB.Cptpclockporttable()
+        self.cptpclockporttable.parent = self
+        self._children_name_map["cptpclockporttable"] = "cPtpClockPortTable"
+        self._children_yang_names.add("cPtpClockPortTable")
 
-        self.cptpsystemtable = CISCOPTPMIB.Cptpsystemtable()
-        self.cptpsystemtable.parent = self
-        self._children_name_map["cptpsystemtable"] = "cPtpSystemTable"
-        self._children_yang_names.add("cPtpSystemTable")
+        self.cptpclockportdstable = CISCOPTPMIB.Cptpclockportdstable()
+        self.cptpclockportdstable.parent = self
+        self._children_name_map["cptpclockportdstable"] = "cPtpClockPortDSTable"
+        self._children_yang_names.add("cPtpClockPortDSTable")
+
+        self.cptpclockportrunningtable = CISCOPTPMIB.Cptpclockportrunningtable()
+        self.cptpclockportrunningtable.parent = self
+        self._children_name_map["cptpclockportrunningtable"] = "cPtpClockPortRunningTable"
+        self._children_yang_names.add("cPtpClockPortRunningTable")
+
+        self.cptpclockporttransdstable = CISCOPTPMIB.Cptpclockporttransdstable()
+        self.cptpclockporttransdstable.parent = self
+        self._children_name_map["cptpclockporttransdstable"] = "cPtpClockPortTransDSTable"
+        self._children_yang_names.add("cPtpClockPortTransDSTable")
+
+        self.cptpclockportassociatetable = CISCOPTPMIB.Cptpclockportassociatetable()
+        self.cptpclockportassociatetable.parent = self
+        self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
+        self._children_yang_names.add("cPtpClockPortAssociateTable")
         self._segment_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB"
 
 
@@ -1128,15 +1128,15 @@ class CISCOPTPMIB(Entity):
             self._perform_setattr(CISCOPTPMIB.Ciscoptpmibsysteminfo, ['cptpsystemprofile'], name, value)
 
 
-    class Cptpclockcurrentdstable(Entity):
+    class Cptpsystemtable(Entity):
         """
-        Table of information about the PTP clock Current Datasets for
-        all domains.
+        Table of count information about the PTP system for all
+        domains.
         
-        .. attribute:: cptpclockcurrentdsentry
+        .. attribute:: cptpsystementry
         
-        	An entry in the table, containing information about a single PTP clock Current Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclockcurrentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry>`
+        	An entry in the table, containing count information about a single domain. New row entries are added when the PTP clock for this domain is configured, while the unconfiguration of the PTP clock removes it
+        	**type**\: list of    :py:class:`Cptpsystementry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable.Cptpsystementry>`
         
         
 
@@ -1146,371 +1146,61 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpclockcurrentdstable, self).__init__()
+            super(CISCOPTPMIB.Cptpsystemtable, self).__init__()
 
-            self.yang_name = "cPtpClockCurrentDSTable"
+            self.yang_name = "cPtpSystemTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockCurrentDSEntry" : ("cptpclockcurrentdsentry", CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry)}
+            self._child_list_classes = {"cPtpSystemEntry" : ("cptpsystementry", CISCOPTPMIB.Cptpsystemtable.Cptpsystementry)}
 
-            self.cptpclockcurrentdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockCurrentDSTable"
+            self.cptpsystementry = YList(self)
+            self._segment_path = lambda: "cPtpSystemTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.Cptpsystemtable, [], name, value)
 
 
-        class Cptpclockcurrentdsentry(Entity):
+        class Cptpsystementry(Entity):
             """
-            An entry in the table, containing information about a single
-            PTP clock Current Datasets for a domain.
+            An entry in the table, containing count information about a
+            single domain. New row entries are added when the PTP clock for
+            this domain is configured, while the unconfiguration of the PTP
+            clock removes it.
             
-            .. attribute:: cptpclockcurrentdsdomainindex  <key>
+            .. attribute:: cptpdomainindex  <key>
             
-            	This object specifies the domain number used to create logical group of PTP devices
+            	This object specifies the domain number used to create logical group of PTP devices. The Clock Domain is a logical group of clocks and devices that synchronize with each other using the PTP protocol.   0           Default domain 1           Alternate domain 1 2           Alternate domain 2 3           Alternate domain 3 4 \- 127     User\-defined domains 128 \- 255   Reserved
             	**type**\:  int
             
             	**range:** 0..255
             
-            .. attribute:: cptpclockcurrentdsclocktypeindex  <key>
+            .. attribute:: cptpinstanceindex  <key>
             
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockcurrentdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
+            	This object specifies the instance of the Clock for this domain
             	**type**\:  int
             
             	**range:** 0..255
             
-            .. attribute:: cptpclockcurrentdsmeanpathdelay
+            .. attribute:: cptpdomainclockportstotal
             
-            	This object specifies the current clock dataset MeanPathDelay value.  The mean path delay between a pair of ports as measure by the delay request\-response mechanism
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclockcurrentdsoffsetfrommaster
-            
-            	This object specifies the current clock dataset ClockOffset value. The value of the computation of the offset in time between a slave and a master clock
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            	**units**\: Time Interval
-            
-            .. attribute:: cptpclockcurrentdsstepsremoved
-            
-            	The current clock dataset StepsRemoved value.  This object specifies the distance measured by the number of Boundary clocks between the local clock and the Foreign master as indicated in the stepsRemoved field of Announce messages
+            	This object specifies the total number of clock ports configured within a domain
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: steps
+            	**units**\: ptp ports
             
+            .. attribute:: cptpdomainclockportphysicalinterfacestotal
             
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockCurrentDSEntry"
-                self.yang_parent_name = "cPtpClockCurrentDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockcurrentdsdomainindex = YLeaf(YType.uint32, "cPtpClockCurrentDSDomainIndex")
-
-                self.cptpclockcurrentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockCurrentDSClockTypeIndex")
-
-                self.cptpclockcurrentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockCurrentDSInstanceIndex")
-
-                self.cptpclockcurrentdsmeanpathdelay = YLeaf(YType.str, "cPtpClockCurrentDSMeanPathDelay")
-
-                self.cptpclockcurrentdsoffsetfrommaster = YLeaf(YType.str, "cPtpClockCurrentDSOffsetFromMaster")
-
-                self.cptpclockcurrentdsstepsremoved = YLeaf(YType.uint32, "cPtpClockCurrentDSStepsRemoved")
-                self._segment_path = lambda: "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + self.cptpclockcurrentdsdomainindex.get() + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + self.cptpclockcurrentdsclocktypeindex.get() + "']" + "[cPtpClockCurrentDSInstanceIndex='" + self.cptpclockcurrentdsinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsmeanpathdelay', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsstepsremoved'], name, value)
-
-
-    class Cptpclockdefaultdstable(Entity):
-        """
-        Table of information about the PTP clock Default Datasets for
-        all domains.
-        
-        .. attribute:: cptpclockdefaultdsentry
-        
-        	An entry in the table, containing information about a single PTP clock Default Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclockdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockdefaultdstable, self).__init__()
-
-            self.yang_name = "cPtpClockDefaultDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockDefaultDSEntry" : ("cptpclockdefaultdsentry", CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry)}
-
-            self.cptpclockdefaultdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockDefaultDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable, [], name, value)
-
-
-        class Cptpclockdefaultdsentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            PTP clock Default Datasets for a domain.
-            
-            .. attribute:: cptpclockdefaultdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockdefaultdsclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockdefaultdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockdefaultdsclockidentity
-            
-            	This object specifies the default Datasets clock identity
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclockdefaultdspriority1
-            
-            	This object specifies the default Datasets clock Priority1
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockdefaultdspriority2
-            
-            	This object specifies the default Datasets clock Priority2
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockdefaultdsqualityaccuracy
-            
-            	This object specifies the default dataset Quality Accurarcy
-            	**type**\:   :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
-            
-            .. attribute:: cptpclockdefaultdsqualityclass
-            
-            	This object specifies the default dataset Quality Class
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockdefaultdsqualityoffset
-            
-            	This object specifies the default dataset Quality offset
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockdefaultdsslaveonly
-            
-            	Whether the SlaveOnly flag is set
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockdefaultdstwostepflag
-            
-            	This object specifies whether the Two Step process is used
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockDefaultDSEntry"
-                self.yang_parent_name = "cPtpClockDefaultDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockDefaultDSDomainIndex")
-
-                self.cptpclockdefaultdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockDefaultDSClockTypeIndex")
-
-                self.cptpclockdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockDefaultDSInstanceIndex")
-
-                self.cptpclockdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockDefaultDSClockIdentity")
-
-                self.cptpclockdefaultdspriority1 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority1")
-
-                self.cptpclockdefaultdspriority2 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority2")
-
-                self.cptpclockdefaultdsqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockDefaultDSQualityAccuracy")
-
-                self.cptpclockdefaultdsqualityclass = YLeaf(YType.uint32, "cPtpClockDefaultDSQualityClass")
-
-                self.cptpclockdefaultdsqualityoffset = YLeaf(YType.int32, "cPtpClockDefaultDSQualityOffset")
-
-                self.cptpclockdefaultdsslaveonly = YLeaf(YType.boolean, "cPtpClockDefaultDSSlaveOnly")
-
-                self.cptpclockdefaultdstwostepflag = YLeaf(YType.boolean, "cPtpClockDefaultDSTwoStepFlag")
-                self._segment_path = lambda: "cPtpClockDefaultDSEntry" + "[cPtpClockDefaultDSDomainIndex='" + self.cptpclockdefaultdsdomainindex.get() + "']" + "[cPtpClockDefaultDSClockTypeIndex='" + self.cptpclockdefaultdsclocktypeindex.get() + "']" + "[cPtpClockDefaultDSInstanceIndex='" + self.cptpclockdefaultdsinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityoffset', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdstwostepflag'], name, value)
-
-
-    class Cptpclocknodetable(Entity):
-        """
-        Table of information about the PTP system for a given domain.
-        
-        .. attribute:: cptpclocknodeentry
-        
-        	An entry in the table, containing information about a single domain. A entry is added when a new PTP clock domain is configured on the router
-        	**type**\: list of    :py:class:`Cptpclocknodeentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclocknodetable, self).__init__()
-
-            self.yang_name = "cPtpClockNodeTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockNodeEntry" : ("cptpclocknodeentry", CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry)}
-
-            self.cptpclocknodeentry = YList(self)
-            self._segment_path = lambda: "cPtpClockNodeTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable, [], name, value)
-
-
-        class Cptpclocknodeentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            domain. A entry is added when a new PTP clock domain is
-            configured on the router.
-            
-            .. attribute:: cptpclockdomainindex  <key>
-            
-            	This object specifies the  domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockinstanceindex  <key>
-            
-            	This object specifies the instance of the Clock for this clock type for the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockinput1ppsenabled
-            
-            	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockinput1ppsinterface
-            
-            	This object specifies the 1pps interface used for PTP input clocking
-            	**type**\:  str
-            
-            .. attribute:: cptpclockinputfrequencyenabled
-            
-            	This object specifies whether enabled for Frequency input using the 1.544 Mhz, 2.048 Mhz, or 10Mhz timing interface
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockoutput1ppsenabled
-            
-            	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockoutput1ppsinterface
-            
-            	This object specifies the 1pps interface used for PTP output clocking
-            	**type**\:  str
-            
-            .. attribute:: cptpclockoutput1ppsoffsetenabled
-            
-            	This object specifies whether an offset is configured in order to compensate for a known phase error such as network asymmetry
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockoutput1ppsoffsetnegative
-            
-            	This object specifies whether the added (fixed) offset to the 1pps output is negative or not.  When object returns TRUE the offset is negative and when object returns FALSE the offset is positive
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockoutput1ppsoffsetvalue
-            
-            	This object specifies the fixed offset value configured to be added for the 1pps output
+            	This object specifies the total number of clock port Physical interfaces configured within a domain instance for PTP communications
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cptpclocktodenabled
-            
-            	This object specifies whether the node is enabled for TOD
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktodinterface
-            
-            	This object specifies the interface used for PTP TOD
-            	**type**\:  str
+            	**units**\: physical ports
             
             
 
@@ -1520,1408 +1210,27 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, self).__init__()
+                super(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, self).__init__()
 
-                self.yang_name = "cPtpClockNodeEntry"
-                self.yang_parent_name = "cPtpClockNodeTable"
+                self.yang_name = "cPtpSystemEntry"
+                self.yang_parent_name = "cPtpSystemTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.cptpclockdomainindex = YLeaf(YType.uint32, "cPtpClockDomainIndex")
+                self.cptpdomainindex = YLeaf(YType.uint32, "cPtpDomainIndex")
 
-                self.cptpclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTypeIndex")
+                self.cptpinstanceindex = YLeaf(YType.uint32, "cPtpInstanceIndex")
 
-                self.cptpclockinstanceindex = YLeaf(YType.uint32, "cPtpClockInstanceIndex")
+                self.cptpdomainclockportstotal = YLeaf(YType.uint32, "cPtpDomainClockPortsTotal")
 
-                self.cptpclockinput1ppsenabled = YLeaf(YType.boolean, "cPtpClockInput1ppsEnabled")
-
-                self.cptpclockinput1ppsinterface = YLeaf(YType.str, "cPtpClockInput1ppsInterface")
-
-                self.cptpclockinputfrequencyenabled = YLeaf(YType.boolean, "cPtpClockInputFrequencyEnabled")
-
-                self.cptpclockoutput1ppsenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsEnabled")
-
-                self.cptpclockoutput1ppsinterface = YLeaf(YType.str, "cPtpClockOutput1ppsInterface")
-
-                self.cptpclockoutput1ppsoffsetenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetEnabled")
-
-                self.cptpclockoutput1ppsoffsetnegative = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetNegative")
-
-                self.cptpclockoutput1ppsoffsetvalue = YLeaf(YType.uint32, "cPtpClockOutput1ppsOffsetValue")
-
-                self.cptpclocktodenabled = YLeaf(YType.boolean, "cPtpClockTODEnabled")
-
-                self.cptpclocktodinterface = YLeaf(YType.str, "cPtpClockTODInterface")
-                self._segment_path = lambda: "cPtpClockNodeEntry" + "[cPtpClockDomainIndex='" + self.cptpclockdomainindex.get() + "']" + "[cPtpClockTypeIndex='" + self.cptpclocktypeindex.get() + "']" + "[cPtpClockInstanceIndex='" + self.cptpclockinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/%s" % self._segment_path()
+                self.cptpdomainclockportphysicalinterfacestotal = YLeaf(YType.uint32, "cPtpDomainClockPortPhysicalInterfacesTotal")
+                self._segment_path = lambda: "cPtpSystemEntry" + "[cPtpDomainIndex='" + self.cptpdomainindex.get() + "']" + "[cPtpInstanceIndex='" + self.cptpinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinput1ppsinterface', 'cptpclockinputfrequencyenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsinterface', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockoutput1ppsoffsetvalue', 'cptpclocktodenabled', 'cptpclocktodinterface'], name, value)
-
-
-    class Cptpclockparentdstable(Entity):
-        """
-        Table of information about the PTP clock Parent Datasets for
-        all domains.
-        
-        .. attribute:: cptpclockparentdsentry
-        
-        	An entry in the table, containing information about a single PTP clock Parent Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclockparentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockparentdstable, self).__init__()
-
-            self.yang_name = "cPtpClockParentDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockParentDSEntry" : ("cptpclockparentdsentry", CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry)}
-
-            self.cptpclockparentdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockParentDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable, [], name, value)
-
-
-        class Cptpclockparentdsentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            PTP clock Parent Datasets for a domain.
-            
-            .. attribute:: cptpclockparentdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockparentdsclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockparentdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockparentdsclockphchrate
-            
-            	This object specifies the clock's parent dataset ParentClockPhaseChangeRate value.  This value is an estimate of the parent clocks phase change rate as measured by the slave clock
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockparentdsgmclockidentity
-            
-            	This object specifies the parent dataset Grandmaster clock identity
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclockparentdsgmclockpriority1
-            
-            	This object specifies the parent dataset Grandmaster clock priority1
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockparentdsgmclockpriority2
-            
-            	This object specifies the parent dataset grandmaster clock priority2
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockparentdsgmclockqualityaccuracy
-            
-            	This object specifies the parent dataset grandmaster clock quality accuracy
-            	**type**\:   :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
-            
-            .. attribute:: cptpclockparentdsgmclockqualityclass
-            
-            	This object specifies the parent dataset grandmaster clock quality class
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockparentdsgmclockqualityoffset
-            
-            	This object specifies the parent dataset grandmaster clock quality offset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cptpclockparentdsoffset
-            
-            	This object specifies the Parent Dataset ParentOffsetScaledLogVariance value.  This value is the variance of the parent clocks phase as measured by the local clock
-            	**type**\:  int
-            
-            	**range:** \-128..127
-            
-            .. attribute:: cptpclockparentdsparentportidentity
-            
-            	This object specifies the value of portIdentity of the port on the master that issues the Sync messages used in synchronizing this clock
-            	**type**\:  str
-            
-            .. attribute:: cptpclockparentdsparentstats
-            
-            	This object specifies the Parent Dataset ParentStats value.  This value indicates whether the values of ParentDSOffset and ParentDSClockPhChRate have been measured and are valid. A TRUE value shall indicate valid data
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockParentDSEntry"
-                self.yang_parent_name = "cPtpClockParentDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockparentdsdomainindex = YLeaf(YType.uint32, "cPtpClockParentDSDomainIndex")
-
-                self.cptpclockparentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockParentDSClockTypeIndex")
-
-                self.cptpclockparentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockParentDSInstanceIndex")
-
-                self.cptpclockparentdsclockphchrate = YLeaf(YType.int32, "cPtpClockParentDSClockPhChRate")
-
-                self.cptpclockparentdsgmclockidentity = YLeaf(YType.str, "cPtpClockParentDSGMClockIdentity")
-
-                self.cptpclockparentdsgmclockpriority1 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority1")
-
-                self.cptpclockparentdsgmclockpriority2 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority2")
-
-                self.cptpclockparentdsgmclockqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockParentDSGMClockQualityAccuracy")
-
-                self.cptpclockparentdsgmclockqualityclass = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityClass")
-
-                self.cptpclockparentdsgmclockqualityoffset = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityOffset")
-
-                self.cptpclockparentdsoffset = YLeaf(YType.int32, "cPtpClockParentDSOffset")
-
-                self.cptpclockparentdsparentportidentity = YLeaf(YType.str, "cPtpClockParentDSParentPortIdentity")
-
-                self.cptpclockparentdsparentstats = YLeaf(YType.boolean, "cPtpClockParentDSParentStats")
-                self._segment_path = lambda: "cPtpClockParentDSEntry" + "[cPtpClockParentDSDomainIndex='" + self.cptpclockparentdsdomainindex.get() + "']" + "[cPtpClockParentDSClockTypeIndex='" + self.cptpclockparentdsclocktypeindex.get() + "']" + "[cPtpClockParentDSInstanceIndex='" + self.cptpclockparentdsinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityoffset', 'cptpclockparentdsoffset', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats'], name, value)
-
-
-    class Cptpclockportassociatetable(Entity):
-        """
-        Table of information about a given port's associated ports.
-        
-        For a master port \- multiple slave ports which have established
-        sessions with the current master port.  
-        For a slave port \- the list of masters available for a given
-        slave port. 
-        
-        Session information (pkts, errors) to be displayed based on
-        availability and scenario.
-        
-        .. attribute:: cptpclockportassociateentry
-        
-        	An entry in the table, containing information about a single associated port for the given clockport
-        	**type**\: list of    :py:class:`Cptpclockportassociateentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportassociatetable, self).__init__()
-
-            self.yang_name = "cPtpClockPortAssociateTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockPortAssociateEntry" : ("cptpclockportassociateentry", CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry)}
-
-            self.cptpclockportassociateentry = YList(self)
-            self._segment_path = lambda: "cPtpClockPortAssociateTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable, [], name, value)
-
-
-        class Cptpclockportassociateentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            associated port for the given clockport.
-            
-            .. attribute:: cptpclockportcurrentdomainindex  <key>
-            
-            	This object specifies the given port's domain number
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportcurrentclocktypeindex  <key>
-            
-            	This object specifies the given port's clock type
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockportcurrentclockinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportcurrentportnumberindex  <key>
-            
-            	This object specifies the PTP Port Number for the given port
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cptpclockportassociateportindex  <key>
-            
-            	This object specifies the associated port's serial number in the current port's context
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: cptpclockportassociateaddress
-            
-            	This object specifies the peer port's network address used for PTP communication
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cptpclockportassociateaddresstype
-            
-            	This object specifies the peer port's network address type used for PTP communication
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cptpclockportassociateinerrors
-            
-            	This object specifies the input errors associated with the peer port
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: cptpclockportassociateouterrors
-            
-            	This object specifies the output errors associated with the peer port
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: cptpclockportassociatepacketsreceived
-            
-            	The number of packets received from this peer port by the current port
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: cptpclockportassociatepacketssent
-            
-            	The number of packets sent to this peer port from the current port
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__init__()
-
-                self.yang_name = "cPtpClockPortAssociateEntry"
-                self.yang_parent_name = "cPtpClockPortAssociateTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockportcurrentdomainindex = YLeaf(YType.uint32, "cPtpClockPortCurrentDomainIndex")
-
-                self.cptpclockportcurrentclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortCurrentClockTypeIndex")
-
-                self.cptpclockportcurrentclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortCurrentClockInstanceIndex")
-
-                self.cptpclockportcurrentportnumberindex = YLeaf(YType.uint32, "cPtpClockPortCurrentPortNumberIndex")
-
-                self.cptpclockportassociateportindex = YLeaf(YType.uint32, "cPtpClockPortAssociatePortIndex")
-
-                self.cptpclockportassociateaddress = YLeaf(YType.str, "cPtpClockPortAssociateAddress")
-
-                self.cptpclockportassociateaddresstype = YLeaf(YType.enumeration, "cPtpClockPortAssociateAddressType")
-
-                self.cptpclockportassociateinerrors = YLeaf(YType.uint64, "cPtpClockPortAssociateInErrors")
-
-                self.cptpclockportassociateouterrors = YLeaf(YType.uint64, "cPtpClockPortAssociateOutErrors")
-
-                self.cptpclockportassociatepacketsreceived = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsReceived")
-
-                self.cptpclockportassociatepacketssent = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsSent")
-                self._segment_path = lambda: "cPtpClockPortAssociateEntry" + "[cPtpClockPortCurrentDomainIndex='" + self.cptpclockportcurrentdomainindex.get() + "']" + "[cPtpClockPortCurrentClockTypeIndex='" + self.cptpclockportcurrentclocktypeindex.get() + "']" + "[cPtpClockPortCurrentClockInstanceIndex='" + self.cptpclockportcurrentclockinstanceindex.get() + "']" + "[cPtpClockPortCurrentPortNumberIndex='" + self.cptpclockportcurrentportnumberindex.get() + "']" + "[cPtpClockPortAssociatePortIndex='" + self.cptpclockportassociateportindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddress', 'cptpclockportassociateaddresstype', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociatepacketssent'], name, value)
-
-
-    class Cptpclockportdstable(Entity):
-        """
-        Table of information about the clock ports dataset for a
-        particular domain.
-        
-        .. attribute:: cptpclockportdsentry
-        
-        	An entry in the table, containing port dataset information for a single clock port
-        	**type**\: list of    :py:class:`Cptpclockportdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportdstable, self).__init__()
-
-            self.yang_name = "cPtpClockPortDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockPortDSEntry" : ("cptpclockportdsentry", CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry)}
-
-            self.cptpclockportdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockPortDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable, [], name, value)
-
-
-        class Cptpclockportdsentry(Entity):
-            """
-            An entry in the table, containing port dataset information for
-            a single clock port.
-            
-            .. attribute:: cptpclockportdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportdsclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockportdsclockinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportdsportnumberindex  <key>
-            
-            	This object specifies the PTP portnumber associated with this PTP port
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: cptpclockportdsannouncementinterval
-            
-            	This object specifies the Announce message transmission interval associated with this clock port
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportdsannouncercttimeout
-            
-            	This object specifies the Announce receipt timeout associated with this clock port
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportdsdelaymech
-            
-            	This object specifies the delay mechanism used. If the clock is an end\-to\-end clock, the value of the is e2e, else if the clock is a peer to\-peer clock, the value shall be p2p
-            	**type**\:   :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
-            
-            .. attribute:: cptpclockportdsgrantduration
-            
-            	This object specifies the grant duration allocated by the master
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cptpclockportdsmindelayreqinterval
-            
-            	This object specifies the Delay\_Req message transmission interval
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportdsname
-            
-            	This object specifies the PTP clock port name
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: cptpclockportdspeerdelayreqinterval
-            
-            	This object specifies the Pdelay\_Req message transmission interval
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportdspeermeanpathdelay
-            
-            	This object specifies the peer meanPathDelay
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclockportdsportidentity
-            
-            	This object specifies the PTP clock port Identity
-            	**type**\:  str
-            
-            .. attribute:: cptpclockportdsptpversion
-            
-            	This object specifies the PTP version being used
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportdssyncinterval
-            
-            	This object specifies the Sync message transmission interval
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockPortDSEntry"
-                self.yang_parent_name = "cPtpClockPortDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockportdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortDSDomainIndex")
-
-                self.cptpclockportdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortDSClockTypeIndex")
-
-                self.cptpclockportdsclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortDSClockInstanceIndex")
-
-                self.cptpclockportdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortDSPortNumberIndex")
-
-                self.cptpclockportdsannouncementinterval = YLeaf(YType.int32, "cPtpClockPortDSAnnouncementInterval")
-
-                self.cptpclockportdsannouncercttimeout = YLeaf(YType.int32, "cPtpClockPortDSAnnounceRctTimeout")
-
-                self.cptpclockportdsdelaymech = YLeaf(YType.enumeration, "cPtpClockPortDSDelayMech")
-
-                self.cptpclockportdsgrantduration = YLeaf(YType.uint32, "cPtpClockPortDSGrantDuration")
-
-                self.cptpclockportdsmindelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSMinDelayReqInterval")
-
-                self.cptpclockportdsname = YLeaf(YType.str, "cPtpClockPortDSName")
-
-                self.cptpclockportdspeerdelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSPeerDelayReqInterval")
-
-                self.cptpclockportdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortDSPeerMeanPathDelay")
-
-                self.cptpclockportdsportidentity = YLeaf(YType.str, "cPtpClockPortDSPortIdentity")
-
-                self.cptpclockportdsptpversion = YLeaf(YType.int32, "cPtpClockPortDSPTPVersion")
-
-                self.cptpclockportdssyncinterval = YLeaf(YType.int32, "cPtpClockPortDSSyncInterval")
-                self._segment_path = lambda: "cPtpClockPortDSEntry" + "[cPtpClockPortDSDomainIndex='" + self.cptpclockportdsdomainindex.get() + "']" + "[cPtpClockPortDSClockTypeIndex='" + self.cptpclockportdsclocktypeindex.get() + "']" + "[cPtpClockPortDSClockInstanceIndex='" + self.cptpclockportdsclockinstanceindex.get() + "']" + "[cPtpClockPortDSPortNumberIndex='" + self.cptpclockportdsportnumberindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdsdelaymech', 'cptpclockportdsgrantduration', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdsname', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsportidentity', 'cptpclockportdsptpversion', 'cptpclockportdssyncinterval'], name, value)
-
-
-    class Cptpclockportrunningtable(Entity):
-        """
-        Table of information about the clock ports running dataset for
-        a particular domain.
-        
-        .. attribute:: cptpclockportrunningentry
-        
-        	An entry in the table, containing runing dataset information about a single clock port
-        	**type**\: list of    :py:class:`Cptpclockportrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockportrunningtable, self).__init__()
-
-            self.yang_name = "cPtpClockPortRunningTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockPortRunningEntry" : ("cptpclockportrunningentry", CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry)}
-
-            self.cptpclockportrunningentry = YList(self)
-            self._segment_path = lambda: "cPtpClockPortRunningTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable, [], name, value)
-
-
-        class Cptpclockportrunningentry(Entity):
-            """
-            An entry in the table, containing runing dataset information
-            about a single clock port.
-            
-            .. attribute:: cptpclockportrunningdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportrunningclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockportrunningclockinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportrunningportnumberindex  <key>
-            
-            	This object specifies the PTP portnumber associated with this clock port
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: cptpclockportrunningencapsulationtype
-            
-            	This object specifies the type of encapsulation if the interface is adding extra  layers (eg. VLAN, Pseudowire encapsulation...) for the PTP messages
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportrunninginterfaceindex
-            
-            	This object specifies the interface on the router being used by the PTP Clock for PTP communication
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: cptpclockportrunningipversion
-            
-            	This object specifirst the IP version being used for PTP communication (the mapping used)
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockportrunningname
-            
-            	This object specifies the PTP clock port name
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: cptpclockportrunningpacketsreceived
-            
-            	This object specifies the packets received on the clock port (cummulative)
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: cptpclockportrunningpacketssent
-            
-            	This object specifies the packets sent on the clock port (cummulative)
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: cptpclockportrunningrole
-            
-            	This object specifies the Clock Role
-            	**type**\:   :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
-            
-            .. attribute:: cptpclockportrunningrxmode
-            
-            	This object specifie the clock receive mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
-            	**type**\:   :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
-            
-            .. attribute:: cptpclockportrunningstate
-            
-            	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a master. preMaster    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. master       \- The port is behaving as a master port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the master port. slave        \- The port is synchronizing to the                selected master port
-            	**type**\:   :py:class:`ClockPortState <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockPortState>`
-            
-            .. attribute:: cptpclockportrunningtxmode
-            
-            	This object specifies the clock transmission mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
-            	**type**\:   :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__init__()
-
-                self.yang_name = "cPtpClockPortRunningEntry"
-                self.yang_parent_name = "cPtpClockPortRunningTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockportrunningdomainindex = YLeaf(YType.uint32, "cPtpClockPortRunningDomainIndex")
-
-                self.cptpclockportrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortRunningClockTypeIndex")
-
-                self.cptpclockportrunningclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortRunningClockInstanceIndex")
-
-                self.cptpclockportrunningportnumberindex = YLeaf(YType.uint32, "cPtpClockPortRunningPortNumberIndex")
-
-                self.cptpclockportrunningencapsulationtype = YLeaf(YType.int32, "cPtpClockPortRunningEncapsulationType")
-
-                self.cptpclockportrunninginterfaceindex = YLeaf(YType.int32, "cPtpClockPortRunningInterfaceIndex")
-
-                self.cptpclockportrunningipversion = YLeaf(YType.int32, "cPtpClockPortRunningIPversion")
-
-                self.cptpclockportrunningname = YLeaf(YType.str, "cPtpClockPortRunningName")
-
-                self.cptpclockportrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsReceived")
-
-                self.cptpclockportrunningpacketssent = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsSent")
-
-                self.cptpclockportrunningrole = YLeaf(YType.enumeration, "cPtpClockPortRunningRole")
-
-                self.cptpclockportrunningrxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningRxMode")
-
-                self.cptpclockportrunningstate = YLeaf(YType.enumeration, "cPtpClockPortRunningState")
-
-                self.cptpclockportrunningtxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningTxMode")
-                self._segment_path = lambda: "cPtpClockPortRunningEntry" + "[cPtpClockPortRunningDomainIndex='" + self.cptpclockportrunningdomainindex.get() + "']" + "[cPtpClockPortRunningClockTypeIndex='" + self.cptpclockportrunningclocktypeindex.get() + "']" + "[cPtpClockPortRunningClockInstanceIndex='" + self.cptpclockportrunningclockinstanceindex.get() + "']" + "[cPtpClockPortRunningPortNumberIndex='" + self.cptpclockportrunningportnumberindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningname', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent', 'cptpclockportrunningrole', 'cptpclockportrunningrxmode', 'cptpclockportrunningstate', 'cptpclockportrunningtxmode'], name, value)
-
-
-    class Cptpclockporttable(Entity):
-        """
-        Table of information about the clock ports for a particular
-        domain.
-        
-        .. attribute:: cptpclockportentry
-        
-        	An entry in the table, containing information about a single clock port
-        	**type**\: list of    :py:class:`Cptpclockportentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockporttable, self).__init__()
-
-            self.yang_name = "cPtpClockPortTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockPortEntry" : ("cptpclockportentry", CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry)}
-
-            self.cptpclockportentry = YList(self)
-            self._segment_path = lambda: "cPtpClockPortTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockporttable, [], name, value)
-
-
-        class Cptpclockportentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            clock port.
-            
-            .. attribute:: cptpclockportdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockportclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockportclockinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockporttableportnumberindex  <key>
-            
-            	This object specifies the PTP Portnumber for this port
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: cptpclockportcurrentpeeraddress
-            
-            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cptpclockportcurrentpeeraddresstype
-            
-            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cptpclockportname
-            
-            	This object specifies the PTP clock port name configured on the router
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: cptpclockportnumofassociatedports
-            
-            	This object specifies \- For a master port \- the number of PTP slave sessions (peers) associated with this PTP port. For a slave port \- the number of masters available to this slave port (might or might not be peered)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cptpclockportrole
-            
-            	This object describes the current role (slave/master) of the port
-            	**type**\:   :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
-            
-            .. attribute:: cptpclockportsynconestep
-            
-            	This object specifies that one\-step clock operation between the PTP master and slave device is enabled
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, self).__init__()
-
-                self.yang_name = "cPtpClockPortEntry"
-                self.yang_parent_name = "cPtpClockPortTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockportdomainindex = YLeaf(YType.uint32, "cPtpClockPortDomainIndex")
-
-                self.cptpclockportclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortClockTypeIndex")
-
-                self.cptpclockportclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortClockInstanceIndex")
-
-                self.cptpclockporttableportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTablePortNumberIndex")
-
-                self.cptpclockportcurrentpeeraddress = YLeaf(YType.str, "cPtpClockPortCurrentPeerAddress")
-
-                self.cptpclockportcurrentpeeraddresstype = YLeaf(YType.enumeration, "cPtpClockPortCurrentPeerAddressType")
-
-                self.cptpclockportname = YLeaf(YType.str, "cPtpClockPortName")
-
-                self.cptpclockportnumofassociatedports = YLeaf(YType.uint32, "cPtpClockPortNumOfAssociatedPorts")
-
-                self.cptpclockportrole = YLeaf(YType.enumeration, "cPtpClockPortRole")
-
-                self.cptpclockportsynconestep = YLeaf(YType.boolean, "cPtpClockPortSyncOneStep")
-                self._segment_path = lambda: "cPtpClockPortEntry" + "[cPtpClockPortDomainIndex='" + self.cptpclockportdomainindex.get() + "']" + "[cPtpClockPortClockTypeIndex='" + self.cptpclockportclocktypeindex.get() + "']" + "[cPtpClockPortClockInstanceIndex='" + self.cptpclockportclockinstanceindex.get() + "']" + "[cPtpClockPortTablePortNumberIndex='" + self.cptpclockporttableportnumberindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportcurrentpeeraddress', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportname', 'cptpclockportnumofassociatedports', 'cptpclockportrole', 'cptpclockportsynconestep'], name, value)
-
-
-    class Cptpclockporttransdstable(Entity):
-        """
-        Table of information about the Transparent clock ports running
-        dataset for a particular domain.
-        
-        .. attribute:: cptpclockporttransdsentry
-        
-        	An entry in the table, containing clock port Transparent dataset information about a single clock port
-        	**type**\: list of    :py:class:`Cptpclockporttransdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockporttransdstable, self).__init__()
-
-            self.yang_name = "cPtpClockPortTransDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockPortTransDSEntry" : ("cptpclockporttransdsentry", CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry)}
-
-            self.cptpclockporttransdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockPortTransDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable, [], name, value)
-
-
-        class Cptpclockporttransdsentry(Entity):
-            """
-            An entry in the table, containing clock port Transparent
-            dataset information about a single clock port
-            
-            .. attribute:: cptpclockporttransdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockporttransdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockporttransdsportnumberindex  <key>
-            
-            	This object specifies the PTP port number associated with this port
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: cptpclockporttransdsfaultyflag
-            
-            	This object specifies the value TRUE if the port is faulty and FALSE if the port is operating normally
-            	**type**\:  bool
-            
-            .. attribute:: cptpclockporttransdslogminpdelayreqint
-            
-            	This object specifies the value of the logarithm to the base 2 of the minPdelayReqInterval
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclockporttransdspeermeanpathdelay
-            
-            	This object specifies, (if the delayMechanism used is P2P) the value is the estimate of the current one\-way propagation delay, i.e., <meanPathDelay> on the link attached to this port computed using the peer delay mechanism. If the value of the delayMechanism used is E2E, then the value will be zero
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclockporttransdsportidentity
-            
-            	This object specifies the value of the PortIdentity attribute of the local port
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockPortTransDSEntry"
-                self.yang_parent_name = "cPtpClockPortTransDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockporttransdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortTransDSDomainIndex")
-
-                self.cptpclockporttransdsinstanceindex = YLeaf(YType.uint32, "cPtpClockPortTransDSInstanceIndex")
-
-                self.cptpclockporttransdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTransDSPortNumberIndex")
-
-                self.cptpclockporttransdsfaultyflag = YLeaf(YType.boolean, "cPtpClockPortTransDSFaultyFlag")
-
-                self.cptpclockporttransdslogminpdelayreqint = YLeaf(YType.int32, "cPtpClockPortTransDSlogMinPdelayReqInt")
-
-                self.cptpclockporttransdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortTransDSPeerMeanPathDelay")
-
-                self.cptpclockporttransdsportidentity = YLeaf(YType.str, "cPtpClockPortTransDSPortIdentity")
-                self._segment_path = lambda: "cPtpClockPortTransDSEntry" + "[cPtpClockPortTransDSDomainIndex='" + self.cptpclockporttransdsdomainindex.get() + "']" + "[cPtpClockPortTransDSInstanceIndex='" + self.cptpclockporttransdsinstanceindex.get() + "']" + "[cPtpClockPortTransDSPortNumberIndex='" + self.cptpclockporttransdsportnumberindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdspeermeanpathdelay', 'cptpclockporttransdsportidentity'], name, value)
-
-
-    class Cptpclockrunningtable(Entity):
-        """
-        Table of information about the PTP clock Running Datasets for
-        all domains.
-        
-        .. attribute:: cptpclockrunningentry
-        
-        	An entry in the table, containing information about a single PTP clock running Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclockrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclockrunningtable, self).__init__()
-
-            self.yang_name = "cPtpClockRunningTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockRunningEntry" : ("cptpclockrunningentry", CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry)}
-
-            self.cptpclockrunningentry = YList(self)
-            self._segment_path = lambda: "cPtpClockRunningTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable, [], name, value)
-
-
-        class Cptpclockrunningentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            PTP clock running Datasets for a domain.
-            
-            .. attribute:: cptpclockrunningdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockrunningclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclockrunninginstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclockrunningpacketsreceived
-            
-            	This object specifies the total number of all packet Unicast and multicast that have been received for this clock in this domain for this type
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: cptpclockrunningpacketssent
-            
-            	This object specifies the total number of all packet Unicast and multicast that have been sent out for this clock in this domain for this type
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: cptpclockrunningstate
-            
-            	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a slave device that is not locked to a master. This is the initial state a slave starts out with when it is not getting any PTP packets from the master or because of some other input error (erroneous packets, etc).  Holdover state. In this state the slave device is locked to a master but communication with the master is lost or the timestamps in the ptp packets are incorrect. But since the slave was locked to the master, it can run with the same accuracy for sometime. The slave can continue to operate in this state for some time. If communication with the master is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The slave device is receiving packets from a master and is trying to acquire a lock.  Freq\_locked state. Slave device is locked to the Master with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the master with respect to frequency and phase
-            	**type**\:   :py:class:`ClockStateType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockStateType>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, self).__init__()
-
-                self.yang_name = "cPtpClockRunningEntry"
-                self.yang_parent_name = "cPtpClockRunningTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclockrunningdomainindex = YLeaf(YType.uint32, "cPtpClockRunningDomainIndex")
-
-                self.cptpclockrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockRunningClockTypeIndex")
-
-                self.cptpclockrunninginstanceindex = YLeaf(YType.uint32, "cPtpClockRunningInstanceIndex")
-
-                self.cptpclockrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockRunningPacketsReceived")
-
-                self.cptpclockrunningpacketssent = YLeaf(YType.uint64, "cPtpClockRunningPacketsSent")
-
-                self.cptpclockrunningstate = YLeaf(YType.enumeration, "cPtpClockRunningState")
-                self._segment_path = lambda: "cPtpClockRunningEntry" + "[cPtpClockRunningDomainIndex='" + self.cptpclockrunningdomainindex.get() + "']" + "[cPtpClockRunningClockTypeIndex='" + self.cptpclockrunningclocktypeindex.get() + "']" + "[cPtpClockRunningInstanceIndex='" + self.cptpclockrunninginstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningpacketsreceived', 'cptpclockrunningpacketssent', 'cptpclockrunningstate'], name, value)
-
-
-    class Cptpclocktimepropertiesdstable(Entity):
-        """
-        Table of information about the PTP clock Timeproperties
-        Datasets for all domains.
-        
-        .. attribute:: cptpclocktimepropertiesdsentry
-        
-        	An entry in the table, containing information about a single PTP clock timeproperties Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclocktimepropertiesdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclocktimepropertiesdstable, self).__init__()
-
-            self.yang_name = "cPtpClockTimePropertiesDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockTimePropertiesDSEntry" : ("cptpclocktimepropertiesdsentry", CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry)}
-
-            self.cptpclocktimepropertiesdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockTimePropertiesDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable, [], name, value)
-
-
-        class Cptpclocktimepropertiesdsentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            PTP clock timeproperties Datasets for a domain.
-            
-            .. attribute:: cptpclocktimepropertiesdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclocktimepropertiesdsclocktypeindex  <key>
-            
-            	This object specifies the clock type as defined in the Textual convention description
-            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
-            
-            .. attribute:: cptpclocktimepropertiesdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclocktimepropertiesdscurrentutcoffset
-            
-            	This object specifies the timeproperties dataset value of current UTC offset.  In PTP systems whose epoch is the PTP epoch, the value of timePropertiesDS.currentUtcOffset is the offset between TAI and UTC; otherwise the value has no meaning. The value shall be in units of seconds. The initialization value shall be selected as follows\: a) If the timePropertiesDS.ptpTimescale (see 8.2.4.8) is TRUE, the value is the value obtained from a primary reference if the value is known at the time of initialization, else. b) The value shall be the current number of leap seconds (7.2.3) when the node is designed
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cptpclocktimepropertiesdscurrentutcoffsetvalid
-            
-            	This object specifies the timeproperties dataset value of whether current UTC offset is valid
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktimepropertiesdsfreqtraceable
-            
-            	This object specifies the Frequency Traceable value in the clock Current Dataset
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktimepropertiesdsleap59
-            
-            	This object specifies the Leap59 value in the clock Current Dataset
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktimepropertiesdsleap61
-            
-            	This object specifies the Leap61 value in the clock Current Dataset
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktimepropertiesdsptptimescale
-            
-            	This object specifies the PTP Timescale value in the clock Current Dataset
-            	**type**\:  bool
-            
-            .. attribute:: cptpclocktimepropertiesdssource
-            
-            	This object specifies the Timesource value in the clock Current Dataset
-            	**type**\:   :py:class:`ClockTimeSourceType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTimeSourceType>`
-            
-            .. attribute:: cptpclocktimepropertiesdstimetraceable
-            
-            	This object specifies the Timetraceable value in the clock Current Dataset
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockTimePropertiesDSEntry"
-                self.yang_parent_name = "cPtpClockTimePropertiesDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclocktimepropertiesdsdomainindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSDomainIndex")
-
-                self.cptpclocktimepropertiesdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSClockTypeIndex")
-
-                self.cptpclocktimepropertiesdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSInstanceIndex")
-
-                self.cptpclocktimepropertiesdscurrentutcoffset = YLeaf(YType.int32, "cPtpClockTimePropertiesDSCurrentUTCOffset")
-
-                self.cptpclocktimepropertiesdscurrentutcoffsetvalid = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSCurrentUTCOffsetValid")
-
-                self.cptpclocktimepropertiesdsfreqtraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSFreqTraceable")
-
-                self.cptpclocktimepropertiesdsleap59 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap59")
-
-                self.cptpclocktimepropertiesdsleap61 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap61")
-
-                self.cptpclocktimepropertiesdsptptimescale = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSPTPTimescale")
-
-                self.cptpclocktimepropertiesdssource = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSSource")
-
-                self.cptpclocktimepropertiesdstimetraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSTimeTraceable")
-                self._segment_path = lambda: "cPtpClockTimePropertiesDSEntry" + "[cPtpClockTimePropertiesDSDomainIndex='" + self.cptpclocktimepropertiesdsdomainindex.get() + "']" + "[cPtpClockTimePropertiesDSClockTypeIndex='" + self.cptpclocktimepropertiesdsclocktypeindex.get() + "']" + "[cPtpClockTimePropertiesDSInstanceIndex='" + self.cptpclocktimepropertiesdsinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource', 'cptpclocktimepropertiesdstimetraceable'], name, value)
-
-
-    class Cptpclocktransdefaultdstable(Entity):
-        """
-        Table of information about the PTP Transparent clock Default
-        Datasets for all domains.
-        
-        .. attribute:: cptpclocktransdefaultdsentry
-        
-        	An entry in the table, containing information about a single PTP Transparent clock Default Datasets for a domain
-        	**type**\: list of    :py:class:`Cptpclocktransdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-PTP-MIB'
-        _revision = '2011-01-28'
-
-        def __init__(self):
-            super(CISCOPTPMIB.Cptpclocktransdefaultdstable, self).__init__()
-
-            self.yang_name = "cPtpClockTransDefaultDSTable"
-            self.yang_parent_name = "CISCO-PTP-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cPtpClockTransDefaultDSEntry" : ("cptpclocktransdefaultdsentry", CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry)}
-
-            self.cptpclocktransdefaultdsentry = YList(self)
-            self._segment_path = lambda: "cPtpClockTransDefaultDSTable"
-            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable, [], name, value)
-
-
-        class Cptpclocktransdefaultdsentry(Entity):
-            """
-            An entry in the table, containing information about a single
-            PTP Transparent clock Default Datasets for a domain.
-            
-            .. attribute:: cptpclocktransdefaultdsdomainindex  <key>
-            
-            	This object specifies the domain number used to create logical group of PTP devices
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclocktransdefaultdsinstanceindex  <key>
-            
-            	This object specifies the instance of the clock for this clock type in the given domain
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: cptpclocktransdefaultdsclockidentity
-            
-            	This object specifies the value of the clockIdentity attribute of the local clock
-            	**type**\:  str
-            
-            	**length:** 1..255
-            
-            .. attribute:: cptpclocktransdefaultdsdelay
-            
-            	This object, if the transparent clock is an end\-to\-end transparent clock, has the value shall be E2E; If the transparent clock is a peer\-to\-peer transparent clock, the value shall be P2P
-            	**type**\:   :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
-            
-            .. attribute:: cptpclocktransdefaultdsnumofports
-            
-            	This object specifies the number of PTP ports of the device
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cptpclocktransdefaultdsprimarydomain
-            
-            	This object specifies the value of the primary syntonization domain. The initialization value shall be 0
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            
-
-            """
-
-            _prefix = 'CISCO-PTP-MIB'
-            _revision = '2011-01-28'
-
-            def __init__(self):
-                super(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__init__()
-
-                self.yang_name = "cPtpClockTransDefaultDSEntry"
-                self.yang_parent_name = "cPtpClockTransDefaultDSTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cptpclocktransdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSDomainIndex")
-
-                self.cptpclocktransdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSInstanceIndex")
-
-                self.cptpclocktransdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockTransDefaultDSClockIdentity")
-
-                self.cptpclocktransdefaultdsdelay = YLeaf(YType.enumeration, "cPtpClockTransDefaultDSDelay")
-
-                self.cptpclocktransdefaultdsnumofports = YLeaf(YType.uint32, "cPtpClockTransDefaultDSNumOfPorts")
-
-                self.cptpclocktransdefaultdsprimarydomain = YLeaf(YType.int32, "cPtpClockTransDefaultDSPrimaryDomain")
-                self._segment_path = lambda: "cPtpClockTransDefaultDSEntry" + "[cPtpClockTransDefaultDSDomainIndex='" + self.cptpclocktransdefaultdsdomainindex.get() + "']" + "[cPtpClockTransDefaultDSInstanceIndex='" + self.cptpclocktransdefaultdsinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsprimarydomain'], name, value)
+                self._perform_setattr(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportstotal', 'cptpdomainclockportphysicalinterfacestotal'], name, value)
 
 
     class Cptpsystemdomaintable(Entity):
@@ -3006,15 +1315,14 @@ class CISCOPTPMIB(Entity):
                 self._perform_setattr(CISCOPTPMIB.Cptpsystemdomaintable.Cptpsystemdomainentry, ['cptpsystemdomainclocktypeindex', 'cptpsystemdomaintotals'], name, value)
 
 
-    class Cptpsystemtable(Entity):
+    class Cptpclocknodetable(Entity):
         """
-        Table of count information about the PTP system for all
-        domains.
+        Table of information about the PTP system for a given domain.
         
-        .. attribute:: cptpsystementry
+        .. attribute:: cptpclocknodeentry
         
-        	An entry in the table, containing count information about a single domain. New row entries are added when the PTP clock for this domain is configured, while the unconfiguration of the PTP clock removes it
-        	**type**\: list of    :py:class:`Cptpsystementry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpsystemtable.Cptpsystementry>`
+        	An entry in the table, containing information about a single domain. A entry is added when a new PTP clock domain is configured on the router
+        	**type**\: list of    :py:class:`Cptpclocknodeentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry>`
         
         
 
@@ -3024,61 +1332,99 @@ class CISCOPTPMIB(Entity):
         _revision = '2011-01-28'
 
         def __init__(self):
-            super(CISCOPTPMIB.Cptpsystemtable, self).__init__()
+            super(CISCOPTPMIB.Cptpclocknodetable, self).__init__()
 
-            self.yang_name = "cPtpSystemTable"
+            self.yang_name = "cPtpClockNodeTable"
             self.yang_parent_name = "CISCO-PTP-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cPtpSystemEntry" : ("cptpsystementry", CISCOPTPMIB.Cptpsystemtable.Cptpsystementry)}
+            self._child_list_classes = {"cPtpClockNodeEntry" : ("cptpclocknodeentry", CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry)}
 
-            self.cptpsystementry = YList(self)
-            self._segment_path = lambda: "cPtpSystemTable"
+            self.cptpclocknodeentry = YList(self)
+            self._segment_path = lambda: "cPtpClockNodeTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOPTPMIB.Cptpsystemtable, [], name, value)
+            self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable, [], name, value)
 
 
-        class Cptpsystementry(Entity):
+        class Cptpclocknodeentry(Entity):
             """
-            An entry in the table, containing count information about a
-            single domain. New row entries are added when the PTP clock for
-            this domain is configured, while the unconfiguration of the PTP
-            clock removes it.
+            An entry in the table, containing information about a single
+            domain. A entry is added when a new PTP clock domain is
+            configured on the router.
             
-            .. attribute:: cptpdomainindex  <key>
+            .. attribute:: cptpclockdomainindex  <key>
             
-            	This object specifies the domain number used to create logical group of PTP devices. The Clock Domain is a logical group of clocks and devices that synchronize with each other using the PTP protocol.   0           Default domain 1           Alternate domain 1 2           Alternate domain 2 3           Alternate domain 3 4 \- 127     User\-defined domains 128 \- 255   Reserved
+            	This object specifies the  domain number used to create logical group of PTP devices
             	**type**\:  int
             
             	**range:** 0..255
             
-            .. attribute:: cptpinstanceindex  <key>
+            .. attribute:: cptpclocktypeindex  <key>
             
-            	This object specifies the instance of the Clock for this domain
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockinstanceindex  <key>
+            
+            	This object specifies the instance of the Clock for this clock type for the given domain
             	**type**\:  int
             
             	**range:** 0..255
             
-            .. attribute:: cptpdomainclockportphysicalinterfacestotal
+            .. attribute:: cptpclockinput1ppsenabled
             
-            	This object specifies the total number of clock port Physical interfaces configured within a domain instance for PTP communications
+            	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockinputfrequencyenabled
+            
+            	This object specifies whether enabled for Frequency input using the 1.544 Mhz, 2.048 Mhz, or 10Mhz timing interface
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktodenabled
+            
+            	This object specifies whether the node is enabled for TOD
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockoutput1ppsenabled
+            
+            	This object specifies whether the node is enabled for PTP input clocking using the 1pps interface
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockoutput1ppsoffsetenabled
+            
+            	This object specifies whether an offset is configured in order to compensate for a known phase error such as network asymmetry
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockoutput1ppsoffsetvalue
+            
+            	This object specifies the fixed offset value configured to be added for the 1pps output
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            	**units**\: physical ports
+            .. attribute:: cptpclockoutput1ppsoffsetnegative
             
-            .. attribute:: cptpdomainclockportstotal
+            	This object specifies whether the added (fixed) offset to the 1pps output is negative or not.  When object returns TRUE the offset is negative and when object returns FALSE the offset is positive
+            	**type**\:  bool
             
-            	This object specifies the total number of clock ports configured within a domain
-            	**type**\:  int
+            .. attribute:: cptpclockinput1ppsinterface
             
-            	**range:** 0..4294967295
+            	This object specifies the 1pps interface used for PTP input clocking
+            	**type**\:  str
             
-            	**units**\: ptp ports
+            .. attribute:: cptpclockoutput1ppsinterface
+            
+            	This object specifies the 1pps interface used for PTP output clocking
+            	**type**\:  str
+            
+            .. attribute:: cptpclocktodinterface
+            
+            	This object specifies the interface used for PTP TOD
+            	**type**\:  str
             
             
 
@@ -3088,27 +1434,1681 @@ class CISCOPTPMIB(Entity):
             _revision = '2011-01-28'
 
             def __init__(self):
-                super(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, self).__init__()
+                super(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, self).__init__()
 
-                self.yang_name = "cPtpSystemEntry"
-                self.yang_parent_name = "cPtpSystemTable"
+                self.yang_name = "cPtpClockNodeEntry"
+                self.yang_parent_name = "cPtpClockNodeTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.cptpdomainindex = YLeaf(YType.uint32, "cPtpDomainIndex")
+                self.cptpclockdomainindex = YLeaf(YType.uint32, "cPtpClockDomainIndex")
 
-                self.cptpinstanceindex = YLeaf(YType.uint32, "cPtpInstanceIndex")
+                self.cptpclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTypeIndex")
 
-                self.cptpdomainclockportphysicalinterfacestotal = YLeaf(YType.uint32, "cPtpDomainClockPortPhysicalInterfacesTotal")
+                self.cptpclockinstanceindex = YLeaf(YType.uint32, "cPtpClockInstanceIndex")
 
-                self.cptpdomainclockportstotal = YLeaf(YType.uint32, "cPtpDomainClockPortsTotal")
-                self._segment_path = lambda: "cPtpSystemEntry" + "[cPtpDomainIndex='" + self.cptpdomainindex.get() + "']" + "[cPtpInstanceIndex='" + self.cptpinstanceindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/%s" % self._segment_path()
+                self.cptpclockinput1ppsenabled = YLeaf(YType.boolean, "cPtpClockInput1ppsEnabled")
+
+                self.cptpclockinputfrequencyenabled = YLeaf(YType.boolean, "cPtpClockInputFrequencyEnabled")
+
+                self.cptpclocktodenabled = YLeaf(YType.boolean, "cPtpClockTODEnabled")
+
+                self.cptpclockoutput1ppsenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsEnabled")
+
+                self.cptpclockoutput1ppsoffsetenabled = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetEnabled")
+
+                self.cptpclockoutput1ppsoffsetvalue = YLeaf(YType.uint32, "cPtpClockOutput1ppsOffsetValue")
+
+                self.cptpclockoutput1ppsoffsetnegative = YLeaf(YType.boolean, "cPtpClockOutput1ppsOffsetNegative")
+
+                self.cptpclockinput1ppsinterface = YLeaf(YType.str, "cPtpClockInput1ppsInterface")
+
+                self.cptpclockoutput1ppsinterface = YLeaf(YType.str, "cPtpClockOutput1ppsInterface")
+
+                self.cptpclocktodinterface = YLeaf(YType.str, "cPtpClockTODInterface")
+                self._segment_path = lambda: "cPtpClockNodeEntry" + "[cPtpClockDomainIndex='" + self.cptpclockdomainindex.get() + "']" + "[cPtpClockTypeIndex='" + self.cptpclocktypeindex.get() + "']" + "[cPtpClockInstanceIndex='" + self.cptpclockinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPTPMIB.Cptpsystemtable.Cptpsystementry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportphysicalinterfacestotal', 'cptpdomainclockportstotal'], name, value)
+                self._perform_setattr(CISCOPTPMIB.Cptpclocknodetable.Cptpclocknodeentry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinputfrequencyenabled', 'cptpclocktodenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetvalue', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockinput1ppsinterface', 'cptpclockoutput1ppsinterface', 'cptpclocktodinterface'], name, value)
+
+
+    class Cptpclockcurrentdstable(Entity):
+        """
+        Table of information about the PTP clock Current Datasets for
+        all domains.
+        
+        .. attribute:: cptpclockcurrentdsentry
+        
+        	An entry in the table, containing information about a single PTP clock Current Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclockcurrentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockcurrentdstable, self).__init__()
+
+            self.yang_name = "cPtpClockCurrentDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockCurrentDSEntry" : ("cptpclockcurrentdsentry", CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry)}
+
+            self.cptpclockcurrentdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockCurrentDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable, [], name, value)
+
+
+        class Cptpclockcurrentdsentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP clock Current Datasets for a domain.
+            
+            .. attribute:: cptpclockcurrentdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockcurrentdsclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockcurrentdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockcurrentdsstepsremoved
+            
+            	The current clock dataset StepsRemoved value.  This object specifies the distance measured by the number of Boundary clocks between the local clock and the Foreign master as indicated in the stepsRemoved field of Announce messages
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: steps
+            
+            .. attribute:: cptpclockcurrentdsoffsetfrommaster
+            
+            	This object specifies the current clock dataset ClockOffset value. The value of the computation of the offset in time between a slave and a master clock
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            	**units**\: Time Interval
+            
+            .. attribute:: cptpclockcurrentdsmeanpathdelay
+            
+            	This object specifies the current clock dataset MeanPathDelay value.  The mean path delay between a pair of ports as measure by the delay request\-response mechanism
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockCurrentDSEntry"
+                self.yang_parent_name = "cPtpClockCurrentDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockcurrentdsdomainindex = YLeaf(YType.uint32, "cPtpClockCurrentDSDomainIndex")
+
+                self.cptpclockcurrentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockCurrentDSClockTypeIndex")
+
+                self.cptpclockcurrentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockCurrentDSInstanceIndex")
+
+                self.cptpclockcurrentdsstepsremoved = YLeaf(YType.uint32, "cPtpClockCurrentDSStepsRemoved")
+
+                self.cptpclockcurrentdsoffsetfrommaster = YLeaf(YType.str, "cPtpClockCurrentDSOffsetFromMaster")
+
+                self.cptpclockcurrentdsmeanpathdelay = YLeaf(YType.str, "cPtpClockCurrentDSMeanPathDelay")
+                self._segment_path = lambda: "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + self.cptpclockcurrentdsdomainindex.get() + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + self.cptpclockcurrentdsclocktypeindex.get() + "']" + "[cPtpClockCurrentDSInstanceIndex='" + self.cptpclockcurrentdsinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockcurrentdstable.Cptpclockcurrentdsentry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
+
+
+    class Cptpclockparentdstable(Entity):
+        """
+        Table of information about the PTP clock Parent Datasets for
+        all domains.
+        
+        .. attribute:: cptpclockparentdsentry
+        
+        	An entry in the table, containing information about a single PTP clock Parent Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclockparentdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockparentdstable, self).__init__()
+
+            self.yang_name = "cPtpClockParentDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockParentDSEntry" : ("cptpclockparentdsentry", CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry)}
+
+            self.cptpclockparentdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockParentDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable, [], name, value)
+
+
+        class Cptpclockparentdsentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP clock Parent Datasets for a domain.
+            
+            .. attribute:: cptpclockparentdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockparentdsclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockparentdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockparentdsparentportidentity
+            
+            	This object specifies the value of portIdentity of the port on the master that issues the Sync messages used in synchronizing this clock
+            	**type**\:  str
+            
+            .. attribute:: cptpclockparentdsparentstats
+            
+            	This object specifies the Parent Dataset ParentStats value.  This value indicates whether the values of ParentDSOffset and ParentDSClockPhChRate have been measured and are valid. A TRUE value shall indicate valid data
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockparentdsoffset
+            
+            	This object specifies the Parent Dataset ParentOffsetScaledLogVariance value.  This value is the variance of the parent clocks phase as measured by the local clock
+            	**type**\:  int
+            
+            	**range:** \-128..127
+            
+            .. attribute:: cptpclockparentdsclockphchrate
+            
+            	This object specifies the clock's parent dataset ParentClockPhaseChangeRate value.  This value is an estimate of the parent clocks phase change rate as measured by the slave clock
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockparentdsgmclockidentity
+            
+            	This object specifies the parent dataset Grandmaster clock identity
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            .. attribute:: cptpclockparentdsgmclockpriority1
+            
+            	This object specifies the parent dataset Grandmaster clock priority1
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockparentdsgmclockpriority2
+            
+            	This object specifies the parent dataset grandmaster clock priority2
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockparentdsgmclockqualityclass
+            
+            	This object specifies the parent dataset grandmaster clock quality class
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockparentdsgmclockqualityaccuracy
+            
+            	This object specifies the parent dataset grandmaster clock quality accuracy
+            	**type**\:   :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
+            
+            .. attribute:: cptpclockparentdsgmclockqualityoffset
+            
+            	This object specifies the parent dataset grandmaster clock quality offset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockParentDSEntry"
+                self.yang_parent_name = "cPtpClockParentDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockparentdsdomainindex = YLeaf(YType.uint32, "cPtpClockParentDSDomainIndex")
+
+                self.cptpclockparentdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockParentDSClockTypeIndex")
+
+                self.cptpclockparentdsinstanceindex = YLeaf(YType.uint32, "cPtpClockParentDSInstanceIndex")
+
+                self.cptpclockparentdsparentportidentity = YLeaf(YType.str, "cPtpClockParentDSParentPortIdentity")
+
+                self.cptpclockparentdsparentstats = YLeaf(YType.boolean, "cPtpClockParentDSParentStats")
+
+                self.cptpclockparentdsoffset = YLeaf(YType.int32, "cPtpClockParentDSOffset")
+
+                self.cptpclockparentdsclockphchrate = YLeaf(YType.int32, "cPtpClockParentDSClockPhChRate")
+
+                self.cptpclockparentdsgmclockidentity = YLeaf(YType.str, "cPtpClockParentDSGMClockIdentity")
+
+                self.cptpclockparentdsgmclockpriority1 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority1")
+
+                self.cptpclockparentdsgmclockpriority2 = YLeaf(YType.int32, "cPtpClockParentDSGMClockPriority2")
+
+                self.cptpclockparentdsgmclockqualityclass = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityClass")
+
+                self.cptpclockparentdsgmclockqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockParentDSGMClockQualityAccuracy")
+
+                self.cptpclockparentdsgmclockqualityoffset = YLeaf(YType.uint32, "cPtpClockParentDSGMClockQualityOffset")
+                self._segment_path = lambda: "cPtpClockParentDSEntry" + "[cPtpClockParentDSDomainIndex='" + self.cptpclockparentdsdomainindex.get() + "']" + "[cPtpClockParentDSClockTypeIndex='" + self.cptpclockparentdsclocktypeindex.get() + "']" + "[cPtpClockParentDSInstanceIndex='" + self.cptpclockparentdsinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockparentdstable.Cptpclockparentdsentry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats', 'cptpclockparentdsoffset', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityoffset'], name, value)
+
+
+    class Cptpclockdefaultdstable(Entity):
+        """
+        Table of information about the PTP clock Default Datasets for
+        all domains.
+        
+        .. attribute:: cptpclockdefaultdsentry
+        
+        	An entry in the table, containing information about a single PTP clock Default Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclockdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockdefaultdstable, self).__init__()
+
+            self.yang_name = "cPtpClockDefaultDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockDefaultDSEntry" : ("cptpclockdefaultdsentry", CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry)}
+
+            self.cptpclockdefaultdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockDefaultDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable, [], name, value)
+
+
+        class Cptpclockdefaultdsentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP clock Default Datasets for a domain.
+            
+            .. attribute:: cptpclockdefaultdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockdefaultdsclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockdefaultdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockdefaultdstwostepflag
+            
+            	This object specifies whether the Two Step process is used
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockdefaultdsclockidentity
+            
+            	This object specifies the default Datasets clock identity
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            .. attribute:: cptpclockdefaultdspriority1
+            
+            	This object specifies the default Datasets clock Priority1
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockdefaultdspriority2
+            
+            	This object specifies the default Datasets clock Priority2
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockdefaultdsslaveonly
+            
+            	Whether the SlaveOnly flag is set
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockdefaultdsqualityclass
+            
+            	This object specifies the default dataset Quality Class
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockdefaultdsqualityaccuracy
+            
+            	This object specifies the default dataset Quality Accurarcy
+            	**type**\:   :py:class:`ClockQualityAccuracyType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockQualityAccuracyType>`
+            
+            .. attribute:: cptpclockdefaultdsqualityoffset
+            
+            	This object specifies the default dataset Quality offset
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockDefaultDSEntry"
+                self.yang_parent_name = "cPtpClockDefaultDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockDefaultDSDomainIndex")
+
+                self.cptpclockdefaultdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockDefaultDSClockTypeIndex")
+
+                self.cptpclockdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockDefaultDSInstanceIndex")
+
+                self.cptpclockdefaultdstwostepflag = YLeaf(YType.boolean, "cPtpClockDefaultDSTwoStepFlag")
+
+                self.cptpclockdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockDefaultDSClockIdentity")
+
+                self.cptpclockdefaultdspriority1 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority1")
+
+                self.cptpclockdefaultdspriority2 = YLeaf(YType.int32, "cPtpClockDefaultDSPriority2")
+
+                self.cptpclockdefaultdsslaveonly = YLeaf(YType.boolean, "cPtpClockDefaultDSSlaveOnly")
+
+                self.cptpclockdefaultdsqualityclass = YLeaf(YType.uint32, "cPtpClockDefaultDSQualityClass")
+
+                self.cptpclockdefaultdsqualityaccuracy = YLeaf(YType.enumeration, "cPtpClockDefaultDSQualityAccuracy")
+
+                self.cptpclockdefaultdsqualityoffset = YLeaf(YType.int32, "cPtpClockDefaultDSQualityOffset")
+                self._segment_path = lambda: "cPtpClockDefaultDSEntry" + "[cPtpClockDefaultDSDomainIndex='" + self.cptpclockdefaultdsdomainindex.get() + "']" + "[cPtpClockDefaultDSClockTypeIndex='" + self.cptpclockdefaultdsclocktypeindex.get() + "']" + "[cPtpClockDefaultDSInstanceIndex='" + self.cptpclockdefaultdsinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockdefaultdstable.Cptpclockdefaultdsentry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
+
+
+    class Cptpclockrunningtable(Entity):
+        """
+        Table of information about the PTP clock Running Datasets for
+        all domains.
+        
+        .. attribute:: cptpclockrunningentry
+        
+        	An entry in the table, containing information about a single PTP clock running Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclockrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockrunningtable, self).__init__()
+
+            self.yang_name = "cPtpClockRunningTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockRunningEntry" : ("cptpclockrunningentry", CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry)}
+
+            self.cptpclockrunningentry = YList(self)
+            self._segment_path = lambda: "cPtpClockRunningTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable, [], name, value)
+
+
+        class Cptpclockrunningentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP clock running Datasets for a domain.
+            
+            .. attribute:: cptpclockrunningdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockrunningclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockrunninginstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockrunningstate
+            
+            	This object specifies the Clock state returned by PTP engine which was described earlier.  Freerun state. Applies to a slave device that is not locked to a master. This is the initial state a slave starts out with when it is not getting any PTP packets from the master or because of some other input error (erroneous packets, etc).  Holdover state. In this state the slave device is locked to a master but communication with the master is lost or the timestamps in the ptp packets are incorrect. But since the slave was locked to the master, it can run with the same accuracy for sometime. The slave can continue to operate in this state for some time. If communication with the master is not restored for a while, the device is moved to the FREERUN state.  Acquiring state. The slave device is receiving packets from a master and is trying to acquire a lock.  Freq\_locked state. Slave device is locked to the Master with respect to frequency, but not phase aligned  Phase\_aligned state. Locked to the master with respect to frequency and phase
+            	**type**\:   :py:class:`ClockStateType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockStateType>`
+            
+            .. attribute:: cptpclockrunningpacketssent
+            
+            	This object specifies the total number of all packet Unicast and multicast that have been sent out for this clock in this domain for this type
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: cptpclockrunningpacketsreceived
+            
+            	This object specifies the total number of all packet Unicast and multicast that have been received for this clock in this domain for this type
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, self).__init__()
+
+                self.yang_name = "cPtpClockRunningEntry"
+                self.yang_parent_name = "cPtpClockRunningTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockrunningdomainindex = YLeaf(YType.uint32, "cPtpClockRunningDomainIndex")
+
+                self.cptpclockrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockRunningClockTypeIndex")
+
+                self.cptpclockrunninginstanceindex = YLeaf(YType.uint32, "cPtpClockRunningInstanceIndex")
+
+                self.cptpclockrunningstate = YLeaf(YType.enumeration, "cPtpClockRunningState")
+
+                self.cptpclockrunningpacketssent = YLeaf(YType.uint64, "cPtpClockRunningPacketsSent")
+
+                self.cptpclockrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockRunningPacketsReceived")
+                self._segment_path = lambda: "cPtpClockRunningEntry" + "[cPtpClockRunningDomainIndex='" + self.cptpclockrunningdomainindex.get() + "']" + "[cPtpClockRunningClockTypeIndex='" + self.cptpclockrunningclocktypeindex.get() + "']" + "[cPtpClockRunningInstanceIndex='" + self.cptpclockrunninginstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockrunningtable.Cptpclockrunningentry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningstate', 'cptpclockrunningpacketssent', 'cptpclockrunningpacketsreceived'], name, value)
+
+
+    class Cptpclocktimepropertiesdstable(Entity):
+        """
+        Table of information about the PTP clock Timeproperties
+        Datasets for all domains.
+        
+        .. attribute:: cptpclocktimepropertiesdsentry
+        
+        	An entry in the table, containing information about a single PTP clock timeproperties Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclocktimepropertiesdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclocktimepropertiesdstable, self).__init__()
+
+            self.yang_name = "cPtpClockTimePropertiesDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockTimePropertiesDSEntry" : ("cptpclocktimepropertiesdsentry", CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry)}
+
+            self.cptpclocktimepropertiesdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockTimePropertiesDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable, [], name, value)
+
+
+        class Cptpclocktimepropertiesdsentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP clock timeproperties Datasets for a domain.
+            
+            .. attribute:: cptpclocktimepropertiesdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclocktimepropertiesdsclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclocktimepropertiesdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclocktimepropertiesdscurrentutcoffsetvalid
+            
+            	This object specifies the timeproperties dataset value of whether current UTC offset is valid
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdscurrentutcoffset
+            
+            	This object specifies the timeproperties dataset value of current UTC offset.  In PTP systems whose epoch is the PTP epoch, the value of timePropertiesDS.currentUtcOffset is the offset between TAI and UTC; otherwise the value has no meaning. The value shall be in units of seconds. The initialization value shall be selected as follows\: a) If the timePropertiesDS.ptpTimescale (see 8.2.4.8) is TRUE, the value is the value obtained from a primary reference if the value is known at the time of initialization, else. b) The value shall be the current number of leap seconds (7.2.3) when the node is designed
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclocktimepropertiesdsleap59
+            
+            	This object specifies the Leap59 value in the clock Current Dataset
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdsleap61
+            
+            	This object specifies the Leap61 value in the clock Current Dataset
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdstimetraceable
+            
+            	This object specifies the Timetraceable value in the clock Current Dataset
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdsfreqtraceable
+            
+            	This object specifies the Frequency Traceable value in the clock Current Dataset
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdsptptimescale
+            
+            	This object specifies the PTP Timescale value in the clock Current Dataset
+            	**type**\:  bool
+            
+            .. attribute:: cptpclocktimepropertiesdssource
+            
+            	This object specifies the Timesource value in the clock Current Dataset
+            	**type**\:   :py:class:`ClockTimeSourceType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTimeSourceType>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockTimePropertiesDSEntry"
+                self.yang_parent_name = "cPtpClockTimePropertiesDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclocktimepropertiesdsdomainindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSDomainIndex")
+
+                self.cptpclocktimepropertiesdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSClockTypeIndex")
+
+                self.cptpclocktimepropertiesdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTimePropertiesDSInstanceIndex")
+
+                self.cptpclocktimepropertiesdscurrentutcoffsetvalid = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSCurrentUTCOffsetValid")
+
+                self.cptpclocktimepropertiesdscurrentutcoffset = YLeaf(YType.int32, "cPtpClockTimePropertiesDSCurrentUTCOffset")
+
+                self.cptpclocktimepropertiesdsleap59 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap59")
+
+                self.cptpclocktimepropertiesdsleap61 = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSLeap61")
+
+                self.cptpclocktimepropertiesdstimetraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSTimeTraceable")
+
+                self.cptpclocktimepropertiesdsfreqtraceable = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSFreqTraceable")
+
+                self.cptpclocktimepropertiesdsptptimescale = YLeaf(YType.boolean, "cPtpClockTimePropertiesDSPTPTimescale")
+
+                self.cptpclocktimepropertiesdssource = YLeaf(YType.enumeration, "cPtpClockTimePropertiesDSSource")
+                self._segment_path = lambda: "cPtpClockTimePropertiesDSEntry" + "[cPtpClockTimePropertiesDSDomainIndex='" + self.cptpclocktimepropertiesdsdomainindex.get() + "']" + "[cPtpClockTimePropertiesDSClockTypeIndex='" + self.cptpclocktimepropertiesdsclocktypeindex.get() + "']" + "[cPtpClockTimePropertiesDSInstanceIndex='" + self.cptpclocktimepropertiesdsinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclocktimepropertiesdstable.Cptpclocktimepropertiesdsentry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdstimetraceable', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource'], name, value)
+
+
+    class Cptpclocktransdefaultdstable(Entity):
+        """
+        Table of information about the PTP Transparent clock Default
+        Datasets for all domains.
+        
+        .. attribute:: cptpclocktransdefaultdsentry
+        
+        	An entry in the table, containing information about a single PTP Transparent clock Default Datasets for a domain
+        	**type**\: list of    :py:class:`Cptpclocktransdefaultdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclocktransdefaultdstable, self).__init__()
+
+            self.yang_name = "cPtpClockTransDefaultDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockTransDefaultDSEntry" : ("cptpclocktransdefaultdsentry", CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry)}
+
+            self.cptpclocktransdefaultdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockTransDefaultDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable, [], name, value)
+
+
+        class Cptpclocktransdefaultdsentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            PTP Transparent clock Default Datasets for a domain.
+            
+            .. attribute:: cptpclocktransdefaultdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclocktransdefaultdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclocktransdefaultdsclockidentity
+            
+            	This object specifies the value of the clockIdentity attribute of the local clock
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            .. attribute:: cptpclocktransdefaultdsnumofports
+            
+            	This object specifies the number of PTP ports of the device
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cptpclocktransdefaultdsdelay
+            
+            	This object, if the transparent clock is an end\-to\-end transparent clock, has the value shall be E2E; If the transparent clock is a peer\-to\-peer transparent clock, the value shall be P2P
+            	**type**\:   :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
+            
+            .. attribute:: cptpclocktransdefaultdsprimarydomain
+            
+            	This object specifies the value of the primary syntonization domain. The initialization value shall be 0
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockTransDefaultDSEntry"
+                self.yang_parent_name = "cPtpClockTransDefaultDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclocktransdefaultdsdomainindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSDomainIndex")
+
+                self.cptpclocktransdefaultdsinstanceindex = YLeaf(YType.uint32, "cPtpClockTransDefaultDSInstanceIndex")
+
+                self.cptpclocktransdefaultdsclockidentity = YLeaf(YType.str, "cPtpClockTransDefaultDSClockIdentity")
+
+                self.cptpclocktransdefaultdsnumofports = YLeaf(YType.uint32, "cPtpClockTransDefaultDSNumOfPorts")
+
+                self.cptpclocktransdefaultdsdelay = YLeaf(YType.enumeration, "cPtpClockTransDefaultDSDelay")
+
+                self.cptpclocktransdefaultdsprimarydomain = YLeaf(YType.int32, "cPtpClockTransDefaultDSPrimaryDomain")
+                self._segment_path = lambda: "cPtpClockTransDefaultDSEntry" + "[cPtpClockTransDefaultDSDomainIndex='" + self.cptpclocktransdefaultdsdomainindex.get() + "']" + "[cPtpClockTransDefaultDSInstanceIndex='" + self.cptpclocktransdefaultdsinstanceindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclocktransdefaultdstable.Cptpclocktransdefaultdsentry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsprimarydomain'], name, value)
+
+
+    class Cptpclockporttable(Entity):
+        """
+        Table of information about the clock ports for a particular
+        domain.
+        
+        .. attribute:: cptpclockportentry
+        
+        	An entry in the table, containing information about a single clock port
+        	**type**\: list of    :py:class:`Cptpclockportentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockporttable, self).__init__()
+
+            self.yang_name = "cPtpClockPortTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockPortEntry" : ("cptpclockportentry", CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry)}
+
+            self.cptpclockportentry = YList(self)
+            self._segment_path = lambda: "cPtpClockPortTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockporttable, [], name, value)
+
+
+        class Cptpclockportentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            clock port.
+            
+            .. attribute:: cptpclockportdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockportclockinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockporttableportnumberindex  <key>
+            
+            	This object specifies the PTP Portnumber for this port
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: cptpclockportname
+            
+            	This object specifies the PTP clock port name configured on the router
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: cptpclockportrole
+            
+            	This object describes the current role (slave/master) of the port
+            	**type**\:   :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
+            
+            .. attribute:: cptpclockportsynconestep
+            
+            	This object specifies that one\-step clock operation between the PTP master and slave device is enabled
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockportcurrentpeeraddresstype
+            
+            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cptpclockportcurrentpeeraddress
+            
+            	This object specifies the current peer's network address used for PTP communication. Based on the scenario and the setup involved, the values might look like these \- Scenario                   Value \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-   \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Single Master          master port Multiple Masters       selected master port Single Slave           slave port Multiple Slaves        <empty>  (In relevant setups, information on available slaves and available masters will be available through  cPtpClockPortAssociateTable)
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cptpclockportnumofassociatedports
+            
+            	This object specifies \- For a master port \- the number of PTP slave sessions (peers) associated with this PTP port. For a slave port \- the number of masters available to this slave port (might or might not be peered)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, self).__init__()
+
+                self.yang_name = "cPtpClockPortEntry"
+                self.yang_parent_name = "cPtpClockPortTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockportdomainindex = YLeaf(YType.uint32, "cPtpClockPortDomainIndex")
+
+                self.cptpclockportclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortClockTypeIndex")
+
+                self.cptpclockportclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortClockInstanceIndex")
+
+                self.cptpclockporttableportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTablePortNumberIndex")
+
+                self.cptpclockportname = YLeaf(YType.str, "cPtpClockPortName")
+
+                self.cptpclockportrole = YLeaf(YType.enumeration, "cPtpClockPortRole")
+
+                self.cptpclockportsynconestep = YLeaf(YType.boolean, "cPtpClockPortSyncOneStep")
+
+                self.cptpclockportcurrentpeeraddresstype = YLeaf(YType.enumeration, "cPtpClockPortCurrentPeerAddressType")
+
+                self.cptpclockportcurrentpeeraddress = YLeaf(YType.str, "cPtpClockPortCurrentPeerAddress")
+
+                self.cptpclockportnumofassociatedports = YLeaf(YType.uint32, "cPtpClockPortNumOfAssociatedPorts")
+                self._segment_path = lambda: "cPtpClockPortEntry" + "[cPtpClockPortDomainIndex='" + self.cptpclockportdomainindex.get() + "']" + "[cPtpClockPortClockTypeIndex='" + self.cptpclockportclocktypeindex.get() + "']" + "[cPtpClockPortClockInstanceIndex='" + self.cptpclockportclockinstanceindex.get() + "']" + "[cPtpClockPortTablePortNumberIndex='" + self.cptpclockporttableportnumberindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockporttable.Cptpclockportentry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportname', 'cptpclockportrole', 'cptpclockportsynconestep', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportcurrentpeeraddress', 'cptpclockportnumofassociatedports'], name, value)
+
+
+    class Cptpclockportdstable(Entity):
+        """
+        Table of information about the clock ports dataset for a
+        particular domain.
+        
+        .. attribute:: cptpclockportdsentry
+        
+        	An entry in the table, containing port dataset information for a single clock port
+        	**type**\: list of    :py:class:`Cptpclockportdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockportdstable, self).__init__()
+
+            self.yang_name = "cPtpClockPortDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockPortDSEntry" : ("cptpclockportdsentry", CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry)}
+
+            self.cptpclockportdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockPortDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable, [], name, value)
+
+
+        class Cptpclockportdsentry(Entity):
+            """
+            An entry in the table, containing port dataset information for
+            a single clock port.
+            
+            .. attribute:: cptpclockportdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportdsclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockportdsclockinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportdsportnumberindex  <key>
+            
+            	This object specifies the PTP portnumber associated with this PTP port
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: cptpclockportdsname
+            
+            	This object specifies the PTP clock port name
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: cptpclockportdsportidentity
+            
+            	This object specifies the PTP clock port Identity
+            	**type**\:  str
+            
+            .. attribute:: cptpclockportdsannouncementinterval
+            
+            	This object specifies the Announce message transmission interval associated with this clock port
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportdsannouncercttimeout
+            
+            	This object specifies the Announce receipt timeout associated with this clock port
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportdssyncinterval
+            
+            	This object specifies the Sync message transmission interval
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportdsmindelayreqinterval
+            
+            	This object specifies the Delay\_Req message transmission interval
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportdspeerdelayreqinterval
+            
+            	This object specifies the Pdelay\_Req message transmission interval
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportdsdelaymech
+            
+            	This object specifies the delay mechanism used. If the clock is an end\-to\-end clock, the value of the is e2e, else if the clock is a peer to\-peer clock, the value shall be p2p
+            	**type**\:   :py:class:`ClockMechanismType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockMechanismType>`
+            
+            .. attribute:: cptpclockportdspeermeanpathdelay
+            
+            	This object specifies the peer meanPathDelay
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            .. attribute:: cptpclockportdsgrantduration
+            
+            	This object specifies the grant duration allocated by the master
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cptpclockportdsptpversion
+            
+            	This object specifies the PTP version being used
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockPortDSEntry"
+                self.yang_parent_name = "cPtpClockPortDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockportdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortDSDomainIndex")
+
+                self.cptpclockportdsclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortDSClockTypeIndex")
+
+                self.cptpclockportdsclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortDSClockInstanceIndex")
+
+                self.cptpclockportdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortDSPortNumberIndex")
+
+                self.cptpclockportdsname = YLeaf(YType.str, "cPtpClockPortDSName")
+
+                self.cptpclockportdsportidentity = YLeaf(YType.str, "cPtpClockPortDSPortIdentity")
+
+                self.cptpclockportdsannouncementinterval = YLeaf(YType.int32, "cPtpClockPortDSAnnouncementInterval")
+
+                self.cptpclockportdsannouncercttimeout = YLeaf(YType.int32, "cPtpClockPortDSAnnounceRctTimeout")
+
+                self.cptpclockportdssyncinterval = YLeaf(YType.int32, "cPtpClockPortDSSyncInterval")
+
+                self.cptpclockportdsmindelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSMinDelayReqInterval")
+
+                self.cptpclockportdspeerdelayreqinterval = YLeaf(YType.int32, "cPtpClockPortDSPeerDelayReqInterval")
+
+                self.cptpclockportdsdelaymech = YLeaf(YType.enumeration, "cPtpClockPortDSDelayMech")
+
+                self.cptpclockportdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortDSPeerMeanPathDelay")
+
+                self.cptpclockportdsgrantduration = YLeaf(YType.uint32, "cPtpClockPortDSGrantDuration")
+
+                self.cptpclockportdsptpversion = YLeaf(YType.int32, "cPtpClockPortDSPTPVersion")
+                self._segment_path = lambda: "cPtpClockPortDSEntry" + "[cPtpClockPortDSDomainIndex='" + self.cptpclockportdsdomainindex.get() + "']" + "[cPtpClockPortDSClockTypeIndex='" + self.cptpclockportdsclocktypeindex.get() + "']" + "[cPtpClockPortDSClockInstanceIndex='" + self.cptpclockportdsclockinstanceindex.get() + "']" + "[cPtpClockPortDSPortNumberIndex='" + self.cptpclockportdsportnumberindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockportdstable.Cptpclockportdsentry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsname', 'cptpclockportdsportidentity', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdssyncinterval', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdsdelaymech', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsgrantduration', 'cptpclockportdsptpversion'], name, value)
+
+
+    class Cptpclockportrunningtable(Entity):
+        """
+        Table of information about the clock ports running dataset for
+        a particular domain.
+        
+        .. attribute:: cptpclockportrunningentry
+        
+        	An entry in the table, containing runing dataset information about a single clock port
+        	**type**\: list of    :py:class:`Cptpclockportrunningentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockportrunningtable, self).__init__()
+
+            self.yang_name = "cPtpClockPortRunningTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockPortRunningEntry" : ("cptpclockportrunningentry", CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry)}
+
+            self.cptpclockportrunningentry = YList(self)
+            self._segment_path = lambda: "cPtpClockPortRunningTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable, [], name, value)
+
+
+        class Cptpclockportrunningentry(Entity):
+            """
+            An entry in the table, containing runing dataset information
+            about a single clock port.
+            
+            .. attribute:: cptpclockportrunningdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportrunningclocktypeindex  <key>
+            
+            	This object specifies the clock type as defined in the Textual convention description
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockportrunningclockinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportrunningportnumberindex  <key>
+            
+            	This object specifies the PTP portnumber associated with this clock port
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: cptpclockportrunningname
+            
+            	This object specifies the PTP clock port name
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: cptpclockportrunningstate
+            
+            	This object specifies the port state returned by PTP engine.  initializing \- In this state a port initializes                its data sets, hardware, and                communication facilities. faulty       \- The fault state of the protocol. disabled     \- The port shall not place any                messages on its communication path. listening    \- The port is waiting for the                announceReceiptTimeout to expire or                to receive an Announce message from                a master. preMaster    \- The port shall behave in all respects                as though it were in the MASTER state                except that it shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, signaling, or                management messages. master       \- The port is behaving as a master port.             passive      \- The port shall not place any                messages on its communication path                except for Pdelay\_Req, Pdelay\_Resp,                Pdelay\_Resp\_Follow\_Up, or signaling                messages, or management messages                that are a required response to                another management message uncalibrated \- The local port is preparing to                synchronize to the master port. slave        \- The port is synchronizing to the                selected master port
+            	**type**\:   :py:class:`ClockPortState <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockPortState>`
+            
+            .. attribute:: cptpclockportrunningrole
+            
+            	This object specifies the Clock Role
+            	**type**\:   :py:class:`ClockRoleType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockRoleType>`
+            
+            .. attribute:: cptpclockportrunninginterfaceindex
+            
+            	This object specifies the interface on the router being used by the PTP Clock for PTP communication
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: cptpclockportrunningipversion
+            
+            	This object specifirst the IP version being used for PTP communication (the mapping used)
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportrunningencapsulationtype
+            
+            	This object specifies the type of encapsulation if the interface is adding extra  layers (eg. VLAN, Pseudowire encapsulation...) for the PTP messages
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockportrunningtxmode
+            
+            	This object specifies the clock transmission mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
+            	**type**\:   :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
+            
+            .. attribute:: cptpclockportrunningrxmode
+            
+            	This object specifie the clock receive mode as  unicast\:       Using unicast commnuication channel. multicast\:     Using Multicast communication channel. multicast\-mix\: Using multicast\-unicast communication channel
+            	**type**\:   :py:class:`ClockTxModeType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockTxModeType>`
+            
+            .. attribute:: cptpclockportrunningpacketsreceived
+            
+            	This object specifies the packets received on the clock port (cummulative)
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: cptpclockportrunningpacketssent
+            
+            	This object specifies the packets sent on the clock port (cummulative)
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, self).__init__()
+
+                self.yang_name = "cPtpClockPortRunningEntry"
+                self.yang_parent_name = "cPtpClockPortRunningTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockportrunningdomainindex = YLeaf(YType.uint32, "cPtpClockPortRunningDomainIndex")
+
+                self.cptpclockportrunningclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortRunningClockTypeIndex")
+
+                self.cptpclockportrunningclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortRunningClockInstanceIndex")
+
+                self.cptpclockportrunningportnumberindex = YLeaf(YType.uint32, "cPtpClockPortRunningPortNumberIndex")
+
+                self.cptpclockportrunningname = YLeaf(YType.str, "cPtpClockPortRunningName")
+
+                self.cptpclockportrunningstate = YLeaf(YType.enumeration, "cPtpClockPortRunningState")
+
+                self.cptpclockportrunningrole = YLeaf(YType.enumeration, "cPtpClockPortRunningRole")
+
+                self.cptpclockportrunninginterfaceindex = YLeaf(YType.int32, "cPtpClockPortRunningInterfaceIndex")
+
+                self.cptpclockportrunningipversion = YLeaf(YType.int32, "cPtpClockPortRunningIPversion")
+
+                self.cptpclockportrunningencapsulationtype = YLeaf(YType.int32, "cPtpClockPortRunningEncapsulationType")
+
+                self.cptpclockportrunningtxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningTxMode")
+
+                self.cptpclockportrunningrxmode = YLeaf(YType.enumeration, "cPtpClockPortRunningRxMode")
+
+                self.cptpclockportrunningpacketsreceived = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsReceived")
+
+                self.cptpclockportrunningpacketssent = YLeaf(YType.uint64, "cPtpClockPortRunningPacketsSent")
+                self._segment_path = lambda: "cPtpClockPortRunningEntry" + "[cPtpClockPortRunningDomainIndex='" + self.cptpclockportrunningdomainindex.get() + "']" + "[cPtpClockPortRunningClockTypeIndex='" + self.cptpclockportrunningclocktypeindex.get() + "']" + "[cPtpClockPortRunningClockInstanceIndex='" + self.cptpclockportrunningclockinstanceindex.get() + "']" + "[cPtpClockPortRunningPortNumberIndex='" + self.cptpclockportrunningportnumberindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockportrunningtable.Cptpclockportrunningentry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningname', 'cptpclockportrunningstate', 'cptpclockportrunningrole', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunningtxmode', 'cptpclockportrunningrxmode', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent'], name, value)
+
+
+    class Cptpclockporttransdstable(Entity):
+        """
+        Table of information about the Transparent clock ports running
+        dataset for a particular domain.
+        
+        .. attribute:: cptpclockporttransdsentry
+        
+        	An entry in the table, containing clock port Transparent dataset information about a single clock port
+        	**type**\: list of    :py:class:`Cptpclockporttransdsentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockporttransdstable, self).__init__()
+
+            self.yang_name = "cPtpClockPortTransDSTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockPortTransDSEntry" : ("cptpclockporttransdsentry", CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry)}
+
+            self.cptpclockporttransdsentry = YList(self)
+            self._segment_path = lambda: "cPtpClockPortTransDSTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable, [], name, value)
+
+
+        class Cptpclockporttransdsentry(Entity):
+            """
+            An entry in the table, containing clock port Transparent
+            dataset information about a single clock port
+            
+            .. attribute:: cptpclockporttransdsdomainindex  <key>
+            
+            	This object specifies the domain number used to create logical group of PTP devices
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockporttransdsinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockporttransdsportnumberindex  <key>
+            
+            	This object specifies the PTP port number associated with this port
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: cptpclockporttransdsportidentity
+            
+            	This object specifies the value of the PortIdentity attribute of the local port
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            .. attribute:: cptpclockporttransdslogminpdelayreqint
+            
+            	This object specifies the value of the logarithm to the base 2 of the minPdelayReqInterval
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cptpclockporttransdsfaultyflag
+            
+            	This object specifies the value TRUE if the port is faulty and FALSE if the port is operating normally
+            	**type**\:  bool
+            
+            .. attribute:: cptpclockporttransdspeermeanpathdelay
+            
+            	This object specifies, (if the delayMechanism used is P2P) the value is the estimate of the current one\-way propagation delay, i.e., <meanPathDelay> on the link attached to this port computed using the peer delay mechanism. If the value of the delayMechanism used is E2E, then the value will be zero
+            	**type**\:  str
+            
+            	**length:** 1..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, self).__init__()
+
+                self.yang_name = "cPtpClockPortTransDSEntry"
+                self.yang_parent_name = "cPtpClockPortTransDSTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockporttransdsdomainindex = YLeaf(YType.uint32, "cPtpClockPortTransDSDomainIndex")
+
+                self.cptpclockporttransdsinstanceindex = YLeaf(YType.uint32, "cPtpClockPortTransDSInstanceIndex")
+
+                self.cptpclockporttransdsportnumberindex = YLeaf(YType.uint32, "cPtpClockPortTransDSPortNumberIndex")
+
+                self.cptpclockporttransdsportidentity = YLeaf(YType.str, "cPtpClockPortTransDSPortIdentity")
+
+                self.cptpclockporttransdslogminpdelayreqint = YLeaf(YType.int32, "cPtpClockPortTransDSlogMinPdelayReqInt")
+
+                self.cptpclockporttransdsfaultyflag = YLeaf(YType.boolean, "cPtpClockPortTransDSFaultyFlag")
+
+                self.cptpclockporttransdspeermeanpathdelay = YLeaf(YType.str, "cPtpClockPortTransDSPeerMeanPathDelay")
+                self._segment_path = lambda: "cPtpClockPortTransDSEntry" + "[cPtpClockPortTransDSDomainIndex='" + self.cptpclockporttransdsdomainindex.get() + "']" + "[cPtpClockPortTransDSInstanceIndex='" + self.cptpclockporttransdsinstanceindex.get() + "']" + "[cPtpClockPortTransDSPortNumberIndex='" + self.cptpclockporttransdsportnumberindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockporttransdstable.Cptpclockporttransdsentry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsportidentity', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdspeermeanpathdelay'], name, value)
+
+
+    class Cptpclockportassociatetable(Entity):
+        """
+        Table of information about a given port's associated ports.
+        
+        For a master port \- multiple slave ports which have established
+        sessions with the current master port.  
+        For a slave port \- the list of masters available for a given
+        slave port. 
+        
+        Session information (pkts, errors) to be displayed based on
+        availability and scenario.
+        
+        .. attribute:: cptpclockportassociateentry
+        
+        	An entry in the table, containing information about a single associated port for the given clockport
+        	**type**\: list of    :py:class:`Cptpclockportassociateentry <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-PTP-MIB'
+        _revision = '2011-01-28'
+
+        def __init__(self):
+            super(CISCOPTPMIB.Cptpclockportassociatetable, self).__init__()
+
+            self.yang_name = "cPtpClockPortAssociateTable"
+            self.yang_parent_name = "CISCO-PTP-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cPtpClockPortAssociateEntry" : ("cptpclockportassociateentry", CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry)}
+
+            self.cptpclockportassociateentry = YList(self)
+            self._segment_path = lambda: "cPtpClockPortAssociateTable"
+            self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable, [], name, value)
+
+
+        class Cptpclockportassociateentry(Entity):
+            """
+            An entry in the table, containing information about a single
+            associated port for the given clockport.
+            
+            .. attribute:: cptpclockportcurrentdomainindex  <key>
+            
+            	This object specifies the given port's domain number
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportcurrentclocktypeindex  <key>
+            
+            	This object specifies the given port's clock type
+            	**type**\:   :py:class:`ClockType <ydk.models.cisco_ios_xe.CISCO_PTP_MIB.ClockType>`
+            
+            .. attribute:: cptpclockportcurrentclockinstanceindex  <key>
+            
+            	This object specifies the instance of the clock for this clock type in the given domain
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: cptpclockportcurrentportnumberindex  <key>
+            
+            	This object specifies the PTP Port Number for the given port
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cptpclockportassociateportindex  <key>
+            
+            	This object specifies the associated port's serial number in the current port's context
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: cptpclockportassociateaddresstype
+            
+            	This object specifies the peer port's network address type used for PTP communication
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cptpclockportassociateaddress
+            
+            	This object specifies the peer port's network address used for PTP communication
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cptpclockportassociatepacketssent
+            
+            	The number of packets sent to this peer port from the current port
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: cptpclockportassociatepacketsreceived
+            
+            	The number of packets received from this peer port by the current port
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: cptpclockportassociateinerrors
+            
+            	This object specifies the input errors associated with the peer port
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: cptpclockportassociateouterrors
+            
+            	This object specifies the output errors associated with the peer port
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            
+
+            """
+
+            _prefix = 'CISCO-PTP-MIB'
+            _revision = '2011-01-28'
+
+            def __init__(self):
+                super(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, self).__init__()
+
+                self.yang_name = "cPtpClockPortAssociateEntry"
+                self.yang_parent_name = "cPtpClockPortAssociateTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cptpclockportcurrentdomainindex = YLeaf(YType.uint32, "cPtpClockPortCurrentDomainIndex")
+
+                self.cptpclockportcurrentclocktypeindex = YLeaf(YType.enumeration, "cPtpClockPortCurrentClockTypeIndex")
+
+                self.cptpclockportcurrentclockinstanceindex = YLeaf(YType.uint32, "cPtpClockPortCurrentClockInstanceIndex")
+
+                self.cptpclockportcurrentportnumberindex = YLeaf(YType.uint32, "cPtpClockPortCurrentPortNumberIndex")
+
+                self.cptpclockportassociateportindex = YLeaf(YType.uint32, "cPtpClockPortAssociatePortIndex")
+
+                self.cptpclockportassociateaddresstype = YLeaf(YType.enumeration, "cPtpClockPortAssociateAddressType")
+
+                self.cptpclockportassociateaddress = YLeaf(YType.str, "cPtpClockPortAssociateAddress")
+
+                self.cptpclockportassociatepacketssent = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsSent")
+
+                self.cptpclockportassociatepacketsreceived = YLeaf(YType.uint64, "cPtpClockPortAssociatePacketsReceived")
+
+                self.cptpclockportassociateinerrors = YLeaf(YType.uint64, "cPtpClockPortAssociateInErrors")
+
+                self.cptpclockportassociateouterrors = YLeaf(YType.uint64, "cPtpClockPortAssociateOutErrors")
+                self._segment_path = lambda: "cPtpClockPortAssociateEntry" + "[cPtpClockPortCurrentDomainIndex='" + self.cptpclockportcurrentdomainindex.get() + "']" + "[cPtpClockPortCurrentClockTypeIndex='" + self.cptpclockportcurrentclocktypeindex.get() + "']" + "[cPtpClockPortCurrentClockInstanceIndex='" + self.cptpclockportcurrentclockinstanceindex.get() + "']" + "[cPtpClockPortCurrentPortNumberIndex='" + self.cptpclockportcurrentportnumberindex.get() + "']" + "[cPtpClockPortAssociatePortIndex='" + self.cptpclockportassociateportindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOPTPMIB.Cptpclockportassociatetable.Cptpclockportassociateentry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddresstype', 'cptpclockportassociateaddress', 'cptpclockportassociatepacketssent', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOPTPMIB()

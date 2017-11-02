@@ -105,6 +105,21 @@ class MplsForwardingTable(Entity):
             
             
             ----
+            .. attribute:: outgoing_label
+            
+            	Value of outgoing\-label if exists or the type of non\-present label
+            	**type**\: one of the below types:
+            
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+            ----
+            	**type**\:   :py:class:`OutgoingLabel <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.OutgoingLabel>`
+            
+            
+            ----
             .. attribute:: connection_info
             
             	The Prefix or tunnel\-id info corresponding to this label. Ex\: 1) for l2ckt, a number tunnel\-id value. 2) for ipv4, a prefix with [V] tag (113.113.113.113/32[V]). 3) for TE, a pefix with [T] tag (113.113.113.113/32[T])
@@ -128,36 +143,15 @@ class MplsForwardingTable(Entity):
             ----
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
             
             ----
             	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             
             ----
             
             ----
             	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            
-            ----
-            .. attribute:: outgoing_label
-            
-            	Value of outgoing\-label if exists or the type of non\-present label
-            	**type**\: one of the below types:
-            
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-            ----
-            	**type**\:   :py:class:`OutgoingLabel <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.OutgoingLabel>`
             
             
             ----
@@ -180,11 +174,11 @@ class MplsForwardingTable(Entity):
 
                 self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
 
+                self.outgoing_label = YLeaf(YType.str, "outgoing-label")
+
                 self.label_switched_bytes = YLeaf(YType.uint64, "label-switched-bytes")
 
                 self.next_hop = YLeaf(YType.str, "next-hop")
-
-                self.outgoing_label = YLeaf(YType.str, "outgoing-label")
 
                 self.connection_info = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo()
                 self.connection_info.parent = self
@@ -193,7 +187,7 @@ class MplsForwardingTable(Entity):
                 self._segment_path = lambda: "forwarding-info" + "[outgoing-interface='" + self.outgoing_interface.get() + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, ['outgoing_interface', 'label_switched_bytes', 'next_hop', 'outgoing_label'], name, value)
+                self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo, ['outgoing_interface', 'outgoing_label', 'label_switched_bytes', 'next_hop'], name, value)
 
             class NextHop(Enum):
                 """
@@ -286,6 +280,11 @@ class MplsForwardingTable(Entity):
                 2) for ipv4, a prefix with [V] tag (113.113.113.113/32[V]).
                 3) for TE, a pefix with [T] tag (113.113.113.113/32[T])
                 
+                .. attribute:: type
+                
+                	The type of connection represented by this label
+                	**type**\:   :py:class:`Type <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.Type>`
+                
                 .. attribute:: ip
                 
                 	
@@ -293,29 +292,32 @@ class MplsForwardingTable(Entity):
                 
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
                 
                 ----
                 	**type**\:  str
                 
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
                 
                 ----
-                .. attribute:: l2ckt_id
-                
-                	
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: mask
                 
                 	
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                .. attribute:: tunnel_id
+                
+                	
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: vrf_id
+                
+                	
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: nh_id
                 
@@ -324,7 +326,7 @@ class MplsForwardingTable(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: tunnel_id
+                .. attribute:: l2ckt_id
                 
                 	
                 	**type**\:  int
@@ -335,18 +337,6 @@ class MplsForwardingTable(Entity):
                 
                 	
                 	**type**\:   :py:class:`TunnelTp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp>`
-                
-                .. attribute:: type
-                
-                	The type of connection represented by this label
-                	**type**\:   :py:class:`Type <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.Type>`
-                
-                .. attribute:: vrf_id
-                
-                	
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
                 
                 
 
@@ -365,19 +355,19 @@ class MplsForwardingTable(Entity):
                     self._child_container_classes = {"tunnel-tp" : ("tunnel_tp", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp)}
                     self._child_list_classes = {}
 
-                    self.ip = YLeaf(YType.str, "ip")
+                    self.type = YLeaf(YType.enumeration, "type")
 
-                    self.l2ckt_id = YLeaf(YType.uint32, "l2ckt-id")
+                    self.ip = YLeaf(YType.str, "ip")
 
                     self.mask = YLeaf(YType.uint16, "mask")
 
-                    self.nh_id = YLeaf(YType.uint32, "nh-id")
-
                     self.tunnel_id = YLeaf(YType.uint32, "tunnel-id")
 
-                    self.type = YLeaf(YType.enumeration, "type")
-
                     self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+                    self.nh_id = YLeaf(YType.uint32, "nh-id")
+
+                    self.l2ckt_id = YLeaf(YType.uint32, "l2ckt-id")
 
                     self.tunnel_tp = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp()
                     self.tunnel_tp.parent = self
@@ -386,7 +376,7 @@ class MplsForwardingTable(Entity):
                     self._segment_path = lambda: "connection-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo, ['ip', 'l2ckt_id', 'mask', 'nh_id', 'tunnel_id', 'type', 'vrf_id'], name, value)
+                    self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo, ['type', 'ip', 'mask', 'tunnel_id', 'vrf_id', 'nh_id', 'l2ckt_id'], name, value)
 
                 class Type(Enum):
                     """
@@ -430,22 +420,22 @@ class MplsForwardingTable(Entity):
                     """
                     
                     
-                    .. attribute:: dst_id
-                    
-                    	
-                    	**type**\:   :py:class:`DstId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId>`
-                    
-                    .. attribute:: src_id
-                    
-                    	
-                    	**type**\:   :py:class:`SrcId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId>`
-                    
                     .. attribute:: tunnel
                     
                     	
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: src_id
+                    
+                    	
+                    	**type**\:   :py:class:`SrcId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId>`
+                    
+                    .. attribute:: dst_id
+                    
+                    	
+                    	**type**\:   :py:class:`DstId <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mpls_fwd_oper.MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId>`
                     
                     
 
@@ -461,78 +451,24 @@ class MplsForwardingTable(Entity):
                         self.yang_parent_name = "connection-info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"dst-id" : ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId), "src-id" : ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId)}
+                        self._child_container_classes = {"src-id" : ("src_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId), "dst-id" : ("dst_id", MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId)}
                         self._child_list_classes = {}
 
                         self.tunnel = YLeaf(YType.uint32, "tunnel")
-
-                        self.dst_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId()
-                        self.dst_id.parent = self
-                        self._children_name_map["dst_id"] = "dst-id"
-                        self._children_yang_names.add("dst-id")
 
                         self.src_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId()
                         self.src_id.parent = self
                         self._children_name_map["src_id"] = "src-id"
                         self._children_yang_names.add("src-id")
+
+                        self.dst_id = MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId()
+                        self.dst_id.parent = self
+                        self._children_name_map["dst_id"] = "dst-id"
+                        self._children_yang_names.add("dst-id")
                         self._segment_path = lambda: "tunnel-tp"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp, ['tunnel'], name, value)
-
-
-                    class DstId(Entity):
-                        """
-                        
-                        
-                        .. attribute:: global_
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: node
-                        
-                        	
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        
-
-                        """
-
-                        _prefix = 'mpls-fwd-ios-xe-oper'
-                        _revision = '2017-02-07'
-
-                        def __init__(self):
-                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, self).__init__()
-
-                            self.yang_name = "dst-id"
-                            self.yang_parent_name = "tunnel-tp"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.global_ = YLeaf(YType.uint32, "global")
-
-                            self.node = YLeaf(YType.str, "node")
-                            self._segment_path = lambda: "dst-id"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, ['global_', 'node'], name, value)
 
 
                     class SrcId(Entity):
@@ -553,13 +489,9 @@ class MplsForwardingTable(Entity):
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
                         ----
@@ -587,6 +519,56 @@ class MplsForwardingTable(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.SrcId, ['global_', 'node'], name, value)
+
+
+                    class DstId(Entity):
+                        """
+                        
+                        
+                        .. attribute:: global_
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: node
+                        
+                        	
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        
+
+                        """
+
+                        _prefix = 'mpls-fwd-ios-xe-oper'
+                        _revision = '2017-02-07'
+
+                        def __init__(self):
+                            super(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, self).__init__()
+
+                            self.yang_name = "dst-id"
+                            self.yang_parent_name = "tunnel-tp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.global_ = YLeaf(YType.uint32, "global")
+
+                            self.node = YLeaf(YType.str, "node")
+                            self._segment_path = lambda: "dst-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsForwardingTable.LocalLabelEntry.ForwardingInfo.ConnectionInfo.TunnelTp.DstId, ['global_', 'node'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsForwardingTable()

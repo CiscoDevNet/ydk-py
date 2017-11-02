@@ -66,6 +66,11 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
     """
     
     
+    .. attribute:: ccontextmappingtable
+    
+    	This table contains information on which cContextMappingVacmContextName is mapped to which VRF, topology, and routing protocol instance.  This table is indexed by SNMP VACM context.  Configuring a row in this table for an SNMP context does not require that the context be already defined, i.e., a row can be created in this table for a context before the corresponding row is created in RFC 3415's vacmContextTable.  To create a row in this table, a manager must set cContextMappingRowStatus to either 'createAndGo' or 'createAndWait'.  To delete a row in this table, a manager must set cContextMappingRowStatus to 'destroy'
+    	**type**\:   :py:class:`Ccontextmappingtable <ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB.CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable>`
+    
     .. attribute:: ccontextmappingbridgedomaintable
     
     	This table contains information on which cContextMappingVacmContextName is mapped to which bridge domain.  A Bridge Domain is one of the means by which it is possible  to define an Ethernet broadcast domain on a bridging device.  A network can have multiple broadcast domains configured. This table helps the network management personnel to find  out the  details of various broadcast domains configured  in the network.  An entry need to exist in cContextMappingTable, to create  an entry in this table
@@ -80,11 +85,6 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
     
     	This table contains information on which cContextMappingVacmContextName is mapped to which License Group. Group level licensing is used where each Technology Package is enabled via a License
     	**type**\:   :py:class:`Ccontextmappinglicensegrouptable <ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB.CISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable>`
-    
-    .. attribute:: ccontextmappingtable
-    
-    	This table contains information on which cContextMappingVacmContextName is mapped to which VRF, topology, and routing protocol instance.  This table is indexed by SNMP VACM context.  Configuring a row in this table for an SNMP context does not require that the context be already defined, i.e., a row can be created in this table for a context before the corresponding row is created in RFC 3415's vacmContextTable.  To create a row in this table, a manager must set cContextMappingRowStatus to either 'createAndGo' or 'createAndWait'.  To delete a row in this table, a manager must set cContextMappingRowStatus to 'destroy'
-    	**type**\:   :py:class:`Ccontextmappingtable <ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB.CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable>`
     
     
 
@@ -101,8 +101,13 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
         self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cContextMappingBridgeDomainTable" : ("ccontextmappingbridgedomaintable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable), "cContextMappingBridgeInstanceTable" : ("ccontextmappingbridgeinstancetable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgeinstancetable), "cContextMappingLicenseGroupTable" : ("ccontextmappinglicensegrouptable", CISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable), "cContextMappingTable" : ("ccontextmappingtable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable)}
+        self._child_container_classes = {"cContextMappingTable" : ("ccontextmappingtable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable), "cContextMappingBridgeDomainTable" : ("ccontextmappingbridgedomaintable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable), "cContextMappingBridgeInstanceTable" : ("ccontextmappingbridgeinstancetable", CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgeinstancetable), "cContextMappingLicenseGroupTable" : ("ccontextmappinglicensegrouptable", CISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable)}
         self._child_list_classes = {}
+
+        self.ccontextmappingtable = CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable()
+        self.ccontextmappingtable.parent = self
+        self._children_name_map["ccontextmappingtable"] = "cContextMappingTable"
+        self._children_yang_names.add("cContextMappingTable")
 
         self.ccontextmappingbridgedomaintable = CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable()
         self.ccontextmappingbridgedomaintable.parent = self
@@ -118,12 +123,138 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
         self.ccontextmappinglicensegrouptable.parent = self
         self._children_name_map["ccontextmappinglicensegrouptable"] = "cContextMappingLicenseGroupTable"
         self._children_yang_names.add("cContextMappingLicenseGroupTable")
-
-        self.ccontextmappingtable = CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable()
-        self.ccontextmappingtable.parent = self
-        self._children_name_map["ccontextmappingtable"] = "cContextMappingTable"
-        self._children_yang_names.add("cContextMappingTable")
         self._segment_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB"
+
+
+    class Ccontextmappingtable(Entity):
+        """
+        This table contains information on which
+        cContextMappingVacmContextName is mapped to
+        which VRF, topology, and routing protocol instance.
+        
+        This table is indexed by SNMP VACM context.
+        
+        Configuring a row in this table for an SNMP context
+        does not require that the context be already defined,
+        i.e., a row can be created in this table for a context
+        before the corresponding row is created in RFC 3415's
+        vacmContextTable.
+        
+        To create a row in this table, a manager must set
+        cContextMappingRowStatus to either 'createAndGo' or
+        'createAndWait'.
+        
+        To delete a row in this table, a manager must set
+        cContextMappingRowStatus to 'destroy'.
+        
+        .. attribute:: ccontextmappingentry
+        
+        	Information relating to a single mapping of cContextMappingVacmContextName to the corresponding VRF, the corresponding topology, and the corresponding routing protocol instance
+        	**type**\: list of    :py:class:`Ccontextmappingentry <ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB.CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-CONTEXT-MAPPING-MIB'
+        _revision = '2008-11-22'
+
+        def __init__(self):
+            super(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable, self).__init__()
+
+            self.yang_name = "cContextMappingTable"
+            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cContextMappingEntry" : ("ccontextmappingentry", CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry)}
+
+            self.ccontextmappingentry = YList(self)
+            self._segment_path = lambda: "cContextMappingTable"
+            self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable, [], name, value)
+
+
+        class Ccontextmappingentry(Entity):
+            """
+            Information relating to a single mapping of
+            cContextMappingVacmContextName to the corresponding VRF,
+            the corresponding topology, and the corresponding routing
+            protocol instance.
+            
+            .. attribute:: ccontextmappingvacmcontextname  <key>
+            
+            	The vacmContextName given to the SNMP context.  This is a human readable name identifying a particular SNMP VACM context at a particular SNMP entity. The empty contextName (zero length) represents the default context
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ccontextmappingvrfname
+            
+            	The value of an instance of this object identifies the name given to the VRF to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this VRF.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any VRF
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ccontextmappingtopologyname
+            
+            	The value of an instance of this object identifies the name given to the topology to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this topology.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any topology
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ccontextmappingprotoinstname
+            
+            	The value of an instance of this object identifies the name given to the protocol instance to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this protocol instance.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any protocol instance
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ccontextmappingstoragetype
+            
+            	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: ccontextmappingrowstatus
+            
+            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-CONTEXT-MAPPING-MIB'
+            _revision = '2008-11-22'
+
+            def __init__(self):
+                super(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry, self).__init__()
+
+                self.yang_name = "cContextMappingEntry"
+                self.yang_parent_name = "cContextMappingTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
+
+                self.ccontextmappingvrfname = YLeaf(YType.str, "cContextMappingVrfName")
+
+                self.ccontextmappingtopologyname = YLeaf(YType.str, "cContextMappingTopologyName")
+
+                self.ccontextmappingprotoinstname = YLeaf(YType.str, "cContextMappingProtoInstName")
+
+                self.ccontextmappingstoragetype = YLeaf(YType.enumeration, "cContextMappingStorageType")
+
+                self.ccontextmappingrowstatus = YLeaf(YType.enumeration, "cContextMappingRowStatus")
+                self._segment_path = lambda: "cContextMappingEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']"
+                self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry, ['ccontextmappingvacmcontextname', 'ccontextmappingvrfname', 'ccontextmappingtopologyname', 'ccontextmappingprotoinstname', 'ccontextmappingstoragetype', 'ccontextmappingrowstatus'], name, value)
 
 
     class Ccontextmappingbridgedomaintable(Entity):
@@ -201,15 +332,15 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             
             	**range:** 1..65535
             
-            .. attribute:: ccontextmappingbridgedomainrowstatus
-            
-            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: ccontextmappingbridgedomainstoragetype
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: ccontextmappingbridgedomainrowstatus
+            
+            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -232,14 +363,14 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
 
                 self.ccontextmappingbridgedomainidentifier = YLeaf(YType.uint32, "cContextMappingBridgeDomainIdentifier")
 
-                self.ccontextmappingbridgedomainrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeDomainRowStatus")
-
                 self.ccontextmappingbridgedomainstoragetype = YLeaf(YType.enumeration, "cContextMappingBridgeDomainStorageType")
+
+                self.ccontextmappingbridgedomainrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeDomainRowStatus")
                 self._segment_path = lambda: "cContextMappingBridgeDomainEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeDomainTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgedomainidentifier', 'ccontextmappingbridgedomainrowstatus', 'ccontextmappingbridgedomainstoragetype'], name, value)
+                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgedomaintable.Ccontextmappingbridgedomainentry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgedomainidentifier', 'ccontextmappingbridgedomainstoragetype', 'ccontextmappingbridgedomainrowstatus'], name, value)
 
 
     class Ccontextmappingbridgeinstancetable(Entity):
@@ -313,15 +444,15 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             	The object identifies the name given to bridge instance to which the SNMP context is mapped to.  Value of this object cannot be changed when the  RowStatus object in the same row is 'active'.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this bridge instance.  When the value of this object is a zero length string, it indicates that the SNMP context is independent of any bridge instances
             	**type**\:  str
             
-            .. attribute:: ccontextmappingbridgeinstrowstatus
-            
-            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: ccontextmappingbridgeinststoragetype
             
             	The storage type for this conceptual row.  Value of this object cannot be changed when the  RowStatus object in the same row is 'active'.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: ccontextmappingbridgeinstrowstatus
+            
+            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -344,14 +475,14 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
 
                 self.ccontextmappingbridgeinstname = YLeaf(YType.str, "cContextMappingBridgeInstName")
 
-                self.ccontextmappingbridgeinstrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeInstRowStatus")
-
                 self.ccontextmappingbridgeinststoragetype = YLeaf(YType.enumeration, "cContextMappingBridgeInstStorageType")
+
+                self.ccontextmappingbridgeinstrowstatus = YLeaf(YType.enumeration, "cContextMappingBridgeInstRowStatus")
                 self._segment_path = lambda: "cContextMappingBridgeInstanceEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeInstanceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgeinstname', 'ccontextmappingbridgeinstrowstatus', 'ccontextmappingbridgeinststoragetype'], name, value)
+                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingbridgeinstancetable.Ccontextmappingbridgeinstanceentry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgeinstname', 'ccontextmappingbridgeinststoragetype', 'ccontextmappingbridgeinstrowstatus'], name, value)
 
 
     class Ccontextmappinglicensegrouptable(Entity):
@@ -414,15 +545,15 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             
             	**length:** 0..32
             
-            .. attribute:: ccontextmappinglicensegrouprowstatus
-            
-            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: ccontextmappinglicensegroupstoragetype
             
             	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: ccontextmappinglicensegrouprowstatus
+            
+            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -445,145 +576,14 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
 
                 self.ccontextmappinglicensegroupname = YLeaf(YType.str, "cContextMappingLicenseGroupName")
 
-                self.ccontextmappinglicensegrouprowstatus = YLeaf(YType.enumeration, "cContextMappingLicenseGroupRowStatus")
-
                 self.ccontextmappinglicensegroupstoragetype = YLeaf(YType.enumeration, "cContextMappingLicenseGroupStorageType")
+
+                self.ccontextmappinglicensegrouprowstatus = YLeaf(YType.enumeration, "cContextMappingLicenseGroupRowStatus")
                 self._segment_path = lambda: "cContextMappingLicenseGroupEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingLicenseGroupTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry, ['ccontextmappingvacmcontextname', 'ccontextmappinglicensegroupname', 'ccontextmappinglicensegrouprowstatus', 'ccontextmappinglicensegroupstoragetype'], name, value)
-
-
-    class Ccontextmappingtable(Entity):
-        """
-        This table contains information on which
-        cContextMappingVacmContextName is mapped to
-        which VRF, topology, and routing protocol instance.
-        
-        This table is indexed by SNMP VACM context.
-        
-        Configuring a row in this table for an SNMP context
-        does not require that the context be already defined,
-        i.e., a row can be created in this table for a context
-        before the corresponding row is created in RFC 3415's
-        vacmContextTable.
-        
-        To create a row in this table, a manager must set
-        cContextMappingRowStatus to either 'createAndGo' or
-        'createAndWait'.
-        
-        To delete a row in this table, a manager must set
-        cContextMappingRowStatus to 'destroy'.
-        
-        .. attribute:: ccontextmappingentry
-        
-        	Information relating to a single mapping of cContextMappingVacmContextName to the corresponding VRF, the corresponding topology, and the corresponding routing protocol instance
-        	**type**\: list of    :py:class:`Ccontextmappingentry <ydk.models.cisco_ios_xe.CISCO_CONTEXT_MAPPING_MIB.CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-CONTEXT-MAPPING-MIB'
-        _revision = '2008-11-22'
-
-        def __init__(self):
-            super(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable, self).__init__()
-
-            self.yang_name = "cContextMappingTable"
-            self.yang_parent_name = "CISCO-CONTEXT-MAPPING-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cContextMappingEntry" : ("ccontextmappingentry", CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry)}
-
-            self.ccontextmappingentry = YList(self)
-            self._segment_path = lambda: "cContextMappingTable"
-            self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable, [], name, value)
-
-
-        class Ccontextmappingentry(Entity):
-            """
-            Information relating to a single mapping of
-            cContextMappingVacmContextName to the corresponding VRF,
-            the corresponding topology, and the corresponding routing
-            protocol instance.
-            
-            .. attribute:: ccontextmappingvacmcontextname  <key>
-            
-            	The vacmContextName given to the SNMP context.  This is a human readable name identifying a particular SNMP VACM context at a particular SNMP entity. The empty contextName (zero length) represents the default context
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: ccontextmappingprotoinstname
-            
-            	The value of an instance of this object identifies the name given to the protocol instance to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this protocol instance.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any protocol instance
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: ccontextmappingrowstatus
-            
-            	This object facilitates the creation, modification, or deletion of a conceptual row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: ccontextmappingstoragetype
-            
-            	The storage type for this conceptual row.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: ccontextmappingtopologyname
-            
-            	The value of an instance of this object identifies the name given to the topology to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this topology.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any topology
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: ccontextmappingvrfname
-            
-            	The value of an instance of this object identifies the name given to the VRF to which the SNMP context is mapped to.  This is typically a human\-readable string. This is the same ASCII string used in the router's console interface to refer to this VRF.  When the value of this object is the zero length string it indicates that the SNMP context is independent of any VRF
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            
-
-            """
-
-            _prefix = 'CISCO-CONTEXT-MAPPING-MIB'
-            _revision = '2008-11-22'
-
-            def __init__(self):
-                super(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry, self).__init__()
-
-                self.yang_name = "cContextMappingEntry"
-                self.yang_parent_name = "cContextMappingTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ccontextmappingvacmcontextname = YLeaf(YType.str, "cContextMappingVacmContextName")
-
-                self.ccontextmappingprotoinstname = YLeaf(YType.str, "cContextMappingProtoInstName")
-
-                self.ccontextmappingrowstatus = YLeaf(YType.enumeration, "cContextMappingRowStatus")
-
-                self.ccontextmappingstoragetype = YLeaf(YType.enumeration, "cContextMappingStorageType")
-
-                self.ccontextmappingtopologyname = YLeaf(YType.str, "cContextMappingTopologyName")
-
-                self.ccontextmappingvrfname = YLeaf(YType.str, "cContextMappingVrfName")
-                self._segment_path = lambda: "cContextMappingEntry" + "[cContextMappingVacmContextName='" + self.ccontextmappingvacmcontextname.get() + "']"
-                self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappingtable.Ccontextmappingentry, ['ccontextmappingvacmcontextname', 'ccontextmappingprotoinstname', 'ccontextmappingrowstatus', 'ccontextmappingstoragetype', 'ccontextmappingtopologyname', 'ccontextmappingvrfname'], name, value)
+                self._perform_setattr(CISCOCONTEXTMAPPINGMIB.Ccontextmappinglicensegrouptable.Ccontextmappinglicensegroupentry, ['ccontextmappingvacmcontextname', 'ccontextmappinglicensegroupname', 'ccontextmappinglicensegroupstoragetype', 'ccontextmappinglicensegrouprowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCONTEXTMAPPINGMIB()

@@ -784,25 +784,15 @@ class FrequencySynchronization(Entity):
     """
     Frequency Synchronization operational data
     
-    .. attribute:: clock_interface_selection_back_traces
+    .. attribute:: nodes
     
-    	Selection backtrace operational data for clock\-interfaces
-    	**type**\:   :py:class:`ClockInterfaceSelectionBackTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces>`
+    	Table for node\-specific operational data
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes>`
     
-    .. attribute:: clock_interface_selection_forward_traces
+    .. attribute:: summary
     
-    	Selection forwardtrace operational data for clock\-interfaces
-    	**type**\:   :py:class:`ClockInterfaceSelectionForwardTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces>`
-    
-    .. attribute:: clocks
-    
-    	Table for clock operational data
-    	**type**\:   :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks>`
-    
-    .. attribute:: global_interfaces
-    
-    	Table for global interface operational data
-    	**type**\:   :py:class:`GlobalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces>`
+    	Summary operational data
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary>`
     
     .. attribute:: global_nodes
     
@@ -814,15 +804,25 @@ class FrequencySynchronization(Entity):
     	Table for interface operational data
     	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces>`
     
-    .. attribute:: nodes
+    .. attribute:: clock_interface_selection_forward_traces
     
-    	Table for node\-specific operational data
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes>`
+    	Selection forwardtrace operational data for clock\-interfaces
+    	**type**\:   :py:class:`ClockInterfaceSelectionForwardTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces>`
     
-    .. attribute:: summary
+    .. attribute:: clock_interface_selection_back_traces
     
-    	Summary operational data
-    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary>`
+    	Selection backtrace operational data for clock\-interfaces
+    	**type**\:   :py:class:`ClockInterfaceSelectionBackTraces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces>`
+    
+    .. attribute:: global_interfaces
+    
+    	Table for global interface operational data
+    	**type**\:   :py:class:`GlobalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces>`
+    
+    .. attribute:: clocks
+    
+    	Table for clock operational data
+    	**type**\:   :py:class:`Clocks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks>`
     
     
 
@@ -839,28 +839,18 @@ class FrequencySynchronization(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs4k-freqsync-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"clock-interface-selection-back-traces" : ("clock_interface_selection_back_traces", FrequencySynchronization.ClockInterfaceSelectionBackTraces), "clock-interface-selection-forward-traces" : ("clock_interface_selection_forward_traces", FrequencySynchronization.ClockInterfaceSelectionForwardTraces), "clocks" : ("clocks", FrequencySynchronization.Clocks), "global-interfaces" : ("global_interfaces", FrequencySynchronization.GlobalInterfaces), "global-nodes" : ("global_nodes", FrequencySynchronization.GlobalNodes), "interfaces" : ("interfaces", FrequencySynchronization.Interfaces), "nodes" : ("nodes", FrequencySynchronization.Nodes), "summary" : ("summary", FrequencySynchronization.Summary)}
+        self._child_container_classes = {"nodes" : ("nodes", FrequencySynchronization.Nodes), "summary" : ("summary", FrequencySynchronization.Summary), "global-nodes" : ("global_nodes", FrequencySynchronization.GlobalNodes), "interfaces" : ("interfaces", FrequencySynchronization.Interfaces), "clock-interface-selection-forward-traces" : ("clock_interface_selection_forward_traces", FrequencySynchronization.ClockInterfaceSelectionForwardTraces), "clock-interface-selection-back-traces" : ("clock_interface_selection_back_traces", FrequencySynchronization.ClockInterfaceSelectionBackTraces), "global-interfaces" : ("global_interfaces", FrequencySynchronization.GlobalInterfaces), "clocks" : ("clocks", FrequencySynchronization.Clocks)}
         self._child_list_classes = {}
 
-        self.clock_interface_selection_back_traces = FrequencySynchronization.ClockInterfaceSelectionBackTraces()
-        self.clock_interface_selection_back_traces.parent = self
-        self._children_name_map["clock_interface_selection_back_traces"] = "clock-interface-selection-back-traces"
-        self._children_yang_names.add("clock-interface-selection-back-traces")
+        self.nodes = FrequencySynchronization.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
 
-        self.clock_interface_selection_forward_traces = FrequencySynchronization.ClockInterfaceSelectionForwardTraces()
-        self.clock_interface_selection_forward_traces.parent = self
-        self._children_name_map["clock_interface_selection_forward_traces"] = "clock-interface-selection-forward-traces"
-        self._children_yang_names.add("clock-interface-selection-forward-traces")
-
-        self.clocks = FrequencySynchronization.Clocks()
-        self.clocks.parent = self
-        self._children_name_map["clocks"] = "clocks"
-        self._children_yang_names.add("clocks")
-
-        self.global_interfaces = FrequencySynchronization.GlobalInterfaces()
-        self.global_interfaces.parent = self
-        self._children_name_map["global_interfaces"] = "global-interfaces"
-        self._children_yang_names.add("global-interfaces")
+        self.summary = FrequencySynchronization.Summary()
+        self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
+        self._children_yang_names.add("summary")
 
         self.global_nodes = FrequencySynchronization.GlobalNodes()
         self.global_nodes.parent = self
@@ -872,27 +862,36 @@ class FrequencySynchronization(Entity):
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
 
-        self.nodes = FrequencySynchronization.Nodes()
-        self.nodes.parent = self
-        self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
+        self.clock_interface_selection_forward_traces = FrequencySynchronization.ClockInterfaceSelectionForwardTraces()
+        self.clock_interface_selection_forward_traces.parent = self
+        self._children_name_map["clock_interface_selection_forward_traces"] = "clock-interface-selection-forward-traces"
+        self._children_yang_names.add("clock-interface-selection-forward-traces")
 
-        self.summary = FrequencySynchronization.Summary()
-        self.summary.parent = self
-        self._children_name_map["summary"] = "summary"
-        self._children_yang_names.add("summary")
+        self.clock_interface_selection_back_traces = FrequencySynchronization.ClockInterfaceSelectionBackTraces()
+        self.clock_interface_selection_back_traces.parent = self
+        self._children_name_map["clock_interface_selection_back_traces"] = "clock-interface-selection-back-traces"
+        self._children_yang_names.add("clock-interface-selection-back-traces")
+
+        self.global_interfaces = FrequencySynchronization.GlobalInterfaces()
+        self.global_interfaces.parent = self
+        self._children_name_map["global_interfaces"] = "global-interfaces"
+        self._children_yang_names.add("global-interfaces")
+
+        self.clocks = FrequencySynchronization.Clocks()
+        self.clocks.parent = self
+        self._children_name_map["clocks"] = "clocks"
+        self._children_yang_names.add("clocks")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization"
 
 
-    class ClockInterfaceSelectionBackTraces(Entity):
+    class Nodes(Entity):
         """
-        Selection backtrace operational data for
-        clock\-interfaces
+        Table for node\-specific operational data
         
-        .. attribute:: clock_interface_selection_back_trace
+        .. attribute:: node
         
-        	Selection backtrace operational data for a particular clock\-interface
-        	**type**\: list of    :py:class:`ClockInterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace>`
+        	Node\-specific data for a particular node
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node>`
         
         
 
@@ -902,44 +901,61 @@ class FrequencySynchronization(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FrequencySynchronization.ClockInterfaceSelectionBackTraces, self).__init__()
+            super(FrequencySynchronization.Nodes, self).__init__()
 
-            self.yang_name = "clock-interface-selection-back-traces"
+            self.yang_name = "nodes"
             self.yang_parent_name = "frequency-synchronization"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"clock-interface-selection-back-trace" : ("clock_interface_selection_back_trace", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace)}
+            self._child_list_classes = {"node" : ("node", FrequencySynchronization.Nodes.Node)}
 
-            self.clock_interface_selection_back_trace = YList(self)
-            self._segment_path = lambda: "clock-interface-selection-back-traces"
+            self.node = YList(self)
+            self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces, [], name, value)
+            self._perform_setattr(FrequencySynchronization.Nodes, [], name, value)
 
 
-        class ClockInterfaceSelectionBackTrace(Entity):
+        class Node(Entity):
             """
-            Selection backtrace operational data for a
-            particular clock\-interface
+            Node\-specific data for a particular node
             
-            .. attribute:: clock_name  <key>
+            .. attribute:: node  <key>
             
-            	Clock Name
+            	Node
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: selection_points
             
-            .. attribute:: selected_source
+            	Selection point table
+            	**type**\:   :py:class:`SelectionPoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints>`
             
-            	Source which has been selected for output
-            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource>`
+            .. attribute:: ptp
             
-            .. attribute:: selection_point
+            	PTP operational data
+            	**type**\:   :py:class:`Ptp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ptp>`
             
-            	List of selection points in the backtrace
-            	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint>`
+            .. attribute:: selection_point_inputs
+            
+            	Table for selection point input operational data
+            	**type**\:   :py:class:`SelectionPointInputs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs>`
+            
+            .. attribute:: ntp
+            
+            	NTP operational data
+            	**type**\:   :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ntp>`
+            
+            .. attribute:: configuration_errors
+            
+            	Configuration error operational data
+            	**type**\:   :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors>`
+            
+            .. attribute:: ssm_summary
+            
+            	SSM operational data
+            	**type**\:   :py:class:`SsmSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SsmSummary>`
             
             
 
@@ -949,85 +965,61 @@ class FrequencySynchronization(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, self).__init__()
+                super(FrequencySynchronization.Nodes.Node, self).__init__()
 
-                self.yang_name = "clock-interface-selection-back-trace"
-                self.yang_parent_name = "clock-interface-selection-back-traces"
+                self.yang_name = "node"
+                self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource)}
-                self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint)}
+                self._child_container_classes = {"selection-points" : ("selection_points", FrequencySynchronization.Nodes.Node.SelectionPoints), "ptp" : ("ptp", FrequencySynchronization.Nodes.Node.Ptp), "selection-point-inputs" : ("selection_point_inputs", FrequencySynchronization.Nodes.Node.SelectionPointInputs), "ntp" : ("ntp", FrequencySynchronization.Nodes.Node.Ntp), "configuration-errors" : ("configuration_errors", FrequencySynchronization.Nodes.Node.ConfigurationErrors), "ssm-summary" : ("ssm_summary", FrequencySynchronization.Nodes.Node.SsmSummary)}
+                self._child_list_classes = {}
 
-                self.clock_name = YLeaf(YType.str, "clock-name")
+                self.node = YLeaf(YType.str, "node")
 
-                self.selected_source = FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource()
-                self.selected_source.parent = self
-                self._children_name_map["selected_source"] = "selected-source"
-                self._children_yang_names.add("selected-source")
+                self.selection_points = FrequencySynchronization.Nodes.Node.SelectionPoints()
+                self.selection_points.parent = self
+                self._children_name_map["selection_points"] = "selection-points"
+                self._children_yang_names.add("selection-points")
 
-                self.selection_point = YList(self)
-                self._segment_path = lambda: "clock-interface-selection-back-trace" + "[clock-name='" + self.clock_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clock-interface-selection-back-traces/%s" % self._segment_path()
+                self.ptp = FrequencySynchronization.Nodes.Node.Ptp()
+                self.ptp.parent = self
+                self._children_name_map["ptp"] = "ptp"
+                self._children_yang_names.add("ptp")
+
+                self.selection_point_inputs = FrequencySynchronization.Nodes.Node.SelectionPointInputs()
+                self.selection_point_inputs.parent = self
+                self._children_name_map["selection_point_inputs"] = "selection-point-inputs"
+                self._children_yang_names.add("selection-point-inputs")
+
+                self.ntp = FrequencySynchronization.Nodes.Node.Ntp()
+                self.ntp.parent = self
+                self._children_name_map["ntp"] = "ntp"
+                self._children_yang_names.add("ntp")
+
+                self.configuration_errors = FrequencySynchronization.Nodes.Node.ConfigurationErrors()
+                self.configuration_errors.parent = self
+                self._children_name_map["configuration_errors"] = "configuration-errors"
+                self._children_yang_names.add("configuration-errors")
+
+                self.ssm_summary = FrequencySynchronization.Nodes.Node.SsmSummary()
+                self.ssm_summary.parent = self
+                self._children_name_map["ssm_summary"] = "ssm-summary"
+                self._children_yang_names.add("ssm-summary")
+                self._segment_path = lambda: "node" + "[node='" + self.node.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, ['clock_name'], name, value)
+                self._perform_setattr(FrequencySynchronization.Nodes.Node, ['node'], name, value)
 
 
-            class SelectedSource(Entity):
+            class SelectionPoints(Entity):
                 """
-                Source which has been selected for output
+                Selection point table
                 
-                .. attribute:: clock_id
+                .. attribute:: selection_point
                 
-                	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId>`
-                
-                .. attribute:: ethernet_interface
-                
-                	Ethernet interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ptp_node
-                
-                	PTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: satellite_access_interface
-                
-                	Satellite Access Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                	Operational data for a given selection point
+                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint>`
                 
                 
 
@@ -1037,56 +1029,78 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, self).__init__()
+                    super(FrequencySynchronization.Nodes.Node.SelectionPoints, self).__init__()
 
-                    self.yang_name = "selected-source"
-                    self.yang_parent_name = "clock-interface-selection-back-trace"
+                    self.yang_name = "selection-points"
+                    self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId)}
-                    self._child_list_classes = {}
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint)}
 
-                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                    self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId()
-                    self.clock_id.parent = self
-                    self._children_name_map["clock_id"] = "clock-id"
-                    self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "selected-source"
+                    self.selection_point = YList(self)
+                    self._segment_path = lambda: "selection-points"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints, [], name, value)
 
 
-                class ClockId(Entity):
+                class SelectionPoint(Entity):
                     """
-                    Clock ID
+                    Operational data for a given selection point
                     
-                    .. attribute:: node
+                    .. attribute:: selection_point  <key>
                     
-                    	Node
+                    	Selection point ID
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: output
+                    
+                    	Information about the output of the selection point
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output>`
+                    
+                    .. attribute:: last_programmed
+                    
+                    	Time the SP was last programmed
+                    	**type**\:   :py:class:`LastProgrammed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed>`
+                    
+                    .. attribute:: last_selection
+                    
+                    	Time the last selection was made
+                    	**type**\:   :py:class:`LastSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection>`
+                    
+                    .. attribute:: selection_point_type
+                    
+                    	Selection Point Type
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: description
+                    
+                    	Description
                     	**type**\:  str
                     
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    .. attribute:: inputs
                     
-                    .. attribute:: port
-                    
-                    	Port number
+                    	Number of inputs
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: inputs_selected
+                    
+                    	Number of inputs that are selected
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: time_of_day_selection
+                    
+                    	The selection point is a time\-of\-day selection point
+                    	**type**\:  bool
                     
                     
 
@@ -1096,46 +1110,425 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
+                        super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint, self).__init__()
 
-                        self.yang_name = "clock-id"
-                        self.yang_parent_name = "selected-source"
+                        self.yang_name = "selection-point"
+                        self.yang_parent_name = "selection-points"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"output" : ("output", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output), "last-programmed" : ("last_programmed", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed), "last-selection" : ("last_selection", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection)}
+                        self._child_list_classes = {}
+
+                        self.selection_point = YLeaf(YType.int32, "selection-point")
+
+                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                        self.description = YLeaf(YType.str, "description")
+
+                        self.inputs = YLeaf(YType.uint32, "inputs")
+
+                        self.inputs_selected = YLeaf(YType.uint32, "inputs-selected")
+
+                        self.time_of_day_selection = YLeaf(YType.boolean, "time-of-day-selection")
+
+                        self.output = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output()
+                        self.output.parent = self
+                        self._children_name_map["output"] = "output"
+                        self._children_yang_names.add("output")
+
+                        self.last_programmed = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed()
+                        self.last_programmed.parent = self
+                        self._children_name_map["last_programmed"] = "last-programmed"
+                        self._children_yang_names.add("last-programmed")
+
+                        self.last_selection = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection()
+                        self.last_selection.parent = self
+                        self._children_name_map["last_selection"] = "last-selection"
+                        self._children_yang_names.add("last-selection")
+                        self._segment_path = lambda: "selection-point" + "[selection-point='" + self.selection_point.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint, ['selection_point', 'selection_point_type', 'description', 'inputs', 'inputs_selected', 'time_of_day_selection'], name, value)
+
+
+                    class Output(Entity):
+                        """
+                        Information about the output of the selection
+                        point
+                        
+                        .. attribute:: local_clock_ouput
+                        
+                        	Used for local clock output
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_line_output
+                        
+                        	Used for local line interface output
+                        	**type**\:  bool
+                        
+                        .. attribute:: local_time_of_day_output
+                        
+                        	Used for local time\-of\-day output
+                        	**type**\:  bool
+                        
+                        .. attribute:: spa_selection_point
+                        
+                        	SPA selection points
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: spa_selection_points_description
+                        
+                        	SPA selection points descrption
+                        	**type**\:  list of str
+                        
+                        .. attribute:: node_selection_point
+                        
+                        	Node selection points
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: node_selection_points_description
+                        
+                        	Node selection points descrption
+                        	**type**\:  list of str
+                        
+                        .. attribute:: chassis_selection_point
+                        
+                        	Chassis selection points
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: chassis_selection_points_description
+                        
+                        	Chassis selection points descrption
+                        	**type**\:  list of str
+                        
+                        .. attribute:: router_selection_point
+                        
+                        	Router selection points
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: router_selection_points_description
+                        
+                        	Router selection points descrption
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output, self).__init__()
+
+                            self.yang_name = "output"
+                            self.yang_parent_name = "selection-point"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.local_clock_ouput = YLeaf(YType.boolean, "local-clock-ouput")
+
+                            self.local_line_output = YLeaf(YType.boolean, "local-line-output")
+
+                            self.local_time_of_day_output = YLeaf(YType.boolean, "local-time-of-day-output")
+
+                            self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
+
+                            self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
+
+                            self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
+
+                            self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+
+                            self.chassis_selection_point = YLeafList(YType.uint8, "chassis-selection-point")
+
+                            self.chassis_selection_points_description = YLeafList(YType.str, "chassis-selection-points-description")
+
+                            self.router_selection_point = YLeafList(YType.uint8, "router-selection-point")
+
+                            self.router_selection_points_description = YLeafList(YType.str, "router-selection-points-description")
+                            self._segment_path = lambda: "output"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output, ['local_clock_ouput', 'local_line_output', 'local_time_of_day_output', 'spa_selection_point', 'spa_selection_points_description', 'node_selection_point', 'node_selection_points_description', 'chassis_selection_point', 'chassis_selection_points_description', 'router_selection_point', 'router_selection_points_description'], name, value)
+
+
+                    class LastProgrammed(Entity):
+                        """
+                        Time the SP was last programmed
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed, self).__init__()
+
+                            self.yang_name = "last-programmed"
+                            self.yang_parent_name = "selection-point"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "last-programmed"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed, ['seconds', 'nanoseconds'], name, value)
+
+
+                    class LastSelection(Entity):
+                        """
+                        Time the last selection was made
+                        
+                        .. attribute:: seconds
+                        
+                        	Seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: nanoseconds
+                        
+                        	Nanoseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: nanosecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection, self).__init__()
+
+                            self.yang_name = "last-selection"
+                            self.yang_parent_name = "selection-point"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.seconds = YLeaf(YType.uint32, "seconds")
+
+                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                            self._segment_path = lambda: "last-selection"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection, ['seconds', 'nanoseconds'], name, value)
+
+
+            class Ptp(Entity):
+                """
+                PTP operational data
+                
+                .. attribute:: quality_level_effective_input
+                
+                	The effective input quality level
+                	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput>`
+                
+                .. attribute:: state
+                
+                	PTP state
+                	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
+                
+                .. attribute:: supports_frequency
+                
+                	The PTP clock supports frequency
+                	**type**\:  bool
+                
+                .. attribute:: supports_time_of_day
+                
+                	The PTP clock supports time
+                	**type**\:  bool
+                
+                .. attribute:: frequency_priority
+                
+                	The priority of the PTP clock when selected between frequency sources
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: time_of_day_priority
+                
+                	The priority of the PTP clock when selecting between time\-of\-day sources
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: spa_selection_point
+                
+                	Spa selection points
+                	**type**\:  list of int
+                
+                	**range:** 0..255
+                
+                .. attribute:: spa_selection_points_description
+                
+                	Spa selection points descrption
+                	**type**\:  list of str
+                
+                .. attribute:: node_selection_point
+                
+                	Node selection points
+                	**type**\:  list of int
+                
+                	**range:** 0..255
+                
+                .. attribute:: node_selection_points_description
+                
+                	Node selection points descrption
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Nodes.Node.Ptp, self).__init__()
+
+                    self.yang_name = "ptp"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput)}
+                    self._child_list_classes = {}
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                    self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
+
+                    self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
+
+                    self.frequency_priority = YLeaf(YType.uint8, "frequency-priority")
+
+                    self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
+
+                    self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
+
+                    self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
+
+                    self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
+
+                    self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+
+                    self.quality_level_effective_input = FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput()
+                    self.quality_level_effective_input.parent = self
+                    self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
+                    self._children_yang_names.add("quality-level-effective-input")
+                    self._segment_path = lambda: "ptp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.Ptp, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority', 'spa_selection_point', 'spa_selection_points_description', 'node_selection_point', 'node_selection_points_description'], name, value)
+
+
+                class QualityLevelEffectiveInput(Entity):
+                    """
+                    The effective input quality level
+                    
+                    .. attribute:: quality_level_option
+                    
+                    	QualityLevelOption
+                    	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                    
+                    .. attribute:: option1_value
+                    
+                    	ITU\-T Option 1 QL value
+                    	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                    
+                    .. attribute:: option2_generation1_value
+                    
+                    	ITU\-T Option 2, generation 1 value
+                    	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                    
+                    .. attribute:: option2_generation2_value
+                    
+                    	ITU\-T Option 2, generation 2 value
+                    	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput, self).__init__()
+
+                        self.yang_name = "quality-level-effective-input"
+                        self.yang_parent_name = "ptp"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.node = YLeaf(YType.str, "node")
+                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
-                        self.port = YLeaf(YType.uint32, "port")
-                        self._segment_path = lambda: "clock-id"
+                        self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                        self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                        self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                        self._segment_path = lambda: "quality-level-effective-input"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
 
-            class SelectionPoint(Entity):
+            class SelectionPointInputs(Entity):
                 """
-                List of selection points in the backtrace
+                Table for selection point input operational
+                data
                 
-                .. attribute:: node
+                .. attribute:: selection_point_input
                 
-                	Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: selection_point_description
-                
-                	Selection point descrption
-                	**type**\:  str
-                
-                .. attribute:: selection_point_type
-                
-                	Selection point type
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	Operational data for a particular selection point input
+                	**type**\: list of    :py:class:`SelectionPointInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput>`
                 
                 
 
@@ -1145,157 +1538,140 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, self).__init__()
+                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs, self).__init__()
 
-                    self.yang_name = "selection-point"
-                    self.yang_parent_name = "clock-interface-selection-back-trace"
+                    self.yang_name = "selection-point-inputs"
+                    self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self._child_list_classes = {"selection-point-input" : ("selection_point_input", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput)}
 
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                    self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                    self._segment_path = lambda: "selection-point"
+                    self.selection_point_input = YList(self)
+                    self._segment_path = lambda: "selection-point-inputs"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs, [], name, value)
 
 
-    class ClockInterfaceSelectionForwardTraces(Entity):
-        """
-        Selection forwardtrace operational data for
-        clock\-interfaces
-        
-        .. attribute:: clock_interface_selection_forward_trace
-        
-        	Selection forwardtrace operational data for a particular clock\-interface
-        	**type**\: list of    :py:class:`ClockInterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace>`
-        
-        
-
-        """
-
-        _prefix = 'ncs4k-freqsync-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces, self).__init__()
-
-            self.yang_name = "clock-interface-selection-forward-traces"
-            self.yang_parent_name = "frequency-synchronization"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"clock-interface-selection-forward-trace" : ("clock_interface_selection_forward_trace", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace)}
-
-            self.clock_interface_selection_forward_trace = YList(self)
-            self._segment_path = lambda: "clock-interface-selection-forward-traces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces, [], name, value)
-
-
-        class ClockInterfaceSelectionForwardTrace(Entity):
-            """
-            Selection forwardtrace operational data for a
-            particular clock\-interface
-            
-            .. attribute:: clock_name  <key>
-            
-            	Clock Name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: forward_trace
-            
-            	Selection ForwardTrace
-            	**type**\: list of    :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace>`
-            
-            
-
-            """
-
-            _prefix = 'ncs4k-freqsync-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, self).__init__()
-
-                self.yang_name = "clock-interface-selection-forward-trace"
-                self.yang_parent_name = "clock-interface-selection-forward-traces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"forward-trace" : ("forward_trace", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace)}
-
-                self.clock_name = YLeaf(YType.str, "clock-name")
-
-                self.forward_trace = YList(self)
-                self._segment_path = lambda: "clock-interface-selection-forward-trace" + "[clock-name='" + self.clock_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clock-interface-selection-forward-traces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, ['clock_name'], name, value)
-
-
-            class ForwardTrace(Entity):
-                """
-                Selection ForwardTrace
-                
-                .. attribute:: forward_trace_node
-                
-                	The source or selection point at this point in the forwardtrace
-                	**type**\:   :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
-
-                    self.yang_name = "forward-trace"
-                    self.yang_parent_name = "clock-interface-selection-forward-trace"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"forward-trace-node" : ("forward_trace_node", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode)}
-                    self._child_list_classes = {}
-
-                    self.forward_trace_node = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode()
-                    self.forward_trace_node.parent = self
-                    self._children_name_map["forward_trace_node"] = "forward-trace-node"
-                    self._children_yang_names.add("forward-trace-node")
-                    self._segment_path = lambda: "forward-trace"
-
-
-                class ForwardTraceNode(Entity):
+                class SelectionPointInput(Entity):
                     """
-                    The source or selection point at this point in
-                    the forwardtrace
-                    
-                    .. attribute:: node_type
-                    
-                    	NodeType
-                    	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
+                    Operational data for a particular selection
+                    point input
                     
                     .. attribute:: selection_point
                     
-                    	Selection Point
-                    	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
+                    	Selection point ID
+                    	**type**\:  int
                     
-                    .. attribute:: source
+                    	**range:** \-2147483648..2147483647
                     
-                    	Timing Source
-                    	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
+                    .. attribute:: stream_type
+                    
+                    	Type of stream
+                    	**type**\:   :py:class:`FsyncStream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncStream>`
+                    
+                    .. attribute:: source_type
+                    
+                    	Type of source
+                    	**type**\:   :py:class:`FsyncSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncSource>`
+                    
+                    .. attribute:: interface
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: clock_port
+                    
+                    	Clock port
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: last_node
+                    
+                    	Last node for a selection point stream
+                    	**type**\:  str
+                    
+                    .. attribute:: last_selection_point
+                    
+                    	Last selection point for a selection point stream
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: output_id
+                    
+                    	Output ID for a selection point stream
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: input_selection_point
+                    
+                    	The selection point the input is for
+                    	**type**\:   :py:class:`InputSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint>`
+                    
+                    .. attribute:: stream
+                    
+                    	Stream
+                    	**type**\:   :py:class:`Stream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream>`
+                    
+                    .. attribute:: original_source
+                    
+                    	Original source
+                    	**type**\:   :py:class:`OriginalSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource>`
+                    
+                    .. attribute:: quality_level
+                    
+                    	Quality Level
+                    	**type**\:   :py:class:`QualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel>`
+                    
+                    .. attribute:: supports_frequency
+                    
+                    	The selection point input supports frequency
+                    	**type**\:  bool
+                    
+                    .. attribute:: supports_time_of_day
+                    
+                    	The selection point input supports time\-of\-day
+                    	**type**\:  bool
+                    
+                    .. attribute:: priority
+                    
+                    	Priority
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: time_of_day_priority
+                    
+                    	Time\-of\-day priority
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: selected
+                    
+                    	The selection point input is selected
+                    	**type**\:  bool
+                    
+                    .. attribute:: output_id_xr
+                    
+                    	Platform output ID, if the input is selected
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: platform_status
+                    
+                    	Platform status
+                    	**type**\:   :py:class:`FsyncBagStreamState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagStreamState>`
+                    
+                    .. attribute:: platform_failed_reason
+                    
+                    	Why the stream has failed
+                    	**type**\:  str
                     
                     
 
@@ -1305,47 +1681,75 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, self).__init__()
 
-                        self.yang_name = "forward-trace-node"
-                        self.yang_parent_name = "forward-trace"
+                        self.yang_name = "selection-point-input"
+                        self.yang_parent_name = "selection-point-inputs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint), "source" : ("source", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source)}
+                        self._child_container_classes = {"input-selection-point" : ("input_selection_point", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint), "stream" : ("stream", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream), "original-source" : ("original_source", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource), "quality-level" : ("quality_level", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel)}
                         self._child_list_classes = {}
 
-                        self.node_type = YLeaf(YType.enumeration, "node-type")
+                        self.selection_point = YLeaf(YType.int32, "selection-point")
 
-                        self.selection_point = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint()
-                        self.selection_point.parent = self
-                        self._children_name_map["selection_point"] = "selection-point"
-                        self._children_yang_names.add("selection-point")
+                        self.stream_type = YLeaf(YType.enumeration, "stream-type")
 
-                        self.source = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source()
-                        self.source.parent = self
-                        self._children_name_map["source"] = "source"
-                        self._children_yang_names.add("source")
-                        self._segment_path = lambda: "forward-trace-node"
+                        self.source_type = YLeaf(YType.enumeration, "source-type")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.clock_port = YLeaf(YType.int32, "clock-port")
+
+                        self.last_node = YLeaf(YType.str, "last-node")
+
+                        self.last_selection_point = YLeaf(YType.int32, "last-selection-point")
+
+                        self.output_id = YLeaf(YType.int32, "output-id")
+
+                        self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
+
+                        self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
+
+                        self.priority = YLeaf(YType.uint8, "priority")
+
+                        self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
+
+                        self.selected = YLeaf(YType.boolean, "selected")
+
+                        self.output_id_xr = YLeaf(YType.uint8, "output-id-xr")
+
+                        self.platform_status = YLeaf(YType.enumeration, "platform-status")
+
+                        self.platform_failed_reason = YLeaf(YType.str, "platform-failed-reason")
+
+                        self.input_selection_point = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint()
+                        self.input_selection_point.parent = self
+                        self._children_name_map["input_selection_point"] = "input-selection-point"
+                        self._children_yang_names.add("input-selection-point")
+
+                        self.stream = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream()
+                        self.stream.parent = self
+                        self._children_name_map["stream"] = "stream"
+                        self._children_yang_names.add("stream")
+
+                        self.original_source = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource()
+                        self.original_source.parent = self
+                        self._children_name_map["original_source"] = "original-source"
+                        self._children_yang_names.add("original-source")
+
+                        self.quality_level = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel()
+                        self.quality_level.parent = self
+                        self._children_name_map["quality_level"] = "quality-level"
+                        self._children_yang_names.add("quality-level")
+                        self._segment_path = lambda: "selection-point-input"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, ['selection_point', 'stream_type', 'source_type', 'interface', 'clock_port', 'last_node', 'last_selection_point', 'output_id', 'supports_frequency', 'supports_time_of_day', 'priority', 'time_of_day_priority', 'selected', 'output_id_xr', 'platform_status', 'platform_failed_reason'], name, value)
 
 
-                    class SelectionPoint(Entity):
+                    class InputSelectionPoint(Entity):
                         """
-                        Selection Point
-                        
-                        .. attribute:: node
-                        
-                        	Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: selection_point_description
-                        
-                        	Selection point descrption
-                        	**type**\:  str
+                        The selection point the input is for
                         
                         .. attribute:: selection_point_type
                         
@@ -1354,1284 +1758,16 @@ class FrequencySynchronization(Entity):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: selection_point_description
                         
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
-
-                            self.yang_name = "selection-point"
-                            self.yang_parent_name = "forward-trace-node"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.node = YLeaf(YType.str, "node")
-
-                            self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                            self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                            self._segment_path = lambda: "selection-point"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
-
-
-                    class Source(Entity):
-                        """
-                        Timing Source
-                        
-                        .. attribute:: clock_id
-                        
-                        	Clock ID
-                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
-                        
-                        .. attribute:: ethernet_interface
-                        
-                        	Ethernet interface
+                        	Selection point descrption
                         	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ntp_node
-                        
-                        	NTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ptp_node
-                        
-                        	PTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: satellite_access_interface
-                        
-                        	Satellite Access Interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: sonet_interface
-                        
-                        	SONET interfaces
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: source_class
-                        
-                        	SourceClass
-                        	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
-
-                            self.yang_name = "source"
-                            self.yang_parent_name = "forward-trace-node"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
-                            self._child_list_classes = {}
-
-                            self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                            self.node = YLeaf(YType.str, "node")
-
-                            self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                            self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                            self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                            self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                            self.clock_id = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
-                            self.clock_id.parent = self
-                            self._children_name_map["clock_id"] = "clock-id"
-                            self._children_yang_names.add("clock-id")
-                            self._segment_path = lambda: "source"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                        class ClockId(Entity):
-                            """
-                            Clock ID
-                            
-                            .. attribute:: node
-                            
-                            	Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: port
-                            
-                            	Port number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ncs4k-freqsync-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
-
-                                self.yang_name = "clock-id"
-                                self.yang_parent_name = "source"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.node = YLeaf(YType.str, "node")
-
-                                self.port = YLeaf(YType.uint32, "port")
-                                self._segment_path = lambda: "clock-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'port'], name, value)
-
-
-    class Clocks(Entity):
-        """
-        Table for clock operational data
-        
-        .. attribute:: clock
-        
-        	Operational data for a particular clock
-        	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock>`
-        
-        
-
-        """
-
-        _prefix = 'ncs4k-freqsync-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(FrequencySynchronization.Clocks, self).__init__()
-
-            self.yang_name = "clocks"
-            self.yang_parent_name = "frequency-synchronization"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"clock" : ("clock", FrequencySynchronization.Clocks.Clock)}
-
-            self.clock = YList(self)
-            self._segment_path = lambda: "clocks"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.Clocks, [], name, value)
-
-
-        class Clock(Entity):
-            """
-            Operational data for a particular clock
-            
-            .. attribute:: clock_name  <key>
-            
-            	Clock Name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: clock_type
-            
-            	The type of clock
-            	**type**\:   :py:class:`FsyncBagClockIntfClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagClockIntfClass>`
-            
-            .. attribute:: damping_state
-            
-            	Damping state
-            	**type**\:   :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagDampingState>`
-            
-            .. attribute:: damping_time
-            
-            	Time until damping state changes in ms
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: description
-            
-            	Clock description
-            	**type**\:  str
-            
-            .. attribute:: down_reason
-            
-            	Why the clock is down
-            	**type**\:  str
-            
-            .. attribute:: input_disabled
-            
-            	Timing input is disabled
-            	**type**\:  bool
-            
-            .. attribute:: loopback
-            
-            	The clock is looped back
-            	**type**\:  bool
-            
-            .. attribute:: node_selection_point
-            
-            	Node selection points
-            	**type**\:  list of int
-            
-            	**range:** 0..255
-            
-            .. attribute:: node_selection_points_description
-            
-            	Node selection points descrption
-            	**type**\:  list of str
-            
-            .. attribute:: output_disabled
-            
-            	Timing output is disabled
-            	**type**\:  bool
-            
-            .. attribute:: priority
-            
-            	Priority
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: quality_level_damped
-            
-            	Quality level after damping has been applied
-            	**type**\:   :py:class:`QualityLevelDamped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelDamped>`
-            
-            .. attribute:: quality_level_effective_input
-            
-            	The effective input quality level
-            	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput>`
-            
-            .. attribute:: quality_level_effective_output
-            
-            	The effective output quality level
-            	**type**\:   :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput>`
-            
-            .. attribute:: quality_level_received
-            
-            	Received quality level
-            	**type**\:   :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelReceived>`
-            
-            .. attribute:: quality_level_selected_source
-            
-            	The quality level of the source driving this interface
-            	**type**\:   :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource>`
-            
-            .. attribute:: selected_source
-            
-            	Timing source selected for clock output
-            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.SelectedSource>`
-            
-            .. attribute:: selection_input
-            
-            	The clock is an input for selection
-            	**type**\:  bool
-            
-            .. attribute:: source
-            
-            	The source ID for the clock
-            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.Source>`
-            
-            .. attribute:: spa_selection_point
-            
-            	Spa selection points
-            	**type**\:  list of int
-            
-            	**range:** 0..255
-            
-            .. attribute:: spa_selection_points_description
-            
-            	Spa selection points descrption
-            	**type**\:  list of str
-            
-            .. attribute:: squelched
-            
-            	The clock output is squelched
-            	**type**\:  bool
-            
-            .. attribute:: ssm_enabled
-            
-            	The clock output is squelched
-            	**type**\:  bool
-            
-            .. attribute:: ssm_support
-            
-            	The clock supports SSMs
-            	**type**\:  bool
-            
-            .. attribute:: state
-            
-            	Clock state
-            	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
-            
-            .. attribute:: supports_frequency
-            
-            	The PTP clock supports frequency
-            	**type**\:  bool
-            
-            .. attribute:: supports_time_of_day
-            
-            	The PTP clock supports time
-            	**type**\:  bool
-            
-            .. attribute:: time_of_day_priority
-            
-            	Time\-of\-day priority
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            .. attribute:: wait_to_restore_time
-            
-            	Wait\-to\-restore time for the clock
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            
-
-            """
-
-            _prefix = 'ncs4k-freqsync-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(FrequencySynchronization.Clocks.Clock, self).__init__()
-
-                self.yang_name = "clock"
-                self.yang_parent_name = "clocks"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"quality-level-damped" : ("quality_level_damped", FrequencySynchronization.Clocks.Clock.QualityLevelDamped), "quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput), "quality-level-effective-output" : ("quality_level_effective_output", FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput), "quality-level-received" : ("quality_level_received", FrequencySynchronization.Clocks.Clock.QualityLevelReceived), "quality-level-selected-source" : ("quality_level_selected_source", FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource), "selected-source" : ("selected_source", FrequencySynchronization.Clocks.Clock.SelectedSource), "source" : ("source", FrequencySynchronization.Clocks.Clock.Source)}
-                self._child_list_classes = {}
-
-                self.clock_name = YLeaf(YType.str, "clock-name")
-
-                self.clock_type = YLeaf(YType.enumeration, "clock-type")
-
-                self.damping_state = YLeaf(YType.enumeration, "damping-state")
-
-                self.damping_time = YLeaf(YType.uint32, "damping-time")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.down_reason = YLeaf(YType.str, "down-reason")
-
-                self.input_disabled = YLeaf(YType.boolean, "input-disabled")
-
-                self.loopback = YLeaf(YType.boolean, "loopback")
-
-                self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
-
-                self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
-
-                self.output_disabled = YLeaf(YType.boolean, "output-disabled")
-
-                self.priority = YLeaf(YType.uint8, "priority")
-
-                self.selection_input = YLeaf(YType.boolean, "selection-input")
-
-                self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
-
-                self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
-
-                self.squelched = YLeaf(YType.boolean, "squelched")
-
-                self.ssm_enabled = YLeaf(YType.boolean, "ssm-enabled")
-
-                self.ssm_support = YLeaf(YType.boolean, "ssm-support")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
-
-                self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
-
-                self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
-
-                self.wait_to_restore_time = YLeaf(YType.uint16, "wait-to-restore-time")
-
-                self.quality_level_damped = FrequencySynchronization.Clocks.Clock.QualityLevelDamped()
-                self.quality_level_damped.parent = self
-                self._children_name_map["quality_level_damped"] = "quality-level-damped"
-                self._children_yang_names.add("quality-level-damped")
-
-                self.quality_level_effective_input = FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput()
-                self.quality_level_effective_input.parent = self
-                self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
-                self._children_yang_names.add("quality-level-effective-input")
-
-                self.quality_level_effective_output = FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput()
-                self.quality_level_effective_output.parent = self
-                self._children_name_map["quality_level_effective_output"] = "quality-level-effective-output"
-                self._children_yang_names.add("quality-level-effective-output")
-
-                self.quality_level_received = FrequencySynchronization.Clocks.Clock.QualityLevelReceived()
-                self.quality_level_received.parent = self
-                self._children_name_map["quality_level_received"] = "quality-level-received"
-                self._children_yang_names.add("quality-level-received")
-
-                self.quality_level_selected_source = FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource()
-                self.quality_level_selected_source.parent = self
-                self._children_name_map["quality_level_selected_source"] = "quality-level-selected-source"
-                self._children_yang_names.add("quality-level-selected-source")
-
-                self.selected_source = FrequencySynchronization.Clocks.Clock.SelectedSource()
-                self.selected_source.parent = self
-                self._children_name_map["selected_source"] = "selected-source"
-                self._children_yang_names.add("selected-source")
-
-                self.source = FrequencySynchronization.Clocks.Clock.Source()
-                self.source.parent = self
-                self._children_name_map["source"] = "source"
-                self._children_yang_names.add("source")
-                self._segment_path = lambda: "clock" + "[clock-name='" + self.clock_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clocks/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Clocks.Clock, ['clock_name', 'clock_type', 'damping_state', 'damping_time', 'description', 'down_reason', 'input_disabled', 'loopback', 'node_selection_point', 'node_selection_points_description', 'output_disabled', 'priority', 'selection_input', 'spa_selection_point', 'spa_selection_points_description', 'squelched', 'ssm_enabled', 'ssm_support', 'state', 'supports_frequency', 'supports_time_of_day', 'time_of_day_priority', 'wait_to_restore_time'], name, value)
-
-
-            class QualityLevelDamped(Entity):
-                """
-                Quality level after damping has been applied
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.QualityLevelDamped, self).__init__()
-
-                    self.yang_name = "quality-level-damped"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-damped"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelDamped, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelEffectiveInput(Entity):
-                """
-                The effective input quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput, self).__init__()
-
-                    self.yang_name = "quality-level-effective-input"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-effective-input"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelEffectiveOutput(Entity):
-                """
-                The effective output quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput, self).__init__()
-
-                    self.yang_name = "quality-level-effective-output"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-effective-output"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelReceived(Entity):
-                """
-                Received quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.QualityLevelReceived, self).__init__()
-
-                    self.yang_name = "quality-level-received"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-received"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelReceived, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelSelectedSource(Entity):
-                """
-                The quality level of the source driving this
-                interface
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource, self).__init__()
-
-                    self.yang_name = "quality-level-selected-source"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-selected-source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class SelectedSource(Entity):
-                """
-                Timing source selected for clock output
-                
-                .. attribute:: clock_id
-                
-                	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId>`
-                
-                .. attribute:: ethernet_interface
-                
-                	Ethernet interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ptp_node
-                
-                	PTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: satellite_access_interface
-                
-                	Satellite Access Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.SelectedSource, self).__init__()
-
-                    self.yang_name = "selected-source"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId)}
-                    self._child_list_classes = {}
-
-                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                    self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId()
-                    self.clock_id.parent = self
-                    self._children_name_map["clock_id"] = "clock-id"
-                    self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "selected-source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.SelectedSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                class ClockId(Entity):
-                    """
-                    Clock ID
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: port
-                    
-                    	Port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId, self).__init__()
-
-                        self.yang_name = "clock-id"
-                        self.yang_parent_name = "selected-source"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.port = YLeaf(YType.uint32, "port")
-                        self._segment_path = lambda: "clock-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId, ['node', 'port'], name, value)
-
-
-            class Source(Entity):
-                """
-                The source ID for the clock
-                
-                .. attribute:: clock_id
-                
-                	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.Source.ClockId>`
-                
-                .. attribute:: ethernet_interface
-                
-                	Ethernet interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ptp_node
-                
-                	PTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: satellite_access_interface
-                
-                	Satellite Access Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Clocks.Clock.Source, self).__init__()
-
-                    self.yang_name = "source"
-                    self.yang_parent_name = "clock"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Clocks.Clock.Source.ClockId)}
-                    self._child_list_classes = {}
-
-                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                    self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Clocks.Clock.Source.ClockId()
-                    self.clock_id.parent = self
-                    self._children_name_map["clock_id"] = "clock-id"
-                    self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                class ClockId(Entity):
-                    """
-                    Clock ID
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: port
-                    
-                    	Port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Clocks.Clock.Source.ClockId, self).__init__()
-
-                        self.yang_name = "clock-id"
-                        self.yang_parent_name = "source"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.port = YLeaf(YType.uint32, "port")
-                        self._segment_path = lambda: "clock-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Clocks.Clock.Source.ClockId, ['node', 'port'], name, value)
-
-
-    class GlobalInterfaces(Entity):
-        """
-        Table for global interface operational data
-        
-        .. attribute:: global_interface
-        
-        	Global interface information for a particular interface
-        	**type**\: list of    :py:class:`GlobalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface>`
-        
-        
-
-        """
-
-        _prefix = 'ncs4k-freqsync-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(FrequencySynchronization.GlobalInterfaces, self).__init__()
-
-            self.yang_name = "global-interfaces"
-            self.yang_parent_name = "frequency-synchronization"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"global-interface" : ("global_interface", FrequencySynchronization.GlobalInterfaces.GlobalInterface)}
-
-            self.global_interface = YList(self)
-            self._segment_path = lambda: "global-interfaces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.GlobalInterfaces, [], name, value)
-
-
-        class GlobalInterface(Entity):
-            """
-            Global interface information for a particular
-            interface
-            
-            .. attribute:: interface_name  <key>
-            
-            	Interface name
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: interface_selection_back_trace
-            
-            	Selection backtrace operational data for a particular interface
-            	**type**\:   :py:class:`InterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace>`
-            
-            .. attribute:: interface_selection_forward_trace
-            
-            	Selection forwardtrace operational data for a particular interface
-            	**type**\:   :py:class:`InterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace>`
-            
-            
-
-            """
-
-            _prefix = 'ncs4k-freqsync-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface, self).__init__()
-
-                self.yang_name = "global-interface"
-                self.yang_parent_name = "global-interfaces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"interface-selection-back-trace" : ("interface_selection_back_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace), "interface-selection-forward-trace" : ("interface_selection_forward_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace)}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.interface_selection_back_trace = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace()
-                self.interface_selection_back_trace.parent = self
-                self._children_name_map["interface_selection_back_trace"] = "interface-selection-back-trace"
-                self._children_yang_names.add("interface-selection-back-trace")
-
-                self.interface_selection_forward_trace = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace()
-                self.interface_selection_forward_trace.parent = self
-                self._children_name_map["interface_selection_forward_trace"] = "interface-selection-forward-trace"
-                self._children_yang_names.add("interface-selection-forward-trace")
-                self._segment_path = lambda: "global-interface" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/global-interfaces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface, ['interface_name'], name, value)
-
-
-            class InterfaceSelectionBackTrace(Entity):
-                """
-                Selection backtrace operational data for a
-                particular interface
-                
-                .. attribute:: selected_source
-                
-                	Source which has been selected for output
-                	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource>`
-                
-                .. attribute:: selection_point
-                
-                	List of selection points in the backtrace
-                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, self).__init__()
-
-                    self.yang_name = "interface-selection-back-trace"
-                    self.yang_parent_name = "global-interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource)}
-                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint)}
-
-                    self.selected_source = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource()
-                    self.selected_source.parent = self
-                    self._children_name_map["selected_source"] = "selected-source"
-                    self._children_yang_names.add("selected-source")
-
-                    self.selection_point = YList(self)
-                    self._segment_path = lambda: "interface-selection-back-trace"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, [], name, value)
-
-
-                class SelectedSource(Entity):
-                    """
-                    Source which has been selected for output
-                    
-                    .. attribute:: clock_id
-                    
-                    	Clock ID
-                    	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId>`
-                    
-                    .. attribute:: ethernet_interface
-                    
-                    	Ethernet interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: node
-                    
-                    	Internal Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: ntp_node
-                    
-                    	NTP Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: ptp_node
-                    
-                    	PTP Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: satellite_access_interface
-                    
-                    	Satellite Access Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: sonet_interface
-                    
-                    	SONET interfaces
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: source_class
-                    
-                    	SourceClass
-                    	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, self).__init__()
-
-                        self.yang_name = "selected-source"
-                        self.yang_parent_name = "interface-selection-back-trace"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId)}
-                        self._child_list_classes = {}
-
-                        self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                        self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                        self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                        self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                        self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                        self.clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId()
-                        self.clock_id.parent = self
-                        self._children_name_map["clock_id"] = "clock-id"
-                        self._children_yang_names.add("clock-id")
-                        self._segment_path = lambda: "selected-source"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                    class ClockId(Entity):
-                        """
-                        Clock ID
                         
                         .. attribute:: node
                         
                         	Node
                         	**type**\:  str
                         
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: port
-                        
-                        	Port number
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         
 
                         """
@@ -2640,161 +1776,44 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, self).__init__()
 
-                            self.yang_name = "clock-id"
-                            self.yang_parent_name = "selected-source"
+                            self.yang_name = "input-selection-point"
+                            self.yang_parent_name = "selection-point-input"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.node = YLeaf(YType.str, "node")
+                            self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
 
-                            self.port = YLeaf(YType.uint32, "port")
-                            self._segment_path = lambda: "clock-id"
+                            self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
+                            self.node = YLeaf(YType.str, "node")
+                            self._segment_path = lambda: "input-selection-point"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
-                class SelectionPoint(Entity):
-                    """
-                    List of selection points in the backtrace
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: selection_point_description
-                    
-                    	Selection point descrption
-                    	**type**\:  str
-                    
-                    .. attribute:: selection_point_type
-                    
-                    	Selection point type
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, self).__init__()
-
-                        self.yang_name = "selection-point"
-                        self.yang_parent_name = "interface-selection-back-trace"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                        self._segment_path = lambda: "selection-point"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
-
-
-            class InterfaceSelectionForwardTrace(Entity):
-                """
-                Selection forwardtrace operational data for a
-                particular interface
-                
-                .. attribute:: forward_trace
-                
-                	Selection ForwardTrace
-                	**type**\: list of    :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, self).__init__()
-
-                    self.yang_name = "interface-selection-forward-trace"
-                    self.yang_parent_name = "global-interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"forward-trace" : ("forward_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace)}
-
-                    self.forward_trace = YList(self)
-                    self._segment_path = lambda: "interface-selection-forward-trace"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, [], name, value)
-
-
-                class ForwardTrace(Entity):
-                    """
-                    Selection ForwardTrace
-                    
-                    .. attribute:: forward_trace_node
-                    
-                    	The source or selection point at this point in the forwardtrace
-                    	**type**\:   :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
-
-                        self.yang_name = "forward-trace"
-                        self.yang_parent_name = "interface-selection-forward-trace"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"forward-trace-node" : ("forward_trace_node", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode)}
-                        self._child_list_classes = {}
-
-                        self.forward_trace_node = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode()
-                        self.forward_trace_node.parent = self
-                        self._children_name_map["forward_trace_node"] = "forward-trace-node"
-                        self._children_yang_names.add("forward-trace-node")
-                        self._segment_path = lambda: "forward-trace"
-
-
-                    class ForwardTraceNode(Entity):
+                    class Stream(Entity):
                         """
-                        The source or selection point at this point in
-                        the forwardtrace
+                        Stream
                         
-                        .. attribute:: node_type
+                        .. attribute:: source_id
                         
-                        	NodeType
-                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
+                        	Source ID
+                        	**type**\:   :py:class:`SourceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId>`
                         
-                        .. attribute:: selection_point
+                        .. attribute:: selection_point_id
                         
-                        	Selection Point
-                        	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
+                        	Selection point ID
+                        	**type**\:   :py:class:`SelectionPointId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId>`
                         
-                        .. attribute:: source
+                        .. attribute:: stream_input
                         
-                        	Timing Source
-                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
+                        	StreamInput
+                        	**type**\:   :py:class:`FsyncBagStreamInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagStreamInput>`
                         
                         
 
@@ -2804,139 +1823,76 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, self).__init__()
 
-                            self.yang_name = "forward-trace-node"
-                            self.yang_parent_name = "forward-trace"
+                            self.yang_name = "stream"
+                            self.yang_parent_name = "selection-point-input"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint), "source" : ("source", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source)}
+                            self._child_container_classes = {"source-id" : ("source_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId), "selection-point-id" : ("selection_point_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId)}
                             self._child_list_classes = {}
 
-                            self.node_type = YLeaf(YType.enumeration, "node-type")
+                            self.stream_input = YLeaf(YType.enumeration, "stream-input")
 
-                            self.selection_point = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint()
-                            self.selection_point.parent = self
-                            self._children_name_map["selection_point"] = "selection-point"
-                            self._children_yang_names.add("selection-point")
+                            self.source_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId()
+                            self.source_id.parent = self
+                            self._children_name_map["source_id"] = "source-id"
+                            self._children_yang_names.add("source-id")
 
-                            self.source = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source()
-                            self.source.parent = self
-                            self._children_name_map["source"] = "source"
-                            self._children_yang_names.add("source")
-                            self._segment_path = lambda: "forward-trace-node"
+                            self.selection_point_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId()
+                            self.selection_point_id.parent = self
+                            self._children_name_map["selection_point_id"] = "selection-point-id"
+                            self._children_yang_names.add("selection-point-id")
+                            self._segment_path = lambda: "stream"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, ['stream_input'], name, value)
 
 
-                        class SelectionPoint(Entity):
+                        class SourceId(Entity):
                             """
-                            Selection Point
-                            
-                            .. attribute:: node
-                            
-                            	Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: selection_point_description
-                            
-                            	Selection point descrption
-                            	**type**\:  str
-                            
-                            .. attribute:: selection_point_type
-                            
-                            	Selection point type
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            
-
-                            """
-
-                            _prefix = 'ncs4k-freqsync-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
-
-                                self.yang_name = "selection-point"
-                                self.yang_parent_name = "forward-trace-node"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.node = YLeaf(YType.str, "node")
-
-                                self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                                self._segment_path = lambda: "selection-point"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
-
-
-                        class Source(Entity):
-                            """
-                            Timing Source
+                            Source ID
                             
                             .. attribute:: clock_id
                             
                             	Clock ID
-                            	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
-                            
-                            .. attribute:: ethernet_interface
-                            
-                            	Ethernet interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ntp_node
-                            
-                            	NTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ptp_node
-                            
-                            	PTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: satellite_access_interface
-                            
-                            	Satellite Access Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: sonet_interface
-                            
-                            	SONET interfaces
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId>`
                             
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                             
+                            .. attribute:: ethernet_interface
+                            
+                            	Ethernet interface
+                            	**type**\:  str
+                            
+                            .. attribute:: sonet_interface
+                            
+                            	SONET interfaces
+                            	**type**\:  str
+                            
+                            .. attribute:: node
+                            
+                            	Internal Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: ptp_node
+                            
+                            	PTP Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: satellite_access_interface
+                            
+                            	Satellite Access Interface
+                            	**type**\:  str
+                            
+                            .. attribute:: ntp_node
+                            
+                            	NTP Clock Node
+                            	**type**\:  str
+                            
                             
 
                             """
@@ -2945,37 +1901,37 @@ class FrequencySynchronization(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, self).__init__()
 
-                                self.yang_name = "source"
-                                self.yang_parent_name = "forward-trace-node"
+                                self.yang_name = "source-id"
+                                self.yang_parent_name = "stream"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
+                                self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId)}
                                 self._child_list_classes = {}
+
+                                self.source_class = YLeaf(YType.enumeration, "source-class")
 
                                 self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                                self.ntp_node = YLeaf(YType.str, "ntp-node")
+                                self.node = YLeaf(YType.str, "node")
 
                                 self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                                 self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+                                self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                                self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                                self.clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
+                                self.clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId()
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
                                 self._children_yang_names.add("clock-id")
-                                self._segment_path = lambda: "source"
+                                self._segment_path = lambda: "source-id"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -2986,8 +1942,6 @@ class FrequencySynchronization(Entity):
                                 
                                 	Node
                                 	**type**\:  str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
                                 .. attribute:: port
                                 
@@ -3004,10 +1958,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
-                                    self.yang_parent_name = "source"
+                                    self.yang_parent_name = "source-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
@@ -3019,7 +1973,1623 @@ class FrequencySynchronization(Entity):
                                     self._segment_path = lambda: "clock-id"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'port'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, ['node', 'port'], name, value)
+
+
+                        class SelectionPointId(Entity):
+                            """
+                            Selection point ID
+                            
+                            .. attribute:: selection_point
+                            
+                            	Last selection point
+                            	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint>`
+                            
+                            .. attribute:: output_id
+                            
+                            	Output ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs4k-freqsync-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, self).__init__()
+
+                                self.yang_name = "selection-point-id"
+                                self.yang_parent_name = "stream"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint)}
+                                self._child_list_classes = {}
+
+                                self.output_id = YLeaf(YType.uint8, "output-id")
+
+                                self.selection_point = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint()
+                                self.selection_point.parent = self
+                                self._children_name_map["selection_point"] = "selection-point"
+                                self._children_yang_names.add("selection-point")
+                                self._segment_path = lambda: "selection-point-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, ['output_id'], name, value)
+
+
+                            class SelectionPoint(Entity):
+                                """
+                                Last selection point
+                                
+                                .. attribute:: selection_point_type
+                                
+                                	Selection point type
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: selection_point_description
+                                
+                                	Selection point descrption
+                                	**type**\:  str
+                                
+                                .. attribute:: node
+                                
+                                	Node
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ncs4k-freqsync-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, self).__init__()
+
+                                    self.yang_name = "selection-point"
+                                    self.yang_parent_name = "selection-point-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                                    self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
+                                    self.node = YLeaf(YType.str, "node")
+                                    self._segment_path = lambda: "selection-point"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
+
+
+                    class OriginalSource(Entity):
+                        """
+                        Original source
+                        
+                        .. attribute:: clock_id
+                        
+                        	Clock ID
+                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId>`
+                        
+                        .. attribute:: source_class
+                        
+                        	SourceClass
+                        	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        .. attribute:: ethernet_interface
+                        
+                        	Ethernet interface
+                        	**type**\:  str
+                        
+                        .. attribute:: sonet_interface
+                        
+                        	SONET interfaces
+                        	**type**\:  str
+                        
+                        .. attribute:: node
+                        
+                        	Internal Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: ptp_node
+                        
+                        	PTP Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: satellite_access_interface
+                        
+                        	Satellite Access Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: ntp_node
+                        
+                        	NTP Clock Node
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, self).__init__()
+
+                            self.yang_name = "original-source"
+                            self.yang_parent_name = "selection-point-input"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId)}
+                            self._child_list_classes = {}
+
+                            self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                            self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                            self.node = YLeaf(YType.str, "node")
+
+                            self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                            self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                            self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                            self.clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId()
+                            self.clock_id.parent = self
+                            self._children_name_map["clock_id"] = "clock-id"
+                            self._children_yang_names.add("clock-id")
+                            self._segment_path = lambda: "original-source"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                        class ClockId(Entity):
+                            """
+                            Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\:  str
+                            
+                            .. attribute:: port
+                            
+                            	Port number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs4k-freqsync-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, self).__init__()
+
+                                self.yang_name = "clock-id"
+                                self.yang_parent_name = "original-source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.node = YLeaf(YType.str, "node")
+
+                                self.port = YLeaf(YType.uint32, "port")
+                                self._segment_path = lambda: "clock-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, ['node', 'port'], name, value)
+
+
+                    class QualityLevel(Entity):
+                        """
+                        Quality Level
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, self).__init__()
+
+                            self.yang_name = "quality-level"
+                            self.yang_parent_name = "selection-point-input"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "quality-level"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class Ntp(Entity):
+                """
+                NTP operational data
+                
+                .. attribute:: quality_level_effective_input
+                
+                	The effective input quality level
+                	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput>`
+                
+                .. attribute:: state
+                
+                	NTP state
+                	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
+                
+                .. attribute:: supports_frequency
+                
+                	The NTP clock supports frequency
+                	**type**\:  bool
+                
+                .. attribute:: supports_time_of_day
+                
+                	The NTP clock supports time
+                	**type**\:  bool
+                
+                .. attribute:: frequency_priority
+                
+                	The priority of the NTP clock when selected between frequency sources
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: time_of_day_priority
+                
+                	The priority of the NTP clock when selecting between time\-of\-day sources
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: spa_selection_point
+                
+                	Spa selection points
+                	**type**\:  list of int
+                
+                	**range:** 0..255
+                
+                .. attribute:: spa_selection_points_description
+                
+                	Spa selection points descrption
+                	**type**\:  list of str
+                
+                .. attribute:: node_selection_point
+                
+                	Node selection points
+                	**type**\:  list of int
+                
+                	**range:** 0..255
+                
+                .. attribute:: node_selection_points_description
+                
+                	Node selection points descrption
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Nodes.Node.Ntp, self).__init__()
+
+                    self.yang_name = "ntp"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput)}
+                    self._child_list_classes = {}
+
+                    self.state = YLeaf(YType.enumeration, "state")
+
+                    self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
+
+                    self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
+
+                    self.frequency_priority = YLeaf(YType.uint8, "frequency-priority")
+
+                    self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
+
+                    self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
+
+                    self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
+
+                    self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
+
+                    self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+
+                    self.quality_level_effective_input = FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput()
+                    self.quality_level_effective_input.parent = self
+                    self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
+                    self._children_yang_names.add("quality-level-effective-input")
+                    self._segment_path = lambda: "ntp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.Ntp, ['state', 'supports_frequency', 'supports_time_of_day', 'frequency_priority', 'time_of_day_priority', 'spa_selection_point', 'spa_selection_points_description', 'node_selection_point', 'node_selection_points_description'], name, value)
+
+
+                class QualityLevelEffectiveInput(Entity):
+                    """
+                    The effective input quality level
+                    
+                    .. attribute:: quality_level_option
+                    
+                    	QualityLevelOption
+                    	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                    
+                    .. attribute:: option1_value
+                    
+                    	ITU\-T Option 1 QL value
+                    	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                    
+                    .. attribute:: option2_generation1_value
+                    
+                    	ITU\-T Option 2, generation 1 value
+                    	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                    
+                    .. attribute:: option2_generation2_value
+                    
+                    	ITU\-T Option 2, generation 2 value
+                    	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput, self).__init__()
+
+                        self.yang_name = "quality-level-effective-input"
+                        self.yang_parent_name = "ntp"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                        self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                        self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                        self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                        self._segment_path = lambda: "quality-level-effective-input"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class ConfigurationErrors(Entity):
+                """
+                Configuration error operational data
+                
+                .. attribute:: error_source
+                
+                	Configuration errors
+                	**type**\: list of    :py:class:`ErrorSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors, self).__init__()
+
+                    self.yang_name = "configuration-errors"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"error-source" : ("error_source", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource)}
+
+                    self.error_source = YList(self)
+                    self._segment_path = lambda: "configuration-errors"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors, [], name, value)
+
+
+                class ErrorSource(Entity):
+                    """
+                    Configuration errors
+                    
+                    .. attribute:: source
+                    
+                    	Source
+                    	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source>`
+                    
+                    .. attribute:: input_min_ql
+                    
+                    	Configured minimum input QL
+                    	**type**\:   :py:class:`InputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl>`
+                    
+                    .. attribute:: input_exact_ql
+                    
+                    	Configured exact input QL
+                    	**type**\:   :py:class:`InputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl>`
+                    
+                    .. attribute:: input_max_ql
+                    
+                    	Configured maximum input QL
+                    	**type**\:   :py:class:`InputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl>`
+                    
+                    .. attribute:: output_min_ql
+                    
+                    	Configured mininum output QL
+                    	**type**\:   :py:class:`OutputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl>`
+                    
+                    .. attribute:: output_exact_ql
+                    
+                    	Configured exact output QL
+                    	**type**\:   :py:class:`OutputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl>`
+                    
+                    .. attribute:: output_max_ql
+                    
+                    	Configured exact maximum QL
+                    	**type**\:   :py:class:`OutputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl>`
+                    
+                    .. attribute:: enable_error
+                    
+                    	Frequency Synchronization enable error
+                    	**type**\:  bool
+                    
+                    .. attribute:: input_min_error
+                    
+                    	Minimum input QL config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: input_exact_error
+                    
+                    	Exact input QL config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: input_max_error
+                    
+                    	Maximum input Ql config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: ouput_min_error
+                    
+                    	Minimum output QL config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: output_exact_error
+                    
+                    	Exact output QL config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: output_max_error
+                    
+                    	Maximum output QL config error
+                    	**type**\:  bool
+                    
+                    .. attribute:: input_output_mismatch
+                    
+                    	Input/Output mismatch error
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, self).__init__()
+
+                        self.yang_name = "error-source"
+                        self.yang_parent_name = "configuration-errors"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"source" : ("source", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source), "input-min-ql" : ("input_min_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl), "input-exact-ql" : ("input_exact_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl), "input-max-ql" : ("input_max_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl), "output-min-ql" : ("output_min_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl), "output-exact-ql" : ("output_exact_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl), "output-max-ql" : ("output_max_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl)}
+                        self._child_list_classes = {}
+
+                        self.enable_error = YLeaf(YType.boolean, "enable-error")
+
+                        self.input_min_error = YLeaf(YType.boolean, "input-min-error")
+
+                        self.input_exact_error = YLeaf(YType.boolean, "input-exact-error")
+
+                        self.input_max_error = YLeaf(YType.boolean, "input-max-error")
+
+                        self.ouput_min_error = YLeaf(YType.boolean, "ouput-min-error")
+
+                        self.output_exact_error = YLeaf(YType.boolean, "output-exact-error")
+
+                        self.output_max_error = YLeaf(YType.boolean, "output-max-error")
+
+                        self.input_output_mismatch = YLeaf(YType.boolean, "input-output-mismatch")
+
+                        self.source = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source()
+                        self.source.parent = self
+                        self._children_name_map["source"] = "source"
+                        self._children_yang_names.add("source")
+
+                        self.input_min_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl()
+                        self.input_min_ql.parent = self
+                        self._children_name_map["input_min_ql"] = "input-min-ql"
+                        self._children_yang_names.add("input-min-ql")
+
+                        self.input_exact_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl()
+                        self.input_exact_ql.parent = self
+                        self._children_name_map["input_exact_ql"] = "input-exact-ql"
+                        self._children_yang_names.add("input-exact-ql")
+
+                        self.input_max_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl()
+                        self.input_max_ql.parent = self
+                        self._children_name_map["input_max_ql"] = "input-max-ql"
+                        self._children_yang_names.add("input-max-ql")
+
+                        self.output_min_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl()
+                        self.output_min_ql.parent = self
+                        self._children_name_map["output_min_ql"] = "output-min-ql"
+                        self._children_yang_names.add("output-min-ql")
+
+                        self.output_exact_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl()
+                        self.output_exact_ql.parent = self
+                        self._children_name_map["output_exact_ql"] = "output-exact-ql"
+                        self._children_yang_names.add("output-exact-ql")
+
+                        self.output_max_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl()
+                        self.output_max_ql.parent = self
+                        self._children_name_map["output_max_ql"] = "output-max-ql"
+                        self._children_yang_names.add("output-max-ql")
+                        self._segment_path = lambda: "error-source"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, ['enable_error', 'input_min_error', 'input_exact_error', 'input_max_error', 'ouput_min_error', 'output_exact_error', 'output_max_error', 'input_output_mismatch'], name, value)
+
+
+                    class Source(Entity):
+                        """
+                        Source
+                        
+                        .. attribute:: clock_id
+                        
+                        	Clock ID
+                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId>`
+                        
+                        .. attribute:: source_class
+                        
+                        	SourceClass
+                        	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                        
+                        .. attribute:: ethernet_interface
+                        
+                        	Ethernet interface
+                        	**type**\:  str
+                        
+                        .. attribute:: sonet_interface
+                        
+                        	SONET interfaces
+                        	**type**\:  str
+                        
+                        .. attribute:: node
+                        
+                        	Internal Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: ptp_node
+                        
+                        	PTP Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: satellite_access_interface
+                        
+                        	Satellite Access Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: ntp_node
+                        
+                        	NTP Clock Node
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, self).__init__()
+
+                            self.yang_name = "source"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId)}
+                            self._child_list_classes = {}
+
+                            self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                            self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                            self.node = YLeaf(YType.str, "node")
+
+                            self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                            self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                            self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                            self.clock_id = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId()
+                            self.clock_id.parent = self
+                            self._children_name_map["clock_id"] = "clock-id"
+                            self._children_yang_names.add("clock-id")
+                            self._segment_path = lambda: "source"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                        class ClockId(Entity):
+                            """
+                            Clock ID
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\:  str
+                            
+                            .. attribute:: port
+                            
+                            	Port number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ncs4k-freqsync-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, self).__init__()
+
+                                self.yang_name = "clock-id"
+                                self.yang_parent_name = "source"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.node = YLeaf(YType.str, "node")
+
+                                self.port = YLeaf(YType.uint32, "port")
+                                self._segment_path = lambda: "clock-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, ['node', 'port'], name, value)
+
+
+                    class InputMinQl(Entity):
+                        """
+                        Configured minimum input QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, self).__init__()
+
+                            self.yang_name = "input-min-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "input-min-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+                    class InputExactQl(Entity):
+                        """
+                        Configured exact input QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, self).__init__()
+
+                            self.yang_name = "input-exact-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "input-exact-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+                    class InputMaxQl(Entity):
+                        """
+                        Configured maximum input QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, self).__init__()
+
+                            self.yang_name = "input-max-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "input-max-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+                    class OutputMinQl(Entity):
+                        """
+                        Configured mininum output QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, self).__init__()
+
+                            self.yang_name = "output-min-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "output-min-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+                    class OutputExactQl(Entity):
+                        """
+                        Configured exact output QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, self).__init__()
+
+                            self.yang_name = "output-exact-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "output-exact-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+                    class OutputMaxQl(Entity):
+                        """
+                        Configured exact maximum QL
+                        
+                        .. attribute:: quality_level_option
+                        
+                        	QualityLevelOption
+                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        
+                        .. attribute:: option1_value
+                        
+                        	ITU\-T Option 1 QL value
+                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        
+                        .. attribute:: option2_generation1_value
+                        
+                        	ITU\-T Option 2, generation 1 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        
+                        .. attribute:: option2_generation2_value
+                        
+                        	ITU\-T Option 2, generation 2 value
+                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, self).__init__()
+
+                            self.yang_name = "output-max-ql"
+                            self.yang_parent_name = "error-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                            self._segment_path = lambda: "output-max-ql"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class SsmSummary(Entity):
+                """
+                SSM operational data
+                
+                .. attribute:: ethernet_sources
+                
+                	Number of ethernet interfaces in synchronous mode
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ethernet_sources_select
+                
+                	Number of ethernet interfaces assigned for selection
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: ethernet_sources_enabled
+                
+                	Number of ethernet interfaces with SSM enabled
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sonet_sources
+                
+                	Number of SONET interfaces in synchronous mode
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sonet_sources_select
+                
+                	Number of SONET interfaces assigned for selection
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sonet_sources_enabled
+                
+                	Number of SONET interfaces with SSM enabled
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: events_sent
+                
+                	Total event SSMs sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: events_received
+                
+                	Total event SSMs received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: infos_sent
+                
+                	Total information SSMs sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: infos_received
+                
+                	Total information SSMs received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dn_us_sent
+                
+                	Total DNU SSMs sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dn_us_received
+                
+                	Total DNU SSMs received
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Nodes.Node.SsmSummary, self).__init__()
+
+                    self.yang_name = "ssm-summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.ethernet_sources = YLeaf(YType.uint32, "ethernet-sources")
+
+                    self.ethernet_sources_select = YLeaf(YType.uint32, "ethernet-sources-select")
+
+                    self.ethernet_sources_enabled = YLeaf(YType.uint32, "ethernet-sources-enabled")
+
+                    self.sonet_sources = YLeaf(YType.uint32, "sonet-sources")
+
+                    self.sonet_sources_select = YLeaf(YType.uint32, "sonet-sources-select")
+
+                    self.sonet_sources_enabled = YLeaf(YType.uint32, "sonet-sources-enabled")
+
+                    self.events_sent = YLeaf(YType.uint32, "events-sent")
+
+                    self.events_received = YLeaf(YType.uint32, "events-received")
+
+                    self.infos_sent = YLeaf(YType.uint32, "infos-sent")
+
+                    self.infos_received = YLeaf(YType.uint32, "infos-received")
+
+                    self.dn_us_sent = YLeaf(YType.uint32, "dn-us-sent")
+
+                    self.dn_us_received = YLeaf(YType.uint32, "dn-us-received")
+                    self._segment_path = lambda: "ssm-summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, ['ethernet_sources', 'ethernet_sources_select', 'ethernet_sources_enabled', 'sonet_sources', 'sonet_sources_select', 'sonet_sources_enabled', 'events_sent', 'events_received', 'infos_sent', 'infos_received', 'dn_us_sent', 'dn_us_received'], name, value)
+
+
+    class Summary(Entity):
+        """
+        Summary operational data
+        
+        .. attribute:: frequency_summary
+        
+        	Summary of sources selected for frequency
+        	**type**\: list of    :py:class:`FrequencySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary>`
+        
+        .. attribute:: time_of_day_summary
+        
+        	Summary of sources selected for time\-of\-day
+        	**type**\: list of    :py:class:`TimeOfDaySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary>`
+        
+        
+
+        """
+
+        _prefix = 'ncs4k-freqsync-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(FrequencySynchronization.Summary, self).__init__()
+
+            self.yang_name = "summary"
+            self.yang_parent_name = "frequency-synchronization"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"frequency-summary" : ("frequency_summary", FrequencySynchronization.Summary.FrequencySummary), "time-of-day-summary" : ("time_of_day_summary", FrequencySynchronization.Summary.TimeOfDaySummary)}
+
+            self.frequency_summary = YList(self)
+            self.time_of_day_summary = YList(self)
+            self._segment_path = lambda: "summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(FrequencySynchronization.Summary, [], name, value)
+
+
+        class FrequencySummary(Entity):
+            """
+            Summary of sources selected for frequency
+            
+            .. attribute:: source
+            
+            	The source associated with this summary information
+            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source>`
+            
+            .. attribute:: clock_count
+            
+            	The number of clock\-interfaces being driven by the source
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ethernet_count
+            
+            	The number of Ethernet interfaces being driven by the source
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: sonet_count
+            
+            	The number of SONET/SDH interfaces being driven by the source
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ncs4k-freqsync-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(FrequencySynchronization.Summary.FrequencySummary, self).__init__()
+
+                self.yang_name = "frequency-summary"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Summary.FrequencySummary.Source)}
+                self._child_list_classes = {}
+
+                self.clock_count = YLeaf(YType.uint32, "clock-count")
+
+                self.ethernet_count = YLeaf(YType.uint32, "ethernet-count")
+
+                self.sonet_count = YLeaf(YType.uint32, "sonet-count")
+
+                self.source = FrequencySynchronization.Summary.FrequencySummary.Source()
+                self.source.parent = self
+                self._children_name_map["source"] = "source"
+                self._children_yang_names.add("source")
+                self._segment_path = lambda: "frequency-summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary, ['clock_count', 'ethernet_count', 'sonet_count'], name, value)
+
+
+            class Source(Entity):
+                """
+                The source associated with this summary
+                information
+                
+                .. attribute:: clock_id
+                
+                	Clock ID
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                
+                .. attribute:: ethernet_interface
+                
+                	Ethernet interface
+                	**type**\:  str
+                
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
+                
+                .. attribute:: node
+                
+                	Internal Clock Node
+                	**type**\:  str
+                
+                .. attribute:: ptp_node
+                
+                	PTP Clock Node
+                	**type**\:  str
+                
+                .. attribute:: satellite_access_interface
+                
+                	Satellite Access Interface
+                	**type**\:  str
+                
+                .. attribute:: ntp_node
+                
+                	NTP Clock Node
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Summary.FrequencySummary.Source, self).__init__()
+
+                    self.yang_name = "source"
+                    self.yang_parent_name = "frequency-summary"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Summary.FrequencySummary.Source.ClockId)}
+                    self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                    self.node = YLeaf(YType.str, "node")
+
+                    self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                    self.clock_id = FrequencySynchronization.Summary.FrequencySummary.Source.ClockId()
+                    self.clock_id.parent = self
+                    self._children_name_map["clock_id"] = "clock-id"
+                    self._children_yang_names.add("clock-id")
+                    self._segment_path = lambda: "source"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/frequency-summary/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                class ClockId(Entity):
+                    """
+                    Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, self).__init__()
+
+                        self.yang_name = "clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.node = YLeaf(YType.str, "node")
+
+                        self.port = YLeaf(YType.uint32, "port")
+                        self._segment_path = lambda: "clock-id"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, ['node', 'port'], name, value)
+
+
+        class TimeOfDaySummary(Entity):
+            """
+            Summary of sources selected for time\-of\-day
+            
+            .. attribute:: source
+            
+            	The source associated with this summary information
+            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source>`
+            
+            .. attribute:: node_count
+            
+            	The number of cards having their time\-of\-day set by the source
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ncs4k-freqsync-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(FrequencySynchronization.Summary.TimeOfDaySummary, self).__init__()
+
+                self.yang_name = "time-of-day-summary"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Summary.TimeOfDaySummary.Source)}
+                self._child_list_classes = {}
+
+                self.node_count = YLeaf(YType.uint32, "node-count")
+
+                self.source = FrequencySynchronization.Summary.TimeOfDaySummary.Source()
+                self.source.parent = self
+                self._children_name_map["source"] = "source"
+                self._children_yang_names.add("source")
+                self._segment_path = lambda: "time-of-day-summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary, ['node_count'], name, value)
+
+
+            class Source(Entity):
+                """
+                The source associated with this summary
+                information
+                
+                .. attribute:: clock_id
+                
+                	Clock ID
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                
+                .. attribute:: ethernet_interface
+                
+                	Ethernet interface
+                	**type**\:  str
+                
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
+                
+                .. attribute:: node
+                
+                	Internal Clock Node
+                	**type**\:  str
+                
+                .. attribute:: ptp_node
+                
+                	PTP Clock Node
+                	**type**\:  str
+                
+                .. attribute:: satellite_access_interface
+                
+                	Satellite Access Interface
+                	**type**\:  str
+                
+                .. attribute:: ntp_node
+                
+                	NTP Clock Node
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Summary.TimeOfDaySummary.Source, self).__init__()
+
+                    self.yang_name = "source"
+                    self.yang_parent_name = "time-of-day-summary"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId)}
+                    self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                    self.node = YLeaf(YType.str, "node")
+
+                    self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                    self.clock_id = FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId()
+                    self.clock_id.parent = self
+                    self._children_name_map["clock_id"] = "clock-id"
+                    self._children_yang_names.add("clock-id")
+                    self._segment_path = lambda: "source"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                class ClockId(Entity):
+                    """
+                    Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, self).__init__()
+
+                        self.yang_name = "clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.node = YLeaf(YType.str, "node")
+
+                        self.port = YLeaf(YType.uint32, "port")
+                        self._segment_path = lambda: "clock-id"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, ['node', 'port'], name, value)
 
 
     class GlobalNodes(Entity):
@@ -3065,7 +3635,10 @@ class FrequencySynchronization(Entity):
             	Node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: time_of_day_back_trace
+            
+            	Selection backtrace operational data for time\-of\-day on a particular node
+            	**type**\:   :py:class:`TimeOfDayBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace>`
             
             .. attribute:: ntp_selection_forward_trace
             
@@ -3076,11 +3649,6 @@ class FrequencySynchronization(Entity):
             
             	Selection forwardtrace operational data for a PTP clock
             	**type**\:   :py:class:`PtpSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace>`
-            
-            .. attribute:: time_of_day_back_trace
-            
-            	Selection backtrace operational data for time\-of\-day on a particular node
-            	**type**\:   :py:class:`TimeOfDayBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace>`
             
             
 
@@ -3096,10 +3664,15 @@ class FrequencySynchronization(Entity):
                 self.yang_parent_name = "global-nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"ntp-selection-forward-trace" : ("ntp_selection_forward_trace", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace), "ptp-selection-forward-trace" : ("ptp_selection_forward_trace", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace), "time-of-day-back-trace" : ("time_of_day_back_trace", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace)}
+                self._child_container_classes = {"time-of-day-back-trace" : ("time_of_day_back_trace", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace), "ntp-selection-forward-trace" : ("ntp_selection_forward_trace", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace), "ptp-selection-forward-trace" : ("ptp_selection_forward_trace", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace)}
                 self._child_list_classes = {}
 
                 self.node = YLeaf(YType.str, "node")
+
+                self.time_of_day_back_trace = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace()
+                self.time_of_day_back_trace.parent = self
+                self._children_name_map["time_of_day_back_trace"] = "time-of-day-back-trace"
+                self._children_yang_names.add("time-of-day-back-trace")
 
                 self.ntp_selection_forward_trace = FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace()
                 self.ntp_selection_forward_trace.parent = self
@@ -3110,16 +3683,231 @@ class FrequencySynchronization(Entity):
                 self.ptp_selection_forward_trace.parent = self
                 self._children_name_map["ptp_selection_forward_trace"] = "ptp-selection-forward-trace"
                 self._children_yang_names.add("ptp-selection-forward-trace")
-
-                self.time_of_day_back_trace = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace()
-                self.time_of_day_back_trace.parent = self
-                self._children_name_map["time_of_day_back_trace"] = "time-of-day-back-trace"
-                self._children_yang_names.add("time-of-day-back-trace")
                 self._segment_path = lambda: "global-node" + "[node='" + self.node.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/global-nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode, ['node'], name, value)
+
+
+            class TimeOfDayBackTrace(Entity):
+                """
+                Selection backtrace operational data for
+                time\-of\-day on a particular node
+                
+                .. attribute:: selected_source
+                
+                	Source which has been selected for output
+                	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource>`
+                
+                .. attribute:: selection_point
+                
+                	List of selection points in the backtrace
+                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, self).__init__()
+
+                    self.yang_name = "time-of-day-back-trace"
+                    self.yang_parent_name = "global-node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource)}
+                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint)}
+
+                    self.selected_source = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource()
+                    self.selected_source.parent = self
+                    self._children_name_map["selected_source"] = "selected-source"
+                    self._children_yang_names.add("selected-source")
+
+                    self.selection_point = YList(self)
+                    self._segment_path = lambda: "time-of-day-back-trace"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, [], name, value)
+
+
+                class SelectedSource(Entity):
+                    """
+                    Source which has been selected for output
+                    
+                    .. attribute:: clock_id
+                    
+                    	Clock ID
+                    	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId>`
+                    
+                    .. attribute:: source_class
+                    
+                    	SourceClass
+                    	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                    
+                    .. attribute:: ethernet_interface
+                    
+                    	Ethernet interface
+                    	**type**\:  str
+                    
+                    .. attribute:: sonet_interface
+                    
+                    	SONET interfaces
+                    	**type**\:  str
+                    
+                    .. attribute:: node
+                    
+                    	Internal Clock Node
+                    	**type**\:  str
+                    
+                    .. attribute:: ptp_node
+                    
+                    	PTP Clock Node
+                    	**type**\:  str
+                    
+                    .. attribute:: satellite_access_interface
+                    
+                    	Satellite Access Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: ntp_node
+                    
+                    	NTP Clock Node
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, self).__init__()
+
+                        self.yang_name = "selected-source"
+                        self.yang_parent_name = "time-of-day-back-trace"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId)}
+                        self._child_list_classes = {}
+
+                        self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                        self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                        self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                        self.node = YLeaf(YType.str, "node")
+
+                        self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                        self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                        self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                        self.clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId()
+                        self.clock_id.parent = self
+                        self._children_name_map["clock_id"] = "clock-id"
+                        self._children_yang_names.add("clock-id")
+                        self._segment_path = lambda: "selected-source"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                    class ClockId(Entity):
+                        """
+                        Clock ID
+                        
+                        .. attribute:: node
+                        
+                        	Node
+                        	**type**\:  str
+                        
+                        .. attribute:: port
+                        
+                        	Port number
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ncs4k-freqsync-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, self).__init__()
+
+                            self.yang_name = "clock-id"
+                            self.yang_parent_name = "selected-source"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.node = YLeaf(YType.str, "node")
+
+                            self.port = YLeaf(YType.uint32, "port")
+                            self._segment_path = lambda: "clock-id"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
+
+
+                class SelectionPoint(Entity):
+                    """
+                    List of selection points in the backtrace
+                    
+                    .. attribute:: selection_point_type
+                    
+                    	Selection point type
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: selection_point_description
+                    
+                    	Selection point descrption
+                    	**type**\:  str
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, self).__init__()
+
+                        self.yang_name = "selection-point"
+                        self.yang_parent_name = "time-of-day-back-trace"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                        self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
+                        self.node = YLeaf(YType.str, "node")
+                        self._segment_path = lambda: "selection-point"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
             class NtpSelectionForwardTrace(Entity):
@@ -3194,11 +3982,6 @@ class FrequencySynchronization(Entity):
                         The source or selection point at this point in
                         the forwardtrace
                         
-                        .. attribute:: node_type
-                        
-                        	NodeType
-                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
-                        
                         .. attribute:: selection_point
                         
                         	Selection Point
@@ -3208,6 +3991,11 @@ class FrequencySynchronization(Entity):
                         
                         	Timing Source
                         	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
+                        
+                        .. attribute:: node_type
+                        
+                        	NodeType
+                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
                         
                         
 
@@ -3247,24 +4035,22 @@ class FrequencySynchronization(Entity):
                             """
                             Selection Point
                             
-                            .. attribute:: node
-                            
-                            	Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: selection_point_description
-                            
-                            	Selection point descrption
-                            	**type**\:  str
-                            
                             .. attribute:: selection_point_type
                             
                             	Selection point type
                             	**type**\:  int
                             
                             	**range:** 0..255
+                            
+                            .. attribute:: selection_point_description
+                            
+                            	Selection point descrption
+                            	**type**\:  str
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\:  str
                             
                             
 
@@ -3283,15 +4069,15 @@ class FrequencySynchronization(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
 
                                 self.selection_point_description = YLeaf(YType.str, "selection-point-description")
 
-                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+                                self.node = YLeaf(YType.str, "node")
                                 self._segment_path = lambda: "selection-point"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
                         class Source(Entity):
@@ -3303,52 +4089,40 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
+                            .. attribute:: source_class
+                            
+                            	SourceClass
+                            	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                            
                             .. attribute:: ethernet_interface
                             
                             	Ethernet interface
                             	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ntp_node
-                            
-                            	NTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ptp_node
-                            
-                            	PTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: satellite_access_interface
-                            
-                            	Satellite Access Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\:  str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            .. attribute:: node
                             
-                            .. attribute:: source_class
+                            	Internal Clock Node
+                            	**type**\:  str
                             
-                            	SourceClass
-                            	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                            .. attribute:: ptp_node
+                            
+                            	PTP Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: satellite_access_interface
+                            
+                            	Satellite Access Interface
+                            	**type**\:  str
+                            
+                            .. attribute:: ntp_node
+                            
+                            	NTP Clock Node
+                            	**type**\:  str
                             
                             
 
@@ -3367,19 +4141,19 @@ class FrequencySynchronization(Entity):
                                 self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
                                 self._child_list_classes = {}
 
+                                self.source_class = YLeaf(YType.enumeration, "source-class")
+
                                 self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                                self.ntp_node = YLeaf(YType.str, "ntp-node")
+                                self.node = YLeaf(YType.str, "node")
 
                                 self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                                 self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                                self.source_class = YLeaf(YType.enumeration, "source-class")
+                                self.ntp_node = YLeaf(YType.str, "ntp-node")
 
                                 self.clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
                                 self.clock_id.parent = self
@@ -3388,7 +4162,7 @@ class FrequencySynchronization(Entity):
                                 self._segment_path = lambda: "source"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.NtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -3399,8 +4173,6 @@ class FrequencySynchronization(Entity):
                                 
                                 	Node
                                 	**type**\:  str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
                                 .. attribute:: port
                                 
@@ -3507,11 +4279,6 @@ class FrequencySynchronization(Entity):
                         The source or selection point at this point in
                         the forwardtrace
                         
-                        .. attribute:: node_type
-                        
-                        	NodeType
-                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
-                        
                         .. attribute:: selection_point
                         
                         	Selection Point
@@ -3521,6 +4288,11 @@ class FrequencySynchronization(Entity):
                         
                         	Timing Source
                         	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
+                        
+                        .. attribute:: node_type
+                        
+                        	NodeType
+                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
                         
                         
 
@@ -3560,24 +4332,22 @@ class FrequencySynchronization(Entity):
                             """
                             Selection Point
                             
-                            .. attribute:: node
-                            
-                            	Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: selection_point_description
-                            
-                            	Selection point descrption
-                            	**type**\:  str
-                            
                             .. attribute:: selection_point_type
                             
                             	Selection point type
                             	**type**\:  int
                             
                             	**range:** 0..255
+                            
+                            .. attribute:: selection_point_description
+                            
+                            	Selection point descrption
+                            	**type**\:  str
+                            
+                            .. attribute:: node
+                            
+                            	Node
+                            	**type**\:  str
                             
                             
 
@@ -3596,15 +4366,15 @@ class FrequencySynchronization(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
 
                                 self.selection_point_description = YLeaf(YType.str, "selection-point-description")
 
-                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+                                self.node = YLeaf(YType.str, "node")
                                 self._segment_path = lambda: "selection-point"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
                         class Source(Entity):
@@ -3616,52 +4386,40 @@ class FrequencySynchronization(Entity):
                             	Clock ID
                             	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
+                            .. attribute:: source_class
+                            
+                            	SourceClass
+                            	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                            
                             .. attribute:: ethernet_interface
                             
                             	Ethernet interface
                             	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ntp_node
-                            
-                            	NTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ptp_node
-                            
-                            	PTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: satellite_access_interface
-                            
-                            	Satellite Access Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
                             
                             .. attribute:: sonet_interface
                             
                             	SONET interfaces
                             	**type**\:  str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            .. attribute:: node
                             
-                            .. attribute:: source_class
+                            	Internal Clock Node
+                            	**type**\:  str
                             
-                            	SourceClass
-                            	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                            .. attribute:: ptp_node
+                            
+                            	PTP Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: satellite_access_interface
+                            
+                            	Satellite Access Interface
+                            	**type**\:  str
+                            
+                            .. attribute:: ntp_node
+                            
+                            	NTP Clock Node
+                            	**type**\:  str
                             
                             
 
@@ -3680,19 +4438,19 @@ class FrequencySynchronization(Entity):
                                 self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
                                 self._child_list_classes = {}
 
+                                self.source_class = YLeaf(YType.enumeration, "source-class")
+
                                 self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                                self.ntp_node = YLeaf(YType.str, "ntp-node")
+                                self.node = YLeaf(YType.str, "node")
 
                                 self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                                 self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                                self.source_class = YLeaf(YType.enumeration, "source-class")
+                                self.ntp_node = YLeaf(YType.str, "ntp-node")
 
                                 self.clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
                                 self.clock_id.parent = self
@@ -3701,7 +4459,7 @@ class FrequencySynchronization(Entity):
                                 self._segment_path = lambda: "source"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -3712,8 +4470,6 @@ class FrequencySynchronization(Entity):
                                 
                                 	Node
                                 	**type**\:  str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
                                 .. attribute:: port
                                 
@@ -3746,242 +4502,6 @@ class FrequencySynchronization(Entity):
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.PtpSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'port'], name, value)
-
-
-            class TimeOfDayBackTrace(Entity):
-                """
-                Selection backtrace operational data for
-                time\-of\-day on a particular node
-                
-                .. attribute:: selected_source
-                
-                	Source which has been selected for output
-                	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource>`
-                
-                .. attribute:: selection_point
-                
-                	List of selection points in the backtrace
-                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, self).__init__()
-
-                    self.yang_name = "time-of-day-back-trace"
-                    self.yang_parent_name = "global-node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource)}
-                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint)}
-
-                    self.selected_source = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource()
-                    self.selected_source.parent = self
-                    self._children_name_map["selected_source"] = "selected-source"
-                    self._children_yang_names.add("selected-source")
-
-                    self.selection_point = YList(self)
-                    self._segment_path = lambda: "time-of-day-back-trace"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace, [], name, value)
-
-
-                class SelectedSource(Entity):
-                    """
-                    Source which has been selected for output
-                    
-                    .. attribute:: clock_id
-                    
-                    	Clock ID
-                    	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId>`
-                    
-                    .. attribute:: ethernet_interface
-                    
-                    	Ethernet interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: node
-                    
-                    	Internal Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: ntp_node
-                    
-                    	NTP Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: ptp_node
-                    
-                    	PTP Clock Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: satellite_access_interface
-                    
-                    	Satellite Access Interface
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: sonet_interface
-                    
-                    	SONET interfaces
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: source_class
-                    
-                    	SourceClass
-                    	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, self).__init__()
-
-                        self.yang_name = "selected-source"
-                        self.yang_parent_name = "time-of-day-back-trace"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId)}
-                        self._child_list_classes = {}
-
-                        self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                        self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                        self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                        self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                        self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                        self.clock_id = FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId()
-                        self.clock_id.parent = self
-                        self._children_name_map["clock_id"] = "clock-id"
-                        self._children_yang_names.add("clock-id")
-                        self._segment_path = lambda: "selected-source"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                    class ClockId(Entity):
-                        """
-                        Clock ID
-                        
-                        .. attribute:: node
-                        
-                        	Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: port
-                        
-                        	Port number
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, self).__init__()
-
-                            self.yang_name = "clock-id"
-                            self.yang_parent_name = "selected-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.node = YLeaf(YType.str, "node")
-
-                            self.port = YLeaf(YType.uint32, "port")
-                            self._segment_path = lambda: "clock-id"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
-
-
-                class SelectionPoint(Entity):
-                    """
-                    List of selection points in the backtrace
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: selection_point_description
-                    
-                    	Selection point descrption
-                    	**type**\:  str
-                    
-                    .. attribute:: selection_point_type
-                    
-                    	Selection point type
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, self).__init__()
-
-                        self.yang_name = "selection-point"
-                        self.yang_parent_name = "time-of-day-back-trace"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                        self._segment_path = lambda: "selection-point"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.GlobalNodes.GlobalNode.TimeOfDayBackTrace.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
 
 
     class Interfaces(Entity):
@@ -4027,53 +4547,20 @@ class FrequencySynchronization(Entity):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: source
             
-            .. attribute:: damping_state
+            	The source ID for the interface
+            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.Source>`
             
-            	Damping state
-            	**type**\:   :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagDampingState>`
+            .. attribute:: selected_source
             
-            .. attribute:: damping_time
+            	Timing source selected for interface output
+            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.SelectedSource>`
             
-            	Time until damping state changes in ms
-            	**type**\:  int
+            .. attribute:: quality_level_received
             
-            	**range:** 0..4294967295
-            
-            .. attribute:: esmc_statistics
-            
-            	ESMC Statistics
-            	**type**\:   :py:class:`EsmcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EsmcStatistics>`
-            
-            .. attribute:: ethernet_peer_information
-            
-            	Ethernet peer information
-            	**type**\:   :py:class:`EthernetPeerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation>`
-            
-            .. attribute:: name
-            
-            	Interface name
-            	**type**\:  str
-            
-            .. attribute:: node_selection_point
-            
-            	Node selection points
-            	**type**\:  list of int
-            
-            	**range:** 0..255
-            
-            .. attribute:: node_selection_points_description
-            
-            	Node selection points descrption
-            	**type**\:  list of str
-            
-            .. attribute:: priority
-            
-            	Priority
-            	**type**\:  int
-            
-            	**range:** 0..255
+            	Received quality level
+            	**type**\:   :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.QualityLevelReceived>`
             
             .. attribute:: quality_level_damped
             
@@ -4090,30 +4577,88 @@ class FrequencySynchronization(Entity):
             	The effective output quality level
             	**type**\:   :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput>`
             
-            .. attribute:: quality_level_received
-            
-            	Received quality level
-            	**type**\:   :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.QualityLevelReceived>`
-            
             .. attribute:: quality_level_selected_source
             
             	The quality level of the source driving this interface
             	**type**\:   :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource>`
             
-            .. attribute:: selected_source
+            .. attribute:: ethernet_peer_information
             
-            	Timing source selected for interface output
-            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.SelectedSource>`
+            	Ethernet peer information
+            	**type**\:   :py:class:`EthernetPeerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation>`
+            
+            .. attribute:: esmc_statistics
+            
+            	ESMC Statistics
+            	**type**\:   :py:class:`EsmcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EsmcStatistics>`
+            
+            .. attribute:: name
+            
+            	Interface name
+            	**type**\:  str
+            
+            .. attribute:: state
+            
+            	Interface state
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.ImStateEnum>`
+            
+            .. attribute:: ssm_enabled
+            
+            	SSM is enabled on the interface
+            	**type**\:  bool
+            
+            .. attribute:: squelched
+            
+            	The interface output is squelched
+            	**type**\:  bool
             
             .. attribute:: selection_input
             
             	The interface is an input for selection
             	**type**\:  bool
             
-            .. attribute:: source
+            .. attribute:: priority
             
-            	The source ID for the interface
-            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.Source>`
+            	Priority
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: time_of_day_priority
+            
+            	Time\-of\-day priority
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: damping_state
+            
+            	Damping state
+            	**type**\:   :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagDampingState>`
+            
+            .. attribute:: damping_time
+            
+            	Time until damping state changes in ms
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: wait_to_restore_time
+            
+            	Wait\-to\-restore time for the interface
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: supports_frequency
+            
+            	The PTP clock supports frequency
+            	**type**\:  bool
+            
+            .. attribute:: supports_time_of_day
+            
+            	The PTP clock supports time
+            	**type**\:  bool
             
             .. attribute:: spa_selection_point
             
@@ -4127,44 +4672,17 @@ class FrequencySynchronization(Entity):
             	Spa selection points descrption
             	**type**\:  list of str
             
-            .. attribute:: squelched
+            .. attribute:: node_selection_point
             
-            	The interface output is squelched
-            	**type**\:  bool
-            
-            .. attribute:: ssm_enabled
-            
-            	SSM is enabled on the interface
-            	**type**\:  bool
-            
-            .. attribute:: state
-            
-            	Interface state
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.ImStateEnum>`
-            
-            .. attribute:: supports_frequency
-            
-            	The PTP clock supports frequency
-            	**type**\:  bool
-            
-            .. attribute:: supports_time_of_day
-            
-            	The PTP clock supports time
-            	**type**\:  bool
-            
-            .. attribute:: time_of_day_priority
-            
-            	Time\-of\-day priority
-            	**type**\:  int
+            	Node selection points
+            	**type**\:  list of int
             
             	**range:** 0..255
             
-            .. attribute:: wait_to_restore_time
+            .. attribute:: node_selection_points_description
             
-            	Wait\-to\-restore time for the interface
-            	**type**\:  int
-            
-            	**range:** 0..65535
+            	Node selection points descrption
+            	**type**\:  list of str
             
             
 
@@ -4180,52 +4698,57 @@ class FrequencySynchronization(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"esmc-statistics" : ("esmc_statistics", FrequencySynchronization.Interfaces.Interface.EsmcStatistics), "ethernet-peer-information" : ("ethernet_peer_information", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation), "quality-level-damped" : ("quality_level_damped", FrequencySynchronization.Interfaces.Interface.QualityLevelDamped), "quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput), "quality-level-effective-output" : ("quality_level_effective_output", FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput), "quality-level-received" : ("quality_level_received", FrequencySynchronization.Interfaces.Interface.QualityLevelReceived), "quality-level-selected-source" : ("quality_level_selected_source", FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource), "selected-source" : ("selected_source", FrequencySynchronization.Interfaces.Interface.SelectedSource), "source" : ("source", FrequencySynchronization.Interfaces.Interface.Source)}
+                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Interfaces.Interface.Source), "selected-source" : ("selected_source", FrequencySynchronization.Interfaces.Interface.SelectedSource), "quality-level-received" : ("quality_level_received", FrequencySynchronization.Interfaces.Interface.QualityLevelReceived), "quality-level-damped" : ("quality_level_damped", FrequencySynchronization.Interfaces.Interface.QualityLevelDamped), "quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput), "quality-level-effective-output" : ("quality_level_effective_output", FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput), "quality-level-selected-source" : ("quality_level_selected_source", FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource), "ethernet-peer-information" : ("ethernet_peer_information", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation), "esmc-statistics" : ("esmc_statistics", FrequencySynchronization.Interfaces.Interface.EsmcStatistics)}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.state = YLeaf(YType.enumeration, "state")
+
+                self.ssm_enabled = YLeaf(YType.boolean, "ssm-enabled")
+
+                self.squelched = YLeaf(YType.boolean, "squelched")
+
+                self.selection_input = YLeaf(YType.boolean, "selection-input")
+
+                self.priority = YLeaf(YType.uint8, "priority")
+
+                self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
 
                 self.damping_state = YLeaf(YType.enumeration, "damping-state")
 
                 self.damping_time = YLeaf(YType.uint32, "damping-time")
 
-                self.name = YLeaf(YType.str, "name")
-
-                self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
-
-                self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
-
-                self.priority = YLeaf(YType.uint8, "priority")
-
-                self.selection_input = YLeaf(YType.boolean, "selection-input")
-
-                self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
-
-                self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
-
-                self.squelched = YLeaf(YType.boolean, "squelched")
-
-                self.ssm_enabled = YLeaf(YType.boolean, "ssm-enabled")
-
-                self.state = YLeaf(YType.enumeration, "state")
+                self.wait_to_restore_time = YLeaf(YType.uint16, "wait-to-restore-time")
 
                 self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
 
                 self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
 
-                self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
+                self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
 
-                self.wait_to_restore_time = YLeaf(YType.uint16, "wait-to-restore-time")
+                self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
 
-                self.esmc_statistics = FrequencySynchronization.Interfaces.Interface.EsmcStatistics()
-                self.esmc_statistics.parent = self
-                self._children_name_map["esmc_statistics"] = "esmc-statistics"
-                self._children_yang_names.add("esmc-statistics")
+                self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
 
-                self.ethernet_peer_information = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation()
-                self.ethernet_peer_information.parent = self
-                self._children_name_map["ethernet_peer_information"] = "ethernet-peer-information"
-                self._children_yang_names.add("ethernet-peer-information")
+                self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+
+                self.source = FrequencySynchronization.Interfaces.Interface.Source()
+                self.source.parent = self
+                self._children_name_map["source"] = "source"
+                self._children_yang_names.add("source")
+
+                self.selected_source = FrequencySynchronization.Interfaces.Interface.SelectedSource()
+                self.selected_source.parent = self
+                self._children_name_map["selected_source"] = "selected-source"
+                self._children_yang_names.add("selected-source")
+
+                self.quality_level_received = FrequencySynchronization.Interfaces.Interface.QualityLevelReceived()
+                self.quality_level_received.parent = self
+                self._children_name_map["quality_level_received"] = "quality-level-received"
+                self._children_yang_names.add("quality-level-received")
 
                 self.quality_level_damped = FrequencySynchronization.Interfaces.Interface.QualityLevelDamped()
                 self.quality_level_damped.parent = self
@@ -4242,39 +4765,747 @@ class FrequencySynchronization(Entity):
                 self._children_name_map["quality_level_effective_output"] = "quality-level-effective-output"
                 self._children_yang_names.add("quality-level-effective-output")
 
-                self.quality_level_received = FrequencySynchronization.Interfaces.Interface.QualityLevelReceived()
-                self.quality_level_received.parent = self
-                self._children_name_map["quality_level_received"] = "quality-level-received"
-                self._children_yang_names.add("quality-level-received")
-
                 self.quality_level_selected_source = FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource()
                 self.quality_level_selected_source.parent = self
                 self._children_name_map["quality_level_selected_source"] = "quality-level-selected-source"
                 self._children_yang_names.add("quality-level-selected-source")
 
-                self.selected_source = FrequencySynchronization.Interfaces.Interface.SelectedSource()
-                self.selected_source.parent = self
-                self._children_name_map["selected_source"] = "selected-source"
-                self._children_yang_names.add("selected-source")
+                self.ethernet_peer_information = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation()
+                self.ethernet_peer_information.parent = self
+                self._children_name_map["ethernet_peer_information"] = "ethernet-peer-information"
+                self._children_yang_names.add("ethernet-peer-information")
 
-                self.source = FrequencySynchronization.Interfaces.Interface.Source()
-                self.source.parent = self
-                self._children_name_map["source"] = "source"
-                self._children_yang_names.add("source")
+                self.esmc_statistics = FrequencySynchronization.Interfaces.Interface.EsmcStatistics()
+                self.esmc_statistics.parent = self
+                self._children_name_map["esmc_statistics"] = "esmc-statistics"
+                self._children_yang_names.add("esmc-statistics")
                 self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Interfaces.Interface, ['interface_name', 'damping_state', 'damping_time', 'name', 'node_selection_point', 'node_selection_points_description', 'priority', 'selection_input', 'spa_selection_point', 'spa_selection_points_description', 'squelched', 'ssm_enabled', 'state', 'supports_frequency', 'supports_time_of_day', 'time_of_day_priority', 'wait_to_restore_time'], name, value)
+                self._perform_setattr(FrequencySynchronization.Interfaces.Interface, ['interface_name', 'name', 'state', 'ssm_enabled', 'squelched', 'selection_input', 'priority', 'time_of_day_priority', 'damping_state', 'damping_time', 'wait_to_restore_time', 'supports_frequency', 'supports_time_of_day', 'spa_selection_point', 'spa_selection_points_description', 'node_selection_point', 'node_selection_points_description'], name, value)
+
+
+            class Source(Entity):
+                """
+                The source ID for the interface
+                
+                .. attribute:: clock_id
+                
+                	Clock ID
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.Source.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                
+                .. attribute:: ethernet_interface
+                
+                	Ethernet interface
+                	**type**\:  str
+                
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
+                
+                .. attribute:: node
+                
+                	Internal Clock Node
+                	**type**\:  str
+                
+                .. attribute:: ptp_node
+                
+                	PTP Clock Node
+                	**type**\:  str
+                
+                .. attribute:: satellite_access_interface
+                
+                	Satellite Access Interface
+                	**type**\:  str
+                
+                .. attribute:: ntp_node
+                
+                	NTP Clock Node
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.Source, self).__init__()
+
+                    self.yang_name = "source"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Interfaces.Interface.Source.ClockId)}
+                    self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                    self.node = YLeaf(YType.str, "node")
+
+                    self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                    self.clock_id = FrequencySynchronization.Interfaces.Interface.Source.ClockId()
+                    self.clock_id.parent = self
+                    self._children_name_map["clock_id"] = "clock-id"
+                    self._children_yang_names.add("clock-id")
+                    self._segment_path = lambda: "source"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                class ClockId(Entity):
+                    """
+                    Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Interfaces.Interface.Source.ClockId, self).__init__()
+
+                        self.yang_name = "clock-id"
+                        self.yang_parent_name = "source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.node = YLeaf(YType.str, "node")
+
+                        self.port = YLeaf(YType.uint32, "port")
+                        self._segment_path = lambda: "clock-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.Source.ClockId, ['node', 'port'], name, value)
+
+
+            class SelectedSource(Entity):
+                """
+                Timing source selected for interface output
+                
+                .. attribute:: clock_id
+                
+                	Clock ID
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                
+                .. attribute:: ethernet_interface
+                
+                	Ethernet interface
+                	**type**\:  str
+                
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
+                
+                .. attribute:: node
+                
+                	Internal Clock Node
+                	**type**\:  str
+                
+                .. attribute:: ptp_node
+                
+                	PTP Clock Node
+                	**type**\:  str
+                
+                .. attribute:: satellite_access_interface
+                
+                	Satellite Access Interface
+                	**type**\:  str
+                
+                .. attribute:: ntp_node
+                
+                	NTP Clock Node
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.SelectedSource, self).__init__()
+
+                    self.yang_name = "selected-source"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId)}
+                    self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
+
+                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+
+                    self.node = YLeaf(YType.str, "node")
+
+                    self.ptp_node = YLeaf(YType.str, "ptp-node")
+
+                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
+
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+
+                    self.clock_id = FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId()
+                    self.clock_id.parent = self
+                    self._children_name_map["clock_id"] = "clock-id"
+                    self._children_yang_names.add("clock-id")
+                    self._segment_path = lambda: "selected-source"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
+
+
+                class ClockId(Entity):
+                    """
+                    Clock ID
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId, self).__init__()
+
+                        self.yang_name = "clock-id"
+                        self.yang_parent_name = "selected-source"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.node = YLeaf(YType.str, "node")
+
+                        self.port = YLeaf(YType.uint32, "port")
+                        self._segment_path = lambda: "clock-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId, ['node', 'port'], name, value)
+
+
+            class QualityLevelReceived(Entity):
+                """
+                Received quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelReceived, self).__init__()
+
+                    self.yang_name = "quality-level-received"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-received"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelDamped(Entity):
+                """
+                Quality level after damping has been applied
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelDamped, self).__init__()
+
+                    self.yang_name = "quality-level-damped"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-damped"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelEffectiveInput(Entity):
+                """
+                The effective input quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput, self).__init__()
+
+                    self.yang_name = "quality-level-effective-input"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-effective-input"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelEffectiveOutput(Entity):
+                """
+                The effective output quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput, self).__init__()
+
+                    self.yang_name = "quality-level-effective-output"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-effective-output"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelSelectedSource(Entity):
+                """
+                The quality level of the source driving this
+                interface
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource, self).__init__()
+
+                    self.yang_name = "quality-level-selected-source"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-selected-source"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class EthernetPeerInformation(Entity):
+                """
+                Ethernet peer information
+                
+                .. attribute:: peer_state_time
+                
+                	Time of last peer state transition
+                	**type**\:   :py:class:`PeerStateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime>`
+                
+                .. attribute:: last_ssm
+                
+                	Time of last SSM received
+                	**type**\:   :py:class:`LastSsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm>`
+                
+                .. attribute:: peer_state
+                
+                	Peer state
+                	**type**\:   :py:class:`FsyncBagEsmcPeerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagEsmcPeerState>`
+                
+                .. attribute:: peer_up_count
+                
+                	Number of times the peer has come up
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: peer_timeout_count
+                
+                	Number of times the peer has timed out
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation, self).__init__()
+
+                    self.yang_name = "ethernet-peer-information"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"peer-state-time" : ("peer_state_time", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime), "last-ssm" : ("last_ssm", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm)}
+                    self._child_list_classes = {}
+
+                    self.peer_state = YLeaf(YType.enumeration, "peer-state")
+
+                    self.peer_up_count = YLeaf(YType.uint16, "peer-up-count")
+
+                    self.peer_timeout_count = YLeaf(YType.uint16, "peer-timeout-count")
+
+                    self.peer_state_time = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime()
+                    self.peer_state_time.parent = self
+                    self._children_name_map["peer_state_time"] = "peer-state-time"
+                    self._children_yang_names.add("peer-state-time")
+
+                    self.last_ssm = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm()
+                    self.last_ssm.parent = self
+                    self._children_name_map["last_ssm"] = "last-ssm"
+                    self._children_yang_names.add("last-ssm")
+                    self._segment_path = lambda: "ethernet-peer-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation, ['peer_state', 'peer_up_count', 'peer_timeout_count'], name, value)
+
+
+                class PeerStateTime(Entity):
+                    """
+                    Time of last peer state transition
+                    
+                    .. attribute:: seconds
+                    
+                    	Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime, self).__init__()
+
+                        self.yang_name = "peer-state-time"
+                        self.yang_parent_name = "ethernet-peer-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "peer-state-time"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime, ['seconds', 'nanoseconds'], name, value)
+
+
+                class LastSsm(Entity):
+                    """
+                    Time of last SSM received
+                    
+                    .. attribute:: seconds
+                    
+                    	Seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: nanoseconds
+                    
+                    	Nanoseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: nanosecond
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm, self).__init__()
+
+                        self.yang_name = "last-ssm"
+                        self.yang_parent_name = "ethernet-peer-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.seconds = YLeaf(YType.uint32, "seconds")
+
+                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
+                        self._segment_path = lambda: "last-ssm"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm, ['seconds', 'nanoseconds'], name, value)
 
 
             class EsmcStatistics(Entity):
                 """
                 ESMC Statistics
                 
-                .. attribute:: esmc_dn_us_received
+                .. attribute:: esmc_events_sent
                 
-                	Number of SSMs with DNU QL received
+                	Number of event SSMs sent
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: esmc_events_received
+                
+                	Number of event SSMs received
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                .. attribute:: esmc_infos_sent
+                
+                	Number of info SSMs sent
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: esmc_infos_received
+                
+                	Number of info SSms received
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -4286,30 +5517,9 @@ class FrequencySynchronization(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: esmc_events_received
+                .. attribute:: esmc_dn_us_received
                 
-                	Number of event SSMs received
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: esmc_events_sent
-                
-                	Number of event SSMs sent
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: esmc_infos_received
-                
-                	Number of info SSms received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: esmc_infos_sent
-                
-                	Number of info SSMs sent
+                	Number of SSMs with DNU QL received
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -4345,17 +5555,17 @@ class FrequencySynchronization(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.esmc_dn_us_received = YLeaf(YType.uint32, "esmc-dn-us-received")
-
-                    self.esmc_dn_us_sent = YLeaf(YType.uint32, "esmc-dn-us-sent")
+                    self.esmc_events_sent = YLeaf(YType.uint16, "esmc-events-sent")
 
                     self.esmc_events_received = YLeaf(YType.uint16, "esmc-events-received")
 
-                    self.esmc_events_sent = YLeaf(YType.uint16, "esmc-events-sent")
+                    self.esmc_infos_sent = YLeaf(YType.uint32, "esmc-infos-sent")
 
                     self.esmc_infos_received = YLeaf(YType.uint32, "esmc-infos-received")
 
-                    self.esmc_infos_sent = YLeaf(YType.uint32, "esmc-infos-sent")
+                    self.esmc_dn_us_sent = YLeaf(YType.uint32, "esmc-dn-us-sent")
+
+                    self.esmc_dn_us_received = YLeaf(YType.uint32, "esmc-dn-us-received")
 
                     self.esmc_malformed_received = YLeaf(YType.uint16, "esmc-malformed-received")
 
@@ -4363,737 +5573,18 @@ class FrequencySynchronization(Entity):
                     self._segment_path = lambda: "esmc-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EsmcStatistics, ['esmc_dn_us_received', 'esmc_dn_us_sent', 'esmc_events_received', 'esmc_events_sent', 'esmc_infos_received', 'esmc_infos_sent', 'esmc_malformed_received', 'esmc_received_error'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EsmcStatistics, ['esmc_events_sent', 'esmc_events_received', 'esmc_infos_sent', 'esmc_infos_received', 'esmc_dn_us_sent', 'esmc_dn_us_received', 'esmc_malformed_received', 'esmc_received_error'], name, value)
 
 
-            class EthernetPeerInformation(Entity):
-                """
-                Ethernet peer information
-                
-                .. attribute:: last_ssm
-                
-                	Time of last SSM received
-                	**type**\:   :py:class:`LastSsm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm>`
-                
-                .. attribute:: peer_state
-                
-                	Peer state
-                	**type**\:   :py:class:`FsyncBagEsmcPeerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagEsmcPeerState>`
-                
-                .. attribute:: peer_state_time
-                
-                	Time of last peer state transition
-                	**type**\:   :py:class:`PeerStateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime>`
-                
-                .. attribute:: peer_timeout_count
-                
-                	Number of times the peer has timed out
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                .. attribute:: peer_up_count
-                
-                	Number of times the peer has come up
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation, self).__init__()
-
-                    self.yang_name = "ethernet-peer-information"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"last-ssm" : ("last_ssm", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm), "peer-state-time" : ("peer_state_time", FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime)}
-                    self._child_list_classes = {}
-
-                    self.peer_state = YLeaf(YType.enumeration, "peer-state")
-
-                    self.peer_timeout_count = YLeaf(YType.uint16, "peer-timeout-count")
-
-                    self.peer_up_count = YLeaf(YType.uint16, "peer-up-count")
-
-                    self.last_ssm = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm()
-                    self.last_ssm.parent = self
-                    self._children_name_map["last_ssm"] = "last-ssm"
-                    self._children_yang_names.add("last-ssm")
-
-                    self.peer_state_time = FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime()
-                    self.peer_state_time.parent = self
-                    self._children_name_map["peer_state_time"] = "peer-state-time"
-                    self._children_yang_names.add("peer-state-time")
-                    self._segment_path = lambda: "ethernet-peer-information"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation, ['peer_state', 'peer_timeout_count', 'peer_up_count'], name, value)
-
-
-                class LastSsm(Entity):
-                    """
-                    Time of last SSM received
-                    
-                    .. attribute:: nanoseconds
-                    
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm, self).__init__()
-
-                        self.yang_name = "last-ssm"
-                        self.yang_parent_name = "ethernet-peer-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "last-ssm"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.LastSsm, ['nanoseconds', 'seconds'], name, value)
-
-
-                class PeerStateTime(Entity):
-                    """
-                    Time of last peer state transition
-                    
-                    .. attribute:: nanoseconds
-                    
-                    	Nanoseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: seconds
-                    
-                    	Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime, self).__init__()
-
-                        self.yang_name = "peer-state-time"
-                        self.yang_parent_name = "ethernet-peer-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                        self.seconds = YLeaf(YType.uint32, "seconds")
-                        self._segment_path = lambda: "peer-state-time"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.EthernetPeerInformation.PeerStateTime, ['nanoseconds', 'seconds'], name, value)
-
-
-            class QualityLevelDamped(Entity):
-                """
-                Quality level after damping has been applied
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelDamped, self).__init__()
-
-                    self.yang_name = "quality-level-damped"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-damped"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelDamped, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelEffectiveInput(Entity):
-                """
-                The effective input quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput, self).__init__()
-
-                    self.yang_name = "quality-level-effective-input"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-effective-input"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveInput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelEffectiveOutput(Entity):
-                """
-                The effective output quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput, self).__init__()
-
-                    self.yang_name = "quality-level-effective-output"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-effective-output"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelEffectiveOutput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelReceived(Entity):
-                """
-                Received quality level
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelReceived, self).__init__()
-
-                    self.yang_name = "quality-level-received"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-received"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelReceived, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class QualityLevelSelectedSource(Entity):
-                """
-                The quality level of the source driving this
-                interface
-                
-                .. attribute:: option1_value
-                
-                	ITU\-T Option 1 QL value
-                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                
-                .. attribute:: option2_generation1_value
-                
-                	ITU\-T Option 2, generation 1 value
-                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                
-                .. attribute:: option2_generation2_value
-                
-                	ITU\-T Option 2, generation 2 value
-                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                
-                .. attribute:: quality_level_option
-                
-                	QualityLevelOption
-                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource, self).__init__()
-
-                    self.yang_name = "quality-level-selected-source"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                    self._segment_path = lambda: "quality-level-selected-source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.QualityLevelSelectedSource, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class SelectedSource(Entity):
-                """
-                Timing source selected for interface output
-                
-                .. attribute:: clock_id
-                
-                	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId>`
-                
-                .. attribute:: ethernet_interface
-                
-                	Ethernet interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ptp_node
-                
-                	PTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: satellite_access_interface
-                
-                	Satellite Access Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.SelectedSource, self).__init__()
-
-                    self.yang_name = "selected-source"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId)}
-                    self._child_list_classes = {}
-
-                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                    self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId()
-                    self.clock_id.parent = self
-                    self._children_name_map["clock_id"] = "clock-id"
-                    self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "selected-source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.SelectedSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                class ClockId(Entity):
-                    """
-                    Clock ID
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: port
-                    
-                    	Port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId, self).__init__()
-
-                        self.yang_name = "clock-id"
-                        self.yang_parent_name = "selected-source"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.port = YLeaf(YType.uint32, "port")
-                        self._segment_path = lambda: "clock-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.SelectedSource.ClockId, ['node', 'port'], name, value)
-
-
-            class Source(Entity):
-                """
-                The source ID for the interface
-                
-                .. attribute:: clock_id
-                
-                	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Interfaces.Interface.Source.ClockId>`
-                
-                .. attribute:: ethernet_interface
-                
-                	Ethernet interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: node
-                
-                	Internal Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ptp_node
-                
-                	PTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: satellite_access_interface
-                
-                	Satellite Access Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Interfaces.Interface.Source, self).__init__()
-
-                    self.yang_name = "source"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Interfaces.Interface.Source.ClockId)}
-                    self._child_list_classes = {}
-
-                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
-
-                    self.node = YLeaf(YType.str, "node")
-
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                    self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Interfaces.Interface.Source.ClockId()
-                    self.clock_id.parent = self
-                    self._children_name_map["clock_id"] = "clock-id"
-                    self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "source"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Interfaces.Interface.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
-
-
-                class ClockId(Entity):
-                    """
-                    Clock ID
-                    
-                    .. attribute:: node
-                    
-                    	Node
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: port
-                    
-                    	Port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Interfaces.Interface.Source.ClockId, self).__init__()
-
-                        self.yang_name = "clock-id"
-                        self.yang_parent_name = "source"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.node = YLeaf(YType.str, "node")
-
-                        self.port = YLeaf(YType.uint32, "port")
-                        self._segment_path = lambda: "clock-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Interfaces.Interface.Source.ClockId, ['node', 'port'], name, value)
-
-
-    class Nodes(Entity):
+    class ClockInterfaceSelectionForwardTraces(Entity):
         """
-        Table for node\-specific operational data
+        Selection forwardtrace operational data for
+        clock\-interfaces
         
-        .. attribute:: node
+        .. attribute:: clock_interface_selection_forward_trace
         
-        	Node\-specific data for a particular node
-        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node>`
+        	Selection forwardtrace operational data for a particular clock\-interface
+        	**type**\: list of    :py:class:`ClockInterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace>`
         
         
 
@@ -5103,63 +5594,37 @@ class FrequencySynchronization(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FrequencySynchronization.Nodes, self).__init__()
+            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces, self).__init__()
 
-            self.yang_name = "nodes"
+            self.yang_name = "clock-interface-selection-forward-traces"
             self.yang_parent_name = "frequency-synchronization"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"node" : ("node", FrequencySynchronization.Nodes.Node)}
+            self._child_list_classes = {"clock-interface-selection-forward-trace" : ("clock_interface_selection_forward_trace", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace)}
 
-            self.node = YList(self)
-            self._segment_path = lambda: "nodes"
+            self.clock_interface_selection_forward_trace = YList(self)
+            self._segment_path = lambda: "clock-interface-selection-forward-traces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.Nodes, [], name, value)
+            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces, [], name, value)
 
 
-        class Node(Entity):
+        class ClockInterfaceSelectionForwardTrace(Entity):
             """
-            Node\-specific data for a particular node
+            Selection forwardtrace operational data for a
+            particular clock\-interface
             
-            .. attribute:: node  <key>
+            .. attribute:: clock_name  <key>
             
-            	Node
+            	Clock Name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: forward_trace
             
-            .. attribute:: configuration_errors
-            
-            	Configuration error operational data
-            	**type**\:   :py:class:`ConfigurationErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors>`
-            
-            .. attribute:: ntp
-            
-            	NTP operational data
-            	**type**\:   :py:class:`Ntp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ntp>`
-            
-            .. attribute:: ptp
-            
-            	PTP operational data
-            	**type**\:   :py:class:`Ptp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ptp>`
-            
-            .. attribute:: selection_point_inputs
-            
-            	Table for selection point input operational data
-            	**type**\:   :py:class:`SelectionPointInputs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs>`
-            
-            .. attribute:: selection_points
-            
-            	Selection point table
-            	**type**\:   :py:class:`SelectionPoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints>`
-            
-            .. attribute:: ssm_summary
-            
-            	SSM operational data
-            	**type**\:   :py:class:`SsmSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SsmSummary>`
+            	Selection ForwardTrace
+            	**type**\: list of    :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace>`
             
             
 
@@ -5169,61 +5634,33 @@ class FrequencySynchronization(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FrequencySynchronization.Nodes.Node, self).__init__()
+                super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, self).__init__()
 
-                self.yang_name = "node"
-                self.yang_parent_name = "nodes"
+                self.yang_name = "clock-interface-selection-forward-trace"
+                self.yang_parent_name = "clock-interface-selection-forward-traces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"configuration-errors" : ("configuration_errors", FrequencySynchronization.Nodes.Node.ConfigurationErrors), "ntp" : ("ntp", FrequencySynchronization.Nodes.Node.Ntp), "ptp" : ("ptp", FrequencySynchronization.Nodes.Node.Ptp), "selection-point-inputs" : ("selection_point_inputs", FrequencySynchronization.Nodes.Node.SelectionPointInputs), "selection-points" : ("selection_points", FrequencySynchronization.Nodes.Node.SelectionPoints), "ssm-summary" : ("ssm_summary", FrequencySynchronization.Nodes.Node.SsmSummary)}
-                self._child_list_classes = {}
+                self._child_container_classes = {}
+                self._child_list_classes = {"forward-trace" : ("forward_trace", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace)}
 
-                self.node = YLeaf(YType.str, "node")
+                self.clock_name = YLeaf(YType.str, "clock-name")
 
-                self.configuration_errors = FrequencySynchronization.Nodes.Node.ConfigurationErrors()
-                self.configuration_errors.parent = self
-                self._children_name_map["configuration_errors"] = "configuration-errors"
-                self._children_yang_names.add("configuration-errors")
-
-                self.ntp = FrequencySynchronization.Nodes.Node.Ntp()
-                self.ntp.parent = self
-                self._children_name_map["ntp"] = "ntp"
-                self._children_yang_names.add("ntp")
-
-                self.ptp = FrequencySynchronization.Nodes.Node.Ptp()
-                self.ptp.parent = self
-                self._children_name_map["ptp"] = "ptp"
-                self._children_yang_names.add("ptp")
-
-                self.selection_point_inputs = FrequencySynchronization.Nodes.Node.SelectionPointInputs()
-                self.selection_point_inputs.parent = self
-                self._children_name_map["selection_point_inputs"] = "selection-point-inputs"
-                self._children_yang_names.add("selection-point-inputs")
-
-                self.selection_points = FrequencySynchronization.Nodes.Node.SelectionPoints()
-                self.selection_points.parent = self
-                self._children_name_map["selection_points"] = "selection-points"
-                self._children_yang_names.add("selection-points")
-
-                self.ssm_summary = FrequencySynchronization.Nodes.Node.SsmSummary()
-                self.ssm_summary.parent = self
-                self._children_name_map["ssm_summary"] = "ssm-summary"
-                self._children_yang_names.add("ssm-summary")
-                self._segment_path = lambda: "node" + "[node='" + self.node.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/nodes/%s" % self._segment_path()
+                self.forward_trace = YList(self)
+                self._segment_path = lambda: "clock-interface-selection-forward-trace" + "[clock-name='" + self.clock_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clock-interface-selection-forward-traces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Nodes.Node, ['node'], name, value)
+                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace, ['clock_name'], name, value)
 
 
-            class ConfigurationErrors(Entity):
+            class ForwardTrace(Entity):
                 """
-                Configuration error operational data
+                Selection ForwardTrace
                 
-                .. attribute:: error_source
+                .. attribute:: forward_trace_node
                 
-                	Configuration errors
-                	**type**\: list of    :py:class:`ErrorSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource>`
+                	The source or selection point at this point in the forwardtrace
+                	**type**\:   :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
                 
                 
 
@@ -5233,100 +5670,41 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.ConfigurationErrors, self).__init__()
+                    super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
 
-                    self.yang_name = "configuration-errors"
-                    self.yang_parent_name = "node"
+                    self.yang_name = "forward-trace"
+                    self.yang_parent_name = "clock-interface-selection-forward-trace"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"error-source" : ("error_source", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource)}
+                    self._child_container_classes = {"forward-trace-node" : ("forward_trace_node", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode)}
+                    self._child_list_classes = {}
 
-                    self.error_source = YList(self)
-                    self._segment_path = lambda: "configuration-errors"
+                    self.forward_trace_node = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode()
+                    self.forward_trace_node.parent = self
+                    self._children_name_map["forward_trace_node"] = "forward-trace-node"
+                    self._children_yang_names.add("forward-trace-node")
+                    self._segment_path = lambda: "forward-trace"
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors, [], name, value)
 
-
-                class ErrorSource(Entity):
+                class ForwardTraceNode(Entity):
                     """
-                    Configuration errors
+                    The source or selection point at this point in
+                    the forwardtrace
                     
-                    .. attribute:: enable_error
+                    .. attribute:: selection_point
                     
-                    	Frequency Synchronization enable error
-                    	**type**\:  bool
-                    
-                    .. attribute:: input_exact_error
-                    
-                    	Exact input QL config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: input_exact_ql
-                    
-                    	Configured exact input QL
-                    	**type**\:   :py:class:`InputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl>`
-                    
-                    .. attribute:: input_max_error
-                    
-                    	Maximum input Ql config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: input_max_ql
-                    
-                    	Configured maximum input QL
-                    	**type**\:   :py:class:`InputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl>`
-                    
-                    .. attribute:: input_min_error
-                    
-                    	Minimum input QL config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: input_min_ql
-                    
-                    	Configured minimum input QL
-                    	**type**\:   :py:class:`InputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl>`
-                    
-                    .. attribute:: input_output_mismatch
-                    
-                    	Input/Output mismatch error
-                    	**type**\:  bool
-                    
-                    .. attribute:: ouput_min_error
-                    
-                    	Minimum output QL config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: output_exact_error
-                    
-                    	Exact output QL config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: output_exact_ql
-                    
-                    	Configured exact output QL
-                    	**type**\:   :py:class:`OutputExactQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl>`
-                    
-                    .. attribute:: output_max_error
-                    
-                    	Maximum output QL config error
-                    	**type**\:  bool
-                    
-                    .. attribute:: output_max_ql
-                    
-                    	Configured exact maximum QL
-                    	**type**\:   :py:class:`OutputMaxQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl>`
-                    
-                    .. attribute:: output_min_ql
-                    
-                    	Configured mininum output QL
-                    	**type**\:   :py:class:`OutputMinQl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl>`
+                    	Selection Point
+                    	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                     
                     .. attribute:: source
                     
-                    	Source
-                    	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source>`
+                    	Timing Source
+                    	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
+                    
+                    .. attribute:: node_type
+                    
+                    	NodeType
+                    	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
                     
                     
 
@@ -5336,94 +5714,52 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, self).__init__()
+                        super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
-                        self.yang_name = "error-source"
-                        self.yang_parent_name = "configuration-errors"
+                        self.yang_name = "forward-trace-node"
+                        self.yang_parent_name = "forward-trace"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"input-exact-ql" : ("input_exact_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl), "input-max-ql" : ("input_max_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl), "input-min-ql" : ("input_min_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl), "output-exact-ql" : ("output_exact_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl), "output-max-ql" : ("output_max_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl), "output-min-ql" : ("output_min_ql", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl), "source" : ("source", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source)}
+                        self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint), "source" : ("source", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source)}
                         self._child_list_classes = {}
 
-                        self.enable_error = YLeaf(YType.boolean, "enable-error")
+                        self.node_type = YLeaf(YType.enumeration, "node-type")
 
-                        self.input_exact_error = YLeaf(YType.boolean, "input-exact-error")
+                        self.selection_point = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint()
+                        self.selection_point.parent = self
+                        self._children_name_map["selection_point"] = "selection-point"
+                        self._children_yang_names.add("selection-point")
 
-                        self.input_max_error = YLeaf(YType.boolean, "input-max-error")
-
-                        self.input_min_error = YLeaf(YType.boolean, "input-min-error")
-
-                        self.input_output_mismatch = YLeaf(YType.boolean, "input-output-mismatch")
-
-                        self.ouput_min_error = YLeaf(YType.boolean, "ouput-min-error")
-
-                        self.output_exact_error = YLeaf(YType.boolean, "output-exact-error")
-
-                        self.output_max_error = YLeaf(YType.boolean, "output-max-error")
-
-                        self.input_exact_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl()
-                        self.input_exact_ql.parent = self
-                        self._children_name_map["input_exact_ql"] = "input-exact-ql"
-                        self._children_yang_names.add("input-exact-ql")
-
-                        self.input_max_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl()
-                        self.input_max_ql.parent = self
-                        self._children_name_map["input_max_ql"] = "input-max-ql"
-                        self._children_yang_names.add("input-max-ql")
-
-                        self.input_min_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl()
-                        self.input_min_ql.parent = self
-                        self._children_name_map["input_min_ql"] = "input-min-ql"
-                        self._children_yang_names.add("input-min-ql")
-
-                        self.output_exact_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl()
-                        self.output_exact_ql.parent = self
-                        self._children_name_map["output_exact_ql"] = "output-exact-ql"
-                        self._children_yang_names.add("output-exact-ql")
-
-                        self.output_max_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl()
-                        self.output_max_ql.parent = self
-                        self._children_name_map["output_max_ql"] = "output-max-ql"
-                        self._children_yang_names.add("output-max-ql")
-
-                        self.output_min_ql = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl()
-                        self.output_min_ql.parent = self
-                        self._children_name_map["output_min_ql"] = "output-min-ql"
-                        self._children_yang_names.add("output-min-ql")
-
-                        self.source = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source()
+                        self.source = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source()
                         self.source.parent = self
                         self._children_name_map["source"] = "source"
                         self._children_yang_names.add("source")
-                        self._segment_path = lambda: "error-source"
+                        self._segment_path = lambda: "forward-trace-node"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource, ['enable_error', 'input_exact_error', 'input_max_error', 'input_min_error', 'input_output_mismatch', 'ouput_min_error', 'output_exact_error', 'output_max_error'], name, value)
+                        self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                    class InputExactQl(Entity):
+                    class SelectionPoint(Entity):
                         """
-                        Configured exact input QL
+                        Selection Point
                         
-                        .. attribute:: option1_value
+                        .. attribute:: selection_point_type
                         
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                        	Selection point type
+                        	**type**\:  int
                         
-                        .. attribute:: option2_generation1_value
+                        	**range:** 0..255
                         
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                        .. attribute:: selection_point_description
                         
-                        .. attribute:: option2_generation2_value
+                        	Selection point descrption
+                        	**type**\:  str
                         
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                        .. attribute:: node
                         
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                        	Node
+                        	**type**\:  str
                         
                         
 
@@ -5433,354 +5769,70 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, self).__init__()
+                            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
-                            self.yang_name = "input-exact-ql"
-                            self.yang_parent_name = "error-source"
+                            self.yang_name = "selection-point"
+                            self.yang_parent_name = "forward-trace-node"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
+                            self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
 
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+                            self.selection_point_description = YLeaf(YType.str, "selection-point-description")
 
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "input-exact-ql"
+                            self.node = YLeaf(YType.str, "node")
+                            self._segment_path = lambda: "selection-point"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputExactQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class InputMaxQl(Entity):
-                        """
-                        Configured maximum input QL
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, self).__init__()
-
-                            self.yang_name = "input-max-ql"
-                            self.yang_parent_name = "error-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "input-max-ql"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMaxQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class InputMinQl(Entity):
-                        """
-                        Configured minimum input QL
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, self).__init__()
-
-                            self.yang_name = "input-min-ql"
-                            self.yang_parent_name = "error-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "input-min-ql"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.InputMinQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class OutputExactQl(Entity):
-                        """
-                        Configured exact output QL
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, self).__init__()
-
-                            self.yang_name = "output-exact-ql"
-                            self.yang_parent_name = "error-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "output-exact-ql"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputExactQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class OutputMaxQl(Entity):
-                        """
-                        Configured exact maximum QL
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, self).__init__()
-
-                            self.yang_name = "output-max-ql"
-                            self.yang_parent_name = "error-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "output-max-ql"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMaxQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class OutputMinQl(Entity):
-                        """
-                        Configured mininum output QL
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, self).__init__()
-
-                            self.yang_name = "output-min-ql"
-                            self.yang_parent_name = "error-source"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "output-min-ql"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.OutputMinQl, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
+                            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
                     class Source(Entity):
                         """
-                        Source
+                        Timing Source
                         
                         .. attribute:: clock_id
                         
                         	Clock ID
-                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId>`
-                        
-                        .. attribute:: ethernet_interface
-                        
-                        	Ethernet interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ntp_node
-                        
-                        	NTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ptp_node
-                        
-                        	PTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: satellite_access_interface
-                        
-                        	Satellite Access Interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: sonet_interface
-                        
-                        	SONET interfaces
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                         
                         .. attribute:: source_class
                         
                         	SourceClass
                         	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                         
+                        .. attribute:: ethernet_interface
+                        
+                        	Ethernet interface
+                        	**type**\:  str
+                        
+                        .. attribute:: sonet_interface
+                        
+                        	SONET interfaces
+                        	**type**\:  str
+                        
+                        .. attribute:: node
+                        
+                        	Internal Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: ptp_node
+                        
+                        	PTP Clock Node
+                        	**type**\:  str
+                        
+                        .. attribute:: satellite_access_interface
+                        
+                        	Satellite Access Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: ntp_node
+                        
+                        	NTP Clock Node
+                        	**type**\:  str
+                        
                         
 
                         """
@@ -5789,37 +5841,37 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, self).__init__()
+                            super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
                             self.yang_name = "source"
-                            self.yang_parent_name = "error-source"
+                            self.yang_parent_name = "forward-trace-node"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId)}
+                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
                             self._child_list_classes = {}
+
+                            self.source_class = YLeaf(YType.enumeration, "source-class")
 
                             self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                            self.node = YLeaf(YType.str, "node")
+                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                            self.ntp_node = YLeaf(YType.str, "ntp-node")
+                            self.node = YLeaf(YType.str, "node")
 
                             self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                             self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+                            self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                            self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                            self.clock_id = FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId()
+                            self.clock_id = FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
                             self.clock_id.parent = self
                             self._children_name_map["clock_id"] = "clock-id"
                             self._children_yang_names.add("clock-id")
                             self._segment_path = lambda: "source"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                         class ClockId(Entity):
@@ -5830,8 +5882,6 @@ class FrequencySynchronization(Entity):
                             
                             	Node
                             	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                             
                             .. attribute:: port
                             
@@ -5848,7 +5898,7 @@ class FrequencySynchronization(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, self).__init__()
+                                super(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                 self.yang_name = "clock-id"
                                 self.yang_parent_name = "source"
@@ -5863,70 +5913,139 @@ class FrequencySynchronization(Entity):
                                 self._segment_path = lambda: "clock-id"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.ConfigurationErrors.ErrorSource.Source.ClockId, ['node', 'port'], name, value)
+                                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionForwardTraces.ClockInterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'port'], name, value)
 
 
-            class Ntp(Entity):
+    class ClockInterfaceSelectionBackTraces(Entity):
+        """
+        Selection backtrace operational data for
+        clock\-interfaces
+        
+        .. attribute:: clock_interface_selection_back_trace
+        
+        	Selection backtrace operational data for a particular clock\-interface
+        	**type**\: list of    :py:class:`ClockInterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace>`
+        
+        
+
+        """
+
+        _prefix = 'ncs4k-freqsync-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(FrequencySynchronization.ClockInterfaceSelectionBackTraces, self).__init__()
+
+            self.yang_name = "clock-interface-selection-back-traces"
+            self.yang_parent_name = "frequency-synchronization"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"clock-interface-selection-back-trace" : ("clock_interface_selection_back_trace", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace)}
+
+            self.clock_interface_selection_back_trace = YList(self)
+            self._segment_path = lambda: "clock-interface-selection-back-traces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces, [], name, value)
+
+
+        class ClockInterfaceSelectionBackTrace(Entity):
+            """
+            Selection backtrace operational data for a
+            particular clock\-interface
+            
+            .. attribute:: clock_name  <key>
+            
+            	Clock Name
+            	**type**\:  str
+            
+            .. attribute:: selected_source
+            
+            	Source which has been selected for output
+            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource>`
+            
+            .. attribute:: selection_point
+            
+            	List of selection points in the backtrace
+            	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint>`
+            
+            
+
+            """
+
+            _prefix = 'ncs4k-freqsync-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, self).__init__()
+
+                self.yang_name = "clock-interface-selection-back-trace"
+                self.yang_parent_name = "clock-interface-selection-back-traces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource)}
+                self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint)}
+
+                self.clock_name = YLeaf(YType.str, "clock-name")
+
+                self.selected_source = FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource()
+                self.selected_source.parent = self
+                self._children_name_map["selected_source"] = "selected-source"
+                self._children_yang_names.add("selected-source")
+
+                self.selection_point = YList(self)
+                self._segment_path = lambda: "clock-interface-selection-back-trace" + "[clock-name='" + self.clock_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clock-interface-selection-back-traces/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace, ['clock_name'], name, value)
+
+
+            class SelectedSource(Entity):
                 """
-                NTP operational data
+                Source which has been selected for output
                 
-                .. attribute:: frequency_priority
+                .. attribute:: clock_id
                 
-                	The priority of the NTP clock when selected between frequency sources
-                	**type**\:  int
+                	Clock ID
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId>`
                 
-                	**range:** 0..255
+                .. attribute:: source_class
                 
-                .. attribute:: node_selection_point
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                 
-                	Node selection points
-                	**type**\:  list of int
+                .. attribute:: ethernet_interface
                 
-                	**range:** 0..255
+                	Ethernet interface
+                	**type**\:  str
                 
-                .. attribute:: node_selection_points_description
+                .. attribute:: sonet_interface
                 
-                	Node selection points descrption
-                	**type**\:  list of str
+                	SONET interfaces
+                	**type**\:  str
                 
-                .. attribute:: quality_level_effective_input
+                .. attribute:: node
                 
-                	The effective input quality level
-                	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput>`
+                	Internal Clock Node
+                	**type**\:  str
                 
-                .. attribute:: spa_selection_point
+                .. attribute:: ptp_node
                 
-                	Spa selection points
-                	**type**\:  list of int
+                	PTP Clock Node
+                	**type**\:  str
                 
-                	**range:** 0..255
+                .. attribute:: satellite_access_interface
                 
-                .. attribute:: spa_selection_points_description
+                	Satellite Access Interface
+                	**type**\:  str
                 
-                	Spa selection points descrption
-                	**type**\:  list of str
+                .. attribute:: ntp_node
                 
-                .. attribute:: state
-                
-                	NTP state
-                	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
-                
-                .. attribute:: supports_frequency
-                
-                	The NTP clock supports frequency
-                	**type**\:  bool
-                
-                .. attribute:: supports_time_of_day
-                
-                	The NTP clock supports time
-                	**type**\:  bool
-                
-                .. attribute:: time_of_day_priority
-                
-                	The priority of the NTP clock when selecting between time\-of\-day sources
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	NTP Clock Node
+                	**type**\:  str
                 
                 
 
@@ -5936,66 +6055,54 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.Ntp, self).__init__()
+                    super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, self).__init__()
 
-                    self.yang_name = "ntp"
-                    self.yang_parent_name = "node"
+                    self.yang_name = "selected-source"
+                    self.yang_parent_name = "clock-interface-selection-back-trace"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput)}
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId)}
                     self._child_list_classes = {}
 
-                    self.frequency_priority = YLeaf(YType.uint8, "frequency-priority")
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
 
-                    self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
+                    self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                    self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                    self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
+                    self.node = YLeaf(YType.str, "node")
 
-                    self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
+                    self.ptp_node = YLeaf(YType.str, "ptp-node")
 
-                    self.state = YLeaf(YType.enumeration, "state")
+                    self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                    self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                    self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
-
-                    self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
-
-                    self.quality_level_effective_input = FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput()
-                    self.quality_level_effective_input.parent = self
-                    self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
-                    self._children_yang_names.add("quality-level-effective-input")
-                    self._segment_path = lambda: "ntp"
+                    self.clock_id = FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId()
+                    self.clock_id.parent = self
+                    self._children_name_map["clock_id"] = "clock-id"
+                    self._children_yang_names.add("clock-id")
+                    self._segment_path = lambda: "selected-source"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.Ntp, ['frequency_priority', 'node_selection_point', 'node_selection_points_description', 'spa_selection_point', 'spa_selection_points_description', 'state', 'supports_frequency', 'supports_time_of_day', 'time_of_day_priority'], name, value)
+                    self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                class QualityLevelEffectiveInput(Entity):
+                class ClockId(Entity):
                     """
-                    The effective input quality level
+                    Clock ID
                     
-                    .. attribute:: option1_value
+                    .. attribute:: node
                     
-                    	ITU\-T Option 1 QL value
-                    	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                    	Node
+                    	**type**\:  str
                     
-                    .. attribute:: option2_generation1_value
+                    .. attribute:: port
                     
-                    	ITU\-T Option 2, generation 1 value
-                    	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                    	Port number
+                    	**type**\:  int
                     
-                    .. attribute:: option2_generation2_value
-                    
-                    	ITU\-T Option 2, generation 2 value
-                    	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                    
-                    .. attribute:: quality_level_option
-                    
-                    	QualityLevelOption
-                    	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                    	**range:** 0..4294967295
                     
                     
 
@@ -6005,89 +6112,44 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput, self).__init__()
+                        super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
 
-                        self.yang_name = "quality-level-effective-input"
-                        self.yang_parent_name = "ntp"
+                        self.yang_name = "clock-id"
+                        self.yang_parent_name = "selected-source"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.option1_value = YLeaf(YType.enumeration, "option1-value")
+                        self.node = YLeaf(YType.str, "node")
 
-                        self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                        self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                        self._segment_path = lambda: "quality-level-effective-input"
+                        self.port = YLeaf(YType.uint32, "port")
+                        self._segment_path = lambda: "clock-id"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.Ntp.QualityLevelEffectiveInput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
+                        self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
 
 
-            class Ptp(Entity):
+            class SelectionPoint(Entity):
                 """
-                PTP operational data
+                List of selection points in the backtrace
                 
-                .. attribute:: frequency_priority
+                .. attribute:: selection_point_type
                 
-                	The priority of the PTP clock when selected between frequency sources
+                	Selection point type
                 	**type**\:  int
                 
                 	**range:** 0..255
                 
-                .. attribute:: node_selection_point
+                .. attribute:: selection_point_description
                 
-                	Node selection points
-                	**type**\:  list of int
+                	Selection point descrption
+                	**type**\:  str
                 
-                	**range:** 0..255
+                .. attribute:: node
                 
-                .. attribute:: node_selection_points_description
-                
-                	Node selection points descrption
-                	**type**\:  list of str
-                
-                .. attribute:: quality_level_effective_input
-                
-                	The effective input quality level
-                	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput>`
-                
-                .. attribute:: spa_selection_point
-                
-                	Spa selection points
-                	**type**\:  list of int
-                
-                	**range:** 0..255
-                
-                .. attribute:: spa_selection_points_description
-                
-                	Spa selection points descrption
-                	**type**\:  list of str
-                
-                .. attribute:: state
-                
-                	PTP state
-                	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
-                
-                .. attribute:: supports_frequency
-                
-                	The PTP clock supports frequency
-                	**type**\:  bool
-                
-                .. attribute:: supports_time_of_day
-                
-                	The PTP clock supports time
-                	**type**\:  bool
-                
-                .. attribute:: time_of_day_priority
-                
-                	The priority of the PTP clock when selecting between time\-of\-day sources
-                	**type**\:  int
-                
-                	**range:** 0..255
+                	Node
+                	**type**\:  str
                 
                 
 
@@ -6097,253 +6159,202 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.Ptp, self).__init__()
+                    super(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, self).__init__()
 
-                    self.yang_name = "ptp"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput)}
-                    self._child_list_classes = {}
-
-                    self.frequency_priority = YLeaf(YType.uint8, "frequency-priority")
-
-                    self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
-
-                    self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
-
-                    self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
-
-                    self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
-
-                    self.state = YLeaf(YType.enumeration, "state")
-
-                    self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
-
-                    self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
-
-                    self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
-
-                    self.quality_level_effective_input = FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput()
-                    self.quality_level_effective_input.parent = self
-                    self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
-                    self._children_yang_names.add("quality-level-effective-input")
-                    self._segment_path = lambda: "ptp"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.Ptp, ['frequency_priority', 'node_selection_point', 'node_selection_points_description', 'spa_selection_point', 'spa_selection_points_description', 'state', 'supports_frequency', 'supports_time_of_day', 'time_of_day_priority'], name, value)
-
-
-                class QualityLevelEffectiveInput(Entity):
-                    """
-                    The effective input quality level
-                    
-                    .. attribute:: option1_value
-                    
-                    	ITU\-T Option 1 QL value
-                    	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                    
-                    .. attribute:: option2_generation1_value
-                    
-                    	ITU\-T Option 2, generation 1 value
-                    	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                    
-                    .. attribute:: option2_generation2_value
-                    
-                    	ITU\-T Option 2, generation 2 value
-                    	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                    
-                    .. attribute:: quality_level_option
-                    
-                    	QualityLevelOption
-                    	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput, self).__init__()
-
-                        self.yang_name = "quality-level-effective-input"
-                        self.yang_parent_name = "ptp"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                        self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                        self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                        self._segment_path = lambda: "quality-level-effective-input"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.Ptp.QualityLevelEffectiveInput, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-            class SelectionPointInputs(Entity):
-                """
-                Table for selection point input operational
-                data
-                
-                .. attribute:: selection_point_input
-                
-                	Operational data for a particular selection point input
-                	**type**\: list of    :py:class:`SelectionPointInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs, self).__init__()
-
-                    self.yang_name = "selection-point-inputs"
-                    self.yang_parent_name = "node"
+                    self.yang_name = "selection-point"
+                    self.yang_parent_name = "clock-interface-selection-back-trace"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
-                    self._child_list_classes = {"selection-point-input" : ("selection_point_input", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput)}
+                    self._child_list_classes = {}
 
-                    self.selection_point_input = YList(self)
-                    self._segment_path = lambda: "selection-point-inputs"
+                    self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                    self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
+                    self.node = YLeaf(YType.str, "node")
+                    self._segment_path = lambda: "selection-point"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs, [], name, value)
+                    self._perform_setattr(FrequencySynchronization.ClockInterfaceSelectionBackTraces.ClockInterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
-                class SelectionPointInput(Entity):
+    class GlobalInterfaces(Entity):
+        """
+        Table for global interface operational data
+        
+        .. attribute:: global_interface
+        
+        	Global interface information for a particular interface
+        	**type**\: list of    :py:class:`GlobalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface>`
+        
+        
+
+        """
+
+        _prefix = 'ncs4k-freqsync-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(FrequencySynchronization.GlobalInterfaces, self).__init__()
+
+            self.yang_name = "global-interfaces"
+            self.yang_parent_name = "frequency-synchronization"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"global-interface" : ("global_interface", FrequencySynchronization.GlobalInterfaces.GlobalInterface)}
+
+            self.global_interface = YList(self)
+            self._segment_path = lambda: "global-interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(FrequencySynchronization.GlobalInterfaces, [], name, value)
+
+
+        class GlobalInterface(Entity):
+            """
+            Global interface information for a particular
+            interface
+            
+            .. attribute:: interface_name  <key>
+            
+            	Interface name
+            	**type**\:  str
+            
+            .. attribute:: interface_selection_back_trace
+            
+            	Selection backtrace operational data for a particular interface
+            	**type**\:   :py:class:`InterfaceSelectionBackTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace>`
+            
+            .. attribute:: interface_selection_forward_trace
+            
+            	Selection forwardtrace operational data for a particular interface
+            	**type**\:   :py:class:`InterfaceSelectionForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace>`
+            
+            
+
+            """
+
+            _prefix = 'ncs4k-freqsync-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface, self).__init__()
+
+                self.yang_name = "global-interface"
+                self.yang_parent_name = "global-interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interface-selection-back-trace" : ("interface_selection_back_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace), "interface-selection-forward-trace" : ("interface_selection_forward_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace)}
+                self._child_list_classes = {}
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.interface_selection_back_trace = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace()
+                self.interface_selection_back_trace.parent = self
+                self._children_name_map["interface_selection_back_trace"] = "interface-selection-back-trace"
+                self._children_yang_names.add("interface-selection-back-trace")
+
+                self.interface_selection_forward_trace = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace()
+                self.interface_selection_forward_trace.parent = self
+                self._children_name_map["interface_selection_forward_trace"] = "interface-selection-forward-trace"
+                self._children_yang_names.add("interface-selection-forward-trace")
+                self._segment_path = lambda: "global-interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/global-interfaces/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface, ['interface_name'], name, value)
+
+
+            class InterfaceSelectionBackTrace(Entity):
+                """
+                Selection backtrace operational data for a
+                particular interface
+                
+                .. attribute:: selected_source
+                
+                	Source which has been selected for output
+                	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource>`
+                
+                .. attribute:: selection_point
+                
+                	List of selection points in the backtrace
+                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, self).__init__()
+
+                    self.yang_name = "interface-selection-back-trace"
+                    self.yang_parent_name = "global-interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"selected-source" : ("selected_source", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource)}
+                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint)}
+
+                    self.selected_source = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource()
+                    self.selected_source.parent = self
+                    self._children_name_map["selected_source"] = "selected-source"
+                    self._children_yang_names.add("selected-source")
+
+                    self.selection_point = YList(self)
+                    self._segment_path = lambda: "interface-selection-back-trace"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace, [], name, value)
+
+
+                class SelectedSource(Entity):
                     """
-                    Operational data for a particular selection
-                    point input
+                    Source which has been selected for output
                     
-                    .. attribute:: clock_port
+                    .. attribute:: clock_id
                     
-                    	Clock port
-                    	**type**\:  int
+                    	Clock ID
+                    	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId>`
                     
-                    	**range:** \-2147483648..2147483647
+                    .. attribute:: source_class
                     
-                    .. attribute:: input_selection_point
+                    	SourceClass
+                    	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                     
-                    	The selection point the input is for
-                    	**type**\:   :py:class:`InputSelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint>`
+                    .. attribute:: ethernet_interface
                     
-                    .. attribute:: interface
-                    
-                    	Interface
+                    	Ethernet interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: sonet_interface
                     
-                    .. attribute:: last_node
-                    
-                    	Last node for a selection point stream
+                    	SONET interfaces
                     	**type**\:  str
                     
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    .. attribute:: node
                     
-                    .. attribute:: last_selection_point
-                    
-                    	Last selection point for a selection point stream
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: original_source
-                    
-                    	Original source
-                    	**type**\:   :py:class:`OriginalSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource>`
-                    
-                    .. attribute:: output_id
-                    
-                    	Output ID for a selection point stream
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: output_id_xr
-                    
-                    	Platform output ID, if the input is selected
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: platform_failed_reason
-                    
-                    	Why the stream has failed
+                    	Internal Clock Node
                     	**type**\:  str
                     
-                    .. attribute:: platform_status
+                    .. attribute:: ptp_node
                     
-                    	Platform status
-                    	**type**\:   :py:class:`FsyncBagStreamState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagStreamState>`
+                    	PTP Clock Node
+                    	**type**\:  str
                     
-                    .. attribute:: priority
+                    .. attribute:: satellite_access_interface
                     
-                    	Priority
-                    	**type**\:  int
+                    	Satellite Access Interface
+                    	**type**\:  str
                     
-                    	**range:** 0..255
+                    .. attribute:: ntp_node
                     
-                    .. attribute:: quality_level
-                    
-                    	Quality Level
-                    	**type**\:   :py:class:`QualityLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel>`
-                    
-                    .. attribute:: selected
-                    
-                    	The selection point input is selected
-                    	**type**\:  bool
-                    
-                    .. attribute:: selection_point
-                    
-                    	Selection point ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: source_type
-                    
-                    	Type of source
-                    	**type**\:   :py:class:`FsyncSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncSource>`
-                    
-                    .. attribute:: stream
-                    
-                    	Stream
-                    	**type**\:   :py:class:`Stream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream>`
-                    
-                    .. attribute:: stream_type
-                    
-                    	Type of stream
-                    	**type**\:   :py:class:`FsyncStream <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncStream>`
-                    
-                    .. attribute:: supports_frequency
-                    
-                    	The selection point input supports frequency
-                    	**type**\:  bool
-                    
-                    .. attribute:: supports_time_of_day
-                    
-                    	The selection point input supports time\-of\-day
-                    	**type**\:  bool
-                    
-                    .. attribute:: time_of_day_priority
-                    
-                    	Time\-of\-day priority
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
+                    	NTP Clock Node
+                    	**type**\:  str
                     
                     
 
@@ -6353,94 +6364,54 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, self).__init__()
+                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, self).__init__()
 
-                        self.yang_name = "selection-point-input"
-                        self.yang_parent_name = "selection-point-inputs"
+                        self.yang_name = "selected-source"
+                        self.yang_parent_name = "interface-selection-back-trace"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"input-selection-point" : ("input_selection_point", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint), "original-source" : ("original_source", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource), "quality-level" : ("quality_level", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel), "stream" : ("stream", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream)}
+                        self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId)}
                         self._child_list_classes = {}
 
-                        self.clock_port = YLeaf(YType.int32, "clock-port")
+                        self.source_class = YLeaf(YType.enumeration, "source-class")
 
-                        self.interface = YLeaf(YType.str, "interface")
+                        self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                        self.last_node = YLeaf(YType.str, "last-node")
+                        self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                        self.last_selection_point = YLeaf(YType.int32, "last-selection-point")
+                        self.node = YLeaf(YType.str, "node")
 
-                        self.output_id = YLeaf(YType.int32, "output-id")
+                        self.ptp_node = YLeaf(YType.str, "ptp-node")
 
-                        self.output_id_xr = YLeaf(YType.uint8, "output-id-xr")
+                        self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                        self.platform_failed_reason = YLeaf(YType.str, "platform-failed-reason")
+                        self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                        self.platform_status = YLeaf(YType.enumeration, "platform-status")
-
-                        self.priority = YLeaf(YType.uint8, "priority")
-
-                        self.selected = YLeaf(YType.boolean, "selected")
-
-                        self.selection_point = YLeaf(YType.int32, "selection-point")
-
-                        self.source_type = YLeaf(YType.enumeration, "source-type")
-
-                        self.stream_type = YLeaf(YType.enumeration, "stream-type")
-
-                        self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
-
-                        self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
-
-                        self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
-
-                        self.input_selection_point = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint()
-                        self.input_selection_point.parent = self
-                        self._children_name_map["input_selection_point"] = "input-selection-point"
-                        self._children_yang_names.add("input-selection-point")
-
-                        self.original_source = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource()
-                        self.original_source.parent = self
-                        self._children_name_map["original_source"] = "original-source"
-                        self._children_yang_names.add("original-source")
-
-                        self.quality_level = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel()
-                        self.quality_level.parent = self
-                        self._children_name_map["quality_level"] = "quality-level"
-                        self._children_yang_names.add("quality-level")
-
-                        self.stream = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream()
-                        self.stream.parent = self
-                        self._children_name_map["stream"] = "stream"
-                        self._children_yang_names.add("stream")
-                        self._segment_path = lambda: "selection-point-input"
+                        self.clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId()
+                        self.clock_id.parent = self
+                        self._children_name_map["clock_id"] = "clock-id"
+                        self._children_yang_names.add("clock-id")
+                        self._segment_path = lambda: "selected-source"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput, ['clock_port', 'interface', 'last_node', 'last_selection_point', 'output_id', 'output_id_xr', 'platform_failed_reason', 'platform_status', 'priority', 'selected', 'selection_point', 'source_type', 'stream_type', 'supports_frequency', 'supports_time_of_day', 'time_of_day_priority'], name, value)
+                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
-                    class InputSelectionPoint(Entity):
+                    class ClockId(Entity):
                         """
-                        The selection point the input is for
+                        Clock ID
                         
                         .. attribute:: node
                         
                         	Node
                         	**type**\:  str
                         
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                        .. attribute:: port
                         
-                        .. attribute:: selection_point_description
-                        
-                        	Selection point descrption
-                        	**type**\:  str
-                        
-                        .. attribute:: selection_point_type
-                        
-                        	Selection point type
+                        	Port number
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** 0..4294967295
                         
                         
 
@@ -6450,10 +6421,10 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, self).__init__()
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, self).__init__()
 
-                            self.yang_name = "input-selection-point"
-                            self.yang_parent_name = "selection-point-input"
+                            self.yang_name = "clock-id"
+                            self.yang_parent_name = "selected-source"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
@@ -6461,70 +6432,148 @@ class FrequencySynchronization(Entity):
 
                             self.node = YLeaf(YType.str, "node")
 
-                            self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                            self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                            self._segment_path = lambda: "input-selection-point"
+                            self.port = YLeaf(YType.uint32, "port")
+                            self._segment_path = lambda: "clock-id"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.InputSelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectedSource.ClockId, ['node', 'port'], name, value)
 
 
-                    class OriginalSource(Entity):
+                class SelectionPoint(Entity):
+                    """
+                    List of selection points in the backtrace
+                    
+                    .. attribute:: selection_point_type
+                    
+                    	Selection point type
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: selection_point_description
+                    
+                    	Selection point descrption
+                    	**type**\:  str
+                    
+                    .. attribute:: node
+                    
+                    	Node
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, self).__init__()
+
+                        self.yang_name = "selection-point"
+                        self.yang_parent_name = "interface-selection-back-trace"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                        self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
+                        self.node = YLeaf(YType.str, "node")
+                        self._segment_path = lambda: "selection-point"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionBackTrace.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
+
+
+            class InterfaceSelectionForwardTrace(Entity):
+                """
+                Selection forwardtrace operational data for a
+                particular interface
+                
+                .. attribute:: forward_trace
+                
+                	Selection ForwardTrace
+                	**type**\: list of    :py:class:`ForwardTrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, self).__init__()
+
+                    self.yang_name = "interface-selection-forward-trace"
+                    self.yang_parent_name = "global-interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"forward-trace" : ("forward_trace", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace)}
+
+                    self.forward_trace = YList(self)
+                    self._segment_path = lambda: "interface-selection-forward-trace"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace, [], name, value)
+
+
+                class ForwardTrace(Entity):
+                    """
+                    Selection ForwardTrace
+                    
+                    .. attribute:: forward_trace_node
+                    
+                    	The source or selection point at this point in the forwardtrace
+                    	**type**\:   :py:class:`ForwardTraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs4k-freqsync-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace, self).__init__()
+
+                        self.yang_name = "forward-trace"
+                        self.yang_parent_name = "interface-selection-forward-trace"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"forward-trace-node" : ("forward_trace_node", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode)}
+                        self._child_list_classes = {}
+
+                        self.forward_trace_node = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode()
+                        self.forward_trace_node.parent = self
+                        self._children_name_map["forward_trace_node"] = "forward-trace-node"
+                        self._children_yang_names.add("forward-trace-node")
+                        self._segment_path = lambda: "forward-trace"
+
+
+                    class ForwardTraceNode(Entity):
                         """
-                        Original source
+                        The source or selection point at this point in
+                        the forwardtrace
                         
-                        .. attribute:: clock_id
+                        .. attribute:: selection_point
                         
-                        	Clock ID
-                        	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId>`
+                        	Selection Point
+                        	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint>`
                         
-                        .. attribute:: ethernet_interface
+                        .. attribute:: source
                         
-                        	Ethernet interface
-                        	**type**\:  str
+                        	Timing Source
+                        	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source>`
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        .. attribute:: node_type
                         
-                        .. attribute:: node
-                        
-                        	Internal Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ntp_node
-                        
-                        	NTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: ptp_node
-                        
-                        	PTP Clock Node
-                        	**type**\:  str
-                        
-                        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                        
-                        .. attribute:: satellite_access_interface
-                        
-                        	Satellite Access Interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: sonet_interface
-                        
-                        	SONET interfaces
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: source_class
-                        
-                        	SourceClass
-                        	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
+                        	NodeType
+                        	**type**\:   :py:class:`FsyncBagForwardtraceNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagForwardtraceNode>`
                         
                         
 
@@ -6534,57 +6583,53 @@ class FrequencySynchronization(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, self).__init__()
+                            super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, self).__init__()
 
-                            self.yang_name = "original-source"
-                            self.yang_parent_name = "selection-point-input"
+                            self.yang_name = "forward-trace-node"
+                            self.yang_parent_name = "forward-trace"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId)}
+                            self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint), "source" : ("source", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source)}
                             self._child_list_classes = {}
 
-                            self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
+                            self.node_type = YLeaf(YType.enumeration, "node-type")
 
-                            self.node = YLeaf(YType.str, "node")
+                            self.selection_point = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint()
+                            self.selection_point.parent = self
+                            self._children_name_map["selection_point"] = "selection-point"
+                            self._children_yang_names.add("selection-point")
 
-                            self.ntp_node = YLeaf(YType.str, "ntp-node")
-
-                            self.ptp_node = YLeaf(YType.str, "ptp-node")
-
-                            self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
-
-                            self.sonet_interface = YLeaf(YType.str, "sonet-interface")
-
-                            self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                            self.clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId()
-                            self.clock_id.parent = self
-                            self._children_name_map["clock_id"] = "clock-id"
-                            self._children_yang_names.add("clock-id")
-                            self._segment_path = lambda: "original-source"
+                            self.source = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source()
+                            self.source.parent = self
+                            self._children_name_map["source"] = "source"
+                            self._children_yang_names.add("source")
+                            self._segment_path = lambda: "forward-trace-node"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                            self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode, ['node_type'], name, value)
 
 
-                        class ClockId(Entity):
+                        class SelectionPoint(Entity):
                             """
-                            Clock ID
+                            Selection Point
+                            
+                            .. attribute:: selection_point_type
+                            
+                            	Selection point type
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: selection_point_description
+                            
+                            	Selection point descrption
+                            	**type**\:  str
                             
                             .. attribute:: node
                             
                             	Node
                             	**type**\:  str
                             
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: port
-                            
-                            	Port number
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
                             
 
                             """
@@ -6593,283 +6638,70 @@ class FrequencySynchronization(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, self).__init__()
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, self).__init__()
 
-                                self.yang_name = "clock-id"
-                                self.yang_parent_name = "original-source"
+                                self.yang_name = "selection-point"
+                                self.yang_parent_name = "forward-trace-node"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
+
+                                self.selection_point_description = YLeaf(YType.str, "selection-point-description")
+
                                 self.node = YLeaf(YType.str, "node")
-
-                                self.port = YLeaf(YType.uint32, "port")
-                                self._segment_path = lambda: "clock-id"
+                                self._segment_path = lambda: "selection-point"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.OriginalSource.ClockId, ['node', 'port'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.SelectionPoint, ['selection_point_type', 'selection_point_description', 'node'], name, value)
 
 
-                    class QualityLevel(Entity):
-                        """
-                        Quality Level
-                        
-                        .. attribute:: option1_value
-                        
-                        	ITU\-T Option 1 QL value
-                        	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
-                        
-                        .. attribute:: option2_generation1_value
-                        
-                        	ITU\-T Option 2, generation 1 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
-                        
-                        .. attribute:: option2_generation2_value
-                        
-                        	ITU\-T Option 2, generation 2 value
-                        	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
-                        
-                        .. attribute:: quality_level_option
-                        
-                        	QualityLevelOption
-                        	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, self).__init__()
-
-                            self.yang_name = "quality-level"
-                            self.yang_parent_name = "selection-point-input"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.option1_value = YLeaf(YType.enumeration, "option1-value")
-
-                            self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
-
-                            self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
-
-                            self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-                            self._segment_path = lambda: "quality-level"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.QualityLevel, ['option1_value', 'option2_generation1_value', 'option2_generation2_value', 'quality_level_option'], name, value)
-
-
-                    class Stream(Entity):
-                        """
-                        Stream
-                        
-                        .. attribute:: selection_point_id
-                        
-                        	Selection point ID
-                        	**type**\:   :py:class:`SelectionPointId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId>`
-                        
-                        .. attribute:: source_id
-                        
-                        	Source ID
-                        	**type**\:   :py:class:`SourceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId>`
-                        
-                        .. attribute:: stream_input
-                        
-                        	StreamInput
-                        	**type**\:   :py:class:`FsyncBagStreamInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagStreamInput>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, self).__init__()
-
-                            self.yang_name = "stream"
-                            self.yang_parent_name = "selection-point-input"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"selection-point-id" : ("selection_point_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId), "source-id" : ("source_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId)}
-                            self._child_list_classes = {}
-
-                            self.stream_input = YLeaf(YType.enumeration, "stream-input")
-
-                            self.selection_point_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId()
-                            self.selection_point_id.parent = self
-                            self._children_name_map["selection_point_id"] = "selection-point-id"
-                            self._children_yang_names.add("selection-point-id")
-
-                            self.source_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId()
-                            self.source_id.parent = self
-                            self._children_name_map["source_id"] = "source-id"
-                            self._children_yang_names.add("source-id")
-                            self._segment_path = lambda: "stream"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream, ['stream_input'], name, value)
-
-
-                        class SelectionPointId(Entity):
+                        class Source(Entity):
                             """
-                            Selection point ID
-                            
-                            .. attribute:: output_id
-                            
-                            	Output ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: selection_point
-                            
-                            	Last selection point
-                            	**type**\:   :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ncs4k-freqsync-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, self).__init__()
-
-                                self.yang_name = "selection-point-id"
-                                self.yang_parent_name = "stream"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"selection-point" : ("selection_point", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint)}
-                                self._child_list_classes = {}
-
-                                self.output_id = YLeaf(YType.uint8, "output-id")
-
-                                self.selection_point = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint()
-                                self.selection_point.parent = self
-                                self._children_name_map["selection_point"] = "selection-point"
-                                self._children_yang_names.add("selection-point")
-                                self._segment_path = lambda: "selection-point-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId, ['output_id'], name, value)
-
-
-                            class SelectionPoint(Entity):
-                                """
-                                Last selection point
-                                
-                                .. attribute:: node
-                                
-                                	Node
-                                	**type**\:  str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                                
-                                .. attribute:: selection_point_description
-                                
-                                	Selection point descrption
-                                	**type**\:  str
-                                
-                                .. attribute:: selection_point_type
-                                
-                                	Selection point type
-                                	**type**\:  int
-                                
-                                	**range:** 0..255
-                                
-                                
-
-                                """
-
-                                _prefix = 'ncs4k-freqsync-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, self).__init__()
-
-                                    self.yang_name = "selection-point"
-                                    self.yang_parent_name = "selection-point-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.node = YLeaf(YType.str, "node")
-
-                                    self.selection_point_description = YLeaf(YType.str, "selection-point-description")
-
-                                    self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-                                    self._segment_path = lambda: "selection-point"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SelectionPointId.SelectionPoint, ['node', 'selection_point_description', 'selection_point_type'], name, value)
-
-
-                        class SourceId(Entity):
-                            """
-                            Source ID
+                            Timing Source
                             
                             .. attribute:: clock_id
                             
                             	Clock ID
-                            	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId>`
-                            
-                            .. attribute:: ethernet_interface
-                            
-                            	Ethernet interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: node
-                            
-                            	Internal Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ntp_node
-                            
-                            	NTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: ptp_node
-                            
-                            	PTP Clock Node
-                            	**type**\:  str
-                            
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: satellite_access_interface
-                            
-                            	Satellite Access Interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: sonet_interface
-                            
-                            	SONET interfaces
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId>`
                             
                             .. attribute:: source_class
                             
                             	SourceClass
                             	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                             
+                            .. attribute:: ethernet_interface
+                            
+                            	Ethernet interface
+                            	**type**\:  str
+                            
+                            .. attribute:: sonet_interface
+                            
+                            	SONET interfaces
+                            	**type**\:  str
+                            
+                            .. attribute:: node
+                            
+                            	Internal Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: ptp_node
+                            
+                            	PTP Clock Node
+                            	**type**\:  str
+                            
+                            .. attribute:: satellite_access_interface
+                            
+                            	Satellite Access Interface
+                            	**type**\:  str
+                            
+                            .. attribute:: ntp_node
+                            
+                            	NTP Clock Node
+                            	**type**\:  str
+                            
                             
 
                             """
@@ -6878,37 +6710,37 @@ class FrequencySynchronization(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, self).__init__()
+                                super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, self).__init__()
 
-                                self.yang_name = "source-id"
-                                self.yang_parent_name = "stream"
+                                self.yang_name = "source"
+                                self.yang_parent_name = "forward-trace-node"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId)}
+                                self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId)}
                                 self._child_list_classes = {}
+
+                                self.source_class = YLeaf(YType.enumeration, "source-class")
 
                                 self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                                self.node = YLeaf(YType.str, "node")
+                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                                self.ntp_node = YLeaf(YType.str, "ntp-node")
+                                self.node = YLeaf(YType.str, "node")
 
                                 self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                                 self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                                self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+                                self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                                self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                                self.clock_id = FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId()
+                                self.clock_id = FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId()
                                 self.clock_id.parent = self
                                 self._children_name_map["clock_id"] = "clock-id"
                                 self._children_yang_names.add("clock-id")
-                                self._segment_path = lambda: "source-id"
+                                self._segment_path = lambda: "source"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                                self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                             class ClockId(Entity):
@@ -6919,8 +6751,6 @@ class FrequencySynchronization(Entity):
                                 
                                 	Node
                                 	**type**\:  str
-                                
-                                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                                 
                                 .. attribute:: port
                                 
@@ -6937,10 +6767,10 @@ class FrequencySynchronization(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, self).__init__()
+                                    super(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, self).__init__()
 
                                     self.yang_name = "clock-id"
-                                    self.yang_parent_name = "source-id"
+                                    self.yang_parent_name = "source"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
@@ -6952,503 +6782,17 @@ class FrequencySynchronization(Entity):
                                     self._segment_path = lambda: "clock-id"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPointInputs.SelectionPointInput.Stream.SourceId.ClockId, ['node', 'port'], name, value)
+                                    self._perform_setattr(FrequencySynchronization.GlobalInterfaces.GlobalInterface.InterfaceSelectionForwardTrace.ForwardTrace.ForwardTraceNode.Source.ClockId, ['node', 'port'], name, value)
 
 
-            class SelectionPoints(Entity):
-                """
-                Selection point table
-                
-                .. attribute:: selection_point
-                
-                	Operational data for a given selection point
-                	**type**\: list of    :py:class:`SelectionPoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint>`
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SelectionPoints, self).__init__()
-
-                    self.yang_name = "selection-points"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"selection-point" : ("selection_point", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint)}
-
-                    self.selection_point = YList(self)
-                    self._segment_path = lambda: "selection-points"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints, [], name, value)
-
-
-                class SelectionPoint(Entity):
-                    """
-                    Operational data for a given selection point
-                    
-                    .. attribute:: selection_point  <key>
-                    
-                    	Selection point ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: description
-                    
-                    	Description
-                    	**type**\:  str
-                    
-                    .. attribute:: inputs
-                    
-                    	Number of inputs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: inputs_selected
-                    
-                    	Number of inputs that are selected
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_programmed
-                    
-                    	Time the SP was last programmed
-                    	**type**\:   :py:class:`LastProgrammed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed>`
-                    
-                    .. attribute:: last_selection
-                    
-                    	Time the last selection was made
-                    	**type**\:   :py:class:`LastSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection>`
-                    
-                    .. attribute:: output
-                    
-                    	Information about the output of the selection point
-                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output>`
-                    
-                    .. attribute:: selection_point_type
-                    
-                    	Selection Point Type
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: time_of_day_selection
-                    
-                    	The selection point is a time\-of\-day selection point
-                    	**type**\:  bool
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs4k-freqsync-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint, self).__init__()
-
-                        self.yang_name = "selection-point"
-                        self.yang_parent_name = "selection-points"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"last-programmed" : ("last_programmed", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed), "last-selection" : ("last_selection", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection), "output" : ("output", FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output)}
-                        self._child_list_classes = {}
-
-                        self.selection_point = YLeaf(YType.int32, "selection-point")
-
-                        self.description = YLeaf(YType.str, "description")
-
-                        self.inputs = YLeaf(YType.uint32, "inputs")
-
-                        self.inputs_selected = YLeaf(YType.uint32, "inputs-selected")
-
-                        self.selection_point_type = YLeaf(YType.uint8, "selection-point-type")
-
-                        self.time_of_day_selection = YLeaf(YType.boolean, "time-of-day-selection")
-
-                        self.last_programmed = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed()
-                        self.last_programmed.parent = self
-                        self._children_name_map["last_programmed"] = "last-programmed"
-                        self._children_yang_names.add("last-programmed")
-
-                        self.last_selection = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection()
-                        self.last_selection.parent = self
-                        self._children_name_map["last_selection"] = "last-selection"
-                        self._children_yang_names.add("last-selection")
-
-                        self.output = FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output()
-                        self.output.parent = self
-                        self._children_name_map["output"] = "output"
-                        self._children_yang_names.add("output")
-                        self._segment_path = lambda: "selection-point" + "[selection-point='" + self.selection_point.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint, ['selection_point', 'description', 'inputs', 'inputs_selected', 'selection_point_type', 'time_of_day_selection'], name, value)
-
-
-                    class LastProgrammed(Entity):
-                        """
-                        Time the SP was last programmed
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed, self).__init__()
-
-                            self.yang_name = "last-programmed"
-                            self.yang_parent_name = "selection-point"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "last-programmed"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastProgrammed, ['nanoseconds', 'seconds'], name, value)
-
-
-                    class LastSelection(Entity):
-                        """
-                        Time the last selection was made
-                        
-                        .. attribute:: nanoseconds
-                        
-                        	Nanoseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: nanosecond
-                        
-                        .. attribute:: seconds
-                        
-                        	Seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection, self).__init__()
-
-                            self.yang_name = "last-selection"
-                            self.yang_parent_name = "selection-point"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.nanoseconds = YLeaf(YType.uint32, "nanoseconds")
-
-                            self.seconds = YLeaf(YType.uint32, "seconds")
-                            self._segment_path = lambda: "last-selection"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.LastSelection, ['nanoseconds', 'seconds'], name, value)
-
-
-                    class Output(Entity):
-                        """
-                        Information about the output of the selection
-                        point
-                        
-                        .. attribute:: chassis_selection_point
-                        
-                        	Chassis selection points
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: chassis_selection_points_description
-                        
-                        	Chassis selection points descrption
-                        	**type**\:  list of str
-                        
-                        .. attribute:: local_clock_ouput
-                        
-                        	Used for local clock output
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_line_output
-                        
-                        	Used for local line interface output
-                        	**type**\:  bool
-                        
-                        .. attribute:: local_time_of_day_output
-                        
-                        	Used for local time\-of\-day output
-                        	**type**\:  bool
-                        
-                        .. attribute:: node_selection_point
-                        
-                        	Node selection points
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: node_selection_points_description
-                        
-                        	Node selection points descrption
-                        	**type**\:  list of str
-                        
-                        .. attribute:: router_selection_point
-                        
-                        	Router selection points
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: router_selection_points_description
-                        
-                        	Router selection points descrption
-                        	**type**\:  list of str
-                        
-                        .. attribute:: spa_selection_point
-                        
-                        	SPA selection points
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: spa_selection_points_description
-                        
-                        	SPA selection points descrption
-                        	**type**\:  list of str
-                        
-                        
-
-                        """
-
-                        _prefix = 'ncs4k-freqsync-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output, self).__init__()
-
-                            self.yang_name = "output"
-                            self.yang_parent_name = "selection-point"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.chassis_selection_point = YLeafList(YType.uint8, "chassis-selection-point")
-
-                            self.chassis_selection_points_description = YLeafList(YType.str, "chassis-selection-points-description")
-
-                            self.local_clock_ouput = YLeaf(YType.boolean, "local-clock-ouput")
-
-                            self.local_line_output = YLeaf(YType.boolean, "local-line-output")
-
-                            self.local_time_of_day_output = YLeaf(YType.boolean, "local-time-of-day-output")
-
-                            self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
-
-                            self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
-
-                            self.router_selection_point = YLeafList(YType.uint8, "router-selection-point")
-
-                            self.router_selection_points_description = YLeafList(YType.str, "router-selection-points-description")
-
-                            self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
-
-                            self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
-                            self._segment_path = lambda: "output"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(FrequencySynchronization.Nodes.Node.SelectionPoints.SelectionPoint.Output, ['chassis_selection_point', 'chassis_selection_points_description', 'local_clock_ouput', 'local_line_output', 'local_time_of_day_output', 'node_selection_point', 'node_selection_points_description', 'router_selection_point', 'router_selection_points_description', 'spa_selection_point', 'spa_selection_points_description'], name, value)
-
-
-            class SsmSummary(Entity):
-                """
-                SSM operational data
-                
-                .. attribute:: dn_us_received
-                
-                	Total DNU SSMs received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dn_us_sent
-                
-                	Total DNU SSMs sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ethernet_sources
-                
-                	Number of ethernet interfaces in synchronous mode
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ethernet_sources_enabled
-                
-                	Number of ethernet interfaces with SSM enabled
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: ethernet_sources_select
-                
-                	Number of ethernet interfaces assigned for selection
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: events_received
-                
-                	Total event SSMs received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: events_sent
-                
-                	Total event SSMs sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: infos_received
-                
-                	Total information SSMs received
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: infos_sent
-                
-                	Total information SSMs sent
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sonet_sources
-                
-                	Number of SONET interfaces in synchronous mode
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sonet_sources_enabled
-                
-                	Number of SONET interfaces with SSM enabled
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sonet_sources_select
-                
-                	Number of SONET interfaces assigned for selection
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ncs4k-freqsync-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(FrequencySynchronization.Nodes.Node.SsmSummary, self).__init__()
-
-                    self.yang_name = "ssm-summary"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.dn_us_received = YLeaf(YType.uint32, "dn-us-received")
-
-                    self.dn_us_sent = YLeaf(YType.uint32, "dn-us-sent")
-
-                    self.ethernet_sources = YLeaf(YType.uint32, "ethernet-sources")
-
-                    self.ethernet_sources_enabled = YLeaf(YType.uint32, "ethernet-sources-enabled")
-
-                    self.ethernet_sources_select = YLeaf(YType.uint32, "ethernet-sources-select")
-
-                    self.events_received = YLeaf(YType.uint32, "events-received")
-
-                    self.events_sent = YLeaf(YType.uint32, "events-sent")
-
-                    self.infos_received = YLeaf(YType.uint32, "infos-received")
-
-                    self.infos_sent = YLeaf(YType.uint32, "infos-sent")
-
-                    self.sonet_sources = YLeaf(YType.uint32, "sonet-sources")
-
-                    self.sonet_sources_enabled = YLeaf(YType.uint32, "sonet-sources-enabled")
-
-                    self.sonet_sources_select = YLeaf(YType.uint32, "sonet-sources-select")
-                    self._segment_path = lambda: "ssm-summary"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Nodes.Node.SsmSummary, ['dn_us_received', 'dn_us_sent', 'ethernet_sources', 'ethernet_sources_enabled', 'ethernet_sources_select', 'events_received', 'events_sent', 'infos_received', 'infos_sent', 'sonet_sources', 'sonet_sources_enabled', 'sonet_sources_select'], name, value)
-
-
-    class Summary(Entity):
+    class Clocks(Entity):
         """
-        Summary operational data
+        Table for clock operational data
         
-        .. attribute:: frequency_summary
+        .. attribute:: clock
         
-        	Summary of sources selected for frequency
-        	**type**\: list of    :py:class:`FrequencySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary>`
-        
-        .. attribute:: time_of_day_summary
-        
-        	Summary of sources selected for time\-of\-day
-        	**type**\: list of    :py:class:`TimeOfDaySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary>`
+        	Operational data for a particular clock
+        	**type**\: list of    :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock>`
         
         
 
@@ -7458,53 +6802,188 @@ class FrequencySynchronization(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(FrequencySynchronization.Summary, self).__init__()
+            super(FrequencySynchronization.Clocks, self).__init__()
 
-            self.yang_name = "summary"
+            self.yang_name = "clocks"
             self.yang_parent_name = "frequency-synchronization"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"frequency-summary" : ("frequency_summary", FrequencySynchronization.Summary.FrequencySummary), "time-of-day-summary" : ("time_of_day_summary", FrequencySynchronization.Summary.TimeOfDaySummary)}
+            self._child_list_classes = {"clock" : ("clock", FrequencySynchronization.Clocks.Clock)}
 
-            self.frequency_summary = YList(self)
-            self.time_of_day_summary = YList(self)
-            self._segment_path = lambda: "summary"
+            self.clock = YList(self)
+            self._segment_path = lambda: "clocks"
             self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FrequencySynchronization.Summary, [], name, value)
+            self._perform_setattr(FrequencySynchronization.Clocks, [], name, value)
 
 
-        class FrequencySummary(Entity):
+        class Clock(Entity):
             """
-            Summary of sources selected for frequency
+            Operational data for a particular clock
             
-            .. attribute:: clock_count
+            .. attribute:: clock_name  <key>
             
-            	The number of clock\-interfaces being driven by the source
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ethernet_count
-            
-            	The number of Ethernet interfaces being driven by the source
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: sonet_count
-            
-            	The number of SONET/SDH interfaces being driven by the source
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	Clock Name
+            	**type**\:  str
             
             .. attribute:: source
             
-            	The source associated with this summary information
-            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source>`
+            	The source ID for the clock
+            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.Source>`
+            
+            .. attribute:: selected_source
+            
+            	Timing source selected for clock output
+            	**type**\:   :py:class:`SelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.SelectedSource>`
+            
+            .. attribute:: quality_level_received
+            
+            	Received quality level
+            	**type**\:   :py:class:`QualityLevelReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelReceived>`
+            
+            .. attribute:: quality_level_damped
+            
+            	Quality level after damping has been applied
+            	**type**\:   :py:class:`QualityLevelDamped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelDamped>`
+            
+            .. attribute:: quality_level_effective_input
+            
+            	The effective input quality level
+            	**type**\:   :py:class:`QualityLevelEffectiveInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput>`
+            
+            .. attribute:: quality_level_effective_output
+            
+            	The effective output quality level
+            	**type**\:   :py:class:`QualityLevelEffectiveOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput>`
+            
+            .. attribute:: quality_level_selected_source
+            
+            	The quality level of the source driving this interface
+            	**type**\:   :py:class:`QualityLevelSelectedSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource>`
+            
+            .. attribute:: state
+            
+            	Clock state
+            	**type**\:   :py:class:`FsyncBagSourceState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceState>`
+            
+            .. attribute:: down_reason
+            
+            	Why the clock is down
+            	**type**\:  str
+            
+            .. attribute:: description
+            
+            	Clock description
+            	**type**\:  str
+            
+            .. attribute:: priority
+            
+            	Priority
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: time_of_day_priority
+            
+            	Time\-of\-day priority
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            .. attribute:: ssm_support
+            
+            	The clock supports SSMs
+            	**type**\:  bool
+            
+            .. attribute:: ssm_enabled
+            
+            	The clock output is squelched
+            	**type**\:  bool
+            
+            .. attribute:: loopback
+            
+            	The clock is looped back
+            	**type**\:  bool
+            
+            .. attribute:: selection_input
+            
+            	The clock is an input for selection
+            	**type**\:  bool
+            
+            .. attribute:: squelched
+            
+            	The clock output is squelched
+            	**type**\:  bool
+            
+            .. attribute:: damping_state
+            
+            	Damping state
+            	**type**\:   :py:class:`FsyncBagDampingState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagDampingState>`
+            
+            .. attribute:: damping_time
+            
+            	Time until damping state changes in ms
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: input_disabled
+            
+            	Timing input is disabled
+            	**type**\:  bool
+            
+            .. attribute:: output_disabled
+            
+            	Timing output is disabled
+            	**type**\:  bool
+            
+            .. attribute:: wait_to_restore_time
+            
+            	Wait\-to\-restore time for the clock
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: clock_type
+            
+            	The type of clock
+            	**type**\:   :py:class:`FsyncBagClockIntfClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagClockIntfClass>`
+            
+            .. attribute:: supports_frequency
+            
+            	The PTP clock supports frequency
+            	**type**\:  bool
+            
+            .. attribute:: supports_time_of_day
+            
+            	The PTP clock supports time
+            	**type**\:  bool
+            
+            .. attribute:: spa_selection_point
+            
+            	Spa selection points
+            	**type**\:  list of int
+            
+            	**range:** 0..255
+            
+            .. attribute:: spa_selection_points_description
+            
+            	Spa selection points descrption
+            	**type**\:  list of str
+            
+            .. attribute:: node_selection_point
+            
+            	Node selection points
+            	**type**\:  list of int
+            
+            	**range:** 0..255
+            
+            .. attribute:: node_selection_points_description
+            
+            	Node selection points descrption
+            	**type**\:  list of str
             
             
 
@@ -7514,88 +6993,145 @@ class FrequencySynchronization(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(FrequencySynchronization.Summary.FrequencySummary, self).__init__()
+                super(FrequencySynchronization.Clocks.Clock, self).__init__()
 
-                self.yang_name = "frequency-summary"
-                self.yang_parent_name = "summary"
+                self.yang_name = "clock"
+                self.yang_parent_name = "clocks"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Summary.FrequencySummary.Source)}
+                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Clocks.Clock.Source), "selected-source" : ("selected_source", FrequencySynchronization.Clocks.Clock.SelectedSource), "quality-level-received" : ("quality_level_received", FrequencySynchronization.Clocks.Clock.QualityLevelReceived), "quality-level-damped" : ("quality_level_damped", FrequencySynchronization.Clocks.Clock.QualityLevelDamped), "quality-level-effective-input" : ("quality_level_effective_input", FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput), "quality-level-effective-output" : ("quality_level_effective_output", FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput), "quality-level-selected-source" : ("quality_level_selected_source", FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource)}
                 self._child_list_classes = {}
 
-                self.clock_count = YLeaf(YType.uint32, "clock-count")
+                self.clock_name = YLeaf(YType.str, "clock-name")
 
-                self.ethernet_count = YLeaf(YType.uint32, "ethernet-count")
+                self.state = YLeaf(YType.enumeration, "state")
 
-                self.sonet_count = YLeaf(YType.uint32, "sonet-count")
+                self.down_reason = YLeaf(YType.str, "down-reason")
 
-                self.source = FrequencySynchronization.Summary.FrequencySummary.Source()
+                self.description = YLeaf(YType.str, "description")
+
+                self.priority = YLeaf(YType.uint8, "priority")
+
+                self.time_of_day_priority = YLeaf(YType.uint8, "time-of-day-priority")
+
+                self.ssm_support = YLeaf(YType.boolean, "ssm-support")
+
+                self.ssm_enabled = YLeaf(YType.boolean, "ssm-enabled")
+
+                self.loopback = YLeaf(YType.boolean, "loopback")
+
+                self.selection_input = YLeaf(YType.boolean, "selection-input")
+
+                self.squelched = YLeaf(YType.boolean, "squelched")
+
+                self.damping_state = YLeaf(YType.enumeration, "damping-state")
+
+                self.damping_time = YLeaf(YType.uint32, "damping-time")
+
+                self.input_disabled = YLeaf(YType.boolean, "input-disabled")
+
+                self.output_disabled = YLeaf(YType.boolean, "output-disabled")
+
+                self.wait_to_restore_time = YLeaf(YType.uint16, "wait-to-restore-time")
+
+                self.clock_type = YLeaf(YType.enumeration, "clock-type")
+
+                self.supports_frequency = YLeaf(YType.boolean, "supports-frequency")
+
+                self.supports_time_of_day = YLeaf(YType.boolean, "supports-time-of-day")
+
+                self.spa_selection_point = YLeafList(YType.uint8, "spa-selection-point")
+
+                self.spa_selection_points_description = YLeafList(YType.str, "spa-selection-points-description")
+
+                self.node_selection_point = YLeafList(YType.uint8, "node-selection-point")
+
+                self.node_selection_points_description = YLeafList(YType.str, "node-selection-points-description")
+
+                self.source = FrequencySynchronization.Clocks.Clock.Source()
                 self.source.parent = self
                 self._children_name_map["source"] = "source"
                 self._children_yang_names.add("source")
-                self._segment_path = lambda: "frequency-summary"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/%s" % self._segment_path()
+
+                self.selected_source = FrequencySynchronization.Clocks.Clock.SelectedSource()
+                self.selected_source.parent = self
+                self._children_name_map["selected_source"] = "selected-source"
+                self._children_yang_names.add("selected-source")
+
+                self.quality_level_received = FrequencySynchronization.Clocks.Clock.QualityLevelReceived()
+                self.quality_level_received.parent = self
+                self._children_name_map["quality_level_received"] = "quality-level-received"
+                self._children_yang_names.add("quality-level-received")
+
+                self.quality_level_damped = FrequencySynchronization.Clocks.Clock.QualityLevelDamped()
+                self.quality_level_damped.parent = self
+                self._children_name_map["quality_level_damped"] = "quality-level-damped"
+                self._children_yang_names.add("quality-level-damped")
+
+                self.quality_level_effective_input = FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput()
+                self.quality_level_effective_input.parent = self
+                self._children_name_map["quality_level_effective_input"] = "quality-level-effective-input"
+                self._children_yang_names.add("quality-level-effective-input")
+
+                self.quality_level_effective_output = FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput()
+                self.quality_level_effective_output.parent = self
+                self._children_name_map["quality_level_effective_output"] = "quality-level-effective-output"
+                self._children_yang_names.add("quality-level-effective-output")
+
+                self.quality_level_selected_source = FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource()
+                self.quality_level_selected_source.parent = self
+                self._children_name_map["quality_level_selected_source"] = "quality-level-selected-source"
+                self._children_yang_names.add("quality-level-selected-source")
+                self._segment_path = lambda: "clock" + "[clock-name='" + self.clock_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/clocks/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary, ['clock_count', 'ethernet_count', 'sonet_count'], name, value)
+                self._perform_setattr(FrequencySynchronization.Clocks.Clock, ['clock_name', 'state', 'down_reason', 'description', 'priority', 'time_of_day_priority', 'ssm_support', 'ssm_enabled', 'loopback', 'selection_input', 'squelched', 'damping_state', 'damping_time', 'input_disabled', 'output_disabled', 'wait_to_restore_time', 'clock_type', 'supports_frequency', 'supports_time_of_day', 'spa_selection_point', 'spa_selection_points_description', 'node_selection_point', 'node_selection_points_description'], name, value)
 
 
             class Source(Entity):
                 """
-                The source associated with this summary
-                information
+                The source ID for the clock
                 
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.FrequencySummary.Source.ClockId>`
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.Source.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                 
                 .. attribute:: ethernet_interface
                 
                 	Ethernet interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
                 
                 .. attribute:: node
                 
                 	Internal Clock Node
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: satellite_access_interface
                 
                 	Satellite Access Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: ntp_node
                 
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
+                	NTP Clock Node
                 	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                 
                 
 
@@ -7605,38 +7141,37 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Summary.FrequencySummary.Source, self).__init__()
+                    super(FrequencySynchronization.Clocks.Clock.Source, self).__init__()
 
                     self.yang_name = "source"
-                    self.yang_parent_name = "frequency-summary"
+                    self.yang_parent_name = "clock"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Summary.FrequencySummary.Source.ClockId)}
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Clocks.Clock.Source.ClockId)}
                     self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
 
                     self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                    self.node = YLeaf(YType.str, "node")
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+                    self.node = YLeaf(YType.str, "node")
 
                     self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                     self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Summary.FrequencySummary.Source.ClockId()
+                    self.clock_id = FrequencySynchronization.Clocks.Clock.Source.ClockId()
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
                     self._children_yang_names.add("clock-id")
                     self._segment_path = lambda: "source"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/frequency-summary/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.Source, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -7647,8 +7182,6 @@ class FrequencySynchronization(Entity):
                     
                     	Node
                     	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: port
                     
@@ -7665,12 +7198,12 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, self).__init__()
+                        super(FrequencySynchronization.Clocks.Clock.Source.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
                         self.yang_parent_name = "source"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
+                        self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
@@ -7678,114 +7211,54 @@ class FrequencySynchronization(Entity):
 
                         self.port = YLeaf(YType.uint32, "port")
                         self._segment_path = lambda: "clock-id"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/frequency-summary/source/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.FrequencySummary.Source.ClockId, ['node', 'port'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Clocks.Clock.Source.ClockId, ['node', 'port'], name, value)
 
 
-        class TimeOfDaySummary(Entity):
-            """
-            Summary of sources selected for time\-of\-day
-            
-            .. attribute:: node_count
-            
-            	The number of cards having their time\-of\-day set by the source
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: source
-            
-            	The source associated with this summary information
-            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source>`
-            
-            
-
-            """
-
-            _prefix = 'ncs4k-freqsync-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(FrequencySynchronization.Summary.TimeOfDaySummary, self).__init__()
-
-                self.yang_name = "time-of-day-summary"
-                self.yang_parent_name = "summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"source" : ("source", FrequencySynchronization.Summary.TimeOfDaySummary.Source)}
-                self._child_list_classes = {}
-
-                self.node_count = YLeaf(YType.uint32, "node-count")
-
-                self.source = FrequencySynchronization.Summary.TimeOfDaySummary.Source()
-                self.source.parent = self
-                self._children_name_map["source"] = "source"
-                self._children_yang_names.add("source")
-                self._segment_path = lambda: "time-of-day-summary"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary, ['node_count'], name, value)
-
-
-            class Source(Entity):
+            class SelectedSource(Entity):
                 """
-                The source associated with this summary
-                information
+                Timing source selected for clock output
                 
                 .. attribute:: clock_id
                 
                 	Clock ID
-                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId>`
+                	**type**\:   :py:class:`ClockId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId>`
+                
+                .. attribute:: source_class
+                
+                	SourceClass
+                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                 
                 .. attribute:: ethernet_interface
                 
                 	Ethernet interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: sonet_interface
+                
+                	SONET interfaces
+                	**type**\:  str
                 
                 .. attribute:: node
                 
                 	Internal Clock Node
                 	**type**\:  str
                 
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: ntp_node
-                
-                	NTP Clock Node
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
                 .. attribute:: ptp_node
                 
                 	PTP Clock Node
                 	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: satellite_access_interface
                 
                 	Satellite Access Interface
                 	**type**\:  str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                .. attribute:: ntp_node
                 
-                .. attribute:: sonet_interface
-                
-                	SONET interfaces
+                	NTP Clock Node
                 	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: source_class
-                
-                	SourceClass
-                	**type**\:   :py:class:`FsyncBagSourceClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagSourceClass>`
                 
                 
 
@@ -7795,38 +7268,37 @@ class FrequencySynchronization(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(FrequencySynchronization.Summary.TimeOfDaySummary.Source, self).__init__()
+                    super(FrequencySynchronization.Clocks.Clock.SelectedSource, self).__init__()
 
-                    self.yang_name = "source"
-                    self.yang_parent_name = "time-of-day-summary"
+                    self.yang_name = "selected-source"
+                    self.yang_parent_name = "clock"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId)}
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"clock-id" : ("clock_id", FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId)}
                     self._child_list_classes = {}
+
+                    self.source_class = YLeaf(YType.enumeration, "source-class")
 
                     self.ethernet_interface = YLeaf(YType.str, "ethernet-interface")
 
-                    self.node = YLeaf(YType.str, "node")
+                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
 
-                    self.ntp_node = YLeaf(YType.str, "ntp-node")
+                    self.node = YLeaf(YType.str, "node")
 
                     self.ptp_node = YLeaf(YType.str, "ptp-node")
 
                     self.satellite_access_interface = YLeaf(YType.str, "satellite-access-interface")
 
-                    self.sonet_interface = YLeaf(YType.str, "sonet-interface")
+                    self.ntp_node = YLeaf(YType.str, "ntp-node")
 
-                    self.source_class = YLeaf(YType.enumeration, "source-class")
-
-                    self.clock_id = FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId()
+                    self.clock_id = FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId()
                     self.clock_id.parent = self
                     self._children_name_map["clock_id"] = "clock-id"
                     self._children_yang_names.add("clock-id")
-                    self._segment_path = lambda: "source"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/%s" % self._segment_path()
+                    self._segment_path = lambda: "selected-source"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source, ['ethernet_interface', 'node', 'ntp_node', 'ptp_node', 'satellite_access_interface', 'sonet_interface', 'source_class'], name, value)
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.SelectedSource, ['source_class', 'ethernet_interface', 'sonet_interface', 'node', 'ptp_node', 'satellite_access_interface', 'ntp_node'], name, value)
 
 
                 class ClockId(Entity):
@@ -7837,8 +7309,6 @@ class FrequencySynchronization(Entity):
                     
                     	Node
                     	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                     
                     .. attribute:: port
                     
@@ -7855,12 +7325,12 @@ class FrequencySynchronization(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, self).__init__()
+                        super(FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId, self).__init__()
 
                         self.yang_name = "clock-id"
-                        self.yang_parent_name = "source"
+                        self.yang_parent_name = "selected-source"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = False
+                        self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
@@ -7868,10 +7338,280 @@ class FrequencySynchronization(Entity):
 
                         self.port = YLeaf(YType.uint32, "port")
                         self._segment_path = lambda: "clock-id"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs4k-freqsync-oper:frequency-synchronization/summary/time-of-day-summary/source/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(FrequencySynchronization.Summary.TimeOfDaySummary.Source.ClockId, ['node', 'port'], name, value)
+                        self._perform_setattr(FrequencySynchronization.Clocks.Clock.SelectedSource.ClockId, ['node', 'port'], name, value)
+
+
+            class QualityLevelReceived(Entity):
+                """
+                Received quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Clocks.Clock.QualityLevelReceived, self).__init__()
+
+                    self.yang_name = "quality-level-received"
+                    self.yang_parent_name = "clock"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-received"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelReceived, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelDamped(Entity):
+                """
+                Quality level after damping has been applied
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Clocks.Clock.QualityLevelDamped, self).__init__()
+
+                    self.yang_name = "quality-level-damped"
+                    self.yang_parent_name = "clock"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-damped"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelDamped, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelEffectiveInput(Entity):
+                """
+                The effective input quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput, self).__init__()
+
+                    self.yang_name = "quality-level-effective-input"
+                    self.yang_parent_name = "clock"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-effective-input"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveInput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelEffectiveOutput(Entity):
+                """
+                The effective output quality level
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput, self).__init__()
+
+                    self.yang_name = "quality-level-effective-output"
+                    self.yang_parent_name = "clock"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-effective-output"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelEffectiveOutput, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
+
+
+            class QualityLevelSelectedSource(Entity):
+                """
+                The quality level of the source driving this
+                interface
+                
+                .. attribute:: quality_level_option
+                
+                	QualityLevelOption
+                	**type**\:   :py:class:`FsyncBagQlOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlOption>`
+                
+                .. attribute:: option1_value
+                
+                	ITU\-T Option 1 QL value
+                	**type**\:   :py:class:`FsyncBagQlO1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO1Value>`
+                
+                .. attribute:: option2_generation1_value
+                
+                	ITU\-T Option 2, generation 1 value
+                	**type**\:   :py:class:`FsyncBagQlO2G1Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G1Value>`
+                
+                .. attribute:: option2_generation2_value
+                
+                	ITU\-T Option 2, generation 2 value
+                	**type**\:   :py:class:`FsyncBagQlO2G2Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs4k_freqsync_oper.FsyncBagQlO2G2Value>`
+                
+                
+
+                """
+
+                _prefix = 'ncs4k-freqsync-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource, self).__init__()
+
+                    self.yang_name = "quality-level-selected-source"
+                    self.yang_parent_name = "clock"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
+
+                    self.option1_value = YLeaf(YType.enumeration, "option1-value")
+
+                    self.option2_generation1_value = YLeaf(YType.enumeration, "option2-generation1-value")
+
+                    self.option2_generation2_value = YLeaf(YType.enumeration, "option2-generation2-value")
+                    self._segment_path = lambda: "quality-level-selected-source"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(FrequencySynchronization.Clocks.Clock.QualityLevelSelectedSource, ['quality_level_option', 'option1_value', 'option2_generation1_value', 'option2_generation2_value'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()

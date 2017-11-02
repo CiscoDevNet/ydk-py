@@ -32,7 +32,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.6.1'
+VERSION = '0.6.2'
 INSTALL_REQUIREMENTS = ['pybind11>=2.1.1']
 
 
@@ -81,17 +81,21 @@ class YdkBuildExtension(build_ext):
                       '-DPYBIND11_INCLUDE={0};{1}'.format(
                                       pybind11.get_include(),
                                       pybind11.get_include(user=True)),
-                      '-DPYTHON_LIBRARY={0}'.format(
-                                      get_python_library()),
-                      '-DPYTHON_INCLUDE={0}'.format(
-                                      get_python_include()),
+                      '-DPYTHON_VERSION={0}'.format(
+                                      get_python_version()),
                       '-DCMAKE_BUILD_TYPE=Release']
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
 
-        subprocess.check_call(['cmake', ext.sourcedir] + cmake_args, cwd=self.build_temp)
-        subprocess.check_call(['cmake', '--build', '.'], cwd=self.build_temp)
+        cmake3_installed = (0 == subprocess.call(['which', 'cmake3'], stdout=subprocess.PIPE, stderr=subprocess.PIPE))
+        if(cmake3_installed):
+            cmake_executable = 'cmake3'
+        else:
+            cmake_executable = 'cmake'
+
+        subprocess.check_call([cmake_executable, ext.sourcedir] + cmake_args, cwd=self.build_temp)
+        subprocess.check_call([cmake_executable, '--build', '.'], cwd=self.build_temp)
 
 
 def get_python_version():
@@ -99,25 +103,6 @@ def get_python_version():
     if python_version is None or len(python_version) == 0:
         python_version = sysconfig.get_config_var('VERSION')
     return python_version
-
-
-def get_python_library():
-    library_prefix = sysconfig.get_config_var('LIBPL')
-    library_path = os.path.join(library_prefix, sysconfig.get_config_var('LDLIBRARY'))
-    if not os.path.exists(library_path):
-        library_prefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')
-        library_path = os.path.join(library_prefix, sysconfig.get_config_var('LDLIBRARY'))
-
-#assert os.path.exists(library_path), 'Could not find python library in {0}. Check your python installation'.format(library_path)
-    return library_path
-
-
-def get_python_include():
-    include_path = sysconfig.get_config_var('INCLUDEPY')
-    if include_path is None or len(include_path) == 0:
-        prefix = sysconfig.get_config_var('INCLUDEDIR')
-        include_path = os.path.join(prefix, 'python{0}'.format(get_python_version()))
-    return include_path
 
 
 setup(
@@ -147,7 +132,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: C++'
     ],
-    keywords='yang, C++11, python bindings',
+    keywords='yang, C++11, python bindings ',
     packages=YDK_PACKAGES,
     install_requires=INSTALL_REQUIREMENTS,
     ext_modules=[CMakeExtension('ydk_')],

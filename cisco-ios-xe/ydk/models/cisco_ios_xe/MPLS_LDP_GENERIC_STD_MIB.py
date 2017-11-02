@@ -144,6 +144,11 @@ class MPLSLDPGENERICSTDMIB(Entity):
             
             	**range:** 0..1048575
             
+            .. attribute:: mplsldpentitygenericlabelspace
+            
+            	This value of this object is perPlatform(1), then this means that the label space type is per platform.  If this object is perInterface(2), then this means that the label space type is per Interface
+            	**type**\:   :py:class:`Mplsldpentitygenericlabelspace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace>`
+            
             .. attribute:: mplsldpentitygenericifindexorzero
             
             	This value represents either the InterfaceIndex of the 'ifLayer' where these Generic Label would be created,   or 0 (zero).  The value of zero means that the InterfaceIndex is not known.  However, if the InterfaceIndex is known, then it must be represented by this value.  If an InterfaceIndex becomes known, then the network management entity (e.g., SNMP agent) responsible for this object MUST change the value from 0 (zero) to the value of the InterfaceIndex
@@ -151,20 +156,15 @@ class MPLSLDPGENERICSTDMIB(Entity):
             
             	**range:** 0..2147483647
             
-            .. attribute:: mplsldpentitygenericlabelspace
+            .. attribute:: mplsldpentitygenericlrstoragetype
             
-            	This value of this object is perPlatform(1), then this means that the label space type is per platform.  If this object is perInterface(2), then this means that the label space type is per Interface
-            	**type**\:   :py:class:`Mplsldpentitygenericlabelspace <ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB.MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace>`
+            	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: mplsldpentitygenericlrrowstatus
             
             	The status of this conceptual row.  All writable objects in this row may be modified at any time, however, as described in  detail in the section entitled, 'Changing Values After Session Establishment', and again described in the DESCRIPTION clause of the mplsLdpEntityAdminStatus object, if a session has been initiated with a Peer, changing objects in this table will wreak havoc with the session and interrupt traffic. To repeat again\:  the recommended procedure is to set the mplsLdpEntityAdminStatus to down, thereby explicitly causing a session to be torn down. Then, change objects in this entry, then set the mplsLdpEntityAdminStatus to enable which enables a new session to be initiated.  There must exist at least one entry in this table for every LDP Entity that has a generic label configured
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mplsldpentitygenericlrstoragetype
-            
-            	The storage type for this conceptual row. Conceptual rows having the value 'permanent(4)' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             
 
@@ -191,18 +191,18 @@ class MPLSLDPGENERICSTDMIB(Entity):
 
                 self.mplsldpentitygenericlrmax = YLeaf(YType.uint32, "mplsLdpEntityGenericLRMax")
 
-                self.mplsldpentitygenericifindexorzero = YLeaf(YType.int32, "mplsLdpEntityGenericIfIndexOrZero")
-
                 self.mplsldpentitygenericlabelspace = YLeaf(YType.enumeration, "mplsLdpEntityGenericLabelSpace")
 
-                self.mplsldpentitygenericlrrowstatus = YLeaf(YType.enumeration, "mplsLdpEntityGenericLRRowStatus")
+                self.mplsldpentitygenericifindexorzero = YLeaf(YType.int32, "mplsLdpEntityGenericIfIndexOrZero")
 
                 self.mplsldpentitygenericlrstoragetype = YLeaf(YType.enumeration, "mplsLdpEntityGenericLRStorageType")
+
+                self.mplsldpentitygenericlrrowstatus = YLeaf(YType.enumeration, "mplsLdpEntityGenericLRRowStatus")
                 self._segment_path = lambda: "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + self.mplsldpentityldpid.get() + "']" + "[mplsLdpEntityIndex='" + self.mplsldpentityindex.get() + "']" + "[mplsLdpEntityGenericLRMin='" + self.mplsldpentitygenericlrmin.get() + "']" + "[mplsLdpEntityGenericLRMax='" + self.mplsldpentitygenericlrmax.get() + "']"
                 self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/mplsLdpEntityGenericLRTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentitygenericlrmin', 'mplsldpentitygenericlrmax', 'mplsldpentitygenericifindexorzero', 'mplsldpentitygenericlabelspace', 'mplsldpentitygenericlrrowstatus', 'mplsldpentitygenericlrstoragetype'], name, value)
+                self._perform_setattr(MPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentitygenericlrmin', 'mplsldpentitygenericlrmax', 'mplsldpentitygenericlabelspace', 'mplsldpentitygenericifindexorzero', 'mplsldpentitygenericlrstoragetype', 'mplsldpentitygenericlrrowstatus'], name, value)
 
             class Mplsldpentitygenericlabelspace(Enum):
                 """

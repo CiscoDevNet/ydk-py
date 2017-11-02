@@ -61,8 +61,6 @@ class ControllerPortMode(Entity):
         	Interface Name
         	**type**\:  str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
         .. attribute:: port_mode_info
         
         	PortMode  operational data
@@ -102,9 +100,16 @@ class ControllerPortMode(Entity):
             """
             PortMode  operational data
             
-            .. attribute:: diff
+            .. attribute:: intf_name
             
-            	diff
+            	intf name
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: speed
+            
+            	speed
             	**type**\:  str
             
             	**length:** 0..128
@@ -116,9 +121,9 @@ class ControllerPortMode(Entity):
             
             	**length:** 0..128
             
-            .. attribute:: intf_name
+            .. attribute:: diff
             
-            	intf name
+            	diff
             	**type**\:  str
             
             	**length:** 0..128
@@ -126,13 +131,6 @@ class ControllerPortMode(Entity):
             .. attribute:: modulation
             
             	modulation
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: speed
-            
-            	speed
             	**type**\:  str
             
             	**length:** 0..128
@@ -154,19 +152,19 @@ class ControllerPortMode(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.diff = YLeaf(YType.str, "diff")
+                self.intf_name = YLeaf(YType.str, "intf-name")
+
+                self.speed = YLeaf(YType.str, "speed")
 
                 self.fec = YLeaf(YType.str, "fec")
 
-                self.intf_name = YLeaf(YType.str, "intf-name")
+                self.diff = YLeaf(YType.str, "diff")
 
                 self.modulation = YLeaf(YType.str, "modulation")
-
-                self.speed = YLeaf(YType.str, "speed")
                 self._segment_path = lambda: "port-mode-info"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ControllerPortMode.OpticsName.PortModeInfo, ['diff', 'fec', 'intf_name', 'modulation', 'speed'], name, value)
+                self._perform_setattr(ControllerPortMode.OpticsName.PortModeInfo, ['intf_name', 'speed', 'fec', 'diff', 'modulation'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ControllerPortMode()

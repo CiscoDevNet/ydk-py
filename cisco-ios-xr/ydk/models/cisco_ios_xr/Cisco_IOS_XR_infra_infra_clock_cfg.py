@@ -170,38 +170,12 @@ class Clock(Entity):
         """
         Configure summer (daylight savings) time
         
-        .. attribute:: end_hour
+        .. attribute:: time_zone_name
         
-        	Hour to end 
-        	**type**\:  int
+        	Name of time zone in summer
+        	**type**\:  str
         
-        	**range:** 0..23
-        
-        .. attribute:: end_minute
-        
-        	Minute to end 
-        	**type**\:  int
-        
-        	**range:** 0..59
-        
-        .. attribute:: end_month
-        
-        	 Month to end 
-        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
-        
-        .. attribute:: end_week_number_or_end_date
-        
-        	If Mode is set to 'Recurring' specify Week number of the Month to end (first and last strings are not allowed as they are in CLI), if Mode is set to 'Date' specify Date to End
-        	**type**\:  int
-        
-        	**range:** 1..31
-        
-        .. attribute:: end_weekday_or_end_year
-        
-        	If Mode is set to 'Recurring' specify Weekday to end , if Mode is set to 'Date' specify Year to end
-        	**type**\:  int
-        
-        	**range:** 0..2035
+        	**mandatory**\: True
         
         .. attribute:: mode
         
@@ -209,34 +183,6 @@ class Clock(Entity):
         	**type**\:   :py:class:`ClockSummerTimeMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockSummerTimeMode>`
         
         	**mandatory**\: True
-        
-        .. attribute:: offset
-        
-        	Offset to add in minutes 
-        	**type**\:  int
-        
-        	**range:** 1..1440
-        
-        	**units**\: minute
-        
-        .. attribute:: start_hour
-        
-        	Hour to start 
-        	**type**\:  int
-        
-        	**range:** 0..23
-        
-        .. attribute:: start_minute
-        
-        	Minute to start 
-        	**type**\:  int
-        
-        	**range:** 0..59
-        
-        .. attribute:: start_month
-        
-        	 Month to start 
-        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
         
         .. attribute:: start_week_number_or_start_date
         
@@ -252,12 +198,66 @@ class Clock(Entity):
         
         	**range:** 0..2035
         
-        .. attribute:: time_zone_name
+        .. attribute:: start_month
         
-        	Name of time zone in summer
-        	**type**\:  str
+        	 Month to start 
+        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
         
-        	**mandatory**\: True
+        .. attribute:: start_hour
+        
+        	Hour to start 
+        	**type**\:  int
+        
+        	**range:** 0..23
+        
+        .. attribute:: start_minute
+        
+        	Minute to start 
+        	**type**\:  int
+        
+        	**range:** 0..59
+        
+        .. attribute:: end_week_number_or_end_date
+        
+        	If Mode is set to 'Recurring' specify Week number of the Month to end (first and last strings are not allowed as they are in CLI), if Mode is set to 'Date' specify Date to End
+        	**type**\:  int
+        
+        	**range:** 1..31
+        
+        .. attribute:: end_weekday_or_end_year
+        
+        	If Mode is set to 'Recurring' specify Weekday to end , if Mode is set to 'Date' specify Year to end
+        	**type**\:  int
+        
+        	**range:** 0..2035
+        
+        .. attribute:: end_month
+        
+        	 Month to end 
+        	**type**\:   :py:class:`ClockMonth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg.ClockMonth>`
+        
+        .. attribute:: end_hour
+        
+        	Hour to end 
+        	**type**\:  int
+        
+        	**range:** 0..23
+        
+        .. attribute:: end_minute
+        
+        	Minute to end 
+        	**type**\:  int
+        
+        	**range:** 0..59
+        
+        .. attribute:: offset
+        
+        	Offset to add in minutes 
+        	**type**\:  int
+        
+        	**range:** 1..1440
+        
+        	**units**\: minute
         
         
 
@@ -279,41 +279,48 @@ class Clock(Entity):
             self._child_list_classes = {}
             self.is_presence_container = True
 
-            self.end_hour = YLeaf(YType.uint32, "end-hour")
-
-            self.end_minute = YLeaf(YType.uint32, "end-minute")
-
-            self.end_month = YLeaf(YType.enumeration, "end-month")
-
-            self.end_week_number_or_end_date = YLeaf(YType.uint32, "end-week-number-or-end-date")
-
-            self.end_weekday_or_end_year = YLeaf(YType.uint32, "end-weekday-or-end-year")
+            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
 
             self.mode = YLeaf(YType.enumeration, "mode")
-
-            self.offset = YLeaf(YType.uint32, "offset")
-
-            self.start_hour = YLeaf(YType.uint32, "start-hour")
-
-            self.start_minute = YLeaf(YType.uint32, "start-minute")
-
-            self.start_month = YLeaf(YType.enumeration, "start-month")
 
             self.start_week_number_or_start_date = YLeaf(YType.uint32, "start-week-number-or-start-date")
 
             self.start_weekday_or_start_year = YLeaf(YType.uint32, "start-weekday-or-start-year")
 
-            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
+            self.start_month = YLeaf(YType.enumeration, "start-month")
+
+            self.start_hour = YLeaf(YType.uint32, "start-hour")
+
+            self.start_minute = YLeaf(YType.uint32, "start-minute")
+
+            self.end_week_number_or_end_date = YLeaf(YType.uint32, "end-week-number-or-end-date")
+
+            self.end_weekday_or_end_year = YLeaf(YType.uint32, "end-weekday-or-end-year")
+
+            self.end_month = YLeaf(YType.enumeration, "end-month")
+
+            self.end_hour = YLeaf(YType.uint32, "end-hour")
+
+            self.end_minute = YLeaf(YType.uint32, "end-minute")
+
+            self.offset = YLeaf(YType.uint32, "offset")
             self._segment_path = lambda: "summer-time"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clock.SummerTime, ['end_hour', 'end_minute', 'end_month', 'end_week_number_or_end_date', 'end_weekday_or_end_year', 'mode', 'offset', 'start_hour', 'start_minute', 'start_month', 'start_week_number_or_start_date', 'start_weekday_or_start_year', 'time_zone_name'], name, value)
+            self._perform_setattr(Clock.SummerTime, ['time_zone_name', 'mode', 'start_week_number_or_start_date', 'start_weekday_or_start_year', 'start_month', 'start_hour', 'start_minute', 'end_week_number_or_end_date', 'end_weekday_or_end_year', 'end_month', 'end_hour', 'end_minute', 'offset'], name, value)
 
 
     class TimeZone(Entity):
         """
         Configure time zone
+        
+        .. attribute:: time_zone_name
+        
+        	Name of time zone
+        	**type**\:  str
+        
+        	**mandatory**\: True
         
         .. attribute:: hour_offset
         
@@ -337,13 +344,6 @@ class Clock(Entity):
         
         	**default value**\: 0
         
-        .. attribute:: time_zone_name
-        
-        	Name of time zone
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
         
 
         This class is a :ref:`presence class<presence-class>`
@@ -364,16 +364,16 @@ class Clock(Entity):
             self._child_list_classes = {}
             self.is_presence_container = True
 
+            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
+
             self.hour_offset = YLeaf(YType.int32, "hour-offset")
 
             self.minute_offset = YLeaf(YType.uint32, "minute-offset")
-
-            self.time_zone_name = YLeaf(YType.str, "time-zone-name")
             self._segment_path = lambda: "time-zone"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-cfg:clock/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clock.TimeZone, ['hour_offset', 'minute_offset', 'time_zone_name'], name, value)
+            self._perform_setattr(Clock.TimeZone, ['time_zone_name', 'hour_offset', 'minute_offset'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Clock()

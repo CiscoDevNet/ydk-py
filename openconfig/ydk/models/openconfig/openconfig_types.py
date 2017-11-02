@@ -57,21 +57,6 @@ class IPV6(Identity):
         super(IPV6, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV6")
 
 
-class L2ETHERNET(Identity):
-    """
-    The 802.3 Ethernet address family
-    
-    
-
-    """
-
-    _prefix = 'oc-types'
-    _revision = '2017-01-13'
-
-    def __init__(self):
-        super(L2ETHERNET, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:L2_ETHERNET")
-
-
 class MPLS(Identity):
     """
     The MPLS address family
@@ -85,5 +70,20 @@ class MPLS(Identity):
 
     def __init__(self):
         super(MPLS, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:MPLS")
+
+
+class L2ETHERNET(Identity):
+    """
+    The 802.3 Ethernet address family
+    
+    
+
+    """
+
+    _prefix = 'oc-types'
+    _revision = '2017-01-13'
+
+    def __init__(self):
+        super(L2ETHERNET, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:L2_ETHERNET")
 
 

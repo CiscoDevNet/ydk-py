@@ -14,6 +14,22 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class OverlayEncapType(Identity):
+    """
+    Base identity from which identities describing different
+    encapsulationtypes are derived.
+    
+    
+
+    """
+
+    _prefix = 'nvo'
+    _revision = '2015-06-02'
+
+    def __init__(self):
+        super(OverlayEncapType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:overlay-encap-type")
+
+
 class NvoInstances(Entity):
     """
     vxlan instances
@@ -64,6 +80,11 @@ class NvoInstances(Entity):
         	Encapsulation type
         	**type**\:   :py:class:`OverlayEncapType <ydk.models.cisco_ios_xe.nvo.OverlayEncapType>`
         
+        .. attribute:: virtual_network
+        
+        	VNI member attributes
+        	**type**\: list of    :py:class:`VirtualNetwork <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork>`
+        
         .. attribute:: source_interface
         
         	Source interface name
@@ -72,11 +93,6 @@ class NvoInstances(Entity):
         	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
         
         	**mandatory**\: True
-        
-        .. attribute:: virtual_network
-        
-        	VNI member attributes
-        	**type**\: list of    :py:class:`VirtualNetwork <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork>`
         
         
 
@@ -131,27 +147,12 @@ class NvoInstances(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: bgp
-            
-            	Use control protocol BGP to discover  peers
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: end_host_discovery
             
             	How to peform endpoint discovery
             	**type**\:   :py:class:`EndHostDiscovery <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.EndHostDiscovery>`
             
             	**default value**\: flood-and-learn
-            
-            .. attribute:: multicast
-            
-            	Mulitcast group range associated  with the VxLAN segment(s)
-            	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Multicast>`
-            
-            .. attribute:: peers
-            
-            	List of VTEP peers
-            	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
             
             .. attribute:: routing_instance
             
@@ -164,6 +165,21 @@ class NvoInstances(Entity):
             
             	Enable ARP request suppression for this VNI
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: bgp
+            
+            	Use control protocol BGP to discover  peers
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: peers
+            
+            	List of VTEP peers
+            	**type**\: list of    :py:class:`Peers <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Peers>`
+            
+            .. attribute:: multicast
+            
+            	Mulitcast group range associated  with the VxLAN segment(s)
+            	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xe.nvo.NvoInstances.NvoInstance.VirtualNetwork.Multicast>`
             
             
 
@@ -186,13 +202,13 @@ class NvoInstances(Entity):
 
                 self.vni_end = YLeaf(YType.uint32, "vni-end")
 
-                self.bgp = YLeaf(YType.empty, "bgp")
-
                 self.end_host_discovery = YLeaf(YType.enumeration, "end-host-discovery")
 
                 self.routing_instance = YLeaf(YType.str, "routing-instance")
 
                 self.suppress_arp = YLeaf(YType.empty, "suppress-arp")
+
+                self.bgp = YLeaf(YType.empty, "bgp")
 
                 self.multicast = NvoInstances.NvoInstance.VirtualNetwork.Multicast()
                 self.multicast.parent = self
@@ -203,7 +219,7 @@ class NvoInstances(Entity):
                 self._segment_path = lambda: "virtual-network" + "[vni-start='" + self.vni_start.get() + "']" + "[vni-end='" + self.vni_end.get() + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, ['vni_start', 'vni_end', 'bgp', 'end_host_discovery', 'routing_instance', 'suppress_arp'], name, value)
+                self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork, ['vni_start', 'vni_end', 'end_host_discovery', 'routing_instance', 'suppress_arp', 'bgp'], name, value)
 
             class EndHostDiscovery(Enum):
                 """
@@ -229,51 +245,6 @@ class NvoInstances(Entity):
 
 
 
-            class Multicast(Entity):
-                """
-                Mulitcast group range associated 
-                with the VxLAN segment(s)
-                
-                .. attribute:: multicast_group_max
-                
-                	End of IPV4 Multicast group  address (leave unspecified for single value
-                	**type**\:  str
-                
-                	**pattern:** (2((2[4\-9])\|(3[0\-9]))\\.)(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){2}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
-                
-                .. attribute:: multicast_group_min
-                
-                	Single IPV4 Multicast group  address or start of range
-                	**type**\:  str
-                
-                	**pattern:** (2((2[4\-9])\|(3[0\-9]))\\.)(([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){2}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])
-                
-                
-
-                """
-
-                _prefix = 'nvo'
-                _revision = '2015-06-02'
-
-                def __init__(self):
-                    super(NvoInstances.NvoInstance.VirtualNetwork.Multicast, self).__init__()
-
-                    self.yang_name = "multicast"
-                    self.yang_parent_name = "virtual-network"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.multicast_group_max = YLeaf(YType.str, "multicast-group-max")
-
-                    self.multicast_group_min = YLeaf(YType.str, "multicast-group-min")
-                    self._segment_path = lambda: "multicast"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, ['multicast_group_max', 'multicast_group_min'], name, value)
-
-
             class Peers(Entity):
                 """
                 List of VTEP peers
@@ -285,13 +256,9 @@ class NvoInstances(Entity):
                 
                 	**type**\:  str
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
                 
                 ----
                 	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                 
                 
                 ----
@@ -318,14 +285,54 @@ class NvoInstances(Entity):
                 def __setattr__(self, name, value):
                     self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Peers, ['peer_ip'], name, value)
 
+
+            class Multicast(Entity):
+                """
+                Mulitcast group range associated 
+                with the VxLAN segment(s)
+                
+                .. attribute:: multicast_group_min
+                
+                	Single IPV4 Multicast group  address or start of range
+                	**type**\:  str
+                
+                .. attribute:: multicast_group_max
+                
+                	End of IPV4 Multicast group  address (leave unspecified for single value
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'nvo'
+                _revision = '2015-06-02'
+
+                def __init__(self):
+                    super(NvoInstances.NvoInstance.VirtualNetwork.Multicast, self).__init__()
+
+                    self.yang_name = "multicast"
+                    self.yang_parent_name = "virtual-network"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.multicast_group_min = YLeaf(YType.str, "multicast-group-min")
+
+                    self.multicast_group_max = YLeaf(YType.str, "multicast-group-max")
+                    self._segment_path = lambda: "multicast"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NvoInstances.NvoInstance.VirtualNetwork.Multicast, ['multicast_group_min', 'multicast_group_max'], name, value)
+
     def clone_ptr(self):
         self._top_entity = NvoInstances()
         return self._top_entity
 
-class OverlayEncapType(Identity):
+class VxlanType(Identity):
     """
-    Base identity from which identities describing different
-    encapsulationtypes are derived.
+    This identity represents vxlan encapsulation.
     
     
 
@@ -335,7 +342,7 @@ class OverlayEncapType(Identity):
     _revision = '2015-06-02'
 
     def __init__(self):
-        super(OverlayEncapType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:overlay-encap-type")
+        super(VxlanType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:vxlan-type")
 
 
 class NvgreType(Identity):
@@ -351,20 +358,5 @@ class NvgreType(Identity):
 
     def __init__(self):
         super(NvgreType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:nvgre-type")
-
-
-class VxlanType(Identity):
-    """
-    This identity represents vxlan encapsulation.
-    
-    
-
-    """
-
-    _prefix = 'nvo'
-    _revision = '2015-06-02'
-
-    def __init__(self):
-        super(VxlanType, self).__init__("urn:ietf:params:xml:ns:yang:nvo", "nvo", "nvo:vxlan-type")
 
 

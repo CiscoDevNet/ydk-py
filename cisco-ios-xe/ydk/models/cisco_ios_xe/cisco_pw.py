@@ -121,6 +121,81 @@ class PwOperStateType(Enum):
 
 
 
+class PwEncapsulationType(Identity):
+    """
+    Base identity for PW encapsulations.
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwEncapsulationType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encapsulation-type")
+
+
+class PwVcType(Identity):
+    """
+    Base identity for VC type in PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwVcType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type")
+
+
+class PwLoadBalanceType(Identity):
+    """
+    Base type for load\-balancing type
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLoadBalanceType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-load-balance-type")
+
+
+class PwSignalingProtocolType(Identity):
+    """
+    Base identity for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSignalingProtocolType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-type")
+
+
+class PwSequencingType(Identity):
+    """
+    Sequencing options for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-type")
+
+
 class PseudowireConfig(Entity):
     """
     Pseudowire configuration data.
@@ -130,15 +205,15 @@ class PseudowireConfig(Entity):
     	Global configurations related to pseudowires
     	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.Global_>`
     
-    .. attribute:: pw_static_oam_classes
-    
-    	List of pseudowire static oam classes
-    	**type**\:   :py:class:`PwStaticOamClasses <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses>`
-    
     .. attribute:: pw_templates
     
     	Contains list of all pw\-template definitions. Also called PW Class (XR) and Port Profile (NX\-OS)
     	**type**\:   :py:class:`PwTemplates <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates>`
+    
+    .. attribute:: pw_static_oam_classes
+    
+    	List of pseudowire static oam classes
+    	**type**\:   :py:class:`PwStaticOamClasses <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwStaticOamClasses>`
     
     
 
@@ -155,7 +230,7 @@ class PseudowireConfig(Entity):
         self.yang_parent_name = "cisco-pw"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"global" : ("global_", PseudowireConfig.Global_), "pw-static-oam-classes" : ("pw_static_oam_classes", PseudowireConfig.PwStaticOamClasses), "pw-templates" : ("pw_templates", PseudowireConfig.PwTemplates)}
+        self._child_container_classes = {"global" : ("global_", PseudowireConfig.Global_), "pw-templates" : ("pw_templates", PseudowireConfig.PwTemplates), "pw-static-oam-classes" : ("pw_static_oam_classes", PseudowireConfig.PwStaticOamClasses)}
         self._child_list_classes = {}
 
         self.global_ = PseudowireConfig.Global_()
@@ -163,26 +238,21 @@ class PseudowireConfig(Entity):
         self._children_name_map["global_"] = "global"
         self._children_yang_names.add("global")
 
-        self.pw_static_oam_classes = PseudowireConfig.PwStaticOamClasses()
-        self.pw_static_oam_classes.parent = self
-        self._children_name_map["pw_static_oam_classes"] = "pw-static-oam-classes"
-        self._children_yang_names.add("pw-static-oam-classes")
-
         self.pw_templates = PseudowireConfig.PwTemplates()
         self.pw_templates.parent = self
         self._children_name_map["pw_templates"] = "pw-templates"
         self._children_yang_names.add("pw-templates")
+
+        self.pw_static_oam_classes = PseudowireConfig.PwStaticOamClasses()
+        self.pw_static_oam_classes.parent = self
+        self._children_name_map["pw_static_oam_classes"] = "pw-static-oam-classes"
+        self._children_yang_names.add("pw-static-oam-classes")
         self._segment_path = lambda: "cisco-pw:pseudowire-config"
 
 
     class Global_(Entity):
         """
         Global configurations related to pseudowires.
-        
-        .. attribute:: predictive_redundancy
-        
-        	Enable predictive redundancy
-        	**type**\:  bool
         
         .. attribute:: pw_grouping
         
@@ -203,17 +273,22 @@ class PseudowireConfig(Entity):
         	Enable pw\-status
         	**type**\:  bool
         
+        .. attribute:: predictive_redundancy
+        
+        	Enable predictive redundancy
+        	**type**\:  bool
+        
+        .. attribute:: vc_state_notification_enabled
+        
+        	If this leaf is set to true, then it enables the emission of 'vc\-state\-notification'; otherwise these notifications are not emitted
+        	**type**\:  bool
+        
         .. attribute:: vc_state_notification_batch_size
         
         	'vc\-state\-notification' allows batching of pseudowires in order to reduce number of notifications generated from the device. All pseudowires in a batched notification MUST share same state at the same time.  This leaf defines the maximum number of VCs that can be batched in vc\-state\-notification
         	**type**\:  int
         
         	**range:** 0..4294967295
-        
-        .. attribute:: vc_state_notification_enabled
-        
-        	If this leaf is set to true, then it enables the emission of 'vc\-state\-notification'; otherwise these notifications are not emitted
-        	**type**\:  bool
         
         .. attribute:: vc_state_notification_rate
         
@@ -239,24 +314,692 @@ class PseudowireConfig(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.predictive_redundancy = YLeaf(YType.boolean, "predictive-redundancy")
-
             self.pw_grouping = YLeaf(YType.boolean, "pw-grouping")
 
             self.pw_oam_refresh_transmit = YLeaf(YType.uint32, "pw-oam-refresh-transmit")
 
             self.pw_status = YLeaf(YType.boolean, "pw-status")
 
-            self.vc_state_notification_batch_size = YLeaf(YType.uint32, "vc-state-notification-batch-size")
+            self.predictive_redundancy = YLeaf(YType.boolean, "predictive-redundancy")
 
             self.vc_state_notification_enabled = YLeaf(YType.boolean, "vc-state-notification-enabled")
+
+            self.vc_state_notification_batch_size = YLeaf(YType.uint32, "vc-state-notification-batch-size")
 
             self.vc_state_notification_rate = YLeaf(YType.uint32, "vc-state-notification-rate")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.Global_, ['predictive_redundancy', 'pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'vc_state_notification_batch_size', 'vc_state_notification_enabled', 'vc_state_notification_rate'], name, value)
+            self._perform_setattr(PseudowireConfig.Global_, ['pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'predictive_redundancy', 'vc_state_notification_enabled', 'vc_state_notification_batch_size', 'vc_state_notification_rate'], name, value)
+
+
+    class PwTemplates(Entity):
+        """
+        Contains list of all pw\-template definitions.
+        Also called PW Class (XR) and Port Profile (NX\-OS)
+        
+        .. attribute:: pw_template
+        
+        	Pseudowire template list
+        	**type**\: list of    :py:class:`PwTemplate <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
+        
+        
+
+        """
+
+        _prefix = 'l2vpn-pw'
+        _revision = '2016-12-07'
+
+        def __init__(self):
+            super(PseudowireConfig.PwTemplates, self).__init__()
+
+            self.yang_name = "pw-templates"
+            self.yang_parent_name = "pseudowire-config"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"pw-template" : ("pw_template", PseudowireConfig.PwTemplates.PwTemplate)}
+
+            self.pw_template = YList(self)
+            self._segment_path = lambda: "pw-templates"
+            self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(PseudowireConfig.PwTemplates, [], name, value)
+
+
+        class PwTemplate(Entity):
+            """
+            Pseudowire template list.
+            
+            .. attribute:: name  <key>
+            
+            	PW Template name
+            	**type**\:  str
+            
+            .. attribute:: encapsulation
+            
+            	Encapsulation used for PW
+            	**type**\:   :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
+            
+            .. attribute:: control_word
+            
+            	Use control word in the MPLS PW header
+            	**type**\:  bool
+            
+            .. attribute:: signaling_protocol
+            
+            	Signaling protocol to use
+            	**type**\:   :py:class:`PwSignalingProtocolType <ydk.models.cisco_ios_xe.cisco_pw.PwSignalingProtocolType>`
+            
+            .. attribute:: load_balance
+            
+            	Load balancing mechanism
+            	**type**\:   :py:class:`LoadBalance <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance>`
+            
+            .. attribute:: preferred_path
+            
+            	Preferred path for the PW
+            	**type**\:   :py:class:`PreferredPath <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PreferredPath>`
+            
+            .. attribute:: sequencing
+            
+            	Sequencing options
+            	**type**\:   :py:class:`Sequencing <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Sequencing>`
+            
+            .. attribute:: vc_type
+            
+            	Type of VC in the PW
+            	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
+            
+            .. attribute:: switching_tlv
+            
+            	Send switching TLV
+            	**type**\:  bool
+            
+            .. attribute:: vccv
+            
+            	VCCV configuration
+            	**type**\:   :py:class:`Vccv <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Vccv>`
+            
+            .. attribute:: switchover_delay
+            
+            	Timer configuration related to pseudowire redundancy switchover and restoring to primary
+            	**type**\:   :py:class:`SwitchoverDelay <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay>`
+            
+            .. attribute:: source_ip
+            
+            	The local source IPv4 address
+            	**type**\:  str
+            
+            .. attribute:: tag_rewrite_ingress_vlan
+            
+            	Configure ingress tag rewrite vlan
+            	**type**\:  int
+            
+            	**range:** 1..4094
+            
+            .. attribute:: mac_withdraw
+            
+            	Send Mac\-withdraw message when PW becomes active
+            	**type**\:  bool
+            
+            	**default value**\: false
+            
+            .. attribute:: status
+            
+            	TODO
+            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Status>`
+            
+            .. attribute:: port_profile_spec
+            
+            	Pseudowire port profile configurations
+            	**type**\:   :py:class:`PortProfileSpec <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec>`
+            
+            
+
+            """
+
+            _prefix = 'l2vpn-pw'
+            _revision = '2016-12-07'
+
+            def __init__(self):
+                super(PseudowireConfig.PwTemplates.PwTemplate, self).__init__()
+
+                self.yang_name = "pw-template"
+                self.yang_parent_name = "pw-templates"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"load-balance" : ("load_balance", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance), "preferred-path" : ("preferred_path", PseudowireConfig.PwTemplates.PwTemplate.PreferredPath), "sequencing" : ("sequencing", PseudowireConfig.PwTemplates.PwTemplate.Sequencing), "vccv" : ("vccv", PseudowireConfig.PwTemplates.PwTemplate.Vccv), "switchover-delay" : ("switchover_delay", PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay), "status" : ("status", PseudowireConfig.PwTemplates.PwTemplate.Status), "port-profile-spec" : ("port_profile_spec", PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec)}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.encapsulation = YLeaf(YType.identityref, "encapsulation")
+
+                self.control_word = YLeaf(YType.boolean, "control-word")
+
+                self.signaling_protocol = YLeaf(YType.identityref, "signaling-protocol")
+
+                self.vc_type = YLeaf(YType.identityref, "vc-type")
+
+                self.switching_tlv = YLeaf(YType.boolean, "switching-tlv")
+
+                self.source_ip = YLeaf(YType.str, "source-ip")
+
+                self.tag_rewrite_ingress_vlan = YLeaf(YType.uint16, "tag-rewrite-ingress-vlan")
+
+                self.mac_withdraw = YLeaf(YType.boolean, "mac-withdraw")
+
+                self.load_balance = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance()
+                self.load_balance.parent = self
+                self._children_name_map["load_balance"] = "load-balance"
+                self._children_yang_names.add("load-balance")
+
+                self.preferred_path = PseudowireConfig.PwTemplates.PwTemplate.PreferredPath()
+                self.preferred_path.parent = self
+                self._children_name_map["preferred_path"] = "preferred-path"
+                self._children_yang_names.add("preferred-path")
+
+                self.sequencing = PseudowireConfig.PwTemplates.PwTemplate.Sequencing()
+                self.sequencing.parent = self
+                self._children_name_map["sequencing"] = "sequencing"
+                self._children_yang_names.add("sequencing")
+
+                self.vccv = PseudowireConfig.PwTemplates.PwTemplate.Vccv()
+                self.vccv.parent = self
+                self._children_name_map["vccv"] = "vccv"
+                self._children_yang_names.add("vccv")
+
+                self.switchover_delay = PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay()
+                self.switchover_delay.parent = self
+                self._children_name_map["switchover_delay"] = "switchover-delay"
+                self._children_yang_names.add("switchover-delay")
+
+                self.status = PseudowireConfig.PwTemplates.PwTemplate.Status()
+                self.status.parent = self
+                self._children_name_map["status"] = "status"
+                self._children_yang_names.add("status")
+
+                self.port_profile_spec = PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec()
+                self.port_profile_spec.parent = self
+                self._children_name_map["port_profile_spec"] = "port-profile-spec"
+                self._children_yang_names.add("port-profile-spec")
+                self._segment_path = lambda: "pw-template" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-templates/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'encapsulation', 'control_word', 'signaling_protocol', 'vc_type', 'switching_tlv', 'source_ip', 'tag_rewrite_ingress_vlan', 'mac_withdraw'], name, value)
+
+
+            class LoadBalance(Entity):
+                """
+                Load balancing mechanism.
+                
+                .. attribute:: ethernet
+                
+                	Ethernet mac address based load balancing
+                	**type**\:   :py:class:`PwLbEthernetType <ydk.models.cisco_ios_xe.cisco_pw.PwLbEthernetType>`
+                
+                	**default value**\: pw-lb-eth-src-dst-mac
+                
+                .. attribute:: ip
+                
+                	IP address based load balancing
+                	**type**\:   :py:class:`PwLbIpType <ydk.models.cisco_ios_xe.cisco_pw.PwLbIpType>`
+                
+                .. attribute:: flow_label
+                
+                	Enable Flow Aware Label (FAT) PW \- the capability to carry flow label on PW
+                	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel>`
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, self).__init__()
+
+                    self.yang_name = "load-balance"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"flow-label" : ("flow_label", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel)}
+                    self._child_list_classes = {}
+
+                    self.ethernet = YLeaf(YType.identityref, "ethernet")
+
+                    self.ip = YLeaf(YType.identityref, "ip")
+
+                    self.flow_label = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel()
+                    self.flow_label.parent = self
+                    self._children_name_map["flow_label"] = "flow-label"
+                    self._children_yang_names.add("flow-label")
+                    self._segment_path = lambda: "load-balance"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
+
+
+                class FlowLabel(Entity):
+                    """
+                    Enable Flow Aware Label (FAT) PW \- the capability to
+                    carry flow label on PW
+                    
+                    .. attribute:: direction
+                    
+                    	Directions to enable Flow Aware Label PW
+                    	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel.Direction>`
+                    
+                    .. attribute:: tlv_code_17
+                    
+                    	Carry code 0x17 as Flow Aware Label (FAT) PW signalled sub\-tlv id
+                    	**type**\:  bool
+                    
+                    .. attribute:: static
+                    
+                    	Use statically configured flow label on traffic flowing on the PW
+                    	**type**\:  bool
+                    
+                    	**default value**\: false
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-pw'
+                    _revision = '2016-12-07'
+
+                    def __init__(self):
+                        super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, self).__init__()
+
+                        self.yang_name = "flow-label"
+                        self.yang_parent_name = "load-balance"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.direction = YLeaf(YType.enumeration, "direction")
+
+                        self.tlv_code_17 = YLeaf(YType.boolean, "tlv-code-17")
+
+                        self.static = YLeaf(YType.boolean, "static")
+                        self._segment_path = lambda: "flow-label"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'tlv_code_17', 'static'], name, value)
+
+                    class Direction(Enum):
+                        """
+                        Direction
+
+                        Directions to enable Flow Aware Label PW
+
+                        .. data:: transmit = 1
+
+                        	TODO
+
+                        .. data:: receive = 2
+
+                        	TODO
+
+                        .. data:: both = 3
+
+                        	TODO
+
+                        """
+
+                        transmit = Enum.YLeaf(1, "transmit")
+
+                        receive = Enum.YLeaf(2, "receive")
+
+                        both = Enum.YLeaf(3, "both")
+
+
+
+            class PreferredPath(Entity):
+                """
+                Preferred path for the PW
+                
+                .. attribute:: interface
+                
+                	Reference to a tunnel interface
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
+                
+                .. attribute:: address
+                
+                	TODO
+                	**type**\: one of the below types:
+                
+                	**type**\:  str
+                
+                
+                ----
+                	**type**\:  str
+                
+                
+                ----
+                .. attribute:: hostname
+                
+                	TODO
+                	**type**\:  str
+                
+                .. attribute:: disable_fallback
+                
+                	Disable fall back to alternative route
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__init__()
+
+                    self.yang_name = "preferred-path"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.address = YLeaf(YType.str, "address")
+
+                    self.hostname = YLeaf(YType.str, "hostname")
+
+                    self.disable_fallback = YLeaf(YType.boolean, "disable-fallback")
+                    self._segment_path = lambda: "preferred-path"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['interface', 'address', 'hostname', 'disable_fallback'], name, value)
+
+
+            class Sequencing(Entity):
+                """
+                Sequencing options
+                
+                .. attribute:: direction
+                
+                	TODO
+                	**type**\:   :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
+                
+                .. attribute:: resync
+                
+                	TODO
+                	**type**\:  int
+                
+                	**range:** 5..65535
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__init__()
+
+                    self.yang_name = "sequencing"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.direction = YLeaf(YType.identityref, "direction")
+
+                    self.resync = YLeaf(YType.int32, "resync")
+                    self._segment_path = lambda: "sequencing"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
+
+
+            class Vccv(Entity):
+                """
+                VCCV configuration
+                
+                .. attribute:: control_word
+                
+                	Enable VCCV verification type
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__init__()
+
+                    self.yang_name = "vccv"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.control_word = YLeaf(YType.boolean, "control-word")
+                    self._segment_path = lambda: "vccv"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
+
+
+            class SwitchoverDelay(Entity):
+                """
+                Timer configuration related to pseudowire redundancy
+                switchover and restoring to primary
+                
+                .. attribute:: switchover_timer
+                
+                	Specifies how long the backup pseudowire should wait before taking over
+                	**type**\:  int
+                
+                	**range:** 0..120
+                
+                .. attribute:: timer
+                
+                	Specifies how long the primary pseudowire should wait after it becomes active to take over for the backup pseudowire
+                	**type**\:  int
+                
+                	**range:** 0..180
+                
+                .. attribute:: never
+                
+                	The primary pseudowire never takes over for the backup
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__init__()
+
+                    self.yang_name = "switchover-delay"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.switchover_timer = YLeaf(YType.uint8, "switchover-timer")
+
+                    self.timer = YLeaf(YType.uint8, "timer")
+
+                    self.never = YLeaf(YType.boolean, "never")
+                    self._segment_path = lambda: "switchover-delay"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['switchover_timer', 'timer', 'never'], name, value)
+
+
+            class Status(Entity):
+                """
+                TODO
+                
+                .. attribute:: decoupled
+                
+                	Reflect standby status of the attachment circuit as up on the pseudowire
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: disable
+                
+                	Do not send pseudowire status to peer
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: peer_topo_dual_homed
+                
+                	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
+                	**type**\:  bool
+                
+                .. attribute:: route_watch_disable
+                
+                	Disable listening for routing events to trigger redundancy status changes
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: redundancy_master
+                
+                	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__init__()
+
+                    self.yang_name = "status"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.decoupled = YLeaf(YType.boolean, "decoupled")
+
+                    self.disable = YLeaf(YType.boolean, "disable")
+
+                    self.peer_topo_dual_homed = YLeaf(YType.boolean, "peer-topo-dual-homed")
+
+                    self.route_watch_disable = YLeaf(YType.boolean, "route-watch-disable")
+
+                    self.redundancy_master = YLeaf(YType.boolean, "redundancy-master")
+                    self._segment_path = lambda: "status"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'route_watch_disable', 'redundancy_master'], name, value)
+
+
+            class PortProfileSpec(Entity):
+                """
+                Pseudowire port profile configurations.
+                
+                .. attribute:: description
+                
+                	Description string for the port profile
+                	**type**\:  str
+                
+                .. attribute:: shutdown
+                
+                	Shut down this template
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: shut_force
+                
+                	Force shut down this port profile
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                .. attribute:: mtu
+                
+                	MTU of the port
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: max_ports
+                
+                	Maximum number of ports
+                	**type**\:  int
+                
+                	**range:** 1..16384
+                
+                .. attribute:: enabled
+                
+                	Enable this port profile
+                	**type**\:  bool
+                
+                	**default value**\: false
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-pw'
+                _revision = '2016-12-07'
+
+                def __init__(self):
+                    super(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, self).__init__()
+
+                    self.yang_name = "port-profile-spec"
+                    self.yang_parent_name = "pw-template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.description = YLeaf(YType.str, "description")
+
+                    self.shutdown = YLeaf(YType.boolean, "shutdown")
+
+                    self.shut_force = YLeaf(YType.boolean, "shut-force")
+
+                    self.mtu = YLeaf(YType.uint32, "mtu")
+
+                    self.max_ports = YLeaf(YType.uint16, "max-ports")
+
+                    self.enabled = YLeaf(YType.boolean, "enabled")
+                    self._segment_path = lambda: "port-profile-spec"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'shutdown', 'shut_force', 'mtu', 'max_ports', 'enabled'], name, value)
 
 
     class PwStaticOamClasses(Entity):
@@ -316,15 +1059,6 @@ class PseudowireConfig(Entity):
             
             	**default value**\: 600
             
-            .. attribute:: timeout_refresh_ack
-            
-            	Ack timeout in seconds
-            	**type**\:  int
-            
-            	**range:** 1..4095
-            
-            	**default value**\: 600
-            
             .. attribute:: timeout_refresh_send
             
             	Refresh timeout in seconds
@@ -333,6 +1067,15 @@ class PseudowireConfig(Entity):
             	**range:** 1..4095
             
             	**default value**\: 30
+            
+            .. attribute:: timeout_refresh_ack
+            
+            	Ack timeout in seconds
+            	**type**\:  int
+            
+            	**range:** 1..4095
+            
+            	**default value**\: 600
             
             
 
@@ -357,688 +1100,14 @@ class PseudowireConfig(Entity):
 
                 self.keepalive = YLeaf(YType.uint32, "keepalive")
 
-                self.timeout_refresh_ack = YLeaf(YType.uint32, "timeout-refresh-ack")
-
                 self.timeout_refresh_send = YLeaf(YType.uint32, "timeout-refresh-send")
+
+                self.timeout_refresh_ack = YLeaf(YType.uint32, "timeout-refresh-ack")
                 self._segment_path = lambda: "pw-static-oam-class" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-static-oam-classes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_ack', 'timeout_refresh_send'], name, value)
-
-
-    class PwTemplates(Entity):
-        """
-        Contains list of all pw\-template definitions.
-        Also called PW Class (XR) and Port Profile (NX\-OS)
-        
-        .. attribute:: pw_template
-        
-        	Pseudowire template list
-        	**type**\: list of    :py:class:`PwTemplate <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate>`
-        
-        
-
-        """
-
-        _prefix = 'l2vpn-pw'
-        _revision = '2016-12-07'
-
-        def __init__(self):
-            super(PseudowireConfig.PwTemplates, self).__init__()
-
-            self.yang_name = "pw-templates"
-            self.yang_parent_name = "pseudowire-config"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"pw-template" : ("pw_template", PseudowireConfig.PwTemplates.PwTemplate)}
-
-            self.pw_template = YList(self)
-            self._segment_path = lambda: "pw-templates"
-            self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.PwTemplates, [], name, value)
-
-
-        class PwTemplate(Entity):
-            """
-            Pseudowire template list.
-            
-            .. attribute:: name  <key>
-            
-            	PW Template name
-            	**type**\:  str
-            
-            .. attribute:: control_word
-            
-            	Use control word in the MPLS PW header
-            	**type**\:  bool
-            
-            .. attribute:: encapsulation
-            
-            	Encapsulation used for PW
-            	**type**\:   :py:class:`PwEncapsulationType <ydk.models.cisco_ios_xe.cisco_pw.PwEncapsulationType>`
-            
-            .. attribute:: load_balance
-            
-            	Load balancing mechanism
-            	**type**\:   :py:class:`LoadBalance <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance>`
-            
-            .. attribute:: mac_withdraw
-            
-            	Send Mac\-withdraw message when PW becomes active
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
-            .. attribute:: port_profile_spec
-            
-            	Pseudowire port profile configurations
-            	**type**\:   :py:class:`PortProfileSpec <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec>`
-            
-            .. attribute:: preferred_path
-            
-            	Preferred path for the PW
-            	**type**\:   :py:class:`PreferredPath <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.PreferredPath>`
-            
-            .. attribute:: sequencing
-            
-            	Sequencing options
-            	**type**\:   :py:class:`Sequencing <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Sequencing>`
-            
-            .. attribute:: signaling_protocol
-            
-            	Signaling protocol to use
-            	**type**\:   :py:class:`PwSignalingProtocolType <ydk.models.cisco_ios_xe.cisco_pw.PwSignalingProtocolType>`
-            
-            .. attribute:: source_ip
-            
-            	The local source IPv4 address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: status
-            
-            	TODO
-            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Status>`
-            
-            .. attribute:: switching_tlv
-            
-            	Send switching TLV
-            	**type**\:  bool
-            
-            .. attribute:: switchover_delay
-            
-            	Timer configuration related to pseudowire redundancy switchover and restoring to primary
-            	**type**\:   :py:class:`SwitchoverDelay <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay>`
-            
-            .. attribute:: tag_rewrite_ingress_vlan
-            
-            	Configure ingress tag rewrite vlan
-            	**type**\:  int
-            
-            	**range:** 1..4094
-            
-            .. attribute:: vc_type
-            
-            	Type of VC in the PW
-            	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
-            
-            .. attribute:: vccv
-            
-            	VCCV configuration
-            	**type**\:   :py:class:`Vccv <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.Vccv>`
-            
-            
-
-            """
-
-            _prefix = 'l2vpn-pw'
-            _revision = '2016-12-07'
-
-            def __init__(self):
-                super(PseudowireConfig.PwTemplates.PwTemplate, self).__init__()
-
-                self.yang_name = "pw-template"
-                self.yang_parent_name = "pw-templates"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"load-balance" : ("load_balance", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance), "port-profile-spec" : ("port_profile_spec", PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec), "preferred-path" : ("preferred_path", PseudowireConfig.PwTemplates.PwTemplate.PreferredPath), "sequencing" : ("sequencing", PseudowireConfig.PwTemplates.PwTemplate.Sequencing), "status" : ("status", PseudowireConfig.PwTemplates.PwTemplate.Status), "switchover-delay" : ("switchover_delay", PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay), "vccv" : ("vccv", PseudowireConfig.PwTemplates.PwTemplate.Vccv)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.control_word = YLeaf(YType.boolean, "control-word")
-
-                self.encapsulation = YLeaf(YType.identityref, "encapsulation")
-
-                self.mac_withdraw = YLeaf(YType.boolean, "mac-withdraw")
-
-                self.signaling_protocol = YLeaf(YType.identityref, "signaling-protocol")
-
-                self.source_ip = YLeaf(YType.str, "source-ip")
-
-                self.switching_tlv = YLeaf(YType.boolean, "switching-tlv")
-
-                self.tag_rewrite_ingress_vlan = YLeaf(YType.uint16, "tag-rewrite-ingress-vlan")
-
-                self.vc_type = YLeaf(YType.identityref, "vc-type")
-
-                self.load_balance = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance()
-                self.load_balance.parent = self
-                self._children_name_map["load_balance"] = "load-balance"
-                self._children_yang_names.add("load-balance")
-
-                self.port_profile_spec = PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec()
-                self.port_profile_spec.parent = self
-                self._children_name_map["port_profile_spec"] = "port-profile-spec"
-                self._children_yang_names.add("port-profile-spec")
-
-                self.preferred_path = PseudowireConfig.PwTemplates.PwTemplate.PreferredPath()
-                self.preferred_path.parent = self
-                self._children_name_map["preferred_path"] = "preferred-path"
-                self._children_yang_names.add("preferred-path")
-
-                self.sequencing = PseudowireConfig.PwTemplates.PwTemplate.Sequencing()
-                self.sequencing.parent = self
-                self._children_name_map["sequencing"] = "sequencing"
-                self._children_yang_names.add("sequencing")
-
-                self.status = PseudowireConfig.PwTemplates.PwTemplate.Status()
-                self.status.parent = self
-                self._children_name_map["status"] = "status"
-                self._children_yang_names.add("status")
-
-                self.switchover_delay = PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay()
-                self.switchover_delay.parent = self
-                self._children_name_map["switchover_delay"] = "switchover-delay"
-                self._children_yang_names.add("switchover-delay")
-
-                self.vccv = PseudowireConfig.PwTemplates.PwTemplate.Vccv()
-                self.vccv.parent = self
-                self._children_name_map["vccv"] = "vccv"
-                self._children_yang_names.add("vccv")
-                self._segment_path = lambda: "pw-template" + "[name='" + self.name.get() + "']"
-                self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-templates/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'control_word', 'encapsulation', 'mac_withdraw', 'signaling_protocol', 'source_ip', 'switching_tlv', 'tag_rewrite_ingress_vlan', 'vc_type'], name, value)
-
-
-            class LoadBalance(Entity):
-                """
-                Load balancing mechanism.
-                
-                .. attribute:: ethernet
-                
-                	Ethernet mac address based load balancing
-                	**type**\:   :py:class:`PwLbEthernetType <ydk.models.cisco_ios_xe.cisco_pw.PwLbEthernetType>`
-                
-                	**default value**\: pw-lb-eth-src-dst-mac
-                
-                .. attribute:: flow_label
-                
-                	Enable Flow Aware Label (FAT) PW \- the capability to carry flow label on PW
-                	**type**\:   :py:class:`FlowLabel <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel>`
-                
-                .. attribute:: ip
-                
-                	IP address based load balancing
-                	**type**\:   :py:class:`PwLbIpType <ydk.models.cisco_ios_xe.cisco_pw.PwLbIpType>`
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, self).__init__()
-
-                    self.yang_name = "load-balance"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"flow-label" : ("flow_label", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel)}
-                    self._child_list_classes = {}
-
-                    self.ethernet = YLeaf(YType.identityref, "ethernet")
-
-                    self.ip = YLeaf(YType.identityref, "ip")
-
-                    self.flow_label = PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel()
-                    self.flow_label.parent = self
-                    self._children_name_map["flow_label"] = "flow-label"
-                    self._children_yang_names.add("flow-label")
-                    self._segment_path = lambda: "load-balance"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
-
-
-                class FlowLabel(Entity):
-                    """
-                    Enable Flow Aware Label (FAT) PW \- the capability to
-                    carry flow label on PW
-                    
-                    .. attribute:: direction
-                    
-                    	Directions to enable Flow Aware Label PW
-                    	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xe.cisco_pw.PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel.Direction>`
-                    
-                    .. attribute:: static
-                    
-                    	Use statically configured flow label on traffic flowing on the PW
-                    	**type**\:  bool
-                    
-                    	**default value**\: false
-                    
-                    .. attribute:: tlv_code_17
-                    
-                    	Carry code 0x17 as Flow Aware Label (FAT) PW signalled sub\-tlv id
-                    	**type**\:  bool
-                    
-                    
-
-                    """
-
-                    _prefix = 'l2vpn-pw'
-                    _revision = '2016-12-07'
-
-                    def __init__(self):
-                        super(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, self).__init__()
-
-                        self.yang_name = "flow-label"
-                        self.yang_parent_name = "load-balance"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.direction = YLeaf(YType.enumeration, "direction")
-
-                        self.static = YLeaf(YType.boolean, "static")
-
-                        self.tlv_code_17 = YLeaf(YType.boolean, "tlv-code-17")
-                        self._segment_path = lambda: "flow-label"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'static', 'tlv_code_17'], name, value)
-
-                    class Direction(Enum):
-                        """
-                        Direction
-
-                        Directions to enable Flow Aware Label PW
-
-                        .. data:: transmit = 1
-
-                        	TODO
-
-                        .. data:: receive = 2
-
-                        	TODO
-
-                        .. data:: both = 3
-
-                        	TODO
-
-                        """
-
-                        transmit = Enum.YLeaf(1, "transmit")
-
-                        receive = Enum.YLeaf(2, "receive")
-
-                        both = Enum.YLeaf(3, "both")
-
-
-
-            class PortProfileSpec(Entity):
-                """
-                Pseudowire port profile configurations.
-                
-                .. attribute:: description
-                
-                	Description string for the port profile
-                	**type**\:  str
-                
-                .. attribute:: enabled
-                
-                	Enable this port profile
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: max_ports
-                
-                	Maximum number of ports
-                	**type**\:  int
-                
-                	**range:** 1..16384
-                
-                .. attribute:: mtu
-                
-                	MTU of the port
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: shut_force
-                
-                	Force shut down this port profile
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: shutdown
-                
-                	Shut down this template
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, self).__init__()
-
-                    self.yang_name = "port-profile-spec"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.enabled = YLeaf(YType.boolean, "enabled")
-
-                    self.max_ports = YLeaf(YType.uint16, "max-ports")
-
-                    self.mtu = YLeaf(YType.uint32, "mtu")
-
-                    self.shut_force = YLeaf(YType.boolean, "shut-force")
-
-                    self.shutdown = YLeaf(YType.boolean, "shutdown")
-                    self._segment_path = lambda: "port-profile-spec"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'enabled', 'max_ports', 'mtu', 'shut_force', 'shutdown'], name, value)
-
-
-            class PreferredPath(Entity):
-                """
-                Preferred path for the PW
-                
-                .. attribute:: address
-                
-                	TODO
-                	**type**\: one of the below types:
-                
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                	**type**\:  str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                
-                
-                ----
-                .. attribute:: disable_fallback
-                
-                	Disable fall back to alternative route
-                	**type**\:  bool
-                
-                .. attribute:: hostname
-                
-                	TODO
-                	**type**\:  str
-                
-                .. attribute:: interface
-                
-                	Reference to a tunnel interface
-                	**type**\:  str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, self).__init__()
-
-                    self.yang_name = "preferred-path"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-
-                    self.disable_fallback = YLeaf(YType.boolean, "disable-fallback")
-
-                    self.hostname = YLeaf(YType.str, "hostname")
-
-                    self.interface = YLeaf(YType.str, "interface")
-                    self._segment_path = lambda: "preferred-path"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['address', 'disable_fallback', 'hostname', 'interface'], name, value)
-
-
-            class Sequencing(Entity):
-                """
-                Sequencing options
-                
-                .. attribute:: direction
-                
-                	TODO
-                	**type**\:   :py:class:`PwSequencingType <ydk.models.cisco_ios_xe.cisco_pw.PwSequencingType>`
-                
-                .. attribute:: resync
-                
-                	TODO
-                	**type**\:  int
-                
-                	**range:** 5..65535
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, self).__init__()
-
-                    self.yang_name = "sequencing"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.direction = YLeaf(YType.identityref, "direction")
-
-                    self.resync = YLeaf(YType.int32, "resync")
-                    self._segment_path = lambda: "sequencing"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
-
-
-            class Status(Entity):
-                """
-                TODO
-                
-                .. attribute:: decoupled
-                
-                	Reflect standby status of the attachment circuit as up on the pseudowire
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: disable
-                
-                	Do not send pseudowire status to peer
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: peer_topo_dual_homed
-                
-                	Our peer(s) are participating in a redundant solution with some form of redundancy protocol running between the peer routers. Only one of the remote peers will advertise a status of UP at a time. The other will advertise standby. Change our configuration so we can send a status of UP on both active and redundant pseudowires
-                	**type**\:  bool
-                
-                .. attribute:: redundancy_master
-                
-                	Make the PE as master to enables Pseudowire Preferential Forwarding feature to display the status of  the active and backup pseudowires
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: route_watch_disable
-                
-                	Disable listening for routing events to trigger redundancy status changes
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Status, self).__init__()
-
-                    self.yang_name = "status"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.decoupled = YLeaf(YType.boolean, "decoupled")
-
-                    self.disable = YLeaf(YType.boolean, "disable")
-
-                    self.peer_topo_dual_homed = YLeaf(YType.boolean, "peer-topo-dual-homed")
-
-                    self.redundancy_master = YLeaf(YType.boolean, "redundancy-master")
-
-                    self.route_watch_disable = YLeaf(YType.boolean, "route-watch-disable")
-                    self._segment_path = lambda: "status"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'redundancy_master', 'route_watch_disable'], name, value)
-
-
-            class SwitchoverDelay(Entity):
-                """
-                Timer configuration related to pseudowire redundancy
-                switchover and restoring to primary
-                
-                .. attribute:: never
-                
-                	The primary pseudowire never takes over for the backup
-                	**type**\:  bool
-                
-                	**default value**\: false
-                
-                .. attribute:: switchover_timer
-                
-                	Specifies how long the backup pseudowire should wait before taking over
-                	**type**\:  int
-                
-                	**range:** 0..120
-                
-                .. attribute:: timer
-                
-                	Specifies how long the primary pseudowire should wait after it becomes active to take over for the backup pseudowire
-                	**type**\:  int
-                
-                	**range:** 0..180
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, self).__init__()
-
-                    self.yang_name = "switchover-delay"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.never = YLeaf(YType.boolean, "never")
-
-                    self.switchover_timer = YLeaf(YType.uint8, "switchover-timer")
-
-                    self.timer = YLeaf(YType.uint8, "timer")
-                    self._segment_path = lambda: "switchover-delay"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['never', 'switchover_timer', 'timer'], name, value)
-
-
-            class Vccv(Entity):
-                """
-                VCCV configuration
-                
-                .. attribute:: control_word
-                
-                	Enable VCCV verification type
-                	**type**\:  bool
-                
-                
-
-                """
-
-                _prefix = 'l2vpn-pw'
-                _revision = '2016-12-07'
-
-                def __init__(self):
-                    super(PseudowireConfig.PwTemplates.PwTemplate.Vccv, self).__init__()
-
-                    self.yang_name = "vccv"
-                    self.yang_parent_name = "pw-template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.control_word = YLeaf(YType.boolean, "control-word")
-                    self._segment_path = lambda: "vccv"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_send', 'timeout_refresh_ack'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireConfig()
@@ -1096,13 +1165,9 @@ class PseudowireState(Entity):
         
         	**type**\:  str
         
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
         
         ----
         	**type**\:  str
-        
-        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
         
         ----
@@ -1130,58 +1195,10 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: statistics
+        .. attribute:: vc_type
         
-        	A collection of pseudowire\-related statistics objects
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.Statistics>`
-        
-        .. attribute:: vc_control_word
-        
-        	Indicates if the control word is sent with each packet by the local node
-        	**type**\:  bool
-        
-        .. attribute:: vc_inbound_label
-        
-        	The VC label used in the inbound direction (i.e. packets received from the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represents the 32 bits Session ID. If the label is not yet known (signaling in process), the object should return a value of 0xFFFFFFFF
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: vc_inbound_oper_status
-        
-        	Indicates the actual operational status of this VC in the  inbound direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
-        
-        .. attribute:: vc_local_group_id
-        
-        	Used to identify which local pseudowire group this pseudowire belongs to
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: vc_local_if_mtu
-        
-        	If not zero, this represents the locally supported MTU size over the interface (or the virtual interface) associated with the VC
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: vc_oper_status
-        
-        	Indicates the actual combined operational status of this VC. It is 'up' if both vc\-inbound\-oper\-status and vc\-outbound\-oper\-status are in 'up' state. For all other values, if the VCs in both directions are of the same value it reflects that value, otherwise it is set to the most severe status out of the two statuses. The order of severance from most severe to less severe is\: unknown, notPresent, down, lowerLayerDown, dormant, testing, up. The operator may consult the per direction oper\-status for fault isolation per direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
-        
-        .. attribute:: vc_outbound_label
-        
-        	The VC label used in the outbound direction (i.e. toward the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represent the 32 bits Session ID. If the label is not yet known (signaling in procesS), the object should return a value of 0xFFFFFFFF
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: vc_outbound_oper_status
-        
-        	Indicates the actual operational status of this VC in the outbound direction
-        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        	Indicates the service to be carried over this VC
+        	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
         
         .. attribute:: vc_owner_name
         
@@ -1193,10 +1210,24 @@ class PseudowireState(Entity):
         	Indicates the type of packet\-switched network that carries this VC
         	**type**\:   :py:class:`VcPsnType <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcPsnType>`
         
-        .. attribute:: vc_remote_control_word
+        .. attribute:: vc_local_group_id
         
-        	Indicates whether MPLS control words are used by the pseudowire PSN service
-        	**type**\:   :py:class:`VcRemoteControlWord <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcRemoteControlWord>`
+        	Used to identify which local pseudowire group this pseudowire belongs to
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: vc_control_word
+        
+        	Indicates if the control word is sent with each packet by the local node
+        	**type**\:  bool
+        
+        .. attribute:: vc_local_if_mtu
+        
+        	If not zero, this represents the locally supported MTU size over the interface (or the virtual interface) associated with the VC
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         .. attribute:: vc_remote_group_id
         
@@ -1205,6 +1236,11 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
+        .. attribute:: vc_remote_control_word
+        
+        	Indicates whether MPLS control words are used by the pseudowire PSN service
+        	**type**\:   :py:class:`VcRemoteControlWord <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.VcRemoteControlWord>`
+        
         .. attribute:: vc_remote_if_mtu
         
         	The remote interface MTU as (optionally) received from the remote node via the signaling protocol. Should be zero if this parameter is not available or not used
@@ -1212,10 +1248,39 @@ class PseudowireState(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: vc_type
+        .. attribute:: vc_outbound_label
         
-        	Indicates the service to be carried over this VC
-        	**type**\:   :py:class:`PwVcType <ydk.models.cisco_ios_xe.cisco_pw.PwVcType>`
+        	The VC label used in the outbound direction (i.e. toward the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represent the 32 bits Session ID. If the label is not yet known (signaling in procesS), the object should return a value of 0xFFFFFFFF
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: vc_inbound_label
+        
+        	The VC label used in the inbound direction (i.e. packets received from the PSN). Example\: for MPLS PSN, it represents the 20 bits of VC tag, for L2TP it represents the 32 bits Session ID. If the label is not yet known (signaling in process), the object should return a value of 0xFFFFFFFF
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: vc_oper_status
+        
+        	Indicates the actual combined operational status of this VC. It is 'up' if both vc\-inbound\-oper\-status and vc\-outbound\-oper\-status are in 'up' state. For all other values, if the VCs in both directions are of the same value it reflects that value, otherwise it is set to the most severe status out of the two statuses. The order of severance from most severe to less severe is\: unknown, notPresent, down, lowerLayerDown, dormant, testing, up. The operator may consult the per direction oper\-status for fault isolation per direction
+        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        
+        .. attribute:: vc_inbound_oper_status
+        
+        	Indicates the actual operational status of this VC in the  inbound direction
+        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        
+        .. attribute:: vc_outbound_oper_status
+        
+        	Indicates the actual operational status of this VC in the outbound direction
+        	**type**\:   :py:class:`PwOperStateType <ydk.models.cisco_ios_xe.cisco_pw.PwOperStateType>`
+        
+        .. attribute:: statistics
+        
+        	A collection of pseudowire\-related statistics objects
+        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xe.cisco_pw.PseudowireState.Pseudowires.Statistics>`
         
         
 
@@ -1244,33 +1309,33 @@ class PseudowireState(Entity):
 
             self.vc_index = YLeaf(YType.uint32, "vc-index")
 
-            self.vc_control_word = YLeaf(YType.boolean, "vc-control-word")
-
-            self.vc_inbound_label = YLeaf(YType.uint32, "vc-inbound-label")
-
-            self.vc_inbound_oper_status = YLeaf(YType.enumeration, "vc-inbound-oper-status")
-
-            self.vc_local_group_id = YLeaf(YType.uint32, "vc-local-group-id")
-
-            self.vc_local_if_mtu = YLeaf(YType.uint32, "vc-local-if-mtu")
-
-            self.vc_oper_status = YLeaf(YType.enumeration, "vc-oper-status")
-
-            self.vc_outbound_label = YLeaf(YType.uint32, "vc-outbound-label")
-
-            self.vc_outbound_oper_status = YLeaf(YType.enumeration, "vc-outbound-oper-status")
+            self.vc_type = YLeaf(YType.identityref, "vc-type")
 
             self.vc_owner_name = YLeaf(YType.str, "vc-owner-name")
 
             self.vc_psn_type = YLeaf(YType.enumeration, "vc-psn-type")
 
-            self.vc_remote_control_word = YLeaf(YType.enumeration, "vc-remote-control-word")
+            self.vc_local_group_id = YLeaf(YType.uint32, "vc-local-group-id")
+
+            self.vc_control_word = YLeaf(YType.boolean, "vc-control-word")
+
+            self.vc_local_if_mtu = YLeaf(YType.uint32, "vc-local-if-mtu")
 
             self.vc_remote_group_id = YLeaf(YType.uint32, "vc-remote-group-id")
 
+            self.vc_remote_control_word = YLeaf(YType.enumeration, "vc-remote-control-word")
+
             self.vc_remote_if_mtu = YLeaf(YType.uint32, "vc-remote-if-mtu")
 
-            self.vc_type = YLeaf(YType.identityref, "vc-type")
+            self.vc_outbound_label = YLeaf(YType.uint32, "vc-outbound-label")
+
+            self.vc_inbound_label = YLeaf(YType.uint32, "vc-inbound-label")
+
+            self.vc_oper_status = YLeaf(YType.enumeration, "vc-oper-status")
+
+            self.vc_inbound_oper_status = YLeaf(YType.enumeration, "vc-inbound-oper-status")
+
+            self.vc_outbound_oper_status = YLeaf(YType.enumeration, "vc-outbound-oper-status")
 
             self.statistics = PseudowireState.Pseudowires.Statistics()
             self.statistics.parent = self
@@ -1280,7 +1345,7 @@ class PseudowireState(Entity):
             self._absolute_path = lambda: "cisco-pw:pseudowire-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_control_word', 'vc_inbound_label', 'vc_inbound_oper_status', 'vc_local_group_id', 'vc_local_if_mtu', 'vc_oper_status', 'vc_outbound_label', 'vc_outbound_oper_status', 'vc_owner_name', 'vc_psn_type', 'vc_remote_control_word', 'vc_remote_group_id', 'vc_remote_if_mtu', 'vc_type'], name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_type', 'vc_owner_name', 'vc_psn_type', 'vc_local_group_id', 'vc_control_word', 'vc_local_if_mtu', 'vc_remote_group_id', 'vc_remote_control_word', 'vc_remote_if_mtu', 'vc_outbound_label', 'vc_inbound_label', 'vc_oper_status', 'vc_inbound_oper_status', 'vc_outbound_oper_status'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -1402,21 +1467,26 @@ class PseudowireState(Entity):
             """
             A collection of pseudowire\-related statistics objects
             
+            .. attribute:: vc_create_time
+            
+            	System time when this VC was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: vc_up_time
+            
+            	Number of consecutive ticks this VC has been 'up' in both directions together
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: discontinuity_time
             
             	The time on the most recent occasion at which any of this pseudowire's counters sufferred discontinuity. If no such discontinuities have occurred since the last re\-initialization of the local management subsystem, then this node contains the time the local management subsystem re\-initialized itself
             	**type**\:  str
             
-            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-            
             	**mandatory**\: True
-            
-            .. attribute:: in_errors
-            
-            	The total number of inbound packets that contained errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
             
             .. attribute:: in_octets
             
@@ -1432,9 +1502,9 @@ class PseudowireState(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: out_errors
+            .. attribute:: in_errors
             
-            	The total number of outbound packets that could not be sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
+            	The total number of inbound packets that contained errors.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -1453,19 +1523,12 @@ class PseudowireState(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: vc_create_time
+            .. attribute:: out_errors
             
-            	System time when this VC was created
+            	The total number of outbound packets that could not be sent on this pseudowire.  Discontinuities in the value of this counter can occur at re\-initialization of the management system and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\:  int
             
-            	**range:** 0..4294967295
-            
-            .. attribute:: vc_up_time
-            
-            	Number of consecutive ticks this VC has been 'up' in both directions together
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	**range:** 0..18446744073709551615
             
             
 
@@ -1484,106 +1547,31 @@ class PseudowireState(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.discontinuity_time = YLeaf(YType.str, "discontinuity-time")
+                self.vc_create_time = YLeaf(YType.uint32, "vc-create-time")
 
-                self.in_errors = YLeaf(YType.uint64, "in-errors")
+                self.vc_up_time = YLeaf(YType.uint32, "vc-up-time")
+
+                self.discontinuity_time = YLeaf(YType.str, "discontinuity-time")
 
                 self.in_octets = YLeaf(YType.uint64, "in-octets")
 
                 self.in_pkts = YLeaf(YType.uint64, "in-pkts")
 
-                self.out_errors = YLeaf(YType.uint64, "out-errors")
+                self.in_errors = YLeaf(YType.uint64, "in-errors")
 
                 self.out_octets = YLeaf(YType.uint64, "out-octets")
 
                 self.out_pkts = YLeaf(YType.uint64, "out-pkts")
 
-                self.vc_create_time = YLeaf(YType.uint32, "vc-create-time")
-
-                self.vc_up_time = YLeaf(YType.uint32, "vc-up-time")
+                self.out_errors = YLeaf(YType.uint64, "out-errors")
                 self._segment_path = lambda: "statistics"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['discontinuity_time', 'in_errors', 'in_octets', 'in_pkts', 'out_errors', 'out_octets', 'out_pkts', 'vc_create_time', 'vc_up_time'], name, value)
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['vc_create_time', 'vc_up_time', 'discontinuity_time', 'in_octets', 'in_pkts', 'in_errors', 'out_octets', 'out_pkts', 'out_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireState()
         return self._top_entity
-
-class PwEncapsulationType(Identity):
-    """
-    Base identity for PW encapsulations.
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwEncapsulationType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encapsulation-type")
-
-
-class PwLoadBalanceType(Identity):
-    """
-    Base type for load\-balancing type
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLoadBalanceType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-load-balance-type")
-
-
-class PwSequencingType(Identity):
-    """
-    Sequencing options for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-type")
-
-
-class PwSignalingProtocolType(Identity):
-    """
-    Base identity for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSignalingProtocolType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-type")
-
-
-class PwVcType(Identity):
-    """
-    Base identity for VC type in PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwVcType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type")
-
 
 class PwEncapMpls(Identity):
     """
@@ -1598,141 +1586,6 @@ class PwEncapMpls(Identity):
 
     def __init__(self):
         super(PwEncapMpls, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encap-mpls")
-
-
-class PwLbEthernetType(Identity):
-    """
-    Base type for load\-balancing with ethernet fields
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbEthernetType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ethernet-type")
-
-
-class PwLbIpDstIp(Identity):
-    """
-    Load\-balancing with IP destination IP field
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbIpDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-dst-ip")
-
-
-class PwLbIpType(Identity):
-    """
-    Base type for load\-balancing with IP
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwLbIpType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-type")
-
-
-class PwSequencingBoth(Identity):
-    """
-    Receive and Transmit sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingBoth, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-both")
-
-
-class PwSequencingReceive(Identity):
-    """
-    Receive sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingReceive, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-receive")
-
-
-class PwSequencingTransmit(Identity):
-    """
-    Transmit sequencing option for PW
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSequencingTransmit, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-transmit")
-
-
-class PwSignalingProtocolBgp(Identity):
-    """
-    Use BGP for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSignalingProtocolBgp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-bgp")
-
-
-class PwSignalingProtocolLdp(Identity):
-    """
-    Use MPLS LDP for PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSignalingProtocolLdp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-ldp")
-
-
-class PwSignalingProtocolNone(Identity):
-    """
-    No PW signaling protocol
-    
-    
-
-    """
-
-    _prefix = 'l2vpn-pw'
-    _revision = '2016-12-07'
-
-    def __init__(self):
-        super(PwSignalingProtocolNone, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-none")
 
 
 class PwVcTypeEther(Identity):
@@ -1780,6 +1633,36 @@ class PwVcTypeVlanPassthrough(Identity):
         super(PwVcTypeVlanPassthrough, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan-passthrough")
 
 
+class PwLbEthernetType(Identity):
+    """
+    Base type for load\-balancing with ethernet fields
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbEthernetType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ethernet-type")
+
+
+class PwLbEthSrcMac(Identity):
+    """
+    Load\-balancing with ethernet source MAC field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbEthSrcMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-mac")
+
+
 class PwLbEthDstMac(Identity):
     """
     Load\-balancing with ethernet destination MAC field
@@ -1811,9 +1694,9 @@ class PwLbEthSrcDstMac(Identity):
         super(PwLbEthSrcDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-dst-mac")
 
 
-class PwLbEthSrcMac(Identity):
+class PwLbIpType(Identity):
     """
-    Load\-balancing with ethernet source MAC field
+    Base type for load\-balancing with IP
     
     
 
@@ -1823,7 +1706,37 @@ class PwLbEthSrcMac(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwLbEthSrcMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-mac")
+        super(PwLbIpType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-type")
+
+
+class PwLbIpSrcIp(Identity):
+    """
+    Load\-balancing with IP source IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbIpSrcIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-ip")
+
+
+class PwLbIpDstIp(Identity):
+    """
+    Load\-balancing with IP destination IP field
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwLbIpDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-dst-ip")
 
 
 class PwLbIpSrcDstIp(Identity):
@@ -1841,9 +1754,9 @@ class PwLbIpSrcDstIp(Identity):
         super(PwLbIpSrcDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-dst-ip")
 
 
-class PwLbIpSrcIp(Identity):
+class PwSignalingProtocolNone(Identity):
     """
-    Load\-balancing with IP source IP field
+    No PW signaling protocol
     
     
 
@@ -1853,6 +1766,81 @@ class PwLbIpSrcIp(Identity):
     _revision = '2016-12-07'
 
     def __init__(self):
-        super(PwLbIpSrcIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-ip")
+        super(PwSignalingProtocolNone, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-none")
+
+
+class PwSignalingProtocolLdp(Identity):
+    """
+    Use MPLS LDP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSignalingProtocolLdp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-ldp")
+
+
+class PwSignalingProtocolBgp(Identity):
+    """
+    Use BGP for PW signaling protocol
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSignalingProtocolBgp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-bgp")
+
+
+class PwSequencingReceive(Identity):
+    """
+    Receive sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingReceive, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-receive")
+
+
+class PwSequencingTransmit(Identity):
+    """
+    Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingTransmit, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-transmit")
+
+
+class PwSequencingBoth(Identity):
+    """
+    Receive and Transmit sequencing option for PW
+    
+    
+
+    """
+
+    _prefix = 'l2vpn-pw'
+    _revision = '2016-12-07'
+
+    def __init__(self):
+        super(PwSequencingBoth, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-both")
 
 

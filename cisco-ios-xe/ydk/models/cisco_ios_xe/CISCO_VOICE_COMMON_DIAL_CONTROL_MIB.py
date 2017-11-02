@@ -747,17 +747,22 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`callactiveindex <ydk.models.cisco_ios_xe.DIAL_CONTROL_MIB.DIALCONTROLMIB.Callactivetable.Callactiveentry>`
             
-            .. attribute:: cvcommondccallactivecalleridblock
+            .. attribute:: cvcommondccallactiveconnectionid
             
-            	The object indicates whether or not the caller ID feature is blocked for this voice call
-            	**type**\:  bool
-            
-            .. attribute:: cvcommondccallactivecallingname
-            
-            	The calling party name this call is connected to. If the name is not available, then it will have a length of zero
+            	The global call identifier for the network call
             	**type**\:  str
             
-            	**length:** 0..64
+            	**length:** 0..16
+            
+            .. attribute:: cvcommondccallactivevadenable
+            
+            	The object indicates whether or not the VAD (Voice Activity Detection) is enabled for the voice call
+            	**type**\:  bool
+            
+            .. attribute:: cvcommondccallactivecodertyperate
+            
+            	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg  for the call. This rate is different from the configuration rate  because of rate negotiation during the call
+            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallactivecodecbytes
             
@@ -766,26 +771,21 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 10..255
             
-            .. attribute:: cvcommondccallactivecodertyperate
-            
-            	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg  for the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
-            
-            .. attribute:: cvcommondccallactiveconnectionid
-            
-            	The global call identifier for the network call
-            	**type**\:  str
-            
-            	**length:** 0..16
-            
             .. attribute:: cvcommondccallactiveinbandsignaling
             
             	Specifies the type of in\-band signaling being used on the call.  This object is instantiated only for  Connection Trunk calls
             	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
-            .. attribute:: cvcommondccallactivevadenable
+            .. attribute:: cvcommondccallactivecallingname
             
-            	The object indicates whether or not the VAD (Voice Activity Detection) is enabled for the voice call
+            	The calling party name this call is connected to. If the name is not available, then it will have a length of zero
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: cvcommondccallactivecalleridblock
+            
+            	The object indicates whether or not the caller ID feature is blocked for this voice call
             	**type**\:  bool
             
             
@@ -809,24 +809,24 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
 
                 self.callactiveindex = YLeaf(YType.str, "callActiveIndex")
 
-                self.cvcommondccallactivecalleridblock = YLeaf(YType.boolean, "cvCommonDcCallActiveCallerIDBlock")
+                self.cvcommondccallactiveconnectionid = YLeaf(YType.str, "cvCommonDcCallActiveConnectionId")
 
-                self.cvcommondccallactivecallingname = YLeaf(YType.str, "cvCommonDcCallActiveCallingName")
-
-                self.cvcommondccallactivecodecbytes = YLeaf(YType.int32, "cvCommonDcCallActiveCodecBytes")
+                self.cvcommondccallactivevadenable = YLeaf(YType.boolean, "cvCommonDcCallActiveVADEnable")
 
                 self.cvcommondccallactivecodertyperate = YLeaf(YType.enumeration, "cvCommonDcCallActiveCoderTypeRate")
 
-                self.cvcommondccallactiveconnectionid = YLeaf(YType.str, "cvCommonDcCallActiveConnectionId")
+                self.cvcommondccallactivecodecbytes = YLeaf(YType.int32, "cvCommonDcCallActiveCodecBytes")
 
                 self.cvcommondccallactiveinbandsignaling = YLeaf(YType.enumeration, "cvCommonDcCallActiveInBandSignaling")
 
-                self.cvcommondccallactivevadenable = YLeaf(YType.boolean, "cvCommonDcCallActiveVADEnable")
+                self.cvcommondccallactivecallingname = YLeaf(YType.str, "cvCommonDcCallActiveCallingName")
+
+                self.cvcommondccallactivecalleridblock = YLeaf(YType.boolean, "cvCommonDcCallActiveCallerIDBlock")
                 self._segment_path = lambda: "cvCommonDcCallActiveEntry" + "[callActiveSetupTime='" + self.callactivesetuptime.get() + "']" + "[callActiveIndex='" + self.callactiveindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallActiveTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactivecalleridblock', 'cvcommondccallactivecallingname', 'cvcommondccallactivecodecbytes', 'cvcommondccallactivecodertyperate', 'cvcommondccallactiveconnectionid', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivevadenable'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallactivetable.Cvcommondccallactiveentry, ['callactivesetuptime', 'callactiveindex', 'cvcommondccallactiveconnectionid', 'cvcommondccallactivevadenable', 'cvcommondccallactivecodertyperate', 'cvcommondccallactivecodecbytes', 'cvcommondccallactiveinbandsignaling', 'cvcommondccallactivecallingname', 'cvcommondccallactivecalleridblock'], name, value)
 
 
     class Cvcommondccallhistorytable(Entity):
@@ -887,17 +887,22 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**refers to**\:  :py:class:`ccallhistoryindex <ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB.CISCODIALCONTROLMIB.Ccallhistorytable.Ccallhistoryentry>`
             
-            .. attribute:: cvcommondccallhistorycalleridblock
+            .. attribute:: cvcommondccallhistoryconnectionid
             
-            	The object indicates whether or not the caller ID feature is blocked for this voice call
-            	**type**\:  bool
-            
-            .. attribute:: cvcommondccallhistorycallingname
-            
-            	The calling party name this call is connected to. If the name is not available, then it will have a length  of zero
+            	The global call identifier for the gateway call
             	**type**\:  str
             
-            	**length:** 0..64
+            	**length:** 0..16
+            
+            .. attribute:: cvcommondccallhistoryvadenable
+            
+            	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
+            	**type**\:  bool
+            
+            .. attribute:: cvcommondccallhistorycodertyperate
+            
+            	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for  the call. This rate is different from the configuration rate  because of rate negotiation during the call
+            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
             
             .. attribute:: cvcommondccallhistorycodecbytes
             
@@ -906,26 +911,21 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
             
             	**range:** 10..255
             
-            .. attribute:: cvcommondccallhistorycodertyperate
-            
-            	The negotiated coder rate. It specifies the transmit rate of voice/fax compression to its associated call leg for  the call. This rate is different from the configuration rate  because of rate negotiation during the call
-            	**type**\:   :py:class:`CvcCoderTypeRate <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcCoderTypeRate>`
-            
-            .. attribute:: cvcommondccallhistoryconnectionid
-            
-            	The global call identifier for the gateway call
-            	**type**\:  str
-            
-            	**length:** 0..16
-            
             .. attribute:: cvcommondccallhistoryinbandsignaling
             
             	Specifies the type of in\-band signaling used on the call.  This object is instantiated only for  Connection Trunk calls
             	**type**\:   :py:class:`CvcInBandSignaling <ydk.models.cisco_ios_xe.CISCO_VOICE_COMMON_DIAL_CONTROL_MIB.CvcInBandSignaling>`
             
-            .. attribute:: cvcommondccallhistoryvadenable
+            .. attribute:: cvcommondccallhistorycallingname
             
-            	The object indicates whether or not the VAD (Voice Activity Detection) was enabled for the voice call
+            	The calling party name this call is connected to. If the name is not available, then it will have a length  of zero
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: cvcommondccallhistorycalleridblock
+            
+            	The object indicates whether or not the caller ID feature is blocked for this voice call
             	**type**\:  bool
             
             
@@ -947,24 +947,24 @@ class CISCOVOICECOMMONDIALCONTROLMIB(Entity):
 
                 self.ccallhistoryindex = YLeaf(YType.str, "cCallHistoryIndex")
 
-                self.cvcommondccallhistorycalleridblock = YLeaf(YType.boolean, "cvCommonDcCallHistoryCallerIDBlock")
+                self.cvcommondccallhistoryconnectionid = YLeaf(YType.str, "cvCommonDcCallHistoryConnectionId")
 
-                self.cvcommondccallhistorycallingname = YLeaf(YType.str, "cvCommonDcCallHistoryCallingName")
-
-                self.cvcommondccallhistorycodecbytes = YLeaf(YType.int32, "cvCommonDcCallHistoryCodecBytes")
+                self.cvcommondccallhistoryvadenable = YLeaf(YType.boolean, "cvCommonDcCallHistoryVADEnable")
 
                 self.cvcommondccallhistorycodertyperate = YLeaf(YType.enumeration, "cvCommonDcCallHistoryCoderTypeRate")
 
-                self.cvcommondccallhistoryconnectionid = YLeaf(YType.str, "cvCommonDcCallHistoryConnectionId")
+                self.cvcommondccallhistorycodecbytes = YLeaf(YType.int32, "cvCommonDcCallHistoryCodecBytes")
 
                 self.cvcommondccallhistoryinbandsignaling = YLeaf(YType.enumeration, "cvCommonDcCallHistoryInBandSignaling")
 
-                self.cvcommondccallhistoryvadenable = YLeaf(YType.boolean, "cvCommonDcCallHistoryVADEnable")
+                self.cvcommondccallhistorycallingname = YLeaf(YType.str, "cvCommonDcCallHistoryCallingName")
+
+                self.cvcommondccallhistorycalleridblock = YLeaf(YType.boolean, "cvCommonDcCallHistoryCallerIDBlock")
                 self._segment_path = lambda: "cvCommonDcCallHistoryEntry" + "[cCallHistoryIndex='" + self.ccallhistoryindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-COMMON-DIAL-CONTROL-MIB:CISCO-VOICE-COMMON-DIAL-CONTROL-MIB/cvCommonDcCallHistoryTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, ['ccallhistoryindex', 'cvcommondccallhistorycalleridblock', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistoryvadenable'], name, value)
+                self._perform_setattr(CISCOVOICECOMMONDIALCONTROLMIB.Cvcommondccallhistorytable.Cvcommondccallhistoryentry, ['ccallhistoryindex', 'cvcommondccallhistoryconnectionid', 'cvcommondccallhistoryvadenable', 'cvcommondccallhistorycodertyperate', 'cvcommondccallhistorycodecbytes', 'cvcommondccallhistoryinbandsignaling', 'cvcommondccallhistorycallingname', 'cvcommondccallhistorycalleridblock'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICECOMMONDIALCONTROLMIB()

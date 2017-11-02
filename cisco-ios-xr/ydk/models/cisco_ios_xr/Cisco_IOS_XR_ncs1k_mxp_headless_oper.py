@@ -56,15 +56,15 @@ class HeadlessFuncData(Entity):
     """
     Information related to headless functionality
     
-    .. attribute:: ethernet_port_names
-    
-    	Ethernet Statistics collected during last headless operation
-    	**type**\:   :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
-    
     .. attribute:: otn_port_names
     
     	OTN Statistics collected during last headless operation
     	**type**\:   :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
+    
+    .. attribute:: ethernet_port_names
+    
+    	Ethernet Statistics collected during last headless operation
+    	**type**\:   :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
     
     
 
@@ -81,439 +81,19 @@ class HeadlessFuncData(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-headless-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ethernet-port-names" : ("ethernet_port_names", HeadlessFuncData.EthernetPortNames), "otn-port-names" : ("otn_port_names", HeadlessFuncData.OtnPortNames)}
+        self._child_container_classes = {"otn-port-names" : ("otn_port_names", HeadlessFuncData.OtnPortNames), "ethernet-port-names" : ("ethernet_port_names", HeadlessFuncData.EthernetPortNames)}
         self._child_list_classes = {}
-
-        self.ethernet_port_names = HeadlessFuncData.EthernetPortNames()
-        self.ethernet_port_names.parent = self
-        self._children_name_map["ethernet_port_names"] = "ethernet-port-names"
-        self._children_yang_names.add("ethernet-port-names")
 
         self.otn_port_names = HeadlessFuncData.OtnPortNames()
         self.otn_port_names.parent = self
         self._children_name_map["otn_port_names"] = "otn-port-names"
         self._children_yang_names.add("otn-port-names")
+
+        self.ethernet_port_names = HeadlessFuncData.EthernetPortNames()
+        self.ethernet_port_names.parent = self
+        self._children_name_map["ethernet_port_names"] = "ethernet-port-names"
+        self._children_yang_names.add("ethernet-port-names")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data"
-
-
-    class EthernetPortNames(Entity):
-        """
-        Ethernet Statistics collected during last
-        headless operation
-        
-        .. attribute:: ethernet_port_name
-        
-        	Port Name
-        	**type**\: list of    :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
-        
-        
-
-        """
-
-        _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2017-03-30'
-
-        def __init__(self):
-            super(HeadlessFuncData.EthernetPortNames, self).__init__()
-
-            self.yang_name = "ethernet-port-names"
-            self.yang_parent_name = "headless-func-data"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ethernet-port-name" : ("ethernet_port_name", HeadlessFuncData.EthernetPortNames.EthernetPortName)}
-
-            self.ethernet_port_name = YList(self)
-            self._segment_path = lambda: "ethernet-port-names"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(HeadlessFuncData.EthernetPortNames, [], name, value)
-
-
-        class EthernetPortName(Entity):
-            """
-            Port Name
-            
-            .. attribute:: name  <key>
-            
-            	Port name
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: ether_statistics
-            
-            	Ether Statistics
-            	**type**\:   :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
-            
-            .. attribute:: headless_end_time
-            
-            	Headless End Time
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: headless_start_time
-            
-            	Headless Start Time
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: started_stateful
-            
-            	Started Stateful
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2017-03-30'
-
-            def __init__(self):
-                super(HeadlessFuncData.EthernetPortNames.EthernetPortName, self).__init__()
-
-                self.yang_name = "ethernet-port-name"
-                self.yang_parent_name = "ethernet-port-names"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"ether-statistics" : ("ether_statistics", HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics)}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
-
-                self.headless_start_time = YLeaf(YType.str, "headless-start-time")
-
-                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
-
-                self.ether_statistics = HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics()
-                self.ether_statistics.parent = self
-                self._children_name_map["ether_statistics"] = "ether-statistics"
-                self._children_yang_names.add("ether-statistics")
-                self._segment_path = lambda: "ethernet-port-name" + "[name='" + self.name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/ethernet-port-names/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName, ['name', 'headless_end_time', 'headless_start_time', 'started_stateful'], name, value)
-
-
-            class EtherStatistics(Entity):
-                """
-                Ether Statistics
-                
-                .. attribute:: rx8021q_pkt
-                
-                	Rx8021QPkt
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_bytes_good
-                
-                	RxBytesGood
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_error_jabbers
-                
-                	RxErrorJabbers
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_lldp_pkt
-                
-                	RxLldpPkt
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_packets
-                
-                	RxPackets
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pause
-                
-                	RxPause
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkt_drop
-                
-                	RxPktDrop
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts1024_to1518_bytes
-                
-                	RxPkts1024To1518Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts128to255_bytes
-                
-                	RxPkts128to255Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts256_to511_bytes
-                
-                	RxPkts256To511Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts512_to1023_bytes
-                
-                	RxPkts512To1023Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts64_bytes
-                
-                	RxPkts64Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts65_to127_bytes
-                
-                	RxPkts65To127Bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_bad_fcs
-                
-                	RxPktsBadFcs
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_broadcast
-                
-                	RxPktsBroadcast
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_good
-                
-                	RxPktsGood
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_multicast
-                
-                	RxPktsMulticast
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_over_sized
-                
-                	RxPktsOverSized
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_under_sized
-                
-                	RxPktsUnderSized
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_pkts_unicast
-                
-                	RxPktsUnicast
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_recv_fragments
-                
-                	RxRecvFragments
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_total_bytes
-                
-                	RxTotalBytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_bad_fcs
-                
-                	TxBadFCS
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_bytes_good
-                
-                	TxBytesGood
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_fragments
-                
-                	TxFragments
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_jabber
-                
-                	TxJabber
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_packets
-                
-                	TxPackets
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_pause
-                
-                	TxPause
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_pkts_good
-                
-                	TxPktsGood
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_pkts_over_sized
-                
-                	TxPktsOverSized
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_pkts_under_sized
-                
-                	TxPktsUnderSized
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_total_bytes
-                
-                	TxTotalBytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2017-03-30'
-
-                def __init__(self):
-                    super(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, self).__init__()
-
-                    self.yang_name = "ether-statistics"
-                    self.yang_parent_name = "ethernet-port-name"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.rx8021q_pkt = YLeaf(YType.uint64, "rx8021q-pkt")
-
-                    self.rx_bytes_good = YLeaf(YType.uint64, "rx-bytes-good")
-
-                    self.rx_error_jabbers = YLeaf(YType.uint64, "rx-error-jabbers")
-
-                    self.rx_lldp_pkt = YLeaf(YType.uint64, "rx-lldp-pkt")
-
-                    self.rx_packets = YLeaf(YType.uint64, "rx-packets")
-
-                    self.rx_pause = YLeaf(YType.uint64, "rx-pause")
-
-                    self.rx_pkt_drop = YLeaf(YType.uint64, "rx-pkt-drop")
-
-                    self.rx_pkts1024_to1518_bytes = YLeaf(YType.uint64, "rx-pkts1024-to1518-bytes")
-
-                    self.rx_pkts128to255_bytes = YLeaf(YType.uint64, "rx-pkts128to255-bytes")
-
-                    self.rx_pkts256_to511_bytes = YLeaf(YType.uint64, "rx-pkts256-to511-bytes")
-
-                    self.rx_pkts512_to1023_bytes = YLeaf(YType.uint64, "rx-pkts512-to1023-bytes")
-
-                    self.rx_pkts64_bytes = YLeaf(YType.uint64, "rx-pkts64-bytes")
-
-                    self.rx_pkts65_to127_bytes = YLeaf(YType.uint64, "rx-pkts65-to127-bytes")
-
-                    self.rx_pkts_bad_fcs = YLeaf(YType.uint64, "rx-pkts-bad-fcs")
-
-                    self.rx_pkts_broadcast = YLeaf(YType.uint64, "rx-pkts-broadcast")
-
-                    self.rx_pkts_good = YLeaf(YType.uint64, "rx-pkts-good")
-
-                    self.rx_pkts_multicast = YLeaf(YType.uint64, "rx-pkts-multicast")
-
-                    self.rx_pkts_over_sized = YLeaf(YType.uint64, "rx-pkts-over-sized")
-
-                    self.rx_pkts_under_sized = YLeaf(YType.uint64, "rx-pkts-under-sized")
-
-                    self.rx_pkts_unicast = YLeaf(YType.uint64, "rx-pkts-unicast")
-
-                    self.rx_recv_fragments = YLeaf(YType.uint64, "rx-recv-fragments")
-
-                    self.rx_total_bytes = YLeaf(YType.uint64, "rx-total-bytes")
-
-                    self.tx_bad_fcs = YLeaf(YType.uint64, "tx-bad-fcs")
-
-                    self.tx_bytes_good = YLeaf(YType.uint64, "tx-bytes-good")
-
-                    self.tx_fragments = YLeaf(YType.uint64, "tx-fragments")
-
-                    self.tx_jabber = YLeaf(YType.uint64, "tx-jabber")
-
-                    self.tx_packets = YLeaf(YType.uint64, "tx-packets")
-
-                    self.tx_pause = YLeaf(YType.uint64, "tx-pause")
-
-                    self.tx_pkts_good = YLeaf(YType.uint64, "tx-pkts-good")
-
-                    self.tx_pkts_over_sized = YLeaf(YType.uint64, "tx-pkts-over-sized")
-
-                    self.tx_pkts_under_sized = YLeaf(YType.uint64, "tx-pkts-under-sized")
-
-                    self.tx_total_bytes = YLeaf(YType.uint64, "tx-total-bytes")
-                    self._segment_path = lambda: "ether-statistics"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, ['rx8021q_pkt', 'rx_bytes_good', 'rx_error_jabbers', 'rx_lldp_pkt', 'rx_packets', 'rx_pause', 'rx_pkt_drop', 'rx_pkts1024_to1518_bytes', 'rx_pkts128to255_bytes', 'rx_pkts256_to511_bytes', 'rx_pkts512_to1023_bytes', 'rx_pkts64_bytes', 'rx_pkts65_to127_bytes', 'rx_pkts_bad_fcs', 'rx_pkts_broadcast', 'rx_pkts_good', 'rx_pkts_multicast', 'rx_pkts_over_sized', 'rx_pkts_under_sized', 'rx_pkts_unicast', 'rx_recv_fragments', 'rx_total_bytes', 'tx_bad_fcs', 'tx_bytes_good', 'tx_fragments', 'tx_jabber', 'tx_packets', 'tx_pause', 'tx_pkts_good', 'tx_pkts_over_sized', 'tx_pkts_under_sized', 'tx_total_bytes'], name, value)
 
 
     class OtnPortNames(Entity):
@@ -560,22 +140,6 @@ class HeadlessFuncData(Entity):
             	Port name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: headless_end_time
-            
-            	Headless End Time
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: headless_start_time
-            
-            	Headless Start Time
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
             .. attribute:: otn_statistics
             
             	OTN statistics
@@ -590,6 +154,20 @@ class HeadlessFuncData(Entity):
             
             	Started Stateful
             	**type**\:  bool
+            
+            .. attribute:: headless_start_time
+            
+            	Headless Start Time
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: headless_end_time
+            
+            	Headless End Time
+            	**type**\:  str
+            
+            	**length:** 0..64
             
             
 
@@ -610,11 +188,11 @@ class HeadlessFuncData(Entity):
 
                 self.name = YLeaf(YType.str, "name")
 
-                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
+                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
 
                 self.headless_start_time = YLeaf(YType.str, "headless-start-time")
 
-                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
+                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
 
                 self.otn_statistics = HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics()
                 self.otn_statistics.parent = self
@@ -629,23 +207,16 @@ class HeadlessFuncData(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/otn-port-names/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName, ['name', 'headless_end_time', 'headless_start_time', 'started_stateful'], name, value)
+                self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName, ['name', 'started_stateful', 'headless_start_time', 'headless_end_time'], name, value)
 
 
             class OtnStatistics(Entity):
                 """
                 OTN statistics
                 
-                .. attribute:: fec_ec
+                .. attribute:: sm_bip
                 
-                	FecEc
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: fec_uc
-                
-                	FecUc
+                	SmBip
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
@@ -657,9 +228,16 @@ class HeadlessFuncData(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: sm_bip
+                .. attribute:: fec_ec
                 
-                	SmBip
+                	FecEc
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: fec_uc
+                
+                	FecUc
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
@@ -681,17 +259,17 @@ class HeadlessFuncData(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.fec_ec = YLeaf(YType.uint64, "fec-ec")
-
-                    self.fec_uc = YLeaf(YType.uint64, "fec-uc")
+                    self.sm_bip = YLeaf(YType.uint64, "sm-bip")
 
                     self.sm_bei = YLeaf(YType.uint64, "sm-bei")
 
-                    self.sm_bip = YLeaf(YType.uint64, "sm-bip")
+                    self.fec_ec = YLeaf(YType.uint64, "fec-ec")
+
+                    self.fec_uc = YLeaf(YType.uint64, "fec-uc")
                     self._segment_path = lambda: "otn-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics, ['fec_ec', 'fec_uc', 'sm_bei', 'sm_bip'], name, value)
+                    self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics, ['sm_bip', 'sm_bei', 'fec_ec', 'fec_uc'], name, value)
 
 
             class PrbsStatistics(Entity):
@@ -734,6 +312,424 @@ class HeadlessFuncData(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HeadlessFuncData.OtnPortNames.OtnPortName.PrbsStatistics, ['ebc', 'sync_status'], name, value)
+
+
+    class EthernetPortNames(Entity):
+        """
+        Ethernet Statistics collected during last
+        headless operation
+        
+        .. attribute:: ethernet_port_name
+        
+        	Port Name
+        	**type**\: list of    :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
+        
+        
+
+        """
+
+        _prefix = 'ncs1k-mxp-headless-oper'
+        _revision = '2017-03-30'
+
+        def __init__(self):
+            super(HeadlessFuncData.EthernetPortNames, self).__init__()
+
+            self.yang_name = "ethernet-port-names"
+            self.yang_parent_name = "headless-func-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ethernet-port-name" : ("ethernet_port_name", HeadlessFuncData.EthernetPortNames.EthernetPortName)}
+
+            self.ethernet_port_name = YList(self)
+            self._segment_path = lambda: "ethernet-port-names"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HeadlessFuncData.EthernetPortNames, [], name, value)
+
+
+        class EthernetPortName(Entity):
+            """
+            Port Name
+            
+            .. attribute:: name  <key>
+            
+            	Port name
+            	**type**\:  str
+            
+            .. attribute:: ether_statistics
+            
+            	Ether Statistics
+            	**type**\:   :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
+            
+            .. attribute:: started_stateful
+            
+            	Started Stateful
+            	**type**\:  bool
+            
+            .. attribute:: headless_start_time
+            
+            	Headless Start Time
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: headless_end_time
+            
+            	Headless End Time
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            
+
+            """
+
+            _prefix = 'ncs1k-mxp-headless-oper'
+            _revision = '2017-03-30'
+
+            def __init__(self):
+                super(HeadlessFuncData.EthernetPortNames.EthernetPortName, self).__init__()
+
+                self.yang_name = "ethernet-port-name"
+                self.yang_parent_name = "ethernet-port-names"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"ether-statistics" : ("ether_statistics", HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics)}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.started_stateful = YLeaf(YType.boolean, "started-stateful")
+
+                self.headless_start_time = YLeaf(YType.str, "headless-start-time")
+
+                self.headless_end_time = YLeaf(YType.str, "headless-end-time")
+
+                self.ether_statistics = HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics()
+                self.ether_statistics.parent = self
+                self._children_name_map["ether_statistics"] = "ether-statistics"
+                self._children_yang_names.add("ether-statistics")
+                self._segment_path = lambda: "ethernet-port-name" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/ethernet-port-names/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName, ['name', 'started_stateful', 'headless_start_time', 'headless_end_time'], name, value)
+
+
+            class EtherStatistics(Entity):
+                """
+                Ether Statistics
+                
+                .. attribute:: rx_pkts_over_sized
+                
+                	RxPktsOverSized
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_bad_fcs
+                
+                	RxPktsBadFcs
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_error_jabbers
+                
+                	RxErrorJabbers
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_multicast
+                
+                	RxPktsMulticast
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_broadcast
+                
+                	RxPktsBroadcast
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_under_sized
+                
+                	RxPktsUnderSized
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_packets
+                
+                	RxPackets
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_total_bytes
+                
+                	RxTotalBytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_bytes_good
+                
+                	RxBytesGood
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_good
+                
+                	RxPktsGood
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_bytes_good
+                
+                	TxBytesGood
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pkts_good
+                
+                	TxPktsGood
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_recv_fragments
+                
+                	RxRecvFragments
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts64_bytes
+                
+                	RxPkts64Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts65_to127_bytes
+                
+                	RxPkts65To127Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts128to255_bytes
+                
+                	RxPkts128to255Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts256_to511_bytes
+                
+                	RxPkts256To511Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts512_to1023_bytes
+                
+                	RxPkts512To1023Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts1024_to1518_bytes
+                
+                	RxPkts1024To1518Bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkts_unicast
+                
+                	RxPktsUnicast
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_packets
+                
+                	TxPackets
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_total_bytes
+                
+                	TxTotalBytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pkts_under_sized
+                
+                	TxPktsUnderSized
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pkts_over_sized
+                
+                	TxPktsOverSized
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_fragments
+                
+                	TxFragments
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_jabber
+                
+                	TxJabber
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_bad_fcs
+                
+                	TxBadFCS
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkt_drop
+                
+                	RxPktDrop
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pause
+                
+                	RxPause
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pause
+                
+                	TxPause
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_lldp_pkt
+                
+                	RxLldpPkt
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx8021q_pkt
+                
+                	Rx8021QPkt
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ncs1k-mxp-headless-oper'
+                _revision = '2017-03-30'
+
+                def __init__(self):
+                    super(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, self).__init__()
+
+                    self.yang_name = "ether-statistics"
+                    self.yang_parent_name = "ethernet-port-name"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.rx_pkts_over_sized = YLeaf(YType.uint64, "rx-pkts-over-sized")
+
+                    self.rx_pkts_bad_fcs = YLeaf(YType.uint64, "rx-pkts-bad-fcs")
+
+                    self.rx_error_jabbers = YLeaf(YType.uint64, "rx-error-jabbers")
+
+                    self.rx_pkts_multicast = YLeaf(YType.uint64, "rx-pkts-multicast")
+
+                    self.rx_pkts_broadcast = YLeaf(YType.uint64, "rx-pkts-broadcast")
+
+                    self.rx_pkts_under_sized = YLeaf(YType.uint64, "rx-pkts-under-sized")
+
+                    self.rx_packets = YLeaf(YType.uint64, "rx-packets")
+
+                    self.rx_total_bytes = YLeaf(YType.uint64, "rx-total-bytes")
+
+                    self.rx_bytes_good = YLeaf(YType.uint64, "rx-bytes-good")
+
+                    self.rx_pkts_good = YLeaf(YType.uint64, "rx-pkts-good")
+
+                    self.tx_bytes_good = YLeaf(YType.uint64, "tx-bytes-good")
+
+                    self.tx_pkts_good = YLeaf(YType.uint64, "tx-pkts-good")
+
+                    self.rx_recv_fragments = YLeaf(YType.uint64, "rx-recv-fragments")
+
+                    self.rx_pkts64_bytes = YLeaf(YType.uint64, "rx-pkts64-bytes")
+
+                    self.rx_pkts65_to127_bytes = YLeaf(YType.uint64, "rx-pkts65-to127-bytes")
+
+                    self.rx_pkts128to255_bytes = YLeaf(YType.uint64, "rx-pkts128to255-bytes")
+
+                    self.rx_pkts256_to511_bytes = YLeaf(YType.uint64, "rx-pkts256-to511-bytes")
+
+                    self.rx_pkts512_to1023_bytes = YLeaf(YType.uint64, "rx-pkts512-to1023-bytes")
+
+                    self.rx_pkts1024_to1518_bytes = YLeaf(YType.uint64, "rx-pkts1024-to1518-bytes")
+
+                    self.rx_pkts_unicast = YLeaf(YType.uint64, "rx-pkts-unicast")
+
+                    self.tx_packets = YLeaf(YType.uint64, "tx-packets")
+
+                    self.tx_total_bytes = YLeaf(YType.uint64, "tx-total-bytes")
+
+                    self.tx_pkts_under_sized = YLeaf(YType.uint64, "tx-pkts-under-sized")
+
+                    self.tx_pkts_over_sized = YLeaf(YType.uint64, "tx-pkts-over-sized")
+
+                    self.tx_fragments = YLeaf(YType.uint64, "tx-fragments")
+
+                    self.tx_jabber = YLeaf(YType.uint64, "tx-jabber")
+
+                    self.tx_bad_fcs = YLeaf(YType.uint64, "tx-bad-fcs")
+
+                    self.rx_pkt_drop = YLeaf(YType.uint64, "rx-pkt-drop")
+
+                    self.rx_pause = YLeaf(YType.uint64, "rx-pause")
+
+                    self.tx_pause = YLeaf(YType.uint64, "tx-pause")
+
+                    self.rx_lldp_pkt = YLeaf(YType.uint64, "rx-lldp-pkt")
+
+                    self.rx8021q_pkt = YLeaf(YType.uint64, "rx8021q-pkt")
+                    self._segment_path = lambda: "ether-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics, ['rx_pkts_over_sized', 'rx_pkts_bad_fcs', 'rx_error_jabbers', 'rx_pkts_multicast', 'rx_pkts_broadcast', 'rx_pkts_under_sized', 'rx_packets', 'rx_total_bytes', 'rx_bytes_good', 'rx_pkts_good', 'tx_bytes_good', 'tx_pkts_good', 'rx_recv_fragments', 'rx_pkts64_bytes', 'rx_pkts65_to127_bytes', 'rx_pkts128to255_bytes', 'rx_pkts256_to511_bytes', 'rx_pkts512_to1023_bytes', 'rx_pkts1024_to1518_bytes', 'rx_pkts_unicast', 'tx_packets', 'tx_total_bytes', 'tx_pkts_under_sized', 'tx_pkts_over_sized', 'tx_fragments', 'tx_jabber', 'tx_bad_fcs', 'rx_pkt_drop', 'rx_pause', 'tx_pause', 'rx_lldp_pkt', 'rx8021q_pkt'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HeadlessFuncData()

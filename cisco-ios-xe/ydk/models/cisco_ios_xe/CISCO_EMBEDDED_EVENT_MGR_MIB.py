@@ -56,15 +56,15 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
     """
     
     
-    .. attribute:: ceemeventmaptable
-    
-    	A table containing information about ceemEventIndex value mapping.  Each conceptual row specifies a  unique mapping between a ceemEventIndex value, and a  Embedded Event Manager event type.  Rows are added  dynamically as the Embedded Event Manager server learns of new event types.  This occurs when Embedded Event  Manager Event Detectors register with the Embedded  Event Manager server
-    	**type**\:   :py:class:`Ceemeventmaptable <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable>`
-    
     .. attribute:: ceemhistory
     
     	
     	**type**\:   :py:class:`Ceemhistory <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory>`
+    
+    .. attribute:: ceemeventmaptable
+    
+    	A table containing information about ceemEventIndex value mapping.  Each conceptual row specifies a  unique mapping between a ceemEventIndex value, and a  Embedded Event Manager event type.  Rows are added  dynamically as the Embedded Event Manager server learns of new event types.  This occurs when Embedded Event  Manager Event Detectors register with the Embedded  Event Manager server
+    	**type**\:   :py:class:`Ceemeventmaptable <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable>`
     
     .. attribute:: ceemhistoryeventtable
     
@@ -91,18 +91,18 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
         self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ceemEventMapTable" : ("ceemeventmaptable", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable), "ceemHistory" : ("ceemhistory", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory), "ceemHistoryEventTable" : ("ceemhistoryeventtable", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable), "ceemRegisteredPolicyTable" : ("ceemregisteredpolicytable", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable)}
+        self._child_container_classes = {"ceemHistory" : ("ceemhistory", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory), "ceemEventMapTable" : ("ceemeventmaptable", CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable), "ceemHistoryEventTable" : ("ceemhistoryeventtable", CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable), "ceemRegisteredPolicyTable" : ("ceemregisteredpolicytable", CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable)}
         self._child_list_classes = {}
-
-        self.ceemeventmaptable = CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable()
-        self.ceemeventmaptable.parent = self
-        self._children_name_map["ceemeventmaptable"] = "ceemEventMapTable"
-        self._children_yang_names.add("ceemEventMapTable")
 
         self.ceemhistory = CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory()
         self.ceemhistory.parent = self
         self._children_name_map["ceemhistory"] = "ceemHistory"
         self._children_yang_names.add("ceemHistory")
+
+        self.ceemeventmaptable = CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable()
+        self.ceemeventmaptable.parent = self
+        self._children_name_map["ceemeventmaptable"] = "ceemEventMapTable"
+        self._children_yang_names.add("ceemEventMapTable")
 
         self.ceemhistoryeventtable = CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable()
         self.ceemhistoryeventtable.parent = self
@@ -114,6 +114,51 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
         self._children_name_map["ceemregisteredpolicytable"] = "ceemRegisteredPolicyTable"
         self._children_yang_names.add("ceemRegisteredPolicyTable")
         self._segment_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB"
+
+
+    class Ceemhistory(Entity):
+        """
+        
+        
+        .. attribute:: ceemhistorymaxevententries
+        
+        	The maximum number of entries that can be held in ceemHistoryEventTable
+        	**type**\:  int
+        
+        	**range:** 0..50
+        
+        .. attribute:: ceemhistorylastevententry
+        
+        	Index of last entry created in ceemHistoryEventTable
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
+        
+        
+
+        """
+
+        _prefix = 'CISCO-EMBEDDED-EVENT-MGR-MIB'
+        _revision = '2006-11-07'
+
+        def __init__(self):
+            super(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory, self).__init__()
+
+            self.yang_name = "ceemHistory"
+            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.ceemhistorymaxevententries = YLeaf(YType.int32, "ceemHistoryMaxEventEntries")
+
+            self.ceemhistorylastevententry = YLeaf(YType.uint32, "ceemHistoryLastEventEntry")
+            self._segment_path = lambda: "ceemHistory"
+            self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory, ['ceemhistorymaxevententries', 'ceemhistorylastevententry'], name, value)
 
 
     class Ceemeventmaptable(Entity):
@@ -168,17 +213,17 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ceemeventdescrtext
-            
-            	This object specifies a human\-readable message describing information about the  Embedded Event Manager event
-            	**type**\:  str
-            
             .. attribute:: ceemeventname
             
             	The name of the Embedded Event Manager event
             	**type**\:  str
             
             	**length:** 1..128
+            
+            .. attribute:: ceemeventdescrtext
+            
+            	This object specifies a human\-readable message describing information about the  Embedded Event Manager event
+            	**type**\:  str
             
             
 
@@ -199,59 +244,14 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
                 self.ceemeventindex = YLeaf(YType.uint32, "ceemEventIndex")
 
-                self.ceemeventdescrtext = YLeaf(YType.str, "ceemEventDescrText")
-
                 self.ceemeventname = YLeaf(YType.str, "ceemEventName")
+
+                self.ceemeventdescrtext = YLeaf(YType.str, "ceemEventDescrText")
                 self._segment_path = lambda: "ceemEventMapEntry" + "[ceemEventIndex='" + self.ceemeventindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemEventMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable.Ceemeventmapentry, ['ceemeventindex', 'ceemeventdescrtext', 'ceemeventname'], name, value)
-
-
-    class Ceemhistory(Entity):
-        """
-        
-        
-        .. attribute:: ceemhistorylastevententry
-        
-        	Index of last entry created in ceemHistoryEventTable
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
-        
-        .. attribute:: ceemhistorymaxevententries
-        
-        	The maximum number of entries that can be held in ceemHistoryEventTable
-        	**type**\:  int
-        
-        	**range:** 0..50
-        
-        
-
-        """
-
-        _prefix = 'CISCO-EMBEDDED-EVENT-MGR-MIB'
-        _revision = '2006-11-07'
-
-        def __init__(self):
-            super(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory, self).__init__()
-
-            self.yang_name = "ceemHistory"
-            self.yang_parent_name = "CISCO-EMBEDDED-EVENT-MGR-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ceemhistorylastevententry = YLeaf(YType.uint32, "ceemHistoryLastEventEntry")
-
-            self.ceemhistorymaxevententries = YLeaf(YType.int32, "ceemHistoryMaxEventEntries")
-            self._segment_path = lambda: "ceemHistory"
-            self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistory, ['ceemhistorylastevententry', 'ceemhistorymaxevententries'], name, value)
+                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemeventmaptable.Ceemeventmapentry, ['ceemeventindex', 'ceemeventname', 'ceemeventdescrtext'], name, value)
 
 
     class Ceemhistoryeventtable(Entity):
@@ -341,6 +341,53 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: ceemhistorypolicypath
+            
+            	The file path on the router where the Embedded Event Manager policy that was triggered is stored.  If the size of the  file path string is larger than 128, the end characters  will be truncated
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: ceemhistorypolicyname
+            
+            	The name of the Embedded Event Manager policy that was triggered because of an Embedded Event Manager event. The name must be a valid Embedded Event Manager policy name.  It must be in the form of a valid Posix filename
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: ceemhistorypolicyexitstatus
+            
+            	The exit status of the Embedded Event Manager policy execution.  This value corresponds to the Posix process  exit status
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: ceemhistorypolicyintdata1
+            
+            	Arbitrary integer data that the Embedded Event Manager policy can use. Use of this object is optional. If unused by a policy, this object will not be instantiated for  that policy
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: ceemhistorypolicyintdata2
+            
+            	Arbitrary integer data that the Embedded Event Manager policy can use. Use of this object is optional. If unused by a policy, this object will not be instantiated for  that policy
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: ceemhistorypolicystrdata
+            
+            	Arbitrary string data the Embedded Event Manager policy can use.  Use of this object is optional.  If unused by a policy, this object will not be instantiated for  that policy
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: ceemhistorynotifytype
+            
+            	The notification type that was sent from the Embedded Event Manager.  The valid values are server or policy
+            	**type**\:   :py:class:`NotifySource <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.NotifySource>`
+            
             .. attribute:: ceemhistoryeventtype5
             
             	The type of Embedded Event Manager event which was detected. The value corresponds to an entry in the  ceemEventTable
@@ -369,53 +416,6 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ceemhistorynotifytype
-            
-            	The notification type that was sent from the Embedded Event Manager.  The valid values are server or policy
-            	**type**\:   :py:class:`NotifySource <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.NotifySource>`
-            
-            .. attribute:: ceemhistorypolicyexitstatus
-            
-            	The exit status of the Embedded Event Manager policy execution.  This value corresponds to the Posix process  exit status
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: ceemhistorypolicyintdata1
-            
-            	Arbitrary integer data that the Embedded Event Manager policy can use. Use of this object is optional. If unused by a policy, this object will not be instantiated for  that policy
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: ceemhistorypolicyintdata2
-            
-            	Arbitrary integer data that the Embedded Event Manager policy can use. Use of this object is optional. If unused by a policy, this object will not be instantiated for  that policy
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: ceemhistorypolicyname
-            
-            	The name of the Embedded Event Manager policy that was triggered because of an Embedded Event Manager event. The name must be a valid Embedded Event Manager policy name.  It must be in the form of a valid Posix filename
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: ceemhistorypolicypath
-            
-            	The file path on the router where the Embedded Event Manager policy that was triggered is stored.  If the size of the  file path string is larger than 128, the end characters  will be truncated
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: ceemhistorypolicystrdata
-            
-            	Arbitrary string data the Embedded Event Manager policy can use.  Use of this object is optional.  If unused by a policy, this object will not be instantiated for  that policy
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
             
 
             """
@@ -443,15 +443,9 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
                 self.ceemhistoryeventtype4 = YLeaf(YType.uint32, "ceemHistoryEventType4")
 
-                self.ceemhistoryeventtype5 = YLeaf(YType.uint32, "ceemHistoryEventType5")
+                self.ceemhistorypolicypath = YLeaf(YType.str, "ceemHistoryPolicyPath")
 
-                self.ceemhistoryeventtype6 = YLeaf(YType.uint32, "ceemHistoryEventType6")
-
-                self.ceemhistoryeventtype7 = YLeaf(YType.uint32, "ceemHistoryEventType7")
-
-                self.ceemhistoryeventtype8 = YLeaf(YType.uint32, "ceemHistoryEventType8")
-
-                self.ceemhistorynotifytype = YLeaf(YType.enumeration, "ceemHistoryNotifyType")
+                self.ceemhistorypolicyname = YLeaf(YType.str, "ceemHistoryPolicyName")
 
                 self.ceemhistorypolicyexitstatus = YLeaf(YType.int32, "ceemHistoryPolicyExitStatus")
 
@@ -459,16 +453,22 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
                 self.ceemhistorypolicyintdata2 = YLeaf(YType.int32, "ceemHistoryPolicyIntData2")
 
-                self.ceemhistorypolicyname = YLeaf(YType.str, "ceemHistoryPolicyName")
-
-                self.ceemhistorypolicypath = YLeaf(YType.str, "ceemHistoryPolicyPath")
-
                 self.ceemhistorypolicystrdata = YLeaf(YType.str, "ceemHistoryPolicyStrData")
+
+                self.ceemhistorynotifytype = YLeaf(YType.enumeration, "ceemHistoryNotifyType")
+
+                self.ceemhistoryeventtype5 = YLeaf(YType.uint32, "ceemHistoryEventType5")
+
+                self.ceemhistoryeventtype6 = YLeaf(YType.uint32, "ceemHistoryEventType6")
+
+                self.ceemhistoryeventtype7 = YLeaf(YType.uint32, "ceemHistoryEventType7")
+
+                self.ceemhistoryeventtype8 = YLeaf(YType.uint32, "ceemHistoryEventType8")
                 self._segment_path = lambda: "ceemHistoryEventEntry" + "[ceemHistoryEventIndex='" + self.ceemhistoryeventindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemHistoryEventTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable.Ceemhistoryevententry, ['ceemhistoryeventindex', 'ceemhistoryeventtype1', 'ceemhistoryeventtype2', 'ceemhistoryeventtype3', 'ceemhistoryeventtype4', 'ceemhistoryeventtype5', 'ceemhistoryeventtype6', 'ceemhistoryeventtype7', 'ceemhistoryeventtype8', 'ceemhistorynotifytype', 'ceemhistorypolicyexitstatus', 'ceemhistorypolicyintdata1', 'ceemhistorypolicyintdata2', 'ceemhistorypolicyname', 'ceemhistorypolicypath', 'ceemhistorypolicystrdata'], name, value)
+                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemhistoryeventtable.Ceemhistoryevententry, ['ceemhistoryeventindex', 'ceemhistoryeventtype1', 'ceemhistoryeventtype2', 'ceemhistoryeventtype3', 'ceemhistoryeventtype4', 'ceemhistorypolicypath', 'ceemhistorypolicyname', 'ceemhistorypolicyexitstatus', 'ceemhistorypolicyintdata1', 'ceemhistorypolicyintdata2', 'ceemhistorypolicystrdata', 'ceemhistorynotifytype', 'ceemhistoryeventtype5', 'ceemhistoryeventtype6', 'ceemhistoryeventtype7', 'ceemhistoryeventtype8'], name, value)
 
 
     class Ceemregisteredpolicytable(Entity):
@@ -523,10 +523,12 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ceemregisteredpolicyenabledtime
+            .. attribute:: ceemregisteredpolicyname
             
-            	The time the policy was last enabled.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
+            	The name of the Embedded Event Manager policy that was registered.  The name must be a valid Embedded Event  Manager policy name. It must be in the form of a valid  Posix filename
             	**type**\:  str
+            
+            	**length:** 0..128
             
             .. attribute:: ceemregisteredpolicyeventtype1
             
@@ -552,6 +554,43 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             .. attribute:: ceemregisteredpolicyeventtype4
             
             	The type of Embedded Event Manager event which was registered by the policy. The value corresponds to an entry in the ceemEventMapTable
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: ceemregisteredpolicystatus
+            
+            	This status indicates whether the policy is enabled or disabled
+            	**type**\:   :py:class:`Ceemregisteredpolicystatus <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicystatus>`
+            
+            .. attribute:: ceemregisteredpolicytype
+            
+            	This variable indicates whether this is a user or system policy
+            	**type**\:   :py:class:`Ceemregisteredpolicytype <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicytype>`
+            
+            .. attribute:: ceemregisteredpolicynotifflag
+            
+            	This flag indicates if an SNMP notification will be sent when policy is triggered
+            	**type**\:  bool
+            
+            .. attribute:: ceemregisteredpolicyregtime
+            
+            	The time the policy was registered.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
+            	**type**\:  str
+            
+            .. attribute:: ceemregisteredpolicyenabledtime
+            
+            	The time the policy was last enabled.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
+            	**type**\:  str
+            
+            .. attribute:: ceemregisteredpolicyruntime
+            
+            	The last time the policy was run.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
+            	**type**\:  str
+            
+            .. attribute:: ceemregisteredpolicyruncount
+            
+            	The number of times the policy has been run
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -584,45 +623,6 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ceemregisteredpolicyname
-            
-            	The name of the Embedded Event Manager policy that was registered.  The name must be a valid Embedded Event  Manager policy name. It must be in the form of a valid  Posix filename
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: ceemregisteredpolicynotifflag
-            
-            	This flag indicates if an SNMP notification will be sent when policy is triggered
-            	**type**\:  bool
-            
-            .. attribute:: ceemregisteredpolicyregtime
-            
-            	The time the policy was registered.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
-            	**type**\:  str
-            
-            .. attribute:: ceemregisteredpolicyruncount
-            
-            	The number of times the policy has been run
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ceemregisteredpolicyruntime
-            
-            	The last time the policy was run.  It is stored as a 32\-bit count of seconds since 0000 UTC, 1 January, 1970
-            	**type**\:  str
-            
-            .. attribute:: ceemregisteredpolicystatus
-            
-            	This status indicates whether the policy is enabled or disabled
-            	**type**\:   :py:class:`Ceemregisteredpolicystatus <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicystatus>`
-            
-            .. attribute:: ceemregisteredpolicytype
-            
-            	This variable indicates whether this is a user or system policy
-            	**type**\:   :py:class:`Ceemregisteredpolicytype <ydk.models.cisco_ios_xe.CISCO_EMBEDDED_EVENT_MGR_MIB.CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry.Ceemregisteredpolicytype>`
-            
             
 
             """
@@ -642,7 +642,7 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
                 self.ceemregisteredpolicyindex = YLeaf(YType.uint32, "ceemRegisteredPolicyIndex")
 
-                self.ceemregisteredpolicyenabledtime = YLeaf(YType.str, "ceemRegisteredPolicyEnabledTime")
+                self.ceemregisteredpolicyname = YLeaf(YType.str, "ceemRegisteredPolicyName")
 
                 self.ceemregisteredpolicyeventtype1 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType1")
 
@@ -652,6 +652,20 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
 
                 self.ceemregisteredpolicyeventtype4 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType4")
 
+                self.ceemregisteredpolicystatus = YLeaf(YType.enumeration, "ceemRegisteredPolicyStatus")
+
+                self.ceemregisteredpolicytype = YLeaf(YType.enumeration, "ceemRegisteredPolicyType")
+
+                self.ceemregisteredpolicynotifflag = YLeaf(YType.boolean, "ceemRegisteredPolicyNotifFlag")
+
+                self.ceemregisteredpolicyregtime = YLeaf(YType.str, "ceemRegisteredPolicyRegTime")
+
+                self.ceemregisteredpolicyenabledtime = YLeaf(YType.str, "ceemRegisteredPolicyEnabledTime")
+
+                self.ceemregisteredpolicyruntime = YLeaf(YType.str, "ceemRegisteredPolicyRunTime")
+
+                self.ceemregisteredpolicyruncount = YLeaf(YType.uint32, "ceemRegisteredPolicyRunCount")
+
                 self.ceemregisteredpolicyeventtype5 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType5")
 
                 self.ceemregisteredpolicyeventtype6 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType6")
@@ -659,25 +673,11 @@ class CISCOEMBEDDEDEVENTMGRMIB(Entity):
                 self.ceemregisteredpolicyeventtype7 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType7")
 
                 self.ceemregisteredpolicyeventtype8 = YLeaf(YType.uint32, "ceemRegisteredPolicyEventType8")
-
-                self.ceemregisteredpolicyname = YLeaf(YType.str, "ceemRegisteredPolicyName")
-
-                self.ceemregisteredpolicynotifflag = YLeaf(YType.boolean, "ceemRegisteredPolicyNotifFlag")
-
-                self.ceemregisteredpolicyregtime = YLeaf(YType.str, "ceemRegisteredPolicyRegTime")
-
-                self.ceemregisteredpolicyruncount = YLeaf(YType.uint32, "ceemRegisteredPolicyRunCount")
-
-                self.ceemregisteredpolicyruntime = YLeaf(YType.str, "ceemRegisteredPolicyRunTime")
-
-                self.ceemregisteredpolicystatus = YLeaf(YType.enumeration, "ceemRegisteredPolicyStatus")
-
-                self.ceemregisteredpolicytype = YLeaf(YType.enumeration, "ceemRegisteredPolicyType")
                 self._segment_path = lambda: "ceemRegisteredPolicyEntry" + "[ceemRegisteredPolicyIndex='" + self.ceemregisteredpolicyindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-EMBEDDED-EVENT-MGR-MIB:CISCO-EMBEDDED-EVENT-MGR-MIB/ceemRegisteredPolicyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry, ['ceemregisteredpolicyindex', 'ceemregisteredpolicyenabledtime', 'ceemregisteredpolicyeventtype1', 'ceemregisteredpolicyeventtype2', 'ceemregisteredpolicyeventtype3', 'ceemregisteredpolicyeventtype4', 'ceemregisteredpolicyeventtype5', 'ceemregisteredpolicyeventtype6', 'ceemregisteredpolicyeventtype7', 'ceemregisteredpolicyeventtype8', 'ceemregisteredpolicyname', 'ceemregisteredpolicynotifflag', 'ceemregisteredpolicyregtime', 'ceemregisteredpolicyruncount', 'ceemregisteredpolicyruntime', 'ceemregisteredpolicystatus', 'ceemregisteredpolicytype'], name, value)
+                self._perform_setattr(CISCOEMBEDDEDEVENTMGRMIB.Ceemregisteredpolicytable.Ceemregisteredpolicyentry, ['ceemregisteredpolicyindex', 'ceemregisteredpolicyname', 'ceemregisteredpolicyeventtype1', 'ceemregisteredpolicyeventtype2', 'ceemregisteredpolicyeventtype3', 'ceemregisteredpolicyeventtype4', 'ceemregisteredpolicystatus', 'ceemregisteredpolicytype', 'ceemregisteredpolicynotifflag', 'ceemregisteredpolicyregtime', 'ceemregisteredpolicyenabledtime', 'ceemregisteredpolicyruntime', 'ceemregisteredpolicyruncount', 'ceemregisteredpolicyeventtype5', 'ceemregisteredpolicyeventtype6', 'ceemregisteredpolicyeventtype7', 'ceemregisteredpolicyeventtype8'], name, value)
 
             class Ceemregisteredpolicystatus(Enum):
                 """

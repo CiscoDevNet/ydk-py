@@ -105,6 +105,20 @@ class SystemTime(Entity):
         """
         System clock information
         
+        .. attribute:: year
+        
+        	Year [0..65535]
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: month
+        
+        	Month [1..12]
+        	**type**\:  int
+        
+        	**range:** 0..255
+        
         .. attribute:: day
         
         	Day [1..31]
@@ -119,23 +133,9 @@ class SystemTime(Entity):
         
         	**range:** 0..255
         
-        .. attribute:: millisecond
-        
-        	Millisecond [0..999]
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
         .. attribute:: minute
         
         	Minute [0..59]
-        	**type**\:  int
-        
-        	**range:** 0..255
-        
-        .. attribute:: month
-        
-        	Month [1..12]
         	**type**\:  int
         
         	**range:** 0..255
@@ -147,15 +147,12 @@ class SystemTime(Entity):
         
         	**range:** 0..255
         
-        .. attribute:: time_source
+        .. attribute:: millisecond
         
-        	Time source
-        	**type**\:   :py:class:`TimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSource>`
+        	Millisecond [0..999]
+        	**type**\:  int
         
-        .. attribute:: time_zone
-        
-        	Time zone
-        	**type**\:  str
+        	**range:** 0..65535
         
         .. attribute:: wday
         
@@ -164,12 +161,15 @@ class SystemTime(Entity):
         
         	**range:** 0..65535
         
-        .. attribute:: year
+        .. attribute:: time_zone
         
-        	Year [0..65535]
-        	**type**\:  int
+        	Time zone
+        	**type**\:  str
         
-        	**range:** 0..65535
+        .. attribute:: time_source
+        
+        	Time source
+        	**type**\:   :py:class:`TimeSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSource>`
         
         
 
@@ -188,30 +188,30 @@ class SystemTime(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
+            self.year = YLeaf(YType.uint16, "year")
+
+            self.month = YLeaf(YType.uint8, "month")
+
             self.day = YLeaf(YType.uint8, "day")
 
             self.hour = YLeaf(YType.uint8, "hour")
 
-            self.millisecond = YLeaf(YType.uint16, "millisecond")
-
             self.minute = YLeaf(YType.uint8, "minute")
-
-            self.month = YLeaf(YType.uint8, "month")
 
             self.second = YLeaf(YType.uint8, "second")
 
-            self.time_source = YLeaf(YType.enumeration, "time-source")
-
-            self.time_zone = YLeaf(YType.str, "time-zone")
+            self.millisecond = YLeaf(YType.uint16, "millisecond")
 
             self.wday = YLeaf(YType.uint16, "wday")
 
-            self.year = YLeaf(YType.uint16, "year")
+            self.time_zone = YLeaf(YType.str, "time-zone")
+
+            self.time_source = YLeaf(YType.enumeration, "time-source")
             self._segment_path = lambda: "clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Clock, ['day', 'hour', 'millisecond', 'minute', 'month', 'second', 'time_source', 'time_zone', 'wday', 'year'], name, value)
+            self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
 
 
     class Uptime(Entity):

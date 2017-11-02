@@ -223,16 +223,6 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: ipsecpolmapacestring
-            
-            	The value of this object is the access control  entry (ACE) within the ACL that caused this IPSec  tunnel to be established.   For instance, if an ACL defines access for two traffic streams (FTP and SNMP) as follows\:  access\-list 101 permit tcp 172.16.14.0 0.0.0.255                  172.16.16.0 0.0.0.255 eq ftp access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161   When associated with an IPSec policy, the second element of the ACL gives rise to an IPSec tunnel in the wake of SNMP traffic. The value of the object 'ipSecPolMapAceString' for the IPSec tunnel would be then the string 'access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161'
-            	**type**\:  str
-            
-            .. attribute:: ipsecpolmapaclstring
-            
-            	The value of this object is the number or the name of the access control string (ACL)  that caused this IPSec tunnel to be established.   The ACL that causes an IPSec tunnel  to be established is referenced by the   cryptomap of the tunnel.   The ACL identifies the traffic that requires  protection as defined by the policy.   For instance, the ACL that requires FTP  traffic between local subnet 172.16.14.0 and a  remote subnet 172.16.16.0 to be protected  is defined as   ==>access\-list 101 permit tcp 172.16.14.0 0.0.0.255                   172.16.16.0 0.0.0.255 eq ftp   When this command causes an IPSec tunnel to be   established, the object 'ipSecPolMapAclString'   assumes the string value '101'.   If the ACL is a named list such as   ==> ip access\-list standard myAcl        permit 172.16.16.8 0.0.0.0   then the value of this MIB element corresponding to    IPSec tunnel that was created by this ACL would   be 'myAcl'
-            	**type**\:  str
-            
             .. attribute:: ipsecpolmapcryptomapname
             
             	The value of this object should be the name of  the IPSec Policy (cryptomap) as assigned by the  operator while configuring the policy of  the IPSec traffic.  For instance, on an IOS router, the if the command entered to configure the IPSec policy was   ==>  crypto map ftpPolicy 10 ipsec\-isakmp  then the value of this object would be 'ftpPolicy'
@@ -244,6 +234,16 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             	**type**\:  int
             
             	**range:** 1..2147483647
+            
+            .. attribute:: ipsecpolmapaclstring
+            
+            	The value of this object is the number or the name of the access control string (ACL)  that caused this IPSec tunnel to be established.   The ACL that causes an IPSec tunnel  to be established is referenced by the   cryptomap of the tunnel.   The ACL identifies the traffic that requires  protection as defined by the policy.   For instance, the ACL that requires FTP  traffic between local subnet 172.16.14.0 and a  remote subnet 172.16.16.0 to be protected  is defined as   ==>access\-list 101 permit tcp 172.16.14.0 0.0.0.255                   172.16.16.0 0.0.0.255 eq ftp   When this command causes an IPSec tunnel to be   established, the object 'ipSecPolMapAclString'   assumes the string value '101'.   If the ACL is a named list such as   ==> ip access\-list standard myAcl        permit 172.16.16.8 0.0.0.0   then the value of this MIB element corresponding to    IPSec tunnel that was created by this ACL would   be 'myAcl'
+            	**type**\:  str
+            
+            .. attribute:: ipsecpolmapacestring
+            
+            	The value of this object is the access control  entry (ACE) within the ACL that caused this IPSec  tunnel to be established.   For instance, if an ACL defines access for two traffic streams (FTP and SNMP) as follows\:  access\-list 101 permit tcp 172.16.14.0 0.0.0.255                  172.16.16.0 0.0.0.255 eq ftp access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161   When associated with an IPSec policy, the second element of the ACL gives rise to an IPSec tunnel in the wake of SNMP traffic. The value of the object 'ipSecPolMapAceString' for the IPSec tunnel would be then the string 'access\-list 101 permit udp 172.16.14.0 0.0.0.255                  host 172.16.16.1 eq 161'
+            	**type**\:  str
             
             
 
@@ -264,18 +264,18 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
 
                 self.ipsecpolmaptunindex = YLeaf(YType.int32, "ipSecPolMapTunIndex")
 
-                self.ipsecpolmapacestring = YLeaf(YType.str, "ipSecPolMapAceString")
-
-                self.ipsecpolmapaclstring = YLeaf(YType.str, "ipSecPolMapAclString")
-
                 self.ipsecpolmapcryptomapname = YLeaf(YType.str, "ipSecPolMapCryptoMapName")
 
                 self.ipsecpolmapcryptomapnum = YLeaf(YType.int32, "ipSecPolMapCryptoMapNum")
+
+                self.ipsecpolmapaclstring = YLeaf(YType.str, "ipSecPolMapAclString")
+
+                self.ipsecpolmapacestring = YLeaf(YType.str, "ipSecPolMapAceString")
                 self._segment_path = lambda: "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + self.ipsecpolmaptunindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, ['ipsecpolmaptunindex', 'ipsecpolmapacestring', 'ipsecpolmapaclstring', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum'], name, value)
+                self._perform_setattr(CISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable.Ipsecpolmapentry, ['ipsecpolmaptunindex', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum', 'ipsecpolmapaclstring', 'ipsecpolmapacestring'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSECPOLICYMAPMIB()

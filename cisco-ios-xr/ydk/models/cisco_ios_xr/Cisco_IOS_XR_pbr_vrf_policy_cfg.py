@@ -61,8 +61,6 @@ class VrfPolicy(Entity):
         	VRF name
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-        
         .. attribute:: afi
         
         	address family
@@ -103,8 +101,6 @@ class VrfPolicy(Entity):
             
             	AFI name
             	**type**\:  str
-            
-            	**pattern:** (ipv4)
             
             .. attribute:: service_policy_in
             

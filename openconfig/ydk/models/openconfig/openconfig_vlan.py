@@ -64,15 +64,15 @@ class Vlans(Entity):
         	Configuration parameters for VLANs
         	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Config>`
         
-        .. attribute:: members
-        
-        	Enclosing container for list of member interfaces
-        	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members>`
-        
         .. attribute:: state
         
         	State variables for VLANs
         	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State>`
+        
+        .. attribute:: members
+        
+        	Enclosing container for list of member interfaces
+        	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.Members>`
         
         
 
@@ -88,7 +88,7 @@ class Vlans(Entity):
             self.yang_parent_name = "vlans"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"config" : ("config", Vlans.Vlan.Config), "members" : ("members", Vlans.Vlan.Members), "state" : ("state", Vlans.Vlan.State)}
+            self._child_container_classes = {"config" : ("config", Vlans.Vlan.Config), "state" : ("state", Vlans.Vlan.State), "members" : ("members", Vlans.Vlan.Members)}
             self._child_list_classes = {}
 
             self.vlan_id = YLeaf(YType.str, "vlan-id")
@@ -98,15 +98,15 @@ class Vlans(Entity):
             self._children_name_map["config"] = "config"
             self._children_yang_names.add("config")
 
-            self.members = Vlans.Vlan.Members()
-            self.members.parent = self
-            self._children_name_map["members"] = "members"
-            self._children_yang_names.add("members")
-
             self.state = Vlans.Vlan.State()
             self.state.parent = self
             self._children_name_map["state"] = "state"
             self._children_yang_names.add("state")
+
+            self.members = Vlans.Vlan.Members()
+            self.members.parent = self
+            self._children_name_map["members"] = "members"
+            self._children_yang_names.add("members")
             self._segment_path = lambda: "vlan" + "[vlan-id='" + self.vlan_id.get() + "']"
             self._absolute_path = lambda: "openconfig-vlan:vlans/%s" % self._segment_path()
 
@@ -117,6 +117,13 @@ class Vlans(Entity):
         class Config(Entity):
             """
             Configuration parameters for VLANs
+            
+            .. attribute:: vlan_id
+            
+            	Interface VLAN id
+            	**type**\:  int
+            
+            	**range:** 1..4094
             
             .. attribute:: name
             
@@ -137,13 +144,6 @@ class Vlans(Entity):
             
             	**default value**\: oc-vlan-types:TPID_0x8100
             
-            .. attribute:: vlan_id
-            
-            	Interface VLAN id
-            	**type**\:  int
-            
-            	**range:** 1..4094
-            
             
 
             """
@@ -161,17 +161,98 @@ class Vlans(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
+                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+
                 self.name = YLeaf(YType.str, "name")
 
                 self.status = YLeaf(YType.enumeration, "status")
 
                 self.tpid = YLeaf(YType.identityref, "tpid")
-
-                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
                 self._segment_path = lambda: "config"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.Config, ['name', 'status', 'tpid', 'vlan_id'], name, value)
+                self._perform_setattr(Vlans.Vlan.Config, ['vlan_id', 'name', 'status', 'tpid'], name, value)
+
+            class Status(Enum):
+                """
+                Status
+
+                Admin state of the VLAN
+
+                .. data:: ACTIVE = 0
+
+                	VLAN is active
+
+                .. data:: SUSPENDED = 1
+
+                	VLAN is inactive / suspended
+
+                """
+
+                ACTIVE = Enum.YLeaf(0, "ACTIVE")
+
+                SUSPENDED = Enum.YLeaf(1, "SUSPENDED")
+
+
+
+        class State(Entity):
+            """
+            State variables for VLANs
+            
+            .. attribute:: vlan_id
+            
+            	Interface VLAN id
+            	**type**\:  int
+            
+            	**range:** 1..4094
+            
+            .. attribute:: name
+            
+            	Interface VLAN name
+            	**type**\:  str
+            
+            .. attribute:: status
+            
+            	Admin state of the VLAN
+            	**type**\:   :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status>`
+            
+            	**default value**\: ACTIVE
+            
+            .. attribute:: tpid
+            
+            	Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
+            	**type**\:   :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
+            
+            	**default value**\: oc-vlan-types:TPID_0x8100
+            
+            
+
+            """
+
+            _prefix = 'oc-vlan'
+            _revision = '2016-05-26'
+
+            def __init__(self):
+                super(Vlans.Vlan.State, self).__init__()
+
+                self.yang_name = "state"
+                self.yang_parent_name = "vlan"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.status = YLeaf(YType.enumeration, "status")
+
+                self.tpid = YLeaf(YType.identityref, "tpid")
+                self._segment_path = lambda: "state"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vlans.Vlan.State, ['vlan_id', 'name', 'status', 'tpid'], name, value)
 
             class Status(Enum):
                 """
@@ -339,87 +420,6 @@ class Vlans(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, ['interface', 'subinterface'], name, value)
-
-
-        class State(Entity):
-            """
-            State variables for VLANs
-            
-            .. attribute:: name
-            
-            	Interface VLAN name
-            	**type**\:  str
-            
-            .. attribute:: status
-            
-            	Admin state of the VLAN
-            	**type**\:   :py:class:`Status <ydk.models.openconfig.openconfig_vlan.Vlans.Vlan.State.Status>`
-            
-            	**default value**\: ACTIVE
-            
-            .. attribute:: tpid
-            
-            	Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
-            	**type**\:   :py:class:`TPIDTYPES <ydk.models.openconfig.openconfig_vlan_types.TPIDTYPES>`
-            
-            	**default value**\: oc-vlan-types:TPID_0x8100
-            
-            .. attribute:: vlan_id
-            
-            	Interface VLAN id
-            	**type**\:  int
-            
-            	**range:** 1..4094
-            
-            
-
-            """
-
-            _prefix = 'oc-vlan'
-            _revision = '2016-05-26'
-
-            def __init__(self):
-                super(Vlans.Vlan.State, self).__init__()
-
-                self.yang_name = "state"
-                self.yang_parent_name = "vlan"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.status = YLeaf(YType.enumeration, "status")
-
-                self.tpid = YLeaf(YType.identityref, "tpid")
-
-                self.vlan_id = YLeaf(YType.uint16, "vlan-id")
-                self._segment_path = lambda: "state"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vlans.Vlan.State, ['name', 'status', 'tpid', 'vlan_id'], name, value)
-
-            class Status(Enum):
-                """
-                Status
-
-                Admin state of the VLAN
-
-                .. data:: ACTIVE = 0
-
-                	VLAN is active
-
-                .. data:: SUSPENDED = 1
-
-                	VLAN is inactive / suspended
-
-                """
-
-                ACTIVE = Enum.YLeaf(0, "ACTIVE")
-
-                SUSPENDED = Enum.YLeaf(1, "SUSPENDED")
-
 
     def clone_ptr(self):
         self._top_entity = Vlans()

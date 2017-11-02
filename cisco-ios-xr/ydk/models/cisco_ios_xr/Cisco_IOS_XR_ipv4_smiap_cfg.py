@@ -22,15 +22,15 @@ class Ipv4Virtual(Entity):
     """
     IPv4 virtual address for management interfaces
     
-    .. attribute:: use_as_source_address
-    
-    	Enable use as default source address on sourced packets
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: vrfs
     
     	VRFs for the virtual IPv4 addresses
     	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg.Ipv4Virtual.Vrfs>`
+    
+    .. attribute:: use_as_source_address
+    
+    	Enable use as default source address on sourced packets
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -106,8 +106,6 @@ class Ipv4Virtual(Entity):
             	Name of VRF
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: address
             
             	IPv4 sddress and mask
@@ -152,8 +150,6 @@ class Ipv4Virtual(Entity):
                 
                 	IPv4 address
                 	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                 
                 	**mandatory**\: True
                 

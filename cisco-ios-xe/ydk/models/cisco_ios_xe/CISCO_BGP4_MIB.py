@@ -116,45 +116,45 @@ class CISCOBGP4MIB(Entity):
     	
     	**type**\:   :py:class:`Cbgpglobal <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgpglobal>`
     
-    .. attribute:: cbgppeer2addrfamilyprefixtable
+    .. attribute:: cbgproutetable
     
-    	This table contains prefix related information related to address families supported by a peer. Supported address families of a peer are known during BGP connection establishment. When a new supported address family is known, this table is updated with a new entry. When an address family is not supported any more, corresponding entry is deleted from the table
-    	**type**\:   :py:class:`Cbgppeer2Addrfamilyprefixtable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable>`
-    
-    .. attribute:: cbgppeer2addrfamilytable
-    
-    	This table contains information related to address families supported by a peer. Supported address families of a peer are known during BGP connection establishment. When a new supported address family is known, this table is updated with a new entry. When an address family is not supported any more, corresponding entry is deleted from the table
-    	**type**\:   :py:class:`Cbgppeer2Addrfamilytable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilytable>`
-    
-    .. attribute:: cbgppeer2capstable
-    
-    	This table contains the capabilities that are supported by a peer. Capabilities of a peer are received during BGP connection establishment. Values corresponding to each received capability are stored in this table. When a new capability is received, this table is updated with a new entry. When an existing capability is not received during the latest connection establishment, the corresponding entry is deleted from the table
-    	**type**\:   :py:class:`Cbgppeer2Capstable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Capstable>`
-    
-    .. attribute:: cbgppeer2table
-    
-    	BGP peer table.  This table contains, one entry per BGP peer, information about the connections with BGP peers
-    	**type**\:   :py:class:`Cbgppeer2Table <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table>`
-    
-    .. attribute:: cbgppeeraddrfamilyprefixtable
-    
-    	This table contains prefix related information related to address families supported by a peer.  Supported address families of a peer are known  during BGP connection establishment. When a new  supported address family is known, this table  is updated with a new entry. When an address  family is not supported any more, corresponding  entry is deleted from the table
-    	**type**\:   :py:class:`Cbgppeeraddrfamilyprefixtable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable>`
-    
-    .. attribute:: cbgppeeraddrfamilytable
-    
-    	This table contains information related to address families supported by a peer. Supported address families of a peer are known during BGP  connection establishment. When a new supported  address family is known, this table is updated  with a new entry. When an address family is not  supported any more, corresponding entry is deleted  from the table
-    	**type**\:   :py:class:`Cbgppeeraddrfamilytable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilytable>`
+    	This table contains information about routes to destination networks from all BGP4 peers.  Since  BGP4 can carry routes for multiple Network Layer  protocols, this table has the Address Family  Identifier(AFI) of the Network Layer protocol as the  first index. Further for a given AFI, routes carried by BGP4 are distinguished based on Subsequent Address  Family Identifiers(SAFI).  Hence that is used as the second index.  Conceptually there is a separate Loc\-RIB maintained by the BGP speaker for each combination of  AFI and SAFI supported by it
+    	**type**\:   :py:class:`Cbgproutetable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable>`
     
     .. attribute:: cbgppeercapstable
     
     	This table contains the capabilities that are supported by a peer. Capabilities of a peer are  received during BGP connection establishment. Values corresponding to each received capability are stored in this table. When a new capability  is received, this table is updated with a new  entry. When an existing capability is not received  during the latest connection establishment, the  corresponding entry is deleted from the table
     	**type**\:   :py:class:`Cbgppeercapstable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeercapstable>`
     
-    .. attribute:: cbgproutetable
+    .. attribute:: cbgppeeraddrfamilytable
     
-    	This table contains information about routes to destination networks from all BGP4 peers.  Since  BGP4 can carry routes for multiple Network Layer  protocols, this table has the Address Family  Identifier(AFI) of the Network Layer protocol as the  first index. Further for a given AFI, routes carried by BGP4 are distinguished based on Subsequent Address  Family Identifiers(SAFI).  Hence that is used as the second index.  Conceptually there is a separate Loc\-RIB maintained by the BGP speaker for each combination of  AFI and SAFI supported by it
-    	**type**\:   :py:class:`Cbgproutetable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable>`
+    	This table contains information related to address families supported by a peer. Supported address families of a peer are known during BGP  connection establishment. When a new supported  address family is known, this table is updated  with a new entry. When an address family is not  supported any more, corresponding entry is deleted  from the table
+    	**type**\:   :py:class:`Cbgppeeraddrfamilytable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilytable>`
+    
+    .. attribute:: cbgppeeraddrfamilyprefixtable
+    
+    	This table contains prefix related information related to address families supported by a peer.  Supported address families of a peer are known  during BGP connection establishment. When a new  supported address family is known, this table  is updated with a new entry. When an address  family is not supported any more, corresponding  entry is deleted from the table
+    	**type**\:   :py:class:`Cbgppeeraddrfamilyprefixtable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable>`
+    
+    .. attribute:: cbgppeer2table
+    
+    	BGP peer table.  This table contains, one entry per BGP peer, information about the connections with BGP peers
+    	**type**\:   :py:class:`Cbgppeer2Table <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table>`
+    
+    .. attribute:: cbgppeer2capstable
+    
+    	This table contains the capabilities that are supported by a peer. Capabilities of a peer are received during BGP connection establishment. Values corresponding to each received capability are stored in this table. When a new capability is received, this table is updated with a new entry. When an existing capability is not received during the latest connection establishment, the corresponding entry is deleted from the table
+    	**type**\:   :py:class:`Cbgppeer2Capstable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Capstable>`
+    
+    .. attribute:: cbgppeer2addrfamilytable
+    
+    	This table contains information related to address families supported by a peer. Supported address families of a peer are known during BGP connection establishment. When a new supported address family is known, this table is updated with a new entry. When an address family is not supported any more, corresponding entry is deleted from the table
+    	**type**\:   :py:class:`Cbgppeer2Addrfamilytable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilytable>`
+    
+    .. attribute:: cbgppeer2addrfamilyprefixtable
+    
+    	This table contains prefix related information related to address families supported by a peer. Supported address families of a peer are known during BGP connection establishment. When a new supported address family is known, this table is updated with a new entry. When an address family is not supported any more, corresponding entry is deleted from the table
+    	**type**\:   :py:class:`Cbgppeer2Addrfamilyprefixtable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable>`
     
     
 
@@ -171,7 +171,7 @@ class CISCOBGP4MIB(Entity):
         self.yang_parent_name = "CISCO-BGP4-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cbgpGlobal" : ("cbgpglobal", CISCOBGP4MIB.Cbgpglobal), "cbgpPeer2AddrFamilyPrefixTable" : ("cbgppeer2addrfamilyprefixtable", CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable), "cbgpPeer2AddrFamilyTable" : ("cbgppeer2addrfamilytable", CISCOBGP4MIB.Cbgppeer2Addrfamilytable), "cbgpPeer2CapsTable" : ("cbgppeer2capstable", CISCOBGP4MIB.Cbgppeer2Capstable), "cbgpPeer2Table" : ("cbgppeer2table", CISCOBGP4MIB.Cbgppeer2Table), "cbgpPeerAddrFamilyPrefixTable" : ("cbgppeeraddrfamilyprefixtable", CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable), "cbgpPeerAddrFamilyTable" : ("cbgppeeraddrfamilytable", CISCOBGP4MIB.Cbgppeeraddrfamilytable), "cbgpPeerCapsTable" : ("cbgppeercapstable", CISCOBGP4MIB.Cbgppeercapstable), "cbgpRouteTable" : ("cbgproutetable", CISCOBGP4MIB.Cbgproutetable)}
+        self._child_container_classes = {"cbgpGlobal" : ("cbgpglobal", CISCOBGP4MIB.Cbgpglobal), "cbgpRouteTable" : ("cbgproutetable", CISCOBGP4MIB.Cbgproutetable), "cbgpPeerCapsTable" : ("cbgppeercapstable", CISCOBGP4MIB.Cbgppeercapstable), "cbgpPeerAddrFamilyTable" : ("cbgppeeraddrfamilytable", CISCOBGP4MIB.Cbgppeeraddrfamilytable), "cbgpPeerAddrFamilyPrefixTable" : ("cbgppeeraddrfamilyprefixtable", CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable), "cbgpPeer2Table" : ("cbgppeer2table", CISCOBGP4MIB.Cbgppeer2Table), "cbgpPeer2CapsTable" : ("cbgppeer2capstable", CISCOBGP4MIB.Cbgppeer2Capstable), "cbgpPeer2AddrFamilyTable" : ("cbgppeer2addrfamilytable", CISCOBGP4MIB.Cbgppeer2Addrfamilytable), "cbgpPeer2AddrFamilyPrefixTable" : ("cbgppeer2addrfamilyprefixtable", CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable)}
         self._child_list_classes = {}
 
         self.cbgpglobal = CISCOBGP4MIB.Cbgpglobal()
@@ -179,45 +179,45 @@ class CISCOBGP4MIB(Entity):
         self._children_name_map["cbgpglobal"] = "cbgpGlobal"
         self._children_yang_names.add("cbgpGlobal")
 
-        self.cbgppeer2addrfamilyprefixtable = CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable()
-        self.cbgppeer2addrfamilyprefixtable.parent = self
-        self._children_name_map["cbgppeer2addrfamilyprefixtable"] = "cbgpPeer2AddrFamilyPrefixTable"
-        self._children_yang_names.add("cbgpPeer2AddrFamilyPrefixTable")
-
-        self.cbgppeer2addrfamilytable = CISCOBGP4MIB.Cbgppeer2Addrfamilytable()
-        self.cbgppeer2addrfamilytable.parent = self
-        self._children_name_map["cbgppeer2addrfamilytable"] = "cbgpPeer2AddrFamilyTable"
-        self._children_yang_names.add("cbgpPeer2AddrFamilyTable")
-
-        self.cbgppeer2capstable = CISCOBGP4MIB.Cbgppeer2Capstable()
-        self.cbgppeer2capstable.parent = self
-        self._children_name_map["cbgppeer2capstable"] = "cbgpPeer2CapsTable"
-        self._children_yang_names.add("cbgpPeer2CapsTable")
-
-        self.cbgppeer2table = CISCOBGP4MIB.Cbgppeer2Table()
-        self.cbgppeer2table.parent = self
-        self._children_name_map["cbgppeer2table"] = "cbgpPeer2Table"
-        self._children_yang_names.add("cbgpPeer2Table")
-
-        self.cbgppeeraddrfamilyprefixtable = CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable()
-        self.cbgppeeraddrfamilyprefixtable.parent = self
-        self._children_name_map["cbgppeeraddrfamilyprefixtable"] = "cbgpPeerAddrFamilyPrefixTable"
-        self._children_yang_names.add("cbgpPeerAddrFamilyPrefixTable")
-
-        self.cbgppeeraddrfamilytable = CISCOBGP4MIB.Cbgppeeraddrfamilytable()
-        self.cbgppeeraddrfamilytable.parent = self
-        self._children_name_map["cbgppeeraddrfamilytable"] = "cbgpPeerAddrFamilyTable"
-        self._children_yang_names.add("cbgpPeerAddrFamilyTable")
+        self.cbgproutetable = CISCOBGP4MIB.Cbgproutetable()
+        self.cbgproutetable.parent = self
+        self._children_name_map["cbgproutetable"] = "cbgpRouteTable"
+        self._children_yang_names.add("cbgpRouteTable")
 
         self.cbgppeercapstable = CISCOBGP4MIB.Cbgppeercapstable()
         self.cbgppeercapstable.parent = self
         self._children_name_map["cbgppeercapstable"] = "cbgpPeerCapsTable"
         self._children_yang_names.add("cbgpPeerCapsTable")
 
-        self.cbgproutetable = CISCOBGP4MIB.Cbgproutetable()
-        self.cbgproutetable.parent = self
-        self._children_name_map["cbgproutetable"] = "cbgpRouteTable"
-        self._children_yang_names.add("cbgpRouteTable")
+        self.cbgppeeraddrfamilytable = CISCOBGP4MIB.Cbgppeeraddrfamilytable()
+        self.cbgppeeraddrfamilytable.parent = self
+        self._children_name_map["cbgppeeraddrfamilytable"] = "cbgpPeerAddrFamilyTable"
+        self._children_yang_names.add("cbgpPeerAddrFamilyTable")
+
+        self.cbgppeeraddrfamilyprefixtable = CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable()
+        self.cbgppeeraddrfamilyprefixtable.parent = self
+        self._children_name_map["cbgppeeraddrfamilyprefixtable"] = "cbgpPeerAddrFamilyPrefixTable"
+        self._children_yang_names.add("cbgpPeerAddrFamilyPrefixTable")
+
+        self.cbgppeer2table = CISCOBGP4MIB.Cbgppeer2Table()
+        self.cbgppeer2table.parent = self
+        self._children_name_map["cbgppeer2table"] = "cbgpPeer2Table"
+        self._children_yang_names.add("cbgpPeer2Table")
+
+        self.cbgppeer2capstable = CISCOBGP4MIB.Cbgppeer2Capstable()
+        self.cbgppeer2capstable.parent = self
+        self._children_name_map["cbgppeer2capstable"] = "cbgpPeer2CapsTable"
+        self._children_yang_names.add("cbgpPeer2CapsTable")
+
+        self.cbgppeer2addrfamilytable = CISCOBGP4MIB.Cbgppeer2Addrfamilytable()
+        self.cbgppeer2addrfamilytable.parent = self
+        self._children_name_map["cbgppeer2addrfamilytable"] = "cbgpPeer2AddrFamilyTable"
+        self._children_yang_names.add("cbgpPeer2AddrFamilyTable")
+
+        self.cbgppeer2addrfamilyprefixtable = CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable()
+        self.cbgppeer2addrfamilyprefixtable.parent = self
+        self._children_name_map["cbgppeer2addrfamilyprefixtable"] = "cbgpPeer2AddrFamilyPrefixTable"
+        self._children_yang_names.add("cbgpPeer2AddrFamilyPrefixTable")
         self._segment_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB"
 
 
@@ -225,17 +225,17 @@ class CISCOBGP4MIB(Entity):
         """
         
         
+        .. attribute:: cbgpnotifsenable
+        
+        	Indicates whether the specific notifications are enabled.  If notifsEnable(0) bit is set to 1, then the notifications defined in ciscoBgp4NotificationsGroup1 are enabled;  If notifsPeer2Enable(1) bit is set to 1, then the notifications defined in ciscoBgp4Peer2NotificationsGroup are enabled
+        	**type**\:   :py:class:`Cbgpnotifsenable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgpglobal.Cbgpnotifsenable>`
+        
         .. attribute:: cbgplocalas
         
         	The local autonomous system (AS) number
         	**type**\:  int
         
         	**range:** 0..4294967295
-        
-        .. attribute:: cbgpnotifsenable
-        
-        	Indicates whether the specific notifications are enabled.  If notifsEnable(0) bit is set to 1, then the notifications defined in ciscoBgp4NotificationsGroup1 are enabled;  If notifsPeer2Enable(1) bit is set to 1, then the notifications defined in ciscoBgp4Peer2NotificationsGroup are enabled
-        	**type**\:   :py:class:`Cbgpnotifsenable <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgpglobal.Cbgpnotifsenable>`
         
         
 
@@ -254,31 +254,34 @@ class CISCOBGP4MIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.cbgplocalas = YLeaf(YType.uint32, "cbgpLocalAs")
-
             self.cbgpnotifsenable = YLeaf(YType.bits, "cbgpNotifsEnable")
+
+            self.cbgplocalas = YLeaf(YType.uint32, "cbgpLocalAs")
             self._segment_path = lambda: "cbgpGlobal"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgpglobal, ['cbgplocalas', 'cbgpnotifsenable'], name, value)
+            self._perform_setattr(CISCOBGP4MIB.Cbgpglobal, ['cbgpnotifsenable', 'cbgplocalas'], name, value)
 
 
-    class Cbgppeer2Addrfamilyprefixtable(Entity):
+    class Cbgproutetable(Entity):
         """
-        This table contains prefix related information
-        related to address families supported by a peer.
-        Supported address families of a peer are known
-        during BGP connection establishment. When a new
-        supported address family is known, this table
-        is updated with a new entry. When an address
-        family is not supported any more, corresponding
-        entry is deleted from the table.
+        This table contains information about routes to
+        destination networks from all BGP4 peers.  Since 
+        BGP4 can carry routes for multiple Network Layer 
+        protocols, this table has the Address Family 
+        Identifier(AFI) of the Network Layer protocol as the 
+        first index. Further for a given AFI, routes carried
+        by BGP4 are distinguished based on Subsequent Address 
+        Family Identifiers(SAFI).  Hence that is used as the
+        second index.  Conceptually there is a separate Loc\-RIB
+        maintained by the BGP speaker for each combination of 
+        AFI and SAFI supported by it.
         
-        .. attribute:: cbgppeer2addrfamilyprefixentry
+        .. attribute:: cbgprouteentry
         
-        	An entry is identified by an AFI/SAFI pair and peer address. It contains information associated with route prefixes belonging to an address family
-        	**type**\: list of    :py:class:`Cbgppeer2Addrfamilyprefixentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry>`
+        	Information about a path to a network received from a peer
+        	**type**\: list of    :py:class:`Cbgprouteentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry>`
         
         
 
@@ -288,107 +291,592 @@ class CISCOBGP4MIB(Entity):
         _revision = '2010-09-30'
 
         def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable, self).__init__()
+            super(CISCOBGP4MIB.Cbgproutetable, self).__init__()
 
-            self.yang_name = "cbgpPeer2AddrFamilyPrefixTable"
+            self.yang_name = "cbgpRouteTable"
             self.yang_parent_name = "CISCO-BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeer2AddrFamilyPrefixEntry" : ("cbgppeer2addrfamilyprefixentry", CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry)}
+            self._child_list_classes = {"cbgpRouteEntry" : ("cbgprouteentry", CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry)}
 
-            self.cbgppeer2addrfamilyprefixentry = YList(self)
-            self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixTable"
+            self.cbgprouteentry = YList(self)
+            self._segment_path = lambda: "cbgpRouteTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable, [], name, value)
+            self._perform_setattr(CISCOBGP4MIB.Cbgproutetable, [], name, value)
 
 
-        class Cbgppeer2Addrfamilyprefixentry(Entity):
+        class Cbgprouteentry(Entity):
             """
-            An entry is identified by an AFI/SAFI pair and
-            peer address. It contains information associated
-            with route prefixes belonging to an address family.
+            Information about a path to a network received from
+            a peer.
             
-            .. attribute:: cbgppeer2type  <key>
+            .. attribute:: cbgprouteafi  <key>
             
-            	
+            	Represents Address Family Identifier(AFI) of the Network Layer protocol associated with the route. An implementation is only required to support IPv4 unicast and VPNv4 (Value \- 1) address families
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cbgppeer2remoteaddr  <key>
+            .. attribute:: cbgproutesafi  <key>
             
-            	
+            	Represents Subsequent Address Family Identifier(SAFI) of the route. It gives additional information about the type of the route. An implementation is only  required to support IPv4 unicast(Value \- 1) and VPNv4( Value \- 128) address families
+            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
+            
+            .. attribute:: cbgproutepeertype  <key>
+            
+            	Represents the type of Network Layer address stored in cbgpRoutePeer. An implementation is only required to support IPv4 address type(Value \- 1)
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cbgproutepeer  <key>
+            
+            	The Network Layer address of the peer where the route information was learned. An implementation is only  required to support an IPv4 peer
             	**type**\:  str
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`cbgppeer2remoteaddr <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
+            .. attribute:: cbgprouteaddrprefix  <key>
             
-            .. attribute:: cbgppeer2addrfamilyafi  <key>
+            	A Network Address prefix in the Network Layer Reachability Information field of BGP UPDATE message. This object is a Network Address containing the prefix with length specified by cbgpRouteAddrPrefixLen. Any bits beyond the length specified by cbgpRouteAddrPrefixLen are zeroed
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cbgprouteaddrprefixlen  <key>
+            
+            	Length in bits of the Network Address prefix in the Network Layer Reachability Information field
+            	**type**\:  int
+            
+            	**range:** 0..2040
+            
+            .. attribute:: cbgprouteorigin
+            
+            	The ultimate origin of the route information
+            	**type**\:   :py:class:`Cbgprouteorigin <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry.Cbgprouteorigin>`
+            
+            .. attribute:: cbgprouteaspathsegment
+            
+            	The sequence of AS path segments.  Each AS path segment is represented by a triple <type, length, value>.  The type is a 1\-octet field which has two possible values\: 1  AS\_SET\: unordered set of ASs a route in the            UPDATE message has traversed 2  AS\_SEQUENCE\: ordered set of ASs a route in the                UPDATE message has traversed.  The length is a 1\-octet field containing the number of ASs in the value field.  The value field contains one or more AS numbers, each AS is represented in the octet string as a pair of octets according to the following algorithm\:  first\-byte\-of\-pair = ASNumber / 256; second\-byte\-of\-pair = ASNumber & 255;
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cbgproutenexthop
+            
+            	The Network Layer address of the border router that should be used for the destination network
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cbgproutemedpresent
+            
+            	Indicates the presence/absence of MULTI\_EXIT\_DISC attribute for the route
+            	**type**\:  bool
+            
+            .. attribute:: cbgproutemultiexitdisc
+            
+            	This metric is used to discriminate between multiple exit points to an adjacent autonomous system.  The value of this object is irrelevant if the value of of cbgpRouteMedPresent is false(2)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgproutelocalprefpresent
+            
+            	Indicates the presence/absence of LOCAL\_PREF attribute for the route
+            	**type**\:  bool
+            
+            .. attribute:: cbgproutelocalpref
+            
+            	The degree of preference calculated by the local BGP4 speaker for the route. The value of this object is  irrelevant if the value of cbgpRouteLocalPrefPresent  is false(2)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgprouteatomicaggregate
+            
+            	Whether or not the local system has selected a less specific route without selecting a more specific route
+            	**type**\:   :py:class:`Cbgprouteatomicaggregate <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry.Cbgprouteatomicaggregate>`
+            
+            .. attribute:: cbgprouteaggregatoras
+            
+            	The AS number of the last BGP4 speaker that performed route aggregation.  A value of zero (0) indicates the  absence of this attribute
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cbgprouteaggregatoraddrtype
+            
+            	Represents the type of Network Layer address stored in cbgpRouteAggregatorAddr
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cbgprouteaggregatoraddr
+            
+            	The Network Layer address of the last BGP4 speaker that performed route aggregation.  A value of all zeros indicates the absence of this attribute
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cbgproutebest
+            
+            	An indication of whether or not this route was chosen as the best BGP4 route
+            	**type**\:  bool
+            
+            .. attribute:: cbgprouteunknownattr
+            
+            	One or more path attributes not understood by this BGP4 speaker.  Size zero (0) indicates the absence of such attribute(s).  Octets beyond the maximum size, if any, are not recorded by this object.    Each path attribute is a triple <attribute type, attribute length, attribute value> of variable length. Attribute Type is a two\-octet field that consists of the Attribute Flags octet followed by the Attribute Type Code octet.  If the Extended Length bit of the  Attribute Flags octet is set to 0, the third octet of  the Path Attribute contains the length of the attribute data in octets.  If the Extended Length bit  of the Attribute Flags octet is set to 1, then the third and the fourth octets of the path attribute  contain the length of the attribute data in octets. The remaining octets of the Path Attribute represent  the attribute value and are interpreted according to  the Attribute Flags and the Attribute Type Code
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-BGP4-MIB'
+            _revision = '2010-09-30'
+
+            def __init__(self):
+                super(CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry, self).__init__()
+
+                self.yang_name = "cbgpRouteEntry"
+                self.yang_parent_name = "cbgpRouteTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cbgprouteafi = YLeaf(YType.enumeration, "cbgpRouteAfi")
+
+                self.cbgproutesafi = YLeaf(YType.enumeration, "cbgpRouteSafi")
+
+                self.cbgproutepeertype = YLeaf(YType.enumeration, "cbgpRoutePeerType")
+
+                self.cbgproutepeer = YLeaf(YType.str, "cbgpRoutePeer")
+
+                self.cbgprouteaddrprefix = YLeaf(YType.str, "cbgpRouteAddrPrefix")
+
+                self.cbgprouteaddrprefixlen = YLeaf(YType.uint32, "cbgpRouteAddrPrefixLen")
+
+                self.cbgprouteorigin = YLeaf(YType.enumeration, "cbgpRouteOrigin")
+
+                self.cbgprouteaspathsegment = YLeaf(YType.str, "cbgpRouteASPathSegment")
+
+                self.cbgproutenexthop = YLeaf(YType.str, "cbgpRouteNextHop")
+
+                self.cbgproutemedpresent = YLeaf(YType.boolean, "cbgpRouteMedPresent")
+
+                self.cbgproutemultiexitdisc = YLeaf(YType.uint32, "cbgpRouteMultiExitDisc")
+
+                self.cbgproutelocalprefpresent = YLeaf(YType.boolean, "cbgpRouteLocalPrefPresent")
+
+                self.cbgproutelocalpref = YLeaf(YType.uint32, "cbgpRouteLocalPref")
+
+                self.cbgprouteatomicaggregate = YLeaf(YType.enumeration, "cbgpRouteAtomicAggregate")
+
+                self.cbgprouteaggregatoras = YLeaf(YType.uint32, "cbgpRouteAggregatorAS")
+
+                self.cbgprouteaggregatoraddrtype = YLeaf(YType.enumeration, "cbgpRouteAggregatorAddrType")
+
+                self.cbgprouteaggregatoraddr = YLeaf(YType.str, "cbgpRouteAggregatorAddr")
+
+                self.cbgproutebest = YLeaf(YType.boolean, "cbgpRouteBest")
+
+                self.cbgprouteunknownattr = YLeaf(YType.str, "cbgpRouteUnknownAttr")
+                self._segment_path = lambda: "cbgpRouteEntry" + "[cbgpRouteAfi='" + self.cbgprouteafi.get() + "']" + "[cbgpRouteSafi='" + self.cbgproutesafi.get() + "']" + "[cbgpRoutePeerType='" + self.cbgproutepeertype.get() + "']" + "[cbgpRoutePeer='" + self.cbgproutepeer.get() + "']" + "[cbgpRouteAddrPrefix='" + self.cbgprouteaddrprefix.get() + "']" + "[cbgpRouteAddrPrefixLen='" + self.cbgprouteaddrprefixlen.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpRouteTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry, ['cbgprouteafi', 'cbgproutesafi', 'cbgproutepeertype', 'cbgproutepeer', 'cbgprouteaddrprefix', 'cbgprouteaddrprefixlen', 'cbgprouteorigin', 'cbgprouteaspathsegment', 'cbgproutenexthop', 'cbgproutemedpresent', 'cbgproutemultiexitdisc', 'cbgproutelocalprefpresent', 'cbgproutelocalpref', 'cbgprouteatomicaggregate', 'cbgprouteaggregatoras', 'cbgprouteaggregatoraddrtype', 'cbgprouteaggregatoraddr', 'cbgproutebest', 'cbgprouteunknownattr'], name, value)
+
+            class Cbgprouteatomicaggregate(Enum):
+                """
+                Cbgprouteatomicaggregate
+
+                Whether or not the local system has selected a less
+
+                specific route without selecting a more specific
+
+                route.
+
+                .. data:: lessSpecificRouteNotSelected = 1
+
+                .. data:: lessSpecificRouteSelected = 2
+
+                """
+
+                lessSpecificRouteNotSelected = Enum.YLeaf(1, "lessSpecificRouteNotSelected")
+
+                lessSpecificRouteSelected = Enum.YLeaf(2, "lessSpecificRouteSelected")
+
+
+            class Cbgprouteorigin(Enum):
+                """
+                Cbgprouteorigin
+
+                The ultimate origin of the route information.
+
+                .. data:: igp = 1
+
+                .. data:: egp = 2
+
+                .. data:: incomplete = 3
+
+                """
+
+                igp = Enum.YLeaf(1, "igp")
+
+                egp = Enum.YLeaf(2, "egp")
+
+                incomplete = Enum.YLeaf(3, "incomplete")
+
+
+
+    class Cbgppeercapstable(Entity):
+        """
+        This table contains the capabilities that are
+        supported by a peer. Capabilities of a peer are 
+        received during BGP connection establishment.
+        Values corresponding to each received capability
+        are stored in this table. When a new capability 
+        is received, this table is updated with a new 
+        entry. When an existing capability is not received 
+        during the latest connection establishment, the 
+        corresponding entry is deleted from the table.
+        
+        .. attribute:: cbgppeercapsentry
+        
+        	Each entry represents a capability received from a peer with a particular code and an index. When a  capability is received multiple times with different values during a BGP connection establishment,  corresponding entries are differentiated with indices
+        	**type**\: list of    :py:class:`Cbgppeercapsentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-BGP4-MIB'
+        _revision = '2010-09-30'
+
+        def __init__(self):
+            super(CISCOBGP4MIB.Cbgppeercapstable, self).__init__()
+
+            self.yang_name = "cbgpPeerCapsTable"
+            self.yang_parent_name = "CISCO-BGP4-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbgpPeerCapsEntry" : ("cbgppeercapsentry", CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry)}
+
+            self.cbgppeercapsentry = YList(self)
+            self._segment_path = lambda: "cbgpPeerCapsTable"
+            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeercapstable, [], name, value)
+
+
+        class Cbgppeercapsentry(Entity):
+            """
+            Each entry represents a capability received from a
+            peer with a particular code and an index. When a 
+            capability is received multiple times with different
+            values during a BGP connection establishment, 
+            corresponding entries are differentiated with indices.
+            
+            .. attribute:: bgppeerremoteaddr  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
+            
+            .. attribute:: cbgppeercapcode  <key>
+            
+            	The BGP Capability Advertisement Capability Code
+            	**type**\:   :py:class:`Cbgppeercapcode <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry.Cbgppeercapcode>`
+            
+            .. attribute:: cbgppeercapindex  <key>
+            
+            	Multiple instances of a given capability may be sent by a BGP speaker.  This variable is used to index them
+            	**type**\:  int
+            
+            	**range:** 1..128
+            
+            .. attribute:: cbgppeercapvalue
+            
+            	The value of the announced capability. This MIB object value is organized as given below,     Capability \: Route Refresh Capability                  Null string     Capability \: Multiprotocol Extensions       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+     Capability \: Graceful Restart       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Restart Flags (4 bits)           \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Restart Time in seconds (12 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Flags for Address Family (8 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| ...                              \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Flags for Address Family (8 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'CISCO-BGP4-MIB'
+            _revision = '2010-09-30'
+
+            def __init__(self):
+                super(CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry, self).__init__()
+
+                self.yang_name = "cbgpPeerCapsEntry"
+                self.yang_parent_name = "cbgpPeerCapsTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
+
+                self.cbgppeercapcode = YLeaf(YType.enumeration, "cbgpPeerCapCode")
+
+                self.cbgppeercapindex = YLeaf(YType.uint32, "cbgpPeerCapIndex")
+
+                self.cbgppeercapvalue = YLeaf(YType.str, "cbgpPeerCapValue")
+                self._segment_path = lambda: "cbgpPeerCapsEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerCapCode='" + self.cbgppeercapcode.get() + "']" + "[cbgpPeerCapIndex='" + self.cbgppeercapindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerCapsTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry, ['bgppeerremoteaddr', 'cbgppeercapcode', 'cbgppeercapindex', 'cbgppeercapvalue'], name, value)
+
+            class Cbgppeercapcode(Enum):
+                """
+                Cbgppeercapcode
+
+                The BGP Capability Advertisement Capability Code.
+
+                .. data:: multiProtocol = 1
+
+                .. data:: routeRefresh = 2
+
+                .. data:: gracefulRestart = 64
+
+                .. data:: routeRefreshOld = 128
+
+                """
+
+                multiProtocol = Enum.YLeaf(1, "multiProtocol")
+
+                routeRefresh = Enum.YLeaf(2, "routeRefresh")
+
+                gracefulRestart = Enum.YLeaf(64, "gracefulRestart")
+
+                routeRefreshOld = Enum.YLeaf(128, "routeRefreshOld")
+
+
+
+    class Cbgppeeraddrfamilytable(Entity):
+        """
+        This table contains information related to
+        address families supported by a peer. Supported
+        address families of a peer are known during BGP 
+        connection establishment. When a new supported 
+        address family is known, this table is updated 
+        with a new entry. When an address family is not 
+        supported any more, corresponding entry is deleted 
+        from the table.
+        
+        .. attribute:: cbgppeeraddrfamilyentry
+        
+        	An entry is identified by an AFI/SAFI pair and peer address. It contains names associated with an address family
+        	**type**\: list of    :py:class:`Cbgppeeraddrfamilyentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-BGP4-MIB'
+        _revision = '2010-09-30'
+
+        def __init__(self):
+            super(CISCOBGP4MIB.Cbgppeeraddrfamilytable, self).__init__()
+
+            self.yang_name = "cbgpPeerAddrFamilyTable"
+            self.yang_parent_name = "CISCO-BGP4-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbgpPeerAddrFamilyEntry" : ("cbgppeeraddrfamilyentry", CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry)}
+
+            self.cbgppeeraddrfamilyentry = YList(self)
+            self._segment_path = lambda: "cbgpPeerAddrFamilyTable"
+            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilytable, [], name, value)
+
+
+        class Cbgppeeraddrfamilyentry(Entity):
+            """
+            An entry is identified by an AFI/SAFI pair and
+            peer address. It contains names associated with
+            an address family.
+            
+            .. attribute:: bgppeerremoteaddr  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
+            
+            .. attribute:: cbgppeeraddrfamilyafi  <key>
+            
+            	The AFI index of the entry. An implementation is only required to support IPv4 unicast and  VPNv4 (Value \- 1) address families
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cbgppeeraddrfamilysafi  <key>
+            
+            	The SAFI index of the entry. An implementation is only required to support IPv4 unicast(Value  \- 1) and VPNv4( Value \- 128) address families
+            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
+            
+            .. attribute:: cbgppeeraddrfamilyname
+            
+            	Implementation specific Address Family name
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'CISCO-BGP4-MIB'
+            _revision = '2010-09-30'
+
+            def __init__(self):
+                super(CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry, self).__init__()
+
+                self.yang_name = "cbgpPeerAddrFamilyEntry"
+                self.yang_parent_name = "cbgpPeerAddrFamilyTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
+
+                self.cbgppeeraddrfamilyafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilyAfi")
+
+                self.cbgppeeraddrfamilysafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilySafi")
+
+                self.cbgppeeraddrfamilyname = YLeaf(YType.str, "cbgpPeerAddrFamilyName")
+                self._segment_path = lambda: "cbgpPeerAddrFamilyEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerAddrFamilyAfi='" + self.cbgppeeraddrfamilyafi.get() + "']" + "[cbgpPeerAddrFamilySafi='" + self.cbgppeeraddrfamilysafi.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeraddrfamilyname'], name, value)
+
+
+    class Cbgppeeraddrfamilyprefixtable(Entity):
+        """
+        This table contains prefix related information
+        related to address families supported by a peer. 
+        Supported address families of a peer are known 
+        during BGP connection establishment. When a new 
+        supported address family is known, this table 
+        is updated with a new entry. When an address 
+        family is not supported any more, corresponding 
+        entry is deleted from the table.
+        
+        .. attribute:: cbgppeeraddrfamilyprefixentry
+        
+        	An entry is identified by an AFI/SAFI pair and peer address. It contains information associated  with route prefixes belonging to an address family
+        	**type**\: list of    :py:class:`Cbgppeeraddrfamilyprefixentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-BGP4-MIB'
+        _revision = '2010-09-30'
+
+        def __init__(self):
+            super(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable, self).__init__()
+
+            self.yang_name = "cbgpPeerAddrFamilyPrefixTable"
+            self.yang_parent_name = "CISCO-BGP4-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cbgpPeerAddrFamilyPrefixEntry" : ("cbgppeeraddrfamilyprefixentry", CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry)}
+
+            self.cbgppeeraddrfamilyprefixentry = YList(self)
+            self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixTable"
+            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable, [], name, value)
+
+
+        class Cbgppeeraddrfamilyprefixentry(Entity):
+            """
+            An entry is identified by an AFI/SAFI pair and
+            peer address. It contains information associated 
+            with route prefixes belonging to an address family.
+            
+            .. attribute:: bgppeerremoteaddr  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
+            
+            .. attribute:: cbgppeeraddrfamilyafi  <key>
             
             	
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cbgppeer2addrfamilysafi  <key>
+            .. attribute:: cbgppeeraddrfamilysafi  <key>
             
             	
             	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
             
-            .. attribute:: cbgppeer2acceptedprefixes
+            .. attribute:: cbgppeeracceptedprefixes
             
             	Number of accepted route prefixes on this connection, which belong to an address family
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeer2advertisedprefixes
+            .. attribute:: cbgppeerdeniedprefixes
             
-            	This counter is incremented when a route prefix, which belongs to an address family is advertised on this connection. It is initialized to zero when the connection is undergone a hard reset
+            	This counter is incremented when a route prefix, which belongs to an address family, received on this  connection is denied. It is initialized to zero when  the connection is undergone a hard reset
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeer2deniedprefixes
-            
-            	This counter is incremented when a route prefix, which belongs to an address family, received on this connection is denied. It is initialized to zero when the connection is undergone a hard reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2prefixadminlimit
+            .. attribute:: cbgppeerprefixadminlimit
             
             	Max number of route prefixes accepted for an address family on this connection
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cbgppeer2prefixclearthreshold
+            .. attribute:: cbgppeerprefixthreshold
+            
+            	Prefix threshold value (%) for an address family on this connection at which warning message stating the prefix count is crossed the threshold or  corresponding SNMP notification is generated
+            	**type**\:  int
+            
+            	**range:** 1..100
+            
+            .. attribute:: cbgppeerprefixclearthreshold
             
             	Prefix threshold value (%) for an address family on this connection at which SNMP clear notification is generated if prefix threshold notification is already generated
             	**type**\:  int
             
             	**range:** 1..100
             
-            	**units**\: percent
+            .. attribute:: cbgppeeradvertisedprefixes
             
-            .. attribute:: cbgppeer2prefixthreshold
-            
-            	Prefix threshold value (%) for an address family on this connection at which warning message stating the prefix count is crossed the threshold or corresponding SNMP notification is generated
-            	**type**\:  int
-            
-            	**range:** 1..100
-            
-            	**units**\: percent
-            
-            .. attribute:: cbgppeer2suppressedprefixes
-            
-            	This counter is incremented when a route prefix, which belongs to an address family is suppressed from being sent on this connection. It is initialized to zero when the connection is undergone a hard reset
+            	This counter is incremented when a route prefix, which belongs to an address family is advertised on this connection. It is initialized to zero when  the connection is undergone a hard reset
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeer2withdrawnprefixes
+            .. attribute:: cbgppeersuppressedprefixes
+            
+            	This counter is incremented when a route prefix, which belongs to an address family is suppressed from being sent on this connection. It is  initialized to zero when the connection is undergone a hard reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeerwithdrawnprefixes
             
             	This counter is incremented when a route prefix, which belongs to an address family, is withdrawn on this connection. It is initialized to zero when the connection is undergone a hard reset
             	**type**\:  int
@@ -403,60 +891,53 @@ class CISCOBGP4MIB(Entity):
             _revision = '2010-09-30'
 
             def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry, self).__init__()
+                super(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry, self).__init__()
 
-                self.yang_name = "cbgpPeer2AddrFamilyPrefixEntry"
-                self.yang_parent_name = "cbgpPeer2AddrFamilyPrefixTable"
+                self.yang_name = "cbgpPeerAddrFamilyPrefixEntry"
+                self.yang_parent_name = "cbgpPeerAddrFamilyPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.cbgppeer2type = YLeaf(YType.enumeration, "cbgpPeer2Type")
+                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
 
-                self.cbgppeer2remoteaddr = YLeaf(YType.str, "cbgpPeer2RemoteAddr")
+                self.cbgppeeraddrfamilyafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilyAfi")
 
-                self.cbgppeer2addrfamilyafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilyAfi")
+                self.cbgppeeraddrfamilysafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilySafi")
 
-                self.cbgppeer2addrfamilysafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilySafi")
+                self.cbgppeeracceptedprefixes = YLeaf(YType.uint32, "cbgpPeerAcceptedPrefixes")
 
-                self.cbgppeer2acceptedprefixes = YLeaf(YType.uint32, "cbgpPeer2AcceptedPrefixes")
+                self.cbgppeerdeniedprefixes = YLeaf(YType.uint32, "cbgpPeerDeniedPrefixes")
 
-                self.cbgppeer2advertisedprefixes = YLeaf(YType.uint32, "cbgpPeer2AdvertisedPrefixes")
+                self.cbgppeerprefixadminlimit = YLeaf(YType.uint32, "cbgpPeerPrefixAdminLimit")
 
-                self.cbgppeer2deniedprefixes = YLeaf(YType.uint32, "cbgpPeer2DeniedPrefixes")
+                self.cbgppeerprefixthreshold = YLeaf(YType.uint32, "cbgpPeerPrefixThreshold")
 
-                self.cbgppeer2prefixadminlimit = YLeaf(YType.uint32, "cbgpPeer2PrefixAdminLimit")
+                self.cbgppeerprefixclearthreshold = YLeaf(YType.uint32, "cbgpPeerPrefixClearThreshold")
 
-                self.cbgppeer2prefixclearthreshold = YLeaf(YType.uint32, "cbgpPeer2PrefixClearThreshold")
+                self.cbgppeeradvertisedprefixes = YLeaf(YType.uint32, "cbgpPeerAdvertisedPrefixes")
 
-                self.cbgppeer2prefixthreshold = YLeaf(YType.uint32, "cbgpPeer2PrefixThreshold")
+                self.cbgppeersuppressedprefixes = YLeaf(YType.uint32, "cbgpPeerSuppressedPrefixes")
 
-                self.cbgppeer2suppressedprefixes = YLeaf(YType.uint32, "cbgpPeer2SuppressedPrefixes")
-
-                self.cbgppeer2withdrawnprefixes = YLeaf(YType.uint32, "cbgpPeer2WithdrawnPrefixes")
-                self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixEntry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']" + "[cbgpPeer2AddrFamilyAfi='" + self.cbgppeer2addrfamilyafi.get() + "']" + "[cbgpPeer2AddrFamilySafi='" + self.cbgppeer2addrfamilysafi.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyPrefixTable/%s" % self._segment_path()
+                self.cbgppeerwithdrawnprefixes = YLeaf(YType.uint32, "cbgpPeerWithdrawnPrefixes")
+                self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerAddrFamilyAfi='" + self.cbgppeeraddrfamilyafi.get() + "']" + "[cbgpPeerAddrFamilySafi='" + self.cbgppeeraddrfamilysafi.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2acceptedprefixes', 'cbgppeer2advertisedprefixes', 'cbgppeer2deniedprefixes', 'cbgppeer2prefixadminlimit', 'cbgppeer2prefixclearthreshold', 'cbgppeer2prefixthreshold', 'cbgppeer2suppressedprefixes', 'cbgppeer2withdrawnprefixes'], name, value)
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeracceptedprefixes', 'cbgppeerdeniedprefixes', 'cbgppeerprefixadminlimit', 'cbgppeerprefixthreshold', 'cbgppeerprefixclearthreshold', 'cbgppeeradvertisedprefixes', 'cbgppeersuppressedprefixes', 'cbgppeerwithdrawnprefixes'], name, value)
 
 
-    class Cbgppeer2Addrfamilytable(Entity):
+    class Cbgppeer2Table(Entity):
         """
-        This table contains information related to
-        address families supported by a peer. Supported
-        address families of a peer are known during BGP
-        connection establishment. When a new supported
-        address family is known, this table is updated
-        with a new entry. When an address family is not
-        supported any more, corresponding entry is deleted
-        from the table.
+        BGP peer table.  This table contains,
+        one entry per BGP peer, information about
+        the connections with BGP peers.
         
-        .. attribute:: cbgppeer2addrfamilyentry
+        .. attribute:: cbgppeer2entry
         
-        	An entry is identified by an AFI/SAFI pair and peer address. It contains names associated with an address family
-        	**type**\: list of    :py:class:`Cbgppeer2Addrfamilyentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry>`
+        	Entry containing information about the connection with a BGP peer
+        	**type**\: list of    :py:class:`Cbgppeer2Entry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
         
         
 
@@ -466,57 +947,234 @@ class CISCOBGP4MIB(Entity):
         _revision = '2010-09-30'
 
         def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeer2Addrfamilytable, self).__init__()
+            super(CISCOBGP4MIB.Cbgppeer2Table, self).__init__()
 
-            self.yang_name = "cbgpPeer2AddrFamilyTable"
+            self.yang_name = "cbgpPeer2Table"
             self.yang_parent_name = "CISCO-BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeer2AddrFamilyEntry" : ("cbgppeer2addrfamilyentry", CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry)}
+            self._child_list_classes = {"cbgpPeer2Entry" : ("cbgppeer2entry", CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry)}
 
-            self.cbgppeer2addrfamilyentry = YList(self)
-            self._segment_path = lambda: "cbgpPeer2AddrFamilyTable"
+            self.cbgppeer2entry = YList(self)
+            self._segment_path = lambda: "cbgpPeer2Table"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilytable, [], name, value)
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Table, [], name, value)
 
 
-        class Cbgppeer2Addrfamilyentry(Entity):
+        class Cbgppeer2Entry(Entity):
             """
-            An entry is identified by an AFI/SAFI pair and
-            peer address. It contains names associated with
-            an address family.
+            Entry containing information about the
+            connection with a BGP peer.
             
             .. attribute:: cbgppeer2type  <key>
             
-            	
+            	Represents the type of Peer address stored in cbgpPeer2Entry
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cbgppeer2remoteaddr  <key>
             
-            	
+            	The remote IP address of this entry's BGP peer
             	**type**\:  str
             
             	**length:** 0..255
             
-            	**refers to**\:  :py:class:`cbgppeer2remoteaddr <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
+            .. attribute:: cbgppeer2state
             
-            .. attribute:: cbgppeer2addrfamilyafi  <key>
+            	The BGP peer connection state
+            	**type**\:   :py:class:`Cbgppeer2State <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2State>`
             
-            	The AFI index of the entry. An implementation is only required to support IPv4 unicast and VPNv4 (Value \- 1) address families
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            .. attribute:: cbgppeer2adminstatus
             
-            .. attribute:: cbgppeer2addrfamilysafi  <key>
+            	The desired state of the BGP connection. A transition from 'stop' to 'start' will cause the BGP Manual Start Event to be generated. A transition from 'start' to 'stop' will cause the BGP Manual Stop Event to be generated. This parameter can be used to restart BGP peer connections.  Care should be used in providing write access to this object without adequate authentication
+            	**type**\:   :py:class:`Cbgppeer2Adminstatus <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2Adminstatus>`
             
-            	The SAFI index of the entry. An implementation is only required to support IPv4 unicast(Value \- 1) and VPNv4( Value \- 128) address families
-            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
+            .. attribute:: cbgppeer2negotiatedversion
             
-            .. attribute:: cbgppeer2addrfamilyname
+            	The negotiated version of BGP running between the two peers.  This entry MUST be zero (0) unless the cbgpPeer2State is in the openconfirm or the established state.  Note that legal values for this object are between 0 and 255
+            	**type**\:  int
             
-            	Implementation specific Address Family name
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cbgppeer2localaddr
+            
+            	The local IP address of this entry's BGP connection
             	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: cbgppeer2localport
+            
+            	The local port for the TCP connection between the BGP peers
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cbgppeer2localas
+            
+            	The local AS number for this session
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2localidentifier
+            
+            	The BGP Identifier of this entry's BGP peer
+            	**type**\:  str
+            
+            .. attribute:: cbgppeer2remoteport
+            
+            	The remote port for the TCP connection between the BGP peers.  Note that the objects cbgpPeer2LocalAddr, cbgpPeer2LocalPort, cbgpPeer2RemoteAddr, and cbgpPeer2RemotePort provide the appropriate reference to the standard MIB TCP connection table
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cbgppeer2remoteas
+            
+            	The remote autonomous system number received in the BGP OPEN message
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2remoteidentifier
+            
+            	The BGP Identifier of this entry's BGP peer. This entry MUST be 0.0.0.0 unless the cbgpPeer2State is in the openconfirm or the established state
+            	**type**\:  str
+            
+            .. attribute:: cbgppeer2inupdates
+            
+            	The number of BGP UPDATE messages received on this connection
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2outupdates
+            
+            	The number of BGP UPDATE messages transmitted on this connection
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2intotalmessages
+            
+            	The total number of messages received from the remote peer on this connection
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2outtotalmessages
+            
+            	The total number of messages transmitted to the remote peer on this connection
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2lasterror
+            
+            	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
+            	**type**\:  str
+            
+            	**length:** 2
+            
+            .. attribute:: cbgppeer2fsmestablishedtransitions
+            
+            	The total number of times the BGP FSM transitioned into the established state for this peer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2fsmestablishedtime
+            
+            	This timer indicates how long (in seconds) this peer has been in the established state or how long since this peer was last in the established state.  It is set to zero when a new peer is configured or when the router is booted
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2connectretryinterval
+            
+            	Time interval (in seconds) for the ConnectRetry timer.  The suggested value for this timer is 120 seconds
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2holdtime
+            
+            	Time interval (in seconds) for the Hold Timer established with the peer.  The value of this object is calculated by this BGP speaker, using the smaller of the values in cbgpPeer2HoldTimeConfigured and the Hold Time received in the OPEN message.  This value must be at least three seconds if it is not zero (0).  If the Hold Timer has not been established with the peer this object MUST have a value of zero (0).  If the cbgpPeer2HoldTimeConfigured object has a value of (0), then this object MUST have a value of (0)
+            	**type**\:  int
+            
+            	**range:** 0..None \| 3..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2keepalive
+            
+            	Time interval (in seconds) for the KeepAlive timer established with the peer.  The value of this object is calculated by this BGP speaker such that, when compared with cbgpPeer2HoldTime, it has the same proportion that cbgpPeer2KeepAliveConfigured has, compared with cbgpPeer2HoldTimeConfigured.  If the KeepAlive timer has not been established with the peer, this object MUST have a value of zero (0).  If the of cbgpPeer2KeepAliveConfigured object has a value of (0), then this object MUST have a value of (0)
+            	**type**\:  int
+            
+            	**range:** 0..21845
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2holdtimeconfigured
+            
+            	Time interval (in seconds) for the Hold Time configured for this BGP speaker with this peer.  This value is placed in an OPEN message sent to this peer by this BGP speaker, and is compared with the Hold Time field in an OPEN message received from the peer when determining the Hold Time (cbgpPeer2HoldTime) with the peer. This value must not be less than three seconds if it is not zero (0).  If it is zero (0), the Hold Time is NOT to be established with the peer.  The suggested value for this timer is 90 seconds
+            	**type**\:  int
+            
+            	**range:** 0..None \| 3..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2keepaliveconfigured
+            
+            	Time interval (in seconds) for the KeepAlive timer configured for this BGP speaker with this peer.  The value of this object will only determine the KEEPALIVE messages' frequency relative to the value specified in cbgpPeer2HoldTimeConfigured; the actual time interval for the KEEPALIVE messages is indicated by cbgpPeer2KeepAlive.  A reasonable maximum value for this timer would be one third of that of cbgpPeer2HoldTimeConfigured. If the value of this object is zero (0), no periodical KEEPALIVE messages are sent to the peer after the BGP connection has been established.  The suggested value for this timer is 30 seconds
+            	**type**\:  int
+            
+            	**range:** 0..21845
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2minasoriginationinterval
+            
+            	Time interval (in seconds) for the MinASOriginationInterval timer. The suggested value for this timer is 15 seconds
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2minrouteadvertisementinterval
+            
+            	Time interval (in seconds) for the MinRouteAdvertisementInterval timer. The suggested value for this timer is 30 seconds for EBGP connections and 5 seconds for IBGP connections
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2inupdateelapsedtime
+            
+            	Elapsed time (in seconds) since the last BGP UPDATE message was received from the peer. Each time cbgpPeer2InUpdates is incremented, the value of this object is set to zero (0)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: cbgppeer2lasterrortxt
+            
+            	Implementation specific error description for bgpPeerLastErrorReceived
+            	**type**\:  str
+            
+            .. attribute:: cbgppeer2prevstate
+            
+            	The BGP peer connection previous state
+            	**type**\:   :py:class:`Cbgppeer2Prevstate <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2Prevstate>`
             
             
 
@@ -526,10 +1184,10 @@ class CISCOBGP4MIB(Entity):
             _revision = '2010-09-30'
 
             def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry, self).__init__()
+                super(CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry, self).__init__()
 
-                self.yang_name = "cbgpPeer2AddrFamilyEntry"
-                self.yang_parent_name = "cbgpPeer2AddrFamilyTable"
+                self.yang_name = "cbgpPeer2Entry"
+                self.yang_parent_name = "cbgpPeer2Table"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -539,16 +1197,167 @@ class CISCOBGP4MIB(Entity):
 
                 self.cbgppeer2remoteaddr = YLeaf(YType.str, "cbgpPeer2RemoteAddr")
 
-                self.cbgppeer2addrfamilyafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilyAfi")
+                self.cbgppeer2state = YLeaf(YType.enumeration, "cbgpPeer2State")
 
-                self.cbgppeer2addrfamilysafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilySafi")
+                self.cbgppeer2adminstatus = YLeaf(YType.enumeration, "cbgpPeer2AdminStatus")
 
-                self.cbgppeer2addrfamilyname = YLeaf(YType.str, "cbgpPeer2AddrFamilyName")
-                self._segment_path = lambda: "cbgpPeer2AddrFamilyEntry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']" + "[cbgpPeer2AddrFamilyAfi='" + self.cbgppeer2addrfamilyafi.get() + "']" + "[cbgpPeer2AddrFamilySafi='" + self.cbgppeer2addrfamilysafi.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyTable/%s" % self._segment_path()
+                self.cbgppeer2negotiatedversion = YLeaf(YType.int32, "cbgpPeer2NegotiatedVersion")
+
+                self.cbgppeer2localaddr = YLeaf(YType.str, "cbgpPeer2LocalAddr")
+
+                self.cbgppeer2localport = YLeaf(YType.uint16, "cbgpPeer2LocalPort")
+
+                self.cbgppeer2localas = YLeaf(YType.uint32, "cbgpPeer2LocalAs")
+
+                self.cbgppeer2localidentifier = YLeaf(YType.str, "cbgpPeer2LocalIdentifier")
+
+                self.cbgppeer2remoteport = YLeaf(YType.uint16, "cbgpPeer2RemotePort")
+
+                self.cbgppeer2remoteas = YLeaf(YType.uint32, "cbgpPeer2RemoteAs")
+
+                self.cbgppeer2remoteidentifier = YLeaf(YType.str, "cbgpPeer2RemoteIdentifier")
+
+                self.cbgppeer2inupdates = YLeaf(YType.uint32, "cbgpPeer2InUpdates")
+
+                self.cbgppeer2outupdates = YLeaf(YType.uint32, "cbgpPeer2OutUpdates")
+
+                self.cbgppeer2intotalmessages = YLeaf(YType.uint32, "cbgpPeer2InTotalMessages")
+
+                self.cbgppeer2outtotalmessages = YLeaf(YType.uint32, "cbgpPeer2OutTotalMessages")
+
+                self.cbgppeer2lasterror = YLeaf(YType.str, "cbgpPeer2LastError")
+
+                self.cbgppeer2fsmestablishedtransitions = YLeaf(YType.uint32, "cbgpPeer2FsmEstablishedTransitions")
+
+                self.cbgppeer2fsmestablishedtime = YLeaf(YType.uint32, "cbgpPeer2FsmEstablishedTime")
+
+                self.cbgppeer2connectretryinterval = YLeaf(YType.int32, "cbgpPeer2ConnectRetryInterval")
+
+                self.cbgppeer2holdtime = YLeaf(YType.int32, "cbgpPeer2HoldTime")
+
+                self.cbgppeer2keepalive = YLeaf(YType.int32, "cbgpPeer2KeepAlive")
+
+                self.cbgppeer2holdtimeconfigured = YLeaf(YType.int32, "cbgpPeer2HoldTimeConfigured")
+
+                self.cbgppeer2keepaliveconfigured = YLeaf(YType.int32, "cbgpPeer2KeepAliveConfigured")
+
+                self.cbgppeer2minasoriginationinterval = YLeaf(YType.int32, "cbgpPeer2MinASOriginationInterval")
+
+                self.cbgppeer2minrouteadvertisementinterval = YLeaf(YType.int32, "cbgpPeer2MinRouteAdvertisementInterval")
+
+                self.cbgppeer2inupdateelapsedtime = YLeaf(YType.uint32, "cbgpPeer2InUpdateElapsedTime")
+
+                self.cbgppeer2lasterrortxt = YLeaf(YType.str, "cbgpPeer2LastErrorTxt")
+
+                self.cbgppeer2prevstate = YLeaf(YType.enumeration, "cbgpPeer2PrevState")
+                self._segment_path = lambda: "cbgpPeer2Entry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2Table/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2addrfamilyname'], name, value)
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2state', 'cbgppeer2adminstatus', 'cbgppeer2negotiatedversion', 'cbgppeer2localaddr', 'cbgppeer2localport', 'cbgppeer2localas', 'cbgppeer2localidentifier', 'cbgppeer2remoteport', 'cbgppeer2remoteas', 'cbgppeer2remoteidentifier', 'cbgppeer2inupdates', 'cbgppeer2outupdates', 'cbgppeer2intotalmessages', 'cbgppeer2outtotalmessages', 'cbgppeer2lasterror', 'cbgppeer2fsmestablishedtransitions', 'cbgppeer2fsmestablishedtime', 'cbgppeer2connectretryinterval', 'cbgppeer2holdtime', 'cbgppeer2keepalive', 'cbgppeer2holdtimeconfigured', 'cbgppeer2keepaliveconfigured', 'cbgppeer2minasoriginationinterval', 'cbgppeer2minrouteadvertisementinterval', 'cbgppeer2inupdateelapsedtime', 'cbgppeer2lasterrortxt', 'cbgppeer2prevstate'], name, value)
+
+            class Cbgppeer2Adminstatus(Enum):
+                """
+                Cbgppeer2Adminstatus
+
+                The desired state of the BGP connection.
+
+                A transition from 'stop' to 'start' will cause
+
+                the BGP Manual Start Event to be generated.
+
+                A transition from 'start' to 'stop' will cause
+
+                the BGP Manual Stop Event to be generated.
+
+                This parameter can be used to restart BGP peer
+
+                connections.  Care should be used in providing
+
+                write access to this object without adequate
+
+                authentication.
+
+                .. data:: stop = 1
+
+                .. data:: start = 2
+
+                """
+
+                stop = Enum.YLeaf(1, "stop")
+
+                start = Enum.YLeaf(2, "start")
+
+
+            class Cbgppeer2Prevstate(Enum):
+                """
+                Cbgppeer2Prevstate
+
+                The BGP peer connection previous state.
+
+                .. data:: none = 0
+
+                .. data:: idle = 1
+
+                .. data:: connect = 2
+
+                .. data:: active = 3
+
+                .. data:: opensent = 4
+
+                .. data:: openconfirm = 5
+
+                .. data:: established = 6
+
+                """
+
+                none = Enum.YLeaf(0, "none")
+
+                idle = Enum.YLeaf(1, "idle")
+
+                connect = Enum.YLeaf(2, "connect")
+
+                active = Enum.YLeaf(3, "active")
+
+                opensent = Enum.YLeaf(4, "opensent")
+
+                openconfirm = Enum.YLeaf(5, "openconfirm")
+
+                established = Enum.YLeaf(6, "established")
+
+
+            class Cbgppeer2State(Enum):
+                """
+                Cbgppeer2State
+
+                The BGP peer connection state.
+
+                .. data:: idle = 1
+
+                .. data:: connect = 2
+
+                .. data:: active = 3
+
+                .. data:: opensent = 4
+
+                .. data:: openconfirm = 5
+
+                .. data:: established = 6
+
+                """
+
+                idle = Enum.YLeaf(1, "idle")
+
+                connect = Enum.YLeaf(2, "connect")
+
+                active = Enum.YLeaf(3, "active")
+
+                opensent = Enum.YLeaf(4, "opensent")
+
+                openconfirm = Enum.YLeaf(5, "openconfirm")
+
+                established = Enum.YLeaf(6, "established")
+
 
 
     class Cbgppeer2Capstable(Entity):
@@ -700,16 +1509,21 @@ class CISCOBGP4MIB(Entity):
 
 
 
-    class Cbgppeer2Table(Entity):
+    class Cbgppeer2Addrfamilytable(Entity):
         """
-        BGP peer table.  This table contains,
-        one entry per BGP peer, information about
-        the connections with BGP peers.
+        This table contains information related to
+        address families supported by a peer. Supported
+        address families of a peer are known during BGP
+        connection establishment. When a new supported
+        address family is known, this table is updated
+        with a new entry. When an address family is not
+        supported any more, corresponding entry is deleted
+        from the table.
         
-        .. attribute:: cbgppeer2entry
+        .. attribute:: cbgppeer2addrfamilyentry
         
-        	Entry containing information about the connection with a BGP peer
-        	**type**\: list of    :py:class:`Cbgppeer2Entry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
+        	An entry is identified by an AFI/SAFI pair and peer address. It contains names associated with an address family
+        	**type**\: list of    :py:class:`Cbgppeer2Addrfamilyentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry>`
         
         
 
@@ -719,238 +1533,57 @@ class CISCOBGP4MIB(Entity):
         _revision = '2010-09-30'
 
         def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeer2Table, self).__init__()
+            super(CISCOBGP4MIB.Cbgppeer2Addrfamilytable, self).__init__()
 
-            self.yang_name = "cbgpPeer2Table"
+            self.yang_name = "cbgpPeer2AddrFamilyTable"
             self.yang_parent_name = "CISCO-BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeer2Entry" : ("cbgppeer2entry", CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry)}
+            self._child_list_classes = {"cbgpPeer2AddrFamilyEntry" : ("cbgppeer2addrfamilyentry", CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry)}
 
-            self.cbgppeer2entry = YList(self)
-            self._segment_path = lambda: "cbgpPeer2Table"
+            self.cbgppeer2addrfamilyentry = YList(self)
+            self._segment_path = lambda: "cbgpPeer2AddrFamilyTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Table, [], name, value)
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilytable, [], name, value)
 
 
-        class Cbgppeer2Entry(Entity):
+        class Cbgppeer2Addrfamilyentry(Entity):
             """
-            Entry containing information about the
-            connection with a BGP peer.
+            An entry is identified by an AFI/SAFI pair and
+            peer address. It contains names associated with
+            an address family.
             
             .. attribute:: cbgppeer2type  <key>
             
-            	Represents the type of Peer address stored in cbgpPeer2Entry
+            	
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: cbgppeer2remoteaddr  <key>
             
-            	The remote IP address of this entry's BGP peer
+            	
             	**type**\:  str
             
             	**length:** 0..255
             
-            .. attribute:: cbgppeer2adminstatus
+            	**refers to**\:  :py:class:`cbgppeer2remoteaddr <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
             
-            	The desired state of the BGP connection. A transition from 'stop' to 'start' will cause the BGP Manual Start Event to be generated. A transition from 'start' to 'stop' will cause the BGP Manual Stop Event to be generated. This parameter can be used to restart BGP peer connections.  Care should be used in providing write access to this object without adequate authentication
-            	**type**\:   :py:class:`Cbgppeer2Adminstatus <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2Adminstatus>`
+            .. attribute:: cbgppeer2addrfamilyafi  <key>
             
-            .. attribute:: cbgppeer2connectretryinterval
+            	The AFI index of the entry. An implementation is only required to support IPv4 unicast and VPNv4 (Value \- 1) address families
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            	Time interval (in seconds) for the ConnectRetry timer.  The suggested value for this timer is 120 seconds
-            	**type**\:  int
+            .. attribute:: cbgppeer2addrfamilysafi  <key>
             
-            	**range:** 1..65535
+            	The SAFI index of the entry. An implementation is only required to support IPv4 unicast(Value \- 1) and VPNv4( Value \- 128) address families
+            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
             
-            	**units**\: seconds
+            .. attribute:: cbgppeer2addrfamilyname
             
-            .. attribute:: cbgppeer2fsmestablishedtime
-            
-            	This timer indicates how long (in seconds) this peer has been in the established state or how long since this peer was last in the established state.  It is set to zero when a new peer is configured or when the router is booted
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2fsmestablishedtransitions
-            
-            	The total number of times the BGP FSM transitioned into the established state for this peer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2holdtime
-            
-            	Time interval (in seconds) for the Hold Timer established with the peer.  The value of this object is calculated by this BGP speaker, using the smaller of the values in cbgpPeer2HoldTimeConfigured and the Hold Time received in the OPEN message.  This value must be at least three seconds if it is not zero (0).  If the Hold Timer has not been established with the peer this object MUST have a value of zero (0).  If the cbgpPeer2HoldTimeConfigured object has a value of (0), then this object MUST have a value of (0)
-            	**type**\:  int
-            
-            	**range:** 0..None \| 3..65535
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2holdtimeconfigured
-            
-            	Time interval (in seconds) for the Hold Time configured for this BGP speaker with this peer.  This value is placed in an OPEN message sent to this peer by this BGP speaker, and is compared with the Hold Time field in an OPEN message received from the peer when determining the Hold Time (cbgpPeer2HoldTime) with the peer. This value must not be less than three seconds if it is not zero (0).  If it is zero (0), the Hold Time is NOT to be established with the peer.  The suggested value for this timer is 90 seconds
-            	**type**\:  int
-            
-            	**range:** 0..None \| 3..65535
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2intotalmessages
-            
-            	The total number of messages received from the remote peer on this connection
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2inupdateelapsedtime
-            
-            	Elapsed time (in seconds) since the last BGP UPDATE message was received from the peer. Each time cbgpPeer2InUpdates is incremented, the value of this object is set to zero (0)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2inupdates
-            
-            	The number of BGP UPDATE messages received on this connection
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2keepalive
-            
-            	Time interval (in seconds) for the KeepAlive timer established with the peer.  The value of this object is calculated by this BGP speaker such that, when compared with cbgpPeer2HoldTime, it has the same proportion that cbgpPeer2KeepAliveConfigured has, compared with cbgpPeer2HoldTimeConfigured.  If the KeepAlive timer has not been established with the peer, this object MUST have a value of zero (0).  If the of cbgpPeer2KeepAliveConfigured object has a value of (0), then this object MUST have a value of (0)
-            	**type**\:  int
-            
-            	**range:** 0..21845
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2keepaliveconfigured
-            
-            	Time interval (in seconds) for the KeepAlive timer configured for this BGP speaker with this peer.  The value of this object will only determine the KEEPALIVE messages' frequency relative to the value specified in cbgpPeer2HoldTimeConfigured; the actual time interval for the KEEPALIVE messages is indicated by cbgpPeer2KeepAlive.  A reasonable maximum value for this timer would be one third of that of cbgpPeer2HoldTimeConfigured. If the value of this object is zero (0), no periodical KEEPALIVE messages are sent to the peer after the BGP connection has been established.  The suggested value for this timer is 30 seconds
-            	**type**\:  int
-            
-            	**range:** 0..21845
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2lasterror
-            
-            	The last error code and subcode seen by this peer on this connection.  If no error has occurred, this field is zero.  Otherwise, the first byte of this two byte OCTET STRING contains the error code, and the second byte contains the subcode
+            	Implementation specific Address Family name
             	**type**\:  str
-            
-            	**length:** 2
-            
-            .. attribute:: cbgppeer2lasterrortxt
-            
-            	Implementation specific error description for bgpPeerLastErrorReceived
-            	**type**\:  str
-            
-            .. attribute:: cbgppeer2localaddr
-            
-            	The local IP address of this entry's BGP connection
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgppeer2localas
-            
-            	The local AS number for this session
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2localidentifier
-            
-            	The BGP Identifier of this entry's BGP peer
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: cbgppeer2localport
-            
-            	The local port for the TCP connection between the BGP peers
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cbgppeer2minasoriginationinterval
-            
-            	Time interval (in seconds) for the MinASOriginationInterval timer. The suggested value for this timer is 15 seconds
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2minrouteadvertisementinterval
-            
-            	Time interval (in seconds) for the MinRouteAdvertisementInterval timer. The suggested value for this timer is 30 seconds for EBGP connections and 5 seconds for IBGP connections
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            	**units**\: seconds
-            
-            .. attribute:: cbgppeer2negotiatedversion
-            
-            	The negotiated version of BGP running between the two peers.  This entry MUST be zero (0) unless the cbgpPeer2State is in the openconfirm or the established state.  Note that legal values for this object are between 0 and 255
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cbgppeer2outtotalmessages
-            
-            	The total number of messages transmitted to the remote peer on this connection
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2outupdates
-            
-            	The number of BGP UPDATE messages transmitted on this connection
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2prevstate
-            
-            	The BGP peer connection previous state
-            	**type**\:   :py:class:`Cbgppeer2Prevstate <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2Prevstate>`
-            
-            .. attribute:: cbgppeer2remoteas
-            
-            	The remote autonomous system number received in the BGP OPEN message
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeer2remoteidentifier
-            
-            	The BGP Identifier of this entry's BGP peer. This entry MUST be 0.0.0.0 unless the cbgpPeer2State is in the openconfirm or the established state
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: cbgppeer2remoteport
-            
-            	The remote port for the TCP connection between the BGP peers.  Note that the objects cbgpPeer2LocalAddr, cbgpPeer2LocalPort, cbgpPeer2RemoteAddr, and cbgpPeer2RemotePort provide the appropriate reference to the standard MIB TCP connection table
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cbgppeer2state
-            
-            	The BGP peer connection state
-            	**type**\:   :py:class:`Cbgppeer2State <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry.Cbgppeer2State>`
             
             
 
@@ -960,10 +1593,10 @@ class CISCOBGP4MIB(Entity):
             _revision = '2010-09-30'
 
             def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry, self).__init__()
+                super(CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry, self).__init__()
 
-                self.yang_name = "cbgpPeer2Entry"
-                self.yang_parent_name = "cbgpPeer2Table"
+                self.yang_name = "cbgpPeer2AddrFamilyEntry"
+                self.yang_parent_name = "cbgpPeer2AddrFamilyTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -973,184 +1606,33 @@ class CISCOBGP4MIB(Entity):
 
                 self.cbgppeer2remoteaddr = YLeaf(YType.str, "cbgpPeer2RemoteAddr")
 
-                self.cbgppeer2adminstatus = YLeaf(YType.enumeration, "cbgpPeer2AdminStatus")
+                self.cbgppeer2addrfamilyafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilyAfi")
 
-                self.cbgppeer2connectretryinterval = YLeaf(YType.int32, "cbgpPeer2ConnectRetryInterval")
+                self.cbgppeer2addrfamilysafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilySafi")
 
-                self.cbgppeer2fsmestablishedtime = YLeaf(YType.uint32, "cbgpPeer2FsmEstablishedTime")
-
-                self.cbgppeer2fsmestablishedtransitions = YLeaf(YType.uint32, "cbgpPeer2FsmEstablishedTransitions")
-
-                self.cbgppeer2holdtime = YLeaf(YType.int32, "cbgpPeer2HoldTime")
-
-                self.cbgppeer2holdtimeconfigured = YLeaf(YType.int32, "cbgpPeer2HoldTimeConfigured")
-
-                self.cbgppeer2intotalmessages = YLeaf(YType.uint32, "cbgpPeer2InTotalMessages")
-
-                self.cbgppeer2inupdateelapsedtime = YLeaf(YType.uint32, "cbgpPeer2InUpdateElapsedTime")
-
-                self.cbgppeer2inupdates = YLeaf(YType.uint32, "cbgpPeer2InUpdates")
-
-                self.cbgppeer2keepalive = YLeaf(YType.int32, "cbgpPeer2KeepAlive")
-
-                self.cbgppeer2keepaliveconfigured = YLeaf(YType.int32, "cbgpPeer2KeepAliveConfigured")
-
-                self.cbgppeer2lasterror = YLeaf(YType.str, "cbgpPeer2LastError")
-
-                self.cbgppeer2lasterrortxt = YLeaf(YType.str, "cbgpPeer2LastErrorTxt")
-
-                self.cbgppeer2localaddr = YLeaf(YType.str, "cbgpPeer2LocalAddr")
-
-                self.cbgppeer2localas = YLeaf(YType.uint32, "cbgpPeer2LocalAs")
-
-                self.cbgppeer2localidentifier = YLeaf(YType.str, "cbgpPeer2LocalIdentifier")
-
-                self.cbgppeer2localport = YLeaf(YType.uint16, "cbgpPeer2LocalPort")
-
-                self.cbgppeer2minasoriginationinterval = YLeaf(YType.int32, "cbgpPeer2MinASOriginationInterval")
-
-                self.cbgppeer2minrouteadvertisementinterval = YLeaf(YType.int32, "cbgpPeer2MinRouteAdvertisementInterval")
-
-                self.cbgppeer2negotiatedversion = YLeaf(YType.int32, "cbgpPeer2NegotiatedVersion")
-
-                self.cbgppeer2outtotalmessages = YLeaf(YType.uint32, "cbgpPeer2OutTotalMessages")
-
-                self.cbgppeer2outupdates = YLeaf(YType.uint32, "cbgpPeer2OutUpdates")
-
-                self.cbgppeer2prevstate = YLeaf(YType.enumeration, "cbgpPeer2PrevState")
-
-                self.cbgppeer2remoteas = YLeaf(YType.uint32, "cbgpPeer2RemoteAs")
-
-                self.cbgppeer2remoteidentifier = YLeaf(YType.str, "cbgpPeer2RemoteIdentifier")
-
-                self.cbgppeer2remoteport = YLeaf(YType.uint16, "cbgpPeer2RemotePort")
-
-                self.cbgppeer2state = YLeaf(YType.enumeration, "cbgpPeer2State")
-                self._segment_path = lambda: "cbgpPeer2Entry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2Table/%s" % self._segment_path()
+                self.cbgppeer2addrfamilyname = YLeaf(YType.str, "cbgpPeer2AddrFamilyName")
+                self._segment_path = lambda: "cbgpPeer2AddrFamilyEntry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']" + "[cbgpPeer2AddrFamilyAfi='" + self.cbgppeer2addrfamilyafi.get() + "']" + "[cbgpPeer2AddrFamilySafi='" + self.cbgppeer2addrfamilysafi.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2adminstatus', 'cbgppeer2connectretryinterval', 'cbgppeer2fsmestablishedtime', 'cbgppeer2fsmestablishedtransitions', 'cbgppeer2holdtime', 'cbgppeer2holdtimeconfigured', 'cbgppeer2intotalmessages', 'cbgppeer2inupdateelapsedtime', 'cbgppeer2inupdates', 'cbgppeer2keepalive', 'cbgppeer2keepaliveconfigured', 'cbgppeer2lasterror', 'cbgppeer2lasterrortxt', 'cbgppeer2localaddr', 'cbgppeer2localas', 'cbgppeer2localidentifier', 'cbgppeer2localport', 'cbgppeer2minasoriginationinterval', 'cbgppeer2minrouteadvertisementinterval', 'cbgppeer2negotiatedversion', 'cbgppeer2outtotalmessages', 'cbgppeer2outupdates', 'cbgppeer2prevstate', 'cbgppeer2remoteas', 'cbgppeer2remoteidentifier', 'cbgppeer2remoteport', 'cbgppeer2state'], name, value)
-
-            class Cbgppeer2Adminstatus(Enum):
-                """
-                Cbgppeer2Adminstatus
-
-                The desired state of the BGP connection.
-
-                A transition from 'stop' to 'start' will cause
-
-                the BGP Manual Start Event to be generated.
-
-                A transition from 'start' to 'stop' will cause
-
-                the BGP Manual Stop Event to be generated.
-
-                This parameter can be used to restart BGP peer
-
-                connections.  Care should be used in providing
-
-                write access to this object without adequate
-
-                authentication.
-
-                .. data:: stop = 1
-
-                .. data:: start = 2
-
-                """
-
-                stop = Enum.YLeaf(1, "stop")
-
-                start = Enum.YLeaf(2, "start")
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilytable.Cbgppeer2Addrfamilyentry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2addrfamilyname'], name, value)
 
 
-            class Cbgppeer2Prevstate(Enum):
-                """
-                Cbgppeer2Prevstate
-
-                The BGP peer connection previous state.
-
-                .. data:: none = 0
-
-                .. data:: idle = 1
-
-                .. data:: connect = 2
-
-                .. data:: active = 3
-
-                .. data:: opensent = 4
-
-                .. data:: openconfirm = 5
-
-                .. data:: established = 6
-
-                """
-
-                none = Enum.YLeaf(0, "none")
-
-                idle = Enum.YLeaf(1, "idle")
-
-                connect = Enum.YLeaf(2, "connect")
-
-                active = Enum.YLeaf(3, "active")
-
-                opensent = Enum.YLeaf(4, "opensent")
-
-                openconfirm = Enum.YLeaf(5, "openconfirm")
-
-                established = Enum.YLeaf(6, "established")
-
-
-            class Cbgppeer2State(Enum):
-                """
-                Cbgppeer2State
-
-                The BGP peer connection state.
-
-                .. data:: idle = 1
-
-                .. data:: connect = 2
-
-                .. data:: active = 3
-
-                .. data:: opensent = 4
-
-                .. data:: openconfirm = 5
-
-                .. data:: established = 6
-
-                """
-
-                idle = Enum.YLeaf(1, "idle")
-
-                connect = Enum.YLeaf(2, "connect")
-
-                active = Enum.YLeaf(3, "active")
-
-                opensent = Enum.YLeaf(4, "opensent")
-
-                openconfirm = Enum.YLeaf(5, "openconfirm")
-
-                established = Enum.YLeaf(6, "established")
-
-
-
-    class Cbgppeeraddrfamilyprefixtable(Entity):
+    class Cbgppeer2Addrfamilyprefixtable(Entity):
         """
         This table contains prefix related information
-        related to address families supported by a peer. 
-        Supported address families of a peer are known 
-        during BGP connection establishment. When a new 
-        supported address family is known, this table 
-        is updated with a new entry. When an address 
-        family is not supported any more, corresponding 
+        related to address families supported by a peer.
+        Supported address families of a peer are known
+        during BGP connection establishment. When a new
+        supported address family is known, this table
+        is updated with a new entry. When an address
+        family is not supported any more, corresponding
         entry is deleted from the table.
         
-        .. attribute:: cbgppeeraddrfamilyprefixentry
+        .. attribute:: cbgppeer2addrfamilyprefixentry
         
-        	An entry is identified by an AFI/SAFI pair and peer address. It contains information associated  with route prefixes belonging to an address family
-        	**type**\: list of    :py:class:`Cbgppeeraddrfamilyprefixentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry>`
+        	An entry is identified by an AFI/SAFI pair and peer address. It contains information associated with route prefixes belonging to an address family
+        	**type**\: list of    :py:class:`Cbgppeer2Addrfamilyprefixentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry>`
         
         
 
@@ -1160,98 +1642,107 @@ class CISCOBGP4MIB(Entity):
         _revision = '2010-09-30'
 
         def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable, self).__init__()
+            super(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable, self).__init__()
 
-            self.yang_name = "cbgpPeerAddrFamilyPrefixTable"
+            self.yang_name = "cbgpPeer2AddrFamilyPrefixTable"
             self.yang_parent_name = "CISCO-BGP4-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeerAddrFamilyPrefixEntry" : ("cbgppeeraddrfamilyprefixentry", CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry)}
+            self._child_list_classes = {"cbgpPeer2AddrFamilyPrefixEntry" : ("cbgppeer2addrfamilyprefixentry", CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry)}
 
-            self.cbgppeeraddrfamilyprefixentry = YList(self)
-            self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixTable"
+            self.cbgppeer2addrfamilyprefixentry = YList(self)
+            self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable, [], name, value)
+            self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable, [], name, value)
 
 
-        class Cbgppeeraddrfamilyprefixentry(Entity):
+        class Cbgppeer2Addrfamilyprefixentry(Entity):
             """
             An entry is identified by an AFI/SAFI pair and
-            peer address. It contains information associated 
+            peer address. It contains information associated
             with route prefixes belonging to an address family.
             
-            .. attribute:: bgppeerremoteaddr  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
-            
-            .. attribute:: cbgppeeraddrfamilyafi  <key>
+            .. attribute:: cbgppeer2type  <key>
             
             	
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
-            .. attribute:: cbgppeeraddrfamilysafi  <key>
+            .. attribute:: cbgppeer2remoteaddr  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            	**refers to**\:  :py:class:`cbgppeer2remoteaddr <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeer2Table.Cbgppeer2Entry>`
+            
+            .. attribute:: cbgppeer2addrfamilyafi  <key>
+            
+            	
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: cbgppeer2addrfamilysafi  <key>
             
             	
             	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
             
-            .. attribute:: cbgppeeracceptedprefixes
+            .. attribute:: cbgppeer2acceptedprefixes
             
             	Number of accepted route prefixes on this connection, which belong to an address family
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeeradvertisedprefixes
+            .. attribute:: cbgppeer2deniedprefixes
             
-            	This counter is incremented when a route prefix, which belongs to an address family is advertised on this connection. It is initialized to zero when  the connection is undergone a hard reset
+            	This counter is incremented when a route prefix, which belongs to an address family, received on this connection is denied. It is initialized to zero when the connection is undergone a hard reset
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeerdeniedprefixes
-            
-            	This counter is incremented when a route prefix, which belongs to an address family, received on this  connection is denied. It is initialized to zero when  the connection is undergone a hard reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgppeerprefixadminlimit
+            .. attribute:: cbgppeer2prefixadminlimit
             
             	Max number of route prefixes accepted for an address family on this connection
             	**type**\:  int
             
             	**range:** 1..4294967295
             
-            .. attribute:: cbgppeerprefixclearthreshold
+            .. attribute:: cbgppeer2prefixthreshold
+            
+            	Prefix threshold value (%) for an address family on this connection at which warning message stating the prefix count is crossed the threshold or corresponding SNMP notification is generated
+            	**type**\:  int
+            
+            	**range:** 1..100
+            
+            	**units**\: percent
+            
+            .. attribute:: cbgppeer2prefixclearthreshold
             
             	Prefix threshold value (%) for an address family on this connection at which SNMP clear notification is generated if prefix threshold notification is already generated
             	**type**\:  int
             
             	**range:** 1..100
             
-            .. attribute:: cbgppeerprefixthreshold
+            	**units**\: percent
             
-            	Prefix threshold value (%) for an address family on this connection at which warning message stating the prefix count is crossed the threshold or  corresponding SNMP notification is generated
-            	**type**\:  int
+            .. attribute:: cbgppeer2advertisedprefixes
             
-            	**range:** 1..100
-            
-            .. attribute:: cbgppeersuppressedprefixes
-            
-            	This counter is incremented when a route prefix, which belongs to an address family is suppressed from being sent on this connection. It is  initialized to zero when the connection is undergone a hard reset
+            	This counter is incremented when a route prefix, which belongs to an address family is advertised on this connection. It is initialized to zero when the connection is undergone a hard reset
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cbgppeerwithdrawnprefixes
+            .. attribute:: cbgppeer2suppressedprefixes
+            
+            	This counter is incremented when a route prefix, which belongs to an address family is suppressed from being sent on this connection. It is initialized to zero when the connection is undergone a hard reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cbgppeer2withdrawnprefixes
             
             	This counter is incremented when a route prefix, which belongs to an address family, is withdrawn on this connection. It is initialized to zero when the connection is undergone a hard reset
             	**type**\:  int
@@ -1266,544 +1757,43 @@ class CISCOBGP4MIB(Entity):
             _revision = '2010-09-30'
 
             def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry, self).__init__()
+                super(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry, self).__init__()
 
-                self.yang_name = "cbgpPeerAddrFamilyPrefixEntry"
-                self.yang_parent_name = "cbgpPeerAddrFamilyPrefixTable"
+                self.yang_name = "cbgpPeer2AddrFamilyPrefixEntry"
+                self.yang_parent_name = "cbgpPeer2AddrFamilyPrefixTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
+                self.cbgppeer2type = YLeaf(YType.enumeration, "cbgpPeer2Type")
 
-                self.cbgppeeraddrfamilyafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilyAfi")
+                self.cbgppeer2remoteaddr = YLeaf(YType.str, "cbgpPeer2RemoteAddr")
 
-                self.cbgppeeraddrfamilysafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilySafi")
+                self.cbgppeer2addrfamilyafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilyAfi")
 
-                self.cbgppeeracceptedprefixes = YLeaf(YType.uint32, "cbgpPeerAcceptedPrefixes")
+                self.cbgppeer2addrfamilysafi = YLeaf(YType.enumeration, "cbgpPeer2AddrFamilySafi")
 
-                self.cbgppeeradvertisedprefixes = YLeaf(YType.uint32, "cbgpPeerAdvertisedPrefixes")
+                self.cbgppeer2acceptedprefixes = YLeaf(YType.uint32, "cbgpPeer2AcceptedPrefixes")
 
-                self.cbgppeerdeniedprefixes = YLeaf(YType.uint32, "cbgpPeerDeniedPrefixes")
+                self.cbgppeer2deniedprefixes = YLeaf(YType.uint32, "cbgpPeer2DeniedPrefixes")
 
-                self.cbgppeerprefixadminlimit = YLeaf(YType.uint32, "cbgpPeerPrefixAdminLimit")
+                self.cbgppeer2prefixadminlimit = YLeaf(YType.uint32, "cbgpPeer2PrefixAdminLimit")
 
-                self.cbgppeerprefixclearthreshold = YLeaf(YType.uint32, "cbgpPeerPrefixClearThreshold")
+                self.cbgppeer2prefixthreshold = YLeaf(YType.uint32, "cbgpPeer2PrefixThreshold")
 
-                self.cbgppeerprefixthreshold = YLeaf(YType.uint32, "cbgpPeerPrefixThreshold")
+                self.cbgppeer2prefixclearthreshold = YLeaf(YType.uint32, "cbgpPeer2PrefixClearThreshold")
 
-                self.cbgppeersuppressedprefixes = YLeaf(YType.uint32, "cbgpPeerSuppressedPrefixes")
+                self.cbgppeer2advertisedprefixes = YLeaf(YType.uint32, "cbgpPeer2AdvertisedPrefixes")
 
-                self.cbgppeerwithdrawnprefixes = YLeaf(YType.uint32, "cbgpPeerWithdrawnPrefixes")
-                self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerAddrFamilyAfi='" + self.cbgppeeraddrfamilyafi.get() + "']" + "[cbgpPeerAddrFamilySafi='" + self.cbgppeeraddrfamilysafi.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyPrefixTable/%s" % self._segment_path()
+                self.cbgppeer2suppressedprefixes = YLeaf(YType.uint32, "cbgpPeer2SuppressedPrefixes")
 
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilyprefixtable.Cbgppeeraddrfamilyprefixentry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeracceptedprefixes', 'cbgppeeradvertisedprefixes', 'cbgppeerdeniedprefixes', 'cbgppeerprefixadminlimit', 'cbgppeerprefixclearthreshold', 'cbgppeerprefixthreshold', 'cbgppeersuppressedprefixes', 'cbgppeerwithdrawnprefixes'], name, value)
-
-
-    class Cbgppeeraddrfamilytable(Entity):
-        """
-        This table contains information related to
-        address families supported by a peer. Supported
-        address families of a peer are known during BGP 
-        connection establishment. When a new supported 
-        address family is known, this table is updated 
-        with a new entry. When an address family is not 
-        supported any more, corresponding entry is deleted 
-        from the table.
-        
-        .. attribute:: cbgppeeraddrfamilyentry
-        
-        	An entry is identified by an AFI/SAFI pair and peer address. It contains names associated with an address family
-        	**type**\: list of    :py:class:`Cbgppeeraddrfamilyentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-BGP4-MIB'
-        _revision = '2010-09-30'
-
-        def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeeraddrfamilytable, self).__init__()
-
-            self.yang_name = "cbgpPeerAddrFamilyTable"
-            self.yang_parent_name = "CISCO-BGP4-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeerAddrFamilyEntry" : ("cbgppeeraddrfamilyentry", CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry)}
-
-            self.cbgppeeraddrfamilyentry = YList(self)
-            self._segment_path = lambda: "cbgpPeerAddrFamilyTable"
-            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilytable, [], name, value)
-
-
-        class Cbgppeeraddrfamilyentry(Entity):
-            """
-            An entry is identified by an AFI/SAFI pair and
-            peer address. It contains names associated with
-            an address family.
-            
-            .. attribute:: bgppeerremoteaddr  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
-            
-            .. attribute:: cbgppeeraddrfamilyafi  <key>
-            
-            	The AFI index of the entry. An implementation is only required to support IPv4 unicast and  VPNv4 (Value \- 1) address families
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cbgppeeraddrfamilysafi  <key>
-            
-            	The SAFI index of the entry. An implementation is only required to support IPv4 unicast(Value  \- 1) and VPNv4( Value \- 128) address families
-            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
-            
-            .. attribute:: cbgppeeraddrfamilyname
-            
-            	Implementation specific Address Family name
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'CISCO-BGP4-MIB'
-            _revision = '2010-09-30'
-
-            def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry, self).__init__()
-
-                self.yang_name = "cbgpPeerAddrFamilyEntry"
-                self.yang_parent_name = "cbgpPeerAddrFamilyTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
-
-                self.cbgppeeraddrfamilyafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilyAfi")
-
-                self.cbgppeeraddrfamilysafi = YLeaf(YType.enumeration, "cbgpPeerAddrFamilySafi")
-
-                self.cbgppeeraddrfamilyname = YLeaf(YType.str, "cbgpPeerAddrFamilyName")
-                self._segment_path = lambda: "cbgpPeerAddrFamilyEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerAddrFamilyAfi='" + self.cbgppeeraddrfamilyafi.get() + "']" + "[cbgpPeerAddrFamilySafi='" + self.cbgppeeraddrfamilysafi.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyTable/%s" % self._segment_path()
+                self.cbgppeer2withdrawnprefixes = YLeaf(YType.uint32, "cbgpPeer2WithdrawnPrefixes")
+                self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixEntry" + "[cbgpPeer2Type='" + self.cbgppeer2type.get() + "']" + "[cbgpPeer2RemoteAddr='" + self.cbgppeer2remoteaddr.get() + "']" + "[cbgpPeer2AddrFamilyAfi='" + self.cbgppeer2addrfamilyafi.get() + "']" + "[cbgpPeer2AddrFamilySafi='" + self.cbgppeer2addrfamilysafi.get() + "']"
+                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeeraddrfamilytable.Cbgppeeraddrfamilyentry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeraddrfamilyname'], name, value)
-
-
-    class Cbgppeercapstable(Entity):
-        """
-        This table contains the capabilities that are
-        supported by a peer. Capabilities of a peer are 
-        received during BGP connection establishment.
-        Values corresponding to each received capability
-        are stored in this table. When a new capability 
-        is received, this table is updated with a new 
-        entry. When an existing capability is not received 
-        during the latest connection establishment, the 
-        corresponding entry is deleted from the table.
-        
-        .. attribute:: cbgppeercapsentry
-        
-        	Each entry represents a capability received from a peer with a particular code and an index. When a  capability is received multiple times with different values during a BGP connection establishment,  corresponding entries are differentiated with indices
-        	**type**\: list of    :py:class:`Cbgppeercapsentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-BGP4-MIB'
-        _revision = '2010-09-30'
-
-        def __init__(self):
-            super(CISCOBGP4MIB.Cbgppeercapstable, self).__init__()
-
-            self.yang_name = "cbgpPeerCapsTable"
-            self.yang_parent_name = "CISCO-BGP4-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cbgpPeerCapsEntry" : ("cbgppeercapsentry", CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry)}
-
-            self.cbgppeercapsentry = YList(self)
-            self._segment_path = lambda: "cbgpPeerCapsTable"
-            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgppeercapstable, [], name, value)
-
-
-        class Cbgppeercapsentry(Entity):
-            """
-            Each entry represents a capability received from a
-            peer with a particular code and an index. When a 
-            capability is received multiple times with different
-            values during a BGP connection establishment, 
-            corresponding entries are differentiated with indices.
-            
-            .. attribute:: bgppeerremoteaddr  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            	**refers to**\:  :py:class:`bgppeerremoteaddr <ydk.models.cisco_ios_xe.BGP4_MIB.BGP4MIB.Bgppeertable.Bgppeerentry>`
-            
-            .. attribute:: cbgppeercapcode  <key>
-            
-            	The BGP Capability Advertisement Capability Code
-            	**type**\:   :py:class:`Cbgppeercapcode <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry.Cbgppeercapcode>`
-            
-            .. attribute:: cbgppeercapindex  <key>
-            
-            	Multiple instances of a given capability may be sent by a BGP speaker.  This variable is used to index them
-            	**type**\:  int
-            
-            	**range:** 1..128
-            
-            .. attribute:: cbgppeercapvalue
-            
-            	The value of the announced capability. This MIB object value is organized as given below,     Capability \: Route Refresh Capability                  Null string     Capability \: Multiprotocol Extensions       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+     Capability \: Graceful Restart       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Restart Flags (4 bits)           \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Restart Time in seconds (12 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Flags for Address Family (8 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| ...                              \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| AFI(16 bits)                     \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| SAFI (8 bits)                    \|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+       \| Flags for Address Family (8 bits)\|       +\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-+
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-BGP4-MIB'
-            _revision = '2010-09-30'
-
-            def __init__(self):
-                super(CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry, self).__init__()
-
-                self.yang_name = "cbgpPeerCapsEntry"
-                self.yang_parent_name = "cbgpPeerCapsTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.bgppeerremoteaddr = YLeaf(YType.str, "bgpPeerRemoteAddr")
-
-                self.cbgppeercapcode = YLeaf(YType.enumeration, "cbgpPeerCapCode")
-
-                self.cbgppeercapindex = YLeaf(YType.uint32, "cbgpPeerCapIndex")
-
-                self.cbgppeercapvalue = YLeaf(YType.str, "cbgpPeerCapValue")
-                self._segment_path = lambda: "cbgpPeerCapsEntry" + "[bgpPeerRemoteAddr='" + self.bgppeerremoteaddr.get() + "']" + "[cbgpPeerCapCode='" + self.cbgppeercapcode.get() + "']" + "[cbgpPeerCapIndex='" + self.cbgppeercapindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerCapsTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgppeercapstable.Cbgppeercapsentry, ['bgppeerremoteaddr', 'cbgppeercapcode', 'cbgppeercapindex', 'cbgppeercapvalue'], name, value)
-
-            class Cbgppeercapcode(Enum):
-                """
-                Cbgppeercapcode
-
-                The BGP Capability Advertisement Capability Code.
-
-                .. data:: multiProtocol = 1
-
-                .. data:: routeRefresh = 2
-
-                .. data:: gracefulRestart = 64
-
-                .. data:: routeRefreshOld = 128
-
-                """
-
-                multiProtocol = Enum.YLeaf(1, "multiProtocol")
-
-                routeRefresh = Enum.YLeaf(2, "routeRefresh")
-
-                gracefulRestart = Enum.YLeaf(64, "gracefulRestart")
-
-                routeRefreshOld = Enum.YLeaf(128, "routeRefreshOld")
-
-
-
-    class Cbgproutetable(Entity):
-        """
-        This table contains information about routes to
-        destination networks from all BGP4 peers.  Since 
-        BGP4 can carry routes for multiple Network Layer 
-        protocols, this table has the Address Family 
-        Identifier(AFI) of the Network Layer protocol as the 
-        first index. Further for a given AFI, routes carried
-        by BGP4 are distinguished based on Subsequent Address 
-        Family Identifiers(SAFI).  Hence that is used as the
-        second index.  Conceptually there is a separate Loc\-RIB
-        maintained by the BGP speaker for each combination of 
-        AFI and SAFI supported by it.
-        
-        .. attribute:: cbgprouteentry
-        
-        	Information about a path to a network received from a peer
-        	**type**\: list of    :py:class:`Cbgprouteentry <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-BGP4-MIB'
-        _revision = '2010-09-30'
-
-        def __init__(self):
-            super(CISCOBGP4MIB.Cbgproutetable, self).__init__()
-
-            self.yang_name = "cbgpRouteTable"
-            self.yang_parent_name = "CISCO-BGP4-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cbgpRouteEntry" : ("cbgprouteentry", CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry)}
-
-            self.cbgprouteentry = YList(self)
-            self._segment_path = lambda: "cbgpRouteTable"
-            self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOBGP4MIB.Cbgproutetable, [], name, value)
-
-
-        class Cbgprouteentry(Entity):
-            """
-            Information about a path to a network received from
-            a peer.
-            
-            .. attribute:: cbgprouteafi  <key>
-            
-            	Represents Address Family Identifier(AFI) of the Network Layer protocol associated with the route. An implementation is only required to support IPv4 unicast and VPNv4 (Value \- 1) address families
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cbgproutesafi  <key>
-            
-            	Represents Subsequent Address Family Identifier(SAFI) of the route. It gives additional information about the type of the route. An implementation is only  required to support IPv4 unicast(Value \- 1) and VPNv4( Value \- 128) address families
-            	**type**\:   :py:class:`CbgpSafi <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CbgpSafi>`
-            
-            .. attribute:: cbgproutepeertype  <key>
-            
-            	Represents the type of Network Layer address stored in cbgpRoutePeer. An implementation is only required to support IPv4 address type(Value \- 1)
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cbgproutepeer  <key>
-            
-            	The Network Layer address of the peer where the route information was learned. An implementation is only  required to support an IPv4 peer
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgprouteaddrprefix  <key>
-            
-            	A Network Address prefix in the Network Layer Reachability Information field of BGP UPDATE message. This object is a Network Address containing the prefix with length specified by cbgpRouteAddrPrefixLen. Any bits beyond the length specified by cbgpRouteAddrPrefixLen are zeroed
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgprouteaddrprefixlen  <key>
-            
-            	Length in bits of the Network Address prefix in the Network Layer Reachability Information field
-            	**type**\:  int
-            
-            	**range:** 0..2040
-            
-            .. attribute:: cbgprouteaggregatoraddr
-            
-            	The Network Layer address of the last BGP4 speaker that performed route aggregation.  A value of all zeros indicates the absence of this attribute
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgprouteaggregatoraddrtype
-            
-            	Represents the type of Network Layer address stored in cbgpRouteAggregatorAddr
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: cbgprouteaggregatoras
-            
-            	The AS number of the last BGP4 speaker that performed route aggregation.  A value of zero (0) indicates the  absence of this attribute
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cbgprouteaspathsegment
-            
-            	The sequence of AS path segments.  Each AS path segment is represented by a triple <type, length, value>.  The type is a 1\-octet field which has two possible values\: 1  AS\_SET\: unordered set of ASs a route in the            UPDATE message has traversed 2  AS\_SEQUENCE\: ordered set of ASs a route in the                UPDATE message has traversed.  The length is a 1\-octet field containing the number of ASs in the value field.  The value field contains one or more AS numbers, each AS is represented in the octet string as a pair of octets according to the following algorithm\:  first\-byte\-of\-pair = ASNumber / 256; second\-byte\-of\-pair = ASNumber & 255;
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgprouteatomicaggregate
-            
-            	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:   :py:class:`Cbgprouteatomicaggregate <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry.Cbgprouteatomicaggregate>`
-            
-            .. attribute:: cbgproutebest
-            
-            	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:  bool
-            
-            .. attribute:: cbgproutelocalpref
-            
-            	The degree of preference calculated by the local BGP4 speaker for the route. The value of this object is  irrelevant if the value of cbgpRouteLocalPrefPresent  is false(2)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgproutelocalprefpresent
-            
-            	Indicates the presence/absence of LOCAL\_PREF attribute for the route
-            	**type**\:  bool
-            
-            .. attribute:: cbgproutemedpresent
-            
-            	Indicates the presence/absence of MULTI\_EXIT\_DISC attribute for the route
-            	**type**\:  bool
-            
-            .. attribute:: cbgproutemultiexitdisc
-            
-            	This metric is used to discriminate between multiple exit points to an adjacent autonomous system.  The value of this object is irrelevant if the value of of cbgpRouteMedPresent is false(2)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cbgproutenexthop
-            
-            	The Network Layer address of the border router that should be used for the destination network
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: cbgprouteorigin
-            
-            	The ultimate origin of the route information
-            	**type**\:   :py:class:`Cbgprouteorigin <ydk.models.cisco_ios_xe.CISCO_BGP4_MIB.CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry.Cbgprouteorigin>`
-            
-            .. attribute:: cbgprouteunknownattr
-            
-            	One or more path attributes not understood by this BGP4 speaker.  Size zero (0) indicates the absence of such attribute(s).  Octets beyond the maximum size, if any, are not recorded by this object.    Each path attribute is a triple <attribute type, attribute length, attribute value> of variable length. Attribute Type is a two\-octet field that consists of the Attribute Flags octet followed by the Attribute Type Code octet.  If the Extended Length bit of the  Attribute Flags octet is set to 0, the third octet of  the Path Attribute contains the length of the attribute data in octets.  If the Extended Length bit  of the Attribute Flags octet is set to 1, then the third and the fourth octets of the path attribute  contain the length of the attribute data in octets. The remaining octets of the Path Attribute represent  the attribute value and are interpreted according to  the Attribute Flags and the Attribute Type Code
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'CISCO-BGP4-MIB'
-            _revision = '2010-09-30'
-
-            def __init__(self):
-                super(CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry, self).__init__()
-
-                self.yang_name = "cbgpRouteEntry"
-                self.yang_parent_name = "cbgpRouteTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cbgprouteafi = YLeaf(YType.enumeration, "cbgpRouteAfi")
-
-                self.cbgproutesafi = YLeaf(YType.enumeration, "cbgpRouteSafi")
-
-                self.cbgproutepeertype = YLeaf(YType.enumeration, "cbgpRoutePeerType")
-
-                self.cbgproutepeer = YLeaf(YType.str, "cbgpRoutePeer")
-
-                self.cbgprouteaddrprefix = YLeaf(YType.str, "cbgpRouteAddrPrefix")
-
-                self.cbgprouteaddrprefixlen = YLeaf(YType.uint32, "cbgpRouteAddrPrefixLen")
-
-                self.cbgprouteaggregatoraddr = YLeaf(YType.str, "cbgpRouteAggregatorAddr")
-
-                self.cbgprouteaggregatoraddrtype = YLeaf(YType.enumeration, "cbgpRouteAggregatorAddrType")
-
-                self.cbgprouteaggregatoras = YLeaf(YType.uint32, "cbgpRouteAggregatorAS")
-
-                self.cbgprouteaspathsegment = YLeaf(YType.str, "cbgpRouteASPathSegment")
-
-                self.cbgprouteatomicaggregate = YLeaf(YType.enumeration, "cbgpRouteAtomicAggregate")
-
-                self.cbgproutebest = YLeaf(YType.boolean, "cbgpRouteBest")
-
-                self.cbgproutelocalpref = YLeaf(YType.uint32, "cbgpRouteLocalPref")
-
-                self.cbgproutelocalprefpresent = YLeaf(YType.boolean, "cbgpRouteLocalPrefPresent")
-
-                self.cbgproutemedpresent = YLeaf(YType.boolean, "cbgpRouteMedPresent")
-
-                self.cbgproutemultiexitdisc = YLeaf(YType.uint32, "cbgpRouteMultiExitDisc")
-
-                self.cbgproutenexthop = YLeaf(YType.str, "cbgpRouteNextHop")
-
-                self.cbgprouteorigin = YLeaf(YType.enumeration, "cbgpRouteOrigin")
-
-                self.cbgprouteunknownattr = YLeaf(YType.str, "cbgpRouteUnknownAttr")
-                self._segment_path = lambda: "cbgpRouteEntry" + "[cbgpRouteAfi='" + self.cbgprouteafi.get() + "']" + "[cbgpRouteSafi='" + self.cbgproutesafi.get() + "']" + "[cbgpRoutePeerType='" + self.cbgproutepeertype.get() + "']" + "[cbgpRoutePeer='" + self.cbgproutepeer.get() + "']" + "[cbgpRouteAddrPrefix='" + self.cbgprouteaddrprefix.get() + "']" + "[cbgpRouteAddrPrefixLen='" + self.cbgprouteaddrprefixlen.get() + "']"
-                self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpRouteTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGP4MIB.Cbgproutetable.Cbgprouteentry, ['cbgprouteafi', 'cbgproutesafi', 'cbgproutepeertype', 'cbgproutepeer', 'cbgprouteaddrprefix', 'cbgprouteaddrprefixlen', 'cbgprouteaggregatoraddr', 'cbgprouteaggregatoraddrtype', 'cbgprouteaggregatoras', 'cbgprouteaspathsegment', 'cbgprouteatomicaggregate', 'cbgproutebest', 'cbgproutelocalpref', 'cbgproutelocalprefpresent', 'cbgproutemedpresent', 'cbgproutemultiexitdisc', 'cbgproutenexthop', 'cbgprouteorigin', 'cbgprouteunknownattr'], name, value)
-
-            class Cbgprouteatomicaggregate(Enum):
-                """
-                Cbgprouteatomicaggregate
-
-                Whether or not the local system has selected a less
-
-                specific route without selecting a more specific
-
-                route.
-
-                .. data:: lessSpecificRouteNotSelected = 1
-
-                .. data:: lessSpecificRouteSelected = 2
-
-                """
-
-                lessSpecificRouteNotSelected = Enum.YLeaf(1, "lessSpecificRouteNotSelected")
-
-                lessSpecificRouteSelected = Enum.YLeaf(2, "lessSpecificRouteSelected")
-
-
-            class Cbgprouteorigin(Enum):
-                """
-                Cbgprouteorigin
-
-                The ultimate origin of the route information.
-
-                .. data:: igp = 1
-
-                .. data:: egp = 2
-
-                .. data:: incomplete = 3
-
-                """
-
-                igp = Enum.YLeaf(1, "igp")
-
-                egp = Enum.YLeaf(2, "egp")
-
-                incomplete = Enum.YLeaf(3, "incomplete")
-
+                self._perform_setattr(CISCOBGP4MIB.Cbgppeer2Addrfamilyprefixtable.Cbgppeer2Addrfamilyprefixentry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2acceptedprefixes', 'cbgppeer2deniedprefixes', 'cbgppeer2prefixadminlimit', 'cbgppeer2prefixthreshold', 'cbgppeer2prefixclearthreshold', 'cbgppeer2advertisedprefixes', 'cbgppeer2suppressedprefixes', 'cbgppeer2withdrawnprefixes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOBGP4MIB()

@@ -634,12 +634,20 @@ class AtmVcm(Entity):
             	The node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: vcs
+            
+            	Contains all VC information for node
+            	**type**\:   :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
             
             .. attribute:: cell_packs
             
             	Contains all cell packing information for node
             	**type**\:   :py:class:`CellPacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
+            
+            .. attribute:: pvps
+            
+            	Contains all L2 PVP information for node
+            	**type**\:   :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
             
             .. attribute:: class_links
             
@@ -650,16 +658,6 @@ class AtmVcm(Entity):
             
             	Contains all Interface information for node
             	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
-            
-            .. attribute:: pvps
-            
-            	Contains all L2 PVP information for node
-            	**type**\:   :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
-            
-            .. attribute:: vcs
-            
-            	Contains all VC information for node
-            	**type**\:   :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
             
             .. attribute:: vp_tunnels
             
@@ -680,15 +678,25 @@ class AtmVcm(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"cell-packs" : ("cell_packs", AtmVcm.Nodes.Node.CellPacks), "class-links" : ("class_links", AtmVcm.Nodes.Node.ClassLinks), "interfaces" : ("interfaces", AtmVcm.Nodes.Node.Interfaces), "pvps" : ("pvps", AtmVcm.Nodes.Node.Pvps), "vcs" : ("vcs", AtmVcm.Nodes.Node.Vcs), "vp-tunnels" : ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels)}
+                self._child_container_classes = {"vcs" : ("vcs", AtmVcm.Nodes.Node.Vcs), "cell-packs" : ("cell_packs", AtmVcm.Nodes.Node.CellPacks), "pvps" : ("pvps", AtmVcm.Nodes.Node.Pvps), "class-links" : ("class_links", AtmVcm.Nodes.Node.ClassLinks), "interfaces" : ("interfaces", AtmVcm.Nodes.Node.Interfaces), "vp-tunnels" : ("vp_tunnels", AtmVcm.Nodes.Node.VpTunnels)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
+
+                self.vcs = AtmVcm.Nodes.Node.Vcs()
+                self.vcs.parent = self
+                self._children_name_map["vcs"] = "vcs"
+                self._children_yang_names.add("vcs")
 
                 self.cell_packs = AtmVcm.Nodes.Node.CellPacks()
                 self.cell_packs.parent = self
                 self._children_name_map["cell_packs"] = "cell-packs"
                 self._children_yang_names.add("cell-packs")
+
+                self.pvps = AtmVcm.Nodes.Node.Pvps()
+                self.pvps.parent = self
+                self._children_name_map["pvps"] = "pvps"
+                self._children_yang_names.add("pvps")
 
                 self.class_links = AtmVcm.Nodes.Node.ClassLinks()
                 self.class_links.parent = self
@@ -700,16 +708,6 @@ class AtmVcm(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._children_yang_names.add("interfaces")
 
-                self.pvps = AtmVcm.Nodes.Node.Pvps()
-                self.pvps.parent = self
-                self._children_name_map["pvps"] = "pvps"
-                self._children_yang_names.add("pvps")
-
-                self.vcs = AtmVcm.Nodes.Node.Vcs()
-                self.vcs.parent = self
-                self._children_name_map["vcs"] = "vcs"
-                self._children_yang_names.add("vcs")
-
                 self.vp_tunnels = AtmVcm.Nodes.Node.VpTunnels()
                 self.vp_tunnels.parent = self
                 self._children_name_map["vp_tunnels"] = "vp-tunnels"
@@ -719,6 +717,329 @@ class AtmVcm(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AtmVcm.Nodes.Node, ['node_name'], name, value)
+
+
+            class Vcs(Entity):
+                """
+                Contains all VC information for node
+                
+                .. attribute:: vc
+                
+                	All VC information on a node
+                	**type**\: list of    :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(AtmVcm.Nodes.Node.Vcs, self).__init__()
+
+                    self.yang_name = "vcs"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"vc" : ("vc", AtmVcm.Nodes.Node.Vcs.Vc)}
+
+                    self.vc = YList(self)
+                    self._segment_path = lambda: "vcs"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AtmVcm.Nodes.Node.Vcs, [], name, value)
+
+
+                class Vc(Entity):
+                    """
+                    All VC information on a node
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface name
+                    	**type**\:  str
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\:  int
+                    
+                    	**range:** 0..4095
+                    
+                    .. attribute:: vci
+                    
+                    	VCI
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: cell_packing_data
+                    
+                    	Cell packing specific data
+                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
+                    
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: sub_interface
+                    
+                    	Subinterface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vc_interface
+                    
+                    	VC Interfcace handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VC VPI value
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: vci_xr
+                    
+                    	VC VCI value
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: type
+                    
+                    	VC Type
+                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Encapsulation type
+                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VC traffic shaping type
+                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    .. attribute:: burst_rate
+                    
+                    	Burst size in cells
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: encaps_inherit_level
+                    
+                    	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    
+                    .. attribute:: qos_inherit_level
+                    
+                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    
+                    .. attribute:: transmit_mtu
+                    
+                    	Transmit MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: receive_mtu
+                    
+                    	Receive MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vc_onvp_tunnel
+                    
+                    	VC on VP\-tunnel flag
+                    	**type**\:  bool
+                    
+                    .. attribute:: vc_on_p2p_sub_interface
+                    
+                    	VC on Point\-to\-point Sub\-interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: oper_status
+                    
+                    	TRUE value indicates that the VC is operationally UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: amin_status
+                    
+                    	TRUE value indicates that the VC is administratively UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: internal_state
+                    
+                    	VC Internal state
+                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
+                    
+                    .. attribute:: last_state_change_time
+                    
+                    	Time when VC was last changed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: test_mode
+                    
+                    	VC test mode
+                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'atm-vcm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(AtmVcm.Nodes.Node.Vcs.Vc, self).__init__()
+
+                        self.yang_name = "vc"
+                        self.yang_parent_name = "vcs"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.vpi = YLeaf(YType.uint32, "vpi")
+
+                        self.vci = YLeaf(YType.uint32, "vci")
+
+                        self.main_interface = YLeaf(YType.str, "main-interface")
+
+                        self.sub_interface = YLeaf(YType.str, "sub-interface")
+
+                        self.vc_interface = YLeaf(YType.str, "vc-interface")
+
+                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
+
+                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
+                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                        self.shape = YLeaf(YType.enumeration, "shape")
+
+                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
+
+                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
+
+                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
+
+                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
+
+                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
+
+                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
+
+                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
+
+                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
+
+                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
+
+                        self.oper_status = YLeaf(YType.boolean, "oper-status")
+
+                        self.amin_status = YLeaf(YType.boolean, "amin-status")
+
+                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
+
+                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
+
+                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
+
+                        self.cell_packing_data = AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData()
+                        self.cell_packing_data.parent = self
+                        self._children_name_map["cell_packing_data"] = "cell-packing-data"
+                        self._children_yang_names.add("cell-packing-data")
+                        self._segment_path = lambda: "vc" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'vpi', 'vci', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
+
+
+                    class CellPackingData(Entity):
+                        """
+                        Cell packing specific data
+                        
+                        .. attribute:: local_max_cells_packed_per_packet
+                        
+                        	Local configuration of maximum number of cells to be packed per packet
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        
+                        	Negotiated value of maximum number of cells to be packed per packed
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: max_cell_packed_timeout
+                        
+                        	Maximum cell packing timeout inmicro seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        	**units**\: microsecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, self).__init__()
+
+                            self.yang_name = "cell-packing-data"
+                            self.yang_parent_name = "vc"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
+
+                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
+
+                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self._segment_path = lambda: "cell-packing-data"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
 
             class CellPacks(Entity):
@@ -758,22 +1079,10 @@ class AtmVcm(Entity):
                     """
                     All cell packing information on a node
                     
-                    .. attribute:: cell_packing
-                    
-                    	Cell packing specific data
-                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
-                    
-                    .. attribute:: cell_packing_mode
-                    
-                    	ATM cell packing mode
-                    	**type**\:   :py:class:`VcCellPackingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingMode>`
-                    
                     .. attribute:: interface_name
                     
                     	Interface name
                     	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: pci
                     
@@ -781,6 +1090,35 @@ class AtmVcm(Entity):
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: cell_packing
+                    
+                    	Cell packing specific data
+                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
+                    
+                    .. attribute:: sub_interface_name
+                    
+                    	Sub\-interface name
+                    	**type**\:  str
+                    
+                    .. attribute:: cell_packing_mode
+                    
+                    	ATM cell packing mode
+                    	**type**\:   :py:class:`VcCellPackingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingMode>`
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vci
+                    
+                    	VCI
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: received_average_cells_packets
                     
@@ -795,27 +1133,6 @@ class AtmVcm(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: sub_interface_name
-                    
-                    	Sub\-interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: vci
-                    
-                    	VCI
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: vpi
-                    
-                    	VPI
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -834,21 +1151,21 @@ class AtmVcm(Entity):
                         self._child_container_classes = {"cell-packing" : ("cell_packing", AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking)}
                         self._child_list_classes = {}
 
-                        self.cell_packing_mode = YLeaf(YType.enumeration, "cell-packing-mode")
-
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
                         self.pci = YLeaf(YType.int32, "pci")
 
-                        self.received_average_cells_packets = YLeaf(YType.uint64, "received-average-cells-packets")
-
-                        self.sent_cells_packets = YLeaf(YType.uint64, "sent-cells-packets")
-
                         self.sub_interface_name = YLeaf(YType.str, "sub-interface-name")
+
+                        self.cell_packing_mode = YLeaf(YType.enumeration, "cell-packing-mode")
+
+                        self.vpi = YLeaf(YType.uint32, "vpi")
 
                         self.vci = YLeaf(YType.uint32, "vci")
 
-                        self.vpi = YLeaf(YType.uint32, "vpi")
+                        self.received_average_cells_packets = YLeaf(YType.uint64, "received-average-cells-packets")
+
+                        self.sent_cells_packets = YLeaf(YType.uint64, "sent-cells-packets")
 
                         self.cell_packing = AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking()
                         self.cell_packing.parent = self
@@ -857,7 +1174,7 @@ class AtmVcm(Entity):
                         self._segment_path = lambda: "cell-pack"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack, ['cell_packing_mode', 'interface_name', 'pci', 'received_average_cells_packets', 'sent_cells_packets', 'sub_interface_name', 'vci', 'vpi'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack, ['interface_name', 'pci', 'sub_interface_name', 'cell_packing_mode', 'vpi', 'vci', 'received_average_cells_packets', 'sent_cells_packets'], name, value)
 
 
                     class CellPacking(Entity):
@@ -871,6 +1188,13 @@ class AtmVcm(Entity):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        
+                        	Negotiated value of maximum number of cells to be packed per packed
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
@@ -879,13 +1203,6 @@ class AtmVcm(Entity):
                         	**range:** 0..65535
                         
                         	**units**\: microsecond
-                        
-                        .. attribute:: negotiated_max_cells_packed_per_packet
-                        
-                        	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
                         
                         
 
@@ -906,13 +1223,327 @@ class AtmVcm(Entity):
 
                             self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
 
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
-
                             self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
+
+                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
                             self._segment_path = lambda: "cell-packing"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, ['local_max_cells_packed_per_packet', 'max_cell_packed_timeout', 'negotiated_max_cells_packed_per_packet'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
+
+
+            class Pvps(Entity):
+                """
+                Contains all L2 PVP information for node
+                
+                .. attribute:: pvp
+                
+                	All L2 PVP information on a node
+                	**type**\: list of    :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
+                
+                
+
+                """
+
+                _prefix = 'atm-vcm-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(AtmVcm.Nodes.Node.Pvps, self).__init__()
+
+                    self.yang_name = "pvps"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"pvp" : ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp)}
+
+                    self.pvp = YList(self)
+                    self._segment_path = lambda: "pvps"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(AtmVcm.Nodes.Node.Pvps, [], name, value)
+
+
+                class Pvp(Entity):
+                    """
+                    All L2 PVP information on a node
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Interface name
+                    	**type**\:  str
+                    
+                    .. attribute:: vpi
+                    
+                    	VPI
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: cell_packing_data
+                    
+                    	Cell packing specific data
+                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
+                    
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: sub_interface
+                    
+                    	Subinterface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vc_interface
+                    
+                    	VC Interfcace handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VC VPI value
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: vci_xr
+                    
+                    	VC VCI value
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: type
+                    
+                    	VC Type
+                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
+                    
+                    .. attribute:: encapsulation
+                    
+                    	Encapsulation type
+                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VC traffic shaping type
+                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    .. attribute:: burst_rate
+                    
+                    	Burst size in cells
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: encaps_inherit_level
+                    
+                    	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    
+                    .. attribute:: qos_inherit_level
+                    
+                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
+                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                    
+                    .. attribute:: transmit_mtu
+                    
+                    	Transmit MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: receive_mtu
+                    
+                    	Receive MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vc_onvp_tunnel
+                    
+                    	VC on VP\-tunnel flag
+                    	**type**\:  bool
+                    
+                    .. attribute:: vc_on_p2p_sub_interface
+                    
+                    	VC on Point\-to\-point Sub\-interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: oper_status
+                    
+                    	TRUE value indicates that the VC is operationally UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: amin_status
+                    
+                    	TRUE value indicates that the VC is administratively UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: internal_state
+                    
+                    	VC Internal state
+                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
+                    
+                    .. attribute:: last_state_change_time
+                    
+                    	Time when VC was last changed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: test_mode
+                    
+                    	VC test mode
+                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'atm-vcm-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(AtmVcm.Nodes.Node.Pvps.Pvp, self).__init__()
+
+                        self.yang_name = "pvp"
+                        self.yang_parent_name = "pvps"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData)}
+                        self._child_list_classes = {}
+
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.vpi = YLeaf(YType.int32, "vpi")
+
+                        self.main_interface = YLeaf(YType.str, "main-interface")
+
+                        self.sub_interface = YLeaf(YType.str, "sub-interface")
+
+                        self.vc_interface = YLeaf(YType.str, "vc-interface")
+
+                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
+
+                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
+
+                        self.type = YLeaf(YType.enumeration, "type")
+
+                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+
+                        self.shape = YLeaf(YType.enumeration, "shape")
+
+                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
+
+                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
+
+                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
+
+                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
+
+                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
+
+                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
+
+                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
+
+                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
+
+                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
+
+                        self.oper_status = YLeaf(YType.boolean, "oper-status")
+
+                        self.amin_status = YLeaf(YType.boolean, "amin-status")
+
+                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
+
+                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
+
+                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
+
+                        self.cell_packing_data = AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData()
+                        self.cell_packing_data.parent = self
+                        self._children_name_map["cell_packing_data"] = "cell-packing-data"
+                        self._children_yang_names.add("cell-packing-data")
+                        self._segment_path = lambda: "pvp" + "[interface-name='" + self.interface_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'vpi', 'main_interface', 'sub_interface', 'vc_interface', 'vpi_xr', 'vci_xr', 'type', 'encapsulation', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'encaps_inherit_level', 'qos_inherit_level', 'transmit_mtu', 'receive_mtu', 'vc_onvp_tunnel', 'vc_on_p2p_sub_interface', 'oper_status', 'amin_status', 'internal_state', 'last_state_change_time', 'test_mode'], name, value)
+
+
+                    class CellPackingData(Entity):
+                        """
+                        Cell packing specific data
+                        
+                        .. attribute:: local_max_cells_packed_per_packet
+                        
+                        	Local configuration of maximum number of cells to be packed per packet
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        
+                        	Negotiated value of maximum number of cells to be packed per packed
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: max_cell_packed_timeout
+                        
+                        	Maximum cell packing timeout inmicro seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        	**units**\: microsecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, self).__init__()
+
+                            self.yang_name = "cell-packing-data"
+                            self.yang_parent_name = "pvp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
+
+                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
+
+                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
+                            self._segment_path = lambda: "cell-packing-data"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
 
             class ClassLinks(Entity):
@@ -959,6 +1590,18 @@ class AtmVcm(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    .. attribute:: vci
+                    
+                    	VCI
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: vc_class_not_supported
+                    
+                    	Not supported VC class
+                    	**type**\:   :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
+                    
                     .. attribute:: oam_config
                     
                     	Oam values for class link
@@ -968,20 +1611,6 @@ class AtmVcm(Entity):
                     
                     	Sub\-interface handle
                     	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: vc_class_not_supported
-                    
-                    	Not supported VC class
-                    	**type**\:   :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
-                    
-                    .. attribute:: vci
-                    
-                    	VCI
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
                     
                     
 
@@ -997,386 +1626,28 @@ class AtmVcm(Entity):
                         self.yang_parent_name = "class-links"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"oam-config" : ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig), "vc-class-not-supported" : ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported)}
+                        self._child_container_classes = {"vc-class-not-supported" : ("vc_class_not_supported", AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported), "oam-config" : ("oam_config", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig)}
                         self._child_list_classes = {}
 
                         self.vpi = YLeaf(YType.int32, "vpi")
 
-                        self.sub_interface_name = YLeaf(YType.str, "sub-interface-name")
-
                         self.vci = YLeaf(YType.int32, "vci")
 
-                        self.oam_config = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig()
-                        self.oam_config.parent = self
-                        self._children_name_map["oam_config"] = "oam-config"
-                        self._children_yang_names.add("oam-config")
+                        self.sub_interface_name = YLeaf(YType.str, "sub-interface-name")
 
                         self.vc_class_not_supported = AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported()
                         self.vc_class_not_supported.parent = self
                         self._children_name_map["vc_class_not_supported"] = "vc-class-not-supported"
                         self._children_yang_names.add("vc-class-not-supported")
+
+                        self.oam_config = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig()
+                        self.oam_config.parent = self
+                        self._children_name_map["oam_config"] = "oam-config"
+                        self._children_yang_names.add("oam-config")
                         self._segment_path = lambda: "class-link" + "[vpi='" + self.vpi.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'sub_interface_name', 'vci'], name, value)
-
-
-                    class OamConfig(Entity):
-                        """
-                        Oam values for class link
-                        
-                        .. attribute:: ais_rdi
-                        
-                        	AIS RDI details of a VC class
-                        	**type**\:   :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
-                        
-                        .. attribute:: class_link_encapsulation
-                        
-                        	Encapsulation details of VC class
-                        	**type**\:   :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
-                        
-                        .. attribute:: class_link_shaping
-                        
-                        	Traffic Shaping detail of VC class
-                        	**type**\:   :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
-                        
-                        .. attribute:: oam_pvc
-                        
-                        	OAM PVC details of VC class
-                        	**type**\:   :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
-                        
-                        .. attribute:: oam_retry
-                        
-                        	OAM Retry details of VC class
-                        	**type**\:   :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, self).__init__()
-
-                            self.yang_name = "oam-config"
-                            self.yang_parent_name = "class-link"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"ais-rdi" : ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi), "class-link-encapsulation" : ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation), "class-link-shaping" : ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping), "oam-pvc" : ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc), "oam-retry" : ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry)}
-                            self._child_list_classes = {}
-
-                            self.ais_rdi = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi()
-                            self.ais_rdi.parent = self
-                            self._children_name_map["ais_rdi"] = "ais-rdi"
-                            self._children_yang_names.add("ais-rdi")
-
-                            self.class_link_encapsulation = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation()
-                            self.class_link_encapsulation.parent = self
-                            self._children_name_map["class_link_encapsulation"] = "class-link-encapsulation"
-                            self._children_yang_names.add("class-link-encapsulation")
-
-                            self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
-                            self.class_link_shaping.parent = self
-                            self._children_name_map["class_link_shaping"] = "class-link-shaping"
-                            self._children_yang_names.add("class-link-shaping")
-
-                            self.oam_pvc = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc()
-                            self.oam_pvc.parent = self
-                            self._children_name_map["oam_pvc"] = "oam-pvc"
-                            self._children_yang_names.add("oam-pvc")
-
-                            self.oam_retry = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry()
-                            self.oam_retry.parent = self
-                            self._children_name_map["oam_retry"] = "oam-retry"
-                            self._children_yang_names.add("oam-retry")
-                            self._segment_path = lambda: "oam-config"
-
-
-                        class AisRdi(Entity):
-                            """
-                            AIS RDI details of a VC class
-                            
-                            .. attribute:: ais_rdi_inherit_level
-                            
-                            	AIS RDI inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
-                            
-                            .. attribute:: ais_rdi_up_count
-                            
-                            	AIS RDI up count
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: ais_rdi_up_time
-                            
-                            	Time (in seconds) with no AIS/RDI cells before declaring a VC as up
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: second
-                            
-                            
-
-                            """
-
-                            _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, self).__init__()
-
-                                self.yang_name = "ais-rdi"
-                                self.yang_parent_name = "oam-config"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ais_rdi_inherit_level = YLeaf(YType.enumeration, "ais-rdi-inherit-level")
-
-                                self.ais_rdi_up_count = YLeaf(YType.uint32, "ais-rdi-up-count")
-
-                                self.ais_rdi_up_time = YLeaf(YType.uint32, "ais-rdi-up-time")
-                                self._segment_path = lambda: "ais-rdi"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, ['ais_rdi_inherit_level', 'ais_rdi_up_count', 'ais_rdi_up_time'], name, value)
-
-
-                        class ClassLinkEncapsulation(Entity):
-                            """
-                            Encapsulation details of VC class
-                            
-                            .. attribute:: encapsulation_inherit_level
-                            
-                            	Encapsulation inherit level
-                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                            
-                            .. attribute:: encapsulation_type
-                            
-                            	Encapsulation type
-                            	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, self).__init__()
-
-                                self.yang_name = "class-link-encapsulation"
-                                self.yang_parent_name = "oam-config"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.encapsulation_inherit_level = YLeaf(YType.enumeration, "encapsulation-inherit-level")
-
-                                self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-                                self._segment_path = lambda: "class-link-encapsulation"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, ['encapsulation_inherit_level', 'encapsulation_type'], name, value)
-
-
-                        class ClassLinkShaping(Entity):
-                            """
-                            Traffic Shaping detail of VC class
-                            
-                            .. attribute:: average_output_rate
-                            
-                            	Average output rate
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: burst_output_rate
-                            
-                            	Burst output rate
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: peak_output_rate
-                            
-                            	Peak output rate in Kbps
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: kbit/s
-                            
-                            .. attribute:: shaping_inherit_level
-                            
-                            	Shaping inherit level
-                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                            
-                            .. attribute:: shaping_type
-                            
-                            	ATM VC traffic shaping type
-                            	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, self).__init__()
-
-                                self.yang_name = "class-link-shaping"
-                                self.yang_parent_name = "oam-config"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.average_output_rate = YLeaf(YType.uint32, "average-output-rate")
-
-                                self.burst_output_rate = YLeaf(YType.uint32, "burst-output-rate")
-
-                                self.peak_output_rate = YLeaf(YType.uint32, "peak-output-rate")
-
-                                self.shaping_inherit_level = YLeaf(YType.enumeration, "shaping-inherit-level")
-
-                                self.shaping_type = YLeaf(YType.enumeration, "shaping-type")
-                                self._segment_path = lambda: "class-link-shaping"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, ['average_output_rate', 'burst_output_rate', 'peak_output_rate', 'shaping_inherit_level', 'shaping_type'], name, value)
-
-
-                        class OamPvc(Entity):
-                            """
-                            OAM PVC details of VC class
-                            
-                            .. attribute:: ais_rdi_failure
-                            
-                            	AIS RDI failure
-                            	**type**\:  bool
-                            
-                            .. attribute:: keep_vc_up
-                            
-                            	Keep vc up
-                            	**type**\:  bool
-                            
-                            .. attribute:: manage_inherit_level
-                            
-                            	Manage inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
-                            
-                            .. attribute:: manage_level
-                            
-                            	Manage Level
-                            	**type**\:   :py:class:`VcManageLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevel>`
-                            
-                            .. attribute:: pvc_frequency
-                            
-                            	PVC Frequency
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, self).__init__()
-
-                                self.yang_name = "oam-pvc"
-                                self.yang_parent_name = "oam-config"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.ais_rdi_failure = YLeaf(YType.boolean, "ais-rdi-failure")
-
-                                self.keep_vc_up = YLeaf(YType.boolean, "keep-vc-up")
-
-                                self.manage_inherit_level = YLeaf(YType.enumeration, "manage-inherit-level")
-
-                                self.manage_level = YLeaf(YType.enumeration, "manage-level")
-
-                                self.pvc_frequency = YLeaf(YType.uint32, "pvc-frequency")
-                                self._segment_path = lambda: "oam-pvc"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, ['ais_rdi_failure', 'keep_vc_up', 'manage_inherit_level', 'manage_level', 'pvc_frequency'], name, value)
-
-
-                        class OamRetry(Entity):
-                            """
-                            OAM Retry details of VC class
-                            
-                            .. attribute:: down_count
-                            
-                            	Down Count
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: retry_frequency
-                            
-                            	Retry frequency
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: retry_inherit_level
-                            
-                            	Retry inherit level
-                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
-                            
-                            .. attribute:: retry_up_count
-                            
-                            	Retry Count
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'atm-vcm-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, self).__init__()
-
-                                self.yang_name = "oam-retry"
-                                self.yang_parent_name = "oam-config"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.down_count = YLeaf(YType.uint32, "down-count")
-
-                                self.retry_frequency = YLeaf(YType.uint32, "retry-frequency")
-
-                                self.retry_inherit_level = YLeaf(YType.enumeration, "retry-inherit-level")
-
-                                self.retry_up_count = YLeaf(YType.uint32, "retry-up-count")
-                                self._segment_path = lambda: "oam-retry"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, ['down_count', 'retry_frequency', 'retry_inherit_level', 'retry_up_count'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink, ['vpi', 'vci', 'sub_interface_name'], name, value)
 
 
                     class VcClassNotSupported(Entity):
@@ -1417,6 +1688,364 @@ class AtmVcm(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported, ['encapsulation_not_supported', 'not_supported_inherit_level'], name, value)
+
+
+                    class OamConfig(Entity):
+                        """
+                        Oam values for class link
+                        
+                        .. attribute:: class_link_shaping
+                        
+                        	Traffic Shaping detail of VC class
+                        	**type**\:   :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
+                        
+                        .. attribute:: class_link_encapsulation
+                        
+                        	Encapsulation details of VC class
+                        	**type**\:   :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
+                        
+                        .. attribute:: oam_pvc
+                        
+                        	OAM PVC details of VC class
+                        	**type**\:   :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
+                        
+                        .. attribute:: oam_retry
+                        
+                        	OAM Retry details of VC class
+                        	**type**\:   :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
+                        
+                        .. attribute:: ais_rdi
+                        
+                        	AIS RDI details of a VC class
+                        	**type**\:   :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'atm-vcm-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig, self).__init__()
+
+                            self.yang_name = "oam-config"
+                            self.yang_parent_name = "class-link"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"class-link-shaping" : ("class_link_shaping", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping), "class-link-encapsulation" : ("class_link_encapsulation", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation), "oam-pvc" : ("oam_pvc", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc), "oam-retry" : ("oam_retry", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry), "ais-rdi" : ("ais_rdi", AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi)}
+                            self._child_list_classes = {}
+
+                            self.class_link_shaping = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping()
+                            self.class_link_shaping.parent = self
+                            self._children_name_map["class_link_shaping"] = "class-link-shaping"
+                            self._children_yang_names.add("class-link-shaping")
+
+                            self.class_link_encapsulation = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation()
+                            self.class_link_encapsulation.parent = self
+                            self._children_name_map["class_link_encapsulation"] = "class-link-encapsulation"
+                            self._children_yang_names.add("class-link-encapsulation")
+
+                            self.oam_pvc = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc()
+                            self.oam_pvc.parent = self
+                            self._children_name_map["oam_pvc"] = "oam-pvc"
+                            self._children_yang_names.add("oam-pvc")
+
+                            self.oam_retry = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry()
+                            self.oam_retry.parent = self
+                            self._children_name_map["oam_retry"] = "oam-retry"
+                            self._children_yang_names.add("oam-retry")
+
+                            self.ais_rdi = AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi()
+                            self.ais_rdi.parent = self
+                            self._children_name_map["ais_rdi"] = "ais-rdi"
+                            self._children_yang_names.add("ais-rdi")
+                            self._segment_path = lambda: "oam-config"
+
+
+                        class ClassLinkShaping(Entity):
+                            """
+                            Traffic Shaping detail of VC class
+                            
+                            .. attribute:: shaping_type
+                            
+                            	ATM VC traffic shaping type
+                            	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
+                            
+                            .. attribute:: peak_output_rate
+                            
+                            	Peak output rate in Kbps
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: average_output_rate
+                            
+                            	Average output rate
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: burst_output_rate
+                            
+                            	Burst output rate
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: shaping_inherit_level
+                            
+                            	Shaping inherit level
+                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'atm-vcm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, self).__init__()
+
+                                self.yang_name = "class-link-shaping"
+                                self.yang_parent_name = "oam-config"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.shaping_type = YLeaf(YType.enumeration, "shaping-type")
+
+                                self.peak_output_rate = YLeaf(YType.uint32, "peak-output-rate")
+
+                                self.average_output_rate = YLeaf(YType.uint32, "average-output-rate")
+
+                                self.burst_output_rate = YLeaf(YType.uint32, "burst-output-rate")
+
+                                self.shaping_inherit_level = YLeaf(YType.enumeration, "shaping-inherit-level")
+                                self._segment_path = lambda: "class-link-shaping"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping, ['shaping_type', 'peak_output_rate', 'average_output_rate', 'burst_output_rate', 'shaping_inherit_level'], name, value)
+
+
+                        class ClassLinkEncapsulation(Entity):
+                            """
+                            Encapsulation details of VC class
+                            
+                            .. attribute:: encapsulation_type
+                            
+                            	Encapsulation type
+                            	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
+                            
+                            .. attribute:: encapsulation_inherit_level
+                            
+                            	Encapsulation inherit level
+                            	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'atm-vcm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, self).__init__()
+
+                                self.yang_name = "class-link-encapsulation"
+                                self.yang_parent_name = "oam-config"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
+
+                                self.encapsulation_inherit_level = YLeaf(YType.enumeration, "encapsulation-inherit-level")
+                                self._segment_path = lambda: "class-link-encapsulation"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation, ['encapsulation_type', 'encapsulation_inherit_level'], name, value)
+
+
+                        class OamPvc(Entity):
+                            """
+                            OAM PVC details of VC class
+                            
+                            .. attribute:: manage_level
+                            
+                            	Manage Level
+                            	**type**\:   :py:class:`VcManageLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevel>`
+                            
+                            .. attribute:: pvc_frequency
+                            
+                            	PVC Frequency
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: keep_vc_up
+                            
+                            	Keep vc up
+                            	**type**\:  bool
+                            
+                            .. attribute:: ais_rdi_failure
+                            
+                            	AIS RDI failure
+                            	**type**\:  bool
+                            
+                            .. attribute:: manage_inherit_level
+                            
+                            	Manage inherit level
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'atm-vcm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, self).__init__()
+
+                                self.yang_name = "oam-pvc"
+                                self.yang_parent_name = "oam-config"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.manage_level = YLeaf(YType.enumeration, "manage-level")
+
+                                self.pvc_frequency = YLeaf(YType.uint32, "pvc-frequency")
+
+                                self.keep_vc_up = YLeaf(YType.boolean, "keep-vc-up")
+
+                                self.ais_rdi_failure = YLeaf(YType.boolean, "ais-rdi-failure")
+
+                                self.manage_inherit_level = YLeaf(YType.enumeration, "manage-inherit-level")
+                                self._segment_path = lambda: "oam-pvc"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc, ['manage_level', 'pvc_frequency', 'keep_vc_up', 'ais_rdi_failure', 'manage_inherit_level'], name, value)
+
+
+                        class OamRetry(Entity):
+                            """
+                            OAM Retry details of VC class
+                            
+                            .. attribute:: retry_up_count
+                            
+                            	Retry Count
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: down_count
+                            
+                            	Down Count
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: retry_frequency
+                            
+                            	Retry frequency
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: retry_inherit_level
+                            
+                            	Retry inherit level
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'atm-vcm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, self).__init__()
+
+                                self.yang_name = "oam-retry"
+                                self.yang_parent_name = "oam-config"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.retry_up_count = YLeaf(YType.uint32, "retry-up-count")
+
+                                self.down_count = YLeaf(YType.uint32, "down-count")
+
+                                self.retry_frequency = YLeaf(YType.uint32, "retry-frequency")
+
+                                self.retry_inherit_level = YLeaf(YType.enumeration, "retry-inherit-level")
+                                self._segment_path = lambda: "oam-retry"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry, ['retry_up_count', 'down_count', 'retry_frequency', 'retry_inherit_level'], name, value)
+
+
+                        class AisRdi(Entity):
+                            """
+                            AIS RDI details of a VC class
+                            
+                            .. attribute:: ais_rdi_up_count
+                            
+                            	AIS RDI up count
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: ais_rdi_up_time
+                            
+                            	Time (in seconds) with no AIS/RDI cells before declaring a VC as up
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: ais_rdi_inherit_level
+                            
+                            	AIS RDI inherit level
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevel>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'atm-vcm-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, self).__init__()
+
+                                self.yang_name = "ais-rdi"
+                                self.yang_parent_name = "oam-config"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.ais_rdi_up_count = YLeaf(YType.uint32, "ais-rdi-up-count")
+
+                                self.ais_rdi_up_time = YLeaf(YType.uint32, "ais-rdi-up-time")
+
+                                self.ais_rdi_inherit_level = YLeaf(YType.enumeration, "ais-rdi-inherit-level")
+                                self._segment_path = lambda: "ais-rdi"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi, ['ais_rdi_up_count', 'ais_rdi_up_time', 'ais_rdi_inherit_level'], name, value)
 
 
             class Interfaces(Entity):
@@ -1461,65 +2090,14 @@ class AtmVcm(Entity):
                     	Interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific information
                     	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
                     
-                    .. attribute:: configured_layer2pv_cs
+                    .. attribute:: ilmi_vpi
                     
-                    	Number of Layer 2 PVCs configured
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer2pv_ps
-                    
-                    	Number of Layer 2 PVPs configured
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer3pv_cs
-                    
-                    	Number of Layer 3 PVCs configured
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: configured_layer3vp_tunnels
-                    
-                    	Number of Layer 3 VP tunnels configured
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: currently_failing_layer2pv_cs
-                    
-                    	Number of currently failing Layer 2 PVCs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: currently_failing_layer2pv_ps
-                    
-                    	Number of currently failing Layer 2 PVPs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: currently_failing_layer3pv_cs
-                    
-                    	Number of currently failing Layer 3 PVCs
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: currently_failing_layer3vp_tunnels
-                    
-                    	Number of currently failing Layer 3 VP tunnels
+                    	ILMI VPI
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1531,35 +2109,37 @@ class AtmVcm(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ilmi_vpi
+                    .. attribute:: pvc_failures
                     
-                    	ILMI VPI
+                    	Number of PVC Failures
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: l2_cell_packing_count
+                    .. attribute:: currently_failing_layer2pv_ps
                     
-                    	Number of L2 attachment circuits with the cell packing feature enabled on this main interface
+                    	Number of currently failing Layer 2 PVPs
                     	**type**\:  int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: main_interface
+                    .. attribute:: currently_failing_layer2pv_cs
                     
-                    	Main Interface handle
-                    	**type**\:  str
+                    	Number of currently failing Layer 2 PVCs
+                    	**type**\:  int
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: port_type
+                    .. attribute:: currently_failing_layer3vp_tunnels
                     
-                    	ATM interface port type
-                    	**type**\:   :py:class:`VcmPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPort>`
+                    	Number of currently failing Layer 3 VP tunnels
+                    	**type**\:  int
                     
-                    .. attribute:: pvc_failures
+                    	**range:** 0..4294967295
                     
-                    	Number of PVC Failures
+                    .. attribute:: currently_failing_layer3pv_cs
+                    
+                    	Number of currently failing Layer 3 PVCs
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1575,6 +2155,51 @@ class AtmVcm(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: configured_layer2pv_ps
+                    
+                    	Number of Layer 2 PVPs configured
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: configured_layer2pv_cs
+                    
+                    	Number of Layer 2 PVCs configured
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: configured_layer3vp_tunnels
+                    
+                    	Number of Layer 3 VP tunnels configured
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: configured_layer3pv_cs
+                    
+                    	Number of Layer 3 PVCs configured
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: port_type
+                    
+                    	ATM interface port type
+                    	**type**\:   :py:class:`VcmPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPort>`
+                    
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: l2_cell_packing_count
+                    
+                    	Number of L2 attachment circuits with the cell packing feature enabled on this main interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
                     
                     
 
@@ -1595,37 +2220,37 @@ class AtmVcm(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.configured_layer2pv_cs = YLeaf(YType.uint32, "configured-layer2pv-cs")
-
-                        self.configured_layer2pv_ps = YLeaf(YType.uint32, "configured-layer2pv-ps")
-
-                        self.configured_layer3pv_cs = YLeaf(YType.uint32, "configured-layer3pv-cs")
-
-                        self.configured_layer3vp_tunnels = YLeaf(YType.uint32, "configured-layer3vp-tunnels")
-
-                        self.currently_failing_layer2pv_cs = YLeaf(YType.uint32, "currently-failing-layer2pv-cs")
-
-                        self.currently_failing_layer2pv_ps = YLeaf(YType.uint32, "currently-failing-layer2pv-ps")
-
-                        self.currently_failing_layer3pv_cs = YLeaf(YType.uint32, "currently-failing-layer3pv-cs")
-
-                        self.currently_failing_layer3vp_tunnels = YLeaf(YType.uint32, "currently-failing-layer3vp-tunnels")
+                        self.ilmi_vpi = YLeaf(YType.uint32, "ilmi-vpi")
 
                         self.ilmi_vci = YLeaf(YType.uint32, "ilmi-vci")
 
-                        self.ilmi_vpi = YLeaf(YType.uint32, "ilmi-vpi")
-
-                        self.l2_cell_packing_count = YLeaf(YType.uint16, "l2-cell-packing-count")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.port_type = YLeaf(YType.enumeration, "port-type")
-
                         self.pvc_failures = YLeaf(YType.uint32, "pvc-failures")
+
+                        self.currently_failing_layer2pv_ps = YLeaf(YType.uint32, "currently-failing-layer2pv-ps")
+
+                        self.currently_failing_layer2pv_cs = YLeaf(YType.uint32, "currently-failing-layer2pv-cs")
+
+                        self.currently_failing_layer3vp_tunnels = YLeaf(YType.uint32, "currently-failing-layer3vp-tunnels")
+
+                        self.currently_failing_layer3pv_cs = YLeaf(YType.uint32, "currently-failing-layer3pv-cs")
 
                         self.pvc_failures_trap_enable = YLeaf(YType.boolean, "pvc-failures-trap-enable")
 
                         self.pvc_notification_interval = YLeaf(YType.uint32, "pvc-notification-interval")
+
+                        self.configured_layer2pv_ps = YLeaf(YType.uint32, "configured-layer2pv-ps")
+
+                        self.configured_layer2pv_cs = YLeaf(YType.uint32, "configured-layer2pv-cs")
+
+                        self.configured_layer3vp_tunnels = YLeaf(YType.uint32, "configured-layer3vp-tunnels")
+
+                        self.configured_layer3pv_cs = YLeaf(YType.uint32, "configured-layer3pv-cs")
+
+                        self.port_type = YLeaf(YType.enumeration, "port-type")
+
+                        self.main_interface = YLeaf(YType.str, "main-interface")
+
+                        self.l2_cell_packing_count = YLeaf(YType.uint16, "l2-cell-packing-count")
 
                         self.cell_packing_data = AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData()
                         self.cell_packing_data.parent = self
@@ -1634,7 +2259,7 @@ class AtmVcm(Entity):
                         self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'configured_layer2pv_cs', 'configured_layer2pv_ps', 'configured_layer3pv_cs', 'configured_layer3vp_tunnels', 'currently_failing_layer2pv_cs', 'currently_failing_layer2pv_ps', 'currently_failing_layer3pv_cs', 'currently_failing_layer3vp_tunnels', 'ilmi_vci', 'ilmi_vpi', 'l2_cell_packing_count', 'main_interface', 'port_type', 'pvc_failures', 'pvc_failures_trap_enable', 'pvc_notification_interval'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface, ['interface_name', 'ilmi_vpi', 'ilmi_vci', 'pvc_failures', 'currently_failing_layer2pv_ps', 'currently_failing_layer2pv_cs', 'currently_failing_layer3vp_tunnels', 'currently_failing_layer3pv_cs', 'pvc_failures_trap_enable', 'pvc_notification_interval', 'configured_layer2pv_ps', 'configured_layer2pv_cs', 'configured_layer3vp_tunnels', 'configured_layer3pv_cs', 'port_type', 'main_interface', 'l2_cell_packing_count'], name, value)
 
 
                     class CellPackingData(Entity):
@@ -1648,6 +2273,13 @@ class AtmVcm(Entity):
                         
                         	**range:** 0..65535
                         
+                        .. attribute:: negotiated_max_cells_packed_per_packet
+                        
+                        	Negotiated value of maximum number of cells to be packed per packed
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
                         .. attribute:: max_cell_packed_timeout
                         
                         	Maximum cell packing timeout inmicro seconds
@@ -1656,13 +2288,6 @@ class AtmVcm(Entity):
                         	**range:** 0..65535
                         
                         	**units**\: microsecond
-                        
-                        .. attribute:: negotiated_max_cells_packed_per_packet
-                        
-                        	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
                         
                         
 
@@ -1683,666 +2308,13 @@ class AtmVcm(Entity):
 
                             self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
 
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
-
                             self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
+
+                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
                             self._segment_path = lambda: "cell-packing-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, ['local_max_cells_packed_per_packet', 'max_cell_packed_timeout', 'negotiated_max_cells_packed_per_packet'], name, value)
-
-
-            class Pvps(Entity):
-                """
-                Contains all L2 PVP information for node
-                
-                .. attribute:: pvp
-                
-                	All L2 PVP information on a node
-                	**type**\: list of    :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
-                
-                
-
-                """
-
-                _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(AtmVcm.Nodes.Node.Pvps, self).__init__()
-
-                    self.yang_name = "pvps"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"pvp" : ("pvp", AtmVcm.Nodes.Node.Pvps.Pvp)}
-
-                    self.pvp = YList(self)
-                    self._segment_path = lambda: "pvps"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(AtmVcm.Nodes.Node.Pvps, [], name, value)
-
-
-                class Pvp(Entity):
-                    """
-                    All L2 PVP information on a node
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: amin_status
-                    
-                    	TRUE value indicates that the VC is administratively UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: burst_rate
-                    
-                    	Burst size in cells
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: cell_packing_data
-                    
-                    	Cell packing specific data
-                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
-                    
-                    .. attribute:: encaps_inherit_level
-                    
-                    	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Encapsulation type
-                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
-                    
-                    .. attribute:: internal_state
-                    
-                    	VC Internal state
-                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
-                    
-                    .. attribute:: last_state_change_time
-                    
-                    	Time when VC was last changed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: oper_status
-                    
-                    	TRUE value indicates that the VC is operationally UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: qos_inherit_level
-                    
-                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                    
-                    .. attribute:: receive_mtu
-                    
-                    	Receive MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VC traffic shaping type
-                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
-                    
-                    .. attribute:: sub_interface
-                    
-                    	Subinterface handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: test_mode
-                    
-                    	VC test mode
-                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
-                    
-                    .. attribute:: transmit_mtu
-                    
-                    	Transmit MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: type
-                    
-                    	VC Type
-                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
-                    
-                    .. attribute:: vc_interface
-                    
-                    	VC Interfcace handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: vc_on_p2p_sub_interface
-                    
-                    	VC on Point\-to\-point Sub\-interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: vc_onvp_tunnel
-                    
-                    	VC on VP\-tunnel flag
-                    	**type**\:  bool
-                    
-                    .. attribute:: vci_xr
-                    
-                    	VC VCI value
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: vpi
-                    
-                    	VPI
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VC VPI value
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(AtmVcm.Nodes.Node.Pvps.Pvp, self).__init__()
-
-                        self.yang_name = "pvp"
-                        self.yang_parent_name = "pvps"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
-
-                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
-
-                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
-
-                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
-
-                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
-
-                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.sub_interface = YLeaf(YType.str, "sub-interface")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
-
-                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.vc_interface = YLeaf(YType.str, "vc-interface")
-
-                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
-
-                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
-
-                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
-
-                        self.vpi = YLeaf(YType.int32, "vpi")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
-
-                        self.cell_packing_data = AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData()
-                        self.cell_packing_data.parent = self
-                        self._children_name_map["cell_packing_data"] = "cell-packing-data"
-                        self._children_yang_names.add("cell-packing-data")
-                        self._segment_path = lambda: "pvp" + "[interface-name='" + self.interface_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp, ['interface_name', 'amin_status', 'burst_rate', 'encaps_inherit_level', 'encapsulation', 'internal_state', 'last_state_change_time', 'main_interface', 'oper_status', 'peak_cell_rate', 'qos_inherit_level', 'receive_mtu', 'shape', 'sub_interface', 'sustained_cell_rate', 'test_mode', 'transmit_mtu', 'type', 'vc_interface', 'vc_on_p2p_sub_interface', 'vc_onvp_tunnel', 'vci_xr', 'vpi', 'vpi_xr'], name, value)
-
-
-                    class CellPackingData(Entity):
-                        """
-                        Cell packing specific data
-                        
-                        .. attribute:: local_max_cells_packed_per_packet
-                        
-                        	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: max_cell_packed_timeout
-                        
-                        	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        	**units**\: microsecond
-                        
-                        .. attribute:: negotiated_max_cells_packed_per_packet
-                        
-                        	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, self).__init__()
-
-                            self.yang_name = "cell-packing-data"
-                            self.yang_parent_name = "pvp"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-                            self._segment_path = lambda: "cell-packing-data"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData, ['local_max_cells_packed_per_packet', 'max_cell_packed_timeout', 'negotiated_max_cells_packed_per_packet'], name, value)
-
-
-            class Vcs(Entity):
-                """
-                Contains all VC information for node
-                
-                .. attribute:: vc
-                
-                	All VC information on a node
-                	**type**\: list of    :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
-                
-                
-
-                """
-
-                _prefix = 'atm-vcm-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(AtmVcm.Nodes.Node.Vcs, self).__init__()
-
-                    self.yang_name = "vcs"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"vc" : ("vc", AtmVcm.Nodes.Node.Vcs.Vc)}
-
-                    self.vc = YList(self)
-                    self._segment_path = lambda: "vcs"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(AtmVcm.Nodes.Node.Vcs, [], name, value)
-
-
-                class Vc(Entity):
-                    """
-                    All VC information on a node
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface name
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: amin_status
-                    
-                    	TRUE value indicates that the VC is administratively UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: burst_rate
-                    
-                    	Burst size in cells
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: cell_packing_data
-                    
-                    	Cell packing specific data
-                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
-                    
-                    .. attribute:: encaps_inherit_level
-                    
-                    	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                    
-                    .. attribute:: encapsulation
-                    
-                    	Encapsulation type
-                    	**type**\:   :py:class:`VcEncap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncap>`
-                    
-                    .. attribute:: internal_state
-                    
-                    	VC Internal state
-                    	**type**\:   :py:class:`VcState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcState>`
-                    
-                    .. attribute:: last_state_change_time
-                    
-                    	Time when VC was last changed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: oper_status
-                    
-                    	TRUE value indicates that the VC is operationally UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: qos_inherit_level
-                    
-                    	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:   :py:class:`VcInheritLevel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevel>`
-                    
-                    .. attribute:: receive_mtu
-                    
-                    	Receive MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VC traffic shaping type
-                    	**type**\:   :py:class:`VcTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShaping>`
-                    
-                    .. attribute:: sub_interface
-                    
-                    	Subinterface handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: test_mode
-                    
-                    	VC test mode
-                    	**type**\:   :py:class:`VcTestMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestMode>`
-                    
-                    .. attribute:: transmit_mtu
-                    
-                    	Transmit MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: type
-                    
-                    	VC Type
-                    	**type**\:   :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.Vc>`
-                    
-                    .. attribute:: vc_interface
-                    
-                    	VC Interfcace handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: vc_on_p2p_sub_interface
-                    
-                    	VC on Point\-to\-point Sub\-interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: vc_onvp_tunnel
-                    
-                    	VC on VP\-tunnel flag
-                    	**type**\:  bool
-                    
-                    .. attribute:: vci
-                    
-                    	VCI
-                    	**type**\:  int
-                    
-                    	**range:** 1..65535
-                    
-                    .. attribute:: vci_xr
-                    
-                    	VC VCI value
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: vpi
-                    
-                    	VPI
-                    	**type**\:  int
-                    
-                    	**range:** 0..4095
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VC VPI value
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'atm-vcm-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(AtmVcm.Nodes.Node.Vcs.Vc, self).__init__()
-
-                        self.yang_name = "vc"
-                        self.yang_parent_name = "vcs"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"cell-packing-data" : ("cell_packing_data", AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData)}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
-
-                        self.burst_rate = YLeaf(YType.uint32, "burst-rate")
-
-                        self.encaps_inherit_level = YLeaf(YType.enumeration, "encaps-inherit-level")
-
-                        self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
-
-                        self.internal_state = YLeaf(YType.enumeration, "internal-state")
-
-                        self.last_state_change_time = YLeaf(YType.uint32, "last-state-change-time")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.qos_inherit_level = YLeaf(YType.enumeration, "qos-inherit-level")
-
-                        self.receive_mtu = YLeaf(YType.uint32, "receive-mtu")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.sub_interface = YLeaf(YType.str, "sub-interface")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.test_mode = YLeaf(YType.enumeration, "test-mode")
-
-                        self.transmit_mtu = YLeaf(YType.uint32, "transmit-mtu")
-
-                        self.type = YLeaf(YType.enumeration, "type")
-
-                        self.vc_interface = YLeaf(YType.str, "vc-interface")
-
-                        self.vc_on_p2p_sub_interface = YLeaf(YType.boolean, "vc-on-p2p-sub-interface")
-
-                        self.vc_onvp_tunnel = YLeaf(YType.boolean, "vc-onvp-tunnel")
-
-                        self.vci = YLeaf(YType.uint32, "vci")
-
-                        self.vci_xr = YLeaf(YType.uint16, "vci-xr")
-
-                        self.vpi = YLeaf(YType.uint32, "vpi")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
-
-                        self.cell_packing_data = AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData()
-                        self.cell_packing_data.parent = self
-                        self._children_name_map["cell_packing_data"] = "cell-packing-data"
-                        self._children_yang_names.add("cell-packing-data")
-                        self._segment_path = lambda: "vc" + "[interface-name='" + self.interface_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc, ['interface_name', 'amin_status', 'burst_rate', 'encaps_inherit_level', 'encapsulation', 'internal_state', 'last_state_change_time', 'main_interface', 'oper_status', 'peak_cell_rate', 'qos_inherit_level', 'receive_mtu', 'shape', 'sub_interface', 'sustained_cell_rate', 'test_mode', 'transmit_mtu', 'type', 'vc_interface', 'vc_on_p2p_sub_interface', 'vc_onvp_tunnel', 'vci', 'vci_xr', 'vpi', 'vpi_xr'], name, value)
-
-
-                    class CellPackingData(Entity):
-                        """
-                        Cell packing specific data
-                        
-                        .. attribute:: local_max_cells_packed_per_packet
-                        
-                        	Local configuration of maximum number of cells to be packed per packet
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: max_cell_packed_timeout
-                        
-                        	Maximum cell packing timeout inmicro seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        	**units**\: microsecond
-                        
-                        .. attribute:: negotiated_max_cells_packed_per_packet
-                        
-                        	Negotiated value of maximum number of cells to be packed per packed
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'atm-vcm-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, self).__init__()
-
-                            self.yang_name = "cell-packing-data"
-                            self.yang_parent_name = "vc"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.local_max_cells_packed_per_packet = YLeaf(YType.uint16, "local-max-cells-packed-per-packet")
-
-                            self.max_cell_packed_timeout = YLeaf(YType.uint16, "max-cell-packed-timeout")
-
-                            self.negotiated_max_cells_packed_per_packet = YLeaf(YType.uint16, "negotiated-max-cells-packed-per-packet")
-                            self._segment_path = lambda: "cell-packing-data"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData, ['local_max_cells_packed_per_packet', 'max_cell_packed_timeout', 'negotiated_max_cells_packed_per_packet'], name, value)
+                            self._perform_setattr(AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData, ['local_max_cells_packed_per_packet', 'negotiated_max_cells_packed_per_packet', 'max_cell_packed_timeout'], name, value)
 
 
             class VpTunnels(Entity):
@@ -2387,12 +2359,52 @@ class AtmVcm(Entity):
                     	Interface name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: vpi
                     
-                    .. attribute:: amin_status
+                    	VPI
+                    	**type**\:  int
                     
-                    	TRUE value indicates that the VP is administratively UP
-                    	**type**\:  bool
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: main_interface
+                    
+                    	Main Interface handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vp_interface
+                    
+                    	VP Interfcace handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vpi_xr
+                    
+                    	VP\-Tunnel VPI value
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: shape
+                    
+                    	ATM VP traffic shaping type
+                    	**type**\:   :py:class:`VpTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShaping>`
+                    
+                    .. attribute:: peak_cell_rate
+                    
+                    	Peak cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
+                    
+                    .. attribute:: sustained_cell_rate
+                    
+                    	Sustained cell rate in Kbps
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: burst_rate
                     
@@ -2401,6 +2413,11 @@ class AtmVcm(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: f4oam_enabled
+                    
+                    	F4OAM Enabled flag
+                    	**type**\:  bool
+                    
                     .. attribute:: data_vc_count
                     
                     	Number of Data PVCs under this VP\-tunnel
@@ -2408,9 +2425,14 @@ class AtmVcm(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: f4oam_enabled
+                    .. attribute:: oper_status
                     
-                    	F4OAM Enabled flag
+                    	TRUE value indicates that the VP is operationally UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: amin_status
+                    
+                    	TRUE value indicates that the VP is administratively UP
                     	**type**\:  bool
                     
                     .. attribute:: internal_state
@@ -2424,62 +2446,6 @@ class AtmVcm(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: main_interface
-                    
-                    	Main Interface handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: oper_status
-                    
-                    	TRUE value indicates that the VP is operationally UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: peak_cell_rate
-                    
-                    	Peak cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: shape
-                    
-                    	ATM VP traffic shaping type
-                    	**type**\:   :py:class:`VpTrafShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShaping>`
-                    
-                    .. attribute:: sustained_cell_rate
-                    
-                    	Sustained cell rate in Kbps
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: kbit/s
-                    
-                    .. attribute:: vp_interface
-                    
-                    	VP Interfcace handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: vpi
-                    
-                    	VPI
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: vpi_xr
-                    
-                    	VP\-Tunnel VPI value
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
                     
                     
 
@@ -2500,37 +2466,37 @@ class AtmVcm(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.amin_status = YLeaf(YType.boolean, "amin-status")
+                        self.vpi = YLeaf(YType.int32, "vpi")
+
+                        self.main_interface = YLeaf(YType.str, "main-interface")
+
+                        self.vp_interface = YLeaf(YType.str, "vp-interface")
+
+                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
+
+                        self.shape = YLeaf(YType.enumeration, "shape")
+
+                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
+
+                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
 
                         self.burst_rate = YLeaf(YType.uint32, "burst-rate")
 
+                        self.f4oam_enabled = YLeaf(YType.boolean, "f4oam-enabled")
+
                         self.data_vc_count = YLeaf(YType.uint32, "data-vc-count")
 
-                        self.f4oam_enabled = YLeaf(YType.boolean, "f4oam-enabled")
+                        self.oper_status = YLeaf(YType.boolean, "oper-status")
+
+                        self.amin_status = YLeaf(YType.boolean, "amin-status")
 
                         self.internal_state = YLeaf(YType.enumeration, "internal-state")
 
                         self.last_vp_state_change_time = YLeaf(YType.uint32, "last-vp-state-change-time")
-
-                        self.main_interface = YLeaf(YType.str, "main-interface")
-
-                        self.oper_status = YLeaf(YType.boolean, "oper-status")
-
-                        self.peak_cell_rate = YLeaf(YType.uint32, "peak-cell-rate")
-
-                        self.shape = YLeaf(YType.enumeration, "shape")
-
-                        self.sustained_cell_rate = YLeaf(YType.uint32, "sustained-cell-rate")
-
-                        self.vp_interface = YLeaf(YType.str, "vp-interface")
-
-                        self.vpi = YLeaf(YType.int32, "vpi")
-
-                        self.vpi_xr = YLeaf(YType.uint16, "vpi-xr")
                         self._segment_path = lambda: "vp-tunnel" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'amin_status', 'burst_rate', 'data_vc_count', 'f4oam_enabled', 'internal_state', 'last_vp_state_change_time', 'main_interface', 'oper_status', 'peak_cell_rate', 'shape', 'sustained_cell_rate', 'vp_interface', 'vpi', 'vpi_xr'], name, value)
+                        self._perform_setattr(AtmVcm.Nodes.Node.VpTunnels.VpTunnel, ['interface_name', 'vpi', 'main_interface', 'vp_interface', 'vpi_xr', 'shape', 'peak_cell_rate', 'sustained_cell_rate', 'burst_rate', 'f4oam_enabled', 'data_vc_count', 'oper_status', 'amin_status', 'internal_state', 'last_vp_state_change_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AtmVcm()

@@ -24,7 +24,7 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ydk>=0.6.1']
+INSTALL_REQUIREMENTS = ['ydk>=0.6.2']
 
 NMSP_PKG_NAME = "ydk-models-ietf"
 NMSP_PKG_VERSION = "0.1.4"
@@ -69,7 +69,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: C++'
     ],
-    keywords='yang, C++11, python bindings',
+    keywords='yang, C++11,  python bindings',
     packages=YDK_PACKAGES,
     namespace_packages=NMSP_PACKAGES,
     install_requires=INSTALL_REQUIREMENTS,

@@ -19,79 +19,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ipv4Telnet(Entity):
-    """
-    ipv4 telnet
-    
-    .. attribute:: client
-    
-    	Telnet client configuration
-    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
-    
-    
-
-    """
-
-    _prefix = 'ipv4-telnet-cfg'
-    _revision = '2015-11-09'
-
-    def __init__(self):
-        super(Ipv4Telnet, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "ipv4-telnet"
-        self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {"client" : ("client", Ipv4Telnet.Client)}
-        self._child_list_classes = {}
-
-        self.client = Ipv4Telnet.Client()
-        self.client.parent = self
-        self._children_name_map["client"] = "client"
-        self._children_yang_names.add("client")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
-
-
-    class Client(Entity):
-        """
-        Telnet client configuration
-        
-        .. attribute:: source_interface
-        
-        	Source interface for telnet sessions
-        	**type**\:  str
-        
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
-        
-
-        """
-
-        _prefix = 'ipv4-telnet-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Ipv4Telnet.Client, self).__init__()
-
-            self.yang_name = "client"
-            self.yang_parent_name = "ipv4-telnet"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
-            self._segment_path = lambda: "client"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Telnet.Client, ['source_interface'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Ipv4Telnet()
-        return self._top_entity
-
 class Ipv6Telnet(Entity):
     """
     IPv6 telnet configuration
@@ -135,8 +62,6 @@ class Ipv6Telnet(Entity):
         	Source interface for telnet sessions
         	**type**\:  str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
         
 
         """
@@ -163,5 +88,76 @@ class Ipv6Telnet(Entity):
 
     def clone_ptr(self):
         self._top_entity = Ipv6Telnet()
+        return self._top_entity
+
+class Ipv4Telnet(Entity):
+    """
+    ipv4 telnet
+    
+    .. attribute:: client
+    
+    	Telnet client configuration
+    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
+    
+    
+
+    """
+
+    _prefix = 'ipv4-telnet-cfg'
+    _revision = '2015-11-09'
+
+    def __init__(self):
+        super(Ipv4Telnet, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ipv4-telnet"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-telnet-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"client" : ("client", Ipv4Telnet.Client)}
+        self._child_list_classes = {}
+
+        self.client = Ipv4Telnet.Client()
+        self.client.parent = self
+        self._children_name_map["client"] = "client"
+        self._children_yang_names.add("client")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet"
+
+
+    class Client(Entity):
+        """
+        Telnet client configuration
+        
+        .. attribute:: source_interface
+        
+        	Source interface for telnet sessions
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'ipv4-telnet-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Ipv4Telnet.Client, self).__init__()
+
+            self.yang_name = "client"
+            self.yang_parent_name = "ipv4-telnet"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.source_interface = YLeaf(YType.str, "source-interface")
+            self._segment_path = lambda: "client"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-cfg:ipv4-telnet/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv4Telnet.Client, ['source_interface'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Ipv4Telnet()
         return self._top_entity
 

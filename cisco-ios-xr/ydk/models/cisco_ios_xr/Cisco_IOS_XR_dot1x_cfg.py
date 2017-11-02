@@ -62,7 +62,10 @@ class Dot1X(Entity):
         	Name of the Dot1x Profile
         	**type**\:  str
         
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+        .. attribute:: supplicant
+        
+        	Dot1x Supplicant Related Configuration
+        	**type**\:   :py:class:`Supplicant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Supplicant>`
         
         .. attribute:: authenticator
         
@@ -73,13 +76,6 @@ class Dot1X(Entity):
         
         	Dot1x PAE (Port Access Entity) Role
         	**type**\:  str
-        
-        	**pattern:** (supplicant)\|(authenticator)\|(both)
-        
-        .. attribute:: supplicant
-        
-        	Dot1x Supplicant Related Configuration
-        	**type**\:   :py:class:`Supplicant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1X.Dot1XProfile.Supplicant>`
         
         
 
@@ -95,27 +91,60 @@ class Dot1X(Entity):
             self.yang_parent_name = "dot1x"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"authenticator" : ("authenticator", Dot1X.Dot1XProfile.Authenticator), "supplicant" : ("supplicant", Dot1X.Dot1XProfile.Supplicant)}
+            self._child_container_classes = {"supplicant" : ("supplicant", Dot1X.Dot1XProfile.Supplicant), "authenticator" : ("authenticator", Dot1X.Dot1XProfile.Authenticator)}
             self._child_list_classes = {}
 
             self.profile_name = YLeaf(YType.str, "profile-name")
 
             self.pae = YLeaf(YType.str, "pae")
 
-            self.authenticator = Dot1X.Dot1XProfile.Authenticator()
-            self.authenticator.parent = self
-            self._children_name_map["authenticator"] = "authenticator"
-            self._children_yang_names.add("authenticator")
-
             self.supplicant = Dot1X.Dot1XProfile.Supplicant()
             self.supplicant.parent = self
             self._children_name_map["supplicant"] = "supplicant"
             self._children_yang_names.add("supplicant")
+
+            self.authenticator = Dot1X.Dot1XProfile.Authenticator()
+            self.authenticator.parent = self
+            self._children_name_map["authenticator"] = "authenticator"
+            self._children_yang_names.add("authenticator")
             self._segment_path = lambda: "dot1x-profile" + "[profile-name='" + self.profile_name.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-cfg:dot1x/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dot1X.Dot1XProfile, ['profile_name', 'pae'], name, value)
+
+
+        class Supplicant(Entity):
+            """
+            Dot1x Supplicant Related Configuration
+            
+            .. attribute:: eap_profile
+            
+            	EAP Profile for Supplicant
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'dot1x-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Dot1X.Dot1XProfile.Supplicant, self).__init__()
+
+                self.yang_name = "supplicant"
+                self.yang_parent_name = "dot1x-profile"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.eap_profile = YLeaf(YType.str, "eap-profile")
+                self._segment_path = lambda: "supplicant"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Dot1X.Dot1XProfile.Supplicant, ['eap_profile'], name, value)
 
 
         class Authenticator(Entity):
@@ -189,6 +218,11 @@ class Dot1X(Entity):
                     After this time ReAuthentication will be
                     trigerred
                     
+                    .. attribute:: server
+                    
+                    	Reauth will be triggerred based on the EAP server configuration
+                    	**type**\:  bool
+                    
                     .. attribute:: local
                     
                     	Reauth will be triggerred based on the configuration in box
@@ -197,11 +231,6 @@ class Dot1X(Entity):
                     	**range:** 60..5184000
                     
                     	**units**\: second
-                    
-                    .. attribute:: server
-                    
-                    	Reauth will be triggerred based on the EAP server configuration
-                    	**type**\:  bool
                     
                     
 
@@ -220,46 +249,13 @@ class Dot1X(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.local = YLeaf(YType.uint32, "local")
-
                         self.server = YLeaf(YType.boolean, "server")
+
+                        self.local = YLeaf(YType.uint32, "local")
                         self._segment_path = lambda: "reauth-time"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime, ['local', 'server'], name, value)
-
-
-        class Supplicant(Entity):
-            """
-            Dot1x Supplicant Related Configuration
-            
-            .. attribute:: eap_profile
-            
-            	EAP Profile for Supplicant
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'dot1x-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Dot1X.Dot1XProfile.Supplicant, self).__init__()
-
-                self.yang_name = "supplicant"
-                self.yang_parent_name = "dot1x-profile"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.eap_profile = YLeaf(YType.str, "eap-profile")
-                self._segment_path = lambda: "supplicant"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Dot1X.Dot1XProfile.Supplicant, ['eap_profile'], name, value)
+                        self._perform_setattr(Dot1X.Dot1XProfile.Authenticator.Timers.ReauthTime, ['server', 'local'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Dot1X()
@@ -307,8 +303,6 @@ class Eap(Entity):
         
         	Name of the EAP Profile
         	**type**\:  str
-        
-        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
         .. attribute:: eaptls
         

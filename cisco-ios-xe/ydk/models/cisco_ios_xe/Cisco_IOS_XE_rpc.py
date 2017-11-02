@@ -12,6 +12,189 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class Switch(Entity):
+    """
+    
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(Switch, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "switch"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = Switch.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = Switch.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:switch"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: switch_number
+        
+        	
+        	**type**\:  int
+        
+        	**range:** 1..9
+        
+        	**mandatory**\: True
+        
+        .. attribute:: priority
+        
+        	<1\-15>  Switch Priority
+        	**type**\:  int
+        
+        	**range:** 1..15
+        
+        .. attribute:: renumber
+        
+        	<1\-9>  New number of the Switch
+        	**type**\:  int
+        
+        	**range:** 1..9
+        
+        .. attribute:: statck
+        
+        	
+        	**type**\:   :py:class:`Statck <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input.Statck>`
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-02-07'
+
+        def __init__(self):
+            super(Switch.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "switch"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"statck" : ("statck", Switch.Input.Statck)}
+            self._child_list_classes = {}
+
+            self.switch_number = YLeaf(YType.uint8, "switch-number")
+
+            self.priority = YLeaf(YType.uint8, "priority")
+
+            self.renumber = YLeaf(YType.uint8, "renumber")
+
+            self.statck = Switch.Input.Statck()
+            self.statck.parent = self
+            self._children_name_map["statck"] = "statck"
+            self._children_yang_names.add("statck")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Switch.Input, ['switch_number', 'priority', 'renumber'], name, value)
+
+
+        class Statck(Entity):
+            """
+            
+            
+            .. attribute:: port
+            
+            	<1\-2>  Stack port number to enable/disable
+            	**type**\:  int
+            
+            	**range:** 1..2
+            
+            
+
+            """
+
+            _prefix = 'ios-xe-rpc'
+            _revision = '2017-02-07'
+
+            def __init__(self):
+                super(Switch.Input.Statck, self).__init__()
+
+                self.yang_name = "statck"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.port = YLeaf(YType.uint8, "port")
+                self._segment_path = lambda: "statck"
+                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Switch.Input.Statck, ['port'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-02-07'
+
+        def __init__(self):
+            super(Switch.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "switch"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.result = YLeaf(YType.str, "result")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Switch.Output, ['result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Switch()
+        return self._top_entity
+
 class Default(Entity):
     """
     Set a command to its defaults
@@ -127,6 +310,77 @@ class Default(Entity):
         self._top_entity = Default()
         return self._top_entity
 
+class Reload(Entity):
+    """
+    Halt and perform a cold restart
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Reload.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2017-02-07'
+
+    def __init__(self):
+        super(Reload, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "reload"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.output = Reload.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:reload"
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2017-02-07'
+
+        def __init__(self):
+            super(Reload.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "reload"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.result = YLeaf(YType.str, "result")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:reload/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Reload.Output, ['result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Reload()
+        return self._top_entity
+
 class License(Entity):
     """
     
@@ -209,15 +463,15 @@ class License(Entity):
             """
             
             
-            .. attribute:: deregister
-            
-            	
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: register
             
             	
             	**type**\:   :py:class:`Register <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.License.Input.Smart.Register>`
+            
+            .. attribute:: deregister
+            
+            	
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: renew
             
@@ -297,12 +551,12 @@ class License(Entity):
                 """
                 
                 
-                .. attribute:: auth
+                .. attribute:: id
                 
                 	
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: id
+                .. attribute:: auth
                 
                 	
                 	**type**\:  :py:class:`Empty<ydk.types.Empty>`
@@ -324,14 +578,14 @@ class License(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.auth = YLeaf(YType.empty, "auth")
-
                     self.id = YLeaf(YType.empty, "id")
+
+                    self.auth = YLeaf(YType.empty, "auth")
                     self._segment_path = lambda: "renew"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/input/smart/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(License.Input.Smart.Renew, ['auth', 'id'], name, value)
+                    self._perform_setattr(License.Input.Smart.Renew, ['id', 'auth'], name, value)
 
 
     class Output(Entity):
@@ -369,259 +623,5 @@ class License(Entity):
 
     def clone_ptr(self):
         self._top_entity = License()
-        return self._top_entity
-
-class Reload(Entity):
-    """
-    Halt and perform a cold restart
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Reload.Output>`
-    
-    
-
-    """
-
-    _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(Reload, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "reload"
-        self.yang_parent_name = "Cisco-IOS-XE-rpc"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.output = Reload.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "Cisco-IOS-XE-rpc:reload"
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: result
-        
-        	Output returned by the network element
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
-
-        def __init__(self):
-            super(Reload.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "reload"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:reload/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Reload.Output, ['result'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Reload()
-        return self._top_entity
-
-class Switch(Entity):
-    """
-    
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Output>`
-    
-    
-
-    """
-
-    _prefix = 'ios-xe-rpc'
-    _revision = '2017-02-07'
-
-    def __init__(self):
-        super(Switch, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "switch"
-        self.yang_parent_name = "Cisco-IOS-XE-rpc"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = Switch.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = Switch.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "Cisco-IOS-XE-rpc:switch"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: priority
-        
-        	<1\-15>  Switch Priority
-        	**type**\:  int
-        
-        	**range:** 1..15
-        
-        .. attribute:: renumber
-        
-        	<1\-9>  New number of the Switch
-        	**type**\:  int
-        
-        	**range:** 1..9
-        
-        .. attribute:: statck
-        
-        	
-        	**type**\:   :py:class:`Statck <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Switch.Input.Statck>`
-        
-        .. attribute:: switch_number
-        
-        	
-        	**type**\:  int
-        
-        	**range:** 1..9
-        
-        	**mandatory**\: True
-        
-        
-
-        """
-
-        _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
-
-        def __init__(self):
-            super(Switch.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "switch"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"statck" : ("statck", Switch.Input.Statck)}
-            self._child_list_classes = {}
-
-            self.priority = YLeaf(YType.uint8, "priority")
-
-            self.renumber = YLeaf(YType.uint8, "renumber")
-
-            self.switch_number = YLeaf(YType.uint8, "switch-number")
-
-            self.statck = Switch.Input.Statck()
-            self.statck.parent = self
-            self._children_name_map["statck"] = "statck"
-            self._children_yang_names.add("statck")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Input, ['priority', 'renumber', 'switch_number'], name, value)
-
-
-        class Statck(Entity):
-            """
-            
-            
-            .. attribute:: port
-            
-            	<1\-2>  Stack port number to enable/disable
-            	**type**\:  int
-            
-            	**range:** 1..2
-            
-            
-
-            """
-
-            _prefix = 'ios-xe-rpc'
-            _revision = '2017-02-07'
-
-            def __init__(self):
-                super(Switch.Input.Statck, self).__init__()
-
-                self.yang_name = "statck"
-                self.yang_parent_name = "input"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.port = YLeaf(YType.uint8, "port")
-                self._segment_path = lambda: "statck"
-                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/input/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Switch.Input.Statck, ['port'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: result
-        
-        	Output returned by the network element
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'ios-xe-rpc'
-        _revision = '2017-02-07'
-
-        def __init__(self):
-            super(Switch.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "switch"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.result = YLeaf(YType.str, "result")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Output, ['result'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Switch()
         return self._top_entity
 

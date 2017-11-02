@@ -122,15 +122,15 @@ class Aaa(Entity):
             	Username
             	**type**\:  str
             
-            .. attribute:: secret
-            
-            	Specify the secret for the admin user
-            	**type**\:   :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.Secret>`
-            
             .. attribute:: usergroup_under_usernames
             
             	Specify the usergroup to which this admin user belongs
             	**type**\:   :py:class:`UsergroupUnderUsernames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.UsergroupUnderUsernames>`
+            
+            .. attribute:: secret
+            
+            	Specify the secret for the admin user
+            	**type**\:   :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.Aaa.Usernames.Username.Secret>`
             
             
 
@@ -146,85 +146,25 @@ class Aaa(Entity):
                 self.yang_parent_name = "usernames"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"secret" : ("secret", Aaa.Usernames.Username.Secret), "usergroup-under-usernames" : ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames)}
+                self._child_container_classes = {"usergroup-under-usernames" : ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames), "secret" : ("secret", Aaa.Usernames.Username.Secret)}
                 self._child_list_classes = {}
 
                 self.name = YLeaf(YType.str, "name")
-
-                self.secret = Aaa.Usernames.Username.Secret()
-                self.secret.parent = self
-                self._children_name_map["secret"] = "secret"
-                self._children_yang_names.add("secret")
 
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
                 self.usergroup_under_usernames.parent = self
                 self._children_name_map["usergroup_under_usernames"] = "usergroup-under-usernames"
                 self._children_yang_names.add("usergroup-under-usernames")
+
+                self.secret = Aaa.Usernames.Username.Secret()
+                self.secret.parent = self
+                self._children_name_map["secret"] = "secret"
+                self._children_yang_names.add("secret")
                 self._segment_path = lambda: "username" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Usernames.Username, ['name'], name, value)
-
-
-            class Secret(Entity):
-                """
-                Specify the secret for the admin user
-                
-                .. attribute:: secret5
-                
-                	The user's secret password
-                	**type**\:  str
-                
-                	**pattern:** (!.+)\|([^!].+)
-                
-                .. attribute:: secret8
-                
-                	Type 8 password
-                	**type**\:  str
-                
-                	**pattern:** (!.+)\|([^!].+)
-                
-                .. attribute:: secret9
-                
-                	Type 9 password
-                	**type**\:  str
-                
-                	**pattern:** (!.+)\|([^!].+)
-                
-                .. attribute:: type
-                
-                	Password type
-                	**type**\:   :py:class:`AaaAdminPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.AaaAdminPassword>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-locald-admin-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Aaa.Usernames.Username.Secret, self).__init__()
-
-                    self.yang_name = "secret"
-                    self.yang_parent_name = "username"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.secret5 = YLeaf(YType.str, "secret5")
-
-                    self.secret8 = YLeaf(YType.str, "secret8")
-
-                    self.secret9 = YLeaf(YType.str, "secret9")
-
-                    self.type = YLeaf(YType.enumeration, "type")
-                    self._segment_path = lambda: "secret"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Aaa.Usernames.Username.Secret, ['secret5', 'secret8', 'secret9', 'type'], name, value)
 
 
             class UsergroupUnderUsernames(Entity):
@@ -270,8 +210,6 @@ class Aaa(Entity):
                     	Name of the usergroup
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     
 
                     """
@@ -294,6 +232,60 @@ class Aaa(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
+
+
+            class Secret(Entity):
+                """
+                Specify the secret for the admin user
+                
+                .. attribute:: type
+                
+                	Password type
+                	**type**\:   :py:class:`AaaAdminPassword <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg.AaaAdminPassword>`
+                
+                .. attribute:: secret5
+                
+                	The user's secret password
+                	**type**\:  str
+                
+                .. attribute:: secret8
+                
+                	Type 8 password
+                	**type**\:  str
+                
+                .. attribute:: secret9
+                
+                	Type 9 password
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'aaa-locald-admin-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Aaa.Usernames.Username.Secret, self).__init__()
+
+                    self.yang_name = "secret"
+                    self.yang_parent_name = "username"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.type = YLeaf(YType.enumeration, "type")
+
+                    self.secret5 = YLeaf(YType.str, "secret5")
+
+                    self.secret8 = YLeaf(YType.str, "secret8")
+
+                    self.secret9 = YLeaf(YType.str, "secret9")
+                    self._segment_path = lambda: "secret"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Aaa.Usernames.Username.Secret, ['type', 'secret5', 'secret8', 'secret9'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Aaa()

@@ -82,35 +82,35 @@ class CISCOENVMONMIB(Entity):
     """
     
     
-    .. attribute:: ciscoenvmonfanstatustable
+    .. attribute:: ciscoenvmonobjects
     
-    	The table of fan status maintained by the environmental monitor
-    	**type**\:   :py:class:`Ciscoenvmonfanstatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonfanstatustable>`
+    	
+    	**type**\:   :py:class:`Ciscoenvmonobjects <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonobjects>`
     
     .. attribute:: ciscoenvmonmibnotificationenables
     
     	
     	**type**\:   :py:class:`Ciscoenvmonmibnotificationenables <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonmibnotificationenables>`
     
-    .. attribute:: ciscoenvmonobjects
+    .. attribute:: ciscoenvmonvoltagestatustable
     
-    	
-    	**type**\:   :py:class:`Ciscoenvmonobjects <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonobjects>`
-    
-    .. attribute:: ciscoenvmonsupplystatustable
-    
-    	The table of power supply status maintained by the environmental monitor card
-    	**type**\:   :py:class:`Ciscoenvmonsupplystatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable>`
+    	The table of voltage status maintained by the environmental monitor
+    	**type**\:   :py:class:`Ciscoenvmonvoltagestatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonvoltagestatustable>`
     
     .. attribute:: ciscoenvmontemperaturestatustable
     
     	The table of ambient temperature status maintained by the environmental monitor
     	**type**\:   :py:class:`Ciscoenvmontemperaturestatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmontemperaturestatustable>`
     
-    .. attribute:: ciscoenvmonvoltagestatustable
+    .. attribute:: ciscoenvmonfanstatustable
     
-    	The table of voltage status maintained by the environmental monitor
-    	**type**\:   :py:class:`Ciscoenvmonvoltagestatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonvoltagestatustable>`
+    	The table of fan status maintained by the environmental monitor
+    	**type**\:   :py:class:`Ciscoenvmonfanstatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonfanstatustable>`
+    
+    .. attribute:: ciscoenvmonsupplystatustable
+    
+    	The table of power supply status maintained by the environmental monitor card
+    	**type**\:   :py:class:`Ciscoenvmonsupplystatustable <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable>`
     
     
 
@@ -127,219 +127,54 @@ class CISCOENVMONMIB(Entity):
         self.yang_parent_name = "CISCO-ENVMON-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"ciscoEnvMonFanStatusTable" : ("ciscoenvmonfanstatustable", CISCOENVMONMIB.Ciscoenvmonfanstatustable), "ciscoEnvMonMIBNotificationEnables" : ("ciscoenvmonmibnotificationenables", CISCOENVMONMIB.Ciscoenvmonmibnotificationenables), "ciscoEnvMonObjects" : ("ciscoenvmonobjects", CISCOENVMONMIB.Ciscoenvmonobjects), "ciscoEnvMonSupplyStatusTable" : ("ciscoenvmonsupplystatustable", CISCOENVMONMIB.Ciscoenvmonsupplystatustable), "ciscoEnvMonTemperatureStatusTable" : ("ciscoenvmontemperaturestatustable", CISCOENVMONMIB.Ciscoenvmontemperaturestatustable), "ciscoEnvMonVoltageStatusTable" : ("ciscoenvmonvoltagestatustable", CISCOENVMONMIB.Ciscoenvmonvoltagestatustable)}
+        self._child_container_classes = {"ciscoEnvMonObjects" : ("ciscoenvmonobjects", CISCOENVMONMIB.Ciscoenvmonobjects), "ciscoEnvMonMIBNotificationEnables" : ("ciscoenvmonmibnotificationenables", CISCOENVMONMIB.Ciscoenvmonmibnotificationenables), "ciscoEnvMonVoltageStatusTable" : ("ciscoenvmonvoltagestatustable", CISCOENVMONMIB.Ciscoenvmonvoltagestatustable), "ciscoEnvMonTemperatureStatusTable" : ("ciscoenvmontemperaturestatustable", CISCOENVMONMIB.Ciscoenvmontemperaturestatustable), "ciscoEnvMonFanStatusTable" : ("ciscoenvmonfanstatustable", CISCOENVMONMIB.Ciscoenvmonfanstatustable), "ciscoEnvMonSupplyStatusTable" : ("ciscoenvmonsupplystatustable", CISCOENVMONMIB.Ciscoenvmonsupplystatustable)}
         self._child_list_classes = {}
-
-        self.ciscoenvmonfanstatustable = CISCOENVMONMIB.Ciscoenvmonfanstatustable()
-        self.ciscoenvmonfanstatustable.parent = self
-        self._children_name_map["ciscoenvmonfanstatustable"] = "ciscoEnvMonFanStatusTable"
-        self._children_yang_names.add("ciscoEnvMonFanStatusTable")
-
-        self.ciscoenvmonmibnotificationenables = CISCOENVMONMIB.Ciscoenvmonmibnotificationenables()
-        self.ciscoenvmonmibnotificationenables.parent = self
-        self._children_name_map["ciscoenvmonmibnotificationenables"] = "ciscoEnvMonMIBNotificationEnables"
-        self._children_yang_names.add("ciscoEnvMonMIBNotificationEnables")
 
         self.ciscoenvmonobjects = CISCOENVMONMIB.Ciscoenvmonobjects()
         self.ciscoenvmonobjects.parent = self
         self._children_name_map["ciscoenvmonobjects"] = "ciscoEnvMonObjects"
         self._children_yang_names.add("ciscoEnvMonObjects")
 
-        self.ciscoenvmonsupplystatustable = CISCOENVMONMIB.Ciscoenvmonsupplystatustable()
-        self.ciscoenvmonsupplystatustable.parent = self
-        self._children_name_map["ciscoenvmonsupplystatustable"] = "ciscoEnvMonSupplyStatusTable"
-        self._children_yang_names.add("ciscoEnvMonSupplyStatusTable")
+        self.ciscoenvmonmibnotificationenables = CISCOENVMONMIB.Ciscoenvmonmibnotificationenables()
+        self.ciscoenvmonmibnotificationenables.parent = self
+        self._children_name_map["ciscoenvmonmibnotificationenables"] = "ciscoEnvMonMIBNotificationEnables"
+        self._children_yang_names.add("ciscoEnvMonMIBNotificationEnables")
+
+        self.ciscoenvmonvoltagestatustable = CISCOENVMONMIB.Ciscoenvmonvoltagestatustable()
+        self.ciscoenvmonvoltagestatustable.parent = self
+        self._children_name_map["ciscoenvmonvoltagestatustable"] = "ciscoEnvMonVoltageStatusTable"
+        self._children_yang_names.add("ciscoEnvMonVoltageStatusTable")
 
         self.ciscoenvmontemperaturestatustable = CISCOENVMONMIB.Ciscoenvmontemperaturestatustable()
         self.ciscoenvmontemperaturestatustable.parent = self
         self._children_name_map["ciscoenvmontemperaturestatustable"] = "ciscoEnvMonTemperatureStatusTable"
         self._children_yang_names.add("ciscoEnvMonTemperatureStatusTable")
 
-        self.ciscoenvmonvoltagestatustable = CISCOENVMONMIB.Ciscoenvmonvoltagestatustable()
-        self.ciscoenvmonvoltagestatustable.parent = self
-        self._children_name_map["ciscoenvmonvoltagestatustable"] = "ciscoEnvMonVoltageStatusTable"
-        self._children_yang_names.add("ciscoEnvMonVoltageStatusTable")
+        self.ciscoenvmonfanstatustable = CISCOENVMONMIB.Ciscoenvmonfanstatustable()
+        self.ciscoenvmonfanstatustable.parent = self
+        self._children_name_map["ciscoenvmonfanstatustable"] = "ciscoEnvMonFanStatusTable"
+        self._children_yang_names.add("ciscoEnvMonFanStatusTable")
+
+        self.ciscoenvmonsupplystatustable = CISCOENVMONMIB.Ciscoenvmonsupplystatustable()
+        self.ciscoenvmonsupplystatustable.parent = self
+        self._children_name_map["ciscoenvmonsupplystatustable"] = "ciscoEnvMonSupplyStatusTable"
+        self._children_yang_names.add("ciscoEnvMonSupplyStatusTable")
         self._segment_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB"
-
-
-    class Ciscoenvmonfanstatustable(Entity):
-        """
-        The table of fan status maintained by the environmental
-        monitor.
-        
-        .. attribute:: ciscoenvmonfanstatusentry
-        
-        	An entry in the fan status table, representing the status of the associated fan maintained by the environmental monitor
-        	**type**\: list of    :py:class:`Ciscoenvmonfanstatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-ENVMON-MIB'
-        _revision = '2003-12-01'
-
-        def __init__(self):
-            super(CISCOENVMONMIB.Ciscoenvmonfanstatustable, self).__init__()
-
-            self.yang_name = "ciscoEnvMonFanStatusTable"
-            self.yang_parent_name = "CISCO-ENVMON-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoEnvMonFanStatusEntry" : ("ciscoenvmonfanstatusentry", CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry)}
-
-            self.ciscoenvmonfanstatusentry = YList(self)
-            self._segment_path = lambda: "ciscoEnvMonFanStatusTable"
-            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonfanstatustable, [], name, value)
-
-
-        class Ciscoenvmonfanstatusentry(Entity):
-            """
-            An entry in the fan status table, representing the status of
-            the associated fan maintained by the environmental monitor.
-            
-            .. attribute:: ciscoenvmonfanstatusindex  <key>
-            
-            	Unique index for the fan being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: ciscoenvmonfanstate
-            
-            	The current state of the fan being instrumented
-            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
-            
-            .. attribute:: ciscoenvmonfanstatusdescr
-            
-            	Textual description of the fan being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            
-
-            """
-
-            _prefix = 'CISCO-ENVMON-MIB'
-            _revision = '2003-12-01'
-
-            def __init__(self):
-                super(CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry, self).__init__()
-
-                self.yang_name = "ciscoEnvMonFanStatusEntry"
-                self.yang_parent_name = "ciscoEnvMonFanStatusTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoenvmonfanstatusindex = YLeaf(YType.int32, "ciscoEnvMonFanStatusIndex")
-
-                self.ciscoenvmonfanstate = YLeaf(YType.enumeration, "ciscoEnvMonFanState")
-
-                self.ciscoenvmonfanstatusdescr = YLeaf(YType.str, "ciscoEnvMonFanStatusDescr")
-                self._segment_path = lambda: "ciscoEnvMonFanStatusEntry" + "[ciscoEnvMonFanStatusIndex='" + self.ciscoenvmonfanstatusindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonFanStatusTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry, ['ciscoenvmonfanstatusindex', 'ciscoenvmonfanstate', 'ciscoenvmonfanstatusdescr'], name, value)
-
-
-    class Ciscoenvmonmibnotificationenables(Entity):
-        """
-        
-        
-        .. attribute:: ciscoenvmonenablefannotification
-        
-        	This variable  indicates  whether  the  system produces the ciscoEnvMonFanNotification. A false value prevents fan notifications  from being sent by  this entity. This object is  deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
-        	**type**\:  bool
-        
-        	**status**\: deprecated
-        
-        .. attribute:: ciscoenvmonenableredundantsupplynotification
-        
-        	This variable  indicates  whether  the  system produces the ciscoEnvMonRedundantSupplyNotification.  A false value prevents redundant supply notifications from being generated by this system. This object is deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
-        	**type**\:  bool
-        
-        	**status**\: deprecated
-        
-        .. attribute:: ciscoenvmonenableshutdownnotification
-        
-        	This variable  indicates  whether  the  system produces the ciscoEnvMonShutdownNotification.  A false  value will prevent shutdown notifications  from being generated by this system
-        	**type**\:  bool
-        
-        .. attribute:: ciscoenvmonenablestatchangenotif
-        
-        	This variable indicates whether the system produces the ciscoEnvMonVoltStatusChangeNotif, ciscoEnvMonTempStatusChangeNotif,  ciscoEnvMonFanStatusChangeNotif and   ciscoEnvMonSuppStatusChangeNotif. A false value will  prevent these notifications from being generated by  this system
-        	**type**\:  bool
-        
-        .. attribute:: ciscoenvmonenabletemperaturenotification
-        
-        	This variable  indicates  whether  the  system produces the ciscoEnvMonTemperatureNotification. A false value prevents temperature notifications  from being sent by  this entity. This object is  deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
-        	**type**\:  bool
-        
-        	**status**\: deprecated
-        
-        .. attribute:: ciscoenvmonenablevoltagenotification
-        
-        	This variable  indicates  whether  the  system produces the ciscoEnvMonVoltageNotification. A false  value will prevent voltage notifications from being  generated by this system. This object is deprecated in favour of ciscoEnvMonEnableStatChangeNotif
-        	**type**\:  bool
-        
-        	**status**\: deprecated
-        
-        
-
-        """
-
-        _prefix = 'CISCO-ENVMON-MIB'
-        _revision = '2003-12-01'
-
-        def __init__(self):
-            super(CISCOENVMONMIB.Ciscoenvmonmibnotificationenables, self).__init__()
-
-            self.yang_name = "ciscoEnvMonMIBNotificationEnables"
-            self.yang_parent_name = "CISCO-ENVMON-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.ciscoenvmonenablefannotification = YLeaf(YType.boolean, "ciscoEnvMonEnableFanNotification")
-
-            self.ciscoenvmonenableredundantsupplynotification = YLeaf(YType.boolean, "ciscoEnvMonEnableRedundantSupplyNotification")
-
-            self.ciscoenvmonenableshutdownnotification = YLeaf(YType.boolean, "ciscoEnvMonEnableShutdownNotification")
-
-            self.ciscoenvmonenablestatchangenotif = YLeaf(YType.boolean, "ciscoEnvMonEnableStatChangeNotif")
-
-            self.ciscoenvmonenabletemperaturenotification = YLeaf(YType.boolean, "ciscoEnvMonEnableTemperatureNotification")
-
-            self.ciscoenvmonenablevoltagenotification = YLeaf(YType.boolean, "ciscoEnvMonEnableVoltageNotification")
-            self._segment_path = lambda: "ciscoEnvMonMIBNotificationEnables"
-            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonmibnotificationenables, ['ciscoenvmonenablefannotification', 'ciscoenvmonenableredundantsupplynotification', 'ciscoenvmonenableshutdownnotification', 'ciscoenvmonenablestatchangenotif', 'ciscoenvmonenabletemperaturenotification', 'ciscoenvmonenablevoltagenotification'], name, value)
 
 
     class Ciscoenvmonobjects(Entity):
         """
         
         
-        .. attribute:: ciscoenvmonalarmcontacts
-        
-        	Each bit is set to reflect the respective alarm being set.  The bit will be cleared when the respective alarm is cleared
-        	**type**\:   :py:class:`Ciscoenvmonalarmcontacts <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonobjects.Ciscoenvmonalarmcontacts>`
-        
         .. attribute:: ciscoenvmonpresent
         
         	The type of environmental monitor located in the chassis. An oldAgs environmental monitor card is identical to an ags environmental card except that it is not capable of supplying data, and hence no instance of the remaining objects in this MIB will be returned in response to an SNMP query.  Note that only a firmware upgrade is required to convert an oldAgs into an ags card
         	**type**\:   :py:class:`Ciscoenvmonpresent <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonobjects.Ciscoenvmonpresent>`
+        
+        .. attribute:: ciscoenvmonalarmcontacts
+        
+        	Each bit is set to reflect the respective alarm being set.  The bit will be cleared when the respective alarm is cleared
+        	**type**\:   :py:class:`Ciscoenvmonalarmcontacts <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonobjects.Ciscoenvmonalarmcontacts>`
         
         
 
@@ -358,14 +193,14 @@ class CISCOENVMONMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.ciscoenvmonalarmcontacts = YLeaf(YType.bits, "ciscoEnvMonAlarmContacts")
-
             self.ciscoenvmonpresent = YLeaf(YType.enumeration, "ciscoEnvMonPresent")
+
+            self.ciscoenvmonalarmcontacts = YLeaf(YType.bits, "ciscoEnvMonAlarmContacts")
             self._segment_path = lambda: "ciscoEnvMonObjects"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonobjects, ['ciscoenvmonalarmcontacts', 'ciscoenvmonpresent'], name, value)
+            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonobjects, ['ciscoenvmonpresent', 'ciscoenvmonalarmcontacts'], name, value)
 
         class Ciscoenvmonpresent(Enum):
             """
@@ -441,150 +276,47 @@ class CISCOENVMONMIB(Entity):
 
 
 
-    class Ciscoenvmonsupplystatustable(Entity):
+    class Ciscoenvmonmibnotificationenables(Entity):
         """
-        The table of power supply status maintained by the
-        environmental monitor card.
-        
-        .. attribute:: ciscoenvmonsupplystatusentry
-        
-        	An entry in the power supply status table, representing the status of the associated power supply maintained by the environmental monitor card
-        	**type**\: list of    :py:class:`Ciscoenvmonsupplystatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry>`
         
         
-
-        """
-
-        _prefix = 'CISCO-ENVMON-MIB'
-        _revision = '2003-12-01'
-
-        def __init__(self):
-            super(CISCOENVMONMIB.Ciscoenvmonsupplystatustable, self).__init__()
-
-            self.yang_name = "ciscoEnvMonSupplyStatusTable"
-            self.yang_parent_name = "CISCO-ENVMON-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"ciscoEnvMonSupplyStatusEntry" : ("ciscoenvmonsupplystatusentry", CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry)}
-
-            self.ciscoenvmonsupplystatusentry = YList(self)
-            self._segment_path = lambda: "ciscoEnvMonSupplyStatusTable"
-            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonsupplystatustable, [], name, value)
-
-
-        class Ciscoenvmonsupplystatusentry(Entity):
-            """
-            An entry in the power supply status table, representing the
-            status of the associated power supply maintained by the
-            environmental monitor card.
-            
-            .. attribute:: ciscoenvmonsupplystatusindex  <key>
-            
-            	Unique index for the power supply being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: ciscoenvmonsupplysource
-            
-            	The power supply source. unknown \- Power supply source unknown ac      \- AC power supply dc      \- DC power supply externalPowerSupply \- External power supply internalRedundant \- Internal redundant power supply 
-            	**type**\:   :py:class:`Ciscoenvmonsupplysource <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry.Ciscoenvmonsupplysource>`
-            
-            .. attribute:: ciscoenvmonsupplystate
-            
-            	The current state of the power supply being instrumented
-            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
-            
-            .. attribute:: ciscoenvmonsupplystatusdescr
-            
-            	Textual description of the power supply being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            
-
-            """
-
-            _prefix = 'CISCO-ENVMON-MIB'
-            _revision = '2003-12-01'
-
-            def __init__(self):
-                super(CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry, self).__init__()
-
-                self.yang_name = "ciscoEnvMonSupplyStatusEntry"
-                self.yang_parent_name = "ciscoEnvMonSupplyStatusTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoenvmonsupplystatusindex = YLeaf(YType.int32, "ciscoEnvMonSupplyStatusIndex")
-
-                self.ciscoenvmonsupplysource = YLeaf(YType.enumeration, "ciscoEnvMonSupplySource")
-
-                self.ciscoenvmonsupplystate = YLeaf(YType.enumeration, "ciscoEnvMonSupplyState")
-
-                self.ciscoenvmonsupplystatusdescr = YLeaf(YType.str, "ciscoEnvMonSupplyStatusDescr")
-                self._segment_path = lambda: "ciscoEnvMonSupplyStatusEntry" + "[ciscoEnvMonSupplyStatusIndex='" + self.ciscoenvmonsupplystatusindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonSupplyStatusTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry, ['ciscoenvmonsupplystatusindex', 'ciscoenvmonsupplysource', 'ciscoenvmonsupplystate', 'ciscoenvmonsupplystatusdescr'], name, value)
-
-            class Ciscoenvmonsupplysource(Enum):
-                """
-                Ciscoenvmonsupplysource
-
-                The power supply source.
-
-                unknown \- Power supply source unknown
-
-                ac      \- AC power supply
-
-                dc      \- DC power supply
-
-                externalPowerSupply \- External power supply
-
-                internalRedundant \- Internal redundant power supply 
-
-                .. data:: unknown = 1
-
-                .. data:: ac = 2
-
-                .. data:: dc = 3
-
-                .. data:: externalPowerSupply = 4
-
-                .. data:: internalRedundant = 5
-
-                """
-
-                unknown = Enum.YLeaf(1, "unknown")
-
-                ac = Enum.YLeaf(2, "ac")
-
-                dc = Enum.YLeaf(3, "dc")
-
-                externalPowerSupply = Enum.YLeaf(4, "externalPowerSupply")
-
-                internalRedundant = Enum.YLeaf(5, "internalRedundant")
-
-
-
-    class Ciscoenvmontemperaturestatustable(Entity):
-        """
-        The table of ambient temperature status maintained by the
-        environmental monitor.
+        .. attribute:: ciscoenvmonenableshutdownnotification
         
-        .. attribute:: ciscoenvmontemperaturestatusentry
+        	This variable  indicates  whether  the  system produces the ciscoEnvMonShutdownNotification.  A false  value will prevent shutdown notifications  from being generated by this system
+        	**type**\:  bool
         
-        	An entry in the ambient temperature status table, representing the status of the associated testpoint maintained by the environmental monitor
-        	**type**\: list of    :py:class:`Ciscoenvmontemperaturestatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry>`
+        .. attribute:: ciscoenvmonenablevoltagenotification
+        
+        	This variable  indicates  whether  the  system produces the ciscoEnvMonVoltageNotification. A false  value will prevent voltage notifications from being  generated by this system. This object is deprecated in favour of ciscoEnvMonEnableStatChangeNotif
+        	**type**\:  bool
+        
+        	**status**\: deprecated
+        
+        .. attribute:: ciscoenvmonenabletemperaturenotification
+        
+        	This variable  indicates  whether  the  system produces the ciscoEnvMonTemperatureNotification. A false value prevents temperature notifications  from being sent by  this entity. This object is  deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
+        	**type**\:  bool
+        
+        	**status**\: deprecated
+        
+        .. attribute:: ciscoenvmonenablefannotification
+        
+        	This variable  indicates  whether  the  system produces the ciscoEnvMonFanNotification. A false value prevents fan notifications  from being sent by  this entity. This object is  deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
+        	**type**\:  bool
+        
+        	**status**\: deprecated
+        
+        .. attribute:: ciscoenvmonenableredundantsupplynotification
+        
+        	This variable  indicates  whether  the  system produces the ciscoEnvMonRedundantSupplyNotification.  A false value prevents redundant supply notifications from being generated by this system. This object is deprecated in favour of  ciscoEnvMonEnableStatChangeNotif
+        	**type**\:  bool
+        
+        	**status**\: deprecated
+        
+        .. attribute:: ciscoenvmonenablestatchangenotif
+        
+        	This variable indicates whether the system produces the ciscoEnvMonVoltStatusChangeNotif, ciscoEnvMonTempStatusChangeNotif,  ciscoEnvMonFanStatusChangeNotif and   ciscoEnvMonSuppStatusChangeNotif. A false value will  prevent these notifications from being generated by  this system
+        	**type**\:  bool
         
         
 
@@ -594,108 +326,31 @@ class CISCOENVMONMIB(Entity):
         _revision = '2003-12-01'
 
         def __init__(self):
-            super(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable, self).__init__()
+            super(CISCOENVMONMIB.Ciscoenvmonmibnotificationenables, self).__init__()
 
-            self.yang_name = "ciscoEnvMonTemperatureStatusTable"
+            self.yang_name = "ciscoEnvMonMIBNotificationEnables"
             self.yang_parent_name = "CISCO-ENVMON-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"ciscoEnvMonTemperatureStatusEntry" : ("ciscoenvmontemperaturestatusentry", CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry)}
+            self._child_list_classes = {}
 
-            self.ciscoenvmontemperaturestatusentry = YList(self)
-            self._segment_path = lambda: "ciscoEnvMonTemperatureStatusTable"
+            self.ciscoenvmonenableshutdownnotification = YLeaf(YType.boolean, "ciscoEnvMonEnableShutdownNotification")
+
+            self.ciscoenvmonenablevoltagenotification = YLeaf(YType.boolean, "ciscoEnvMonEnableVoltageNotification")
+
+            self.ciscoenvmonenabletemperaturenotification = YLeaf(YType.boolean, "ciscoEnvMonEnableTemperatureNotification")
+
+            self.ciscoenvmonenablefannotification = YLeaf(YType.boolean, "ciscoEnvMonEnableFanNotification")
+
+            self.ciscoenvmonenableredundantsupplynotification = YLeaf(YType.boolean, "ciscoEnvMonEnableRedundantSupplyNotification")
+
+            self.ciscoenvmonenablestatchangenotif = YLeaf(YType.boolean, "ciscoEnvMonEnableStatChangeNotif")
+            self._segment_path = lambda: "ciscoEnvMonMIBNotificationEnables"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable, [], name, value)
-
-
-        class Ciscoenvmontemperaturestatusentry(Entity):
-            """
-            An entry in the ambient temperature status table, representing
-            the status of the associated testpoint maintained by the
-            environmental monitor.
-            
-            .. attribute:: ciscoenvmontemperaturestatusindex  <key>
-            
-            	Unique index for the testpoint being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: ciscoenvmontemperaturelastshutdown
-            
-            	The value of the associated instance of the object ciscoEnvMonTemperatureStatusValue at the time an emergency shutdown of the managed device was last initiated.  This value is stored in non\-volatile RAM and hence is able to survive the shutdown
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: degrees Celsius
-            
-            .. attribute:: ciscoenvmontemperaturestate
-            
-            	The current state of the testpoint being instrumented
-            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
-            
-            .. attribute:: ciscoenvmontemperaturestatusdescr
-            
-            	Textual description of the testpoint being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: ciscoenvmontemperaturestatusvalue
-            
-            	The current measurement of the testpoint being instrumented
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: degrees Celsius
-            
-            .. attribute:: ciscoenvmontemperaturethreshold
-            
-            	The highest value that the associated instance of the object ciscoEnvMonTemperatureStatusValue may obtain before an emergency shutdown of the managed device is initiated
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: degrees Celsius
-            
-            
-
-            """
-
-            _prefix = 'CISCO-ENVMON-MIB'
-            _revision = '2003-12-01'
-
-            def __init__(self):
-                super(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry, self).__init__()
-
-                self.yang_name = "ciscoEnvMonTemperatureStatusEntry"
-                self.yang_parent_name = "ciscoEnvMonTemperatureStatusTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ciscoenvmontemperaturestatusindex = YLeaf(YType.int32, "ciscoEnvMonTemperatureStatusIndex")
-
-                self.ciscoenvmontemperaturelastshutdown = YLeaf(YType.int32, "ciscoEnvMonTemperatureLastShutdown")
-
-                self.ciscoenvmontemperaturestate = YLeaf(YType.enumeration, "ciscoEnvMonTemperatureState")
-
-                self.ciscoenvmontemperaturestatusdescr = YLeaf(YType.str, "ciscoEnvMonTemperatureStatusDescr")
-
-                self.ciscoenvmontemperaturestatusvalue = YLeaf(YType.uint32, "ciscoEnvMonTemperatureStatusValue")
-
-                self.ciscoenvmontemperaturethreshold = YLeaf(YType.int32, "ciscoEnvMonTemperatureThreshold")
-                self._segment_path = lambda: "ciscoEnvMonTemperatureStatusEntry" + "[ciscoEnvMonTemperatureStatusIndex='" + self.ciscoenvmontemperaturestatusindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonTemperatureStatusTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry, ['ciscoenvmontemperaturestatusindex', 'ciscoenvmontemperaturelastshutdown', 'ciscoenvmontemperaturestate', 'ciscoenvmontemperaturestatusdescr', 'ciscoenvmontemperaturestatusvalue', 'ciscoenvmontemperaturethreshold'], name, value)
+            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonmibnotificationenables, ['ciscoenvmonenableshutdownnotification', 'ciscoenvmonenablevoltagenotification', 'ciscoenvmonenabletemperaturenotification', 'ciscoenvmonenablefannotification', 'ciscoenvmonenableredundantsupplynotification', 'ciscoenvmonenablestatchangenotif'], name, value)
 
 
     class Ciscoenvmonvoltagestatustable(Entity):
@@ -746,20 +401,6 @@ class CISCOENVMONMIB(Entity):
             
             	**range:** 0..2147483647
             
-            .. attribute:: ciscoenvmonvoltagelastshutdown
-            
-            	The value of the associated instance of the object ciscoEnvMonVoltageStatusValue at the time an emergency shutdown of the managed device was last initiated.  This value is stored in non\-volatile RAM and hence is able to survive the shutdown
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: millivolts
-            
-            .. attribute:: ciscoenvmonvoltagestate
-            
-            	The current state of the testpoint being instrumented
-            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
-            
             .. attribute:: ciscoenvmonvoltagestatusdescr
             
             	Textual description of the testpoint being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
@@ -776,6 +417,15 @@ class CISCOENVMONMIB(Entity):
             
             	**units**\: millivolts
             
+            .. attribute:: ciscoenvmonvoltagethresholdlow
+            
+            	The lowest value that the associated instance of the object ciscoEnvMonVoltageStatusValue may obtain before an emergency shutdown of the managed device is initiated
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: millivolts
+            
             .. attribute:: ciscoenvmonvoltagethresholdhigh
             
             	The highest value that the associated instance of the object ciscoEnvMonVoltageStatusValue may obtain before an emergency shutdown of the managed device is initiated
@@ -785,14 +435,19 @@ class CISCOENVMONMIB(Entity):
             
             	**units**\: millivolts
             
-            .. attribute:: ciscoenvmonvoltagethresholdlow
+            .. attribute:: ciscoenvmonvoltagelastshutdown
             
-            	The lowest value that the associated instance of the object ciscoEnvMonVoltageStatusValue may obtain before an emergency shutdown of the managed device is initiated
+            	The value of the associated instance of the object ciscoEnvMonVoltageStatusValue at the time an emergency shutdown of the managed device was last initiated.  This value is stored in non\-volatile RAM and hence is able to survive the shutdown
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
             
             	**units**\: millivolts
+            
+            .. attribute:: ciscoenvmonvoltagestate
+            
+            	The current state of the testpoint being instrumented
+            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
             
             
 
@@ -813,22 +468,367 @@ class CISCOENVMONMIB(Entity):
 
                 self.ciscoenvmonvoltagestatusindex = YLeaf(YType.int32, "ciscoEnvMonVoltageStatusIndex")
 
-                self.ciscoenvmonvoltagelastshutdown = YLeaf(YType.int32, "ciscoEnvMonVoltageLastShutdown")
-
-                self.ciscoenvmonvoltagestate = YLeaf(YType.enumeration, "ciscoEnvMonVoltageState")
-
                 self.ciscoenvmonvoltagestatusdescr = YLeaf(YType.str, "ciscoEnvMonVoltageStatusDescr")
 
                 self.ciscoenvmonvoltagestatusvalue = YLeaf(YType.int32, "ciscoEnvMonVoltageStatusValue")
 
+                self.ciscoenvmonvoltagethresholdlow = YLeaf(YType.int32, "ciscoEnvMonVoltageThresholdLow")
+
                 self.ciscoenvmonvoltagethresholdhigh = YLeaf(YType.int32, "ciscoEnvMonVoltageThresholdHigh")
 
-                self.ciscoenvmonvoltagethresholdlow = YLeaf(YType.int32, "ciscoEnvMonVoltageThresholdLow")
+                self.ciscoenvmonvoltagelastshutdown = YLeaf(YType.int32, "ciscoEnvMonVoltageLastShutdown")
+
+                self.ciscoenvmonvoltagestate = YLeaf(YType.enumeration, "ciscoEnvMonVoltageState")
                 self._segment_path = lambda: "ciscoEnvMonVoltageStatusEntry" + "[ciscoEnvMonVoltageStatusIndex='" + self.ciscoenvmonvoltagestatusindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonVoltageStatusTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonvoltagestatustable.Ciscoenvmonvoltagestatusentry, ['ciscoenvmonvoltagestatusindex', 'ciscoenvmonvoltagelastshutdown', 'ciscoenvmonvoltagestate', 'ciscoenvmonvoltagestatusdescr', 'ciscoenvmonvoltagestatusvalue', 'ciscoenvmonvoltagethresholdhigh', 'ciscoenvmonvoltagethresholdlow'], name, value)
+                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonvoltagestatustable.Ciscoenvmonvoltagestatusentry, ['ciscoenvmonvoltagestatusindex', 'ciscoenvmonvoltagestatusdescr', 'ciscoenvmonvoltagestatusvalue', 'ciscoenvmonvoltagethresholdlow', 'ciscoenvmonvoltagethresholdhigh', 'ciscoenvmonvoltagelastshutdown', 'ciscoenvmonvoltagestate'], name, value)
+
+
+    class Ciscoenvmontemperaturestatustable(Entity):
+        """
+        The table of ambient temperature status maintained by the
+        environmental monitor.
+        
+        .. attribute:: ciscoenvmontemperaturestatusentry
+        
+        	An entry in the ambient temperature status table, representing the status of the associated testpoint maintained by the environmental monitor
+        	**type**\: list of    :py:class:`Ciscoenvmontemperaturestatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-ENVMON-MIB'
+        _revision = '2003-12-01'
+
+        def __init__(self):
+            super(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable, self).__init__()
+
+            self.yang_name = "ciscoEnvMonTemperatureStatusTable"
+            self.yang_parent_name = "CISCO-ENVMON-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ciscoEnvMonTemperatureStatusEntry" : ("ciscoenvmontemperaturestatusentry", CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry)}
+
+            self.ciscoenvmontemperaturestatusentry = YList(self)
+            self._segment_path = lambda: "ciscoEnvMonTemperatureStatusTable"
+            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable, [], name, value)
+
+
+        class Ciscoenvmontemperaturestatusentry(Entity):
+            """
+            An entry in the ambient temperature status table, representing
+            the status of the associated testpoint maintained by the
+            environmental monitor.
+            
+            .. attribute:: ciscoenvmontemperaturestatusindex  <key>
+            
+            	Unique index for the testpoint being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: ciscoenvmontemperaturestatusdescr
+            
+            	Textual description of the testpoint being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ciscoenvmontemperaturestatusvalue
+            
+            	The current measurement of the testpoint being instrumented
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: degrees Celsius
+            
+            .. attribute:: ciscoenvmontemperaturethreshold
+            
+            	The highest value that the associated instance of the object ciscoEnvMonTemperatureStatusValue may obtain before an emergency shutdown of the managed device is initiated
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: degrees Celsius
+            
+            .. attribute:: ciscoenvmontemperaturelastshutdown
+            
+            	The value of the associated instance of the object ciscoEnvMonTemperatureStatusValue at the time an emergency shutdown of the managed device was last initiated.  This value is stored in non\-volatile RAM and hence is able to survive the shutdown
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: degrees Celsius
+            
+            .. attribute:: ciscoenvmontemperaturestate
+            
+            	The current state of the testpoint being instrumented
+            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-ENVMON-MIB'
+            _revision = '2003-12-01'
+
+            def __init__(self):
+                super(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry, self).__init__()
+
+                self.yang_name = "ciscoEnvMonTemperatureStatusEntry"
+                self.yang_parent_name = "ciscoEnvMonTemperatureStatusTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ciscoenvmontemperaturestatusindex = YLeaf(YType.int32, "ciscoEnvMonTemperatureStatusIndex")
+
+                self.ciscoenvmontemperaturestatusdescr = YLeaf(YType.str, "ciscoEnvMonTemperatureStatusDescr")
+
+                self.ciscoenvmontemperaturestatusvalue = YLeaf(YType.uint32, "ciscoEnvMonTemperatureStatusValue")
+
+                self.ciscoenvmontemperaturethreshold = YLeaf(YType.int32, "ciscoEnvMonTemperatureThreshold")
+
+                self.ciscoenvmontemperaturelastshutdown = YLeaf(YType.int32, "ciscoEnvMonTemperatureLastShutdown")
+
+                self.ciscoenvmontemperaturestate = YLeaf(YType.enumeration, "ciscoEnvMonTemperatureState")
+                self._segment_path = lambda: "ciscoEnvMonTemperatureStatusEntry" + "[ciscoEnvMonTemperatureStatusIndex='" + self.ciscoenvmontemperaturestatusindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonTemperatureStatusTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmontemperaturestatustable.Ciscoenvmontemperaturestatusentry, ['ciscoenvmontemperaturestatusindex', 'ciscoenvmontemperaturestatusdescr', 'ciscoenvmontemperaturestatusvalue', 'ciscoenvmontemperaturethreshold', 'ciscoenvmontemperaturelastshutdown', 'ciscoenvmontemperaturestate'], name, value)
+
+
+    class Ciscoenvmonfanstatustable(Entity):
+        """
+        The table of fan status maintained by the environmental
+        monitor.
+        
+        .. attribute:: ciscoenvmonfanstatusentry
+        
+        	An entry in the fan status table, representing the status of the associated fan maintained by the environmental monitor
+        	**type**\: list of    :py:class:`Ciscoenvmonfanstatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-ENVMON-MIB'
+        _revision = '2003-12-01'
+
+        def __init__(self):
+            super(CISCOENVMONMIB.Ciscoenvmonfanstatustable, self).__init__()
+
+            self.yang_name = "ciscoEnvMonFanStatusTable"
+            self.yang_parent_name = "CISCO-ENVMON-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ciscoEnvMonFanStatusEntry" : ("ciscoenvmonfanstatusentry", CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry)}
+
+            self.ciscoenvmonfanstatusentry = YList(self)
+            self._segment_path = lambda: "ciscoEnvMonFanStatusTable"
+            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonfanstatustable, [], name, value)
+
+
+        class Ciscoenvmonfanstatusentry(Entity):
+            """
+            An entry in the fan status table, representing the status of
+            the associated fan maintained by the environmental monitor.
+            
+            .. attribute:: ciscoenvmonfanstatusindex  <key>
+            
+            	Unique index for the fan being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: ciscoenvmonfanstatusdescr
+            
+            	Textual description of the fan being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: ciscoenvmonfanstate
+            
+            	The current state of the fan being instrumented
+            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-ENVMON-MIB'
+            _revision = '2003-12-01'
+
+            def __init__(self):
+                super(CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry, self).__init__()
+
+                self.yang_name = "ciscoEnvMonFanStatusEntry"
+                self.yang_parent_name = "ciscoEnvMonFanStatusTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ciscoenvmonfanstatusindex = YLeaf(YType.int32, "ciscoEnvMonFanStatusIndex")
+
+                self.ciscoenvmonfanstatusdescr = YLeaf(YType.str, "ciscoEnvMonFanStatusDescr")
+
+                self.ciscoenvmonfanstate = YLeaf(YType.enumeration, "ciscoEnvMonFanState")
+                self._segment_path = lambda: "ciscoEnvMonFanStatusEntry" + "[ciscoEnvMonFanStatusIndex='" + self.ciscoenvmonfanstatusindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonFanStatusTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonfanstatustable.Ciscoenvmonfanstatusentry, ['ciscoenvmonfanstatusindex', 'ciscoenvmonfanstatusdescr', 'ciscoenvmonfanstate'], name, value)
+
+
+    class Ciscoenvmonsupplystatustable(Entity):
+        """
+        The table of power supply status maintained by the
+        environmental monitor card.
+        
+        .. attribute:: ciscoenvmonsupplystatusentry
+        
+        	An entry in the power supply status table, representing the status of the associated power supply maintained by the environmental monitor card
+        	**type**\: list of    :py:class:`Ciscoenvmonsupplystatusentry <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-ENVMON-MIB'
+        _revision = '2003-12-01'
+
+        def __init__(self):
+            super(CISCOENVMONMIB.Ciscoenvmonsupplystatustable, self).__init__()
+
+            self.yang_name = "ciscoEnvMonSupplyStatusTable"
+            self.yang_parent_name = "CISCO-ENVMON-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"ciscoEnvMonSupplyStatusEntry" : ("ciscoenvmonsupplystatusentry", CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry)}
+
+            self.ciscoenvmonsupplystatusentry = YList(self)
+            self._segment_path = lambda: "ciscoEnvMonSupplyStatusTable"
+            self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonsupplystatustable, [], name, value)
+
+
+        class Ciscoenvmonsupplystatusentry(Entity):
+            """
+            An entry in the power supply status table, representing the
+            status of the associated power supply maintained by the
+            environmental monitor card.
+            
+            .. attribute:: ciscoenvmonsupplystatusindex  <key>
+            
+            	Unique index for the power supply being instrumented. This index is for SNMP purposes only, and has no intrinsic meaning
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: ciscoenvmonsupplystatusdescr
+            
+            	Textual description of the power supply being instrumented. This description is a short textual label, suitable as a human\-sensible identification for the rest of the information in the entry
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: ciscoenvmonsupplystate
+            
+            	The current state of the power supply being instrumented
+            	**type**\:   :py:class:`CiscoEnvMonState <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CiscoEnvMonState>`
+            
+            .. attribute:: ciscoenvmonsupplysource
+            
+            	The power supply source. unknown \- Power supply source unknown ac      \- AC power supply dc      \- DC power supply externalPowerSupply \- External power supply internalRedundant \- Internal redundant power supply 
+            	**type**\:   :py:class:`Ciscoenvmonsupplysource <ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB.CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry.Ciscoenvmonsupplysource>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-ENVMON-MIB'
+            _revision = '2003-12-01'
+
+            def __init__(self):
+                super(CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry, self).__init__()
+
+                self.yang_name = "ciscoEnvMonSupplyStatusEntry"
+                self.yang_parent_name = "ciscoEnvMonSupplyStatusTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ciscoenvmonsupplystatusindex = YLeaf(YType.int32, "ciscoEnvMonSupplyStatusIndex")
+
+                self.ciscoenvmonsupplystatusdescr = YLeaf(YType.str, "ciscoEnvMonSupplyStatusDescr")
+
+                self.ciscoenvmonsupplystate = YLeaf(YType.enumeration, "ciscoEnvMonSupplyState")
+
+                self.ciscoenvmonsupplysource = YLeaf(YType.enumeration, "ciscoEnvMonSupplySource")
+                self._segment_path = lambda: "ciscoEnvMonSupplyStatusEntry" + "[ciscoEnvMonSupplyStatusIndex='" + self.ciscoenvmonsupplystatusindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonSupplyStatusTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOENVMONMIB.Ciscoenvmonsupplystatustable.Ciscoenvmonsupplystatusentry, ['ciscoenvmonsupplystatusindex', 'ciscoenvmonsupplystatusdescr', 'ciscoenvmonsupplystate', 'ciscoenvmonsupplysource'], name, value)
+
+            class Ciscoenvmonsupplysource(Enum):
+                """
+                Ciscoenvmonsupplysource
+
+                The power supply source.
+
+                unknown \- Power supply source unknown
+
+                ac      \- AC power supply
+
+                dc      \- DC power supply
+
+                externalPowerSupply \- External power supply
+
+                internalRedundant \- Internal redundant power supply 
+
+                .. data:: unknown = 1
+
+                .. data:: ac = 2
+
+                .. data:: dc = 3
+
+                .. data:: externalPowerSupply = 4
+
+                .. data:: internalRedundant = 5
+
+                """
+
+                unknown = Enum.YLeaf(1, "unknown")
+
+                ac = Enum.YLeaf(2, "ac")
+
+                dc = Enum.YLeaf(3, "dc")
+
+                externalPowerSupply = Enum.YLeaf(4, "externalPowerSupply")
+
+                internalRedundant = Enum.YLeaf(5, "internalRedundant")
+
 
     def clone_ptr(self):
         self._top_entity = CISCOENVMONMIB()

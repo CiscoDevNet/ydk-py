@@ -22,20 +22,20 @@ class MplsOam(Entity):
     """
     MPLS LSP verification configuration
     
-    .. attribute:: disable_vendor_extension
+    .. attribute:: reply_mode
     
-    	Disable vendor extension
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    	Echo request reply mode attributes
+    	**type**\:   :py:class:`ReplyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
     
     .. attribute:: enable_oam
     
     	Enable/Disable MPLS OAM globally.Without creating this object the MPLS OAM feature will not be enabled. Deleting this object will stop the MPLS OAM feature
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
-    .. attribute:: reply_mode
+    .. attribute:: disable_vendor_extension
     
-    	Echo request reply mode attributes
-    	**type**\:   :py:class:`ReplyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
+    	Disable vendor extension
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     
 
@@ -55,9 +55,9 @@ class MplsOam(Entity):
         self._child_container_classes = {"reply-mode" : ("reply_mode", MplsOam.ReplyMode)}
         self._child_list_classes = {}
 
-        self.disable_vendor_extension = YLeaf(YType.empty, "disable-vendor-extension")
-
         self.enable_oam = YLeaf(YType.empty, "enable-oam")
+
+        self.disable_vendor_extension = YLeaf(YType.empty, "disable-vendor-extension")
 
         self.reply_mode = MplsOam.ReplyMode()
         self.reply_mode.parent = self
@@ -66,7 +66,7 @@ class MplsOam(Entity):
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(MplsOam, ['disable_vendor_extension', 'enable_oam'], name, value)
+        self._perform_setattr(MplsOam, ['enable_oam', 'disable_vendor_extension'], name, value)
 
 
     class ReplyMode(Entity):

@@ -172,21 +172,6 @@ class BGP(Identity):
         super(BGP, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:BGP")
 
 
-class DIRECTLYCONNECTED(Identity):
-    """
-    A directly connected route
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(DIRECTLYCONNECTED, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:DIRECTLY_CONNECTED")
-
-
 class ISIS(Identity):
     """
     IS\-IS
@@ -200,21 +185,6 @@ class ISIS(Identity):
 
     def __init__(self):
         super(ISIS, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:ISIS")
-
-
-class LOCALAGGREGATE(Identity):
-    """
-    Locally defined aggregate route
-    
-    
-
-    """
-
-    _prefix = 'oc-pol-types'
-    _revision = '2016-05-12'
-
-    def __init__(self):
-        super(LOCALAGGREGATE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:LOCAL_AGGREGATE")
 
 
 class OSPF(Identity):
@@ -260,5 +230,35 @@ class STATIC(Identity):
 
     def __init__(self):
         super(STATIC, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:STATIC")
+
+
+class DIRECTLYCONNECTED(Identity):
+    """
+    A directly connected route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(DIRECTLYCONNECTED, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:DIRECTLY_CONNECTED")
+
+
+class LOCALAGGREGATE(Identity):
+    """
+    Locally defined aggregate route
+    
+    
+
+    """
+
+    _prefix = 'oc-pol-types'
+    _revision = '2016-05-12'
+
+    def __init__(self):
+        super(LOCALAGGREGATE, self).__init__("http://openconfig.net/yang/policy-types", "openconfig-policy-types", "openconfig-policy-types:LOCAL_AGGREGATE")
 
 

@@ -120,14 +120,14 @@ class Logging(Entity):
         """
         Syslog Info 
         
-        .. attribute:: message
-        
-        	Syslog Message
-        	**type**\:  str
-        
         .. attribute:: properties
         
         	Syslog Properties
+        	**type**\:  str
+        
+        .. attribute:: message
+        
+        	Syslog Message
         	**type**\:  str
         
         
@@ -147,14 +147,14 @@ class Logging(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.message = YLeaf(YType.str, "message")
-
             self.properties = YLeaf(YType.str, "properties")
+
+            self.message = YLeaf(YType.str, "message")
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:logging/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Logging.History, ['message', 'properties'], name, value)
+            self._perform_setattr(Logging.History, ['properties', 'message'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Logging()
@@ -164,25 +164,25 @@ class Syslog(Entity):
     """
     syslog
     
-    .. attribute:: an_remote_servers
-    
-    	Logging AN remote servers information
-    	**type**\:   :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
-    
     .. attribute:: logging_files
     
     	Logging Files information
     	**type**\:   :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
     
-    .. attribute:: logging_statistics
+    .. attribute:: an_remote_servers
     
-    	Logging statistics information
-    	**type**\:   :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
+    	Logging AN remote servers information
+    	**type**\:   :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
     
     .. attribute:: messages
     
     	Message table information
     	**type**\:   :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
+    
+    .. attribute:: logging_statistics
+    
+    	Logging statistics information
+    	**type**\:   :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
     
     
 
@@ -199,29 +199,104 @@ class Syslog(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-syslog-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"an-remote-servers" : ("an_remote_servers", Syslog.AnRemoteServers), "logging-files" : ("logging_files", Syslog.LoggingFiles), "logging-statistics" : ("logging_statistics", Syslog.LoggingStatistics), "messages" : ("messages", Syslog.Messages)}
+        self._child_container_classes = {"logging-files" : ("logging_files", Syslog.LoggingFiles), "an-remote-servers" : ("an_remote_servers", Syslog.AnRemoteServers), "messages" : ("messages", Syslog.Messages), "logging-statistics" : ("logging_statistics", Syslog.LoggingStatistics)}
         self._child_list_classes = {}
-
-        self.an_remote_servers = Syslog.AnRemoteServers()
-        self.an_remote_servers.parent = self
-        self._children_name_map["an_remote_servers"] = "an-remote-servers"
-        self._children_yang_names.add("an-remote-servers")
 
         self.logging_files = Syslog.LoggingFiles()
         self.logging_files.parent = self
         self._children_name_map["logging_files"] = "logging-files"
         self._children_yang_names.add("logging-files")
 
-        self.logging_statistics = Syslog.LoggingStatistics()
-        self.logging_statistics.parent = self
-        self._children_name_map["logging_statistics"] = "logging-statistics"
-        self._children_yang_names.add("logging-statistics")
+        self.an_remote_servers = Syslog.AnRemoteServers()
+        self.an_remote_servers.parent = self
+        self._children_name_map["an_remote_servers"] = "an-remote-servers"
+        self._children_yang_names.add("an-remote-servers")
 
         self.messages = Syslog.Messages()
         self.messages.parent = self
         self._children_name_map["messages"] = "messages"
         self._children_yang_names.add("messages")
+
+        self.logging_statistics = Syslog.LoggingStatistics()
+        self.logging_statistics.parent = self
+        self._children_name_map["logging_statistics"] = "logging-statistics"
+        self._children_yang_names.add("logging-statistics")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog"
+
+
+    class LoggingFiles(Entity):
+        """
+        Logging Files information
+        
+        .. attribute:: file_log_detail
+        
+        	Logging Files
+        	**type**\: list of    :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-oper'
+        _revision = '2016-06-24'
+
+        def __init__(self):
+            super(Syslog.LoggingFiles, self).__init__()
+
+            self.yang_name = "logging-files"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"file-log-detail" : ("file_log_detail", Syslog.LoggingFiles.FileLogDetail)}
+
+            self.file_log_detail = YList(self)
+            self._segment_path = lambda: "logging-files"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.LoggingFiles, [], name, value)
+
+
+        class FileLogDetail(Entity):
+            """
+            Logging Files
+            
+            .. attribute:: file_path
+            
+            	File path for logging messages
+            	**type**\:  str
+            
+            .. attribute:: file_name
+            
+            	File name for logging messages
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingFiles.FileLogDetail, self).__init__()
+
+                self.yang_name = "file-log-detail"
+                self.yang_parent_name = "logging-files"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.file_path = YLeaf(YType.str, "file-path")
+
+                self.file_name = YLeaf(YType.str, "file-name")
+                self._segment_path = lambda: "file-log-detail"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-files/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, ['file_path', 'file_name'], name, value)
 
 
     class AnRemoteServers(Entity):
@@ -267,11 +342,6 @@ class Syslog(Entity):
             	IP Address
             	**type**\:  str
             
-            .. attribute:: rh_discriminator
-            
-            	Remote\-Host Discriminator
-            	**type**\:  str
-            
             .. attribute:: vrf_name
             
             	VRF Name
@@ -280,6 +350,11 @@ class Syslog(Entity):
             .. attribute:: vrf_severity
             
             	VRF Severity
+            	**type**\:  str
+            
+            .. attribute:: rh_discriminator
+            
+            	Remote\-Host Discriminator
             	**type**\:  str
             
             
@@ -301,621 +376,16 @@ class Syslog(Entity):
 
                 self.ip_address = YLeaf(YType.str, "ip-address")
 
-                self.rh_discriminator = YLeaf(YType.str, "rh-discriminator")
-
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
                 self.vrf_severity = YLeaf(YType.str, "vrf-severity")
+
+                self.rh_discriminator = YLeaf(YType.str, "rh-discriminator")
                 self._segment_path = lambda: "an-remote-log-server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/an-remote-servers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, ['ip_address', 'rh_discriminator', 'vrf_name', 'vrf_severity'], name, value)
-
-
-    class LoggingFiles(Entity):
-        """
-        Logging Files information
-        
-        .. attribute:: file_log_detail
-        
-        	Logging Files
-        	**type**\: list of    :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-oper'
-        _revision = '2016-06-24'
-
-        def __init__(self):
-            super(Syslog.LoggingFiles, self).__init__()
-
-            self.yang_name = "logging-files"
-            self.yang_parent_name = "syslog"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"file-log-detail" : ("file_log_detail", Syslog.LoggingFiles.FileLogDetail)}
-
-            self.file_log_detail = YList(self)
-            self._segment_path = lambda: "logging-files"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.LoggingFiles, [], name, value)
-
-
-        class FileLogDetail(Entity):
-            """
-            Logging Files
-            
-            .. attribute:: file_name
-            
-            	File name for logging messages
-            	**type**\:  str
-            
-            .. attribute:: file_path
-            
-            	File path for logging messages
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingFiles.FileLogDetail, self).__init__()
-
-                self.yang_name = "file-log-detail"
-                self.yang_parent_name = "logging-files"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.file_path = YLeaf(YType.str, "file-path")
-                self._segment_path = lambda: "file-log-detail"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-files/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, ['file_name', 'file_path'], name, value)
-
-
-    class LoggingStatistics(Entity):
-        """
-        Logging statistics information
-        
-        .. attribute:: buffer_logging_stats
-        
-        	Buffer logging statistics
-        	**type**\:   :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
-        
-        .. attribute:: console_logging_stats
-        
-        	Console logging statistics
-        	**type**\:   :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
-        
-        .. attribute:: file_logging_stat
-        
-        	File logging statistics
-        	**type**\: list of    :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
-        
-        .. attribute:: logging_stats
-        
-        	Logging statistics
-        	**type**\:   :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
-        
-        .. attribute:: monitor_logging_stats
-        
-        	Monitor loggingstatistics
-        	**type**\:   :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
-        
-        .. attribute:: remote_logging_stat
-        
-        	Remote logging statistics
-        	**type**\: list of    :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
-        
-        .. attribute:: tls_remote_logging_stat
-        
-        	TLS Remote logging statistics
-        	**type**\: list of    :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
-        
-        .. attribute:: trap_logging_stats
-        
-        	Trap logging statistics
-        	**type**\:   :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
-        
-        
-
-        """
-
-        _prefix = 'infra-syslog-oper'
-        _revision = '2016-06-24'
-
-        def __init__(self):
-            super(Syslog.LoggingStatistics, self).__init__()
-
-            self.yang_name = "logging-statistics"
-            self.yang_parent_name = "syslog"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"buffer-logging-stats" : ("buffer_logging_stats", Syslog.LoggingStatistics.BufferLoggingStats), "console-logging-stats" : ("console_logging_stats", Syslog.LoggingStatistics.ConsoleLoggingStats), "logging-stats" : ("logging_stats", Syslog.LoggingStatistics.LoggingStats), "monitor-logging-stats" : ("monitor_logging_stats", Syslog.LoggingStatistics.MonitorLoggingStats), "trap-logging-stats" : ("trap_logging_stats", Syslog.LoggingStatistics.TrapLoggingStats)}
-            self._child_list_classes = {"file-logging-stat" : ("file_logging_stat", Syslog.LoggingStatistics.FileLoggingStat), "remote-logging-stat" : ("remote_logging_stat", Syslog.LoggingStatistics.RemoteLoggingStat), "tls-remote-logging-stat" : ("tls_remote_logging_stat", Syslog.LoggingStatistics.TlsRemoteLoggingStat)}
-
-            self.buffer_logging_stats = Syslog.LoggingStatistics.BufferLoggingStats()
-            self.buffer_logging_stats.parent = self
-            self._children_name_map["buffer_logging_stats"] = "buffer-logging-stats"
-            self._children_yang_names.add("buffer-logging-stats")
-
-            self.console_logging_stats = Syslog.LoggingStatistics.ConsoleLoggingStats()
-            self.console_logging_stats.parent = self
-            self._children_name_map["console_logging_stats"] = "console-logging-stats"
-            self._children_yang_names.add("console-logging-stats")
-
-            self.logging_stats = Syslog.LoggingStatistics.LoggingStats()
-            self.logging_stats.parent = self
-            self._children_name_map["logging_stats"] = "logging-stats"
-            self._children_yang_names.add("logging-stats")
-
-            self.monitor_logging_stats = Syslog.LoggingStatistics.MonitorLoggingStats()
-            self.monitor_logging_stats.parent = self
-            self._children_name_map["monitor_logging_stats"] = "monitor-logging-stats"
-            self._children_yang_names.add("monitor-logging-stats")
-
-            self.trap_logging_stats = Syslog.LoggingStatistics.TrapLoggingStats()
-            self.trap_logging_stats.parent = self
-            self._children_name_map["trap_logging_stats"] = "trap-logging-stats"
-            self._children_yang_names.add("trap-logging-stats")
-
-            self.file_logging_stat = YList(self)
-            self.remote_logging_stat = YList(self)
-            self.tls_remote_logging_stat = YList(self)
-            self._segment_path = lambda: "logging-statistics"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Syslog.LoggingStatistics, [], name, value)
-
-
-        class BufferLoggingStats(Entity):
-            """
-            Buffer logging statistics
-            
-            .. attribute:: buffer_size
-            
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\:  bool
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.BufferLoggingStats, self).__init__()
-
-                self.yang_name = "buffer-logging-stats"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-                self._segment_path = lambda: "buffer-logging-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, ['buffer_size', 'is_log_enabled', 'message_count', 'severity'], name, value)
-
-
-        class ConsoleLoggingStats(Entity):
-            """
-            Console logging statistics
-            
-            .. attribute:: buffer_size
-            
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\:  bool
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.ConsoleLoggingStats, self).__init__()
-
-                self.yang_name = "console-logging-stats"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-                self._segment_path = lambda: "console-logging-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, ['buffer_size', 'is_log_enabled', 'message_count', 'severity'], name, value)
-
-
-        class FileLoggingStat(Entity):
-            """
-            File logging statistics
-            
-            .. attribute:: file_name
-            
-            	File name for logging messages
-            	**type**\:  str
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.FileLoggingStat, self).__init__()
-
-                self.yang_name = "file-logging-stat"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.file_name = YLeaf(YType.str, "file-name")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-                self._segment_path = lambda: "file-logging-stat"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, ['file_name', 'message_count'], name, value)
-
-
-        class LoggingStats(Entity):
-            """
-            Logging statistics
-            
-            .. attribute:: drop_count
-            
-            	Number of messages dropped
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: flush_count
-            
-            	Number of messages flushed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\:  bool
-            
-            .. attribute:: overrun_count
-            
-            	Number of messages overrun
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.LoggingStats, self).__init__()
-
-                self.yang_name = "logging-stats"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.drop_count = YLeaf(YType.uint32, "drop-count")
-
-                self.flush_count = YLeaf(YType.uint32, "flush-count")
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.overrun_count = YLeaf(YType.uint32, "overrun-count")
-                self._segment_path = lambda: "logging-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, ['drop_count', 'flush_count', 'is_log_enabled', 'overrun_count'], name, value)
-
-
-        class MonitorLoggingStats(Entity):
-            """
-            Monitor loggingstatistics
-            
-            .. attribute:: buffer_size
-            
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\:  bool
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.MonitorLoggingStats, self).__init__()
-
-                self.yang_name = "monitor-logging-stats"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-                self._segment_path = lambda: "monitor-logging-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, ['buffer_size', 'is_log_enabled', 'message_count', 'severity'], name, value)
-
-
-        class RemoteLoggingStat(Entity):
-            """
-            Remote logging statistics
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_host_name
-            
-            	Remote hostname
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.RemoteLoggingStat, self).__init__()
-
-                self.yang_name = "remote-logging-stat"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-                self._segment_path = lambda: "remote-logging-stat"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, ['message_count', 'remote_host_name'], name, value)
-
-
-        class TlsRemoteLoggingStat(Entity):
-            """
-            TLS Remote logging statistics
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: remote_host_name
-            
-            	TLS Remote hostname
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.TlsRemoteLoggingStat, self).__init__()
-
-                self.yang_name = "tls-remote-logging-stat"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-                self._segment_path = lambda: "tls-remote-logging-stat"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, ['message_count', 'remote_host_name'], name, value)
-
-
-        class TrapLoggingStats(Entity):
-            """
-            Trap logging statistics
-            
-            .. attribute:: buffer_size
-            
-            	Buffer size in bytes if logging buffer isenabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
-            .. attribute:: is_log_enabled
-            
-            	Is log enabled
-            	**type**\:  bool
-            
-            .. attribute:: message_count
-            
-            	Message count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: severity
-            
-            	Configured severity
-            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
-            
-            
-
-            """
-
-            _prefix = 'infra-syslog-oper'
-            _revision = '2016-06-24'
-
-            def __init__(self):
-                super(Syslog.LoggingStatistics.TrapLoggingStats, self).__init__()
-
-                self.yang_name = "trap-logging-stats"
-                self.yang_parent_name = "logging-statistics"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
-
-                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
-
-                self.message_count = YLeaf(YType.uint32, "message-count")
-
-                self.severity = YLeaf(YType.enumeration, "severity")
-                self._segment_path = lambda: "trap-logging-stats"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, ['buffer_size', 'is_log_enabled', 'message_count', 'severity'], name, value)
+                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, ['ip_address', 'vrf_name', 'vrf_severity', 'rh_discriminator'], name, value)
 
 
     class Messages(Entity):
@@ -968,6 +438,35 @@ class Syslog(Entity):
             	Message card location\: 'RP', 'DRP', 'LC', 'SC', 'SP' or 'UNK' 
             	**type**\:  str
             
+            .. attribute:: node_name
+            
+            	Message source location
+            	**type**\:  str
+            
+            .. attribute:: time_stamp
+            
+            	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: millisecond
+            
+            .. attribute:: time_of_day
+            
+            	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
+            	**type**\:  str
+            
+            .. attribute:: time_zone
+            
+            	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
+            	**type**\:  str
+            
+            .. attribute:: process_name
+            
+            	Process name
+            	**type**\:  str
+            
             .. attribute:: category
             
             	Message category
@@ -983,18 +482,6 @@ class Syslog(Entity):
             	Message name
             	**type**\:  str
             
-            .. attribute:: node_name
-            
-            	Message source location
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: process_name
-            
-            	Process name
-            	**type**\:  str
-            
             .. attribute:: severity
             
             	Message severity
@@ -1003,25 +490,6 @@ class Syslog(Entity):
             .. attribute:: text
             
             	Additional message text
-            	**type**\:  str
-            
-            .. attribute:: time_of_day
-            
-            	Time of day of event in DDD MMM DD  YYYY HH\:MM \:SS format, e.g Wed Apr 01 2009  15\:50\:26
-            	**type**\:  str
-            
-            .. attribute:: time_stamp
-            
-            	Time in milliseconds since 00\:00\:00 UTC, January 11970 of when message was generated
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: millisecond
-            
-            .. attribute:: time_zone
-            
-            	Time Zone in UTC+/\-HH\:MM format,  e.g UTC+5\:30, UTC\-6
             	**type**\:  str
             
             
@@ -1045,30 +513,560 @@ class Syslog(Entity):
 
                 self.card_type = YLeaf(YType.str, "card-type")
 
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.time_stamp = YLeaf(YType.uint64, "time-stamp")
+
+                self.time_of_day = YLeaf(YType.str, "time-of-day")
+
+                self.time_zone = YLeaf(YType.str, "time-zone")
+
+                self.process_name = YLeaf(YType.str, "process-name")
+
                 self.category = YLeaf(YType.str, "category")
 
                 self.group = YLeaf(YType.str, "group")
 
                 self.message_name = YLeaf(YType.str, "message-name")
 
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.process_name = YLeaf(YType.str, "process-name")
-
                 self.severity = YLeaf(YType.enumeration, "severity")
 
                 self.text = YLeaf(YType.str, "text")
-
-                self.time_of_day = YLeaf(YType.str, "time-of-day")
-
-                self.time_stamp = YLeaf(YType.uint64, "time-stamp")
-
-                self.time_zone = YLeaf(YType.str, "time-zone")
                 self._segment_path = lambda: "message" + "[message-id='" + self.message_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/messages/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Messages.Message, ['message_id', 'card_type', 'category', 'group', 'message_name', 'node_name', 'process_name', 'severity', 'text', 'time_of_day', 'time_stamp', 'time_zone'], name, value)
+                self._perform_setattr(Syslog.Messages.Message, ['message_id', 'card_type', 'node_name', 'time_stamp', 'time_of_day', 'time_zone', 'process_name', 'category', 'group', 'message_name', 'severity', 'text'], name, value)
+
+
+    class LoggingStatistics(Entity):
+        """
+        Logging statistics information
+        
+        .. attribute:: logging_stats
+        
+        	Logging statistics
+        	**type**\:   :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
+        
+        .. attribute:: console_logging_stats
+        
+        	Console logging statistics
+        	**type**\:   :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
+        
+        .. attribute:: monitor_logging_stats
+        
+        	Monitor loggingstatistics
+        	**type**\:   :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
+        
+        .. attribute:: trap_logging_stats
+        
+        	Trap logging statistics
+        	**type**\:   :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
+        
+        .. attribute:: buffer_logging_stats
+        
+        	Buffer logging statistics
+        	**type**\:   :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
+        
+        .. attribute:: remote_logging_stat
+        
+        	Remote logging statistics
+        	**type**\: list of    :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
+        
+        .. attribute:: tls_remote_logging_stat
+        
+        	TLS Remote logging statistics
+        	**type**\: list of    :py:class:`TlsRemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TlsRemoteLoggingStat>`
+        
+        .. attribute:: file_logging_stat
+        
+        	File logging statistics
+        	**type**\: list of    :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        
+        
+
+        """
+
+        _prefix = 'infra-syslog-oper'
+        _revision = '2016-06-24'
+
+        def __init__(self):
+            super(Syslog.LoggingStatistics, self).__init__()
+
+            self.yang_name = "logging-statistics"
+            self.yang_parent_name = "syslog"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"logging-stats" : ("logging_stats", Syslog.LoggingStatistics.LoggingStats), "console-logging-stats" : ("console_logging_stats", Syslog.LoggingStatistics.ConsoleLoggingStats), "monitor-logging-stats" : ("monitor_logging_stats", Syslog.LoggingStatistics.MonitorLoggingStats), "trap-logging-stats" : ("trap_logging_stats", Syslog.LoggingStatistics.TrapLoggingStats), "buffer-logging-stats" : ("buffer_logging_stats", Syslog.LoggingStatistics.BufferLoggingStats)}
+            self._child_list_classes = {"remote-logging-stat" : ("remote_logging_stat", Syslog.LoggingStatistics.RemoteLoggingStat), "tls-remote-logging-stat" : ("tls_remote_logging_stat", Syslog.LoggingStatistics.TlsRemoteLoggingStat), "file-logging-stat" : ("file_logging_stat", Syslog.LoggingStatistics.FileLoggingStat)}
+
+            self.logging_stats = Syslog.LoggingStatistics.LoggingStats()
+            self.logging_stats.parent = self
+            self._children_name_map["logging_stats"] = "logging-stats"
+            self._children_yang_names.add("logging-stats")
+
+            self.console_logging_stats = Syslog.LoggingStatistics.ConsoleLoggingStats()
+            self.console_logging_stats.parent = self
+            self._children_name_map["console_logging_stats"] = "console-logging-stats"
+            self._children_yang_names.add("console-logging-stats")
+
+            self.monitor_logging_stats = Syslog.LoggingStatistics.MonitorLoggingStats()
+            self.monitor_logging_stats.parent = self
+            self._children_name_map["monitor_logging_stats"] = "monitor-logging-stats"
+            self._children_yang_names.add("monitor-logging-stats")
+
+            self.trap_logging_stats = Syslog.LoggingStatistics.TrapLoggingStats()
+            self.trap_logging_stats.parent = self
+            self._children_name_map["trap_logging_stats"] = "trap-logging-stats"
+            self._children_yang_names.add("trap-logging-stats")
+
+            self.buffer_logging_stats = Syslog.LoggingStatistics.BufferLoggingStats()
+            self.buffer_logging_stats.parent = self
+            self._children_name_map["buffer_logging_stats"] = "buffer-logging-stats"
+            self._children_yang_names.add("buffer-logging-stats")
+
+            self.remote_logging_stat = YList(self)
+            self.tls_remote_logging_stat = YList(self)
+            self.file_logging_stat = YList(self)
+            self._segment_path = lambda: "logging-statistics"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Syslog.LoggingStatistics, [], name, value)
+
+
+        class LoggingStats(Entity):
+            """
+            Logging statistics
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\:  bool
+            
+            .. attribute:: drop_count
+            
+            	Number of messages dropped
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: flush_count
+            
+            	Number of messages flushed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: overrun_count
+            
+            	Number of messages overrun
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.LoggingStats, self).__init__()
+
+                self.yang_name = "logging-stats"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
+
+                self.drop_count = YLeaf(YType.uint32, "drop-count")
+
+                self.flush_count = YLeaf(YType.uint32, "flush-count")
+
+                self.overrun_count = YLeaf(YType.uint32, "overrun-count")
+                self._segment_path = lambda: "logging-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, ['is_log_enabled', 'drop_count', 'flush_count', 'overrun_count'], name, value)
+
+
+        class ConsoleLoggingStats(Entity):
+            """
+            Console logging statistics
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\:  bool
+            
+            .. attribute:: severity
+            
+            	Configured severity
+            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.ConsoleLoggingStats, self).__init__()
+
+                self.yang_name = "console-logging-stats"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
+
+                self.severity = YLeaf(YType.enumeration, "severity")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+
+                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self._segment_path = lambda: "console-logging-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
+
+        class MonitorLoggingStats(Entity):
+            """
+            Monitor loggingstatistics
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\:  bool
+            
+            .. attribute:: severity
+            
+            	Configured severity
+            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.MonitorLoggingStats, self).__init__()
+
+                self.yang_name = "monitor-logging-stats"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
+
+                self.severity = YLeaf(YType.enumeration, "severity")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+
+                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self._segment_path = lambda: "monitor-logging-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
+
+        class TrapLoggingStats(Entity):
+            """
+            Trap logging statistics
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\:  bool
+            
+            .. attribute:: severity
+            
+            	Configured severity
+            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.TrapLoggingStats, self).__init__()
+
+                self.yang_name = "trap-logging-stats"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
+
+                self.severity = YLeaf(YType.enumeration, "severity")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+
+                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self._segment_path = lambda: "trap-logging-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
+
+        class BufferLoggingStats(Entity):
+            """
+            Buffer logging statistics
+            
+            .. attribute:: is_log_enabled
+            
+            	Is log enabled
+            	**type**\:  bool
+            
+            .. attribute:: severity
+            
+            	Configured severity
+            	**type**\:   :py:class:`SystemMessageSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverity>`
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: buffer_size
+            
+            	Buffer size in bytes if logging buffer isenabled
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.BufferLoggingStats, self).__init__()
+
+                self.yang_name = "buffer-logging-stats"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.is_log_enabled = YLeaf(YType.boolean, "is-log-enabled")
+
+                self.severity = YLeaf(YType.enumeration, "severity")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+
+                self.buffer_size = YLeaf(YType.uint32, "buffer-size")
+                self._segment_path = lambda: "buffer-logging-stats"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+
+
+        class RemoteLoggingStat(Entity):
+            """
+            Remote logging statistics
+            
+            .. attribute:: remote_host_name
+            
+            	Remote hostname
+            	**type**\:  str
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.RemoteLoggingStat, self).__init__()
+
+                self.yang_name = "remote-logging-stat"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+                self._segment_path = lambda: "remote-logging-stat"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+
+
+        class TlsRemoteLoggingStat(Entity):
+            """
+            TLS Remote logging statistics
+            
+            .. attribute:: remote_host_name
+            
+            	TLS Remote hostname
+            	**type**\:  str
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.TlsRemoteLoggingStat, self).__init__()
+
+                self.yang_name = "tls-remote-logging-stat"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.remote_host_name = YLeaf(YType.str, "remote-host-name")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+                self._segment_path = lambda: "tls-remote-logging-stat"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+
+
+        class FileLoggingStat(Entity):
+            """
+            File logging statistics
+            
+            .. attribute:: file_name
+            
+            	File name for logging messages
+            	**type**\:  str
+            
+            .. attribute:: message_count
+            
+            	Message count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'infra-syslog-oper'
+            _revision = '2016-06-24'
+
+            def __init__(self):
+                super(Syslog.LoggingStatistics.FileLoggingStat, self).__init__()
+
+                self.yang_name = "file-logging-stat"
+                self.yang_parent_name = "logging-statistics"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.file_name = YLeaf(YType.str, "file-name")
+
+                self.message_count = YLeaf(YType.uint32, "message-count")
+                self._segment_path = lambda: "file-logging-stat"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, ['file_name', 'message_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Syslog()

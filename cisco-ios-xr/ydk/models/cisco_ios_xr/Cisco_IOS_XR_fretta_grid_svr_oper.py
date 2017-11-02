@@ -95,8 +95,6 @@ class Grid(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: client_xr
             
             	GRID Client Table
@@ -183,8 +181,6 @@ class Grid(Entity):
                     
                     	Client name
                     	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: client_data
                     
@@ -293,8 +289,6 @@ class Grid(Entity):
                     
                     	Client name
                     	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: client_data
                     

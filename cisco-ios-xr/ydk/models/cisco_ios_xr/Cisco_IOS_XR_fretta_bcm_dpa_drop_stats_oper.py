@@ -95,8 +95,6 @@ class Drop(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: npu_number_for_drop_stats
             
             	NPU drop stats
@@ -218,13 +216,6 @@ class Drop(Entity):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: count
-                        
-                        	count
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
                         .. attribute:: id
                         
                         	id
@@ -236,6 +227,13 @@ class Drop(Entity):
                         
                         	name
                         	**type**\:  str
+                        
+                        .. attribute:: count
+                        
+                        	count
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -256,15 +254,15 @@ class Drop(Entity):
 
                             self.drop_data = YLeaf(YType.int32, "drop-data")
 
-                            self.count = YLeaf(YType.uint64, "count")
-
                             self.id = YLeaf(YType.uint32, "id")
 
                             self.name = YLeaf(YType.str, "name")
+
+                            self.count = YLeaf(YType.uint64, "count")
                             self._segment_path = lambda: "drop-specific-stats-data" + "[drop-data='" + self.drop_data.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData, ['drop_data', 'count', 'id', 'name'], name, value)
+                            self._perform_setattr(Drop.Nodes.Node.NpuNumberForDropStats.NpuNumberForDropStat.DropSpecificStatsData, ['drop_data', 'id', 'name', 'count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Drop()

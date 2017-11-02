@@ -155,8 +155,6 @@ class AddressPoolService(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: pools
             
             	List of IPv4/IPv6 pool data
@@ -253,8 +251,6 @@ class AddressPoolService(Entity):
                     
                     	The pool name
                     	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: address_ranges
                     
@@ -354,16 +350,48 @@ class AddressPoolService(Entity):
                             
                             	**type**\:  str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             
                             ----
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             
                             ----
+                            .. attribute:: start_address_xr
+                            
+                            	Range start
+                            	**type**\:   :py:class:`StartAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr>`
+                            
+                            .. attribute:: end_address
+                            
+                            	Range end
+                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress>`
+                            
+                            .. attribute:: default_router
+                            
+                            	Default router
+                            	**type**\:   :py:class:`DefaultRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter>`
+                            
+                            .. attribute:: pool_name
+                            
+                            	Pool name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: pool_scope
+                            
+                            	Pool scope
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
                             .. attribute:: allocated_addresses
                             
                             	Number of addresses allocated
@@ -371,26 +399,16 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: default_router
+                            .. attribute:: free_addresses
                             
-                            	Default router
-                            	**type**\:   :py:class:`DefaultRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter>`
-                            
-                            .. attribute:: end_address
-                            
-                            	Range end
-                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress>`
-                            
-                            .. attribute:: excluded_addresses
-                            
-                            	Number of addresses excluded
+                            	Number of addresses free
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: free_addresses
+                            .. attribute:: excluded_addresses
                             
-                            	Number of addresses free
+                            	Number of addresses excluded
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -409,32 +427,6 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: pool_name
-                            
-                            	Pool name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
-                            .. attribute:: pool_scope
-                            
-                            	Pool scope
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
-                            .. attribute:: start_address_xr
-                            
-                            	Range start
-                            	**type**\:   :py:class:`StartAddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr>`
-                            
-                            .. attribute:: vrf_name
-                            
-                            	VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
                             
 
                             """
@@ -449,213 +441,45 @@ class AddressPoolService(Entity):
                                 self.yang_parent_name = "address-ranges"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"default-router" : ("default_router", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter), "end-address" : ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress), "start-address-xr" : ("start_address_xr", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr)}
+                                self._child_container_classes = {"start-address-xr" : ("start_address_xr", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr), "end-address" : ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress), "default-router" : ("default_router", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter)}
                                 self._child_list_classes = {}
 
                                 self.start_address = YLeaf(YType.str, "start-address")
 
+                                self.pool_name = YLeaf(YType.str, "pool-name")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.pool_scope = YLeaf(YType.str, "pool-scope")
+
                                 self.allocated_addresses = YLeaf(YType.uint32, "allocated-addresses")
 
-                                self.excluded_addresses = YLeaf(YType.uint32, "excluded-addresses")
-
                                 self.free_addresses = YLeaf(YType.uint32, "free-addresses")
+
+                                self.excluded_addresses = YLeaf(YType.uint32, "excluded-addresses")
 
                                 self.network_blocked_status = YLeaf(YType.uint32, "network-blocked-status")
 
                                 self.network_blocked_status_trp = YLeaf(YType.uint32, "network-blocked-status-trp")
 
-                                self.pool_name = YLeaf(YType.str, "pool-name")
-
-                                self.pool_scope = YLeaf(YType.str, "pool-scope")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.default_router = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter()
-                                self.default_router.parent = self
-                                self._children_name_map["default_router"] = "default-router"
-                                self._children_yang_names.add("default-router")
+                                self.start_address_xr = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr()
+                                self.start_address_xr.parent = self
+                                self._children_name_map["start_address_xr"] = "start-address-xr"
+                                self._children_yang_names.add("start-address-xr")
 
                                 self.end_address = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress()
                                 self.end_address.parent = self
                                 self._children_name_map["end_address"] = "end-address"
                                 self._children_yang_names.add("end-address")
 
-                                self.start_address_xr = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr()
-                                self.start_address_xr.parent = self
-                                self._children_name_map["start_address_xr"] = "start-address-xr"
-                                self._children_yang_names.add("start-address-xr")
+                                self.default_router = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter()
+                                self.default_router.parent = self
+                                self._children_name_map["default_router"] = "default-router"
+                                self._children_yang_names.add("default-router")
                                 self._segment_path = lambda: "address-range" + "[start-address='" + self.start_address.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'allocated_addresses', 'excluded_addresses', 'free_addresses', 'network_blocked_status', 'network_blocked_status_trp', 'pool_name', 'pool_scope', 'vrf_name'], name, value)
-
-
-                            class DefaultRouter(Entity):
-                                """
-                                Default router
-                                
-                                .. attribute:: address
-                                
-                                	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-daps-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, self).__init__()
-
-                                    self.yang_name = "default-router"
-                                    self.yang_parent_name = "address-range"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address)}
-                                    self._child_list_classes = {}
-
-                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address()
-                                    self.address.parent = self
-                                    self._children_name_map["address"] = "address"
-                                    self._children_yang_names.add("address")
-                                    self._segment_path = lambda: "default-router"
-
-
-                                class Address(Entity):
-                                    """
-                                    Address
-                                    
-                                    .. attribute:: address_family
-                                    
-                                    	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	IPv6 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-daps-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, self).__init__()
-
-                                        self.yang_name = "address"
-                                        self.yang_parent_name = "default-router"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
-
-
-                            class EndAddress(Entity):
-                                """
-                                Range end
-                                
-                                .. attribute:: address
-                                
-                                	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-daps-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, self).__init__()
-
-                                    self.yang_name = "end-address"
-                                    self.yang_parent_name = "address-range"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address)}
-                                    self._child_list_classes = {}
-
-                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address()
-                                    self.address.parent = self
-                                    self._children_name_map["address"] = "address"
-                                    self._children_yang_names.add("address")
-                                    self._segment_path = lambda: "end-address"
-
-
-                                class Address(Entity):
-                                    """
-                                    Address
-                                    
-                                    .. attribute:: address_family
-                                    
-                                    	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	IPv6 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-daps-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, self).__init__()
-
-                                        self.yang_name = "address"
-                                        self.yang_parent_name = "end-address"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'pool_name', 'vrf_name', 'pool_scope', 'allocated_addresses', 'free_addresses', 'excluded_addresses', 'network_blocked_status', 'network_blocked_status_trp'], name, value)
 
 
                             class StartAddressXr(Entity):
@@ -705,14 +529,10 @@ class AddressPoolService(Entity):
                                     	IPv4 address
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -742,9 +562,174 @@ class AddressPoolService(Entity):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
+                            class EndAddress(Entity):
+                                """
+                                Range end
+                                
+                                .. attribute:: address
+                                
+                                	Address
+                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-daps-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, self).__init__()
+
+                                    self.yang_name = "end-address"
+                                    self.yang_parent_name = "address-range"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address)}
+                                    self._child_list_classes = {}
+
+                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address()
+                                    self.address.parent = self
+                                    self._children_name_map["address"] = "address"
+                                    self._children_yang_names.add("address")
+                                    self._segment_path = lambda: "end-address"
+
+
+                                class Address(Entity):
+                                    """
+                                    Address
+                                    
+                                    .. attribute:: address_family
+                                    
+                                    	AddressFamily
+                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	IPv6 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-daps-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "end-address"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+
+
+                            class DefaultRouter(Entity):
+                                """
+                                Default router
+                                
+                                .. attribute:: address
+                                
+                                	Address
+                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-daps-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, self).__init__()
+
+                                    self.yang_name = "default-router"
+                                    self.yang_parent_name = "address-range"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address)}
+                                    self._child_list_classes = {}
+
+                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address()
+                                    self.address.parent = self
+                                    self._children_name_map["address"] = "address"
+                                    self._children_yang_names.add("address")
+                                    self._segment_path = lambda: "default-router"
+
+
+                                class Address(Entity):
+                                    """
+                                    Address
+                                    
+                                    .. attribute:: address_family
+                                    
+                                    	AddressFamily
+                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	IPv6 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-daps-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "default-router"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+
+
                     class AllocatedAddresses(Entity):
                         """
                         Detailed info for the Pool
+                        
+                        .. attribute:: pool_allocations
+                        
+                        	Pool allocations
+                        	**type**\:   :py:class:`PoolAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations>`
                         
                         .. attribute:: address_range
                         
@@ -755,11 +740,6 @@ class AddressPoolService(Entity):
                         
                         	In\-use addresses
                         	**type**\: list of    :py:class:`InUseAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress>`
-                        
-                        .. attribute:: pool_allocations
-                        
-                        	Pool allocations
-                        	**type**\:   :py:class:`PoolAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations>`
                         
                         
 
@@ -791,14 +771,33 @@ class AddressPoolService(Entity):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses, [], name, value)
 
 
-                        class AddressRange(Entity):
+                        class PoolAllocations(Entity):
                             """
-                            Address ranges
+                            Pool allocations
                             
-                            .. attribute:: end_address
+                            .. attribute:: high_threshold
                             
-                            	Range end
-                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress>`
+                            	High threshold data
+                            	**type**\:   :py:class:`HighThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold>`
+                            
+                            .. attribute:: low_threshold
+                            
+                            	Low threshold data
+                            	**type**\:   :py:class:`LowThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold>`
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: used
+                            
+                            	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
@@ -814,14 +813,203 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: total
+                            
+                            	Total allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: utilization
+                            
+                            	Current utilization in percentage
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: percentage
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-daps-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, self).__init__()
+
+                                self.yang_name = "pool-allocations"
+                                self.yang_parent_name = "allocated-addresses"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"high-threshold" : ("high_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold), "low-threshold" : ("low_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold)}
+                                self._child_list_classes = {}
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.used = YLeaf(YType.uint32, "used")
+
+                                self.excluded = YLeaf(YType.uint32, "excluded")
+
+                                self.free = YLeaf(YType.uint32, "free")
+
+                                self.total = YLeaf(YType.uint32, "total")
+
+                                self.utilization = YLeaf(YType.uint32, "utilization")
+
+                                self.high_threshold = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold()
+                                self.high_threshold.parent = self
+                                self._children_name_map["high_threshold"] = "high-threshold"
+                                self._children_yang_names.add("high-threshold")
+
+                                self.low_threshold = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold()
+                                self.low_threshold.parent = self
+                                self._children_name_map["low_threshold"] = "low-threshold"
+                                self._children_yang_names.add("low-threshold")
+                                self._segment_path = lambda: "pool-allocations"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['vrf_name', 'used', 'excluded', 'free', 'total', 'utilization'], name, value)
+
+
+                            class HighThreshold(Entity):
+                                """
+                                High threshold data
+                                
+                                .. attribute:: threshold
+                                
+                                	Threshold in percentage
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: percentage
+                                
+                                .. attribute:: triggers
+                                
+                                	Number of Triggers
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_last_crossed
+                                
+                                	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-daps-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, self).__init__()
+
+                                    self.yang_name = "high-threshold"
+                                    self.yang_parent_name = "pool-allocations"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.threshold = YLeaf(YType.uint32, "threshold")
+
+                                    self.triggers = YLeaf(YType.uint32, "triggers")
+
+                                    self.time_last_crossed = YLeaf(YType.str, "time-last-crossed")
+                                    self._segment_path = lambda: "high-threshold"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
+
+
+                            class LowThreshold(Entity):
+                                """
+                                Low threshold data
+                                
+                                .. attribute:: threshold
+                                
+                                	Threshold in percentage
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: percentage
+                                
+                                .. attribute:: triggers
+                                
+                                	Number of Triggers
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_last_crossed
+                                
+                                	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-daps-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, self).__init__()
+
+                                    self.yang_name = "low-threshold"
+                                    self.yang_parent_name = "pool-allocations"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.threshold = YLeaf(YType.uint32, "threshold")
+
+                                    self.triggers = YLeaf(YType.uint32, "triggers")
+
+                                    self.time_last_crossed = YLeaf(YType.str, "time-last-crossed")
+                                    self._segment_path = lambda: "low-threshold"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
+
+
+                        class AddressRange(Entity):
+                            """
+                            Address ranges
+                            
                             .. attribute:: start_address
                             
                             	Range start
                             	**type**\:   :py:class:`StartAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress>`
                             
+                            .. attribute:: end_address
+                            
+                            	Range end
+                            	**type**\:   :py:class:`EndAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress>`
+                            
                             .. attribute:: used
                             
                             	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excluded
+                            
+                            	Excluded allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: free
+                            
+                            	Free allocations
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -840,112 +1028,28 @@ class AddressPoolService(Entity):
                                 self.yang_parent_name = "allocated-addresses"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"end-address" : ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress), "start-address" : ("start_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress)}
+                                self._child_container_classes = {"start-address" : ("start_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress), "end-address" : ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress)}
                                 self._child_list_classes = {}
+
+                                self.used = YLeaf(YType.uint32, "used")
 
                                 self.excluded = YLeaf(YType.uint32, "excluded")
 
                                 self.free = YLeaf(YType.uint32, "free")
 
-                                self.used = YLeaf(YType.uint32, "used")
+                                self.start_address = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress()
+                                self.start_address.parent = self
+                                self._children_name_map["start_address"] = "start-address"
+                                self._children_yang_names.add("start-address")
 
                                 self.end_address = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress()
                                 self.end_address.parent = self
                                 self._children_name_map["end_address"] = "end-address"
                                 self._children_yang_names.add("end-address")
-
-                                self.start_address = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress()
-                                self.start_address.parent = self
-                                self._children_name_map["start_address"] = "start-address"
-                                self._children_yang_names.add("start-address")
                                 self._segment_path = lambda: "address-range"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['excluded', 'free', 'used'], name, value)
-
-
-                            class EndAddress(Entity):
-                                """
-                                Range end
-                                
-                                .. attribute:: address
-                                
-                                	Address
-                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-daps-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, self).__init__()
-
-                                    self.yang_name = "end-address"
-                                    self.yang_parent_name = "address-range"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address)}
-                                    self._child_list_classes = {}
-
-                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address()
-                                    self.address.parent = self
-                                    self._children_name_map["address"] = "address"
-                                    self._children_yang_names.add("address")
-                                    self._segment_path = lambda: "end-address"
-
-
-                                class Address(Entity):
-                                    """
-                                    Address
-                                    
-                                    .. attribute:: address_family
-                                    
-                                    	AddressFamily
-                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: ipv6_address
-                                    
-                                    	IPv6 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ip-daps-oper'
-                                    _revision = '2015-11-09'
-
-                                    def __init__(self):
-                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, self).__init__()
-
-                                        self.yang_name = "address"
-                                        self.yang_parent_name = "end-address"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.address_family = YLeaf(YType.enumeration, "address-family")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                        self._segment_path = lambda: "address"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['used', 'excluded', 'free'], name, value)
 
 
                             class StartAddress(Entity):
@@ -995,14 +1099,10 @@ class AddressPoolService(Entity):
                                     	IPv4 address
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1030,6 +1130,86 @@ class AddressPoolService(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
+
+
+                            class EndAddress(Entity):
+                                """
+                                Range end
+                                
+                                .. attribute:: address
+                                
+                                	Address
+                                	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-daps-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, self).__init__()
+
+                                    self.yang_name = "end-address"
+                                    self.yang_parent_name = "address-range"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {"address" : ("address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address)}
+                                    self._child_list_classes = {}
+
+                                    self.address = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address()
+                                    self.address.parent = self
+                                    self._children_name_map["address"] = "address"
+                                    self._children_yang_names.add("address")
+                                    self._segment_path = lambda: "end-address"
+
+
+                                class Address(Entity):
+                                    """
+                                    Address
+                                    
+                                    .. attribute:: address_family
+                                    
+                                    	AddressFamily
+                                    	**type**\:   :py:class:`IpAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.IpAddr>`
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv6_address
+                                    
+                                    	IPv6 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ip-daps-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, self).__init__()
+
+                                        self.yang_name = "address"
+                                        self.yang_parent_name = "end-address"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.address_family = YLeaf(YType.enumeration, "address-family")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                        self._segment_path = lambda: "address"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                         class InUseAddress(Entity):
@@ -1122,14 +1302,10 @@ class AddressPoolService(Entity):
                                     	IPv4 address
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     .. attribute:: ipv6_address
                                     
                                     	IPv6 address
                                     	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
 
@@ -1159,224 +1335,44 @@ class AddressPoolService(Entity):
                                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
-                        class PoolAllocations(Entity):
-                            """
-                            Pool allocations
-                            
-                            .. attribute:: excluded
-                            
-                            	Excluded allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: free
-                            
-                            	Free allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: high_threshold
-                            
-                            	High threshold data
-                            	**type**\:   :py:class:`HighThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold>`
-                            
-                            .. attribute:: low_threshold
-                            
-                            	Low threshold data
-                            	**type**\:   :py:class:`LowThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold>`
-                            
-                            .. attribute:: total
-                            
-                            	Total allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: used
-                            
-                            	Used allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: utilization
-                            
-                            	Current utilization in percentage
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: percentage
-                            
-                            .. attribute:: vrf_name
-                            
-                            	VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-daps-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, self).__init__()
-
-                                self.yang_name = "pool-allocations"
-                                self.yang_parent_name = "allocated-addresses"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"high-threshold" : ("high_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold), "low-threshold" : ("low_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold)}
-                                self._child_list_classes = {}
-
-                                self.excluded = YLeaf(YType.uint32, "excluded")
-
-                                self.free = YLeaf(YType.uint32, "free")
-
-                                self.total = YLeaf(YType.uint32, "total")
-
-                                self.used = YLeaf(YType.uint32, "used")
-
-                                self.utilization = YLeaf(YType.uint32, "utilization")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                                self.high_threshold = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold()
-                                self.high_threshold.parent = self
-                                self._children_name_map["high_threshold"] = "high-threshold"
-                                self._children_yang_names.add("high-threshold")
-
-                                self.low_threshold = AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold()
-                                self.low_threshold.parent = self
-                                self._children_name_map["low_threshold"] = "low-threshold"
-                                self._children_yang_names.add("low-threshold")
-                                self._segment_path = lambda: "pool-allocations"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['excluded', 'free', 'total', 'used', 'utilization', 'vrf_name'], name, value)
-
-
-                            class HighThreshold(Entity):
-                                """
-                                High threshold data
-                                
-                                .. attribute:: threshold
-                                
-                                	Threshold in percentage
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: percentage
-                                
-                                .. attribute:: time_last_crossed
-                                
-                                	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                                	**type**\:  str
-                                
-                                .. attribute:: triggers
-                                
-                                	Number of Triggers
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-daps-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, self).__init__()
-
-                                    self.yang_name = "high-threshold"
-                                    self.yang_parent_name = "pool-allocations"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                    self.time_last_crossed = YLeaf(YType.str, "time-last-crossed")
-
-                                    self.triggers = YLeaf(YType.uint32, "triggers")
-                                    self._segment_path = lambda: "high-threshold"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'time_last_crossed', 'triggers'], name, value)
-
-
-                            class LowThreshold(Entity):
-                                """
-                                Low threshold data
-                                
-                                .. attribute:: threshold
-                                
-                                	Threshold in percentage
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: percentage
-                                
-                                .. attribute:: time_last_crossed
-                                
-                                	Last time at which threshold crossed in DDD MMM DD HH\:MM\:SS YYYY format eg\: Tue Apr 11 21\:30\:47 2011
-                                	**type**\:  str
-                                
-                                .. attribute:: triggers
-                                
-                                	Number of Triggers
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-daps-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, self).__init__()
-
-                                    self.yang_name = "low-threshold"
-                                    self.yang_parent_name = "pool-allocations"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.threshold = YLeaf(YType.uint32, "threshold")
-
-                                    self.time_last_crossed = YLeaf(YType.str, "time-last-crossed")
-
-                                    self.triggers = YLeaf(YType.uint32, "triggers")
-                                    self._segment_path = lambda: "low-threshold"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'time_last_crossed', 'triggers'], name, value)
-
-
                     class Configuration(Entity):
                         """
                         Configuration info for pool
                         
-                        .. attribute:: current_utilization
+                        .. attribute:: pool_name
                         
-                        	Current utilization
+                        	Pool name
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: pool_id
+                        
+                        	Pool ID for MIBS
                         	**type**\:  int
                         
-                        	**range:** 0..255
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: pool_scope
+                        
+                        	Pool Scope
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
+                        .. attribute:: pool_prefix_length
+                        
+                        	Prefix length
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: high_utilization_mark
                         
@@ -1392,33 +1388,12 @@ class AddressPoolService(Entity):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: pool_id
+                        .. attribute:: current_utilization
                         
-                        	Pool ID for MIBS
+                        	Current utilization
                         	**type**\:  int
                         
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pool_name
-                        
-                        	Pool name
-                        	**type**\:  str
-                        
-                        	**length:** 0..64
-                        
-                        .. attribute:: pool_prefix_length
-                        
-                        	Prefix length
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pool_scope
-                        
-                        	Pool Scope
-                        	**type**\:  str
-                        
-                        	**length:** 0..64
+                        	**range:** 0..255
                         
                         .. attribute:: utilization_high_count
                         
@@ -1433,13 +1408,6 @@ class AddressPoolService(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        	**length:** 0..64
                         
                         
 
@@ -1458,41 +1426,34 @@ class AddressPoolService(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.current_utilization = YLeaf(YType.uint8, "current-utilization")
+                            self.pool_name = YLeaf(YType.str, "pool-name")
+
+                            self.pool_id = YLeaf(YType.uint32, "pool-id")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.pool_scope = YLeaf(YType.str, "pool-scope")
+
+                            self.pool_prefix_length = YLeaf(YType.uint32, "pool-prefix-length")
 
                             self.high_utilization_mark = YLeaf(YType.uint8, "high-utilization-mark")
 
                             self.low_utilization_mark = YLeaf(YType.uint8, "low-utilization-mark")
 
-                            self.pool_id = YLeaf(YType.uint32, "pool-id")
-
-                            self.pool_name = YLeaf(YType.str, "pool-name")
-
-                            self.pool_prefix_length = YLeaf(YType.uint32, "pool-prefix-length")
-
-                            self.pool_scope = YLeaf(YType.str, "pool-scope")
+                            self.current_utilization = YLeaf(YType.uint8, "current-utilization")
 
                             self.utilization_high_count = YLeaf(YType.uint32, "utilization-high-count")
 
                             self.utilization_low_count = YLeaf(YType.uint32, "utilization-low-count")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
                             self._segment_path = lambda: "configuration"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['current_utilization', 'high_utilization_mark', 'low_utilization_mark', 'pool_id', 'pool_name', 'pool_prefix_length', 'pool_scope', 'utilization_high_count', 'utilization_low_count', 'vrf_name'], name, value)
+                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['pool_name', 'pool_id', 'vrf_name', 'pool_scope', 'pool_prefix_length', 'high_utilization_mark', 'low_utilization_mark', 'current_utilization', 'utilization_high_count', 'utilization_low_count'], name, value)
 
 
             class TotalUtilization(Entity):
                 """
                 Show total utilization for pool
-                
-                .. attribute:: current_total_utilization
-                
-                	Current utilization
-                	**type**\:  int
-                
-                	**range:** 0..255
                 
                 .. attribute:: total_utilization_high_mark
                 
@@ -1504,6 +1465,13 @@ class AddressPoolService(Entity):
                 .. attribute:: total_utilization_low_mark
                 
                 	Low utilization mark
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: current_total_utilization
+                
+                	Current utilization
                 	**type**\:  int
                 
                 	**range:** 0..255
@@ -1525,15 +1493,15 @@ class AddressPoolService(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.current_total_utilization = YLeaf(YType.uint8, "current-total-utilization")
-
                     self.total_utilization_high_mark = YLeaf(YType.uint8, "total-utilization-high-mark")
 
                     self.total_utilization_low_mark = YLeaf(YType.uint8, "total-utilization-low-mark")
+
+                    self.current_total_utilization = YLeaf(YType.uint8, "current-total-utilization")
                     self._segment_path = lambda: "total-utilization"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['current_total_utilization', 'total_utilization_high_mark', 'total_utilization_low_mark'], name, value)
+                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['total_utilization_high_mark', 'total_utilization_low_mark', 'current_total_utilization'], name, value)
 
 
             class Vrfs(Entity):
@@ -1577,8 +1545,6 @@ class AddressPoolService(Entity):
                     
                     	The VRF name
                     	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
                     .. attribute:: ipv4
                     
@@ -1671,6 +1637,13 @@ class AddressPoolService(Entity):
                             """
                             Allocation summary
                             
+                            .. attribute:: used
+                            
+                            	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
@@ -1681,6 +1654,13 @@ class AddressPoolService(Entity):
                             .. attribute:: free
                             
                             	Free allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: total
+                            
+                            	Total allocations
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1702,20 +1682,6 @@ class AddressPoolService(Entity):
                             	**range:** 0..255
                             
                             	**units**\: percentage
-                            
-                            .. attribute:: total
-                            
-                            	Total allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: used
-                            
-                            	Used allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: utilization
                             
@@ -1743,28 +1709,49 @@ class AddressPoolService(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.used = YLeaf(YType.uint32, "used")
+
                                 self.excluded = YLeaf(YType.uint32, "excluded")
 
                                 self.free = YLeaf(YType.uint32, "free")
+
+                                self.total = YLeaf(YType.uint32, "total")
 
                                 self.high_utilization_threshold = YLeaf(YType.uint8, "high-utilization-threshold")
 
                                 self.low_utilization_threshold = YLeaf(YType.uint8, "low-utilization-threshold")
 
-                                self.total = YLeaf(YType.uint32, "total")
-
-                                self.used = YLeaf(YType.uint32, "used")
-
                                 self.utilization = YLeaf(YType.uint8, "utilization")
                                 self._segment_path = lambda: "allocation-summary"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['excluded', 'free', 'high_utilization_threshold', 'low_utilization_threshold', 'total', 'used', 'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
                         class Pools(Entity):
                             """
                             Pools data
+                            
+                            .. attribute:: pool_name
+                            
+                            	Pool name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: used
+                            
+                            	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
@@ -1780,33 +1767,12 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: pool_name
-                            
-                            	Pool name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
                             .. attribute:: total
                             
                             	Total allocations
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: used
-                            
-                            	Used allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: vrf_name
-                            
-                            	VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
                             
                             
 
@@ -1825,21 +1791,21 @@ class AddressPoolService(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.pool_name = YLeaf(YType.str, "pool-name")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.used = YLeaf(YType.uint32, "used")
+
                                 self.excluded = YLeaf(YType.uint32, "excluded")
 
                                 self.free = YLeaf(YType.uint32, "free")
 
-                                self.pool_name = YLeaf(YType.str, "pool-name")
-
                                 self.total = YLeaf(YType.uint32, "total")
-
-                                self.used = YLeaf(YType.uint32, "used")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
                                 self._segment_path = lambda: "pools"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['excluded', 'free', 'pool_name', 'total', 'used', 'vrf_name'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
 
                     class Ipv6(Entity):
@@ -1889,6 +1855,13 @@ class AddressPoolService(Entity):
                             """
                             Allocation summary
                             
+                            .. attribute:: used
+                            
+                            	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: excluded
                             
                             	Excluded allocations
@@ -1899,6 +1872,13 @@ class AddressPoolService(Entity):
                             .. attribute:: free
                             
                             	Free allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: total
+                            
+                            	Total allocations
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1920,20 +1900,6 @@ class AddressPoolService(Entity):
                             	**range:** 0..255
                             
                             	**units**\: percentage
-                            
-                            .. attribute:: total
-                            
-                            	Total allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: used
-                            
-                            	Used allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: utilization
                             
@@ -1961,28 +1927,49 @@ class AddressPoolService(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.used = YLeaf(YType.uint32, "used")
+
                                 self.excluded = YLeaf(YType.uint32, "excluded")
 
                                 self.free = YLeaf(YType.uint32, "free")
+
+                                self.total = YLeaf(YType.uint32, "total")
 
                                 self.high_utilization_threshold = YLeaf(YType.uint8, "high-utilization-threshold")
 
                                 self.low_utilization_threshold = YLeaf(YType.uint8, "low-utilization-threshold")
 
-                                self.total = YLeaf(YType.uint32, "total")
-
-                                self.used = YLeaf(YType.uint32, "used")
-
                                 self.utilization = YLeaf(YType.uint8, "utilization")
                                 self._segment_path = lambda: "allocation-summary"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['excluded', 'free', 'high_utilization_threshold', 'low_utilization_threshold', 'total', 'used', 'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
                         class Pools(Entity):
                             """
                             Pools data
+                            
+                            .. attribute:: pool_name
+                            
+                            	Pool name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: vrf_name
+                            
+                            	VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..64
+                            
+                            .. attribute:: used
+                            
+                            	Used allocations
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: excluded
                             
@@ -1998,33 +1985,12 @@ class AddressPoolService(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: pool_name
-                            
-                            	Pool name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
-                            
                             .. attribute:: total
                             
                             	Total allocations
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: used
-                            
-                            	Used allocations
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: vrf_name
-                            
-                            	VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..64
                             
                             
 
@@ -2043,21 +2009,21 @@ class AddressPoolService(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.pool_name = YLeaf(YType.str, "pool-name")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.used = YLeaf(YType.uint32, "used")
+
                                 self.excluded = YLeaf(YType.uint32, "excluded")
 
                                 self.free = YLeaf(YType.uint32, "free")
 
-                                self.pool_name = YLeaf(YType.str, "pool-name")
-
                                 self.total = YLeaf(YType.uint32, "total")
-
-                                self.used = YLeaf(YType.uint32, "used")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
                                 self._segment_path = lambda: "pools"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['excluded', 'free', 'pool_name', 'total', 'used', 'vrf_name'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AddressPoolService()

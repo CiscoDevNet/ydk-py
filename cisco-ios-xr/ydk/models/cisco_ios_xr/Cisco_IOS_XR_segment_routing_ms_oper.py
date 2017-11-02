@@ -223,10 +223,34 @@ class Srms(Entity):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
+                .. attribute:: ip
+                
+                	IP
+                	**type**\:  str
+                
+                .. attribute:: prefix
+                
+                	Prefix
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: addr
                 
                 	addr
                 	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv4.MappingMi.Addr>`
+                
+                .. attribute:: src
+                
+                	src
+                	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                
+                .. attribute:: router
+                
+                	Router ID
+                	**type**\:  str
+                
+                	**length:** 0..30
                 
                 .. attribute:: area
                 
@@ -235,17 +259,26 @@ class Srms(Entity):
                 
                 	**length:** 0..30
                 
-                .. attribute:: flag_attached
+                .. attribute:: prefix_xr
                 
-                	Attached flag
-                	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                	Prefix length
+                	**type**\:  int
                 
-                .. attribute:: ip
+                	**range:** 0..255
                 
-                	IP
-                	**type**\:  str
+                .. attribute:: sid_start
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                	Starting SID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sid_count
+                
+                	SID range
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: last_prefix
                 
@@ -261,45 +294,10 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: prefix
+                .. attribute:: flag_attached
                 
-                	Prefix
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: prefix_xr
-                
-                	Prefix length
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: router
-                
-                	Router ID
-                	**type**\:  str
-                
-                	**length:** 0..30
-                
-                .. attribute:: sid_count
-                
-                	SID range
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sid_start
-                
-                	Starting SID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: src
-                
-                	src
-                	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                	Attached flag
+                	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
                 
                 
 
@@ -318,27 +316,27 @@ class Srms(Entity):
                     self._child_container_classes = {"addr" : ("addr", Srms.Mapping.MappingIpv4.MappingMi.Addr)}
                     self._child_list_classes = {}
 
+                    self.ip = YLeaf(YType.str, "ip")
+
+                    self.prefix = YLeaf(YType.int32, "prefix")
+
+                    self.src = YLeaf(YType.enumeration, "src")
+
+                    self.router = YLeaf(YType.str, "router")
+
                     self.area = YLeaf(YType.str, "area")
 
-                    self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                    self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
 
-                    self.ip = YLeaf(YType.str, "ip")
+                    self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                    self.sid_count = YLeaf(YType.uint32, "sid-count")
 
                     self.last_prefix = YLeaf(YType.str, "last-prefix")
 
                     self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
 
-                    self.prefix = YLeaf(YType.int32, "prefix")
-
-                    self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                    self.router = YLeaf(YType.str, "router")
-
-                    self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                    self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                    self.src = YLeaf(YType.enumeration, "src")
+                    self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
 
                     self.addr = Srms.Mapping.MappingIpv4.MappingMi.Addr()
                     self.addr.parent = self
@@ -348,7 +346,7 @@ class Srms(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['area', 'flag_attached', 'ip', 'last_prefix', 'last_sid_index', 'prefix', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
                 class Addr(Entity):
@@ -365,14 +363,10 @@ class Srms(Entity):
                     	IPv4
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     .. attribute:: ipv6
                     
                     	IPv6
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -445,10 +439,34 @@ class Srms(Entity):
                 Instead, SID map information must be retrieved
                 individually for each prefix of interest.
                 
+                .. attribute:: ip
+                
+                	IP
+                	**type**\:  str
+                
+                .. attribute:: prefix
+                
+                	Prefix
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: addr
                 
                 	addr
                 	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Mapping.MappingIpv6.MappingMi.Addr>`
+                
+                .. attribute:: src
+                
+                	src
+                	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                
+                .. attribute:: router
+                
+                	Router ID
+                	**type**\:  str
+                
+                	**length:** 0..30
                 
                 .. attribute:: area
                 
@@ -457,17 +475,26 @@ class Srms(Entity):
                 
                 	**length:** 0..30
                 
-                .. attribute:: flag_attached
+                .. attribute:: prefix_xr
                 
-                	Attached flag
-                	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                	Prefix length
+                	**type**\:  int
                 
-                .. attribute:: ip
+                	**range:** 0..255
                 
-                	IP
-                	**type**\:  str
+                .. attribute:: sid_start
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                	Starting SID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: sid_count
+                
+                	SID range
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: last_prefix
                 
@@ -483,45 +510,10 @@ class Srms(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: prefix
+                .. attribute:: flag_attached
                 
-                	Prefix
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: prefix_xr
-                
-                	Prefix length
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: router
-                
-                	Router ID
-                	**type**\:  str
-                
-                	**length:** 0..30
-                
-                .. attribute:: sid_count
-                
-                	SID range
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: sid_start
-                
-                	Starting SID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: src
-                
-                	src
-                	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                	Attached flag
+                	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
                 
                 
 
@@ -540,27 +532,27 @@ class Srms(Entity):
                     self._child_container_classes = {"addr" : ("addr", Srms.Mapping.MappingIpv6.MappingMi.Addr)}
                     self._child_list_classes = {}
 
+                    self.ip = YLeaf(YType.str, "ip")
+
+                    self.prefix = YLeaf(YType.int32, "prefix")
+
+                    self.src = YLeaf(YType.enumeration, "src")
+
+                    self.router = YLeaf(YType.str, "router")
+
                     self.area = YLeaf(YType.str, "area")
 
-                    self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                    self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
 
-                    self.ip = YLeaf(YType.str, "ip")
+                    self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                    self.sid_count = YLeaf(YType.uint32, "sid-count")
 
                     self.last_prefix = YLeaf(YType.str, "last-prefix")
 
                     self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
 
-                    self.prefix = YLeaf(YType.int32, "prefix")
-
-                    self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                    self.router = YLeaf(YType.str, "router")
-
-                    self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                    self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                    self.src = YLeaf(YType.enumeration, "src")
+                    self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
 
                     self.addr = Srms.Mapping.MappingIpv6.MappingMi.Addr()
                     self.addr.parent = self
@@ -570,7 +562,7 @@ class Srms(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['area', 'flag_attached', 'ip', 'last_prefix', 'last_sid_index', 'prefix', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
                 class Addr(Entity):
@@ -587,14 +579,10 @@ class Srms(Entity):
                     	IPv4
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     .. attribute:: ipv6
                     
                     	IPv6
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
 
@@ -673,15 +661,15 @@ class Srms(Entity):
             """
             IPv4 policy operational data
             
-            .. attribute:: policy_ipv4_active
-            
-            	IPv4 active policy operational data
-            	**type**\:   :py:class:`PolicyIpv4Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
-            
             .. attribute:: policy_ipv4_backup
             
             	IPv4 backup policy operational data
             	**type**\:   :py:class:`PolicyIpv4Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup>`
+            
+            .. attribute:: policy_ipv4_active
+            
+            	IPv4 active policy operational data
+            	**type**\:   :py:class:`PolicyIpv4Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active>`
             
             
 
@@ -697,228 +685,20 @@ class Srms(Entity):
                 self.yang_parent_name = "policy"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"policy-ipv4-active" : ("policy_ipv4_active", Srms.Policy.PolicyIpv4.PolicyIpv4Active), "policy-ipv4-backup" : ("policy_ipv4_backup", Srms.Policy.PolicyIpv4.PolicyIpv4Backup)}
+                self._child_container_classes = {"policy-ipv4-backup" : ("policy_ipv4_backup", Srms.Policy.PolicyIpv4.PolicyIpv4Backup), "policy-ipv4-active" : ("policy_ipv4_active", Srms.Policy.PolicyIpv4.PolicyIpv4Active)}
                 self._child_list_classes = {}
-
-                self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
-                self.policy_ipv4_active.parent = self
-                self._children_name_map["policy_ipv4_active"] = "policy-ipv4-active"
-                self._children_yang_names.add("policy-ipv4-active")
 
                 self.policy_ipv4_backup = Srms.Policy.PolicyIpv4.PolicyIpv4Backup()
                 self.policy_ipv4_backup.parent = self
                 self._children_name_map["policy_ipv4_backup"] = "policy-ipv4-backup"
                 self._children_yang_names.add("policy-ipv4-backup")
+
+                self.policy_ipv4_active = Srms.Policy.PolicyIpv4.PolicyIpv4Active()
+                self.policy_ipv4_active.parent = self
+                self._children_name_map["policy_ipv4_active"] = "policy-ipv4-active"
+                self._children_yang_names.add("policy-ipv4-active")
                 self._segment_path = lambda: "policy-ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
-
-
-            class PolicyIpv4Active(Entity):
-                """
-                IPv4 active policy operational data
-                
-                .. attribute:: policy_mi
-                
-                	Mapping Item
-                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi>`
-                
-                
-
-                """
-
-                _prefix = 'segment-routing-ms-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
-
-                    self.yang_name = "policy-ipv4-active"
-                    self.yang_parent_name = "policy-ipv4"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi)}
-
-                    self.policy_mi = YList(self)
-                    self._segment_path = lambda: "policy-ipv4-active"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
-
-
-                class PolicyMi(Entity):
-                    """
-                    Mapping Item
-                    
-                    .. attribute:: mi_id  <key>
-                    
-                    	Mapping Item ID (0, 1, 2, ...)
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: addr
-                    
-                    	addr
-                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
-                    
-                    .. attribute:: area
-                    
-                    	Area (OSPF) or Level (ISIS)
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: flag_attached
-                    
-                    	Attached flag
-                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
-                    
-                    .. attribute:: last_prefix
-                    
-                    	Last IP Prefix
-                    	**type**\:  str
-                    
-                    	**length:** 0..50
-                    
-                    .. attribute:: last_sid_index
-                    
-                    	Last SID Index
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: prefix_xr
-                    
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: router
-                    
-                    	Router ID
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: sid_count
-                    
-                    	SID range
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sid_start
-                    
-                    	Starting SID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'segment-routing-ms-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
-
-                        self.yang_name = "policy-mi"
-                        self.yang_parent_name = "policy-ipv4-active"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr)}
-                        self._child_list_classes = {}
-
-                        self.mi_id = YLeaf(YType.str, "mi-id")
-
-                        self.area = YLeaf(YType.str, "area")
-
-                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
-
-                        self.last_prefix = YLeaf(YType.str, "last-prefix")
-
-                        self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
-
-                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                        self.router = YLeaf(YType.str, "router")
-
-                        self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                        self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                        self.src = YLeaf(YType.enumeration, "src")
-
-                        self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
-                        self.addr.parent = self
-                        self._children_name_map["addr"] = "addr"
-                        self._children_yang_names.add("addr")
-                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
-
-
-                    class Addr(Entity):
-                        """
-                        addr
-                        
-                        .. attribute:: af
-                        
-                        	AF
-                        	**type**\:   :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
-                        
-                        .. attribute:: ipv4
-                        
-                        	IPv4
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6
-                        
-                        	IPv6
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'segment-routing-ms-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
-
-                            self.yang_name = "addr"
-                            self.yang_parent_name = "policy-mi"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.af = YLeaf(YType.enumeration, "af")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
-                            self._segment_path = lambda: "addr"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
 
             class PolicyIpv4Backup(Entity):
@@ -964,12 +744,22 @@ class Srms(Entity):
                     	Mapping Item ID (0, 1, 2, ...)
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr>`
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    .. attribute:: router
+                    
+                    	Router ID
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
                     
                     .. attribute:: area
                     
@@ -978,10 +768,26 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
-                    .. attribute:: flag_attached
+                    .. attribute:: prefix_xr
                     
-                    	Attached flag
-                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: sid_start
+                    
+                    	Starting SID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sid_count
+                    
+                    	SID range
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: last_prefix
                     
@@ -997,38 +803,10 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: prefix_xr
+                    .. attribute:: flag_attached
                     
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: router
-                    
-                    	Router ID
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: sid_count
-                    
-                    	SID range
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sid_start
-                    
-                    	Starting SID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    	Attached flag
+                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
                     
                     
 
@@ -1049,23 +827,23 @@ class Srms(Entity):
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
+                        self.src = YLeaf(YType.enumeration, "src")
+
+                        self.router = YLeaf(YType.str, "router")
+
                         self.area = YLeaf(YType.str, "area")
 
-                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+
+                        self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                        self.sid_count = YLeaf(YType.uint32, "sid-count")
 
                         self.last_prefix = YLeaf(YType.str, "last-prefix")
 
                         self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
 
-                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                        self.router = YLeaf(YType.str, "router")
-
-                        self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                        self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                        self.src = YLeaf(YType.enumeration, "src")
+                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
 
                         self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr()
                         self.addr.parent = self
@@ -1075,7 +853,7 @@ class Srms(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -1092,14 +870,10 @@ class Srms(Entity):
                         	IPv4
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1129,58 +903,14 @@ class Srms(Entity):
                             self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
 
-        class PolicyIpv6(Entity):
-            """
-            IPv6 policy operational data
-            
-            .. attribute:: policy_ipv6_active
-            
-            	IPv6 active policy operational data
-            	**type**\:   :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
-            
-            .. attribute:: policy_ipv6_backup
-            
-            	IPv6 backup policy operational data
-            	**type**\:   :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
-            
-            
-
-            """
-
-            _prefix = 'segment-routing-ms-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Srms.Policy.PolicyIpv6, self).__init__()
-
-                self.yang_name = "policy-ipv6"
-                self.yang_parent_name = "policy"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"policy-ipv6-active" : ("policy_ipv6_active", Srms.Policy.PolicyIpv6.PolicyIpv6Active), "policy-ipv6-backup" : ("policy_ipv6_backup", Srms.Policy.PolicyIpv6.PolicyIpv6Backup)}
-                self._child_list_classes = {}
-
-                self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
-                self.policy_ipv6_active.parent = self
-                self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
-                self._children_yang_names.add("policy-ipv6-active")
-
-                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
-                self.policy_ipv6_backup.parent = self
-                self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
-                self._children_yang_names.add("policy-ipv6-backup")
-                self._segment_path = lambda: "policy-ipv6"
-                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
-
-
-            class PolicyIpv6Active(Entity):
+            class PolicyIpv4Active(Entity):
                 """
-                IPv6 active policy operational data
+                IPv4 active policy operational data
                 
                 .. attribute:: policy_mi
                 
                 	Mapping Item
-                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi>`
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi>`
                 
                 
 
@@ -1190,21 +920,21 @@ class Srms(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
+                    super(Srms.Policy.PolicyIpv4.PolicyIpv4Active, self).__init__()
 
-                    self.yang_name = "policy-ipv6-active"
-                    self.yang_parent_name = "policy-ipv6"
+                    self.yang_name = "policy-ipv4-active"
+                    self.yang_parent_name = "policy-ipv4"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
-                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi)}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi)}
 
                     self.policy_mi = YList(self)
-                    self._segment_path = lambda: "policy-ipv6-active"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
+                    self._segment_path = lambda: "policy-ipv4-active"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
+                    self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
 
 
                 class PolicyMi(Entity):
@@ -1216,12 +946,22 @@ class Srms(Entity):
                     	Mapping Item ID (0, 1, 2, ...)
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: addr
                     
                     	addr
-                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr>`
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    .. attribute:: router
+                    
+                    	Router ID
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
                     
                     .. attribute:: area
                     
@@ -1230,10 +970,26 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
-                    .. attribute:: flag_attached
+                    .. attribute:: prefix_xr
                     
-                    	Attached flag
-                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: sid_start
+                    
+                    	Starting SID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sid_count
+                    
+                    	SID range
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: last_prefix
                     
@@ -1249,38 +1005,10 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: prefix_xr
+                    .. attribute:: flag_attached
                     
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: router
-                    
-                    	Router ID
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: sid_count
-                    
-                    	SID range
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sid_start
-                    
-                    	Starting SID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    	Attached flag
+                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
                     
                     
 
@@ -1290,44 +1018,44 @@ class Srms(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
+                        super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, self).__init__()
 
                         self.yang_name = "policy-mi"
-                        self.yang_parent_name = "policy-ipv6-active"
+                        self.yang_parent_name = "policy-ipv4-active"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
-                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr)}
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr)}
                         self._child_list_classes = {}
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
+                        self.src = YLeaf(YType.enumeration, "src")
+
+                        self.router = YLeaf(YType.str, "router")
+
                         self.area = YLeaf(YType.str, "area")
 
-                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+
+                        self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                        self.sid_count = YLeaf(YType.uint32, "sid-count")
 
                         self.last_prefix = YLeaf(YType.str, "last-prefix")
 
                         self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
 
-                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
 
-                        self.router = YLeaf(YType.str, "router")
-
-                        self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                        self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                        self.src = YLeaf(YType.enumeration, "src")
-
-                        self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
+                        self.addr = Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr()
                         self.addr.parent = self
                         self._children_name_map["addr"] = "addr"
                         self._children_yang_names.add("addr")
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -1344,14 +1072,10 @@ class Srms(Entity):
                         	IPv4
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1361,7 +1085,7 @@ class Srms(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
+                            super(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, self).__init__()
 
                             self.yang_name = "addr"
                             self.yang_parent_name = "policy-mi"
@@ -1378,7 +1102,51 @@ class Srms(Entity):
                             self._segment_path = lambda: "addr"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+
+
+        class PolicyIpv6(Entity):
+            """
+            IPv6 policy operational data
+            
+            .. attribute:: policy_ipv6_backup
+            
+            	IPv6 backup policy operational data
+            	**type**\:   :py:class:`PolicyIpv6Backup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup>`
+            
+            .. attribute:: policy_ipv6_active
+            
+            	IPv6 active policy operational data
+            	**type**\:   :py:class:`PolicyIpv6Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active>`
+            
+            
+
+            """
+
+            _prefix = 'segment-routing-ms-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Srms.Policy.PolicyIpv6, self).__init__()
+
+                self.yang_name = "policy-ipv6"
+                self.yang_parent_name = "policy"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"policy-ipv6-backup" : ("policy_ipv6_backup", Srms.Policy.PolicyIpv6.PolicyIpv6Backup), "policy-ipv6-active" : ("policy_ipv6_active", Srms.Policy.PolicyIpv6.PolicyIpv6Active)}
+                self._child_list_classes = {}
+
+                self.policy_ipv6_backup = Srms.Policy.PolicyIpv6.PolicyIpv6Backup()
+                self.policy_ipv6_backup.parent = self
+                self._children_name_map["policy_ipv6_backup"] = "policy-ipv6-backup"
+                self._children_yang_names.add("policy-ipv6-backup")
+
+                self.policy_ipv6_active = Srms.Policy.PolicyIpv6.PolicyIpv6Active()
+                self.policy_ipv6_active.parent = self
+                self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
+                self._children_yang_names.add("policy-ipv6-active")
+                self._segment_path = lambda: "policy-ipv6"
+                self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
 
 
             class PolicyIpv6Backup(Entity):
@@ -1424,12 +1192,22 @@ class Srms(Entity):
                     	Mapping Item ID (0, 1, 2, ...)
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: addr
                     
                     	addr
                     	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr>`
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    .. attribute:: router
+                    
+                    	Router ID
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
                     
                     .. attribute:: area
                     
@@ -1438,10 +1216,26 @@ class Srms(Entity):
                     
                     	**length:** 0..30
                     
-                    .. attribute:: flag_attached
+                    .. attribute:: prefix_xr
                     
-                    	Attached flag
-                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: sid_start
+                    
+                    	Starting SID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sid_count
+                    
+                    	SID range
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: last_prefix
                     
@@ -1457,38 +1251,10 @@ class Srms(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: prefix_xr
+                    .. attribute:: flag_attached
                     
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: router
-                    
-                    	Router ID
-                    	**type**\:  str
-                    
-                    	**length:** 0..30
-                    
-                    .. attribute:: sid_count
-                    
-                    	SID range
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: sid_start
-                    
-                    	Starting SID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: src
-                    
-                    	src
-                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    	Attached flag
+                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
                     
                     
 
@@ -1509,23 +1275,23 @@ class Srms(Entity):
 
                         self.mi_id = YLeaf(YType.str, "mi-id")
 
+                        self.src = YLeaf(YType.enumeration, "src")
+
+                        self.router = YLeaf(YType.str, "router")
+
                         self.area = YLeaf(YType.str, "area")
 
-                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+
+                        self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                        self.sid_count = YLeaf(YType.uint32, "sid-count")
 
                         self.last_prefix = YLeaf(YType.str, "last-prefix")
 
                         self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
 
-                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
-
-                        self.router = YLeaf(YType.str, "router")
-
-                        self.sid_count = YLeaf(YType.uint32, "sid-count")
-
-                        self.sid_start = YLeaf(YType.uint32, "sid-start")
-
-                        self.src = YLeaf(YType.enumeration, "src")
+                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
 
                         self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr()
                         self.addr.parent = self
@@ -1535,7 +1301,7 @@ class Srms(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'area', 'flag_attached', 'last_prefix', 'last_sid_index', 'prefix_xr', 'router', 'sid_count', 'sid_start', 'src'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -1552,14 +1318,10 @@ class Srms(Entity):
                         	IPv4
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6
                         
                         	IPv6
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -1587,6 +1349,208 @@ class Srms(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+
+
+            class PolicyIpv6Active(Entity):
+                """
+                IPv6 active policy operational data
+                
+                .. attribute:: policy_mi
+                
+                	Mapping Item
+                	**type**\: list of    :py:class:`PolicyMi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi>`
+                
+                
+
+                """
+
+                _prefix = 'segment-routing-ms-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Srms.Policy.PolicyIpv6.PolicyIpv6Active, self).__init__()
+
+                    self.yang_name = "policy-ipv6-active"
+                    self.yang_parent_name = "policy-ipv6"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"policy-mi" : ("policy_mi", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi)}
+
+                    self.policy_mi = YList(self)
+                    self._segment_path = lambda: "policy-ipv6-active"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
+
+
+                class PolicyMi(Entity):
+                    """
+                    Mapping Item
+                    
+                    .. attribute:: mi_id  <key>
+                    
+                    	Mapping Item ID (0, 1, 2, ...)
+                    	**type**\:  str
+                    
+                    .. attribute:: addr
+                    
+                    	addr
+                    	**type**\:   :py:class:`Addr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr>`
+                    
+                    .. attribute:: src
+                    
+                    	src
+                    	**type**\:   :py:class:`SrmsMiSrcEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiSrcEB>`
+                    
+                    .. attribute:: router
+                    
+                    	Router ID
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
+                    
+                    .. attribute:: area
+                    
+                    	Area (OSPF) or Level (ISIS)
+                    	**type**\:  str
+                    
+                    	**length:** 0..30
+                    
+                    .. attribute:: prefix_xr
+                    
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: sid_start
+                    
+                    	Starting SID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: sid_count
+                    
+                    	SID range
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_prefix
+                    
+                    	Last IP Prefix
+                    	**type**\:  str
+                    
+                    	**length:** 0..50
+                    
+                    .. attribute:: last_sid_index
+                    
+                    	Last SID Index
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: flag_attached
+                    
+                    	Attached flag
+                    	**type**\:   :py:class:`SrmsMiFlagEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiFlagEB>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'segment-routing-ms-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, self).__init__()
+
+                        self.yang_name = "policy-mi"
+                        self.yang_parent_name = "policy-ipv6-active"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {"addr" : ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr)}
+                        self._child_list_classes = {}
+
+                        self.mi_id = YLeaf(YType.str, "mi-id")
+
+                        self.src = YLeaf(YType.enumeration, "src")
+
+                        self.router = YLeaf(YType.str, "router")
+
+                        self.area = YLeaf(YType.str, "area")
+
+                        self.prefix_xr = YLeaf(YType.uint8, "prefix-xr")
+
+                        self.sid_start = YLeaf(YType.uint32, "sid-start")
+
+                        self.sid_count = YLeaf(YType.uint32, "sid-count")
+
+                        self.last_prefix = YLeaf(YType.str, "last-prefix")
+
+                        self.last_sid_index = YLeaf(YType.uint32, "last-sid-index")
+
+                        self.flag_attached = YLeaf(YType.enumeration, "flag-attached")
+
+                        self.addr = Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr()
+                        self.addr.parent = self
+                        self._children_name_map["addr"] = "addr"
+                        self._children_yang_names.add("addr")
+                        self._segment_path = lambda: "policy-mi" + "[mi-id='" + self.mi_id.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+
+
+                    class Addr(Entity):
+                        """
+                        addr
+                        
+                        .. attribute:: af
+                        
+                        	AF
+                        	**type**\:   :py:class:`SrmsMiAfEB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper.SrmsMiAfEB>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4
+                        	**type**\:  str
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'segment-routing-ms-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, self).__init__()
+
+                            self.yang_name = "addr"
+                            self.yang_parent_name = "policy-mi"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.af = YLeaf(YType.enumeration, "af")
+
+                            self.ipv4 = YLeaf(YType.str, "ipv4")
+
+                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "addr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Srms()

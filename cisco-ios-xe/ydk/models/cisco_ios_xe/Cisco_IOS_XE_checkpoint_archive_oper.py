@@ -17,10 +17,12 @@ class CheckpointArchives(Entity):
     """
     Contents of the checkpoint archive information base
     
-    .. attribute:: archives
+    .. attribute:: max
     
-    	Archive information
-    	**type**\:   :py:class:`Archives <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives>`
+    	The maxium number of archives
+    	**type**\:  int
+    
+    	**range:** 0..255
     
     .. attribute:: current
     
@@ -29,17 +31,15 @@ class CheckpointArchives(Entity):
     
     	**range:** 0..255
     
-    .. attribute:: max
-    
-    	The maxium number of archives
-    	**type**\:  int
-    
-    	**range:** 0..255
-    
     .. attribute:: recent
     
     	The most recent archive
     	**type**\:  str
+    
+    .. attribute:: archives
+    
+    	Archive information
+    	**type**\:   :py:class:`Archives <ydk.models.cisco_ios_xe.Cisco_IOS_XE_checkpoint_archive_oper.CheckpointArchives.Archives>`
     
     
 
@@ -59,9 +59,9 @@ class CheckpointArchives(Entity):
         self._child_container_classes = {"archives" : ("archives", CheckpointArchives.Archives)}
         self._child_list_classes = {}
 
-        self.current = YLeaf(YType.uint8, "current")
-
         self.max = YLeaf(YType.uint8, "max")
+
+        self.current = YLeaf(YType.uint8, "current")
 
         self.recent = YLeaf(YType.str, "recent")
 
@@ -72,7 +72,7 @@ class CheckpointArchives(Entity):
         self._segment_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(CheckpointArchives, ['current', 'max', 'recent'], name, value)
+        self._perform_setattr(CheckpointArchives, ['max', 'current', 'recent'], name, value)
 
 
     class Archives(Entity):

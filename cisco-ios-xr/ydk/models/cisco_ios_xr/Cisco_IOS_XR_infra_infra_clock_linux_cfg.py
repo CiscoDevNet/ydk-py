@@ -57,16 +57,16 @@ class Clock(Entity):
         """
         Configure time zone
         
-        .. attribute:: area_name
+        .. attribute:: time_zone_name
         
-        	Area File in zoneinfo package
+        	Name of time zone
         	**type**\:  str
         
         	**mandatory**\: True
         
-        .. attribute:: time_zone_name
+        .. attribute:: area_name
         
-        	Name of time zone
+        	Area File in zoneinfo package
         	**type**\:  str
         
         	**mandatory**\: True
@@ -91,14 +91,14 @@ class Clock(Entity):
             self._child_list_classes = {}
             self.is_presence_container = True
 
-            self.area_name = YLeaf(YType.str, "area-name")
-
             self.time_zone_name = YLeaf(YType.str, "time-zone-name")
+
+            self.area_name = YLeaf(YType.str, "area-name")
             self._segment_path = lambda: "time-zone"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clock.TimeZone, ['area_name', 'time_zone_name'], name, value)
+            self._perform_setattr(Clock.TimeZone, ['time_zone_name', 'area_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Clock()

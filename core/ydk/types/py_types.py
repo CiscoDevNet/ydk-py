@@ -152,6 +152,16 @@ class Entity(_Entity):
         self._local_refs["ydk::children"] = children
         return children
 
+    def get_order_of_children(self):
+        order = []
+        for name in self.__dict__:
+            value = self.__dict__[name]
+            if isinstance(value, YList):
+                for v in value:
+                    if isinstance(v, Entity):
+                        order.append(v.get_segment_path())
+        return order
+
     def get_child_by_name(self, child_yang_name, segment_path):
         child = self._get_child_by_seg_name([child_yang_name, segment_path])
         if child is not None:

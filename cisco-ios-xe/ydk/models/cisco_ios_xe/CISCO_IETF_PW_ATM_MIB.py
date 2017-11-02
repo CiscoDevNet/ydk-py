@@ -100,28 +100,83 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwatmavgcellspacked
+            .. attribute:: cpwatmif
             
-            	It indicates the Average number of cells that were received in one packet
+            	The ATM Interface that receives cells from the ATM network
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 1..2147483647
+            
+            .. attribute:: cpwatmvpi
+            
+            	VPI value of this ATM VC
+            	**type**\:  int
+            
+            	**range:** 0..4095
+            
+            .. attribute:: cpwatmvci
+            
+            	VCI value of this ATM VC
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cpwatmclpqosmapping
+            
+            	This Object indicates whether the CLP bits are considered when determining the value placed in the Quality of Service fields (e.g. EXP fields of the MPLS Label Stack) of the encapsulating protocol
+            	**type**\:  bool
+            
+            .. attribute:: cpwatmrowstatus
+            
+            	This Object is used to create, modify or delete a row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cpwatmoamcellsupported
+            
+            	This Object indicates whether OAM Cells are transported on this VC
+            	**type**\:  bool
+            
+            .. attribute:: cpwatmqosscalingfactor
+            
+            	This Object represents the scaling factor (% value) to be applied to ATM QoS rates when calculating QoS rates for the PSN domain . For example, in the cell transport mode the bandwidth needed in the PSN domain will be higher (since PSN Transport header, PW header, and optional control word have to transmitted with every cell), whereas in the AAL5 mode the bandwidth needed in PSN domain will be less since cell headers will be removed after reassembly
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
             
             .. attribute:: cpwatmcellpacking
             
             	This object is used to identify if the VC is configured to do Cell Packing
             	**type**\:  bool
             
+            .. attribute:: cpwatmmncp
+            
+            	This object indicates the maximum number of cells that get packed in one packet
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cpwatmpeermncp
+            
+            	This Object represents the maximum number of cell that can be packed in one packet for peer interface
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cpwatmencap
+            
+            	This object indicates if the packet going on the pseudowire is mpls or l2tpv3 encapsulated
+            	**type**\:   :py:class:`Cpwatmencap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry.Cpwatmencap>`
+            
+            .. attribute:: cpwatmmcpttimeout
+            
+            	This Object represents which MCPT timeout value
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
             .. attribute:: cpwatmcellsreceived
             
             	This object can be used to obtain the information on the number of cells that were received and sent to the PSN
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwatmcellsrejected
-            
-            	This Object indicates the number of cells that were rejected by this VC because of policing
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -133,22 +188,19 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: cpwatmcellsrejected
+            
+            	This Object indicates the number of cells that were rejected by this VC because of policing
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: cpwatmcellstagged
             
             	This Object indicates the number of cells that were Tagged
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: cpwatmclpqosmapping
-            
-            	This Object indicates whether the CLP bits are considered when determining the value placed in the Quality of Service fields (e.g. EXP fields of the MPLS Label Stack) of the encapsulating protocol
-            	**type**\:  bool
-            
-            .. attribute:: cpwatmencap
-            
-            	This object indicates if the packet going on the pseudowire is mpls or l2tpv3 encapsulated
-            	**type**\:   :py:class:`Cpwatmencap <ydk.models.cisco_ios_xe.CISCO_IETF_PW_ATM_MIB.CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry.Cpwatmencap>`
             
             .. attribute:: cpwatmhccellsreceived
             
@@ -171,49 +223,16 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: cpwatmif
+            .. attribute:: cpwatmavgcellspacked
             
-            	The ATM Interface that receives cells from the ATM network
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: cpwatmmcpttimeout
-            
-            	This Object represents which MCPT timeout value
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cpwatmmncp
-            
-            	This object indicates the maximum number of cells that get packed in one packet
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cpwatmoamcellsupported
-            
-            	This Object indicates whether OAM Cells are transported on this VC
-            	**type**\:  bool
-            
-            .. attribute:: cpwatmpeermncp
-            
-            	This Object represents the maximum number of cell that can be packed in one packet for peer interface
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cpwatmpktsreceived
-            
-            	This object can be used to obtain the information on the number of packets that were received and sent to the PSN
+            	It indicates the Average number of cells that were received in one packet
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwatmpktsrejected
+            .. attribute:: cpwatmpktsreceived
             
-            	This object indicates the number of packets that were rejected because of Policing
+            	This object can be used to obtain the information on the number of packets that were received and sent to the PSN
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -225,31 +244,12 @@ class CISCOIETFPWATMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwatmqosscalingfactor
+            .. attribute:: cpwatmpktsrejected
             
-            	This Object represents the scaling factor (% value) to be applied to ATM QoS rates when calculating QoS rates for the PSN domain . For example, in the cell transport mode the bandwidth needed in the PSN domain will be higher (since PSN Transport header, PW header, and optional control word have to transmitted with every cell), whereas in the AAL5 mode the bandwidth needed in PSN domain will be less since cell headers will be removed after reassembly
+            	This object indicates the number of packets that were rejected because of Policing
             	**type**\:  int
             
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cpwatmrowstatus
-            
-            	This Object is used to create, modify or delete a row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cpwatmvci
-            
-            	VCI value of this ATM VC
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cpwatmvpi
-            
-            	VPI value of this ATM VC
-            	**type**\:  int
-            
-            	**range:** 0..4095
+            	**range:** 0..4294967295
             
             
 
@@ -270,21 +270,37 @@ class CISCOIETFPWATMMIB(Entity):
 
                 self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-                self.cpwatmavgcellspacked = YLeaf(YType.uint32, "cpwAtmAvgCellsPacked")
+                self.cpwatmif = YLeaf(YType.int32, "cpwAtmIf")
 
-                self.cpwatmcellpacking = YLeaf(YType.boolean, "cpwAtmCellPacking")
+                self.cpwatmvpi = YLeaf(YType.int32, "cpwAtmVpi")
 
-                self.cpwatmcellsreceived = YLeaf(YType.uint32, "cpwAtmCellsReceived")
-
-                self.cpwatmcellsrejected = YLeaf(YType.uint32, "cpwAtmCellsRejected")
-
-                self.cpwatmcellssent = YLeaf(YType.uint32, "cpwAtmCellsSent")
-
-                self.cpwatmcellstagged = YLeaf(YType.uint32, "cpwAtmCellsTagged")
+                self.cpwatmvci = YLeaf(YType.int32, "cpwAtmVci")
 
                 self.cpwatmclpqosmapping = YLeaf(YType.boolean, "cpwAtmClpQosMapping")
 
+                self.cpwatmrowstatus = YLeaf(YType.enumeration, "cpwAtmRowStatus")
+
+                self.cpwatmoamcellsupported = YLeaf(YType.boolean, "cpwAtmOamCellSupported")
+
+                self.cpwatmqosscalingfactor = YLeaf(YType.int32, "cpwAtmQosScalingFactor")
+
+                self.cpwatmcellpacking = YLeaf(YType.boolean, "cpwAtmCellPacking")
+
+                self.cpwatmmncp = YLeaf(YType.int32, "cpwAtmMncp")
+
+                self.cpwatmpeermncp = YLeaf(YType.int32, "cpwAtmPeerMncp")
+
                 self.cpwatmencap = YLeaf(YType.enumeration, "cpwAtmEncap")
+
+                self.cpwatmmcpttimeout = YLeaf(YType.int32, "cpwAtmMcptTimeout")
+
+                self.cpwatmcellsreceived = YLeaf(YType.uint32, "cpwAtmCellsReceived")
+
+                self.cpwatmcellssent = YLeaf(YType.uint32, "cpwAtmCellsSent")
+
+                self.cpwatmcellsrejected = YLeaf(YType.uint32, "cpwAtmCellsRejected")
+
+                self.cpwatmcellstagged = YLeaf(YType.uint32, "cpwAtmCellsTagged")
 
                 self.cpwatmhccellsreceived = YLeaf(YType.uint64, "cpwAtmHCCellsReceived")
 
@@ -292,34 +308,18 @@ class CISCOIETFPWATMMIB(Entity):
 
                 self.cpwatmhccellstagged = YLeaf(YType.uint64, "cpwAtmHCCellsTagged")
 
-                self.cpwatmif = YLeaf(YType.int32, "cpwAtmIf")
-
-                self.cpwatmmcpttimeout = YLeaf(YType.int32, "cpwAtmMcptTimeout")
-
-                self.cpwatmmncp = YLeaf(YType.int32, "cpwAtmMncp")
-
-                self.cpwatmoamcellsupported = YLeaf(YType.boolean, "cpwAtmOamCellSupported")
-
-                self.cpwatmpeermncp = YLeaf(YType.int32, "cpwAtmPeerMncp")
+                self.cpwatmavgcellspacked = YLeaf(YType.uint32, "cpwAtmAvgCellsPacked")
 
                 self.cpwatmpktsreceived = YLeaf(YType.uint32, "cpwAtmPktsReceived")
 
-                self.cpwatmpktsrejected = YLeaf(YType.uint32, "cpwAtmPktsRejected")
-
                 self.cpwatmpktssent = YLeaf(YType.uint32, "cpwAtmPktsSent")
 
-                self.cpwatmqosscalingfactor = YLeaf(YType.int32, "cpwAtmQosScalingFactor")
-
-                self.cpwatmrowstatus = YLeaf(YType.enumeration, "cpwAtmRowStatus")
-
-                self.cpwatmvci = YLeaf(YType.int32, "cpwAtmVci")
-
-                self.cpwatmvpi = YLeaf(YType.int32, "cpwAtmVpi")
+                self.cpwatmpktsrejected = YLeaf(YType.uint32, "cpwAtmPktsRejected")
                 self._segment_path = lambda: "cpwVcAtmEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/cpwVcAtmTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry, ['cpwvcindex', 'cpwatmavgcellspacked', 'cpwatmcellpacking', 'cpwatmcellsreceived', 'cpwatmcellsrejected', 'cpwatmcellssent', 'cpwatmcellstagged', 'cpwatmclpqosmapping', 'cpwatmencap', 'cpwatmhccellsreceived', 'cpwatmhccellsrejected', 'cpwatmhccellstagged', 'cpwatmif', 'cpwatmmcpttimeout', 'cpwatmmncp', 'cpwatmoamcellsupported', 'cpwatmpeermncp', 'cpwatmpktsreceived', 'cpwatmpktsrejected', 'cpwatmpktssent', 'cpwatmqosscalingfactor', 'cpwatmrowstatus', 'cpwatmvci', 'cpwatmvpi'], name, value)
+                self._perform_setattr(CISCOIETFPWATMMIB.Cpwvcatmtable.Cpwvcatmentry, ['cpwvcindex', 'cpwatmif', 'cpwatmvpi', 'cpwatmvci', 'cpwatmclpqosmapping', 'cpwatmrowstatus', 'cpwatmoamcellsupported', 'cpwatmqosscalingfactor', 'cpwatmcellpacking', 'cpwatmmncp', 'cpwatmpeermncp', 'cpwatmencap', 'cpwatmmcpttimeout', 'cpwatmcellsreceived', 'cpwatmcellssent', 'cpwatmcellsrejected', 'cpwatmcellstagged', 'cpwatmhccellsreceived', 'cpwatmhccellsrejected', 'cpwatmhccellstagged', 'cpwatmavgcellspacked', 'cpwatmpktsreceived', 'cpwatmpktssent', 'cpwatmpktsrejected'], name, value)
 
             class Cpwatmencap(Enum):
                 """

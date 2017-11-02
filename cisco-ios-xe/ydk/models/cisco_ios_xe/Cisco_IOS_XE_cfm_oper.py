@@ -115,12 +115,10 @@ class CfmStatistics(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: ccm_seq_errors
+            .. attribute:: last_cleared
             
-            	The number of CCM sequence number errors detected
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
+            	
+            	**type**\:   :py:class:`LastCleared <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper.CfmStatistics.CfmMeps.CfmMep.LastCleared>`
             
             .. attribute:: ccm_transmitted
             
@@ -129,28 +127,16 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: last_cleared
+            .. attribute:: ccm_seq_errors
             
-            	
-            	**type**\:   :py:class:`LastCleared <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cfm_oper.CfmStatistics.CfmMeps.CfmMep.LastCleared>`
-            
-            .. attribute:: lbr_received_bad
-            
-            	The number of loopback reply packets received  with corrupted data pattern
+            	The number of CCM sequence number errors detected
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: lbr_received_ok
+            .. attribute:: ltr_unexpected
             
-            	The number of valid loopback reply packets received
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: lbr_seq_errors
-            
-            	The number of loopback reply packets received  with sequence number errors
+            	The number of unexpected linktrace reply packets  received at this MEP
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -162,9 +148,23 @@ class CfmStatistics(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: ltr_unexpected
+            .. attribute:: lbr_seq_errors
             
-            	The number of unexpected linktrace reply packets  received at this MEP
+            	The number of loopback reply packets received  with sequence number errors
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: lbr_received_ok
+            
+            	The number of valid loopback reply packets received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: lbr_received_bad
+            
+            	The number of loopback reply packets received  with corrupted data pattern
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -192,19 +192,19 @@ class CfmStatistics(Entity):
 
                 self.mpid = YLeaf(YType.uint32, "mpid")
 
-                self.ccm_seq_errors = YLeaf(YType.uint64, "ccm-seq-errors")
-
                 self.ccm_transmitted = YLeaf(YType.uint64, "ccm-transmitted")
 
-                self.lbr_received_bad = YLeaf(YType.uint64, "lbr-received-bad")
+                self.ccm_seq_errors = YLeaf(YType.uint64, "ccm-seq-errors")
 
-                self.lbr_received_ok = YLeaf(YType.uint64, "lbr-received-ok")
-
-                self.lbr_seq_errors = YLeaf(YType.uint64, "lbr-seq-errors")
+                self.ltr_unexpected = YLeaf(YType.uint64, "ltr-unexpected")
 
                 self.lbr_transmitted = YLeaf(YType.uint64, "lbr-transmitted")
 
-                self.ltr_unexpected = YLeaf(YType.uint64, "ltr-unexpected")
+                self.lbr_seq_errors = YLeaf(YType.uint64, "lbr-seq-errors")
+
+                self.lbr_received_ok = YLeaf(YType.uint64, "lbr-received-ok")
+
+                self.lbr_received_bad = YLeaf(YType.uint64, "lbr-received-bad")
 
                 self.last_cleared = CfmStatistics.CfmMeps.CfmMep.LastCleared()
                 self.last_cleared.parent = self
@@ -214,7 +214,7 @@ class CfmStatistics(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CfmStatistics.CfmMeps.CfmMep, ['domain_name', 'ma_name', 'mpid', 'ccm_seq_errors', 'ccm_transmitted', 'lbr_received_bad', 'lbr_received_ok', 'lbr_seq_errors', 'lbr_transmitted', 'ltr_unexpected'], name, value)
+                self._perform_setattr(CfmStatistics.CfmMeps.CfmMep, ['domain_name', 'ma_name', 'mpid', 'ccm_transmitted', 'ccm_seq_errors', 'ltr_unexpected', 'lbr_transmitted', 'lbr_seq_errors', 'lbr_received_ok', 'lbr_received_bad'], name, value)
 
 
             class LastCleared(Entity):

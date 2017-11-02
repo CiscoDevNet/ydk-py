@@ -303,21 +303,6 @@ class GroupToRpMappingMode(Identity):
         super(GroupToRpMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:group-to-rp-mapping-mode")
 
 
-class AsmMappingMode(Identity):
-    """
-    The mapping is for Any\-Source Multicast (ASM) with PIM Sparse Mode.
-    
-    
-
-    """
-
-    _prefix = 'pim'
-    _revision = '2014-06-27'
-
-    def __init__(self):
-        super(AsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:asm-mapping-mode")
-
-
 class DmMappingMode(Identity):
     """
     The mapping is for Dense Mode.
@@ -331,36 +316,6 @@ class DmMappingMode(Identity):
 
     def __init__(self):
         super(DmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:dm-mapping-mode")
-
-
-class OtherMappingMode(Identity):
-    """
-    None of the available modes.
-    
-    
-
-    """
-
-    _prefix = 'pim'
-    _revision = '2014-06-27'
-
-    def __init__(self):
-        super(OtherMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:other-mapping-mode")
-
-
-class PimBidirMappingMode(Identity):
-    """
-    The mapping is for Bidirectional PIM.
-    
-    
-
-    """
-
-    _prefix = 'pim'
-    _revision = '2014-06-27'
-
-    def __init__(self):
-        super(PimBidirMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:pim-bidir-mapping-mode")
 
 
 class SmMappingMode(Identity):
@@ -378,6 +333,21 @@ class SmMappingMode(Identity):
         super(SmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:sm-mapping-mode")
 
 
+class PimBidirMappingMode(Identity):
+    """
+    The mapping is for Bidirectional PIM.
+    
+    
+
+    """
+
+    _prefix = 'pim'
+    _revision = '2014-06-27'
+
+    def __init__(self):
+        super(PimBidirMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:pim-bidir-mapping-mode")
+
+
 class SsmMappingMode(Identity):
     """
     The mapping is for Source Specific Mode.
@@ -391,5 +361,35 @@ class SsmMappingMode(Identity):
 
     def __init__(self):
         super(SsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:ssm-mapping-mode")
+
+
+class AsmMappingMode(Identity):
+    """
+    The mapping is for Any\-Source Multicast (ASM) with PIM Sparse Mode.
+    
+    
+
+    """
+
+    _prefix = 'pim'
+    _revision = '2014-06-27'
+
+    def __init__(self):
+        super(AsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:asm-mapping-mode")
+
+
+class OtherMappingMode(Identity):
+    """
+    None of the available modes.
+    
+    
+
+    """
+
+    _prefix = 'pim'
+    _revision = '2014-06-27'
+
+    def __init__(self):
+        super(OtherMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:other-mapping-mode")
 
 

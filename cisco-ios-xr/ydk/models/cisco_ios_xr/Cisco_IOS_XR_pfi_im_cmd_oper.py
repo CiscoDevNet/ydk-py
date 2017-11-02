@@ -4526,35 +4526,35 @@ class Interfaces(Entity):
     """
     Interface operational data
     
-    .. attribute:: interface_briefs
-    
-    	Brief operational data for interfaces
-    	**type**\:   :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs>`
-    
-    .. attribute:: interface_summary
-    
-    	Interface summary information
-    	**type**\:   :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary>`
-    
     .. attribute:: interface_xr
     
     	Detailed operational data for interfaces and configured features
     	**type**\:   :py:class:`InterfaceXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr>`
     
-    .. attribute:: interfaces
+    .. attribute:: node_type_sets
     
-    	Descriptions for interfaces
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces>`
+    	Node and/or interface type specific view of interface summary data
+    	**type**\:   :py:class:`NodeTypeSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets>`
+    
+    .. attribute:: interface_briefs
+    
+    	Brief operational data for interfaces
+    	**type**\:   :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs>`
     
     .. attribute:: inventory_summary
     
     	Inventory summary information
     	**type**\:   :py:class:`InventorySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary>`
     
-    .. attribute:: node_type_sets
+    .. attribute:: interfaces
     
-    	Node and/or interface type specific view of interface summary data
-    	**type**\:   :py:class:`NodeTypeSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets>`
+    	Descriptions for interfaces
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces>`
+    
+    .. attribute:: interface_summary
+    
+    	Interface summary information
+    	**type**\:   :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary>`
     
     
 
@@ -4571,436 +4571,39 @@ class Interfaces(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-pfi-im-cmd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"interface-briefs" : ("interface_briefs", Interfaces.InterfaceBriefs), "interface-summary" : ("interface_summary", Interfaces.InterfaceSummary), "interface-xr" : ("interface_xr", Interfaces.InterfaceXr), "interfaces" : ("interfaces", Interfaces.Interfaces), "inventory-summary" : ("inventory_summary", Interfaces.InventorySummary), "node-type-sets" : ("node_type_sets", Interfaces.NodeTypeSets)}
+        self._child_container_classes = {"interface-xr" : ("interface_xr", Interfaces.InterfaceXr), "node-type-sets" : ("node_type_sets", Interfaces.NodeTypeSets), "interface-briefs" : ("interface_briefs", Interfaces.InterfaceBriefs), "inventory-summary" : ("inventory_summary", Interfaces.InventorySummary), "interfaces" : ("interfaces", Interfaces.Interfaces), "interface-summary" : ("interface_summary", Interfaces.InterfaceSummary)}
         self._child_list_classes = {}
-
-        self.interface_briefs = Interfaces.InterfaceBriefs()
-        self.interface_briefs.parent = self
-        self._children_name_map["interface_briefs"] = "interface-briefs"
-        self._children_yang_names.add("interface-briefs")
-
-        self.interface_summary = Interfaces.InterfaceSummary()
-        self.interface_summary.parent = self
-        self._children_name_map["interface_summary"] = "interface-summary"
-        self._children_yang_names.add("interface-summary")
 
         self.interface_xr = Interfaces.InterfaceXr()
         self.interface_xr.parent = self
         self._children_name_map["interface_xr"] = "interface-xr"
         self._children_yang_names.add("interface-xr")
 
-        self.interfaces = Interfaces.Interfaces()
-        self.interfaces.parent = self
-        self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
+        self.node_type_sets = Interfaces.NodeTypeSets()
+        self.node_type_sets.parent = self
+        self._children_name_map["node_type_sets"] = "node-type-sets"
+        self._children_yang_names.add("node-type-sets")
+
+        self.interface_briefs = Interfaces.InterfaceBriefs()
+        self.interface_briefs.parent = self
+        self._children_name_map["interface_briefs"] = "interface-briefs"
+        self._children_yang_names.add("interface-briefs")
 
         self.inventory_summary = Interfaces.InventorySummary()
         self.inventory_summary.parent = self
         self._children_name_map["inventory_summary"] = "inventory-summary"
         self._children_yang_names.add("inventory-summary")
 
-        self.node_type_sets = Interfaces.NodeTypeSets()
-        self.node_type_sets.parent = self
-        self._children_name_map["node_type_sets"] = "node-type-sets"
-        self._children_yang_names.add("node-type-sets")
+        self.interfaces = Interfaces.Interfaces()
+        self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
+
+        self.interface_summary = Interfaces.InterfaceSummary()
+        self.interface_summary.parent = self
+        self._children_name_map["interface_summary"] = "interface-summary"
+        self._children_yang_names.add("interface-summary")
         self._segment_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces"
-
-
-    class InterfaceBriefs(Entity):
-        """
-        Brief operational data for interfaces
-        
-        .. attribute:: interface_brief
-        
-        	Brief operational attributes for a particular interface
-        	**type**\: list of    :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs.InterfaceBrief>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2017-06-26'
-
-        def __init__(self):
-            super(Interfaces.InterfaceBriefs, self).__init__()
-
-            self.yang_name = "interface-briefs"
-            self.yang_parent_name = "interfaces"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface-brief" : ("interface_brief", Interfaces.InterfaceBriefs.InterfaceBrief)}
-
-            self.interface_brief = YList(self)
-            self._segment_path = lambda: "interface-briefs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.InterfaceBriefs, [], name, value)
-
-
-        class InterfaceBrief(Entity):
-            """
-            Brief operational attributes for a particular
-            interface
-            
-            .. attribute:: interface_name  <key>
-            
-            	The name of the interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: actual_line_state
-            
-            	Line protocol state with no translation of error disable or shutdown
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            .. attribute:: actual_state
-            
-            	Operational state with no translation of error disable or shutdown
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            .. attribute:: bandwidth
-            
-            	Interface bandwidth (Kb/s)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: encapsulation
-            
-            	Interface encapsulation
-            	**type**\:  str
-            
-            .. attribute:: encapsulation_type_string
-            
-            	Interface encapsulation description string
-            	**type**\:  str
-            
-            	**length:** 0..32
-            
-            .. attribute:: interface
-            
-            	Interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: l2_transport
-            
-            	L2 transport
-            	**type**\:  bool
-            
-            .. attribute:: line_state
-            
-            	Line protocol state
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            .. attribute:: mtu
-            
-            	MTU in bytes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
-            .. attribute:: parent_interface
-            
-            	Parent Interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: state
-            
-            	Operational state
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            .. attribute:: sub_interface_mtu_overhead
-            
-            	Subif MTU overhead
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: type
-            
-            	Interface type
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.InterfaceBriefs.InterfaceBrief, self).__init__()
-
-                self.yang_name = "interface-brief"
-                self.yang_parent_name = "interface-briefs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.actual_line_state = YLeaf(YType.enumeration, "actual-line-state")
-
-                self.actual_state = YLeaf(YType.enumeration, "actual-state")
-
-                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                self.encapsulation = YLeaf(YType.str, "encapsulation")
-
-                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
-
-                self.interface = YLeaf(YType.str, "interface")
-
-                self.l2_transport = YLeaf(YType.boolean, "l2-transport")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.mtu = YLeaf(YType.uint32, "mtu")
-
-                self.parent_interface = YLeaf(YType.str, "parent-interface")
-
-                self.state = YLeaf(YType.enumeration, "state")
-
-                self.sub_interface_mtu_overhead = YLeaf(YType.uint32, "sub-interface-mtu-overhead")
-
-                self.type = YLeaf(YType.str, "type")
-                self._segment_path = lambda: "interface-brief" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-briefs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', 'actual_line_state', 'actual_state', 'bandwidth', 'encapsulation', 'encapsulation_type_string', 'interface', 'l2_transport', 'line_state', 'mtu', 'parent_interface', 'state', 'sub_interface_mtu_overhead', 'type'], name, value)
-
-
-    class InterfaceSummary(Entity):
-        """
-        Interface summary information
-        
-        .. attribute:: interface_counts
-        
-        	Counts for all interfaces
-        	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceCounts>`
-        
-        .. attribute:: interface_type
-        
-        	List of per interface type summary information
-        	**type**\: list of    :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2017-06-26'
-
-        def __init__(self):
-            super(Interfaces.InterfaceSummary, self).__init__()
-
-            self.yang_name = "interface-summary"
-            self.yang_parent_name = "interfaces"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceCounts)}
-            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InterfaceSummary.InterfaceType)}
-
-            self.interface_counts = Interfaces.InterfaceSummary.InterfaceCounts()
-            self.interface_counts.parent = self
-            self._children_name_map["interface_counts"] = "interface-counts"
-            self._children_yang_names.add("interface-counts")
-
-            self.interface_type = YList(self)
-            self._segment_path = lambda: "interface-summary"
-            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.InterfaceSummary, [], name, value)
-
-
-        class InterfaceCounts(Entity):
-            """
-            Counts for all interfaces
-            
-            .. attribute:: admin_down_interface_count
-            
-            	Number of interfaces in an ADMINDOWN state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: down_interface_count
-            
-            	Number of interfaces in DOWN state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: interface_count
-            
-            	Number of interfaces
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: up_interface_count
-            
-            	Number of interfaces in UP state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.InterfaceSummary.InterfaceCounts, self).__init__()
-
-                self.yang_name = "interface-counts"
-                self.yang_parent_name = "interface-summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-                self._segment_path = lambda: "interface-counts"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
-
-
-        class InterfaceType(Entity):
-            """
-            List of per interface type summary information
-            
-            .. attribute:: interface_counts
-            
-            	Counts for interfaces of this type
-            	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts>`
-            
-            .. attribute:: interface_type_description
-            
-            	Description of the interface type
-            	**type**\:  str
-            
-            .. attribute:: interface_type_name
-            
-            	Name of the interface type
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.InterfaceSummary.InterfaceType, self).__init__()
-
-                self.yang_name = "interface-type"
-                self.yang_parent_name = "interface-summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts)}
-                self._child_list_classes = {}
-
-                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
-
-                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
-
-                self.interface_counts = Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts()
-                self.interface_counts.parent = self
-                self._children_name_map["interface_counts"] = "interface-counts"
-                self._children_yang_names.add("interface-counts")
-                self._segment_path = lambda: "interface-type"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, ['interface_type_description', 'interface_type_name'], name, value)
-
-
-            class InterfaceCounts(Entity):
-                """
-                Counts for interfaces of this type
-                
-                .. attribute:: admin_down_interface_count
-                
-                	Number of interfaces in an ADMINDOWN state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_interface_count
-                
-                	Number of interfaces in DOWN state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interface_count
-                
-                	Number of interfaces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_interface_count
-                
-                	Number of interfaces in UP state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
-
-                    self.yang_name = "interface-counts"
-                    self.yang_parent_name = "interface-type"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                    self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-                    self._segment_path = lambda: "interface-counts"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/interface-type/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
 
 
     class InterfaceXr(Entity):
@@ -5048,19 +4651,15 @@ class Interfaces(Entity):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: dampening_information
             
-            .. attribute:: arp_information
+            	State dampening information
+            	**type**\:   :py:class:`DampeningInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DampeningInformation>`
             
-            	Interface ARP type and timeout
-            	**type**\:   :py:class:`ArpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.ArpInformation>`
+            .. attribute:: mac_address
             
-            .. attribute:: bandwidth
-            
-            	Interface bandwidth (Kb/s)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	Interface MAC address
+            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.MacAddress>`
             
             .. attribute:: burned_in_address
             
@@ -5072,54 +4671,55 @@ class Interfaces(Entity):
             	Carrier Delay
             	**type**\:   :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.CarrierDelay>`
             
-            .. attribute:: crc_length
+            .. attribute:: arp_information
             
-            	Cyclic Redundancy Check length
-            	**type**\:  int
+            	Interface ARP type and timeout
+            	**type**\:   :py:class:`ArpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.ArpInformation>`
             
-            	**range:** 0..4294967295
+            .. attribute:: ip_information
             
-            .. attribute:: dampening_information
-            
-            	State dampening information
-            	**type**\:   :py:class:`DampeningInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DampeningInformation>`
-            
-            .. attribute:: data_rates
-            
-            	Packet and byte rates
-            	**type**\:   :py:class:`DataRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DataRates>`
-            
-            .. attribute:: description
-            
-            	Interface description string
-            	**type**\:  str
-            
-            .. attribute:: duplexity
-            
-            	Interface duplexity
-            	**type**\:   :py:class:`ImAttrDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplex>`
-            
-            .. attribute:: encapsulation
-            
-            	Interface encapsulation
-            	**type**\:  str
+            	Interface IP address info
+            	**type**\:   :py:class:`IpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.IpInformation>`
             
             .. attribute:: encapsulation_information
             
             	Information specific to the encapsulation
             	**type**\:   :py:class:`EncapsulationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation>`
             
-            .. attribute:: encapsulation_type_string
+            .. attribute:: interface_type_information
             
-            	Interface encapsulation description string
+            	Information specific to the interface type
+            	**type**\:   :py:class:`InterfaceTypeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation>`
+            
+            .. attribute:: data_rates
+            
+            	Packet and byte rates
+            	**type**\:   :py:class:`DataRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.DataRates>`
+            
+            .. attribute:: interface_statistics
+            
+            	Packet, byte and error counters
+            	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics>`
+            
+            .. attribute:: l2_interface_statistics
+            
+            	L2 Protocol Statistics
+            	**type**\:   :py:class:`L2InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics>`
+            
+            .. attribute:: nv_optical
+            
+            	nV Optical Controller Information
+            	**type**\:   :py:class:`NvOptical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.NvOptical>`
+            
+            .. attribute:: interface_handle
+            
+            	Interface name
             	**type**\:  str
             
-            	**length:** 0..32
+            .. attribute:: interface_type
             
-            .. attribute:: fast_shutdown
-            
-            	Fast Shutdown flag
-            	**type**\:  bool
+            	Interface type
+            	**type**\:  str
             
             .. attribute:: hardware_type_string
             
@@ -5128,123 +4728,27 @@ class Interfaces(Entity):
             
             	**length:** 0..64
             
-            .. attribute:: if_index
+            .. attribute:: state
             
-            	This is not supposed to be used. It is a dummy attribute to support ifindex for OC model
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: in_flow_control
-            
-            	Input flow control configuration
-            	**type**\:   :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
-            
-            .. attribute:: interface_handle
-            
-            	Interface name
-            	**type**\:  str
-            
-            .. attribute:: interface_statistics
-            
-            	Packet, byte and error counters
-            	**type**\:   :py:class:`InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics>`
-            
-            .. attribute:: interface_type
-            
-            	Interface type
-            	**type**\:  str
-            
-            .. attribute:: interface_type_information
-            
-            	Information specific to the interface type
-            	**type**\:   :py:class:`InterfaceTypeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation>`
-            
-            .. attribute:: ip_information
-            
-            	Interface IP address info
-            	**type**\:   :py:class:`IpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.IpInformation>`
-            
-            .. attribute:: is_dampening_enabled
-            
-            	Dampening enabled flag
-            	**type**\:  bool
-            
-            .. attribute:: is_data_inverted
-            
-            	Data invert flag
-            	**type**\:  bool
-            
-            .. attribute:: is_l2_looped
-            
-            	Loopback detected by layer 2
-            	**type**\:  bool
-            
-            .. attribute:: is_l2_transport_enabled
-            
-            	L2 transport flag
-            	**type**\:  bool
-            
-            .. attribute:: is_maintenance_enabled
-            
-            	Maintenance embargo flag
-            	**type**\:  bool
-            
-            .. attribute:: is_scramble_enabled
-            
-            	Interface scramble config
-            	**type**\:  bool
-            
-            .. attribute:: keepalive
-            
-            	Interface keepalive time (s)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: l2_interface_statistics
-            
-            	L2 Protocol Statistics
-            	**type**\:   :py:class:`L2InterfaceStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics>`
-            
-            .. attribute:: last_state_transition_time
-            
-            	The time elasped after the last state transition
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	Interface state
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
             .. attribute:: line_state
             
             	Line protocol state
             	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
             
-            .. attribute:: link_type
+            .. attribute:: encapsulation
             
-            	Interface link type
-            	**type**\:   :py:class:`ImAttrLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLink>`
+            	Interface encapsulation
+            	**type**\:  str
             
-            .. attribute:: loopback_configuration
+            .. attribute:: encapsulation_type_string
             
-            	Interface loopback configuration
-            	**type**\:   :py:class:`ImCmdLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnum>`
+            	Interface encapsulation description string
+            	**type**\:  str
             
-            .. attribute:: mac_address
-            
-            	Interface MAC address
-            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.MacAddress>`
-            
-            .. attribute:: max_bandwidth
-            
-            	Maximum Interface bandwidth (Kb/s)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: media_type
-            
-            	Interface media type
-            	**type**\:   :py:class:`ImAttrMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMedia>`
+            	**length:** 0..32
             
             .. attribute:: mtu
             
@@ -5255,34 +4759,10 @@ class Interfaces(Entity):
             
             	**units**\: byte
             
-            .. attribute:: nv_optical
+            .. attribute:: is_l2_transport_enabled
             
-            	nV Optical Controller Information
-            	**type**\:   :py:class:`NvOptical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.NvOptical>`
-            
-            .. attribute:: out_flow_control
-            
-            	Output flow control configuration
-            	**type**\:   :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
-            
-            .. attribute:: parent_interface_name
-            
-            	Parent interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: speed
-            
-            	Interface speed (Kb/s)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: state
-            
-            	Interface state
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            	L2 transport flag
+            	**type**\:  bool
             
             .. attribute:: state_transition_count
             
@@ -5291,10 +4771,129 @@ class Interfaces(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: last_state_transition_time
+            
+            	The time elasped after the last state transition
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_dampening_enabled
+            
+            	Dampening enabled flag
+            	**type**\:  bool
+            
+            .. attribute:: speed
+            
+            	Interface speed (Kb/s)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: crc_length
+            
+            	Cyclic Redundancy Check length
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_scramble_enabled
+            
+            	Interface scramble config
+            	**type**\:  bool
+            
+            .. attribute:: duplexity
+            
+            	Interface duplexity
+            	**type**\:   :py:class:`ImAttrDuplex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrDuplex>`
+            
+            .. attribute:: media_type
+            
+            	Interface media type
+            	**type**\:   :py:class:`ImAttrMedia <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrMedia>`
+            
+            .. attribute:: link_type
+            
+            	Interface link type
+            	**type**\:   :py:class:`ImAttrLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrLink>`
+            
+            .. attribute:: in_flow_control
+            
+            	Input flow control configuration
+            	**type**\:   :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
+            
+            .. attribute:: out_flow_control
+            
+            	Output flow control configuration
+            	**type**\:   :py:class:`ImAttrFlowControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrFlowControl>`
+            
+            .. attribute:: bandwidth
+            
+            	Interface bandwidth (Kb/s)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: max_bandwidth
+            
+            	Maximum Interface bandwidth (Kb/s)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: keepalive
+            
+            	Interface keepalive time (s)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_l2_looped
+            
+            	Loopback detected by layer 2
+            	**type**\:  bool
+            
+            .. attribute:: parent_interface_name
+            
+            	Parent interface
+            	**type**\:  str
+            
+            .. attribute:: loopback_configuration
+            
+            	Interface loopback configuration
+            	**type**\:   :py:class:`ImCmdLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLoopbackEnum>`
+            
+            .. attribute:: description
+            
+            	Interface description string
+            	**type**\:  str
+            
+            .. attribute:: is_maintenance_enabled
+            
+            	Maintenance embargo flag
+            	**type**\:  bool
+            
+            .. attribute:: is_data_inverted
+            
+            	Data invert flag
+            	**type**\:  bool
+            
             .. attribute:: transport_mode
             
             	Interface transport mode
             	**type**\:   :py:class:`ImAttrTransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImAttrTransportMode>`
+            
+            .. attribute:: fast_shutdown
+            
+            	Fast Shutdown flag
+            	**type**\:  bool
+            
+            .. attribute:: if_index
+            
+            	This is not supposed to be used. It is a dummy attribute to support ifindex for OC model
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -5310,79 +4909,84 @@ class Interfaces(Entity):
                 self.yang_parent_name = "interface-xr"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"arp-information" : ("arp_information", Interfaces.InterfaceXr.Interface.ArpInformation), "burned-in-address" : ("burned_in_address", Interfaces.InterfaceXr.Interface.BurnedInAddress), "carrier-delay" : ("carrier_delay", Interfaces.InterfaceXr.Interface.CarrierDelay), "dampening-information" : ("dampening_information", Interfaces.InterfaceXr.Interface.DampeningInformation), "data-rates" : ("data_rates", Interfaces.InterfaceXr.Interface.DataRates), "encapsulation-information" : ("encapsulation_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation), "interface-statistics" : ("interface_statistics", Interfaces.InterfaceXr.Interface.InterfaceStatistics), "interface-type-information" : ("interface_type_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation), "ip-information" : ("ip_information", Interfaces.InterfaceXr.Interface.IpInformation), "l2-interface-statistics" : ("l2_interface_statistics", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.MacAddress), "nv-optical" : ("nv_optical", Interfaces.InterfaceXr.Interface.NvOptical)}
+                self._child_container_classes = {"dampening-information" : ("dampening_information", Interfaces.InterfaceXr.Interface.DampeningInformation), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.MacAddress), "burned-in-address" : ("burned_in_address", Interfaces.InterfaceXr.Interface.BurnedInAddress), "carrier-delay" : ("carrier_delay", Interfaces.InterfaceXr.Interface.CarrierDelay), "arp-information" : ("arp_information", Interfaces.InterfaceXr.Interface.ArpInformation), "ip-information" : ("ip_information", Interfaces.InterfaceXr.Interface.IpInformation), "encapsulation-information" : ("encapsulation_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation), "interface-type-information" : ("interface_type_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation), "data-rates" : ("data_rates", Interfaces.InterfaceXr.Interface.DataRates), "interface-statistics" : ("interface_statistics", Interfaces.InterfaceXr.Interface.InterfaceStatistics), "l2-interface-statistics" : ("l2_interface_statistics", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics), "nv-optical" : ("nv_optical", Interfaces.InterfaceXr.Interface.NvOptical)}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                self.crc_length = YLeaf(YType.uint32, "crc-length")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.duplexity = YLeaf(YType.enumeration, "duplexity")
-
-                self.encapsulation = YLeaf(YType.str, "encapsulation")
-
-                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
-
-                self.fast_shutdown = YLeaf(YType.boolean, "fast-shutdown")
-
-                self.hardware_type_string = YLeaf(YType.str, "hardware-type-string")
-
-                self.if_index = YLeaf(YType.uint32, "if-index")
-
-                self.in_flow_control = YLeaf(YType.enumeration, "in-flow-control")
 
                 self.interface_handle = YLeaf(YType.str, "interface-handle")
 
                 self.interface_type = YLeaf(YType.str, "interface-type")
 
-                self.is_dampening_enabled = YLeaf(YType.boolean, "is-dampening-enabled")
-
-                self.is_data_inverted = YLeaf(YType.boolean, "is-data-inverted")
-
-                self.is_l2_looped = YLeaf(YType.boolean, "is-l2-looped")
-
-                self.is_l2_transport_enabled = YLeaf(YType.boolean, "is-l2-transport-enabled")
-
-                self.is_maintenance_enabled = YLeaf(YType.boolean, "is-maintenance-enabled")
-
-                self.is_scramble_enabled = YLeaf(YType.boolean, "is-scramble-enabled")
-
-                self.keepalive = YLeaf(YType.uint32, "keepalive")
-
-                self.last_state_transition_time = YLeaf(YType.uint32, "last-state-transition-time")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.link_type = YLeaf(YType.enumeration, "link-type")
-
-                self.loopback_configuration = YLeaf(YType.enumeration, "loopback-configuration")
-
-                self.max_bandwidth = YLeaf(YType.uint32, "max-bandwidth")
-
-                self.media_type = YLeaf(YType.enumeration, "media-type")
-
-                self.mtu = YLeaf(YType.uint32, "mtu")
-
-                self.out_flow_control = YLeaf(YType.enumeration, "out-flow-control")
-
-                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
-
-                self.speed = YLeaf(YType.uint32, "speed")
+                self.hardware_type_string = YLeaf(YType.str, "hardware-type-string")
 
                 self.state = YLeaf(YType.enumeration, "state")
 
+                self.line_state = YLeaf(YType.enumeration, "line-state")
+
+                self.encapsulation = YLeaf(YType.str, "encapsulation")
+
+                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
+
+                self.mtu = YLeaf(YType.uint32, "mtu")
+
+                self.is_l2_transport_enabled = YLeaf(YType.boolean, "is-l2-transport-enabled")
+
                 self.state_transition_count = YLeaf(YType.uint32, "state-transition-count")
+
+                self.last_state_transition_time = YLeaf(YType.uint32, "last-state-transition-time")
+
+                self.is_dampening_enabled = YLeaf(YType.boolean, "is-dampening-enabled")
+
+                self.speed = YLeaf(YType.uint32, "speed")
+
+                self.crc_length = YLeaf(YType.uint32, "crc-length")
+
+                self.is_scramble_enabled = YLeaf(YType.boolean, "is-scramble-enabled")
+
+                self.duplexity = YLeaf(YType.enumeration, "duplexity")
+
+                self.media_type = YLeaf(YType.enumeration, "media-type")
+
+                self.link_type = YLeaf(YType.enumeration, "link-type")
+
+                self.in_flow_control = YLeaf(YType.enumeration, "in-flow-control")
+
+                self.out_flow_control = YLeaf(YType.enumeration, "out-flow-control")
+
+                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+
+                self.max_bandwidth = YLeaf(YType.uint32, "max-bandwidth")
+
+                self.keepalive = YLeaf(YType.uint32, "keepalive")
+
+                self.is_l2_looped = YLeaf(YType.boolean, "is-l2-looped")
+
+                self.parent_interface_name = YLeaf(YType.str, "parent-interface-name")
+
+                self.loopback_configuration = YLeaf(YType.enumeration, "loopback-configuration")
+
+                self.description = YLeaf(YType.str, "description")
+
+                self.is_maintenance_enabled = YLeaf(YType.boolean, "is-maintenance-enabled")
+
+                self.is_data_inverted = YLeaf(YType.boolean, "is-data-inverted")
 
                 self.transport_mode = YLeaf(YType.enumeration, "transport-mode")
 
-                self.arp_information = Interfaces.InterfaceXr.Interface.ArpInformation()
-                self.arp_information.parent = self
-                self._children_name_map["arp_information"] = "arp-information"
-                self._children_yang_names.add("arp-information")
+                self.fast_shutdown = YLeaf(YType.boolean, "fast-shutdown")
+
+                self.if_index = YLeaf(YType.uint32, "if-index")
+
+                self.dampening_information = Interfaces.InterfaceXr.Interface.DampeningInformation()
+                self.dampening_information.parent = self
+                self._children_name_map["dampening_information"] = "dampening-information"
+                self._children_yang_names.add("dampening-information")
+
+                self.mac_address = Interfaces.InterfaceXr.Interface.MacAddress()
+                self.mac_address.parent = self
+                self._children_name_map["mac_address"] = "mac-address"
+                self._children_yang_names.add("mac-address")
 
                 self.burned_in_address = Interfaces.InterfaceXr.Interface.BurnedInAddress()
                 self.burned_in_address.parent = self
@@ -5394,45 +4998,40 @@ class Interfaces(Entity):
                 self._children_name_map["carrier_delay"] = "carrier-delay"
                 self._children_yang_names.add("carrier-delay")
 
-                self.dampening_information = Interfaces.InterfaceXr.Interface.DampeningInformation()
-                self.dampening_information.parent = self
-                self._children_name_map["dampening_information"] = "dampening-information"
-                self._children_yang_names.add("dampening-information")
-
-                self.data_rates = Interfaces.InterfaceXr.Interface.DataRates()
-                self.data_rates.parent = self
-                self._children_name_map["data_rates"] = "data-rates"
-                self._children_yang_names.add("data-rates")
-
-                self.encapsulation_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation()
-                self.encapsulation_information.parent = self
-                self._children_name_map["encapsulation_information"] = "encapsulation-information"
-                self._children_yang_names.add("encapsulation-information")
-
-                self.interface_statistics = Interfaces.InterfaceXr.Interface.InterfaceStatistics()
-                self.interface_statistics.parent = self
-                self._children_name_map["interface_statistics"] = "interface-statistics"
-                self._children_yang_names.add("interface-statistics")
-
-                self.interface_type_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation()
-                self.interface_type_information.parent = self
-                self._children_name_map["interface_type_information"] = "interface-type-information"
-                self._children_yang_names.add("interface-type-information")
+                self.arp_information = Interfaces.InterfaceXr.Interface.ArpInformation()
+                self.arp_information.parent = self
+                self._children_name_map["arp_information"] = "arp-information"
+                self._children_yang_names.add("arp-information")
 
                 self.ip_information = Interfaces.InterfaceXr.Interface.IpInformation()
                 self.ip_information.parent = self
                 self._children_name_map["ip_information"] = "ip-information"
                 self._children_yang_names.add("ip-information")
 
+                self.encapsulation_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation()
+                self.encapsulation_information.parent = self
+                self._children_name_map["encapsulation_information"] = "encapsulation-information"
+                self._children_yang_names.add("encapsulation-information")
+
+                self.interface_type_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation()
+                self.interface_type_information.parent = self
+                self._children_name_map["interface_type_information"] = "interface-type-information"
+                self._children_yang_names.add("interface-type-information")
+
+                self.data_rates = Interfaces.InterfaceXr.Interface.DataRates()
+                self.data_rates.parent = self
+                self._children_name_map["data_rates"] = "data-rates"
+                self._children_yang_names.add("data-rates")
+
+                self.interface_statistics = Interfaces.InterfaceXr.Interface.InterfaceStatistics()
+                self.interface_statistics.parent = self
+                self._children_name_map["interface_statistics"] = "interface-statistics"
+                self._children_yang_names.add("interface-statistics")
+
                 self.l2_interface_statistics = Interfaces.InterfaceXr.Interface.L2InterfaceStatistics()
                 self.l2_interface_statistics.parent = self
                 self._children_name_map["l2_interface_statistics"] = "l2-interface-statistics"
                 self._children_yang_names.add("l2-interface-statistics")
-
-                self.mac_address = Interfaces.InterfaceXr.Interface.MacAddress()
-                self.mac_address.parent = self
-                self._children_name_map["mac_address"] = "mac-address"
-                self._children_yang_names.add("mac-address")
 
                 self.nv_optical = Interfaces.InterfaceXr.Interface.NvOptical()
                 self.nv_optical.parent = self
@@ -5442,30 +5041,118 @@ class Interfaces(Entity):
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', 'bandwidth', 'crc_length', 'description', 'duplexity', 'encapsulation', 'encapsulation_type_string', 'fast_shutdown', 'hardware_type_string', 'if_index', 'in_flow_control', 'interface_handle', 'interface_type', 'is_dampening_enabled', 'is_data_inverted', 'is_l2_looped', 'is_l2_transport_enabled', 'is_maintenance_enabled', 'is_scramble_enabled', 'keepalive', 'last_state_transition_time', 'line_state', 'link_type', 'loopback_configuration', 'max_bandwidth', 'media_type', 'mtu', 'out_flow_control', 'parent_interface_name', 'speed', 'state', 'state_transition_count', 'transport_mode'], name, value)
+                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', 'interface_handle', 'interface_type', 'hardware_type_string', 'state', 'line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'is_l2_transport_enabled', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'speed', 'crc_length', 'is_scramble_enabled', 'duplexity', 'media_type', 'link_type', 'in_flow_control', 'out_flow_control', 'bandwidth', 'max_bandwidth', 'keepalive', 'is_l2_looped', 'parent_interface_name', 'loopback_configuration', 'description', 'is_maintenance_enabled', 'is_data_inverted', 'transport_mode', 'fast_shutdown', 'if_index'], name, value)
 
 
-            class ArpInformation(Entity):
+            class DampeningInformation(Entity):
                 """
-                Interface ARP type and timeout
+                State dampening information
                 
-                .. attribute:: arp_is_learning_disabled
+                .. attribute:: penalty
                 
-                	Whether the interface has dynamic learning disabled
+                	Dampening penalty of the interface
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: is_suppressed_enabled
+                
+                	Flag showing if state is suppressed
                 	**type**\:  bool
                 
-                .. attribute:: arp_timeout
+                .. attribute:: seconds_remaining
                 
-                	ARP timeout in seconds. Only valid if 'ARPIsLearningDisabled' is 'false'
+                	Remaining period of suppression in secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 	**units**\: second
                 
-                .. attribute:: arp_type_name
+                .. attribute:: half_life
                 
-                	ARP type name
+                	Configured decay half life in mins
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: minute
+                
+                .. attribute:: reuse_threshold
+                
+                	Configured reuse threshold
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: suppress_threshold
+                
+                	Value of suppress threshold
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: maximum_suppress_time
+                
+                	Maximum suppress time in mins
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: minute
+                
+                .. attribute:: restart_penalty
+                
+                	Configured restart penalty
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(Interfaces.InterfaceXr.Interface.DampeningInformation, self).__init__()
+
+                    self.yang_name = "dampening-information"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.penalty = YLeaf(YType.uint32, "penalty")
+
+                    self.is_suppressed_enabled = YLeaf(YType.boolean, "is-suppressed-enabled")
+
+                    self.seconds_remaining = YLeaf(YType.uint32, "seconds-remaining")
+
+                    self.half_life = YLeaf(YType.uint32, "half-life")
+
+                    self.reuse_threshold = YLeaf(YType.uint32, "reuse-threshold")
+
+                    self.suppress_threshold = YLeaf(YType.uint32, "suppress-threshold")
+
+                    self.maximum_suppress_time = YLeaf(YType.uint32, "maximum-suppress-time")
+
+                    self.restart_penalty = YLeaf(YType.uint32, "restart-penalty")
+                    self._segment_path = lambda: "dampening-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
+
+
+            class MacAddress(Entity):
+                """
+                Interface MAC address
+                
+                .. attribute:: address
+                
+                	MAC Address
                 	**type**\:  str
                 
                 
@@ -5476,24 +5163,20 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.ArpInformation, self).__init__()
+                    super(Interfaces.InterfaceXr.Interface.MacAddress, self).__init__()
 
-                    self.yang_name = "arp-information"
+                    self.yang_name = "mac-address"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.arp_is_learning_disabled = YLeaf(YType.boolean, "arp-is-learning-disabled")
-
-                    self.arp_timeout = YLeaf(YType.uint32, "arp-timeout")
-
-                    self.arp_type_name = YLeaf(YType.str, "arp-type-name")
-                    self._segment_path = lambda: "arp-information"
+                    self.address = YLeaf(YType.str, "address")
+                    self._segment_path = lambda: "mac-address"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_is_learning_disabled', 'arp_timeout', 'arp_type_name'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
 
 
             class BurnedInAddress(Entity):
@@ -5504,8 +5187,6 @@ class Interfaces(Entity):
                 
                 	MAC Address
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 
 
@@ -5535,16 +5216,16 @@ class Interfaces(Entity):
                 """
                 Carrier Delay
                 
-                .. attribute:: carrier_delay_down
+                .. attribute:: carrier_delay_up
                 
-                	Carrier delay on state down (ms)
+                	Carrier delay on state up (ms)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: carrier_delay_up
+                .. attribute:: carrier_delay_down
                 
-                	Carrier delay on state up (ms)
+                	Carrier delay on state down (ms)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -5566,75 +5247,78 @@ class Interfaces(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.carrier_delay_down = YLeaf(YType.uint32, "carrier-delay-down")
-
                     self.carrier_delay_up = YLeaf(YType.uint32, "carrier-delay-up")
+
+                    self.carrier_delay_down = YLeaf(YType.uint32, "carrier-delay-down")
                     self._segment_path = lambda: "carrier-delay"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_down', 'carrier_delay_up'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_up', 'carrier_delay_down'], name, value)
 
 
-            class DampeningInformation(Entity):
+            class ArpInformation(Entity):
                 """
-                State dampening information
+                Interface ARP type and timeout
                 
-                .. attribute:: half_life
+                .. attribute:: arp_timeout
                 
-                	Configured decay half life in mins
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: minute
-                
-                .. attribute:: is_suppressed_enabled
-                
-                	Flag showing if state is suppressed
-                	**type**\:  bool
-                
-                .. attribute:: maximum_suppress_time
-                
-                	Maximum suppress time in mins
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: minute
-                
-                .. attribute:: penalty
-                
-                	Dampening penalty of the interface
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: restart_penalty
-                
-                	Configured restart penalty
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: reuse_threshold
-                
-                	Configured reuse threshold
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: seconds_remaining
-                
-                	Remaining period of suppression in secs
+                	ARP timeout in seconds. Only valid if 'ARPIsLearningDisabled' is 'false'
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
                 
                 	**units**\: second
                 
-                .. attribute:: suppress_threshold
+                .. attribute:: arp_type_name
                 
-                	Value of suppress threshold
+                	ARP type name
+                	**type**\:  str
+                
+                .. attribute:: arp_is_learning_disabled
+                
+                	Whether the interface has dynamic learning disabled
+                	**type**\:  bool
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(Interfaces.InterfaceXr.Interface.ArpInformation, self).__init__()
+
+                    self.yang_name = "arp-information"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.arp_timeout = YLeaf(YType.uint32, "arp-timeout")
+
+                    self.arp_type_name = YLeaf(YType.str, "arp-type-name")
+
+                    self.arp_is_learning_disabled = YLeaf(YType.boolean, "arp-is-learning-disabled")
+                    self._segment_path = lambda: "arp-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_timeout', 'arp_type_name', 'arp_is_learning_disabled'], name, value)
+
+
+            class IpInformation(Entity):
+                """
+                Interface IP address info
+                
+                .. attribute:: ip_address
+                
+                	Interface IPv4 address
+                	**type**\:  str
+                
+                .. attribute:: subnet_mask_length
+                
+                	Interface subnet mask length
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -5647,212 +5331,47 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.DampeningInformation, self).__init__()
+                    super(Interfaces.InterfaceXr.Interface.IpInformation, self).__init__()
 
-                    self.yang_name = "dampening-information"
+                    self.yang_name = "ip-information"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.half_life = YLeaf(YType.uint32, "half-life")
+                    self.ip_address = YLeaf(YType.str, "ip-address")
 
-                    self.is_suppressed_enabled = YLeaf(YType.boolean, "is-suppressed-enabled")
-
-                    self.maximum_suppress_time = YLeaf(YType.uint32, "maximum-suppress-time")
-
-                    self.penalty = YLeaf(YType.uint32, "penalty")
-
-                    self.restart_penalty = YLeaf(YType.uint32, "restart-penalty")
-
-                    self.reuse_threshold = YLeaf(YType.uint32, "reuse-threshold")
-
-                    self.seconds_remaining = YLeaf(YType.uint32, "seconds-remaining")
-
-                    self.suppress_threshold = YLeaf(YType.uint32, "suppress-threshold")
-                    self._segment_path = lambda: "dampening-information"
+                    self.subnet_mask_length = YLeaf(YType.uint32, "subnet-mask-length")
+                    self._segment_path = lambda: "ip-information"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['half_life', 'is_suppressed_enabled', 'maximum_suppress_time', 'penalty', 'restart_penalty', 'reuse_threshold', 'seconds_remaining', 'suppress_threshold'], name, value)
-
-
-            class DataRates(Entity):
-                """
-                Packet and byte rates
-                
-                .. attribute:: bandwidth
-                
-                	Bandwidth (in kbps)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: kbit/s
-                
-                .. attribute:: input_data_rate
-                
-                	Input data rate in 1000's of bps
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: bit/s
-                
-                .. attribute:: input_load
-                
-                	Input load as fraction of 255
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: input_packet_rate
-                
-                	Input packets per second
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: packet/s
-                
-                .. attribute:: load_interval
-                
-                	Number of 30\-sec intervals less one
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: output_data_rate
-                
-                	Output data rate in 1000's of bps
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: bit/s
-                
-                .. attribute:: output_load
-                
-                	Output load as fraction of 255
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: output_packet_rate
-                
-                	Output packets per second
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: packet/s
-                
-                .. attribute:: peak_input_data_rate
-                
-                	Peak input data rate
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_input_packet_rate
-                
-                	Peak input packet rate
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_data_rate
-                
-                	Peak output data rate
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: peak_output_packet_rate
-                
-                	Peak output packet rate
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: reliability
-                
-                	Reliability coefficient
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.DataRates, self).__init__()
-
-                    self.yang_name = "data-rates"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                    self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
-
-                    self.input_load = YLeaf(YType.uint8, "input-load")
-
-                    self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
-
-                    self.load_interval = YLeaf(YType.uint32, "load-interval")
-
-                    self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
-
-                    self.output_load = YLeaf(YType.uint8, "output-load")
-
-                    self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
-
-                    self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
-
-                    self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
-
-                    self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
-
-                    self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
-
-                    self.reliability = YLeaf(YType.uint8, "reliability")
-                    self._segment_path = lambda: "data-rates"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['bandwidth', 'input_data_rate', 'input_load', 'input_packet_rate', 'load_interval', 'output_data_rate', 'output_load', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'reliability'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
 
 
             class EncapsulationInformation(Entity):
                 """
                 Information specific to the encapsulation
                 
-                .. attribute:: dot1q_information
-                
-                	VLAN 802.1q information
-                	**type**\:   :py:class:`Dot1QInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation>`
-                
-                .. attribute:: encapsulation_type
-                
-                	EncapsulationType
-                	**type**\:   :py:class:`ImCmdEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnum>`
-                
                 .. attribute:: frame_relay_information
                 
                 	Frame Relay information
                 	**type**\:   :py:class:`FrameRelayInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation>`
                 
+                .. attribute:: dot1q_information
+                
+                	VLAN 802.1q information
+                	**type**\:   :py:class:`Dot1QInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation>`
+                
                 .. attribute:: ppp_information
                 
                 	PPP information
                 	**type**\:   :py:class:`PppInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation>`
+                
+                .. attribute:: encapsulation_type
+                
+                	EncapsulationType
+                	**type**\:   :py:class:`ImCmdEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdEncapsEnum>`
                 
                 
 
@@ -5868,20 +5387,20 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"dot1q-information" : ("dot1q_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation), "frame-relay-information" : ("frame_relay_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation), "ppp-information" : ("ppp_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation)}
+                    self._child_container_classes = {"frame-relay-information" : ("frame_relay_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation), "dot1q-information" : ("dot1q_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation), "ppp-information" : ("ppp_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation)}
                     self._child_list_classes = {}
 
                     self.encapsulation_type = YLeaf(YType.enumeration, "encapsulation-type")
-
-                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation()
-                    self.dot1q_information.parent = self
-                    self._children_name_map["dot1q_information"] = "dot1q-information"
-                    self._children_yang_names.add("dot1q-information")
 
                     self.frame_relay_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation()
                     self.frame_relay_information.parent = self
                     self._children_name_map["frame_relay_information"] = "frame-relay-information"
                     self._children_yang_names.add("frame-relay-information")
+
+                    self.dot1q_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation()
+                    self.dot1q_information.parent = self
+                    self._children_name_map["dot1q_information"] = "dot1q-information"
+                    self._children_yang_names.add("dot1q-information")
 
                     self.ppp_information = Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation()
                     self.ppp_information.parent = self
@@ -5891,6 +5410,144 @@ class Interfaces(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, ['encapsulation_type'], name, value)
+
+
+                class FrameRelayInformation(Entity):
+                    """
+                    Frame Relay information
+                    
+                    .. attribute:: fr_encapsulation_type
+                    
+                    	Frame Relay encapsulation type
+                    	**type**\:   :py:class:`ImCmdFrTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnum>`
+                    
+                    .. attribute:: lmi_type
+                    
+                    	The LMI type\: Autosense, ANSI, CCITT or CISCO
+                    	**type**\:   :py:class:`ImCmdLmiTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnum>`
+                    
+                    .. attribute:: lmidlci
+                    
+                    	LMI DLCI
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_nni
+                    
+                    	The NNI LMI interface type
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_dte
+                    
+                    	The DTE/DCE LMI interface type
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_lmi_up
+                    
+                    	Flag indicating whether the LMI  DTE/DCE/NNI\-DTE state is UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_lmi_nni_dce_up
+                    
+                    	Flag indicating whether the LMI  NNI\-DCE state is UP
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_lmi_enabled
+                    
+                    	The status of FR LMI for an interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: enquiries_received
+                    
+                    	Number of enquiry messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: enquiries_sent
+                    
+                    	Number of enquiry messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: status_received
+                    
+                    	Number of status messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: status_sent
+                    
+                    	Number of status messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: update_status_received
+                    
+                    	Number of update status messages received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: update_status_sent
+                    
+                    	Number of update status messages sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, self).__init__()
+
+                        self.yang_name = "frame-relay-information"
+                        self.yang_parent_name = "encapsulation-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.fr_encapsulation_type = YLeaf(YType.enumeration, "fr-encapsulation-type")
+
+                        self.lmi_type = YLeaf(YType.enumeration, "lmi-type")
+
+                        self.lmidlci = YLeaf(YType.uint32, "lmidlci")
+
+                        self.is_nni = YLeaf(YType.boolean, "is-nni")
+
+                        self.is_dte = YLeaf(YType.boolean, "is-dte")
+
+                        self.is_lmi_up = YLeaf(YType.boolean, "is-lmi-up")
+
+                        self.is_lmi_nni_dce_up = YLeaf(YType.boolean, "is-lmi-nni-dce-up")
+
+                        self.is_lmi_enabled = YLeaf(YType.boolean, "is-lmi-enabled")
+
+                        self.enquiries_received = YLeaf(YType.uint32, "enquiries-received")
+
+                        self.enquiries_sent = YLeaf(YType.uint32, "enquiries-sent")
+
+                        self.status_received = YLeaf(YType.uint32, "status-received")
+
+                        self.status_sent = YLeaf(YType.uint32, "status-sent")
+
+                        self.update_status_received = YLeaf(YType.uint32, "update-status-received")
+
+                        self.update_status_sent = YLeaf(YType.uint32, "update-status-sent")
+                        self._segment_path = lambda: "frame-relay-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['fr_encapsulation_type', 'lmi_type', 'lmidlci', 'is_nni', 'is_dte', 'is_lmi_up', 'is_lmi_nni_dce_up', 'is_lmi_enabled', 'enquiries_received', 'enquiries_sent', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
 
 
                 class Dot1QInformation(Entity):
@@ -5930,10 +5587,53 @@ class Interfaces(Entity):
                         """
                         Encapsulation type and tag stack
                         
+                        .. attribute:: stack
+                        
+                        	Stack value
+                        	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack>`
+                        
+                        .. attribute:: service_instance_details
+                        
+                        	Service Instance encapsulation
+                        	**type**\:   :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails>`
+                        
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
                         	**type**\:   :py:class:`Dot1AdDot1QStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack>`
+                        
+                        .. attribute:: vlan_encapsulation
+                        
+                        	VLANEncapsulation
+                        	**type**\:   :py:class:`VlanEncaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncaps>`
+                        
+                        .. attribute:: tag
+                        
+                        	Tag value
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: outer_tag
+                        
+                        	Outer tag value
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: native_tag
+                        
+                        	Native tag value
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: dot1ad_tag
+                        
+                        	802.1ad tag value
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -5949,49 +5649,6 @@ class Interfaces(Entity):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: dot1ad_tag
-                        
-                        	802.1ad tag value
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: native_tag
-                        
-                        	Native tag value
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: outer_tag
-                        
-                        	Outer tag value
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: service_instance_details
-                        
-                        	Service Instance encapsulation
-                        	**type**\:   :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails>`
-                        
-                        .. attribute:: stack
-                        
-                        	Stack value
-                        	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack>`
-                        
-                        .. attribute:: tag
-                        
-                        	Tag value
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: vlan_encapsulation
-                        
-                        	VLANEncapsulation
-                        	**type**\:   :py:class:`VlanEncaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.VlanEncaps>`
-                        
                         
 
                         """
@@ -6006,46 +5663,46 @@ class Interfaces(Entity):
                             self.yang_parent_name = "dot1q-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack), "service-instance-details" : ("service_instance_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails), "stack" : ("stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack)}
+                            self._child_container_classes = {"stack" : ("stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack), "service-instance-details" : ("service_instance_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails), "dot1ad-dot1q-stack" : ("dot1ad_dot1q_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack)}
                             self._child_list_classes = {}
+
+                            self.vlan_encapsulation = YLeaf(YType.enumeration, "vlan-encapsulation")
+
+                            self.tag = YLeaf(YType.uint16, "tag")
+
+                            self.outer_tag = YLeaf(YType.uint16, "outer-tag")
+
+                            self.native_tag = YLeaf(YType.uint16, "native-tag")
+
+                            self.dot1ad_tag = YLeaf(YType.uint16, "dot1ad-tag")
 
                             self.dot1ad_native_tag = YLeaf(YType.uint16, "dot1ad-native-tag")
 
                             self.dot1ad_outer_tag = YLeaf(YType.uint16, "dot1ad-outer-tag")
 
-                            self.dot1ad_tag = YLeaf(YType.uint16, "dot1ad-tag")
-
-                            self.native_tag = YLeaf(YType.uint16, "native-tag")
-
-                            self.outer_tag = YLeaf(YType.uint16, "outer-tag")
-
-                            self.tag = YLeaf(YType.uint16, "tag")
-
-                            self.vlan_encapsulation = YLeaf(YType.enumeration, "vlan-encapsulation")
-
-                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack()
-                            self.dot1ad_dot1q_stack.parent = self
-                            self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
-                            self._children_yang_names.add("dot1ad-dot1q-stack")
+                            self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack()
+                            self.stack.parent = self
+                            self._children_name_map["stack"] = "stack"
+                            self._children_yang_names.add("stack")
 
                             self.service_instance_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails()
                             self.service_instance_details.parent = self
                             self._children_name_map["service_instance_details"] = "service-instance-details"
                             self._children_yang_names.add("service-instance-details")
 
-                            self.stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack()
-                            self.stack.parent = self
-                            self._children_name_map["stack"] = "stack"
-                            self._children_yang_names.add("stack")
+                            self.dot1ad_dot1q_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack()
+                            self.dot1ad_dot1q_stack.parent = self
+                            self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
+                            self._children_yang_names.add("dot1ad-dot1q-stack")
                             self._segment_path = lambda: "encapsulation-details"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails, ['dot1ad_native_tag', 'dot1ad_outer_tag', 'dot1ad_tag', 'native_tag', 'outer_tag', 'tag', 'vlan_encapsulation'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
-                        class Dot1AdDot1QStack(Entity):
+                        class Stack(Entity):
                             """
-                            802.1ad 802.1Q stack value
+                            Stack value
                             
                             .. attribute:: outer_tag
                             
@@ -6069,9 +5726,9 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack, self).__init__()
 
-                                self.yang_name = "dot1ad-dot1q-stack"
+                                self.yang_name = "stack"
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
@@ -6081,43 +5738,15 @@ class Interfaces(Entity):
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
-                                self._segment_path = lambda: "dot1ad-dot1q-stack"
+                                self._segment_path = lambda: "stack"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack, ['outer_tag', 'second_tag'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
                             """
                             Service Instance encapsulation
-                            
-                            .. attribute:: destination_mac_match
-                            
-                            	The destination MAC address to match on ingress
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: is_exact_match
-                            
-                            	Whether the packet must match the encapsulation exactly, with no further inner tags
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_native_preserving
-                            
-                            	Whether the native VLAN is customer\-tag preserving
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_native_vlan
-                            
-                            	Whether this represents the native VLAN on the port
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
                             
                             .. attribute:: local_traffic_stack
                             
@@ -6129,18 +5758,6 @@ class Interfaces(Entity):
                             	Payload Ethertype to match
                             	**type**\:   :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtype>`
                             
-                            .. attribute:: pushe
-                            
-                            	VLAN tags pushed on egress
-                            	**type**\: list of    :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
-                            
-                            .. attribute:: source_mac_match
-                            
-                            	The source MAC address to match on ingress
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
                             .. attribute:: tags_popped
                             
                             	Number of tags popped on ingress
@@ -6148,10 +5765,46 @@ class Interfaces(Entity):
                             
                             	**range:** 0..65535
                             
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: source_mac_match
+                            
+                            	The source MAC address to match on ingress
+                            	**type**\:  str
+                            
+                            .. attribute:: destination_mac_match
+                            
+                            	The destination MAC address to match on ingress
+                            	**type**\:  str
+                            
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
                             	**type**\: list of    :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
+                            
+                            .. attribute:: pushe
+                            
+                            	VLAN tags pushed on egress
+                            	**type**\: list of    :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             
 
@@ -6168,33 +5821,33 @@ class Interfaces(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {"local-traffic-stack" : ("local_traffic_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)}
-                                self._child_list_classes = {"pushe" : ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe), "tags-to-match" : ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)}
-
-                                self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
-
-                                self.is_exact_match = YLeaf(YType.int32, "is-exact-match")
-
-                                self.is_native_preserving = YLeaf(YType.int32, "is-native-preserving")
-
-                                self.is_native_vlan = YLeaf(YType.int32, "is-native-vlan")
+                                self._child_list_classes = {"tags-to-match" : ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch), "pushe" : ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe)}
 
                                 self.payload_ethertype = YLeaf(YType.enumeration, "payload-ethertype")
 
+                                self.tags_popped = YLeaf(YType.uint16, "tags-popped")
+
+                                self.is_exact_match = YLeaf(YType.int32, "is-exact-match")
+
+                                self.is_native_vlan = YLeaf(YType.int32, "is-native-vlan")
+
+                                self.is_native_preserving = YLeaf(YType.int32, "is-native-preserving")
+
                                 self.source_mac_match = YLeaf(YType.str, "source-mac-match")
 
-                                self.tags_popped = YLeaf(YType.uint16, "tags-popped")
+                                self.destination_mac_match = YLeaf(YType.str, "destination-mac-match")
 
                                 self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack()
                                 self.local_traffic_stack.parent = self
                                 self._children_name_map["local_traffic_stack"] = "local-traffic-stack"
                                 self._children_yang_names.add("local-traffic-stack")
 
-                                self.pushe = YList(self)
                                 self.tags_to_match = YList(self)
+                                self.pushe = YList(self)
                                 self._segment_path = lambda: "service-instance-details"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails, ['destination_mac_match', 'is_exact_match', 'is_native_preserving', 'is_native_vlan', 'payload_ethertype', 'source_mac_match', 'tags_popped'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -6272,48 +5925,6 @@ class Interfaces(Entity):
                                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
-                            class Pushe(Entity):
-                                """
-                                VLAN tags pushed on egress
-                                
-                                .. attribute:: ethertype
-                                
-                                	Ethertype of tag
-                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
-                                
-                                .. attribute:: vlan_id
-                                
-                                	VLAN Id
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2017-06-26'
-
-                                def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
-
-                                    self.yang_name = "pushe"
-                                    self.yang_parent_name = "service-instance-details"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
-
-                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
-                                    self._segment_path = lambda: "pushe"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
-
-
                             class TagsToMatch(Entity):
                                 """
                                 Tags to match on ingress packets
@@ -6365,16 +5976,16 @@ class Interfaces(Entity):
                                     """
                                     VLAN Ids to match
                                     
-                                    .. attribute:: vlan_id_high
+                                    .. attribute:: vlan_id_low
                                     
-                                    	VLAN ID High
+                                    	VLAN ID Low
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
                                     
-                                    .. attribute:: vlan_id_low
+                                    .. attribute:: vlan_id_high
                                     
-                                    	VLAN ID Low
+                                    	VLAN ID High
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
@@ -6396,18 +6007,60 @@ class Interfaces(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {}
 
-                                        self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
-
                                         self.vlan_id_low = YLeaf(YType.uint16, "vlan-id-low")
+
+                                        self.vlan_id_high = YLeaf(YType.uint16, "vlan-id-high")
                                         self._segment_path = lambda: "vlan-range"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_high', 'vlan_id_low'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
-                        class Stack(Entity):
+                            class Pushe(Entity):
+                                """
+                                VLAN tags pushed on egress
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag
+                                	**type**\:   :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN Id
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, self).__init__()
+
+                                    self.yang_name = "pushe"
+                                    self.yang_parent_name = "service-instance-details"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ethertype = YLeaf(YType.enumeration, "ethertype")
+
+                                    self.vlan_id = YLeaf(YType.uint16, "vlan-id")
+                                    self._segment_path = lambda: "pushe"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
+
+
+                        class Dot1AdDot1QStack(Entity):
                             """
-                            Stack value
+                            802.1ad 802.1Q stack value
                             
                             .. attribute:: outer_tag
                             
@@ -6431,9 +6084,9 @@ class Interfaces(Entity):
                             _revision = '2017-06-26'
 
                             def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack, self).__init__()
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack, self).__init__()
 
-                                self.yang_name = "stack"
+                                self.yang_name = "dot1ad-dot1q-stack"
                                 self.yang_parent_name = "encapsulation-details"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
@@ -6443,153 +6096,20 @@ class Interfaces(Entity):
                                 self.outer_tag = YLeaf(YType.uint16, "outer-tag")
 
                                 self.second_tag = YLeaf(YType.uint16, "second-tag")
-                                self._segment_path = lambda: "stack"
+                                self._segment_path = lambda: "dot1ad-dot1q-stack"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
-
-
-                class FrameRelayInformation(Entity):
-                    """
-                    Frame Relay information
-                    
-                    .. attribute:: enquiries_received
-                    
-                    	Number of enquiry messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: enquiries_sent
-                    
-                    	Number of enquiry messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: fr_encapsulation_type
-                    
-                    	Frame Relay encapsulation type
-                    	**type**\:   :py:class:`ImCmdFrTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdFrTypeEnum>`
-                    
-                    .. attribute:: is_dte
-                    
-                    	The DTE/DCE LMI interface type
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_lmi_enabled
-                    
-                    	The status of FR LMI for an interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_lmi_nni_dce_up
-                    
-                    	Flag indicating whether the LMI  NNI\-DCE state is UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_lmi_up
-                    
-                    	Flag indicating whether the LMI  DTE/DCE/NNI\-DTE state is UP
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_nni
-                    
-                    	The NNI LMI interface type
-                    	**type**\:  bool
-                    
-                    .. attribute:: lmi_type
-                    
-                    	The LMI type\: Autosense, ANSI, CCITT or CISCO
-                    	**type**\:   :py:class:`ImCmdLmiTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdLmiTypeEnum>`
-                    
-                    .. attribute:: lmidlci
-                    
-                    	LMI DLCI
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: status_received
-                    
-                    	Number of status messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: status_sent
-                    
-                    	Number of status messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: update_status_received
-                    
-                    	Number of update status messages received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: update_status_sent
-                    
-                    	Number of update status messages sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, self).__init__()
-
-                        self.yang_name = "frame-relay-information"
-                        self.yang_parent_name = "encapsulation-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.enquiries_received = YLeaf(YType.uint32, "enquiries-received")
-
-                        self.enquiries_sent = YLeaf(YType.uint32, "enquiries-sent")
-
-                        self.fr_encapsulation_type = YLeaf(YType.enumeration, "fr-encapsulation-type")
-
-                        self.is_dte = YLeaf(YType.boolean, "is-dte")
-
-                        self.is_lmi_enabled = YLeaf(YType.boolean, "is-lmi-enabled")
-
-                        self.is_lmi_nni_dce_up = YLeaf(YType.boolean, "is-lmi-nni-dce-up")
-
-                        self.is_lmi_up = YLeaf(YType.boolean, "is-lmi-up")
-
-                        self.is_nni = YLeaf(YType.boolean, "is-nni")
-
-                        self.lmi_type = YLeaf(YType.enumeration, "lmi-type")
-
-                        self.lmidlci = YLeaf(YType.uint32, "lmidlci")
-
-                        self.status_received = YLeaf(YType.uint32, "status-received")
-
-                        self.status_sent = YLeaf(YType.uint32, "status-sent")
-
-                        self.update_status_received = YLeaf(YType.uint32, "update-status-received")
-
-                        self.update_status_sent = YLeaf(YType.uint32, "update-status-sent")
-                        self._segment_path = lambda: "frame-relay-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['enquiries_received', 'enquiries_sent', 'fr_encapsulation_type', 'is_dte', 'is_lmi_enabled', 'is_lmi_nni_dce_up', 'is_lmi_up', 'is_nni', 'lmi_type', 'lmidlci', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1QInformation.EncapsulationDetails.Dot1AdDot1QStack, ['outer_tag', 'second_tag'], name, value)
 
 
                 class PppInformation(Entity):
                     """
                     PPP information
+                    
+                    .. attribute:: lcp_state
+                    
+                    	LCP State
+                    	**type**\:   :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState>`
                     
                     .. attribute:: is_loopback_detected
                     
@@ -6597,6 +6117,13 @@ class Interfaces(Entity):
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: keepalive_period
+                    
+                    	Keepalive value
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: is_mp_bundle_member
                     
@@ -6611,18 +6138,6 @@ class Interfaces(Entity):
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: keepalive_period
-                    
-                    	Keepalive value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: lcp_state
-                    
-                    	LCP State
-                    	**type**\:   :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState>`
                     
                     .. attribute:: ncp_info_array
                     
@@ -6646,36 +6161,36 @@ class Interfaces(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {"ncp-info-array" : ("ncp_info_array", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray)}
 
+                        self.lcp_state = YLeaf(YType.enumeration, "lcp-state")
+
                         self.is_loopback_detected = YLeaf(YType.int32, "is-loopback-detected")
+
+                        self.keepalive_period = YLeaf(YType.uint32, "keepalive-period")
 
                         self.is_mp_bundle_member = YLeaf(YType.int32, "is-mp-bundle-member")
 
                         self.is_multilink_open = YLeaf(YType.int32, "is-multilink-open")
 
-                        self.keepalive_period = YLeaf(YType.uint32, "keepalive-period")
-
-                        self.lcp_state = YLeaf(YType.enumeration, "lcp-state")
-
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "ppp-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, ['is_loopback_detected', 'is_mp_bundle_member', 'is_multilink_open', 'keepalive_period', 'lcp_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, ['lcp_state', 'is_loopback_detected', 'keepalive_period', 'is_mp_bundle_member', 'is_multilink_open'], name, value)
 
 
                     class NcpInfoArray(Entity):
                         """
                         Array of per\-NCP data
                         
-                        .. attribute:: ncp_identifier
-                        
-                        	NCP state identifier
-                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdent>`
-                        
                         .. attribute:: ncp_state
                         
                         	NCP state value
                         	**type**\:   :py:class:`PppFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.PppFsmState>`
+                        
+                        .. attribute:: ncp_identifier
+                        
+                        	NCP state identifier
+                        	**type**\:   :py:class:`NcpIdent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.NcpIdent>`
                         
                         
 
@@ -6694,624 +6209,53 @@ class Interfaces(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
-
                             self.ncp_state = YLeaf(YType.enumeration, "ncp-state")
+
+                            self.ncp_identifier = YLeaf(YType.enumeration, "ncp-identifier")
                             self._segment_path = lambda: "ncp-info-array"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_identifier', 'ncp_state'], name, value)
-
-
-            class InterfaceStatistics(Entity):
-                """
-                Packet, byte and error counters
-                
-                .. attribute:: basic_interface_stats
-                
-                	Packet, byte and selected error counters
-                	**type**\:   :py:class:`BasicInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats>`
-                
-                .. attribute:: full_interface_stats
-                
-                	Packet, byte and all error counters
-                	**type**\:   :py:class:`FullInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats>`
-                
-                .. attribute:: stats_type
-                
-                	StatsType
-                	**type**\:   :py:class:`ImCmdStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnum>`
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.InterfaceStatistics, self).__init__()
-
-                    self.yang_name = "interface-statistics"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"basic-interface-stats" : ("basic_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats), "full-interface-stats" : ("full_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats)}
-                    self._child_list_classes = {}
-
-                    self.stats_type = YLeaf(YType.enumeration, "stats-type")
-
-                    self.basic_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats()
-                    self.basic_interface_stats.parent = self
-                    self._children_name_map["basic_interface_stats"] = "basic-interface-stats"
-                    self._children_yang_names.add("basic-interface-stats")
-
-                    self.full_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats()
-                    self.full_interface_stats.parent = self
-                    self._children_name_map["full_interface_stats"] = "full-interface-stats"
-                    self._children_yang_names.add("full-interface-stats")
-                    self._segment_path = lambda: "interface-statistics"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, ['stats_type'], name, value)
-
-
-                class BasicInterfaceStats(Entity):
-                    """
-                    Packet, byte and selected error counters
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, self).__init__()
-
-                        self.yang_name = "basic-interface-stats"
-                        self.yang_parent_name = "interface-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
-
-                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
-
-                        self.input_drops = YLeaf(YType.uint32, "input-drops")
-
-                        self.input_errors = YLeaf(YType.uint32, "input-errors")
-
-                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
-
-                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
-
-                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
-
-                        self.output_drops = YLeaf(YType.uint32, "output-drops")
-
-                        self.output_errors = YLeaf(YType.uint32, "output-errors")
-
-                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
-
-                        self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
-
-                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
-
-                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
-
-                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
-                        self._segment_path = lambda: "basic-interface-stats"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['bytes_received', 'bytes_sent', 'input_drops', 'input_errors', 'input_queue_drops', 'last_data_time', 'last_discontinuity_time', 'output_drops', 'output_errors', 'output_queue_drops', 'packets_received', 'packets_sent', 'seconds_since_last_clear_counters', 'seconds_since_packet_received', 'seconds_since_packet_sent', 'unknown_protocol_packets_received'], name, value)
-
-
-                class FullInterfaceStats(Entity):
-                    """
-                    Packet, byte and all error counters
-                    
-                    .. attribute:: applique
-                    
-                    	Applique
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: availability_flag
-                    
-                    	Availability bit mask
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: broadcast_packets_received
-                    
-                    	Broadcast packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: broadcast_packets_sent
-                    
-                    	Broadcast packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: bytes_received
-                    
-                    	Bytes received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: bytes_sent
-                    
-                    	Bytes sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: carrier_transitions
-                    
-                    	Carrier transitions
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: crc_errors
-                    
-                    	Input CRC errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: framing_errors_received
-                    
-                    	Framing\-errors received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: giant_packets_received
-                    
-                    	Received giant packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_aborts
-                    
-                    	Input aborts
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_drops
-                    
-                    	Total input drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_errors
-                    
-                    	Total input errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_ignored_packets
-                    
-                    	Input ignored packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_overruns
-                    
-                    	Input overruns
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: input_queue_drops
-                    
-                    	Input queue drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_data_time
-                    
-                    	Time when counters were last written (in seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: last_discontinuity_time
-                    
-                    	SysUpTime when counters were last reset (in seconds)
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: multicast_packets_received
-                    
-                    	Multicast packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: multicast_packets_sent
-                    
-                    	Multicast packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: output_buffer_failures
-                    
-                    	Output buffer failures
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_buffers_swapped_out
-                    
-                    	Output buffers swapped out
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_drops
-                    
-                    	Total output drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_errors
-                    
-                    	Total output errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_queue_drops
-                    
-                    	Output queue drops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: output_underruns
-                    
-                    	Output underruns
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: packets_received
-                    
-                    	Packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: packets_sent
-                    
-                    	Packets sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: parity_packets_received
-                    
-                    	Received parity packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: resets
-                    
-                    	Number of board resets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: runt_packets_received
-                    
-                    	Received runt packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: seconds_since_last_clear_counters
-                    
-                    	Number of seconds since last clear counters
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: seconds_since_packet_received
-                    
-                    	Seconds since packet received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: seconds_since_packet_sent
-                    
-                    	Seconds since packet sent
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: throttled_packets_received
-                    
-                    	Received throttled packets
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: unknown_protocol_packets_received
-                    
-                    	Unknown protocol packets received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, self).__init__()
-
-                        self.yang_name = "full-interface-stats"
-                        self.yang_parent_name = "interface-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.applique = YLeaf(YType.uint32, "applique")
-
-                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
-
-                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
-
-                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
-
-                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
-
-                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
-
-                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
-
-                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
-                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
-
-                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
-
-                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
-
-                        self.input_drops = YLeaf(YType.uint32, "input-drops")
-
-                        self.input_errors = YLeaf(YType.uint32, "input-errors")
-
-                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
-
-                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
-
-                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
-
-                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
-
-                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
-
-                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
-
-                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
-
-                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
-
-                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
-
-                        self.output_drops = YLeaf(YType.uint32, "output-drops")
-
-                        self.output_errors = YLeaf(YType.uint32, "output-errors")
-
-                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
-
-                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
-
-                        self.packets_received = YLeaf(YType.uint64, "packets-received")
-
-                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
-
-                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
-
-                        self.resets = YLeaf(YType.uint32, "resets")
-
-                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
-
-                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
-
-                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
-
-                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
-
-                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
-
-                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
-                        self._segment_path = lambda: "full-interface-stats"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['applique', 'availability_flag', 'broadcast_packets_received', 'broadcast_packets_sent', 'bytes_received', 'bytes_sent', 'carrier_transitions', 'crc_errors', 'framing_errors_received', 'giant_packets_received', 'input_aborts', 'input_drops', 'input_errors', 'input_ignored_packets', 'input_overruns', 'input_queue_drops', 'last_data_time', 'last_discontinuity_time', 'multicast_packets_received', 'multicast_packets_sent', 'output_buffer_failures', 'output_buffers_swapped_out', 'output_drops', 'output_errors', 'output_queue_drops', 'output_underruns', 'packets_received', 'packets_sent', 'parity_packets_received', 'resets', 'runt_packets_received', 'seconds_since_last_clear_counters', 'seconds_since_packet_received', 'seconds_since_packet_sent', 'throttled_packets_received', 'unknown_protocol_packets_received'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_state', 'ncp_identifier'], name, value)
 
 
             class InterfaceTypeInformation(Entity):
                 """
                 Information specific to the interface type
                 
+                .. attribute:: srp_information
+                
+                	SRP interface information
+                	**type**\:   :py:class:`SrpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation>`
+                
+                .. attribute:: tunnel_information
+                
+                	Tunnel interface information
+                	**type**\:   :py:class:`TunnelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation>`
+                
                 .. attribute:: bundle_information
                 
                 	Bundle interface information
                 	**type**\:   :py:class:`BundleInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation>`
+                
+                .. attribute:: serial_information
+                
+                	Serial interface information
+                	**type**\:   :py:class:`SerialInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation>`
+                
+                .. attribute:: sonet_pos_information
+                
+                	SONET POS interface information
+                	**type**\:   :py:class:`SonetPosInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation>`
+                
+                .. attribute:: tunnel_gre_information
+                
+                	Tunnel GRE interface information
+                	**type**\:   :py:class:`TunnelGreInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation>`
+                
+                .. attribute:: pseudowire_head_end_information
+                
+                	PseudowireHeadEnd interface information
+                	**type**\:   :py:class:`PseudowireHeadEndInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation>`
                 
                 .. attribute:: cem_information
                 
@@ -7328,36 +6272,6 @@ class Interfaces(Entity):
                 	InterfaceTypeInfo
                 	**type**\:   :py:class:`ImCmdIntfTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdIntfTypeEnum>`
                 
-                .. attribute:: pseudowire_head_end_information
-                
-                	PseudowireHeadEnd interface information
-                	**type**\:   :py:class:`PseudowireHeadEndInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation>`
-                
-                .. attribute:: serial_information
-                
-                	Serial interface information
-                	**type**\:   :py:class:`SerialInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation>`
-                
-                .. attribute:: sonet_pos_information
-                
-                	SONET POS interface information
-                	**type**\:   :py:class:`SonetPosInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation>`
-                
-                .. attribute:: srp_information
-                
-                	SRP interface information
-                	**type**\:   :py:class:`SrpInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation>`
-                
-                .. attribute:: tunnel_gre_information
-                
-                	Tunnel GRE interface information
-                	**type**\:   :py:class:`TunnelGreInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation>`
-                
-                .. attribute:: tunnel_information
-                
-                	Tunnel interface information
-                	**type**\:   :py:class:`TunnelInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation>`
-                
                 
 
                 """
@@ -7372,30 +6286,25 @@ class Interfaces(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"bundle-information" : ("bundle_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation), "cem-information" : ("cem_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation), "gcc-information" : ("gcc_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation), "pseudowire-head-end-information" : ("pseudowire_head_end_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation), "serial-information" : ("serial_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation), "sonet-pos-information" : ("sonet_pos_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation), "srp-information" : ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation), "tunnel-gre-information" : ("tunnel_gre_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation), "tunnel-information" : ("tunnel_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation)}
+                    self._child_container_classes = {"srp-information" : ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation), "tunnel-information" : ("tunnel_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation), "bundle-information" : ("bundle_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation), "serial-information" : ("serial_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation), "sonet-pos-information" : ("sonet_pos_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation), "tunnel-gre-information" : ("tunnel_gre_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation), "pseudowire-head-end-information" : ("pseudowire_head_end_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation), "cem-information" : ("cem_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation), "gcc-information" : ("gcc_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation)}
                     self._child_list_classes = {}
 
                     self.interface_type_info = YLeaf(YType.enumeration, "interface-type-info")
+
+                    self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation()
+                    self.srp_information.parent = self
+                    self._children_name_map["srp_information"] = "srp-information"
+                    self._children_yang_names.add("srp-information")
+
+                    self.tunnel_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation()
+                    self.tunnel_information.parent = self
+                    self._children_name_map["tunnel_information"] = "tunnel-information"
+                    self._children_yang_names.add("tunnel-information")
 
                     self.bundle_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation()
                     self.bundle_information.parent = self
                     self._children_name_map["bundle_information"] = "bundle-information"
                     self._children_yang_names.add("bundle-information")
-
-                    self.cem_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation()
-                    self.cem_information.parent = self
-                    self._children_name_map["cem_information"] = "cem-information"
-                    self._children_yang_names.add("cem-information")
-
-                    self.gcc_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation()
-                    self.gcc_information.parent = self
-                    self._children_name_map["gcc_information"] = "gcc-information"
-                    self._children_yang_names.add("gcc-information")
-
-                    self.pseudowire_head_end_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation()
-                    self.pseudowire_head_end_information.parent = self
-                    self._children_name_map["pseudowire_head_end_information"] = "pseudowire-head-end-information"
-                    self._children_yang_names.add("pseudowire-head-end-information")
 
                     self.serial_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation()
                     self.serial_information.parent = self
@@ -7407,865 +6316,29 @@ class Interfaces(Entity):
                     self._children_name_map["sonet_pos_information"] = "sonet-pos-information"
                     self._children_yang_names.add("sonet-pos-information")
 
-                    self.srp_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation()
-                    self.srp_information.parent = self
-                    self._children_name_map["srp_information"] = "srp-information"
-                    self._children_yang_names.add("srp-information")
-
                     self.tunnel_gre_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation()
                     self.tunnel_gre_information.parent = self
                     self._children_name_map["tunnel_gre_information"] = "tunnel-gre-information"
                     self._children_yang_names.add("tunnel-gre-information")
 
-                    self.tunnel_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation()
-                    self.tunnel_information.parent = self
-                    self._children_name_map["tunnel_information"] = "tunnel-information"
-                    self._children_yang_names.add("tunnel-information")
+                    self.pseudowire_head_end_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation()
+                    self.pseudowire_head_end_information.parent = self
+                    self._children_name_map["pseudowire_head_end_information"] = "pseudowire-head-end-information"
+                    self._children_yang_names.add("pseudowire-head-end-information")
+
+                    self.cem_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation()
+                    self.cem_information.parent = self
+                    self._children_name_map["cem_information"] = "cem-information"
+                    self._children_yang_names.add("cem-information")
+
+                    self.gcc_information = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation()
+                    self.gcc_information.parent = self
+                    self._children_name_map["gcc_information"] = "gcc-information"
+                    self._children_yang_names.add("gcc-information")
                     self._segment_path = lambda: "interface-type-information"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, ['interface_type_info'], name, value)
-
-
-                class BundleInformation(Entity):
-                    """
-                    Bundle interface information
-                    
-                    .. attribute:: member
-                    
-                    	List of bundle members and their properties
-                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, self).__init__()
-
-                        self.yang_name = "bundle-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"member" : ("member", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member)}
-
-                        self.member = YList(self)
-                        self._segment_path = lambda: "bundle-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, [], name, value)
-
-
-                    class Member(Entity):
-                        """
-                        List of bundle members and their properties
-                        
-                        .. attribute:: bandwidth
-                        
-                        	Bandwidth of this member (kbps)
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: kbit/s
-                        
-                        .. attribute:: counters
-                        
-                        	Counters data about member link
-                        	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters>`
-                        
-                        .. attribute:: iccp_node
-                        
-                        	Location of member
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_name
-                        
-                        	Member's interface name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: lacp_enabled
-                        
-                        	Boolean indicating LACP enabled or not
-                        	**type**\:  str
-                        
-                        .. attribute:: link_data
-                        
-                        	Lacp data about member link
-                        	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData>`
-                        
-                        .. attribute:: link_order_number
-                        
-                        	Member's link order number
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: mac_address
-                        
-                        	MAC address of this member (deprecated)
-                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress>`
-                        
-                        .. attribute:: member_mux_data
-                        
-                        	Mux state machine data
-                        	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData>`
-                        
-                        .. attribute:: member_name
-                        
-                        	Member's (short form) name
-                        	**type**\:  str
-                        
-                        .. attribute:: member_type
-                        
-                        	Member's type (local/foreign)
-                        	**type**\:   :py:class:`BmdMemberTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnum>`
-                        
-                        .. attribute:: port_number
-                        
-                        	Member's link number
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: port_priority
-                        
-                        	The priority of this member
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: underlying_link_id
-                        
-                        	Member's underlying link ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        
-
-                        """
-
-                        _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2017-06-26'
-
-                        def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, self).__init__()
-
-                            self.yang_name = "member"
-                            self.yang_parent_name = "bundle-information"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"counters" : ("counters", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters), "link-data" : ("link_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress), "member-mux-data" : ("member_mux_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData)}
-                            self._child_list_classes = {}
-
-                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
-
-                            self.iccp_node = YLeaf(YType.uint32, "iccp-node")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.lacp_enabled = YLeaf(YType.str, "lacp-enabled")
-
-                            self.link_order_number = YLeaf(YType.uint16, "link-order-number")
-
-                            self.member_name = YLeaf(YType.str, "member-name")
-
-                            self.member_type = YLeaf(YType.enumeration, "member-type")
-
-                            self.port_number = YLeaf(YType.uint16, "port-number")
-
-                            self.port_priority = YLeaf(YType.uint16, "port-priority")
-
-                            self.underlying_link_id = YLeaf(YType.uint16, "underlying-link-id")
-
-                            self.counters = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters()
-                            self.counters.parent = self
-                            self._children_name_map["counters"] = "counters"
-                            self._children_yang_names.add("counters")
-
-                            self.link_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData()
-                            self.link_data.parent = self
-                            self._children_name_map["link_data"] = "link-data"
-                            self._children_yang_names.add("link-data")
-
-                            self.mac_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress()
-                            self.mac_address.parent = self
-                            self._children_name_map["mac_address"] = "mac-address"
-                            self._children_yang_names.add("mac-address")
-
-                            self.member_mux_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData()
-                            self.member_mux_data.parent = self
-                            self._children_name_map["member_mux_data"] = "member-mux-data"
-                            self._children_yang_names.add("member-mux-data")
-                            self._segment_path = lambda: "member"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['bandwidth', 'iccp_node', 'interface_name', 'lacp_enabled', 'link_order_number', 'member_name', 'member_type', 'port_number', 'port_priority', 'underlying_link_id'], name, value)
-
-
-                        class Counters(Entity):
-                            """
-                            Counters data about member link
-                            
-                            .. attribute:: defaulted
-                            
-                            	State flag set to Defaulted
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: excess_lacpd_us_received
-                            
-                            	LACPDUs received that exceed the rate limit
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: excess_marker_packets_received
-                            
-                            	Marker packets received that exceed the rate limit
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: expired
-                            
-                            	State flag set to Expired
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: illegal_packets_received
-                            
-                            	Illegal and unknown packets received
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: lacpd_us_received
-                            
-                            	LACPDUs received
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: lacpd_us_transmitted
-                            
-                            	LACPDUs transmitted
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: last_cleared_nsec
-                            
-                            	Last time counters cleared (nsec) (deprecated)
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: last_cleared_sec
-                            
-                            	Last time counters cleared (s) (deprecated)
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: marker_packets_received
-                            
-                            	Marker packets received
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: marker_responses_transmitted
-                            
-                            	Marker response packets transmitted
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, self).__init__()
-
-                                self.yang_name = "counters"
-                                self.yang_parent_name = "member"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.defaulted = YLeaf(YType.uint32, "defaulted")
-
-                                self.excess_lacpd_us_received = YLeaf(YType.uint32, "excess-lacpd-us-received")
-
-                                self.excess_marker_packets_received = YLeaf(YType.uint32, "excess-marker-packets-received")
-
-                                self.expired = YLeaf(YType.uint32, "expired")
-
-                                self.illegal_packets_received = YLeaf(YType.uint32, "illegal-packets-received")
-
-                                self.lacpd_us_received = YLeaf(YType.uint32, "lacpd-us-received")
-
-                                self.lacpd_us_transmitted = YLeaf(YType.uint32, "lacpd-us-transmitted")
-
-                                self.last_cleared_nsec = YLeaf(YType.uint32, "last-cleared-nsec")
-
-                                self.last_cleared_sec = YLeaf(YType.uint32, "last-cleared-sec")
-
-                                self.marker_packets_received = YLeaf(YType.uint32, "marker-packets-received")
-
-                                self.marker_responses_transmitted = YLeaf(YType.uint32, "marker-responses-transmitted")
-                                self._segment_path = lambda: "counters"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['defaulted', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'expired', 'illegal_packets_received', 'lacpd_us_received', 'lacpd_us_transmitted', 'last_cleared_nsec', 'last_cleared_sec', 'marker_packets_received', 'marker_responses_transmitted'], name, value)
-
-
-                        class LinkData(Entity):
-                            """
-                            Lacp data about member link
-                            
-                            .. attribute:: actor_operational_key
-                            
-                            	Operational key for this port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: actor_port_id
-                            
-                            	Port number of this port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: actor_port_priority
-                            
-                            	Priority of this port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: actor_port_state
-                            
-                            	LACP state of this port
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: actor_system_mac_address
-                            
-                            	MAC Address of the actor system
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: actor_system_priority
-                            
-                            	System priority of actor system
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: attached_aggregator_id
-                            
-                            	MIB ifindex of attached bundle
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: interface_handle
-                            
-                            	Member's interface handle
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: partner_operational_key
-                            
-                            	Operational key for partner port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: partner_port_id
-                            
-                            	Port number of the partner's port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: partner_port_priority
-                            
-                            	Priority of the partner's port
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: partner_port_state
-                            
-                            	LACP state of the partner's port
-                            	**type**\:  int
-                            
-                            	**range:** 0..255
-                            
-                            .. attribute:: partner_system_mac_address
-                            
-                            	MAC Address used to identify the partner system
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            .. attribute:: partner_system_priority
-                            
-                            	System priority of partner system
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            .. attribute:: selected_aggregator_id
-                            
-                            	MIB ifindex of selected bundle
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, self).__init__()
-
-                                self.yang_name = "link-data"
-                                self.yang_parent_name = "member"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.actor_operational_key = YLeaf(YType.uint16, "actor-operational-key")
-
-                                self.actor_port_id = YLeaf(YType.uint16, "actor-port-id")
-
-                                self.actor_port_priority = YLeaf(YType.uint16, "actor-port-priority")
-
-                                self.actor_port_state = YLeaf(YType.uint8, "actor-port-state")
-
-                                self.actor_system_mac_address = YLeaf(YType.str, "actor-system-mac-address")
-
-                                self.actor_system_priority = YLeaf(YType.uint16, "actor-system-priority")
-
-                                self.attached_aggregator_id = YLeaf(YType.uint32, "attached-aggregator-id")
-
-                                self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                                self.partner_operational_key = YLeaf(YType.uint16, "partner-operational-key")
-
-                                self.partner_port_id = YLeaf(YType.uint16, "partner-port-id")
-
-                                self.partner_port_priority = YLeaf(YType.uint16, "partner-port-priority")
-
-                                self.partner_port_state = YLeaf(YType.uint8, "partner-port-state")
-
-                                self.partner_system_mac_address = YLeaf(YType.str, "partner-system-mac-address")
-
-                                self.partner_system_priority = YLeaf(YType.uint16, "partner-system-priority")
-
-                                self.selected_aggregator_id = YLeaf(YType.uint32, "selected-aggregator-id")
-                                self._segment_path = lambda: "link-data"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['actor_operational_key', 'actor_port_id', 'actor_port_priority', 'actor_port_state', 'actor_system_mac_address', 'actor_system_priority', 'attached_aggregator_id', 'interface_handle', 'partner_operational_key', 'partner_port_id', 'partner_port_priority', 'partner_port_state', 'partner_system_mac_address', 'partner_system_priority', 'selected_aggregator_id'], name, value)
-
-
-                        class MacAddress(Entity):
-                            """
-                            MAC address of this member (deprecated)
-                            
-                            .. attribute:: address
-                            
-                            	MAC address
-                            	**type**\:  str
-                            
-                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, self).__init__()
-
-                                self.yang_name = "mac-address"
-                                self.yang_parent_name = "member"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.address = YLeaf(YType.str, "address")
-                                self._segment_path = lambda: "mac-address"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
-
-
-                        class MemberMuxData(Entity):
-                            """
-                            Mux state machine data
-                            
-                            .. attribute:: error
-                            
-                            	Internal value indicating if an error occurred trying to put a link into the desired state
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: member_mux_state_reason
-                            
-                            	Reason for last Mux state change
-                            	**type**\:   :py:class:`BmMbrStateReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReason>`
-                            
-                            .. attribute:: member_mux_state_reason_data
-                            
-                            	Data regarding the reason for last Mux state change
-                            	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData>`
-                            
-                            .. attribute:: member_state
-                            
-                            	Current internal state of this bundle member
-                            	**type**\:   :py:class:`BmdMemberState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberState>`
-                            
-                            .. attribute:: mux_state
-                            
-                            	Current state of this bundle member
-                            	**type**\:   :py:class:`BmMuxstate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstate>`
-                            
-                            .. attribute:: mux_state_reason
-                            
-                            	Reason for last Mux state change (Deprecated)
-                            	**type**\:   :py:class:`BmMuxreason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreason>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, self).__init__()
-
-                                self.yang_name = "member-mux-data"
-                                self.yang_parent_name = "member"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"member-mux-state-reason-data" : ("member_mux_state_reason_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData)}
-                                self._child_list_classes = {}
-
-                                self.error = YLeaf(YType.uint32, "error")
-
-                                self.member_mux_state_reason = YLeaf(YType.enumeration, "member-mux-state-reason")
-
-                                self.member_state = YLeaf(YType.enumeration, "member-state")
-
-                                self.mux_state = YLeaf(YType.enumeration, "mux-state")
-
-                                self.mux_state_reason = YLeaf(YType.enumeration, "mux-state-reason")
-
-                                self.member_mux_state_reason_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData()
-                                self.member_mux_state_reason_data.parent = self
-                                self._children_name_map["member_mux_state_reason_data"] = "member-mux-state-reason-data"
-                                self._children_yang_names.add("member-mux-state-reason-data")
-                                self._segment_path = lambda: "member-mux-data"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, ['error', 'member_mux_state_reason', 'member_state', 'mux_state', 'mux_state_reason'], name, value)
-
-
-                            class MemberMuxStateReasonData(Entity):
-                                """
-                                Data regarding the reason for last Mux state
-                                change
-                                
-                                .. attribute:: reason_type
-                                
-                                	The item the reason applies to
-                                	**type**\:   :py:class:`BmStateReasonTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTarget>`
-                                
-                                .. attribute:: severity
-                                
-                                	The severity of the reason
-                                	**type**\:   :py:class:`BmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverity>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2017-06-26'
-
-                                def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
-
-                                    self.yang_name = "member-mux-state-reason-data"
-                                    self.yang_parent_name = "member-mux-data"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.reason_type = YLeaf(YType.enumeration, "reason-type")
-
-                                    self.severity = YLeaf(YType.enumeration, "severity")
-                                    self._segment_path = lambda: "member-mux-state-reason-data"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
-
-
-                class CemInformation(Entity):
-                    """
-                    Cem interface information
-                    
-                    .. attribute:: dejitter_buffer
-                    
-                    	Dejitter buffer length configuredin milliseconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    	**units**\: millisecond
-                    
-                    .. attribute:: framing
-                    
-                    	 If framing is TRUE then the CEM  interface is structure aware ; otherwise it is structure agnostic
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: payload
-                    
-                    	Payload size in bytes configured on CEM interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: timeslots
-                    
-                    	Timeslots separated by \: or \- from 1 to 32. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, self).__init__()
-
-                        self.yang_name = "cem-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.dejitter_buffer = YLeaf(YType.uint16, "dejitter-buffer")
-
-                        self.framing = YLeaf(YType.int32, "framing")
-
-                        self.payload = YLeaf(YType.uint16, "payload")
-
-                        self.timeslots = YLeaf(YType.str, "timeslots")
-                        self._segment_path = lambda: "cem-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['dejitter_buffer', 'framing', 'payload', 'timeslots'], name, value)
-
-
-                class GccInformation(Entity):
-                    """
-                    GCC interface information
-                    
-                    .. attribute:: derived_mode
-                    
-                    	Derived State
-                    	**type**\:   :py:class:`GccDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerState>`
-                    
-                    .. attribute:: sec_state
-                    
-                    	Sec State 
-                    	**type**\:   :py:class:`GccSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecState>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, self).__init__()
-
-                        self.yang_name = "gcc-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.derived_mode = YLeaf(YType.enumeration, "derived-mode")
-
-                        self.sec_state = YLeaf(YType.enumeration, "sec-state")
-                        self._segment_path = lambda: "gcc-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
-
-
-                class PseudowireHeadEndInformation(Entity):
-                    """
-                    PseudowireHeadEnd interface information
-                    
-                    .. attribute:: interface_list_name
-                    
-                    	Interface list Name
-                    	**type**\:  str
-                    
-                    .. attribute:: internal_label
-                    
-                    	Internal Label
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: l2_overhead
-                    
-                    	L2 Overhead
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, self).__init__()
-
-                        self.yang_name = "pseudowire-head-end-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_list_name = YLeaf(YType.str, "interface-list-name")
-
-                        self.internal_label = YLeaf(YType.uint32, "internal-label")
-
-                        self.l2_overhead = YLeaf(YType.uint32, "l2-overhead")
-                        self._segment_path = lambda: "pseudowire-head-end-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'internal_label', 'l2_overhead'], name, value)
-
-
-                class SerialInformation(Entity):
-                    """
-                    Serial interface information
-                    
-                    .. attribute:: timeslots
-                    
-                    	Timeslots separated by \: or \- from 1 to 31. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, self).__init__()
-
-                        self.yang_name = "serial-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.timeslots = YLeaf(YType.str, "timeslots")
-                        self._segment_path = lambda: "serial-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
-
-
-                class SonetPosInformation(Entity):
-                    """
-                    SONET POS interface information
-                    
-                    .. attribute:: aps_state
-                    
-                    	APS state
-                    	**type**\:   :py:class:`SonetApsEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEt>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, self).__init__()
-
-                        self.yang_name = "sonet-pos-information"
-                        self.yang_parent_name = "interface-type-information"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.aps_state = YLeaf(YType.enumeration, "aps-state")
-                        self._segment_path = lambda: "sonet-pos-information"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
 
 
                 class SrpInformation(Entity):
@@ -8320,20 +6393,20 @@ class Interfaces(Entity):
                         	SRP IPS information
                         	**type**\:   :py:class:`IpsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo>`
                         
-                        .. attribute:: rate_limit_info
+                        .. attribute:: topology_info
                         
-                        	SRP rate limit information
-                        	**type**\:   :py:class:`RateLimitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo>`
+                        	SRP topology information
+                        	**type**\:   :py:class:`TopologyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo>`
                         
                         .. attribute:: srr_info
                         
                         	SRP SRR information
                         	**type**\:   :py:class:`SrrInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo>`
                         
-                        .. attribute:: topology_info
+                        .. attribute:: rate_limit_info
                         
-                        	SRP topology information
-                        	**type**\:   :py:class:`TopologyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo>`
+                        	SRP rate limit information
+                        	**type**\:   :py:class:`RateLimitInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo>`
                         
                         
 
@@ -8349,7 +6422,7 @@ class Interfaces(Entity):
                             self.yang_parent_name = "srp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"ips-info" : ("ips_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo), "rate-limit-info" : ("rate_limit_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo), "srr-info" : ("srr_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo), "topology-info" : ("topology_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo)}
+                            self._child_container_classes = {"ips-info" : ("ips_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo), "topology-info" : ("topology_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo), "srr-info" : ("srr_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo), "rate-limit-info" : ("rate_limit_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo)}
                             self._child_list_classes = {}
 
                             self.ips_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo()
@@ -8357,20 +6430,20 @@ class Interfaces(Entity):
                             self._children_name_map["ips_info"] = "ips-info"
                             self._children_yang_names.add("ips-info")
 
-                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo()
-                            self.rate_limit_info.parent = self
-                            self._children_name_map["rate_limit_info"] = "rate-limit-info"
-                            self._children_yang_names.add("rate-limit-info")
+                            self.topology_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo()
+                            self.topology_info.parent = self
+                            self._children_name_map["topology_info"] = "topology-info"
+                            self._children_yang_names.add("topology-info")
 
                             self.srr_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo()
                             self.srr_info.parent = self
                             self._children_name_map["srr_info"] = "srr-info"
                             self._children_yang_names.add("srr-info")
 
-                            self.topology_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo()
-                            self.topology_info.parent = self
-                            self._children_name_map["topology_info"] = "topology-info"
-                            self._children_yang_names.add("topology-info")
+                            self.rate_limit_info = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo()
+                            self.rate_limit_info.parent = self
+                            self._children_name_map["rate_limit_info"] = "rate-limit-info"
+                            self._children_yang_names.add("rate-limit-info")
                             self._segment_path = lambda: "srp-information"
 
 
@@ -8420,18 +6493,6 @@ class Interfaces(Entity):
                                 """
                                 IPS information
                                 
-                                .. attribute:: is_inter_card_bus_enabled
-                                
-                                	Inter card bus enabled
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: mac_address
-                                
-                                	MAC address for node
-                                	**type**\:  str
-                                
                                 .. attribute:: side_a
                                 
                                 	Side A IPS details
@@ -8441,6 +6502,18 @@ class Interfaces(Entity):
                                 
                                 	Side B IPS details
                                 	**type**\:   :py:class:`SideB <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB>`
+                                
+                                .. attribute:: mac_address
+                                
+                                	MAC address for node
+                                	**type**\:  str
+                                
+                                .. attribute:: is_inter_card_bus_enabled
+                                
+                                	Inter card bus enabled
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
                                 
                                 .. attribute:: wtr_timer_period
                                 
@@ -8468,9 +6541,9 @@ class Interfaces(Entity):
                                     self._child_container_classes = {"side-a" : ("side_a", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA), "side-b" : ("side_b", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB)}
                                     self._child_list_classes = {}
 
-                                    self.is_inter_card_bus_enabled = YLeaf(YType.int32, "is-inter-card-bus-enabled")
-
                                     self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                    self.is_inter_card_bus_enabled = YLeaf(YType.int32, "is-inter-card-bus-enabled")
 
                                     self.wtr_timer_period = YLeaf(YType.uint32, "wtr-timer-period")
 
@@ -8486,31 +6559,22 @@ class Interfaces(Entity):
                                     self._segment_path = lambda: "local-information"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation, ['is_inter_card_bus_enabled', 'mac_address', 'wtr_timer_period'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
 
 
                                 class SideA(Entity):
                                     """
                                     Side A IPS details
                                     
-                                    .. attribute:: asserted_failure
-                                    
-                                    	Failures presently asserted
-                                    	**type**\: list of    :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure>`
-                                    
-                                    .. attribute:: delay_keep_alive_trigger
-                                    
-                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    	**units**\: millisecond
-                                    
                                     .. attribute:: mac_address
                                     
                                     	MAC address
                                     	**type**\:  str
+                                    
+                                    .. attribute:: wrap_state
+                                    
+                                    	Wrap state
+                                    	**type**\:   :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -8521,14 +6585,32 @@ class Interfaces(Entity):
                                     
                                     	**units**\: second
                                     
+                                    .. attribute:: send_timer_time_remaining
+                                    
+                                    	Time in seconds remaining until next send of an IPS request
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: wtr_timer_remaining
+                                    
+                                    	Time in seconds until wrap removal
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: self_detected_request
+                                    
+                                    	Self Detected Requests
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
-                                    
-                                    .. attribute:: rx_message_type
-                                    
-                                    	Type of message received
                                     	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
@@ -8536,12 +6618,10 @@ class Interfaces(Entity):
                                     	Neighbour mac address for received message
                                     	**type**\:  str
                                     
-                                    .. attribute:: rx_packet_test
+                                    .. attribute:: rx_message_type
                                     
-                                    	Test for existence of an RX packet
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message received
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: rx_path_type
                                     
@@ -8555,36 +6635,22 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: self_detected_request
+                                    .. attribute:: rx_packet_test
                                     
-                                    	Self Detected Requests
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
-                                    
-                                    .. attribute:: send_timer_time_remaining
-                                    
-                                    	Time in seconds remaining until next send of an IPS request
+                                    	Test for existence of an RX packet
                                     	**type**\:  int
                                     
-                                    	**range:** 0..4294967295
-                                    
-                                    	**units**\: second
-                                    
-                                    .. attribute:: tx_message_type
-                                    
-                                    	Type of message transmitted
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\:  str
                                     
-                                    .. attribute:: tx_packet_test
+                                    .. attribute:: tx_message_type
                                     
-                                    	Test for existence of a TX packet
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message transmitted
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: tx_path_type
                                     
@@ -8598,19 +6664,26 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: wrap_state
+                                    .. attribute:: tx_packet_test
                                     
-                                    	Wrap state
-                                    	**type**\:   :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
+                                    	Test for existence of a TX packet
+                                    	**type**\:  int
                                     
-                                    .. attribute:: wtr_timer_remaining
+                                    	**range:** \-2147483648..2147483647
                                     
-                                    	Time in seconds until wrap removal
+                                    .. attribute:: delay_keep_alive_trigger
+                                    
+                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    	**units**\: second
+                                    	**units**\: millisecond
+                                    
+                                    .. attribute:: asserted_failure
+                                    
+                                    	Failures presently asserted
+                                    	**type**\: list of    :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure>`
                                     
                                     
 
@@ -8629,73 +6702,71 @@ class Interfaces(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {"asserted-failure" : ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure)}
 
-                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
-
                                         self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
 
                                         self.packet_sent_timer = YLeaf(YType.uint32, "packet-sent-timer")
 
-                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
+                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
 
-                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
+                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
+
+                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
+
+                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
 
                                         self.rx_neighbor_mac_address = YLeaf(YType.str, "rx-neighbor-mac-address")
 
-                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
+                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
 
                                         self.rx_path_type = YLeaf(YType.enumeration, "rx-path-type")
 
                                         self.rx_ttl = YLeaf(YType.uint32, "rx-ttl")
 
-                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
-
-                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
-
-                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
+                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
 
                                         self.tx_neighbor_mac_address = YLeaf(YType.str, "tx-neighbor-mac-address")
 
-                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
+                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
 
                                         self.tx_path_type = YLeaf(YType.enumeration, "tx-path-type")
 
                                         self.tx_ttl = YLeaf(YType.uint32, "tx-ttl")
 
-                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
+                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
 
-                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
+                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-a"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA, ['delay_keep_alive_trigger', 'mac_address', 'packet_sent_timer', 'remote_request', 'rx_message_type', 'rx_neighbor_mac_address', 'rx_packet_test', 'rx_path_type', 'rx_ttl', 'self_detected_request', 'send_timer_time_remaining', 'tx_message_type', 'tx_neighbor_mac_address', 'tx_packet_test', 'tx_path_type', 'tx_ttl', 'wrap_state', 'wtr_timer_remaining'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
                                         """
                                         Failures presently asserted
                                         
-                                        .. attribute:: current_state
+                                        .. attribute:: type
                                         
-                                        	Current state
+                                        	Failure type
+                                        	**type**\:   :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
+                                        
+                                        .. attribute:: reported_state
+                                        
+                                        	Reported state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
-                                        
-                                        .. attribute:: debounced_delay
-                                        
-                                        	Debounce delay
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
-                                        .. attribute:: reported_state
+                                        .. attribute:: current_state
                                         
-                                        	Reported state
+                                        	Current state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
                                         .. attribute:: stable_time
@@ -8705,10 +6776,12 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: type
+                                        .. attribute:: debounced_delay
                                         
-                                        	Failure type
-                                        	**type**\:   :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
+                                        	Debounce delay
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -8727,45 +6800,36 @@ class Interfaces(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.current_state = YLeaf(YType.enumeration, "current-state")
-
-                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
-
-                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
+                                            self.type = YLeaf(YType.enumeration, "type")
 
                                             self.reported_state = YLeaf(YType.enumeration, "reported-state")
 
+                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
+
+                                            self.current_state = YLeaf(YType.enumeration, "current-state")
+
                                             self.stable_time = YLeaf(YType.uint64, "stable-time")
 
-                                            self.type = YLeaf(YType.enumeration, "type")
+                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
                                             self._segment_path = lambda: "asserted-failure"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure, ['current_state', 'debounced_delay', 'debounced_state', 'reported_state', 'stable_time', 'type'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
                                 class SideB(Entity):
                                     """
                                     Side B IPS details
                                     
-                                    .. attribute:: asserted_failure
-                                    
-                                    	Failures presently asserted
-                                    	**type**\: list of    :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure>`
-                                    
-                                    .. attribute:: delay_keep_alive_trigger
-                                    
-                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    	**units**\: millisecond
-                                    
                                     .. attribute:: mac_address
                                     
                                     	MAC address
                                     	**type**\:  str
+                                    
+                                    .. attribute:: wrap_state
+                                    
+                                    	Wrap state
+                                    	**type**\:   :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
                                     
                                     .. attribute:: packet_sent_timer
                                     
@@ -8776,14 +6840,32 @@ class Interfaces(Entity):
                                     
                                     	**units**\: second
                                     
+                                    .. attribute:: send_timer_time_remaining
+                                    
+                                    	Time in seconds remaining until next send of an IPS request
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: wtr_timer_remaining
+                                    
+                                    	Time in seconds until wrap removal
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    	**units**\: second
+                                    
+                                    .. attribute:: self_detected_request
+                                    
+                                    	Self Detected Requests
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    
                                     .. attribute:: remote_request
                                     
                                     	Remote Requests
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
-                                    
-                                    .. attribute:: rx_message_type
-                                    
-                                    	Type of message received
                                     	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: rx_neighbor_mac_address
@@ -8791,12 +6873,10 @@ class Interfaces(Entity):
                                     	Neighbour mac address for received message
                                     	**type**\:  str
                                     
-                                    .. attribute:: rx_packet_test
+                                    .. attribute:: rx_message_type
                                     
-                                    	Test for existence of an RX packet
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message received
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: rx_path_type
                                     
@@ -8810,36 +6890,22 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: self_detected_request
+                                    .. attribute:: rx_packet_test
                                     
-                                    	Self Detected Requests
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
-                                    
-                                    .. attribute:: send_timer_time_remaining
-                                    
-                                    	Time in seconds remaining until next send of an IPS request
+                                    	Test for existence of an RX packet
                                     	**type**\:  int
                                     
-                                    	**range:** 0..4294967295
-                                    
-                                    	**units**\: second
-                                    
-                                    .. attribute:: tx_message_type
-                                    
-                                    	Type of message transmitted
-                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
+                                    	**range:** \-2147483648..2147483647
                                     
                                     .. attribute:: tx_neighbor_mac_address
                                     
                                     	Mac address of node receiving TXed messages
                                     	**type**\:  str
                                     
-                                    .. attribute:: tx_packet_test
+                                    .. attribute:: tx_message_type
                                     
-                                    	Test for existence of a TX packet
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
+                                    	Type of message transmitted
+                                    	**type**\:   :py:class:`SrpMgmtIpsReq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsReq>`
                                     
                                     .. attribute:: tx_path_type
                                     
@@ -8853,19 +6919,26 @@ class Interfaces(Entity):
                                     
                                     	**range:** 0..4294967295
                                     
-                                    .. attribute:: wrap_state
+                                    .. attribute:: tx_packet_test
                                     
-                                    	Wrap state
-                                    	**type**\:   :py:class:`SrpMgmtIpsWrapState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtIpsWrapState>`
+                                    	Test for existence of a TX packet
+                                    	**type**\:  int
                                     
-                                    .. attribute:: wtr_timer_remaining
+                                    	**range:** \-2147483648..2147483647
                                     
-                                    	Time in seconds until wrap removal
+                                    .. attribute:: delay_keep_alive_trigger
+                                    
+                                    	Number of milliseconds to wait after an L1 failure is detected before triggering an L2 wrap
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
                                     
-                                    	**units**\: second
+                                    	**units**\: millisecond
+                                    
+                                    .. attribute:: asserted_failure
+                                    
+                                    	Failures presently asserted
+                                    	**type**\: list of    :py:class:`AssertedFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure>`
                                     
                                     
 
@@ -8884,73 +6957,71 @@ class Interfaces(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {"asserted-failure" : ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure)}
 
-                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
-
                                         self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
 
                                         self.packet_sent_timer = YLeaf(YType.uint32, "packet-sent-timer")
 
-                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
+                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
 
-                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
+                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
+
+                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
+
+                                        self.remote_request = YLeaf(YType.enumeration, "remote-request")
 
                                         self.rx_neighbor_mac_address = YLeaf(YType.str, "rx-neighbor-mac-address")
 
-                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
+                                        self.rx_message_type = YLeaf(YType.enumeration, "rx-message-type")
 
                                         self.rx_path_type = YLeaf(YType.enumeration, "rx-path-type")
 
                                         self.rx_ttl = YLeaf(YType.uint32, "rx-ttl")
 
-                                        self.self_detected_request = YLeaf(YType.enumeration, "self-detected-request")
-
-                                        self.send_timer_time_remaining = YLeaf(YType.uint32, "send-timer-time-remaining")
-
-                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
+                                        self.rx_packet_test = YLeaf(YType.int32, "rx-packet-test")
 
                                         self.tx_neighbor_mac_address = YLeaf(YType.str, "tx-neighbor-mac-address")
 
-                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
+                                        self.tx_message_type = YLeaf(YType.enumeration, "tx-message-type")
 
                                         self.tx_path_type = YLeaf(YType.enumeration, "tx-path-type")
 
                                         self.tx_ttl = YLeaf(YType.uint32, "tx-ttl")
 
-                                        self.wrap_state = YLeaf(YType.enumeration, "wrap-state")
+                                        self.tx_packet_test = YLeaf(YType.int32, "tx-packet-test")
 
-                                        self.wtr_timer_remaining = YLeaf(YType.uint32, "wtr-timer-remaining")
+                                        self.delay_keep_alive_trigger = YLeaf(YType.uint32, "delay-keep-alive-trigger")
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-b"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB, ['delay_keep_alive_trigger', 'mac_address', 'packet_sent_timer', 'remote_request', 'rx_message_type', 'rx_neighbor_mac_address', 'rx_packet_test', 'rx_path_type', 'rx_ttl', 'self_detected_request', 'send_timer_time_remaining', 'tx_message_type', 'tx_neighbor_mac_address', 'tx_packet_test', 'tx_path_type', 'tx_ttl', 'wrap_state', 'wtr_timer_remaining'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
                                         """
                                         Failures presently asserted
                                         
-                                        .. attribute:: current_state
+                                        .. attribute:: type
                                         
-                                        	Current state
+                                        	Failure type
+                                        	**type**\:   :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
+                                        
+                                        .. attribute:: reported_state
+                                        
+                                        	Reported state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
-                                        
-                                        .. attribute:: debounced_delay
-                                        
-                                        	Debounce delay
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: debounced_state
                                         
                                         	Debounced state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
-                                        .. attribute:: reported_state
+                                        .. attribute:: current_state
                                         
-                                        	Reported state
+                                        	Current state
                                         	**type**\:   :py:class:`SrpMgmtFailureStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureStateEt>`
                                         
                                         .. attribute:: stable_time
@@ -8960,10 +7031,12 @@ class Interfaces(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: type
+                                        .. attribute:: debounced_delay
                                         
-                                        	Failure type
-                                        	**type**\:   :py:class:`SrpMgmtFailureEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtFailureEt>`
+                                        	Debounce delay
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
                                         
                                         
 
@@ -8982,21 +7055,615 @@ class Interfaces(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.current_state = YLeaf(YType.enumeration, "current-state")
-
-                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
-
-                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
+                                            self.type = YLeaf(YType.enumeration, "type")
 
                                             self.reported_state = YLeaf(YType.enumeration, "reported-state")
 
+                                            self.debounced_state = YLeaf(YType.enumeration, "debounced-state")
+
+                                            self.current_state = YLeaf(YType.enumeration, "current-state")
+
                                             self.stable_time = YLeaf(YType.uint64, "stable-time")
 
-                                            self.type = YLeaf(YType.enumeration, "type")
+                                            self.debounced_delay = YLeaf(YType.uint32, "debounced-delay")
                                             self._segment_path = lambda: "asserted-failure"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure, ['current_state', 'debounced_delay', 'debounced_state', 'reported_state', 'stable_time', 'type'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
+
+
+                        class TopologyInfo(Entity):
+                            """
+                            SRP topology information
+                            
+                            .. attribute:: is_admin_down
+                            
+                            	Is the interfaceadministratively down
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: local_information
+                            
+                            	Detailed SRP topology information
+                            	**type**\: list of    :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, self).__init__()
+
+                                self.yang_name = "topology-info"
+                                self.yang_parent_name = "srp-information"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"local-information" : ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation)}
+
+                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
+
+                                self.local_information = YList(self)
+                                self._segment_path = lambda: "topology-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, ['is_admin_down'], name, value)
+
+
+                            class LocalInformation(Entity):
+                                """
+                                Detailed SRP topology information
+                                
+                                .. attribute:: topology_timer
+                                
+                                	How often a topology pkt is sent
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: next_topology_packet_delay
+                                
+                                	Time remaining until next topo pkt sent
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_since_last_topology_packet_received
+                                
+                                	Time since last topo pkt was received
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: time_since_last_topology_change
+                                
+                                	Time since last topology change
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: number_of_nodes_on_ring
+                                
+                                	Number of nodes on ring
+                                	**type**\:  int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: ring_node
+                                
+                                	List of nodes on the ring info
+                                	**type**\: list of    :py:class:`RingNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, self).__init__()
+
+                                    self.yang_name = "local-information"
+                                    self.yang_parent_name = "topology-info"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"ring-node" : ("ring_node", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode)}
+
+                                    self.topology_timer = YLeaf(YType.uint32, "topology-timer")
+
+                                    self.next_topology_packet_delay = YLeaf(YType.uint32, "next-topology-packet-delay")
+
+                                    self.time_since_last_topology_packet_received = YLeaf(YType.uint32, "time-since-last-topology-packet-received")
+
+                                    self.time_since_last_topology_change = YLeaf(YType.uint32, "time-since-last-topology-change")
+
+                                    self.number_of_nodes_on_ring = YLeaf(YType.uint16, "number-of-nodes-on-ring")
+
+                                    self.ring_node = YList(self)
+                                    self._segment_path = lambda: "local-information"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
+
+
+                                class RingNode(Entity):
+                                    """
+                                    List of nodes on the ring info
+                                    
+                                    .. attribute:: hop_count
+                                    
+                                    	Outer\-ring hops to reach this node
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	MAC address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: ipv4_address
+                                    
+                                    	IPv4 address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: is_wrapped
+                                    
+                                    	Wrap state
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: is_srr_supported
+                                    
+                                    	SRR protocol supported
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, self).__init__()
+
+                                        self.yang_name = "ring-node"
+                                        self.yang_parent_name = "local-information"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.hop_count = YLeaf(YType.uint16, "hop-count")
+
+                                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                        self.is_wrapped = YLeaf(YType.int32, "is-wrapped")
+
+                                        self.is_srr_supported = YLeaf(YType.int32, "is-srr-supported")
+
+                                        self.node_name = YLeaf(YType.str, "node-name")
+                                        self._segment_path = lambda: "ring-node"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
+
+
+                        class SrrInfo(Entity):
+                            """
+                            SRP SRR information
+                            
+                            .. attribute:: is_admin_down
+                            
+                            	Is the interfaceadministratively down
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_srr_enabled
+                            
+                            	SRR enabled
+                            	**type**\:  int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: srr_detailed_info
+                            
+                            	SRP information
+                            	**type**\: list of    :py:class:`SrrDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, self).__init__()
+
+                                self.yang_name = "srr-info"
+                                self.yang_parent_name = "srp-information"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"srr-detailed-info" : ("srr_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo)}
+
+                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
+
+                                self.is_srr_enabled = YLeaf(YType.int32, "is-srr-enabled")
+
+                                self.srr_detailed_info = YList(self)
+                                self._segment_path = lambda: "srr-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
+
+
+                            class SrrDetailedInfo(Entity):
+                                """
+                                SRP information
+                                
+                                .. attribute:: version_number
+                                
+                                	Version number
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: is_wrong_version_received
+                                
+                                	Wrong version recieved
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: last_wrong_version_receive_time
+                                
+                                	Time that last wrong version message recieved
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: mac_address
+                                
+                                	SRR node mac address
+                                	**type**\:  str
+                                
+                                .. attribute:: node_state
+                                
+                                	SRR node state
+                                	**type**\:   :py:class:`SrpMgmtSrrNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeState>`
+                                
+                                .. attribute:: is_outer_ring_in_use
+                                
+                                	Is the outer ring in use
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: is_inner_ring_in_use
+                                
+                                	 Is the inner ring in use
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: is_announce
+                                
+                                	Is announcing enabled
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: outer_fail_type
+                                
+                                	Outer fail type
+                                	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                
+                                .. attribute:: inner_fail_type
+                                
+                                	Inner fail type
+                                	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                
+                                .. attribute:: packet_send_timer
+                                
+                                	SRR packet send timer interval in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: next_srr_packet_send_time
+                                
+                                	Time remaining in seconds to next SRR packet send
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: single_ring_bw
+                                
+                                	Single ring bandwidth Mbps
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: Mbit/s
+                                
+                                .. attribute:: wtr_time
+                                
+                                	SRR Wait To Restore interval delay in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: wtr_timer_remaining_outer_ring
+                                
+                                	Time remaining in seconds until next outer ring wrap removal
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: wtr_timer_remaining_inner_ring
+                                
+                                	Time remaining in seconds until next inner ring wrap removal
+                                	**type**\:  int
+                                
+                                	**range:** 0..4294967295
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: nodes_on_ring
+                                
+                                	List of nodes on the ring info
+                                	**type**\: list of    :py:class:`NodesOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing>`
+                                
+                                .. attribute:: nodes_not_on_ring
+                                
+                                	nodes not in topology map
+                                	**type**\: list of    :py:class:`NodesNotOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, self).__init__()
+
+                                    self.yang_name = "srr-detailed-info"
+                                    self.yang_parent_name = "srr-info"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"nodes-on-ring" : ("nodes_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing), "nodes-not-on-ring" : ("nodes_not_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing)}
+
+                                    self.version_number = YLeaf(YType.uint32, "version-number")
+
+                                    self.is_wrong_version_received = YLeaf(YType.int32, "is-wrong-version-received")
+
+                                    self.last_wrong_version_receive_time = YLeaf(YType.uint32, "last-wrong-version-receive-time")
+
+                                    self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                    self.node_state = YLeaf(YType.enumeration, "node-state")
+
+                                    self.is_outer_ring_in_use = YLeaf(YType.int32, "is-outer-ring-in-use")
+
+                                    self.is_inner_ring_in_use = YLeaf(YType.int32, "is-inner-ring-in-use")
+
+                                    self.is_announce = YLeaf(YType.int32, "is-announce")
+
+                                    self.outer_fail_type = YLeaf(YType.enumeration, "outer-fail-type")
+
+                                    self.inner_fail_type = YLeaf(YType.enumeration, "inner-fail-type")
+
+                                    self.packet_send_timer = YLeaf(YType.uint32, "packet-send-timer")
+
+                                    self.next_srr_packet_send_time = YLeaf(YType.uint32, "next-srr-packet-send-time")
+
+                                    self.single_ring_bw = YLeaf(YType.uint32, "single-ring-bw")
+
+                                    self.wtr_time = YLeaf(YType.uint32, "wtr-time")
+
+                                    self.wtr_timer_remaining_outer_ring = YLeaf(YType.uint32, "wtr-timer-remaining-outer-ring")
+
+                                    self.wtr_timer_remaining_inner_ring = YLeaf(YType.uint32, "wtr-timer-remaining-inner-ring")
+
+                                    self.nodes_on_ring = YList(self)
+                                    self.nodes_not_on_ring = YList(self)
+                                    self._segment_path = lambda: "srr-detailed-info"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
+
+
+                                class NodesOnRing(Entity):
+                                    """
+                                    List of nodes on the ring info
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: srr_entry_exits
+                                    
+                                    	Does the SRR information exist for this node
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	node mac address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: outer_failure
+                                    
+                                    	Outer failure
+                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    .. attribute:: inner_failure
+                                    
+                                    	Inner failure
+                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    .. attribute:: is_last_announce_received
+                                    
+                                    	Announce last received ?
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: last_announce_received_time
+                                    
+                                    	Announce last received
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
+
+                                        self.yang_name = "nodes-on-ring"
+                                        self.yang_parent_name = "srr-detailed-info"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.node_name = YLeaf(YType.str, "node-name")
+
+                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
+
+                                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
+
+                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
+
+                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
+
+                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
+                                        self._segment_path = lambda: "nodes-on-ring"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
+
+
+                                class NodesNotOnRing(Entity):
+                                    """
+                                    nodes not in topology map
+                                    
+                                    .. attribute:: node_name
+                                    
+                                    	Node name
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: srr_entry_exits
+                                    
+                                    	Does the SRR information exist for this node
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: mac_address
+                                    
+                                    	node mac address
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: outer_failure
+                                    
+                                    	Outer failure
+                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    .. attribute:: inner_failure
+                                    
+                                    	Inner failure
+                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
+                                    
+                                    .. attribute:: is_last_announce_received
+                                    
+                                    	Announce last received ?
+                                    	**type**\:  int
+                                    
+                                    	**range:** \-2147483648..2147483647
+                                    
+                                    .. attribute:: last_announce_received_time
+                                    
+                                    	Announce last received
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
+
+                                        self.yang_name = "nodes-not-on-ring"
+                                        self.yang_parent_name = "srr-detailed-info"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.node_name = YLeaf(YType.str, "node-name")
+
+                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
+
+                                        self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
+
+                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
+
+                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
+
+                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
+                                        self._segment_path = lambda: "nodes-not-on-ring"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
                         class RateLimitInfo(Entity):
@@ -9076,605 +7743,29 @@ class Interfaces(Entity):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
 
 
-                        class SrrInfo(Entity):
-                            """
-                            SRP SRR information
-                            
-                            .. attribute:: is_admin_down
-                            
-                            	Is the interfaceadministratively down
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: is_srr_enabled
-                            
-                            	SRR enabled
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: srr_detailed_info
-                            
-                            	SRP information
-                            	**type**\: list of    :py:class:`SrrDetailedInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, self).__init__()
-
-                                self.yang_name = "srr-info"
-                                self.yang_parent_name = "srp-information"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"srr-detailed-info" : ("srr_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
-
-                                self.is_srr_enabled = YLeaf(YType.int32, "is-srr-enabled")
-
-                                self.srr_detailed_info = YList(self)
-                                self._segment_path = lambda: "srr-info"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
-
-
-                            class SrrDetailedInfo(Entity):
-                                """
-                                SRP information
-                                
-                                .. attribute:: inner_fail_type
-                                
-                                	Inner fail type
-                                	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                
-                                .. attribute:: is_announce
-                                
-                                	Is announcing enabled
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_inner_ring_in_use
-                                
-                                	 Is the inner ring in use
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_outer_ring_in_use
-                                
-                                	Is the outer ring in use
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: is_wrong_version_received
-                                
-                                	Wrong version recieved
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: last_wrong_version_receive_time
-                                
-                                	Time that last wrong version message recieved
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: mac_address
-                                
-                                	SRR node mac address
-                                	**type**\:  str
-                                
-                                .. attribute:: next_srr_packet_send_time
-                                
-                                	Time remaining in seconds to next SRR packet send
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: node_state
-                                
-                                	SRR node state
-                                	**type**\:   :py:class:`SrpMgmtSrrNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrNodeState>`
-                                
-                                .. attribute:: nodes_not_on_ring
-                                
-                                	nodes not in topology map
-                                	**type**\: list of    :py:class:`NodesNotOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing>`
-                                
-                                .. attribute:: nodes_on_ring
-                                
-                                	List of nodes on the ring info
-                                	**type**\: list of    :py:class:`NodesOnRing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing>`
-                                
-                                .. attribute:: outer_fail_type
-                                
-                                	Outer fail type
-                                	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                
-                                .. attribute:: packet_send_timer
-                                
-                                	SRR packet send timer interval in seconds
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: single_ring_bw
-                                
-                                	Single ring bandwidth Mbps
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: Mbit/s
-                                
-                                .. attribute:: version_number
-                                
-                                	Version number
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: wtr_time
-                                
-                                	SRR Wait To Restore interval delay in seconds
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: wtr_timer_remaining_inner_ring
-                                
-                                	Time remaining in seconds until next inner ring wrap removal
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: wtr_timer_remaining_outer_ring
-                                
-                                	Time remaining in seconds until next outer ring wrap removal
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                	**units**\: second
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2017-06-26'
-
-                                def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, self).__init__()
-
-                                    self.yang_name = "srr-detailed-info"
-                                    self.yang_parent_name = "srr-info"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"nodes-not-on-ring" : ("nodes_not_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing), "nodes-on-ring" : ("nodes_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing)}
-
-                                    self.inner_fail_type = YLeaf(YType.enumeration, "inner-fail-type")
-
-                                    self.is_announce = YLeaf(YType.int32, "is-announce")
-
-                                    self.is_inner_ring_in_use = YLeaf(YType.int32, "is-inner-ring-in-use")
-
-                                    self.is_outer_ring_in_use = YLeaf(YType.int32, "is-outer-ring-in-use")
-
-                                    self.is_wrong_version_received = YLeaf(YType.int32, "is-wrong-version-received")
-
-                                    self.last_wrong_version_receive_time = YLeaf(YType.uint32, "last-wrong-version-receive-time")
-
-                                    self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                    self.next_srr_packet_send_time = YLeaf(YType.uint32, "next-srr-packet-send-time")
-
-                                    self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                                    self.outer_fail_type = YLeaf(YType.enumeration, "outer-fail-type")
-
-                                    self.packet_send_timer = YLeaf(YType.uint32, "packet-send-timer")
-
-                                    self.single_ring_bw = YLeaf(YType.uint32, "single-ring-bw")
-
-                                    self.version_number = YLeaf(YType.uint32, "version-number")
-
-                                    self.wtr_time = YLeaf(YType.uint32, "wtr-time")
-
-                                    self.wtr_timer_remaining_inner_ring = YLeaf(YType.uint32, "wtr-timer-remaining-inner-ring")
-
-                                    self.wtr_timer_remaining_outer_ring = YLeaf(YType.uint32, "wtr-timer-remaining-outer-ring")
-
-                                    self.nodes_not_on_ring = YList(self)
-                                    self.nodes_on_ring = YList(self)
-                                    self._segment_path = lambda: "srr-detailed-info"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo, ['inner_fail_type', 'is_announce', 'is_inner_ring_in_use', 'is_outer_ring_in_use', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'next_srr_packet_send_time', 'node_state', 'outer_fail_type', 'packet_send_timer', 'single_ring_bw', 'version_number', 'wtr_time', 'wtr_timer_remaining_inner_ring', 'wtr_timer_remaining_outer_ring'], name, value)
-
-
-                                class NodesNotOnRing(Entity):
-                                    """
-                                    nodes not in topology map
-                                    
-                                    .. attribute:: inner_failure
-                                    
-                                    	Inner failure
-                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                    
-                                    .. attribute:: is_last_announce_received
-                                    
-                                    	Announce last received ?
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: last_announce_received_time
-                                    
-                                    	Announce last received
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	node mac address
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: outer_failure
-                                    
-                                    	Outer failure
-                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                    
-                                    .. attribute:: srr_entry_exits
-                                    
-                                    	Does the SRR information exist for this node
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2017-06-26'
-
-                                    def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, self).__init__()
-
-                                        self.yang_name = "nodes-not-on-ring"
-                                        self.yang_parent_name = "srr-detailed-info"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
-
-                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
-
-                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
-
-                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
-                                        self._segment_path = lambda: "nodes-not-on-ring"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['inner_failure', 'is_last_announce_received', 'last_announce_received_time', 'mac_address', 'node_name', 'outer_failure', 'srr_entry_exits'], name, value)
-
-
-                                class NodesOnRing(Entity):
-                                    """
-                                    List of nodes on the ring info
-                                    
-                                    .. attribute:: inner_failure
-                                    
-                                    	Inner failure
-                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                    
-                                    .. attribute:: is_last_announce_received
-                                    
-                                    	Announce last received ?
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: last_announce_received_time
-                                    
-                                    	Announce last received
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..4294967295
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	node mac address
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: outer_failure
-                                    
-                                    	Outer failure
-                                    	**type**\:   :py:class:`SrpMgmtSrrFailure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SrpMgmtSrrFailure>`
-                                    
-                                    .. attribute:: srr_entry_exits
-                                    
-                                    	Does the SRR information exist for this node
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2017-06-26'
-
-                                    def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, self).__init__()
-
-                                        self.yang_name = "nodes-on-ring"
-                                        self.yang_parent_name = "srr-detailed-info"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.inner_failure = YLeaf(YType.enumeration, "inner-failure")
-
-                                        self.is_last_announce_received = YLeaf(YType.int32, "is-last-announce-received")
-
-                                        self.last_announce_received_time = YLeaf(YType.uint32, "last-announce-received-time")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-
-                                        self.outer_failure = YLeaf(YType.enumeration, "outer-failure")
-
-                                        self.srr_entry_exits = YLeaf(YType.int32, "srr-entry-exits")
-                                        self._segment_path = lambda: "nodes-on-ring"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.SrrInfo.SrrDetailedInfo.NodesOnRing, ['inner_failure', 'is_last_announce_received', 'last_announce_received_time', 'mac_address', 'node_name', 'outer_failure', 'srr_entry_exits'], name, value)
-
-
-                        class TopologyInfo(Entity):
-                            """
-                            SRP topology information
-                            
-                            .. attribute:: is_admin_down
-                            
-                            	Is the interfaceadministratively down
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: local_information
-                            
-                            	Detailed SRP topology information
-                            	**type**\: list of    :py:class:`LocalInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, self).__init__()
-
-                                self.yang_name = "topology-info"
-                                self.yang_parent_name = "srp-information"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"local-information" : ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation)}
-
-                                self.is_admin_down = YLeaf(YType.int32, "is-admin-down")
-
-                                self.local_information = YList(self)
-                                self._segment_path = lambda: "topology-info"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo, ['is_admin_down'], name, value)
-
-
-                            class LocalInformation(Entity):
-                                """
-                                Detailed SRP topology information
-                                
-                                .. attribute:: next_topology_packet_delay
-                                
-                                	Time remaining until next topo pkt sent
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: number_of_nodes_on_ring
-                                
-                                	Number of nodes on ring
-                                	**type**\:  int
-                                
-                                	**range:** 0..65535
-                                
-                                .. attribute:: ring_node
-                                
-                                	List of nodes on the ring info
-                                	**type**\: list of    :py:class:`RingNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode>`
-                                
-                                .. attribute:: time_since_last_topology_change
-                                
-                                	Time since last topology change
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: time_since_last_topology_packet_received
-                                
-                                	Time since last topo pkt was received
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                .. attribute:: topology_timer
-                                
-                                	How often a topology pkt is sent
-                                	**type**\:  int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
-
-                                """
-
-                                _prefix = 'pfi-im-cmd-oper'
-                                _revision = '2017-06-26'
-
-                                def __init__(self):
-                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, self).__init__()
-
-                                    self.yang_name = "local-information"
-                                    self.yang_parent_name = "topology-info"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"ring-node" : ("ring_node", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode)}
-
-                                    self.next_topology_packet_delay = YLeaf(YType.uint32, "next-topology-packet-delay")
-
-                                    self.number_of_nodes_on_ring = YLeaf(YType.uint16, "number-of-nodes-on-ring")
-
-                                    self.time_since_last_topology_change = YLeaf(YType.uint32, "time-since-last-topology-change")
-
-                                    self.time_since_last_topology_packet_received = YLeaf(YType.uint32, "time-since-last-topology-packet-received")
-
-                                    self.topology_timer = YLeaf(YType.uint32, "topology-timer")
-
-                                    self.ring_node = YList(self)
-                                    self._segment_path = lambda: "local-information"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation, ['next_topology_packet_delay', 'number_of_nodes_on_ring', 'time_since_last_topology_change', 'time_since_last_topology_packet_received', 'topology_timer'], name, value)
-
-
-                                class RingNode(Entity):
-                                    """
-                                    List of nodes on the ring info
-                                    
-                                    .. attribute:: hop_count
-                                    
-                                    	Outer\-ring hops to reach this node
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..65535
-                                    
-                                    .. attribute:: ipv4_address
-                                    
-                                    	IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    .. attribute:: is_srr_supported
-                                    
-                                    	SRR protocol supported
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: is_wrapped
-                                    
-                                    	Wrap state
-                                    	**type**\:  int
-                                    
-                                    	**range:** \-2147483648..2147483647
-                                    
-                                    .. attribute:: mac_address
-                                    
-                                    	MAC address
-                                    	**type**\:  str
-                                    
-                                    .. attribute:: node_name
-                                    
-                                    	Node name
-                                    	**type**\:  str
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'pfi-im-cmd-oper'
-                                    _revision = '2017-06-26'
-
-                                    def __init__(self):
-                                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, self).__init__()
-
-                                        self.yang_name = "ring-node"
-                                        self.yang_parent_name = "local-information"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.hop_count = YLeaf(YType.uint16, "hop-count")
-
-                                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                        self.is_srr_supported = YLeaf(YType.int32, "is-srr-supported")
-
-                                        self.is_wrapped = YLeaf(YType.int32, "is-wrapped")
-
-                                        self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                        self.node_name = YLeaf(YType.str, "node-name")
-                                        self._segment_path = lambda: "ring-node"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'ipv4_address', 'is_srr_supported', 'is_wrapped', 'mac_address', 'node_name'], name, value)
-
-
                     class SrpStatistics(Entity):
                         """
                         SRP\-specific packet and byte counters
+                        
+                        .. attribute:: side_a_data_rate
+                        
+                        	Data rates for side A interface
+                        	**type**\:   :py:class:`SideADataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate>`
+                        
+                        .. attribute:: side_b_data_rate
+                        
+                        	Data rates for side B interface
+                        	**type**\:   :py:class:`SideBDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate>`
+                        
+                        .. attribute:: side_a_errors
+                        
+                        	Errors for side A interface
+                        	**type**\:   :py:class:`SideAErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors>`
+                        
+                        .. attribute:: side_b_errors
+                        
+                        	Errors for side B interface
+                        	**type**\:   :py:class:`SideBErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors>`
                         
                         .. attribute:: data_rate_interval
                         
@@ -9684,26 +7775,6 @@ class Interfaces(Entity):
                         	**range:** 0..4294967295
                         
                         	**units**\: second
-                        
-                        .. attribute:: side_a_data_rate
-                        
-                        	Data rates for side A interface
-                        	**type**\:   :py:class:`SideADataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate>`
-                        
-                        .. attribute:: side_a_errors
-                        
-                        	Errors for side A interface
-                        	**type**\:   :py:class:`SideAErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors>`
-                        
-                        .. attribute:: side_b_data_rate
-                        
-                        	Data rates for side B interface
-                        	**type**\:   :py:class:`SideBDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate>`
-                        
-                        .. attribute:: side_b_errors
-                        
-                        	Errors for side B interface
-                        	**type**\:   :py:class:`SideBErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors>`
                         
                         
 
@@ -9719,7 +7790,7 @@ class Interfaces(Entity):
                             self.yang_parent_name = "srp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"side-a-data-rate" : ("side_a_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate), "side-a-errors" : ("side_a_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors), "side-b-data-rate" : ("side_b_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate), "side-b-errors" : ("side_b_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors)}
+                            self._child_container_classes = {"side-a-data-rate" : ("side_a_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate), "side-b-data-rate" : ("side_b_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate), "side-a-errors" : ("side_a_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors), "side-b-errors" : ("side_b_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors)}
                             self._child_list_classes = {}
 
                             self.data_rate_interval = YLeaf(YType.uint32, "data-rate-interval")
@@ -9729,15 +7800,15 @@ class Interfaces(Entity):
                             self._children_name_map["side_a_data_rate"] = "side-a-data-rate"
                             self._children_yang_names.add("side-a-data-rate")
 
-                            self.side_a_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors()
-                            self.side_a_errors.parent = self
-                            self._children_name_map["side_a_errors"] = "side-a-errors"
-                            self._children_yang_names.add("side-a-errors")
-
                             self.side_b_data_rate = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate()
                             self.side_b_data_rate.parent = self
                             self._children_name_map["side_b_data_rate"] = "side-b-data-rate"
                             self._children_yang_names.add("side-b-data-rate")
+
+                            self.side_a_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors()
+                            self.side_a_errors.parent = self
+                            self._children_name_map["side_a_errors"] = "side-a-errors"
+                            self._children_yang_names.add("side-a-errors")
 
                             self.side_b_errors = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors()
                             self.side_b_errors.parent = self
@@ -9753,13 +7824,6 @@ class Interfaces(Entity):
                             """
                             Data rates for side A interface
                             
-                            .. attribute:: bit_rate_received
-                            
-                            	Received bit rate
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: bit_rate_sent
                             
                             	Sent bit rate
@@ -9767,16 +7831,23 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_received
+                            .. attribute:: packet_rate_sent
                             
-                            	Received packet rate
+                            	Sent packet rate
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_sent
+                            .. attribute:: bit_rate_received
                             
-                            	Sent packet rate
+                            	Received bit rate
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: packet_rate_received
+                            
+                            	Received packet rate
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -9798,136 +7869,22 @@ class Interfaces(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
-
                                 self.bit_rate_sent = YLeaf(YType.uint32, "bit-rate-sent")
 
-                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
-
                                 self.packet_rate_sent = YLeaf(YType.uint32, "packet-rate-sent")
+
+                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
+
+                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
                                 self._segment_path = lambda: "side-a-data-rate"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_received', 'bit_rate_sent', 'packet_rate_received', 'packet_rate_sent'], name, value)
-
-
-                        class SideAErrors(Entity):
-                            """
-                            Errors for side A interface
-                            
-                            .. attribute:: crc_errors
-                            
-                            	Input CRC errors
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: error_packets_received
-                            
-                            	Error packets received
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_aborts_received
-                            
-                            	Aborts received at framer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_giant_packets_received
-                            
-                            	Too large packets received at framer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_runt_packets_received
-                            
-                            	Too small packets received at framer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: input_insufficient_resource_events
-                            
-                            	Input insufficient resources events
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_aborts_received
-                            
-                            	Aborts received at MAC/RAC
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_giant_packets_received
-                            
-                            	Too large packets received at MAC/RAC
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: mac_runt_packets_received
-                            
-                            	Too small packets received at MAC/RAC
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'pfi-im-cmd-oper'
-                            _revision = '2017-06-26'
-
-                            def __init__(self):
-                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, self).__init__()
-
-                                self.yang_name = "side-a-errors"
-                                self.yang_parent_name = "srp-statistics"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
-                                self.error_packets_received = YLeaf(YType.uint32, "error-packets-received")
-
-                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
-
-                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
-
-                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
-
-                                self.input_insufficient_resource_events = YLeaf(YType.uint32, "input-insufficient-resource-events")
-
-                                self.mac_aborts_received = YLeaf(YType.uint32, "mac-aborts-received")
-
-                                self.mac_giant_packets_received = YLeaf(YType.uint32, "mac-giant-packets-received")
-
-                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
-                                self._segment_path = lambda: "side-a-errors"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['crc_errors', 'error_packets_received', 'framer_aborts_received', 'framer_giant_packets_received', 'framer_runt_packets_received', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_giant_packets_received', 'mac_runt_packets_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
                         class SideBDataRate(Entity):
                             """
                             Data rates for side B interface
-                            
-                            .. attribute:: bit_rate_received
-                            
-                            	Received bit rate
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
                             
                             .. attribute:: bit_rate_sent
                             
@@ -9936,16 +7893,23 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_received
+                            .. attribute:: packet_rate_sent
                             
-                            	Received packet rate
+                            	Sent packet rate
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: packet_rate_sent
+                            .. attribute:: bit_rate_received
                             
-                            	Sent packet rate
+                            	Received bit rate
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: packet_rate_received
+                            
+                            	Received packet rate
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -9967,29 +7931,22 @@ class Interfaces(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
-
                                 self.bit_rate_sent = YLeaf(YType.uint32, "bit-rate-sent")
 
-                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
-
                                 self.packet_rate_sent = YLeaf(YType.uint32, "packet-rate-sent")
+
+                                self.bit_rate_received = YLeaf(YType.uint32, "bit-rate-received")
+
+                                self.packet_rate_received = YLeaf(YType.uint32, "packet-rate-received")
                                 self._segment_path = lambda: "side-b-data-rate"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_received', 'bit_rate_sent', 'packet_rate_received', 'packet_rate_sent'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
-                        class SideBErrors(Entity):
+                        class SideAErrors(Entity):
                             """
-                            Errors for side B interface
-                            
-                            .. attribute:: crc_errors
-                            
-                            	Input CRC errors
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
+                            Errors for side A interface
                             
                             .. attribute:: error_packets_received
                             
@@ -9998,23 +7955,9 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: framer_aborts_received
+                            .. attribute:: crc_errors
                             
-                            	Aborts received at framer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_giant_packets_received
-                            
-                            	Too large packets received at framer
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: framer_runt_packets_received
-                            
-                            	Too small packets received at framer
+                            	Input CRC errors
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -10033,6 +7976,13 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: mac_runt_packets_received
+                            
+                            	Too small packets received at MAC/RAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: mac_giant_packets_received
                             
                             	Too large packets received at MAC/RAC
@@ -10040,9 +7990,130 @@ class Interfaces(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: framer_runt_packets_received
+                            
+                            	Too small packets received at framer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_giant_packets_received
+                            
+                            	Too large packets received at framer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_aborts_received
+                            
+                            	Aborts received at framer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, self).__init__()
+
+                                self.yang_name = "side-a-errors"
+                                self.yang_parent_name = "srp-statistics"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.error_packets_received = YLeaf(YType.uint32, "error-packets-received")
+
+                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                                self.input_insufficient_resource_events = YLeaf(YType.uint32, "input-insufficient-resource-events")
+
+                                self.mac_aborts_received = YLeaf(YType.uint32, "mac-aborts-received")
+
+                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
+
+                                self.mac_giant_packets_received = YLeaf(YType.uint32, "mac-giant-packets-received")
+
+                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
+
+                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
+
+                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
+                                self._segment_path = lambda: "side-a-errors"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
+
+
+                        class SideBErrors(Entity):
+                            """
+                            Errors for side B interface
+                            
+                            .. attribute:: error_packets_received
+                            
+                            	Error packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: crc_errors
+                            
+                            	Input CRC errors
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: input_insufficient_resource_events
+                            
+                            	Input insufficient resources events
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_aborts_received
+                            
+                            	Aborts received at MAC/RAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
                             .. attribute:: mac_runt_packets_received
                             
                             	Too small packets received at MAC/RAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: mac_giant_packets_received
+                            
+                            	Too large packets received at MAC/RAC
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_runt_packets_received
+                            
+                            	Too small packets received at framer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_giant_packets_received
+                            
+                            	Too large packets received at framer
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: framer_aborts_received
+                            
+                            	Aborts received at framer
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -10064,37 +8135,795 @@ class Interfaces(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
-
                                 self.error_packets_received = YLeaf(YType.uint32, "error-packets-received")
 
-                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
-
-                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
-
-                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
+                                self.crc_errors = YLeaf(YType.uint32, "crc-errors")
 
                                 self.input_insufficient_resource_events = YLeaf(YType.uint32, "input-insufficient-resource-events")
 
                                 self.mac_aborts_received = YLeaf(YType.uint32, "mac-aborts-received")
 
+                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
+
                                 self.mac_giant_packets_received = YLeaf(YType.uint32, "mac-giant-packets-received")
 
-                                self.mac_runt_packets_received = YLeaf(YType.uint32, "mac-runt-packets-received")
+                                self.framer_runt_packets_received = YLeaf(YType.uint32, "framer-runt-packets-received")
+
+                                self.framer_giant_packets_received = YLeaf(YType.uint32, "framer-giant-packets-received")
+
+                                self.framer_aborts_received = YLeaf(YType.uint32, "framer-aborts-received")
                                 self._segment_path = lambda: "side-b-errors"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['crc_errors', 'error_packets_received', 'framer_aborts_received', 'framer_giant_packets_received', 'framer_runt_packets_received', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_giant_packets_received', 'mac_runt_packets_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
+
+
+                class TunnelInformation(Entity):
+                    """
+                    Tunnel interface information
+                    
+                    .. attribute:: source_name
+                    
+                    	Tunnel source name
+                    	**type**\:  str
+                    
+                    .. attribute:: source_ipv4_address
+                    
+                    	Tunnel source IP address
+                    	**type**\:  str
+                    
+                    .. attribute:: destination_ipv4_address
+                    
+                    	Tunnel destination IP address
+                    	**type**\:  str
+                    
+                    .. attribute:: tunnel_type
+                    
+                    	Tunnel protocol/transport
+                    	**type**\:  str
+                    
+                    .. attribute:: key
+                    
+                    	GRE tunnel key
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ttl
+                    
+                    	GRE tunnel TTL
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, self).__init__()
+
+                        self.yang_name = "tunnel-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.source_name = YLeaf(YType.str, "source-name")
+
+                        self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
+
+                        self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
+
+                        self.tunnel_type = YLeaf(YType.str, "tunnel-type")
+
+                        self.key = YLeaf(YType.uint32, "key")
+
+                        self.ttl = YLeaf(YType.uint32, "ttl")
+                        self._segment_path = lambda: "tunnel-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['source_name', 'source_ipv4_address', 'destination_ipv4_address', 'tunnel_type', 'key', 'ttl'], name, value)
+
+
+                class BundleInformation(Entity):
+                    """
+                    Bundle interface information
+                    
+                    .. attribute:: member
+                    
+                    	List of bundle members and their properties
+                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, self).__init__()
+
+                        self.yang_name = "bundle-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"member" : ("member", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member)}
+
+                        self.member = YList(self)
+                        self._segment_path = lambda: "bundle-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, [], name, value)
+
+
+                    class Member(Entity):
+                        """
+                        List of bundle members and their properties
+                        
+                        .. attribute:: counters
+                        
+                        	Counters data about member link
+                        	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters>`
+                        
+                        .. attribute:: link_data
+                        
+                        	Lacp data about member link
+                        	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData>`
+                        
+                        .. attribute:: member_mux_data
+                        
+                        	Mux state machine data
+                        	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData>`
+                        
+                        .. attribute:: mac_address
+                        
+                        	MAC address of this member (deprecated)
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress>`
+                        
+                        .. attribute:: interface_name
+                        
+                        	Member's interface name
+                        	**type**\:  str
+                        
+                        .. attribute:: port_priority
+                        
+                        	The priority of this member
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: port_number
+                        
+                        	Member's link number
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: underlying_link_id
+                        
+                        	Member's underlying link ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: link_order_number
+                        
+                        	Member's link order number
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: iccp_node
+                        
+                        	Location of member
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bandwidth
+                        
+                        	Bandwidth of this member (kbps)
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
+                        
+                        .. attribute:: lacp_enabled
+                        
+                        	Boolean indicating LACP enabled or not
+                        	**type**\:  str
+                        
+                        .. attribute:: member_type
+                        
+                        	Member's type (local/foreign)
+                        	**type**\:   :py:class:`BmdMemberTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberTypeEnum>`
+                        
+                        .. attribute:: member_name
+                        
+                        	Member's (short form) name
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'pfi-im-cmd-oper'
+                        _revision = '2017-06-26'
+
+                        def __init__(self):
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, self).__init__()
+
+                            self.yang_name = "member"
+                            self.yang_parent_name = "bundle-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"counters" : ("counters", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters), "link-data" : ("link_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData), "member-mux-data" : ("member_mux_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData), "mac-address" : ("mac_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress)}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.port_priority = YLeaf(YType.uint16, "port-priority")
+
+                            self.port_number = YLeaf(YType.uint16, "port-number")
+
+                            self.underlying_link_id = YLeaf(YType.uint16, "underlying-link-id")
+
+                            self.link_order_number = YLeaf(YType.uint16, "link-order-number")
+
+                            self.iccp_node = YLeaf(YType.uint32, "iccp-node")
+
+                            self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+
+                            self.lacp_enabled = YLeaf(YType.str, "lacp-enabled")
+
+                            self.member_type = YLeaf(YType.enumeration, "member-type")
+
+                            self.member_name = YLeaf(YType.str, "member-name")
+
+                            self.counters = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters()
+                            self.counters.parent = self
+                            self._children_name_map["counters"] = "counters"
+                            self._children_yang_names.add("counters")
+
+                            self.link_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData()
+                            self.link_data.parent = self
+                            self._children_name_map["link_data"] = "link-data"
+                            self._children_yang_names.add("link-data")
+
+                            self.member_mux_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData()
+                            self.member_mux_data.parent = self
+                            self._children_name_map["member_mux_data"] = "member-mux-data"
+                            self._children_yang_names.add("member-mux-data")
+
+                            self.mac_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress()
+                            self.mac_address.parent = self
+                            self._children_name_map["mac_address"] = "mac-address"
+                            self._children_yang_names.add("mac-address")
+                            self._segment_path = lambda: "member"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
+
+
+                        class Counters(Entity):
+                            """
+                            Counters data about member link
+                            
+                            .. attribute:: lacpd_us_received
+                            
+                            	LACPDUs received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: lacpd_us_transmitted
+                            
+                            	LACPDUs transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_packets_received
+                            
+                            	Marker packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: marker_responses_transmitted
+                            
+                            	Marker response packets transmitted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: illegal_packets_received
+                            
+                            	Illegal and unknown packets received
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_lacpd_us_received
+                            
+                            	LACPDUs received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: excess_marker_packets_received
+                            
+                            	Marker packets received that exceed the rate limit
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: defaulted
+                            
+                            	State flag set to Defaulted
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: expired
+                            
+                            	State flag set to Expired
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_sec
+                            
+                            	Last time counters cleared (s) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: last_cleared_nsec
+                            
+                            	Last time counters cleared (nsec) (deprecated)
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, self).__init__()
+
+                                self.yang_name = "counters"
+                                self.yang_parent_name = "member"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.lacpd_us_received = YLeaf(YType.uint32, "lacpd-us-received")
+
+                                self.lacpd_us_transmitted = YLeaf(YType.uint32, "lacpd-us-transmitted")
+
+                                self.marker_packets_received = YLeaf(YType.uint32, "marker-packets-received")
+
+                                self.marker_responses_transmitted = YLeaf(YType.uint32, "marker-responses-transmitted")
+
+                                self.illegal_packets_received = YLeaf(YType.uint32, "illegal-packets-received")
+
+                                self.excess_lacpd_us_received = YLeaf(YType.uint32, "excess-lacpd-us-received")
+
+                                self.excess_marker_packets_received = YLeaf(YType.uint32, "excess-marker-packets-received")
+
+                                self.defaulted = YLeaf(YType.uint32, "defaulted")
+
+                                self.expired = YLeaf(YType.uint32, "expired")
+
+                                self.last_cleared_sec = YLeaf(YType.uint32, "last-cleared-sec")
+
+                                self.last_cleared_nsec = YLeaf(YType.uint32, "last-cleared-nsec")
+                                self._segment_path = lambda: "counters"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['lacpd_us_received', 'lacpd_us_transmitted', 'marker_packets_received', 'marker_responses_transmitted', 'illegal_packets_received', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'defaulted', 'expired', 'last_cleared_sec', 'last_cleared_nsec'], name, value)
+
+
+                        class LinkData(Entity):
+                            """
+                            Lacp data about member link
+                            
+                            .. attribute:: interface_handle
+                            
+                            	Member's interface handle
+                            	**type**\:  str
+                            
+                            .. attribute:: actor_system_priority
+                            
+                            	System priority of actor system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_system_mac_address
+                            
+                            	MAC Address of the actor system
+                            	**type**\:  str
+                            
+                            .. attribute:: actor_operational_key
+                            
+                            	Operational key for this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_system_priority
+                            
+                            	System priority of partner system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_system_mac_address
+                            
+                            	MAC Address used to identify the partner system
+                            	**type**\:  str
+                            
+                            .. attribute:: partner_operational_key
+                            
+                            	Operational key for partner port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: selected_aggregator_id
+                            
+                            	MIB ifindex of selected bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: attached_aggregator_id
+                            
+                            	MIB ifindex of attached bundle
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: actor_port_id
+                            
+                            	Port number of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_priority
+                            
+                            	Priority of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_id
+                            
+                            	Port number of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: partner_port_priority
+                            
+                            	Priority of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: actor_port_state
+                            
+                            	LACP state of this port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: partner_port_state
+                            
+                            	LACP state of the partner's port
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, self).__init__()
+
+                                self.yang_name = "link-data"
+                                self.yang_parent_name = "member"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                                self.actor_system_priority = YLeaf(YType.uint16, "actor-system-priority")
+
+                                self.actor_system_mac_address = YLeaf(YType.str, "actor-system-mac-address")
+
+                                self.actor_operational_key = YLeaf(YType.uint16, "actor-operational-key")
+
+                                self.partner_system_priority = YLeaf(YType.uint16, "partner-system-priority")
+
+                                self.partner_system_mac_address = YLeaf(YType.str, "partner-system-mac-address")
+
+                                self.partner_operational_key = YLeaf(YType.uint16, "partner-operational-key")
+
+                                self.selected_aggregator_id = YLeaf(YType.uint32, "selected-aggregator-id")
+
+                                self.attached_aggregator_id = YLeaf(YType.uint32, "attached-aggregator-id")
+
+                                self.actor_port_id = YLeaf(YType.uint16, "actor-port-id")
+
+                                self.actor_port_priority = YLeaf(YType.uint16, "actor-port-priority")
+
+                                self.partner_port_id = YLeaf(YType.uint16, "partner-port-id")
+
+                                self.partner_port_priority = YLeaf(YType.uint16, "partner-port-priority")
+
+                                self.actor_port_state = YLeaf(YType.uint8, "actor-port-state")
+
+                                self.partner_port_state = YLeaf(YType.uint8, "partner-port-state")
+                                self._segment_path = lambda: "link-data"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['interface_handle', 'actor_system_priority', 'actor_system_mac_address', 'actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'selected_aggregator_id', 'attached_aggregator_id', 'actor_port_id', 'actor_port_priority', 'partner_port_id', 'partner_port_priority', 'actor_port_state', 'partner_port_state'], name, value)
+
+
+                        class MemberMuxData(Entity):
+                            """
+                            Mux state machine data
+                            
+                            .. attribute:: member_mux_state_reason_data
+                            
+                            	Data regarding the reason for last Mux state change
+                            	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData>`
+                            
+                            .. attribute:: mux_state
+                            
+                            	Current state of this bundle member
+                            	**type**\:   :py:class:`BmMuxstate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxstate>`
+                            
+                            .. attribute:: error
+                            
+                            	Internal value indicating if an error occurred trying to put a link into the desired state
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: member_mux_state_reason
+                            
+                            	Reason for last Mux state change
+                            	**type**\:   :py:class:`BmMbrStateReason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMbrStateReason>`
+                            
+                            .. attribute:: member_state
+                            
+                            	Current internal state of this bundle member
+                            	**type**\:   :py:class:`BmdMemberState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmdMemberState>`
+                            
+                            .. attribute:: mux_state_reason
+                            
+                            	Reason for last Mux state change (Deprecated)
+                            	**type**\:   :py:class:`BmMuxreason <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmMuxreason>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, self).__init__()
+
+                                self.yang_name = "member-mux-data"
+                                self.yang_parent_name = "member"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"member-mux-state-reason-data" : ("member_mux_state_reason_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData)}
+                                self._child_list_classes = {}
+
+                                self.mux_state = YLeaf(YType.enumeration, "mux-state")
+
+                                self.error = YLeaf(YType.uint32, "error")
+
+                                self.member_mux_state_reason = YLeaf(YType.enumeration, "member-mux-state-reason")
+
+                                self.member_state = YLeaf(YType.enumeration, "member-state")
+
+                                self.mux_state_reason = YLeaf(YType.enumeration, "mux-state-reason")
+
+                                self.member_mux_state_reason_data = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData()
+                                self.member_mux_state_reason_data.parent = self
+                                self._children_name_map["member_mux_state_reason_data"] = "member-mux-state-reason-data"
+                                self._children_yang_names.add("member-mux-state-reason-data")
+                                self._segment_path = lambda: "member-mux-data"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, ['mux_state', 'error', 'member_mux_state_reason', 'member_state', 'mux_state_reason'], name, value)
+
+
+                            class MemberMuxStateReasonData(Entity):
+                                """
+                                Data regarding the reason for last Mux state
+                                change
+                                
+                                .. attribute:: reason_type
+                                
+                                	The item the reason applies to
+                                	**type**\:   :py:class:`BmStateReasonTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmStateReasonTarget>`
+                                
+                                .. attribute:: severity
+                                
+                                	The severity of the reason
+                                	**type**\:   :py:class:`BmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.BmSeverity>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, self).__init__()
+
+                                    self.yang_name = "member-mux-state-reason-data"
+                                    self.yang_parent_name = "member-mux-data"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.reason_type = YLeaf(YType.enumeration, "reason-type")
+
+                                    self.severity = YLeaf(YType.enumeration, "severity")
+                                    self._segment_path = lambda: "member-mux-state-reason-data"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
+
+
+                        class MacAddress(Entity):
+                            """
+                            MAC address of this member (deprecated)
+                            
+                            .. attribute:: address
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, self).__init__()
+
+                                self.yang_name = "mac-address"
+                                self.yang_parent_name = "member"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.address = YLeaf(YType.str, "address")
+                                self._segment_path = lambda: "mac-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
+
+
+                class SerialInformation(Entity):
+                    """
+                    Serial interface information
+                    
+                    .. attribute:: timeslots
+                    
+                    	Timeslots separated by \: or \- from 1 to 31. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, self).__init__()
+
+                        self.yang_name = "serial-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.timeslots = YLeaf(YType.str, "timeslots")
+                        self._segment_path = lambda: "serial-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
+
+
+                class SonetPosInformation(Entity):
+                    """
+                    SONET POS interface information
+                    
+                    .. attribute:: aps_state
+                    
+                    	APS state
+                    	**type**\:   :py:class:`SonetApsEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.SonetApsEt>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, self).__init__()
+
+                        self.yang_name = "sonet-pos-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.aps_state = YLeaf(YType.enumeration, "aps-state")
+                        self._segment_path = lambda: "sonet-pos-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
 
 
                 class TunnelGreInformation(Entity):
                     """
                     Tunnel GRE interface information
                     
+                    .. attribute:: source_ip_address
+                    
+                    	Tunnel source IP address
+                    	**type**\:   :py:class:`SourceIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress>`
+                    
                     .. attribute:: destination_ip_address
                     
                     	Tunnel destination IP address
                     	**type**\:   :py:class:`DestinationIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress>`
+                    
+                    .. attribute:: source_name
+                    
+                    	Tunnel source name
+                    	**type**\:  str
                     
                     .. attribute:: destination_ip_address_length
                     
@@ -10102,64 +8931,6 @@ class Interfaces(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..255
-                    
-                    .. attribute:: df_bit_state
-                    
-                    	DF Bit State
-                    	**type**\:   :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
-                    
-                    .. attribute:: keepalive_maximum_retry
-                    
-                    	Keepalive retry
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: keepalive_period
-                    
-                    	Keepalive period in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    	**units**\: second
-                    
-                    .. attribute:: keepalive_state
-                    
-                    	Keepalive State
-                    	**type**\:   :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
-                    
-                    .. attribute:: key
-                    
-                    	Key value for GRE Packet
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: key_bit_state
-                    
-                    	Key Config State
-                    	**type**\:   :py:class:`TunnelKeyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyState>`
-                    
-                    .. attribute:: source_ip_address
-                    
-                    	Tunnel source IP address
-                    	**type**\:   :py:class:`SourceIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress>`
-                    
-                    .. attribute:: source_name
-                    
-                    	Tunnel source name
-                    	**type**\:  str
-                    
-                    .. attribute:: tunnel_mode
-                    
-                    	Tunnel GRE Mode
-                    	**type**\:   :py:class:`TunnelGreMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreMode>`
-                    
-                    .. attribute:: tunnel_mode_direction
-                    
-                    	Tunnel Mode Direction
-                    	**type**\:   :py:class:`TunlIpModeDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlIpModeDir>`
                     
                     .. attribute:: tunnel_tos
                     
@@ -10175,6 +8946,54 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: key
+                    
+                    	Key value for GRE Packet
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: keepalive_period
+                    
+                    	Keepalive period in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: keepalive_maximum_retry
+                    
+                    	Keepalive retry
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: tunnel_mode
+                    
+                    	Tunnel GRE Mode
+                    	**type**\:   :py:class:`TunnelGreMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelGreMode>`
+                    
+                    .. attribute:: tunnel_mode_direction
+                    
+                    	Tunnel Mode Direction
+                    	**type**\:   :py:class:`TunlIpModeDir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlIpModeDir>`
+                    
+                    .. attribute:: keepalive_state
+                    
+                    	Keepalive State
+                    	**type**\:   :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
+                    
+                    .. attribute:: df_bit_state
+                    
+                    	DF Bit State
+                    	**type**\:   :py:class:`TunnelKaDfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKaDfState>`
+                    
+                    .. attribute:: key_bit_state
+                    
+                    	Key Config State
+                    	**type**\:   :py:class:`TunnelKeyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunnelKeyState>`
+                    
                     
 
                     """
@@ -10189,97 +9008,46 @@ class Interfaces(Entity):
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"destination-ip-address" : ("destination_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress), "source-ip-address" : ("source_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress)}
+                        self._child_container_classes = {"source-ip-address" : ("source_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress), "destination-ip-address" : ("destination_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress)}
                         self._child_list_classes = {}
-
-                        self.destination_ip_address_length = YLeaf(YType.uint8, "destination-ip-address-length")
-
-                        self.df_bit_state = YLeaf(YType.enumeration, "df-bit-state")
-
-                        self.keepalive_maximum_retry = YLeaf(YType.uint8, "keepalive-maximum-retry")
-
-                        self.keepalive_period = YLeaf(YType.uint16, "keepalive-period")
-
-                        self.keepalive_state = YLeaf(YType.enumeration, "keepalive-state")
-
-                        self.key = YLeaf(YType.uint32, "key")
-
-                        self.key_bit_state = YLeaf(YType.enumeration, "key-bit-state")
 
                         self.source_name = YLeaf(YType.str, "source-name")
 
-                        self.tunnel_mode = YLeaf(YType.enumeration, "tunnel-mode")
-
-                        self.tunnel_mode_direction = YLeaf(YType.enumeration, "tunnel-mode-direction")
+                        self.destination_ip_address_length = YLeaf(YType.uint8, "destination-ip-address-length")
 
                         self.tunnel_tos = YLeaf(YType.uint32, "tunnel-tos")
 
                         self.tunnel_ttl = YLeaf(YType.uint32, "tunnel-ttl")
 
-                        self.destination_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress()
-                        self.destination_ip_address.parent = self
-                        self._children_name_map["destination_ip_address"] = "destination-ip-address"
-                        self._children_yang_names.add("destination-ip-address")
+                        self.key = YLeaf(YType.uint32, "key")
+
+                        self.keepalive_period = YLeaf(YType.uint16, "keepalive-period")
+
+                        self.keepalive_maximum_retry = YLeaf(YType.uint8, "keepalive-maximum-retry")
+
+                        self.tunnel_mode = YLeaf(YType.enumeration, "tunnel-mode")
+
+                        self.tunnel_mode_direction = YLeaf(YType.enumeration, "tunnel-mode-direction")
+
+                        self.keepalive_state = YLeaf(YType.enumeration, "keepalive-state")
+
+                        self.df_bit_state = YLeaf(YType.enumeration, "df-bit-state")
+
+                        self.key_bit_state = YLeaf(YType.enumeration, "key-bit-state")
 
                         self.source_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress()
                         self.source_ip_address.parent = self
                         self._children_name_map["source_ip_address"] = "source-ip-address"
                         self._children_yang_names.add("source-ip-address")
+
+                        self.destination_ip_address = Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress()
+                        self.destination_ip_address.parent = self
+                        self._children_name_map["destination_ip_address"] = "destination-ip-address"
+                        self._children_yang_names.add("destination-ip-address")
                         self._segment_path = lambda: "tunnel-gre-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, ['destination_ip_address_length', 'df_bit_state', 'keepalive_maximum_retry', 'keepalive_period', 'keepalive_state', 'key', 'key_bit_state', 'source_name', 'tunnel_mode', 'tunnel_mode_direction', 'tunnel_tos', 'tunnel_ttl'], name, value)
-
-
-                    class DestinationIpAddress(Entity):
-                        """
-                        Tunnel destination IP address
-                        
-                        .. attribute:: afi
-                        
-                        	AFI
-                        	**type**\:   :py:class:`TunlPfiAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId>`
-                        
-                        .. attribute:: ipv4
-                        
-                        	IPv4 address type
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: ipv6
-                        
-                        	IPv6 address type
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-
-                        """
-
-                        _prefix = 'pfi-im-cmd-oper'
-                        _revision = '2017-06-26'
-
-                        def __init__(self):
-                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, self).__init__()
-
-                            self.yang_name = "destination-ip-address"
-                            self.yang_parent_name = "tunnel-gre-information"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                            self.ipv4 = YLeaf(YType.str, "ipv4")
-
-                            self.ipv6 = YLeaf(YType.str, "ipv6")
-                            self._segment_path = lambda: "destination-ip-address"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, ['source_name', 'destination_ip_address_length', 'tunnel_tos', 'tunnel_ttl', 'key', 'keepalive_period', 'keepalive_maximum_retry', 'tunnel_mode', 'tunnel_mode_direction', 'keepalive_state', 'df_bit_state', 'key_bit_state'], name, value)
 
 
                     class SourceIpAddress(Entity):
@@ -10296,14 +9064,10 @@ class Interfaces(Entity):
                         	IPv4 address type
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: ipv6
                         
                         	IPv6 address type
                         	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
                         
 
@@ -10333,47 +9097,75 @@ class Interfaces(Entity):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
 
-                class TunnelInformation(Entity):
+                    class DestinationIpAddress(Entity):
+                        """
+                        Tunnel destination IP address
+                        
+                        .. attribute:: afi
+                        
+                        	AFI
+                        	**type**\:   :py:class:`TunlPfiAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.TunlPfiAfId>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\:  str
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'pfi-im-cmd-oper'
+                        _revision = '2017-06-26'
+
+                        def __init__(self):
+                            super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, self).__init__()
+
+                            self.yang_name = "destination-ip-address"
+                            self.yang_parent_name = "tunnel-gre-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.afi = YLeaf(YType.enumeration, "afi")
+
+                            self.ipv4 = YLeaf(YType.str, "ipv4")
+
+                            self.ipv6 = YLeaf(YType.str, "ipv6")
+                            self._segment_path = lambda: "destination-ip-address"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
+
+
+                class PseudowireHeadEndInformation(Entity):
                     """
-                    Tunnel interface information
+                    PseudowireHeadEnd interface information
                     
-                    .. attribute:: destination_ipv4_address
+                    .. attribute:: interface_list_name
                     
-                    	Tunnel destination IP address
+                    	Interface list Name
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    .. attribute:: l2_overhead
                     
-                    .. attribute:: key
-                    
-                    	GRE tunnel key
+                    	L2 Overhead
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: source_ipv4_address
+                    .. attribute:: internal_label
                     
-                    	Tunnel source IP address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: source_name
-                    
-                    	Tunnel source name
-                    	**type**\:  str
-                    
-                    .. attribute:: ttl
-                    
-                    	GRE tunnel TTL
+                    	Internal Label
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: tunnel_type
-                    
-                    	Tunnel protocol/transport
-                    	**type**\:  str
                     
                     
 
@@ -10383,49 +9175,234 @@ class Interfaces(Entity):
                     _revision = '2017-06-26'
 
                     def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, self).__init__()
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, self).__init__()
 
-                        self.yang_name = "tunnel-information"
+                        self.yang_name = "pseudowire-head-end-information"
                         self.yang_parent_name = "interface-type-information"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.destination_ipv4_address = YLeaf(YType.str, "destination-ipv4-address")
+                        self.interface_list_name = YLeaf(YType.str, "interface-list-name")
 
-                        self.key = YLeaf(YType.uint32, "key")
+                        self.l2_overhead = YLeaf(YType.uint32, "l2-overhead")
 
-                        self.source_ipv4_address = YLeaf(YType.str, "source-ipv4-address")
-
-                        self.source_name = YLeaf(YType.str, "source-name")
-
-                        self.ttl = YLeaf(YType.uint32, "ttl")
-
-                        self.tunnel_type = YLeaf(YType.str, "tunnel-type")
-                        self._segment_path = lambda: "tunnel-information"
+                        self.internal_label = YLeaf(YType.uint32, "internal-label")
+                        self._segment_path = lambda: "pseudowire-head-end-information"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['destination_ipv4_address', 'key', 'source_ipv4_address', 'source_name', 'ttl', 'tunnel_type'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'l2_overhead', 'internal_label'], name, value)
 
 
-            class IpInformation(Entity):
+                class CemInformation(Entity):
+                    """
+                    Cem interface information
+                    
+                    .. attribute:: timeslots
+                    
+                    	Timeslots separated by \: or \- from 1 to 32. \: indicates individual timeslot and \- represents a range. E.g. 1\-3\:5 represents timeslots 1, 2, 3, and 5
+                    	**type**\:  str
+                    
+                    .. attribute:: payload
+                    
+                    	Payload size in bytes configured on CEM interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: dejitter_buffer
+                    
+                    	Dejitter buffer length configuredin milliseconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    	**units**\: millisecond
+                    
+                    .. attribute:: framing
+                    
+                    	 If framing is TRUE then the CEM  interface is structure aware ; otherwise it is structure agnostic
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, self).__init__()
+
+                        self.yang_name = "cem-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.timeslots = YLeaf(YType.str, "timeslots")
+
+                        self.payload = YLeaf(YType.uint16, "payload")
+
+                        self.dejitter_buffer = YLeaf(YType.uint16, "dejitter-buffer")
+
+                        self.framing = YLeaf(YType.int32, "framing")
+                        self._segment_path = lambda: "cem-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['timeslots', 'payload', 'dejitter_buffer', 'framing'], name, value)
+
+
+                class GccInformation(Entity):
+                    """
+                    GCC interface information
+                    
+                    .. attribute:: derived_mode
+                    
+                    	Derived State
+                    	**type**\:   :py:class:`GccDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccDerState>`
+                    
+                    .. attribute:: sec_state
+                    
+                    	Sec State 
+                    	**type**\:   :py:class:`GccSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.GccSecState>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, self).__init__()
+
+                        self.yang_name = "gcc-information"
+                        self.yang_parent_name = "interface-type-information"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.derived_mode = YLeaf(YType.enumeration, "derived-mode")
+
+                        self.sec_state = YLeaf(YType.enumeration, "sec-state")
+                        self._segment_path = lambda: "gcc-information"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
+
+
+            class DataRates(Entity):
                 """
-                Interface IP address info
+                Packet and byte rates
                 
-                .. attribute:: ip_address
+                .. attribute:: input_data_rate
                 
-                	Interface IPv4 address
-                	**type**\:  str
+                	Input data rate in 1000's of bps
+                	**type**\:  int
                 
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                	**range:** 0..18446744073709551615
                 
-                .. attribute:: subnet_mask_length
+                	**units**\: bit/s
                 
-                	Interface subnet mask length
+                .. attribute:: input_packet_rate
+                
+                	Input packets per second
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: packet/s
+                
+                .. attribute:: output_data_rate
+                
+                	Output data rate in 1000's of bps
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: bit/s
+                
+                .. attribute:: output_packet_rate
+                
+                	Output packets per second
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: packet/s
+                
+                .. attribute:: peak_input_data_rate
+                
+                	Peak input data rate
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_input_packet_rate
+                
+                	Peak input packet rate
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_data_rate
+                
+                	Peak output data rate
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: peak_output_packet_rate
+                
+                	Peak output packet rate
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: bandwidth
+                
+                	Bandwidth (in kbps)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: kbit/s
+                
+                .. attribute:: load_interval
+                
+                	Number of 30\-sec intervals less one
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: output_load
+                
+                	Output load as fraction of 255
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: input_load
+                
+                	Input load as fraction of 255
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: reliability
+                
+                	Reliability coefficient
+                	**type**\:  int
+                
+                	**range:** 0..255
                 
                 
 
@@ -10435,42 +9412,650 @@ class Interfaces(Entity):
                 _revision = '2017-06-26'
 
                 def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.IpInformation, self).__init__()
+                    super(Interfaces.InterfaceXr.Interface.DataRates, self).__init__()
 
-                    self.yang_name = "ip-information"
+                    self.yang_name = "data-rates"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.ip_address = YLeaf(YType.str, "ip-address")
+                    self.input_data_rate = YLeaf(YType.uint64, "input-data-rate")
 
-                    self.subnet_mask_length = YLeaf(YType.uint32, "subnet-mask-length")
-                    self._segment_path = lambda: "ip-information"
+                    self.input_packet_rate = YLeaf(YType.uint64, "input-packet-rate")
+
+                    self.output_data_rate = YLeaf(YType.uint64, "output-data-rate")
+
+                    self.output_packet_rate = YLeaf(YType.uint64, "output-packet-rate")
+
+                    self.peak_input_data_rate = YLeaf(YType.uint64, "peak-input-data-rate")
+
+                    self.peak_input_packet_rate = YLeaf(YType.uint64, "peak-input-packet-rate")
+
+                    self.peak_output_data_rate = YLeaf(YType.uint64, "peak-output-data-rate")
+
+                    self.peak_output_packet_rate = YLeaf(YType.uint64, "peak-output-packet-rate")
+
+                    self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+
+                    self.load_interval = YLeaf(YType.uint32, "load-interval")
+
+                    self.output_load = YLeaf(YType.uint8, "output-load")
+
+                    self.input_load = YLeaf(YType.uint8, "input-load")
+
+                    self.reliability = YLeaf(YType.uint8, "reliability")
+                    self._segment_path = lambda: "data-rates"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
+
+
+            class InterfaceStatistics(Entity):
+                """
+                Packet, byte and error counters
+                
+                .. attribute:: full_interface_stats
+                
+                	Packet, byte and all error counters
+                	**type**\:   :py:class:`FullInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats>`
+                
+                .. attribute:: basic_interface_stats
+                
+                	Packet, byte and selected error counters
+                	**type**\:   :py:class:`BasicInterfaceStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats>`
+                
+                .. attribute:: stats_type
+                
+                	StatsType
+                	**type**\:   :py:class:`ImCmdStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImCmdStatsEnum>`
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(Interfaces.InterfaceXr.Interface.InterfaceStatistics, self).__init__()
+
+                    self.yang_name = "interface-statistics"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"full-interface-stats" : ("full_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats), "basic-interface-stats" : ("basic_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats)}
+                    self._child_list_classes = {}
+
+                    self.stats_type = YLeaf(YType.enumeration, "stats-type")
+
+                    self.full_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats()
+                    self.full_interface_stats.parent = self
+                    self._children_name_map["full_interface_stats"] = "full-interface-stats"
+                    self._children_yang_names.add("full-interface-stats")
+
+                    self.basic_interface_stats = Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats()
+                    self.basic_interface_stats.parent = self
+                    self._children_name_map["basic_interface_stats"] = "basic-interface-stats"
+                    self._children_yang_names.add("basic-interface-stats")
+                    self._segment_path = lambda: "interface-statistics"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, ['stats_type'], name, value)
+
+
+                class FullInterfaceStats(Entity):
+                    """
+                    Packet, byte and all error counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: multicast_packets_received
+                    
+                    	Multicast packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_received
+                    
+                    	Broadcast packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: multicast_packets_sent
+                    
+                    	Multicast packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: broadcast_packets_sent
+                    
+                    	Broadcast packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: runt_packets_received
+                    
+                    	Received runt packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: giant_packets_received
+                    
+                    	Received giant packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: throttled_packets_received
+                    
+                    	Received throttled packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parity_packets_received
+                    
+                    	Received parity packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: crc_errors
+                    
+                    	Input CRC errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_overruns
+                    
+                    	Input overruns
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: framing_errors_received
+                    
+                    	Framing\-errors received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_ignored_packets
+                    
+                    	Input ignored packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_aborts
+                    
+                    	Input aborts
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_underruns
+                    
+                    	Output underruns
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffer_failures
+                    
+                    	Output buffer failures
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_buffers_swapped_out
+                    
+                    	Output buffers swapped out
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: applique
+                    
+                    	Applique
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: resets
+                    
+                    	Number of board resets
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: carrier_transitions
+                    
+                    	Carrier transitions
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: availability_flag
+                    
+                    	Availability bit mask
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, self).__init__()
+
+                        self.yang_name = "full-interface-stats"
+                        self.yang_parent_name = "interface-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.multicast_packets_received = YLeaf(YType.uint64, "multicast-packets-received")
+
+                        self.broadcast_packets_received = YLeaf(YType.uint64, "broadcast-packets-received")
+
+                        self.multicast_packets_sent = YLeaf(YType.uint64, "multicast-packets-sent")
+
+                        self.broadcast_packets_sent = YLeaf(YType.uint64, "broadcast-packets-sent")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.runt_packets_received = YLeaf(YType.uint32, "runt-packets-received")
+
+                        self.giant_packets_received = YLeaf(YType.uint32, "giant-packets-received")
+
+                        self.throttled_packets_received = YLeaf(YType.uint32, "throttled-packets-received")
+
+                        self.parity_packets_received = YLeaf(YType.uint32, "parity-packets-received")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.crc_errors = YLeaf(YType.uint32, "crc-errors")
+
+                        self.input_overruns = YLeaf(YType.uint32, "input-overruns")
+
+                        self.framing_errors_received = YLeaf(YType.uint32, "framing-errors-received")
+
+                        self.input_ignored_packets = YLeaf(YType.uint32, "input-ignored-packets")
+
+                        self.input_aborts = YLeaf(YType.uint32, "input-aborts")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.output_underruns = YLeaf(YType.uint32, "output-underruns")
+
+                        self.output_buffer_failures = YLeaf(YType.uint32, "output-buffer-failures")
+
+                        self.output_buffers_swapped_out = YLeaf(YType.uint32, "output-buffers-swapped-out")
+
+                        self.applique = YLeaf(YType.uint32, "applique")
+
+                        self.resets = YLeaf(YType.uint32, "resets")
+
+                        self.carrier_transitions = YLeaf(YType.uint32, "carrier-transitions")
+
+                        self.availability_flag = YLeaf(YType.uint32, "availability-flag")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+                        self._segment_path = lambda: "full-interface-stats"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
+
+
+                class BasicInterfaceStats(Entity):
+                    """
+                    Packet, byte and selected error counters
+                    
+                    .. attribute:: packets_received
+                    
+                    	Packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_received
+                    
+                    	Bytes received
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: packets_sent
+                    
+                    	Packets sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: bytes_sent
+                    
+                    	Bytes sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: input_drops
+                    
+                    	Total input drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_queue_drops
+                    
+                    	Input queue drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: input_errors
+                    
+                    	Total input errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_protocol_packets_received
+                    
+                    	Unknown protocol packets received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_drops
+                    
+                    	Total output drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_queue_drops
+                    
+                    	Output queue drops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: output_errors
+                    
+                    	Total output errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_data_time
+                    
+                    	Time when counters were last written (in seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_last_clear_counters
+                    
+                    	Number of seconds since last clear counters
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: last_discontinuity_time
+                    
+                    	SysUpTime when counters were last reset (in seconds)
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_packet_received
+                    
+                    	Seconds since packet received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: seconds_since_packet_sent
+                    
+                    	Seconds since packet sent
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, self).__init__()
+
+                        self.yang_name = "basic-interface-stats"
+                        self.yang_parent_name = "interface-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.packets_received = YLeaf(YType.uint64, "packets-received")
+
+                        self.bytes_received = YLeaf(YType.uint64, "bytes-received")
+
+                        self.packets_sent = YLeaf(YType.uint64, "packets-sent")
+
+                        self.bytes_sent = YLeaf(YType.uint64, "bytes-sent")
+
+                        self.input_drops = YLeaf(YType.uint32, "input-drops")
+
+                        self.input_queue_drops = YLeaf(YType.uint32, "input-queue-drops")
+
+                        self.input_errors = YLeaf(YType.uint32, "input-errors")
+
+                        self.unknown_protocol_packets_received = YLeaf(YType.uint32, "unknown-protocol-packets-received")
+
+                        self.output_drops = YLeaf(YType.uint32, "output-drops")
+
+                        self.output_queue_drops = YLeaf(YType.uint32, "output-queue-drops")
+
+                        self.output_errors = YLeaf(YType.uint32, "output-errors")
+
+                        self.last_data_time = YLeaf(YType.uint32, "last-data-time")
+
+                        self.seconds_since_last_clear_counters = YLeaf(YType.uint32, "seconds-since-last-clear-counters")
+
+                        self.last_discontinuity_time = YLeaf(YType.uint32, "last-discontinuity-time")
+
+                        self.seconds_since_packet_received = YLeaf(YType.uint32, "seconds-since-packet-received")
+
+                        self.seconds_since_packet_sent = YLeaf(YType.uint32, "seconds-since-packet-sent")
+                        self._segment_path = lambda: "basic-interface-stats"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'input_drops', 'input_queue_drops', 'input_errors', 'unknown_protocol_packets_received', 'output_drops', 'output_queue_drops', 'output_errors', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class L2InterfaceStatistics(Entity):
                 """
                 L2 Protocol Statistics
-                
-                .. attribute:: block_array
-                
-                	Block Array
-                	**type**\: list of    :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray>`
-                
-                .. attribute:: contents
-                
-                	Bag contents
-                	**type**\:   :py:class:`StatsTypeContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContents>`
-                
-                .. attribute:: element_array
-                
-                	Element Array
-                	**type**\: list of    :py:class:`ElementArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray>`
                 
                 .. attribute:: stats_id
                 
@@ -10483,6 +10068,21 @@ class Interfaces(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: contents
+                
+                	Bag contents
+                	**type**\:   :py:class:`StatsTypeContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsTypeContents>`
+                
+                .. attribute:: block_array
+                
+                	Block Array
+                	**type**\: list of    :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray>`
+                
+                .. attribute:: element_array
+                
+                	Element Array
+                	**type**\: list of    :py:class:`ElementArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray>`
                 
                 
 
@@ -10501,9 +10101,9 @@ class Interfaces(Entity):
                     self._child_container_classes = {"stats-id" : ("stats_id", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId)}
                     self._child_list_classes = {"block-array" : ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray), "element-array" : ("element_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray)}
 
-                    self.contents = YLeaf(YType.enumeration, "contents")
-
                     self.stats_type = YLeaf(YType.uint32, "stats-type")
+
+                    self.contents = YLeaf(YType.enumeration, "contents")
 
                     self.stats_id = Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId()
                     self.stats_id.parent = self
@@ -10515,12 +10115,91 @@ class Interfaces(Entity):
                     self._segment_path = lambda: "l2-interface-statistics"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, ['contents', 'stats_type'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, ['stats_type', 'contents'], name, value)
+
+
+                class StatsId(Entity):
+                    """
+                    Identifier
+                    
+                    .. attribute:: id_type
+                    
+                    	id type
+                    	**type**\:   :py:class:`StatsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsId>`
+                    
+                    .. attribute:: unused
+                    
+                    	Unused
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_handle
+                    
+                    	Interface Handle
+                    	**type**\:  str
+                    
+                    .. attribute:: node_id
+                    
+                    	Node ID
+                    	**type**\:  str
+                    
+                    .. attribute:: feature_id
+                    
+                    	Feature ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: id
+                    
+                    	ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'pfi-im-cmd-oper'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, self).__init__()
+
+                        self.yang_name = "stats-id"
+                        self.yang_parent_name = "l2-interface-statistics"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.id_type = YLeaf(YType.enumeration, "id-type")
+
+                        self.unused = YLeaf(YType.uint32, "unused")
+
+                        self.interface_handle = YLeaf(YType.str, "interface-handle")
+
+                        self.node_id = YLeaf(YType.str, "node-id")
+
+                        self.feature_id = YLeaf(YType.uint32, "feature-id")
+
+                        self.id = YLeaf(YType.uint32, "id")
+                        self._segment_path = lambda: "stats-id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['id_type', 'unused', 'interface_handle', 'node_id', 'feature_id', 'id'], name, value)
 
 
                 class BlockArray(Entity):
                     """
                     Block Array
+                    
+                    .. attribute:: type
+                    
+                    	type
+                    	**type**\:   :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
                     
                     .. attribute:: count
                     
@@ -10533,13 +10212,6 @@ class Interfaces(Entity):
                     
                     	data
                     	**type**\:  str
-                    
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                    
-                    .. attribute:: type
-                    
-                    	type
-                    	**type**\:   :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
                     
                     
 
@@ -10558,32 +10230,30 @@ class Interfaces(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
+                        self.type = YLeaf(YType.enumeration, "type")
+
                         self.count = YLeaf(YType.uint32, "count")
 
                         self.data = YLeaf(YType.str, "data")
-
-                        self.type = YLeaf(YType.enumeration, "type")
                         self._segment_path = lambda: "block-array"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['count', 'data', 'type'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['type', 'count', 'data'], name, value)
 
 
                 class ElementArray(Entity):
                     """
                     Element Array
                     
-                    .. attribute:: block_array
-                    
-                    	block array
-                    	**type**\: list of    :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray>`
-                    
                     .. attribute:: key
                     
                     	key
                     	**type**\:  str
                     
-                    	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                    .. attribute:: block_array
+                    
+                    	block array
+                    	**type**\: list of    :py:class:`BlockArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray>`
                     
                     
 
@@ -10615,6 +10285,11 @@ class Interfaces(Entity):
                         """
                         block array
                         
+                        .. attribute:: type
+                        
+                        	type
+                        	**type**\:   :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
+                        
                         .. attribute:: count
                         
                         	count
@@ -10626,13 +10301,6 @@ class Interfaces(Entity):
                         
                         	data
                         	**type**\:  str
-                        
-                        	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                        
-                        .. attribute:: type
-                        
-                        	type
-                        	**type**\:   :py:class:`StatsCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsCounter>`
                         
                         
 
@@ -10651,128 +10319,15 @@ class Interfaces(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
+                            self.type = YLeaf(YType.enumeration, "type")
+
                             self.count = YLeaf(YType.uint32, "count")
 
                             self.data = YLeaf(YType.str, "data")
-
-                            self.type = YLeaf(YType.enumeration, "type")
                             self._segment_path = lambda: "block-array"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['count', 'data', 'type'], name, value)
-
-
-                class StatsId(Entity):
-                    """
-                    Identifier
-                    
-                    .. attribute:: feature_id
-                    
-                    	Feature ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: id
-                    
-                    	ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: id_type
-                    
-                    	id type
-                    	**type**\:   :py:class:`StatsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.StatsId>`
-                    
-                    .. attribute:: interface_handle
-                    
-                    	Interface Handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: node_id
-                    
-                    	Node ID
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: unused
-                    
-                    	Unused
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'pfi-im-cmd-oper'
-                    _revision = '2017-06-26'
-
-                    def __init__(self):
-                        super(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, self).__init__()
-
-                        self.yang_name = "stats-id"
-                        self.yang_parent_name = "l2-interface-statistics"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.feature_id = YLeaf(YType.uint32, "feature-id")
-
-                        self.id = YLeaf(YType.uint32, "id")
-
-                        self.id_type = YLeaf(YType.enumeration, "id-type")
-
-                        self.interface_handle = YLeaf(YType.str, "interface-handle")
-
-                        self.node_id = YLeaf(YType.str, "node-id")
-
-                        self.unused = YLeaf(YType.uint32, "unused")
-                        self._segment_path = lambda: "stats-id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['feature_id', 'id', 'id_type', 'interface_handle', 'node_id', 'unused'], name, value)
-
-
-            class MacAddress(Entity):
-                """
-                Interface MAC address
-                
-                .. attribute:: address
-                
-                	MAC Address
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Interfaces.InterfaceXr.Interface.MacAddress, self).__init__()
-
-                    self.yang_name = "mac-address"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.address = YLeaf(YType.str, "address")
-                    self._segment_path = lambda: "mac-address"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['type', 'count', 'data'], name, value)
 
 
             class NvOptical(Entity):
@@ -10806,327 +10361,6 @@ class Interfaces(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceXr.Interface.NvOptical, ['controller'], name, value)
-
-
-    class Interfaces(Entity):
-        """
-        Descriptions for interfaces
-        
-        .. attribute:: interface
-        
-        	Description for a particular interface
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces.Interface>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2017-06-26'
-
-        def __init__(self):
-            super(Interfaces.Interfaces, self).__init__()
-
-            self.yang_name = "interfaces"
-            self.yang_parent_name = "interfaces"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", Interfaces.Interfaces.Interface)}
-
-            self.interface = YList(self)
-            self._segment_path = lambda: "interfaces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interfaces, [], name, value)
-
-
-        class Interface(Entity):
-            """
-            Description for a particular interface
-            
-            .. attribute:: interface_name  <key>
-            
-            	The name of the interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: description
-            
-            	Interface description string
-            	**type**\:  str
-            
-            .. attribute:: interface
-            
-            	Interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: line_state
-            
-            	Line protocol state with no translation of error disable or shutdown
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            .. attribute:: state
-            
-            	Operational state with no translation of error disable or shutdown
-            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.Interfaces.Interface, self).__init__()
-
-                self.yang_name = "interface"
-                self.yang_parent_name = "interfaces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.interface = YLeaf(YType.str, "interface")
-
-                self.line_state = YLeaf(YType.enumeration, "line-state")
-
-                self.state = YLeaf(YType.enumeration, "state")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interfaces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interfaces.Interface, ['interface_name', 'description', 'interface', 'line_state', 'state'], name, value)
-
-
-    class InventorySummary(Entity):
-        """
-        Inventory summary information
-        
-        .. attribute:: interface_counts
-        
-        	Counts for all interfaces
-        	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceCounts>`
-        
-        .. attribute:: interface_type
-        
-        	List of per interface type summary information
-        	**type**\: list of    :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType>`
-        
-        
-
-        """
-
-        _prefix = 'pfi-im-cmd-oper'
-        _revision = '2017-06-26'
-
-        def __init__(self):
-            super(Interfaces.InventorySummary, self).__init__()
-
-            self.yang_name = "inventory-summary"
-            self.yang_parent_name = "interfaces"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceCounts)}
-            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InventorySummary.InterfaceType)}
-
-            self.interface_counts = Interfaces.InventorySummary.InterfaceCounts()
-            self.interface_counts.parent = self
-            self._children_name_map["interface_counts"] = "interface-counts"
-            self._children_yang_names.add("interface-counts")
-
-            self.interface_type = YList(self)
-            self._segment_path = lambda: "inventory-summary"
-            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.InventorySummary, [], name, value)
-
-
-        class InterfaceCounts(Entity):
-            """
-            Counts for all interfaces
-            
-            .. attribute:: admin_down_interface_count
-            
-            	Number of interfaces in an ADMINDOWN state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: down_interface_count
-            
-            	Number of interfaces in DOWN state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: interface_count
-            
-            	Number of interfaces
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: up_interface_count
-            
-            	Number of interfaces in UP state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.InventorySummary.InterfaceCounts, self).__init__()
-
-                self.yang_name = "interface-counts"
-                self.yang_parent_name = "inventory-summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-                self._segment_path = lambda: "interface-counts"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
-
-
-        class InterfaceType(Entity):
-            """
-            List of per interface type summary information
-            
-            .. attribute:: interface_counts
-            
-            	Counts for interfaces of this type
-            	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType.InterfaceCounts>`
-            
-            .. attribute:: interface_type_description
-            
-            	Description of the interface type
-            	**type**\:  str
-            
-            .. attribute:: interface_type_name
-            
-            	Name of the interface type
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'pfi-im-cmd-oper'
-            _revision = '2017-06-26'
-
-            def __init__(self):
-                super(Interfaces.InventorySummary.InterfaceType, self).__init__()
-
-                self.yang_name = "interface-type"
-                self.yang_parent_name = "inventory-summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceType.InterfaceCounts)}
-                self._child_list_classes = {}
-
-                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
-
-                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
-
-                self.interface_counts = Interfaces.InventorySummary.InterfaceType.InterfaceCounts()
-                self.interface_counts.parent = self
-                self._children_name_map["interface_counts"] = "interface-counts"
-                self._children_yang_names.add("interface-counts")
-                self._segment_path = lambda: "interface-type"
-                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InventorySummary.InterfaceType, ['interface_type_description', 'interface_type_name'], name, value)
-
-
-            class InterfaceCounts(Entity):
-                """
-                Counts for interfaces of this type
-                
-                .. attribute:: admin_down_interface_count
-                
-                	Number of interfaces in an ADMINDOWN state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: down_interface_count
-                
-                	Number of interfaces in DOWN state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interface_count
-                
-                	Number of interfaces
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: up_interface_count
-                
-                	Number of interfaces in UP state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'pfi-im-cmd-oper'
-                _revision = '2017-06-26'
-
-                def __init__(self):
-                    super(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, self).__init__()
-
-                    self.yang_name = "interface-counts"
-                    self.yang_parent_name = "interface-type"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
-                    self.interface_count = YLeaf(YType.uint32, "interface-count")
-
-                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
-                    self._segment_path = lambda: "interface-counts"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/interface-type/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
 
 
     class NodeTypeSets(Entity):
@@ -11169,22 +10403,20 @@ class Interfaces(Entity):
             Summary data for all interfaces on a particular
             node
             
-            .. attribute:: interface_summary
-            
-            	Interface summary information
-            	**type**\:   :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary>`
-            
             .. attribute:: node_name
             
             	The location to filter on
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: type_set_name
             
             	The interface type to filter on
             	**type**\:   :py:class:`InterfaceTypeSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.InterfaceTypeSet>`
+            
+            .. attribute:: interface_summary
+            
+            	Interface summary information
+            	**type**\:   :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary>`
             
             
 
@@ -11266,9 +10498,16 @@ class Interfaces(Entity):
                     """
                     Counts for all interfaces
                     
-                    .. attribute:: admin_down_interface_count
+                    .. attribute:: interface_count
                     
-                    	Number of interfaces in an ADMINDOWN state
+                    	Number of interfaces
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: up_interface_count
+                    
+                    	Number of interfaces in UP state
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -11280,16 +10519,9 @@ class Interfaces(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: interface_count
+                    .. attribute:: admin_down_interface_count
                     
-                    	Number of interfaces
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: up_interface_count
-                    
-                    	Number of interfaces in UP state
+                    	Number of interfaces in an ADMINDOWN state
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -11311,18 +10543,18 @@ class Interfaces(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                        self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
                         self.interface_count = YLeaf(YType.uint32, "interface-count")
 
                         self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                        self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                        self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
                         self._segment_path = lambda: "interface-counts"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
+                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
 
                 class InterfaceType(Entity):
@@ -11334,14 +10566,14 @@ class Interfaces(Entity):
                     	Counts for interfaces of this type
                     	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts>`
                     
-                    .. attribute:: interface_type_description
-                    
-                    	Description of the interface type
-                    	**type**\:  str
-                    
                     .. attribute:: interface_type_name
                     
                     	Name of the interface type
+                    	**type**\:  str
+                    
+                    .. attribute:: interface_type_description
+                    
+                    	Description of the interface type
                     	**type**\:  str
                     
                     
@@ -11361,9 +10593,9 @@ class Interfaces(Entity):
                         self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts)}
                         self._child_list_classes = {}
 
-                        self.interface_type_description = YLeaf(YType.str, "interface-type-description")
-
                         self.interface_type_name = YLeaf(YType.str, "interface-type-name")
+
+                        self.interface_type_description = YLeaf(YType.str, "interface-type-description")
 
                         self.interface_counts = Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts()
                         self.interface_counts.parent = self
@@ -11373,26 +10605,12 @@ class Interfaces(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, ['interface_type_description', 'interface_type_name'], name, value)
+                        self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
 
 
                     class InterfaceCounts(Entity):
                         """
                         Counts for interfaces of this type
-                        
-                        .. attribute:: admin_down_interface_count
-                        
-                        	Number of interfaces in an ADMINDOWN state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: down_interface_count
-                        
-                        	Number of interfaces in DOWN state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: interface_count
                         
@@ -11404,6 +10622,20 @@ class Interfaces(Entity):
                         .. attribute:: up_interface_count
                         
                         	Number of interfaces in UP state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: down_interface_count
+                        
+                        	Number of interfaces in DOWN state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: admin_down_interface_count
+                        
+                        	Number of interfaces in an ADMINDOWN state
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -11425,18 +10657,726 @@ class Interfaces(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
-
-                            self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
-
                             self.interface_count = YLeaf(YType.uint32, "interface-count")
 
                             self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                            self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                            self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
                             self._segment_path = lambda: "interface-counts"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/interface-type/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, ['admin_down_interface_count', 'down_interface_count', 'interface_count', 'up_interface_count'], name, value)
+                            self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
+
+
+    class InterfaceBriefs(Entity):
+        """
+        Brief operational data for interfaces
+        
+        .. attribute:: interface_brief
+        
+        	Brief operational attributes for a particular interface
+        	**type**\: list of    :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceBriefs.InterfaceBrief>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2017-06-26'
+
+        def __init__(self):
+            super(Interfaces.InterfaceBriefs, self).__init__()
+
+            self.yang_name = "interface-briefs"
+            self.yang_parent_name = "interfaces"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"interface-brief" : ("interface_brief", Interfaces.InterfaceBriefs.InterfaceBrief)}
+
+            self.interface_brief = YList(self)
+            self._segment_path = lambda: "interface-briefs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Interfaces.InterfaceBriefs, [], name, value)
+
+
+        class InterfaceBrief(Entity):
+            """
+            Brief operational attributes for a particular
+            interface
+            
+            .. attribute:: interface_name  <key>
+            
+            	The name of the interface
+            	**type**\:  str
+            
+            .. attribute:: interface
+            
+            	Interface
+            	**type**\:  str
+            
+            .. attribute:: parent_interface
+            
+            	Parent Interface
+            	**type**\:  str
+            
+            .. attribute:: type
+            
+            	Interface type
+            	**type**\:  str
+            
+            .. attribute:: state
+            
+            	Operational state
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: actual_state
+            
+            	Operational state with no translation of error disable or shutdown
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: line_state
+            
+            	Line protocol state
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: actual_line_state
+            
+            	Line protocol state with no translation of error disable or shutdown
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: encapsulation
+            
+            	Interface encapsulation
+            	**type**\:  str
+            
+            .. attribute:: encapsulation_type_string
+            
+            	Interface encapsulation description string
+            	**type**\:  str
+            
+            	**length:** 0..32
+            
+            .. attribute:: mtu
+            
+            	MTU in bytes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
+            
+            .. attribute:: sub_interface_mtu_overhead
+            
+            	Subif MTU overhead
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: l2_transport
+            
+            	L2 transport
+            	**type**\:  bool
+            
+            .. attribute:: bandwidth
+            
+            	Interface bandwidth (Kb/s)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.InterfaceBriefs.InterfaceBrief, self).__init__()
+
+                self.yang_name = "interface-brief"
+                self.yang_parent_name = "interface-briefs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.interface = YLeaf(YType.str, "interface")
+
+                self.parent_interface = YLeaf(YType.str, "parent-interface")
+
+                self.type = YLeaf(YType.str, "type")
+
+                self.state = YLeaf(YType.enumeration, "state")
+
+                self.actual_state = YLeaf(YType.enumeration, "actual-state")
+
+                self.line_state = YLeaf(YType.enumeration, "line-state")
+
+                self.actual_line_state = YLeaf(YType.enumeration, "actual-line-state")
+
+                self.encapsulation = YLeaf(YType.str, "encapsulation")
+
+                self.encapsulation_type_string = YLeaf(YType.str, "encapsulation-type-string")
+
+                self.mtu = YLeaf(YType.uint32, "mtu")
+
+                self.sub_interface_mtu_overhead = YLeaf(YType.uint32, "sub-interface-mtu-overhead")
+
+                self.l2_transport = YLeaf(YType.boolean, "l2-transport")
+
+                self.bandwidth = YLeaf(YType.uint32, "bandwidth")
+                self._segment_path = lambda: "interface-brief" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-briefs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
+
+
+    class InventorySummary(Entity):
+        """
+        Inventory summary information
+        
+        .. attribute:: interface_counts
+        
+        	Counts for all interfaces
+        	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceCounts>`
+        
+        .. attribute:: interface_type
+        
+        	List of per interface type summary information
+        	**type**\: list of    :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2017-06-26'
+
+        def __init__(self):
+            super(Interfaces.InventorySummary, self).__init__()
+
+            self.yang_name = "inventory-summary"
+            self.yang_parent_name = "interfaces"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceCounts)}
+            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InventorySummary.InterfaceType)}
+
+            self.interface_counts = Interfaces.InventorySummary.InterfaceCounts()
+            self.interface_counts.parent = self
+            self._children_name_map["interface_counts"] = "interface-counts"
+            self._children_yang_names.add("interface-counts")
+
+            self.interface_type = YList(self)
+            self._segment_path = lambda: "inventory-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Interfaces.InventorySummary, [], name, value)
+
+
+        class InterfaceCounts(Entity):
+            """
+            Counts for all interfaces
+            
+            .. attribute:: interface_count
+            
+            	Number of interfaces
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: up_interface_count
+            
+            	Number of interfaces in UP state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: down_interface_count
+            
+            	Number of interfaces in DOWN state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: admin_down_interface_count
+            
+            	Number of interfaces in an ADMINDOWN state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.InventorySummary.InterfaceCounts, self).__init__()
+
+                self.yang_name = "interface-counts"
+                self.yang_parent_name = "inventory-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                self._segment_path = lambda: "interface-counts"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
+
+
+        class InterfaceType(Entity):
+            """
+            List of per interface type summary information
+            
+            .. attribute:: interface_counts
+            
+            	Counts for interfaces of this type
+            	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InventorySummary.InterfaceType.InterfaceCounts>`
+            
+            .. attribute:: interface_type_name
+            
+            	Name of the interface type
+            	**type**\:  str
+            
+            .. attribute:: interface_type_description
+            
+            	Description of the interface type
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.InventorySummary.InterfaceType, self).__init__()
+
+                self.yang_name = "interface-type"
+                self.yang_parent_name = "inventory-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InventorySummary.InterfaceType.InterfaceCounts)}
+                self._child_list_classes = {}
+
+                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
+
+                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
+
+                self.interface_counts = Interfaces.InventorySummary.InterfaceType.InterfaceCounts()
+                self.interface_counts.parent = self
+                self._children_name_map["interface_counts"] = "interface-counts"
+                self._children_yang_names.add("interface-counts")
+                self._segment_path = lambda: "interface-type"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.InventorySummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
+
+
+            class InterfaceCounts(Entity):
+                """
+                Counts for interfaces of this type
+                
+                .. attribute:: interface_count
+                
+                	Number of interfaces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up_interface_count
+                
+                	Number of interfaces in UP state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_interface_count
+                
+                	Number of interfaces in DOWN state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: admin_down_interface_count
+                
+                	Number of interfaces in an ADMINDOWN state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, self).__init__()
+
+                    self.yang_name = "interface-counts"
+                    self.yang_parent_name = "interface-type"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                    self._segment_path = lambda: "interface-counts"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/interface-type/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
+
+
+    class Interfaces(Entity):
+        """
+        Descriptions for interfaces
+        
+        .. attribute:: interface
+        
+        	Description for a particular interface
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.Interfaces.Interface>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2017-06-26'
+
+        def __init__(self):
+            super(Interfaces.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "interfaces"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"interface" : ("interface", Interfaces.Interfaces.Interface)}
+
+            self.interface = YList(self)
+            self._segment_path = lambda: "interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Interfaces.Interfaces, [], name, value)
+
+
+        class Interface(Entity):
+            """
+            Description for a particular interface
+            
+            .. attribute:: interface_name  <key>
+            
+            	The name of the interface
+            	**type**\:  str
+            
+            .. attribute:: interface
+            
+            	Interface
+            	**type**\:  str
+            
+            .. attribute:: state
+            
+            	Operational state with no translation of error disable or shutdown
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: line_state
+            
+            	Line protocol state with no translation of error disable or shutdown
+            	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.ImStateEnum>`
+            
+            .. attribute:: description
+            
+            	Interface description string
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                self.interface = YLeaf(YType.str, "interface")
+
+                self.state = YLeaf(YType.enumeration, "state")
+
+                self.line_state = YLeaf(YType.enumeration, "line-state")
+
+                self.description = YLeaf(YType.str, "description")
+                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interfaces/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interfaces.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
+
+
+    class InterfaceSummary(Entity):
+        """
+        Interface summary information
+        
+        .. attribute:: interface_counts
+        
+        	Counts for all interfaces
+        	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceCounts>`
+        
+        .. attribute:: interface_type
+        
+        	List of per interface type summary information
+        	**type**\: list of    :py:class:`InterfaceType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType>`
+        
+        
+
+        """
+
+        _prefix = 'pfi-im-cmd-oper'
+        _revision = '2017-06-26'
+
+        def __init__(self):
+            super(Interfaces.InterfaceSummary, self).__init__()
+
+            self.yang_name = "interface-summary"
+            self.yang_parent_name = "interfaces"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceCounts)}
+            self._child_list_classes = {"interface-type" : ("interface_type", Interfaces.InterfaceSummary.InterfaceType)}
+
+            self.interface_counts = Interfaces.InterfaceSummary.InterfaceCounts()
+            self.interface_counts.parent = self
+            self._children_name_map["interface_counts"] = "interface-counts"
+            self._children_yang_names.add("interface-counts")
+
+            self.interface_type = YList(self)
+            self._segment_path = lambda: "interface-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Interfaces.InterfaceSummary, [], name, value)
+
+
+        class InterfaceCounts(Entity):
+            """
+            Counts for all interfaces
+            
+            .. attribute:: interface_count
+            
+            	Number of interfaces
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: up_interface_count
+            
+            	Number of interfaces in UP state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: down_interface_count
+            
+            	Number of interfaces in DOWN state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: admin_down_interface_count
+            
+            	Number of interfaces in an ADMINDOWN state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.InterfaceSummary.InterfaceCounts, self).__init__()
+
+                self.yang_name = "interface-counts"
+                self.yang_parent_name = "interface-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                self._segment_path = lambda: "interface-counts"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
+
+
+        class InterfaceType(Entity):
+            """
+            List of per interface type summary information
+            
+            .. attribute:: interface_counts
+            
+            	Counts for interfaces of this type
+            	**type**\:   :py:class:`InterfaceCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts>`
+            
+            .. attribute:: interface_type_name
+            
+            	Name of the interface type
+            	**type**\:  str
+            
+            .. attribute:: interface_type_description
+            
+            	Description of the interface type
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'pfi-im-cmd-oper'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(Interfaces.InterfaceSummary.InterfaceType, self).__init__()
+
+                self.yang_name = "interface-type"
+                self.yang_parent_name = "interface-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"interface-counts" : ("interface_counts", Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts)}
+                self._child_list_classes = {}
+
+                self.interface_type_name = YLeaf(YType.str, "interface-type-name")
+
+                self.interface_type_description = YLeaf(YType.str, "interface-type-description")
+
+                self.interface_counts = Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts()
+                self.interface_counts.parent = self
+                self._children_name_map["interface_counts"] = "interface-counts"
+                self._children_yang_names.add("interface-counts")
+                self._segment_path = lambda: "interface-type"
+                self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, ['interface_type_name', 'interface_type_description'], name, value)
+
+
+            class InterfaceCounts(Entity):
+                """
+                Counts for interfaces of this type
+                
+                .. attribute:: interface_count
+                
+                	Number of interfaces
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: up_interface_count
+                
+                	Number of interfaces in UP state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: down_interface_count
+                
+                	Number of interfaces in DOWN state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: admin_down_interface_count
+                
+                	Number of interfaces in an ADMINDOWN state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'pfi-im-cmd-oper'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, self).__init__()
+
+                    self.yang_name = "interface-counts"
+                    self.yang_parent_name = "interface-type"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.interface_count = YLeaf(YType.uint32, "interface-count")
+
+                    self.up_interface_count = YLeaf(YType.uint32, "up-interface-count")
+
+                    self.down_interface_count = YLeaf(YType.uint32, "down-interface-count")
+
+                    self.admin_down_interface_count = YLeaf(YType.uint32, "admin-down-interface-count")
+                    self._segment_path = lambda: "interface-counts"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/interface-type/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, ['interface_count', 'up_interface_count', 'down_interface_count', 'admin_down_interface_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Interfaces()

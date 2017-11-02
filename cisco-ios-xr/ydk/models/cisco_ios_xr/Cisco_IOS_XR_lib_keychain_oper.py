@@ -173,17 +173,15 @@ class Keychain(Entity):
             	Key name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: key
+            
+            	Key properties
+            	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
             
             .. attribute:: accept_tolerance
             
             	Accept tolerance is infinite if value is 0xffffffff
             	**type**\:  str
-            
-            .. attribute:: key
-            
-            	Key properties
-            	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
             
             
 
@@ -254,28 +252,6 @@ class Keychain(Entity):
                     """
                     key id
                     
-                    .. attribute:: accept_lifetime
-                    
-                    	Accept Lifetime of the key
-                    	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
-                    
-                    .. attribute:: cryptographic_algorithm
-                    
-                    	Cryptographic algorithm
-                    	**type**\:   :py:class:`CrytoAlgo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgo>`
-                    
-                    .. attribute:: key_id
-                    
-                    	Key ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: key_string
-                    
-                    	Key string
-                    	**type**\:  str
-                    
                     .. attribute:: macsec
                     
                     	To check if it's a macsec key
@@ -286,10 +262,32 @@ class Keychain(Entity):
                     	Lifetime of the key
                     	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.SendLifetime>`
                     
+                    .. attribute:: accept_lifetime
+                    
+                    	Accept Lifetime of the key
+                    	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
+                    
+                    .. attribute:: key_string
+                    
+                    	Key string
+                    	**type**\:  str
+                    
                     .. attribute:: type
                     
                     	Type of key encryption
                     	**type**\:   :py:class:`Enc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Enc>`
+                    
+                    .. attribute:: key_id
+                    
+                    	Key ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: cryptographic_algorithm
+                    
+                    	Cryptographic algorithm
+                    	**type**\:   :py:class:`CrytoAlgo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgo>`
                     
                     
 
@@ -305,21 +303,16 @@ class Keychain(Entity):
                         self.yang_parent_name = "key"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"accept-lifetime" : ("accept_lifetime", Keychain.Keies.Key.Key.KeyId.AcceptLifetime), "macsec" : ("macsec", Keychain.Keies.Key.Key.KeyId.Macsec), "send-lifetime" : ("send_lifetime", Keychain.Keies.Key.Key.KeyId.SendLifetime)}
+                        self._child_container_classes = {"macsec" : ("macsec", Keychain.Keies.Key.Key.KeyId.Macsec), "send-lifetime" : ("send_lifetime", Keychain.Keies.Key.Key.KeyId.SendLifetime), "accept-lifetime" : ("accept_lifetime", Keychain.Keies.Key.Key.KeyId.AcceptLifetime)}
                         self._child_list_classes = {}
-
-                        self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
-
-                        self.key_id = YLeaf(YType.uint64, "key-id")
 
                         self.key_string = YLeaf(YType.str, "key-string")
 
                         self.type = YLeaf(YType.enumeration, "type")
 
-                        self.accept_lifetime = Keychain.Keies.Key.Key.KeyId.AcceptLifetime()
-                        self.accept_lifetime.parent = self
-                        self._children_name_map["accept_lifetime"] = "accept-lifetime"
-                        self._children_yang_names.add("accept-lifetime")
+                        self.key_id = YLeaf(YType.uint64, "key-id")
+
+                        self.cryptographic_algorithm = YLeaf(YType.enumeration, "cryptographic-algorithm")
 
                         self.macsec = Keychain.Keies.Key.Key.KeyId.Macsec()
                         self.macsec.parent = self
@@ -330,73 +323,15 @@ class Keychain(Entity):
                         self.send_lifetime.parent = self
                         self._children_name_map["send_lifetime"] = "send-lifetime"
                         self._children_yang_names.add("send-lifetime")
+
+                        self.accept_lifetime = Keychain.Keies.Key.Key.KeyId.AcceptLifetime()
+                        self.accept_lifetime.parent = self
+                        self._children_name_map["accept_lifetime"] = "accept-lifetime"
+                        self._children_yang_names.add("accept-lifetime")
                         self._segment_path = lambda: "key-id"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Keychain.Keies.Key.Key.KeyId, ['cryptographic_algorithm', 'key_id', 'key_string', 'type'], name, value)
-
-
-                    class AcceptLifetime(Entity):
-                        """
-                        Accept Lifetime of the key
-                        
-                        .. attribute:: duration
-                        
-                        	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
-                        	**type**\:  str
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: end
-                        
-                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
-                        	**type**\:  str
-                        
-                        .. attribute:: is_always_valid
-                        
-                        	Is TRUE if duration is 0xffffffff 
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_valid_now
-                        
-                        	Is TRUE if current time is betweenstart and end lifetime , else FALSE
-                        	**type**\:  bool
-                        
-                        .. attribute:: start
-                        
-                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'lib-keychain-oper'
-                        _revision = '2015-01-07'
-
-                        def __init__(self):
-                            super(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, self).__init__()
-
-                            self.yang_name = "accept-lifetime"
-                            self.yang_parent_name = "key-id"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.duration = YLeaf(YType.str, "duration")
-
-                            self.end = YLeaf(YType.str, "end")
-
-                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
-
-                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
-
-                            self.start = YLeaf(YType.str, "start")
-                            self._segment_path = lambda: "accept-lifetime"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, ['duration', 'end', 'is_always_valid', 'is_valid_now', 'start'], name, value)
+                        self._perform_setattr(Keychain.Keies.Key.Key.KeyId, ['key_string', 'type', 'key_id', 'cryptographic_algorithm'], name, value)
 
 
                     class Macsec(Entity):
@@ -436,17 +371,22 @@ class Keychain(Entity):
                         """
                         Lifetime of the key
                         
+                        .. attribute:: start
+                        
+                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                        	**type**\:  str
+                        
+                        .. attribute:: end
+                        
+                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
+                        	**type**\:  str
+                        
                         .. attribute:: duration
                         
                         	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
                         	**type**\:  str
                         
                         	**units**\: second
-                        
-                        .. attribute:: end
-                        
-                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
-                        	**type**\:  str
                         
                         .. attribute:: is_always_valid
                         
@@ -457,11 +397,6 @@ class Keychain(Entity):
                         
                         	Is TRUE if current time is betweenstart and end lifetime , else FALSE
                         	**type**\:  bool
-                        
-                        .. attribute:: start
-                        
-                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                        	**type**\:  str
                         
                         
 
@@ -480,19 +415,82 @@ class Keychain(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.duration = YLeaf(YType.str, "duration")
+                            self.start = YLeaf(YType.str, "start")
 
                             self.end = YLeaf(YType.str, "end")
+
+                            self.duration = YLeaf(YType.str, "duration")
 
                             self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
 
                             self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
-
-                            self.start = YLeaf(YType.str, "start")
                             self._segment_path = lambda: "send-lifetime"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.SendLifetime, ['duration', 'end', 'is_always_valid', 'is_valid_now', 'start'], name, value)
+                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.SendLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
+
+
+                    class AcceptLifetime(Entity):
+                        """
+                        Accept Lifetime of the key
+                        
+                        .. attribute:: start
+                        
+                        	Key life start time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                        	**type**\:  str
+                        
+                        .. attribute:: end
+                        
+                        	Key life end time in format \: day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32 \:14 2011
+                        	**type**\:  str
+                        
+                        .. attribute:: duration
+                        
+                        	Duration of the key in seconds. value 0xffffffff reflects infinite, never expires, is configured 
+                        	**type**\:  str
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: is_always_valid
+                        
+                        	Is TRUE if duration is 0xffffffff 
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_valid_now
+                        
+                        	Is TRUE if current time is betweenstart and end lifetime , else FALSE
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'lib-keychain-oper'
+                        _revision = '2015-01-07'
+
+                        def __init__(self):
+                            super(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, self).__init__()
+
+                            self.yang_name = "accept-lifetime"
+                            self.yang_parent_name = "key-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.start = YLeaf(YType.str, "start")
+
+                            self.end = YLeaf(YType.str, "end")
+
+                            self.duration = YLeaf(YType.str, "duration")
+
+                            self.is_always_valid = YLeaf(YType.boolean, "is-always-valid")
+
+                            self.is_valid_now = YLeaf(YType.boolean, "is-valid-now")
+                            self._segment_path = lambda: "accept-lifetime"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Keychain.Keies.Key.Key.KeyId.AcceptLifetime, ['start', 'end', 'duration', 'is_always_valid', 'is_valid_now'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Keychain()

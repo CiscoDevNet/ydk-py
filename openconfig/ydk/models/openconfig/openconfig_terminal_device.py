@@ -67,6 +67,11 @@ class TerminalDevice(Entity):
     	Configuration data for global terminal\-device
     	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.Config>`
     
+    .. attribute:: state
+    
+    	Operational state data for global terminal device
+    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.State>`
+    
     .. attribute:: logical_channels
     
     	Enclosing container the list of logical channels
@@ -76,11 +81,6 @@ class TerminalDevice(Entity):
     
     	Enclosing container for list of operational modes
     	**type**\:   :py:class:`OperationalModes <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.OperationalModes>`
-    
-    .. attribute:: state
-    
-    	Operational state data for global terminal device
-    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.State>`
     
     
 
@@ -97,13 +97,18 @@ class TerminalDevice(Entity):
         self.yang_parent_name = "openconfig-terminal-device"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", TerminalDevice.Config), "logical-channels" : ("logical_channels", TerminalDevice.LogicalChannels), "operational-modes" : ("operational_modes", TerminalDevice.OperationalModes), "state" : ("state", TerminalDevice.State)}
+        self._child_container_classes = {"config" : ("config", TerminalDevice.Config), "state" : ("state", TerminalDevice.State), "logical-channels" : ("logical_channels", TerminalDevice.LogicalChannels), "operational-modes" : ("operational_modes", TerminalDevice.OperationalModes)}
         self._child_list_classes = {}
 
         self.config = TerminalDevice.Config()
         self.config.parent = self
         self._children_name_map["config"] = "config"
         self._children_yang_names.add("config")
+
+        self.state = TerminalDevice.State()
+        self.state.parent = self
+        self._children_name_map["state"] = "state"
+        self._children_yang_names.add("state")
 
         self.logical_channels = TerminalDevice.LogicalChannels()
         self.logical_channels.parent = self
@@ -114,11 +119,6 @@ class TerminalDevice(Entity):
         self.operational_modes.parent = self
         self._children_name_map["operational_modes"] = "operational-modes"
         self._children_yang_names.add("operational-modes")
-
-        self.state = TerminalDevice.State()
-        self.state.parent = self
-        self._children_name_map["state"] = "state"
-        self._children_yang_names.add("state")
         self._segment_path = lambda: "openconfig-terminal-device:terminal-device"
 
 
@@ -143,6 +143,30 @@ class TerminalDevice(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
             self._segment_path = lambda: "config"
+            self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+
+
+    class State(Entity):
+        """
+        Operational state data for global terminal device
+        
+        
+
+        """
+
+        _prefix = 'oc-opt-term'
+        _revision = '2016-06-17'
+
+        def __init__(self):
+            super(TerminalDevice.State, self).__init__()
+
+            self.yang_name = "state"
+            self.yang_parent_name = "terminal-device"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+            self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
 
 
@@ -198,6 +222,16 @@ class TerminalDevice(Entity):
             	Configuration data for logical channels
             	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Config>`
             
+            .. attribute:: state
+            
+            	Operational state data for logical channels
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State>`
+            
+            .. attribute:: otn
+            
+            	Top level container for OTU configuration when logical channel framing is using an OTU protocol, e.g., OTU1, OTU3, etc
+            	**type**\:   :py:class:`Otn <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn>`
+            
             .. attribute:: ethernet
             
             	Top level container for data related to Ethernet framing for the logical channel
@@ -213,16 +247,6 @@ class TerminalDevice(Entity):
             	Enclosing container for tributary assignments
             	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments>`
             
-            .. attribute:: otn
-            
-            	Top level container for OTU configuration when logical channel framing is using an OTU protocol, e.g., OTU1, OTU3, etc
-            	**type**\:   :py:class:`Otn <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn>`
-            
-            .. attribute:: state
-            
-            	Operational state data for logical channels
-            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State>`
-            
             
 
             """
@@ -237,7 +261,7 @@ class TerminalDevice(Entity):
                 self.yang_parent_name = "logical-channels"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Config), "ethernet" : ("ethernet", TerminalDevice.LogicalChannels.Channel.Ethernet), "ingress" : ("ingress", TerminalDevice.LogicalChannels.Channel.Ingress), "logical-channel-assignments" : ("logical_channel_assignments", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments), "otn" : ("otn", TerminalDevice.LogicalChannels.Channel.Otn), "state" : ("state", TerminalDevice.LogicalChannels.Channel.State)}
+                self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.State), "otn" : ("otn", TerminalDevice.LogicalChannels.Channel.Otn), "ethernet" : ("ethernet", TerminalDevice.LogicalChannels.Channel.Ethernet), "ingress" : ("ingress", TerminalDevice.LogicalChannels.Channel.Ingress), "logical-channel-assignments" : ("logical_channel_assignments", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments)}
                 self._child_list_classes = {}
 
                 self.index = YLeaf(YType.str, "index")
@@ -246,6 +270,16 @@ class TerminalDevice(Entity):
                 self.config.parent = self
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
+
+                self.state = TerminalDevice.LogicalChannels.Channel.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._children_yang_names.add("state")
+
+                self.otn = TerminalDevice.LogicalChannels.Channel.Otn()
+                self.otn.parent = self
+                self._children_name_map["otn"] = "otn"
+                self._children_yang_names.add("otn")
 
                 self.ethernet = TerminalDevice.LogicalChannels.Channel.Ethernet()
                 self.ethernet.parent = self
@@ -261,16 +295,6 @@ class TerminalDevice(Entity):
                 self.logical_channel_assignments.parent = self
                 self._children_name_map["logical_channel_assignments"] = "logical-channel-assignments"
                 self._children_yang_names.add("logical-channel-assignments")
-
-                self.otn = TerminalDevice.LogicalChannels.Channel.Otn()
-                self.otn.parent = self
-                self._children_name_map["otn"] = "otn"
-                self._children_yang_names.add("otn")
-
-                self.state = TerminalDevice.LogicalChannels.Channel.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._children_yang_names.add("state")
                 self._segment_path = lambda: "channel" + "[index='" + self.index.get() + "']"
                 self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/logical-channels/%s" % self._segment_path()
 
@@ -282,16 +306,6 @@ class TerminalDevice(Entity):
                 """
                 Configuration data for logical channels
                 
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the logical channel
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                .. attribute:: description
-                
-                	Description of the logical channel
-                	**type**\:  str
-                
                 .. attribute:: index
                 
                 	Index of the current logical channel
@@ -299,15 +313,15 @@ class TerminalDevice(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: logical_channel_type
+                .. attribute:: description
                 
-                	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
-                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                	Description of the logical channel
+                	**type**\:  str
                 
-                .. attribute:: loopback_mode
+                .. attribute:: admin_state
                 
-                	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
-                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
+                	Sets the admin state of the logical channel
+                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
                 
                 .. attribute:: rate_class
                 
@@ -318,6 +332,16 @@ class TerminalDevice(Entity):
                 
                 	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
                 	**type**\:   :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
+                
+                .. attribute:: logical_channel_type
+                
+                	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
+                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                
+                .. attribute:: loopback_mode
+                
+                	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
+                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
                 
                 
 
@@ -336,23 +360,648 @@ class TerminalDevice(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
+                    self.index = YLeaf(YType.uint32, "index")
 
                     self.description = YLeaf(YType.str, "description")
 
+                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
+
+                    self.rate_class = YLeaf(YType.identityref, "rate-class")
+
+                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
+
+                    self.logical_channel_type = YLeaf(YType.identityref, "logical-channel-type")
+
+                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
+                    self._segment_path = lambda: "config"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Config, ['index', 'description', 'admin_state', 'rate_class', 'trib_protocol', 'logical_channel_type', 'loopback_mode'], name, value)
+
+
+            class State(Entity):
+                """
+                Operational state data for logical channels
+                
+                .. attribute:: index
+                
+                	Index of the current logical channel
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: description
+                
+                	Description of the logical channel
+                	**type**\:  str
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the logical channel
+                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                .. attribute:: rate_class
+                
+                	Rounded bit rate of the tributary signal. Exact bit rate will be refined by protocol selection
+                	**type**\:   :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
+                
+                .. attribute:: trib_protocol
+                
+                	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
+                	**type**\:   :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
+                
+                .. attribute:: logical_channel_type
+                
+                	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
+                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
+                
+                .. attribute:: loopback_mode
+                
+                	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
+                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
+                
+                .. attribute:: link_state
+                
+                	Link\-state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc
+                	**type**\:   :py:class:`LinkState <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState>`
+                
+                
+
+                """
+
+                _prefix = 'oc-opt-term'
+                _revision = '2016-06-17'
+
+                def __init__(self):
+                    super(TerminalDevice.LogicalChannels.Channel.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "channel"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
                     self.index = YLeaf(YType.uint32, "index")
+
+                    self.description = YLeaf(YType.str, "description")
+
+                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
+
+                    self.rate_class = YLeaf(YType.identityref, "rate-class")
+
+                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
 
                     self.logical_channel_type = YLeaf(YType.identityref, "logical-channel-type")
 
                     self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
 
-                    self.rate_class = YLeaf(YType.identityref, "rate-class")
-
-                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
-                    self._segment_path = lambda: "config"
+                    self.link_state = YLeaf(YType.enumeration, "link-state")
+                    self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Config, ['admin_state', 'description', 'index', 'logical_channel_type', 'loopback_mode', 'rate_class', 'trib_protocol'], name, value)
+                    self._perform_setattr(TerminalDevice.LogicalChannels.Channel.State, ['index', 'description', 'admin_state', 'rate_class', 'trib_protocol', 'logical_channel_type', 'loopback_mode', 'link_state'], name, value)
+
+                class LinkState(Enum):
+                    """
+                    LinkState
+
+                    Link\-state of the Ethernet protocol on the logical channel,
+
+                    SONET / SDH framed signal, etc.
+
+                    .. data:: UP = 0
+
+                    	Logical channel is operationally up
+
+                    .. data:: DOWN = 1
+
+                    	Logical channel is operationally down
+
+                    """
+
+                    UP = Enum.YLeaf(0, "UP")
+
+                    DOWN = Enum.YLeaf(1, "DOWN")
+
+
+
+            class Otn(Entity):
+                """
+                Top level container for OTU configuration when logical
+                channel framing is using an OTU protocol, e.g., OTU1, OTU3,
+                etc.
+                
+                .. attribute:: config
+                
+                	Configuration data for OTN protocol framing
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.Config>`
+                
+                .. attribute:: state
+                
+                	Operational state data for OTN protocol PMs, statistics, etc
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State>`
+                
+                
+
+                """
+
+                _prefix = 'oc-opt-term'
+                _revision = '2016-06-17'
+
+                def __init__(self):
+                    super(TerminalDevice.LogicalChannels.Channel.Otn, self).__init__()
+
+                    self.yang_name = "otn"
+                    self.yang_parent_name = "channel"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Otn.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.Otn.State)}
+                    self._child_list_classes = {}
+
+                    self.config = TerminalDevice.LogicalChannels.Channel.Otn.Config()
+                    self.config.parent = self
+                    self._children_name_map["config"] = "config"
+                    self._children_yang_names.add("config")
+
+                    self.state = TerminalDevice.LogicalChannels.Channel.Otn.State()
+                    self.state.parent = self
+                    self._children_name_map["state"] = "state"
+                    self._children_yang_names.add("state")
+                    self._segment_path = lambda: "otn"
+
+
+                class Config(Entity):
+                    """
+                    Configuration data for OTN protocol framing
+                    
+                    .. attribute:: tti_msg_transmit
+                    
+                    	Trail trace identifier (TTI) message transmitted
+                    	**type**\:  str
+                    
+                    .. attribute:: tti_msg_expected
+                    
+                    	Trail trace identifier (TTI) message expected
+                    	**type**\:  str
+                    
+                    .. attribute:: tti_msg_auto
+                    
+                    	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        super(TerminalDevice.LogicalChannels.Channel.Otn.Config, self).__init__()
+
+                        self.yang_name = "config"
+                        self.yang_parent_name = "otn"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
+
+                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
+
+                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
+                        self._segment_path = lambda: "config"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.Config, ['tti_msg_transmit', 'tti_msg_expected', 'tti_msg_auto'], name, value)
+
+
+                class State(Entity):
+                    """
+                    Operational state data for OTN protocol PMs, statistics,
+                    etc.
+                    
+                    .. attribute:: tti_msg_transmit
+                    
+                    	Trail trace identifier (TTI) message transmitted
+                    	**type**\:  str
+                    
+                    .. attribute:: tti_msg_expected
+                    
+                    	Trail trace identifier (TTI) message expected
+                    	**type**\:  str
+                    
+                    .. attribute:: tti_msg_auto
+                    
+                    	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
+                    	**type**\:  bool
+                    
+                    .. attribute:: tti_msg_recv
+                    
+                    	Trail trace identifier (TTI) message received
+                    	**type**\:  str
+                    
+                    .. attribute:: rdi_msg
+                    
+                    	Remote defect indication (RDI) message received
+                    	**type**\:  str
+                    
+                    .. attribute:: errored_seconds
+                    
+                    	The number of seconds that at least one errored blocks occurs, at least one code violation occurs, loss of sync is detected or loss of signal is detected
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: severely_errored_seconds
+                    
+                    	The number of seconds that loss of frame is detected OR the number of errored blocks, code violations, loss of sync or loss of signal is detected exceeds a predefined threshold
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: unavailable_seconds
+                    
+                    	The number of seconds during which the link is unavailable
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: code_violations
+                    
+                    	For ethernet or fiberchannel links, the number of 8b/10b coding violations. For SONET/SDH, the number of BIP (bit interleaved parity) errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: fec_uncorrectable_words
+                    
+                    	The number words that were uncorrectable by the FEC
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: fec_corrected_bytes
+                    
+                    	The number of bytes that were corrected by the FEC
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: fec_corrected_bits
+                    
+                    	The number of bits that were corrected by the FEC
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: background_block_errors
+                    
+                    	The number of background block errors
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: pre_fec_ber
+                    
+                    	Bit error rate before forward error correction \-\- computed value
+                    	**type**\:   :py:class:`PreFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer>`
+                    
+                    .. attribute:: post_fec_ber
+                    
+                    	Bit error rate after forward error correction \-\- computed value
+                    	**type**\:   :py:class:`PostFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer>`
+                    
+                    .. attribute:: q_value
+                    
+                    	Quality value (factor) of a channel
+                    	**type**\:   :py:class:`QValue <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue>`
+                    
+                    .. attribute:: esnr
+                    
+                    	Electrical signal to noise ratio. Baud rate normalized signal to noise ratio based on error vector magnitude
+                    	**type**\:   :py:class:`Esnr <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-opt-term'
+                    _revision = '2016-06-17'
+
+                    def __init__(self):
+                        super(TerminalDevice.LogicalChannels.Channel.Otn.State, self).__init__()
+
+                        self.yang_name = "state"
+                        self.yang_parent_name = "otn"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"pre-fec-ber" : ("pre_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer), "post-fec-ber" : ("post_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer), "q-value" : ("q_value", TerminalDevice.LogicalChannels.Channel.Otn.State.QValue), "esnr" : ("esnr", TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr)}
+                        self._child_list_classes = {}
+
+                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
+
+                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
+
+                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
+
+                        self.tti_msg_recv = YLeaf(YType.str, "tti-msg-recv")
+
+                        self.rdi_msg = YLeaf(YType.str, "rdi-msg")
+
+                        self.errored_seconds = YLeaf(YType.uint64, "errored-seconds")
+
+                        self.severely_errored_seconds = YLeaf(YType.uint64, "severely-errored-seconds")
+
+                        self.unavailable_seconds = YLeaf(YType.uint64, "unavailable-seconds")
+
+                        self.code_violations = YLeaf(YType.uint64, "code-violations")
+
+                        self.fec_uncorrectable_words = YLeaf(YType.uint64, "fec-uncorrectable-words")
+
+                        self.fec_corrected_bytes = YLeaf(YType.uint64, "fec-corrected-bytes")
+
+                        self.fec_corrected_bits = YLeaf(YType.uint64, "fec-corrected-bits")
+
+                        self.background_block_errors = YLeaf(YType.uint64, "background-block-errors")
+
+                        self.pre_fec_ber = TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer()
+                        self.pre_fec_ber.parent = self
+                        self._children_name_map["pre_fec_ber"] = "pre-fec-ber"
+                        self._children_yang_names.add("pre-fec-ber")
+
+                        self.post_fec_ber = TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer()
+                        self.post_fec_ber.parent = self
+                        self._children_name_map["post_fec_ber"] = "post-fec-ber"
+                        self._children_yang_names.add("post-fec-ber")
+
+                        self.q_value = TerminalDevice.LogicalChannels.Channel.Otn.State.QValue()
+                        self.q_value.parent = self
+                        self._children_name_map["q_value"] = "q-value"
+                        self._children_yang_names.add("q-value")
+
+                        self.esnr = TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr()
+                        self.esnr.parent = self
+                        self._children_name_map["esnr"] = "esnr"
+                        self._children_yang_names.add("esnr")
+                        self._segment_path = lambda: "state"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State, ['tti_msg_transmit', 'tti_msg_expected', 'tti_msg_auto', 'tti_msg_recv', 'rdi_msg', 'errored_seconds', 'severely_errored_seconds', 'unavailable_seconds', 'code_violations', 'fec_uncorrectable_words', 'fec_corrected_bytes', 'fec_corrected_bits', 'background_block_errors'], name, value)
+
+
+                    class PreFecBer(Entity):
+                        """
+                        Bit error rate before forward error correction \-\- computed
+                        value
+                        
+                        .. attribute:: instant
+                        
+                        	The instantaneous value of the statistic
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: avg
+                        
+                        	The arithmetic mean value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: min
+                        
+                        	The minimum value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: max
+                        
+                        	The maximum value of the statitic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-opt-term'
+                        _revision = '2016-06-17'
+
+                        def __init__(self):
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, self).__init__()
+
+                            self.yang_name = "pre-fec-ber"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.instant = YLeaf(YType.str, "instant")
+
+                            self.avg = YLeaf(YType.str, "avg")
+
+                            self.min = YLeaf(YType.str, "min")
+
+                            self.max = YLeaf(YType.str, "max")
+                            self._segment_path = lambda: "pre-fec-ber"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, ['instant', 'avg', 'min', 'max'], name, value)
+
+
+                    class PostFecBer(Entity):
+                        """
+                        Bit error rate after forward error correction \-\- computed
+                        value
+                        
+                        .. attribute:: instant
+                        
+                        	The instantaneous value of the statistic
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: avg
+                        
+                        	The arithmetic mean value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: min
+                        
+                        	The minimum value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: max
+                        
+                        	The maximum value of the statitic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-opt-term'
+                        _revision = '2016-06-17'
+
+                        def __init__(self):
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, self).__init__()
+
+                            self.yang_name = "post-fec-ber"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.instant = YLeaf(YType.str, "instant")
+
+                            self.avg = YLeaf(YType.str, "avg")
+
+                            self.min = YLeaf(YType.str, "min")
+
+                            self.max = YLeaf(YType.str, "max")
+                            self._segment_path = lambda: "post-fec-ber"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, ['instant', 'avg', 'min', 'max'], name, value)
+
+
+                    class QValue(Entity):
+                        """
+                        Quality value (factor) of a channel
+                        
+                        .. attribute:: instant
+                        
+                        	The instantaneous value of the statistic
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: avg
+                        
+                        	The arithmetic mean value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: min
+                        
+                        	The minimum value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: max
+                        
+                        	The maximum value of the statitic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-opt-term'
+                        _revision = '2016-06-17'
+
+                        def __init__(self):
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, self).__init__()
+
+                            self.yang_name = "q-value"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.instant = YLeaf(YType.str, "instant")
+
+                            self.avg = YLeaf(YType.str, "avg")
+
+                            self.min = YLeaf(YType.str, "min")
+
+                            self.max = YLeaf(YType.str, "max")
+                            self._segment_path = lambda: "q-value"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, ['instant', 'avg', 'min', 'max'], name, value)
+
+
+                    class Esnr(Entity):
+                        """
+                        Electrical signal to noise ratio. Baud rate
+                        normalized signal to noise ratio based on
+                        error vector magnitude
+                        
+                        .. attribute:: instant
+                        
+                        	The instantaneous value of the statistic
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: avg
+                        
+                        	The arithmetic mean value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: min
+                        
+                        	The minimum value of the statistic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        .. attribute:: max
+                        
+                        	The maximum value of the statitic over the sampling period
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-922337203685477580.8..922337203685477580.7
+                        
+                        
+
+                        """
+
+                        _prefix = 'oc-opt-term'
+                        _revision = '2016-06-17'
+
+                        def __init__(self):
+                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, self).__init__()
+
+                            self.yang_name = "esnr"
+                            self.yang_parent_name = "state"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.instant = YLeaf(YType.str, "instant")
+
+                            self.avg = YLeaf(YType.str, "avg")
+
+                            self.min = YLeaf(YType.str, "min")
+
+                            self.max = YLeaf(YType.str, "max")
+                            self._segment_path = lambda: "esnr"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, ['instant', 'avg', 'min', 'max'], name, value)
 
 
             class Ethernet(Entity):
@@ -428,34 +1077,6 @@ class TerminalDevice(Entity):
                     Operational state data for Ethernet protocol framing on logical
                     channels
                     
-                    .. attribute:: in_8021q_frames
-                    
-                    	Number of 802.1q tagged frames received on the interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_crc_errors
-                    
-                    	Number of receive error events due to FCS/CRC check failure
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_fragment_frames
-                    
-                    	Number of fragment frames received on the interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: in_jabber_frames
-                    
-                    	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
                     .. attribute:: in_mac_control_frames
                     
                     	MAC layer control frames received on the interface
@@ -477,9 +1098,30 @@ class TerminalDevice(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: out_8021q_frames
+                    .. attribute:: in_jabber_frames
                     
-                    	Number of 802.1q tagged frames sent on the interface
+                    	Number of jabber frames received on the interface.  Jabber frames are typically defined as oversize frames which also have a bad CRC.  Implementations may use slightly different definitions of what constitutes a jabber frame.  Often indicative of a NIC hardware problem
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_fragment_frames
+                    
+                    	Number of fragment frames received on the interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_8021q_frames
+                    
+                    	Number of 802.1q tagged frames received on the interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: in_crc_errors
+                    
+                    	Number of receive error events due to FCS/CRC check failure
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -494,6 +1136,13 @@ class TerminalDevice(Entity):
                     .. attribute:: out_mac_pause_frames
                     
                     	MAC layer PAUSE frames sent on the interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: out_8021q_frames
+                    
+                    	Number of 802.1q tagged frames sent on the interface
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -515,29 +1164,29 @@ class TerminalDevice(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.in_8021q_frames = YLeaf(YType.uint64, "in-8021q-frames")
-
-                        self.in_crc_errors = YLeaf(YType.uint64, "in-crc-errors")
-
-                        self.in_fragment_frames = YLeaf(YType.uint64, "in-fragment-frames")
-
-                        self.in_jabber_frames = YLeaf(YType.uint64, "in-jabber-frames")
-
                         self.in_mac_control_frames = YLeaf(YType.uint64, "in-mac-control-frames")
 
                         self.in_mac_pause_frames = YLeaf(YType.uint64, "in-mac-pause-frames")
 
                         self.in_oversize_frames = YLeaf(YType.uint64, "in-oversize-frames")
 
-                        self.out_8021q_frames = YLeaf(YType.uint64, "out-8021q-frames")
+                        self.in_jabber_frames = YLeaf(YType.uint64, "in-jabber-frames")
+
+                        self.in_fragment_frames = YLeaf(YType.uint64, "in-fragment-frames")
+
+                        self.in_8021q_frames = YLeaf(YType.uint64, "in-8021q-frames")
+
+                        self.in_crc_errors = YLeaf(YType.uint64, "in-crc-errors")
 
                         self.out_mac_control_frames = YLeaf(YType.uint64, "out-mac-control-frames")
 
                         self.out_mac_pause_frames = YLeaf(YType.uint64, "out-mac-pause-frames")
+
+                        self.out_8021q_frames = YLeaf(YType.uint64, "out-8021q-frames")
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, ['in_8021q_frames', 'in_crc_errors', 'in_fragment_frames', 'in_jabber_frames', 'in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'out_8021q_frames', 'out_mac_control_frames', 'out_mac_pause_frames'], name, value)
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'in_crc_errors', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
 
 
             class Ingress(Entity):
@@ -590,6 +1239,13 @@ class TerminalDevice(Entity):
                     Configuration data for the signal source for the
                     logical channel
                     
+                    .. attribute:: transceiver
+                    
+                    	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
+                    	**type**\:  str
+                    
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                    
                     .. attribute:: physical_channel
                     
                     	This list should be populated with references to the client physical channels that feed this logical channel from the transceiver specified in the 'transceiver' leaf, which must be specified.  If this leaf\-list is empty, all physical channels in the transceiver are assumed to be mapped to the logical channel
@@ -598,13 +1254,6 @@ class TerminalDevice(Entity):
                     	**range:** 0..65535
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
-                    
-                    .. attribute:: transceiver
-                    
-                    	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
-                    	**type**\:  str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
                     
 
@@ -623,19 +1272,26 @@ class TerminalDevice(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.physical_channel = YLeafList(YType.str, "physical-channel")
-
                         self.transceiver = YLeaf(YType.str, "transceiver")
+
+                        self.physical_channel = YLeafList(YType.str, "physical-channel")
                         self._segment_path = lambda: "config"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.Config, ['physical_channel', 'transceiver'], name, value)
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.Config, ['transceiver', 'physical_channel'], name, value)
 
 
                 class State(Entity):
                     """
                     Operational state data for the signal source for the
                     logical channel
+                    
+                    .. attribute:: transceiver
+                    
+                    	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
+                    	**type**\:  str
+                    
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
                     .. attribute:: physical_channel
                     
@@ -645,13 +1301,6 @@ class TerminalDevice(Entity):
                     	**range:** 0..65535
                     
                     	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_platform.Components.Component.Transceiver.PhysicalChannels.Channel>`
-                    
-                    .. attribute:: transceiver
-                    
-                    	Reference to the transceiver carrying the input signal for the logical channel.  If specific physical channels are mapped to the logical channel (as opposed to all physical channels carried by the transceiver), they can be specified in the list of physical channel references
-                    	**type**\:  str
-                    
-                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
                     
                     
 
@@ -670,13 +1319,13 @@ class TerminalDevice(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.physical_channel = YLeafList(YType.str, "physical-channel")
-
                         self.transceiver = YLeaf(YType.str, "transceiver")
+
+                        self.physical_channel = YLeafList(YType.str, "physical-channel")
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.State, ['physical_channel', 'transceiver'], name, value)
+                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.State, ['transceiver', 'physical_channel'], name, value)
 
 
             class LogicalChannelAssignments(Entity):
@@ -791,31 +1440,22 @@ class TerminalDevice(Entity):
                         """
                         Configuration data for tributary assignments
                         
-                        .. attribute:: allocation
-                        
-                        	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-9223372036854775.808..9223372036854775.807
-                        
-                        	**units**\: Gbps
-                        
-                        .. attribute:: assignment_type
-                        
-                        	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
-                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config.AssignmentType>`
-                        
-                        .. attribute:: description
-                        
-                        	Name assigned to the logical client channel
-                        	**type**\:  str
-                        
                         .. attribute:: index
                         
                         	Index of the current logical client channel to tributary mapping
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: description
+                        
+                        	Name assigned to the logical client channel
+                        	**type**\:  str
+                        
+                        .. attribute:: assignment_type
+                        
+                        	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
+                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config.AssignmentType>`
                         
                         .. attribute:: logical_channel
                         
@@ -832,6 +1472,15 @@ class TerminalDevice(Entity):
                         	**type**\:  str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                        
+                        .. attribute:: allocation
+                        
+                        	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-9223372036854775.808..9223372036854775.807
+                        
+                        	**units**\: Gbps
                         
                         
 
@@ -850,21 +1499,21 @@ class TerminalDevice(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.allocation = YLeaf(YType.str, "allocation")
-
-                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
+                            self.index = YLeaf(YType.uint32, "index")
 
                             self.description = YLeaf(YType.str, "description")
 
-                            self.index = YLeaf(YType.uint32, "index")
+                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
 
                             self.logical_channel = YLeaf(YType.str, "logical-channel")
 
                             self.optical_channel = YLeaf(YType.str, "optical-channel")
+
+                            self.allocation = YLeaf(YType.str, "allocation")
                             self._segment_path = lambda: "config"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config, ['allocation', 'assignment_type', 'description', 'index', 'logical_channel', 'optical_channel'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config, ['index', 'description', 'assignment_type', 'logical_channel', 'optical_channel', 'allocation'], name, value)
 
                         class AssignmentType(Enum):
                             """
@@ -900,31 +1549,22 @@ class TerminalDevice(Entity):
                         """
                         Operational state data for tributary assignments
                         
-                        .. attribute:: allocation
-                        
-                        	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-9223372036854775.808..9223372036854775.807
-                        
-                        	**units**\: Gbps
-                        
-                        .. attribute:: assignment_type
-                        
-                        	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
-                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType>`
-                        
-                        .. attribute:: description
-                        
-                        	Name assigned to the logical client channel
-                        	**type**\:  str
-                        
                         .. attribute:: index
                         
                         	Index of the current logical client channel to tributary mapping
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: description
+                        
+                        	Name assigned to the logical client channel
+                        	**type**\:  str
+                        
+                        .. attribute:: assignment_type
+                        
+                        	Each logical channel element may be assigned to subsequent stages of logical elements to implement further grooming, or can be assigned to a line\-side optical channel for transmission.  Each assignment also has an associated bandwidth allocation
+                        	**type**\:   :py:class:`AssignmentType <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType>`
                         
                         .. attribute:: logical_channel
                         
@@ -941,6 +1581,15 @@ class TerminalDevice(Entity):
                         	**type**\:  str
                         
                         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+                        
+                        .. attribute:: allocation
+                        
+                        	Allocation of the logical client channel to the tributary or sub\-channel, expressed in Gbps
+                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                        
+                        	**range:** \-9223372036854775.808..9223372036854775.807
+                        
+                        	**units**\: Gbps
                         
                         
 
@@ -959,21 +1608,21 @@ class TerminalDevice(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.allocation = YLeaf(YType.str, "allocation")
-
-                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
+                            self.index = YLeaf(YType.uint32, "index")
 
                             self.description = YLeaf(YType.str, "description")
 
-                            self.index = YLeaf(YType.uint32, "index")
+                            self.assignment_type = YLeaf(YType.enumeration, "assignment-type")
 
                             self.logical_channel = YLeaf(YType.str, "logical-channel")
 
                             self.optical_channel = YLeaf(YType.str, "optical-channel")
+
+                            self.allocation = YLeaf(YType.str, "allocation")
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State, ['allocation', 'assignment_type', 'description', 'index', 'logical_channel', 'optical_channel'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State, ['index', 'description', 'assignment_type', 'logical_channel', 'optical_channel', 'allocation'], name, value)
 
                         class AssignmentType(Enum):
                             """
@@ -1002,631 +1651,6 @@ class TerminalDevice(Entity):
                             LOGICAL_CHANNEL = Enum.YLeaf(0, "LOGICAL_CHANNEL")
 
                             OPTICAL_CHANNEL = Enum.YLeaf(1, "OPTICAL_CHANNEL")
-
-
-
-            class Otn(Entity):
-                """
-                Top level container for OTU configuration when logical
-                channel framing is using an OTU protocol, e.g., OTU1, OTU3,
-                etc.
-                
-                .. attribute:: config
-                
-                	Configuration data for OTN protocol framing
-                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.Config>`
-                
-                .. attribute:: state
-                
-                	Operational state data for OTN protocol PMs, statistics, etc
-                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State>`
-                
-                
-
-                """
-
-                _prefix = 'oc-opt-term'
-                _revision = '2016-06-17'
-
-                def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.Otn, self).__init__()
-
-                    self.yang_name = "otn"
-                    self.yang_parent_name = "channel"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"config" : ("config", TerminalDevice.LogicalChannels.Channel.Otn.Config), "state" : ("state", TerminalDevice.LogicalChannels.Channel.Otn.State)}
-                    self._child_list_classes = {}
-
-                    self.config = TerminalDevice.LogicalChannels.Channel.Otn.Config()
-                    self.config.parent = self
-                    self._children_name_map["config"] = "config"
-                    self._children_yang_names.add("config")
-
-                    self.state = TerminalDevice.LogicalChannels.Channel.Otn.State()
-                    self.state.parent = self
-                    self._children_name_map["state"] = "state"
-                    self._children_yang_names.add("state")
-                    self._segment_path = lambda: "otn"
-
-
-                class Config(Entity):
-                    """
-                    Configuration data for OTN protocol framing
-                    
-                    .. attribute:: tti_msg_auto
-                    
-                    	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
-                    	**type**\:  bool
-                    
-                    .. attribute:: tti_msg_expected
-                    
-                    	Trail trace identifier (TTI) message expected
-                    	**type**\:  str
-                    
-                    .. attribute:: tti_msg_transmit
-                    
-                    	Trail trace identifier (TTI) message transmitted
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-opt-term'
-                    _revision = '2016-06-17'
-
-                    def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Otn.Config, self).__init__()
-
-                        self.yang_name = "config"
-                        self.yang_parent_name = "otn"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
-
-                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
-
-                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
-                        self._segment_path = lambda: "config"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.Config, ['tti_msg_auto', 'tti_msg_expected', 'tti_msg_transmit'], name, value)
-
-
-                class State(Entity):
-                    """
-                    Operational state data for OTN protocol PMs, statistics,
-                    etc.
-                    
-                    .. attribute:: background_block_errors
-                    
-                    	The number of background block errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: code_violations
-                    
-                    	For ethernet or fiberchannel links, the number of 8b/10b coding violations. For SONET/SDH, the number of BIP (bit interleaved parity) errors
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: errored_seconds
-                    
-                    	The number of seconds that at least one errored blocks occurs, at least one code violation occurs, loss of sync is detected or loss of signal is detected
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: esnr
-                    
-                    	Electrical signal to noise ratio. Baud rate normalized signal to noise ratio based on error vector magnitude
-                    	**type**\:   :py:class:`Esnr <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr>`
-                    
-                    .. attribute:: fec_corrected_bits
-                    
-                    	The number of bits that were corrected by the FEC
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: fec_corrected_bytes
-                    
-                    	The number of bytes that were corrected by the FEC
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: fec_uncorrectable_words
-                    
-                    	The number words that were uncorrectable by the FEC
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: post_fec_ber
-                    
-                    	Bit error rate after forward error correction \-\- computed value
-                    	**type**\:   :py:class:`PostFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer>`
-                    
-                    .. attribute:: pre_fec_ber
-                    
-                    	Bit error rate before forward error correction \-\- computed value
-                    	**type**\:   :py:class:`PreFecBer <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer>`
-                    
-                    .. attribute:: q_value
-                    
-                    	Quality value (factor) of a channel
-                    	**type**\:   :py:class:`QValue <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.Otn.State.QValue>`
-                    
-                    .. attribute:: rdi_msg
-                    
-                    	Remote defect indication (RDI) message received
-                    	**type**\:  str
-                    
-                    .. attribute:: severely_errored_seconds
-                    
-                    	The number of seconds that loss of frame is detected OR the number of errored blocks, code violations, loss of sync or loss of signal is detected exceeds a predefined threshold
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: tti_msg_auto
-                    
-                    	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid
-                    	**type**\:  bool
-                    
-                    .. attribute:: tti_msg_expected
-                    
-                    	Trail trace identifier (TTI) message expected
-                    	**type**\:  str
-                    
-                    .. attribute:: tti_msg_recv
-                    
-                    	Trail trace identifier (TTI) message received
-                    	**type**\:  str
-                    
-                    .. attribute:: tti_msg_transmit
-                    
-                    	Trail trace identifier (TTI) message transmitted
-                    	**type**\:  str
-                    
-                    .. attribute:: unavailable_seconds
-                    
-                    	The number of seconds during which the link is unavailable
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-opt-term'
-                    _revision = '2016-06-17'
-
-                    def __init__(self):
-                        super(TerminalDevice.LogicalChannels.Channel.Otn.State, self).__init__()
-
-                        self.yang_name = "state"
-                        self.yang_parent_name = "otn"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"esnr" : ("esnr", TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr), "post-fec-ber" : ("post_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer), "pre-fec-ber" : ("pre_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer), "q-value" : ("q_value", TerminalDevice.LogicalChannels.Channel.Otn.State.QValue)}
-                        self._child_list_classes = {}
-
-                        self.background_block_errors = YLeaf(YType.uint64, "background-block-errors")
-
-                        self.code_violations = YLeaf(YType.uint64, "code-violations")
-
-                        self.errored_seconds = YLeaf(YType.uint64, "errored-seconds")
-
-                        self.fec_corrected_bits = YLeaf(YType.uint64, "fec-corrected-bits")
-
-                        self.fec_corrected_bytes = YLeaf(YType.uint64, "fec-corrected-bytes")
-
-                        self.fec_uncorrectable_words = YLeaf(YType.uint64, "fec-uncorrectable-words")
-
-                        self.rdi_msg = YLeaf(YType.str, "rdi-msg")
-
-                        self.severely_errored_seconds = YLeaf(YType.uint64, "severely-errored-seconds")
-
-                        self.tti_msg_auto = YLeaf(YType.boolean, "tti-msg-auto")
-
-                        self.tti_msg_expected = YLeaf(YType.str, "tti-msg-expected")
-
-                        self.tti_msg_recv = YLeaf(YType.str, "tti-msg-recv")
-
-                        self.tti_msg_transmit = YLeaf(YType.str, "tti-msg-transmit")
-
-                        self.unavailable_seconds = YLeaf(YType.uint64, "unavailable-seconds")
-
-                        self.esnr = TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr()
-                        self.esnr.parent = self
-                        self._children_name_map["esnr"] = "esnr"
-                        self._children_yang_names.add("esnr")
-
-                        self.post_fec_ber = TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer()
-                        self.post_fec_ber.parent = self
-                        self._children_name_map["post_fec_ber"] = "post-fec-ber"
-                        self._children_yang_names.add("post-fec-ber")
-
-                        self.pre_fec_ber = TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer()
-                        self.pre_fec_ber.parent = self
-                        self._children_name_map["pre_fec_ber"] = "pre-fec-ber"
-                        self._children_yang_names.add("pre-fec-ber")
-
-                        self.q_value = TerminalDevice.LogicalChannels.Channel.Otn.State.QValue()
-                        self.q_value.parent = self
-                        self._children_name_map["q_value"] = "q-value"
-                        self._children_yang_names.add("q-value")
-                        self._segment_path = lambda: "state"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State, ['background_block_errors', 'code_violations', 'errored_seconds', 'fec_corrected_bits', 'fec_corrected_bytes', 'fec_uncorrectable_words', 'rdi_msg', 'severely_errored_seconds', 'tti_msg_auto', 'tti_msg_expected', 'tti_msg_recv', 'tti_msg_transmit', 'unavailable_seconds'], name, value)
-
-
-                    class Esnr(Entity):
-                        """
-                        Electrical signal to noise ratio. Baud rate
-                        normalized signal to noise ratio based on
-                        error vector magnitude
-                        
-                        .. attribute:: avg
-                        
-                        	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: instant
-                        
-                        	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: max
-                        
-                        	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: min
-                        
-                        	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-opt-term'
-                        _revision = '2016-06-17'
-
-                        def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, self).__init__()
-
-                            self.yang_name = "esnr"
-                            self.yang_parent_name = "state"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.max = YLeaf(YType.str, "max")
-
-                            self.min = YLeaf(YType.str, "min")
-                            self._segment_path = lambda: "esnr"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, ['avg', 'instant', 'max', 'min'], name, value)
-
-
-                    class PostFecBer(Entity):
-                        """
-                        Bit error rate after forward error correction \-\- computed
-                        value
-                        
-                        .. attribute:: avg
-                        
-                        	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: instant
-                        
-                        	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: max
-                        
-                        	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: min
-                        
-                        	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-opt-term'
-                        _revision = '2016-06-17'
-
-                        def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, self).__init__()
-
-                            self.yang_name = "post-fec-ber"
-                            self.yang_parent_name = "state"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.max = YLeaf(YType.str, "max")
-
-                            self.min = YLeaf(YType.str, "min")
-                            self._segment_path = lambda: "post-fec-ber"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, ['avg', 'instant', 'max', 'min'], name, value)
-
-
-                    class PreFecBer(Entity):
-                        """
-                        Bit error rate before forward error correction \-\- computed
-                        value
-                        
-                        .. attribute:: avg
-                        
-                        	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: instant
-                        
-                        	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: max
-                        
-                        	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: min
-                        
-                        	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-opt-term'
-                        _revision = '2016-06-17'
-
-                        def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, self).__init__()
-
-                            self.yang_name = "pre-fec-ber"
-                            self.yang_parent_name = "state"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.max = YLeaf(YType.str, "max")
-
-                            self.min = YLeaf(YType.str, "min")
-                            self._segment_path = lambda: "pre-fec-ber"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, ['avg', 'instant', 'max', 'min'], name, value)
-
-
-                    class QValue(Entity):
-                        """
-                        Quality value (factor) of a channel
-                        
-                        .. attribute:: avg
-                        
-                        	The arithmetic mean value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: instant
-                        
-                        	The instantaneous value of the statistic
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: max
-                        
-                        	The maximum value of the statitic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        .. attribute:: min
-                        
-                        	The minimum value of the statistic over the sampling period
-                        	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                        
-                        	**range:** \-922337203685477580.8..922337203685477580.7
-                        
-                        
-
-                        """
-
-                        _prefix = 'oc-opt-term'
-                        _revision = '2016-06-17'
-
-                        def __init__(self):
-                            super(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, self).__init__()
-
-                            self.yang_name = "q-value"
-                            self.yang_parent_name = "state"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.avg = YLeaf(YType.str, "avg")
-
-                            self.instant = YLeaf(YType.str, "instant")
-
-                            self.max = YLeaf(YType.str, "max")
-
-                            self.min = YLeaf(YType.str, "min")
-                            self._segment_path = lambda: "q-value"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, ['avg', 'instant', 'max', 'min'], name, value)
-
-
-            class State(Entity):
-                """
-                Operational state data for logical channels
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the logical channel
-                	**type**\:   :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                .. attribute:: description
-                
-                	Description of the logical channel
-                	**type**\:  str
-                
-                .. attribute:: index
-                
-                	Index of the current logical channel
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: link_state
-                
-                	Link\-state of the Ethernet protocol on the logical channel, SONET / SDH framed signal, etc
-                	**type**\:   :py:class:`LinkState <ydk.models.openconfig.openconfig_terminal_device.TerminalDevice.LogicalChannels.Channel.State.LinkState>`
-                
-                .. attribute:: logical_channel_type
-                
-                	The type / stage of the logical element determines the configuration and operational state parameters (PMs) available for the logical element
-                	**type**\:   :py:class:`LOGICALELEMENTPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.LOGICALELEMENTPROTOCOLTYPE>`
-                
-                .. attribute:: loopback_mode
-                
-                	Sets the loopback type on the logical channel. Setting the mode to something besides NONE activates the loopback in the specified mode
-                	**type**\:   :py:class:`LoopbackModeType <ydk.models.openconfig.openconfig_transport_types.LoopbackModeType>`
-                
-                .. attribute:: rate_class
-                
-                	Rounded bit rate of the tributary signal. Exact bit rate will be refined by protocol selection
-                	**type**\:   :py:class:`TRIBUTARYRATECLASSTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYRATECLASSTYPE>`
-                
-                .. attribute:: trib_protocol
-                
-                	Protocol framing of the tributary signal. If this LogicalChannel is directly connected to a Client\-Port or Optical\-Channel, this is the protocol of the associated port. If the LogicalChannel is connected to other LogicalChannels, the TributaryProtocol of the LogicalChannels will define a specific mapping/demapping or multiplexing/demultiplexing function.  Not all protocols are valid, depending on the value of trib\-rate\-class.  The expectation is that the NMS will validate that a correct combination of rate class and protocol are specfied.  Basic combinations are\:  rate class\: 1G protocols\: 1GE  rate class\: 2.5G protocols\: OC48, STM16  rate class\: 10G protocols\:  10GE LAN, 10GE WAN, OC192, STM64, OTU2, OTU2e,            OTU1e, ODU2, ODU2e, ODU1e  rate class\: 40G protocols\:  40GE, OC768, STM256, OTU3, ODU3  rate class\: 100G protocols\:  100GE, 100G MLG, OTU4, OTUCn, ODU4
-                	**type**\:   :py:class:`TRIBUTARYPROTOCOLTYPE <ydk.models.openconfig.openconfig_transport_types.TRIBUTARYPROTOCOLTYPE>`
-                
-                
-
-                """
-
-                _prefix = 'oc-opt-term'
-                _revision = '2016-06-17'
-
-                def __init__(self):
-                    super(TerminalDevice.LogicalChannels.Channel.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "channel"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.admin_state = YLeaf(YType.enumeration, "admin-state")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.index = YLeaf(YType.uint32, "index")
-
-                    self.link_state = YLeaf(YType.enumeration, "link-state")
-
-                    self.logical_channel_type = YLeaf(YType.identityref, "logical-channel-type")
-
-                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
-
-                    self.rate_class = YLeaf(YType.identityref, "rate-class")
-
-                    self.trib_protocol = YLeaf(YType.identityref, "trib-protocol")
-                    self._segment_path = lambda: "state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(TerminalDevice.LogicalChannels.Channel.State, ['admin_state', 'description', 'index', 'link_state', 'logical_channel_type', 'loopback_mode', 'rate_class', 'trib_protocol'], name, value)
-
-                class LinkState(Enum):
-                    """
-                    LinkState
-
-                    Link\-state of the Ethernet protocol on the logical channel,
-
-                    SONET / SDH framed signal, etc.
-
-                    .. data:: UP = 0
-
-                    	Logical channel is operationally up
-
-                    .. data:: DOWN = 1
-
-                    	Logical channel is operationally down
-
-                    """
-
-                    UP = Enum.YLeaf(0, "UP")
-
-                    DOWN = Enum.YLeaf(1, "DOWN")
 
 
 
@@ -1753,17 +1777,17 @@ class TerminalDevice(Entity):
                 Operational state data for the platform\-defined
                 operational mode
                 
-                .. attribute:: description
-                
-                	Vendor\-supplied textual description of the characteristics of this operational mode to enable operators to select the appropriate mode for the application
-                	**type**\:  str
-                
                 .. attribute:: mode_id
                 
                 	Two\-octet encoding of the vendor\-defined operational mode
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                .. attribute:: description
+                
+                	Vendor\-supplied textual description of the characteristics of this operational mode to enable operators to select the appropriate mode for the application
+                	**type**\:  str
                 
                 .. attribute:: vendor_id
                 
@@ -1787,39 +1811,15 @@ class TerminalDevice(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.description = YLeaf(YType.str, "description")
-
                     self.mode_id = YLeaf(YType.uint16, "mode-id")
+
+                    self.description = YLeaf(YType.str, "description")
 
                     self.vendor_id = YLeaf(YType.str, "vendor-id")
                     self._segment_path = lambda: "state"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TerminalDevice.OperationalModes.Mode.State, ['description', 'mode_id', 'vendor_id'], name, value)
-
-
-    class State(Entity):
-        """
-        Operational state data for global terminal device
-        
-        
-
-        """
-
-        _prefix = 'oc-opt-term'
-        _revision = '2016-06-17'
-
-        def __init__(self):
-            super(TerminalDevice.State, self).__init__()
-
-            self.yang_name = "state"
-            self.yang_parent_name = "terminal-device"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-            self._segment_path = lambda: "state"
-            self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+                    self._perform_setattr(TerminalDevice.OperationalModes.Mode.State, ['mode_id', 'description', 'vendor_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TerminalDevice()

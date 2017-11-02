@@ -66,16 +66,30 @@ class Grpc(Entity):
         """
         Grpc Statistics
         
-        .. attribute:: ct_action_json_req_recv
+        .. attribute:: ct_show_cmd_txt_req_recv
         
-        	CounterForHowManyActionJsonRequests
+        	CounterShowCmdTxtReqRecv
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_action_json_res_sent
+        .. attribute:: ct_show_cmd_txt_res_sent
         
-        	CounterForHowManyActionJsonResponses
+        	CounterShowCmdTxtResSent
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: ct_get_config_req_recv
+        
+        	CounterGetConfigReqRecv
+        	**type**\:  int
+        
+        	**range:** 0..18446744073709551615
+        
+        .. attribute:: ct_get_config_res_sent
+        
+        	CounterGetConfigResSent
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -94,16 +108,16 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_commit_config_req_recv
+        .. attribute:: ct_merge_config_req_recv
         
-        	CounterForHowManyCommitConfigRequests
+        	CounterMergeConfigReq
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_commit_config_res_sent
+        .. attribute:: ct_merge_config_res_sent
         
-        	CounterForHowManyCommitConfigResponses
+        	CounterMergeConfigRes
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -136,26 +150,19 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_get_config_req_recv
+        .. attribute:: ct_replace_config_req_recv
         
-        	CounterGetConfigReqRecv
+        	CounterReplaceConfigReq
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_get_config_res_sent
+        .. attribute:: ct_replace_config_res_sent
         
-        	CounterGetConfigResSent
+        	CounterReplaceConfigSent
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
-        
-        .. attribute:: ct_get_current_session
-        
-        	CounterGetCurrentSession
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
         
         .. attribute:: ct_get_oper_req_recv
         
@@ -171,44 +178,37 @@ class Grpc(Entity):
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_merge_config_req_recv
+        .. attribute:: ct_get_current_session
         
-        	CounterMergeConfigReq
+        	CounterGetCurrentSession
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: ct_commit_config_req_recv
+        
+        	CounterForHowManyCommitConfigRequests
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_merge_config_res_sent
+        .. attribute:: ct_commit_config_res_sent
         
-        	CounterMergeConfigRes
+        	CounterForHowManyCommitConfigResponses
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_replace_config_req_recv
+        .. attribute:: ct_action_json_req_recv
         
-        	CounterReplaceConfigReq
+        	CounterForHowManyActionJsonRequests
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
-        .. attribute:: ct_replace_config_res_sent
+        .. attribute:: ct_action_json_res_sent
         
-        	CounterReplaceConfigSent
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: ct_show_cmd_txt_req_recv
-        
-        	CounterShowCmdTxtReqRecv
-        	**type**\:  int
-        
-        	**range:** 0..18446744073709551615
-        
-        .. attribute:: ct_show_cmd_txt_res_sent
-        
-        	CounterShowCmdTxtResSent
+        	CounterForHowManyActionJsonResponses
         	**type**\:  int
         
         	**range:** 0..18446744073709551615
@@ -230,17 +230,21 @@ class Grpc(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.ct_action_json_req_recv = YLeaf(YType.uint64, "ct-action-json-req-recv")
+            self.ct_show_cmd_txt_req_recv = YLeaf(YType.uint64, "ct-show-cmd-txt-req-recv")
 
-            self.ct_action_json_res_sent = YLeaf(YType.uint64, "ct-action-json-res-sent")
+            self.ct_show_cmd_txt_res_sent = YLeaf(YType.uint64, "ct-show-cmd-txt-res-sent")
+
+            self.ct_get_config_req_recv = YLeaf(YType.uint64, "ct-get-config-req-recv")
+
+            self.ct_get_config_res_sent = YLeaf(YType.uint64, "ct-get-config-res-sent")
 
             self.ct_cli_config_req_recv = YLeaf(YType.uint64, "ct-cli-config-req-recv")
 
             self.ct_cli_config_res_sent = YLeaf(YType.uint64, "ct-cli-config-res-sent")
 
-            self.ct_commit_config_req_recv = YLeaf(YType.uint64, "ct-commit-config-req-recv")
+            self.ct_merge_config_req_recv = YLeaf(YType.uint64, "ct-merge-config-req-recv")
 
-            self.ct_commit_config_res_sent = YLeaf(YType.uint64, "ct-commit-config-res-sent")
+            self.ct_merge_config_res_sent = YLeaf(YType.uint64, "ct-merge-config-res-sent")
 
             self.ct_commit_replace_req_recv = YLeaf(YType.uint64, "ct-commit-replace-req-recv")
 
@@ -250,41 +254,52 @@ class Grpc(Entity):
 
             self.ct_delete_config_res_sent = YLeaf(YType.uint64, "ct-delete-config-res-sent")
 
-            self.ct_get_config_req_recv = YLeaf(YType.uint64, "ct-get-config-req-recv")
+            self.ct_replace_config_req_recv = YLeaf(YType.uint64, "ct-replace-config-req-recv")
 
-            self.ct_get_config_res_sent = YLeaf(YType.uint64, "ct-get-config-res-sent")
-
-            self.ct_get_current_session = YLeaf(YType.uint32, "ct-get-current-session")
+            self.ct_replace_config_res_sent = YLeaf(YType.uint64, "ct-replace-config-res-sent")
 
             self.ct_get_oper_req_recv = YLeaf(YType.uint64, "ct-get-oper-req-recv")
 
             self.ct_get_oper_res_sent = YLeaf(YType.uint64, "ct-get-oper-res-sent")
 
-            self.ct_merge_config_req_recv = YLeaf(YType.uint64, "ct-merge-config-req-recv")
+            self.ct_get_current_session = YLeaf(YType.uint32, "ct-get-current-session")
 
-            self.ct_merge_config_res_sent = YLeaf(YType.uint64, "ct-merge-config-res-sent")
+            self.ct_commit_config_req_recv = YLeaf(YType.uint64, "ct-commit-config-req-recv")
 
-            self.ct_replace_config_req_recv = YLeaf(YType.uint64, "ct-replace-config-req-recv")
+            self.ct_commit_config_res_sent = YLeaf(YType.uint64, "ct-commit-config-res-sent")
 
-            self.ct_replace_config_res_sent = YLeaf(YType.uint64, "ct-replace-config-res-sent")
+            self.ct_action_json_req_recv = YLeaf(YType.uint64, "ct-action-json-req-recv")
 
-            self.ct_show_cmd_txt_req_recv = YLeaf(YType.uint64, "ct-show-cmd-txt-req-recv")
-
-            self.ct_show_cmd_txt_res_sent = YLeaf(YType.uint64, "ct-show-cmd-txt-res-sent")
+            self.ct_action_json_res_sent = YLeaf(YType.uint64, "ct-action-json-res-sent")
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Statistics, ['ct_action_json_req_recv', 'ct_action_json_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_get_current_session', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent'], name, value)
+            self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
 
 
     class Status(Entity):
         """
         Grpc Status
         
+        .. attribute:: transport
+        
+        	GRPCTransport
+        	**type**\:  str
+        
         .. attribute:: address_family
         
         	AddressFamily
+        	**type**\:  str
+        
+        .. attribute:: tls
+        
+        	GRPCTLS
+        	**type**\:  str
+        
+        .. attribute:: trustpoint
+        
+        	GRPCTrustpoint
         	**type**\:  str
         
         .. attribute:: listening_port
@@ -293,6 +308,11 @@ class Grpc(Entity):
         	**type**\:  int
         
         	**range:** \-2147483648..2147483647
+        
+        .. attribute:: vrf_socket_ns_path
+        
+        	VrfSocketNamespacePath
+        	**type**\:  str
         
         .. attribute:: max_req_per_user
         
@@ -307,26 +327,6 @@ class Grpc(Entity):
         	**type**\:  int
         
         	**range:** 0..4294967295
-        
-        .. attribute:: tls
-        
-        	GRPCTLS
-        	**type**\:  str
-        
-        .. attribute:: transport
-        
-        	GRPCTransport
-        	**type**\:  str
-        
-        .. attribute:: trustpoint
-        
-        	GRPCTrustpoint
-        	**type**\:  str
-        
-        .. attribute:: vrf_socket_ns_path
-        
-        	VrfSocketNamespacePath
-        	**type**\:  str
         
         
 
@@ -345,26 +345,26 @@ class Grpc(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
+            self.transport = YLeaf(YType.str, "transport")
+
             self.address_family = YLeaf(YType.str, "address-family")
 
+            self.tls = YLeaf(YType.str, "tls")
+
+            self.trustpoint = YLeaf(YType.str, "trustpoint")
+
             self.listening_port = YLeaf(YType.int32, "listening-port")
+
+            self.vrf_socket_ns_path = YLeaf(YType.str, "vrf-socket-ns-path")
 
             self.max_req_per_user = YLeaf(YType.uint32, "max-req-per-user")
 
             self.max_req_total = YLeaf(YType.uint32, "max-req-total")
-
-            self.tls = YLeaf(YType.str, "tls")
-
-            self.transport = YLeaf(YType.str, "transport")
-
-            self.trustpoint = YLeaf(YType.str, "trustpoint")
-
-            self.vrf_socket_ns_path = YLeaf(YType.str, "vrf-socket-ns-path")
             self._segment_path = lambda: "status"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Status, ['address_family', 'listening_port', 'max_req_per_user', 'max_req_total', 'tls', 'transport', 'trustpoint', 'vrf_socket_ns_path'], name, value)
+            self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Grpc()

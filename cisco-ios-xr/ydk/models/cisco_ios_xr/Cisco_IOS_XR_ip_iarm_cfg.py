@@ -184,8 +184,6 @@ class IpArm(Entity):
             	Default multicast host interface name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             
 
             """
@@ -297,8 +295,6 @@ class IpArm(Entity):
             
             	Default multicast host interface name
             	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             
 

@@ -20,109 +20,6 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
-class Ftp(Entity):
-    """
-    ftp
-    
-    .. attribute:: ftp_client
-    
-    	FTP client configuration
-    	**type**\:   :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
-    
-    
-
-    """
-
-    _prefix = 'ipv4-filesystems-cfg'
-    _revision = '2017-07-17'
-
-    def __init__(self):
-        super(Ftp, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "ftp"
-        self.yang_parent_name = "Cisco-IOS-XR-ipv4-filesystems-cfg"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {"ftp-client" : ("ftp_client", Ftp.FtpClient)}
-        self._child_list_classes = {}
-
-        self.ftp_client = Ftp.FtpClient()
-        self.ftp_client.parent = self
-        self._children_name_map["ftp_client"] = "ftp-client"
-        self._children_yang_names.add("ftp-client")
-        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp"
-
-
-    class FtpClient(Entity):
-        """
-        FTP client configuration
-        
-        .. attribute:: anonymous_password
-        
-        	Password for anonymous user (ftp server dependent)
-        	**type**\:  str
-        
-        .. attribute:: passive
-        
-        	Enable connect using passive mode
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: password
-        
-        	Specify password for ftp connnection
-        	**type**\:  str
-        
-        	**pattern:** (!.+)\|([^!].+)
-        
-        .. attribute:: source_interface
-        
-        	Specify interface for source address in connections
-        	**type**\:  str
-        
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
-        .. attribute:: username
-        
-        	Specify username for connections
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'ipv4-filesystems-cfg'
-        _revision = '2017-07-17'
-
-        def __init__(self):
-            super(Ftp.FtpClient, self).__init__()
-
-            self.yang_name = "ftp-client"
-            self.yang_parent_name = "ftp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.anonymous_password = YLeaf(YType.str, "anonymous-password")
-
-            self.passive = YLeaf(YType.empty, "passive")
-
-            self.password = YLeaf(YType.str, "password")
-
-            self.source_interface = YLeaf(YType.str, "source-interface")
-
-            self.username = YLeaf(YType.str, "username")
-            self._segment_path = lambda: "ftp-client"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Ftp.FtpClient, ['anonymous_password', 'passive', 'password', 'source_interface', 'username'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Ftp()
-        return self._top_entity
-
 class Rcp(Entity):
     """
     RCP configuration
@@ -161,16 +58,14 @@ class Rcp(Entity):
         """
         RCP client configuration
         
-        .. attribute:: source_interface
-        
-        	Specify interface for source address in connections
-        	**type**\:  str
-        
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
-        
         .. attribute:: username
         
         	Specify username for connections
+        	**type**\:  str
+        
+        .. attribute:: source_interface
+        
+        	Specify interface for source address in connections
         	**type**\:  str
         
         
@@ -190,17 +85,116 @@ class Rcp(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.source_interface = YLeaf(YType.str, "source-interface")
-
             self.username = YLeaf(YType.str, "username")
+
+            self.source_interface = YLeaf(YType.str, "source-interface")
             self._segment_path = lambda: "rcp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Rcp.RcpClient, ['source_interface', 'username'], name, value)
+            self._perform_setattr(Rcp.RcpClient, ['username', 'source_interface'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Rcp()
+        return self._top_entity
+
+class Ftp(Entity):
+    """
+    ftp
+    
+    .. attribute:: ftp_client
+    
+    	FTP client configuration
+    	**type**\:   :py:class:`FtpClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Ftp.FtpClient>`
+    
+    
+
+    """
+
+    _prefix = 'ipv4-filesystems-cfg'
+    _revision = '2017-07-17'
+
+    def __init__(self):
+        super(Ftp, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ftp"
+        self.yang_parent_name = "Cisco-IOS-XR-ipv4-filesystems-cfg"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"ftp-client" : ("ftp_client", Ftp.FtpClient)}
+        self._child_list_classes = {}
+
+        self.ftp_client = Ftp.FtpClient()
+        self.ftp_client.parent = self
+        self._children_name_map["ftp_client"] = "ftp-client"
+        self._children_yang_names.add("ftp-client")
+        self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp"
+
+
+    class FtpClient(Entity):
+        """
+        FTP client configuration
+        
+        .. attribute:: passive
+        
+        	Enable connect using passive mode
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: password
+        
+        	Specify password for ftp connnection
+        	**type**\:  str
+        
+        .. attribute:: anonymous_password
+        
+        	Password for anonymous user (ftp server dependent)
+        	**type**\:  str
+        
+        .. attribute:: username
+        
+        	Specify username for connections
+        	**type**\:  str
+        
+        .. attribute:: source_interface
+        
+        	Specify interface for source address in connections
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'ipv4-filesystems-cfg'
+        _revision = '2017-07-17'
+
+        def __init__(self):
+            super(Ftp.FtpClient, self).__init__()
+
+            self.yang_name = "ftp-client"
+            self.yang_parent_name = "ftp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.passive = YLeaf(YType.empty, "passive")
+
+            self.password = YLeaf(YType.str, "password")
+
+            self.anonymous_password = YLeaf(YType.str, "anonymous-password")
+
+            self.username = YLeaf(YType.str, "username")
+
+            self.source_interface = YLeaf(YType.str, "source-interface")
+            self._segment_path = lambda: "ftp-client"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ftp.FtpClient, ['passive', 'password', 'anonymous_password', 'username', 'source_interface'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Ftp()
         return self._top_entity
 
 class Tftp(Entity):
@@ -241,19 +235,17 @@ class Tftp(Entity):
         """
         TFTP client configuration
         
+        .. attribute:: vrfs
+        
+        	VRF table
+        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs>`
+        
         .. attribute:: retry
         
         	Specify the number of retries when client requests TFTP connections
         	**type**\:  int
         
         	**range:** 0..256
-        
-        .. attribute:: source_interface
-        
-        	Specify interface for source address in connections
-        	**type**\:  str
-        
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
         
         .. attribute:: timeout
         
@@ -264,10 +256,10 @@ class Tftp(Entity):
         
         	**units**\: second
         
-        .. attribute:: vrfs
+        .. attribute:: source_interface
         
-        	VRF table
-        	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_filesystems_cfg.Tftp.TftpClient.Vrfs>`
+        	Specify interface for source address in connections
+        	**type**\:  str
         
         
 
@@ -288,9 +280,9 @@ class Tftp(Entity):
 
             self.retry = YLeaf(YType.uint32, "retry")
 
-            self.source_interface = YLeaf(YType.str, "source-interface")
-
             self.timeout = YLeaf(YType.uint32, "timeout")
+
+            self.source_interface = YLeaf(YType.str, "source-interface")
 
             self.vrfs = Tftp.TftpClient.Vrfs()
             self.vrfs.parent = self
@@ -300,7 +292,7 @@ class Tftp(Entity):
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Tftp.TftpClient, ['retry', 'source_interface', 'timeout'], name, value)
+            self._perform_setattr(Tftp.TftpClient, ['retry', 'timeout', 'source_interface'], name, value)
 
 
         class Vrfs(Entity):
@@ -346,7 +338,10 @@ class Tftp(Entity):
                 	Name of the VRF instance
                 	**type**\:  str
                 
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                .. attribute:: source_interface
+                
+                	Specify interface for source address in connections
+                	**type**\:  str
                 
                 .. attribute:: retry
                 
@@ -354,13 +349,6 @@ class Tftp(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..256
-                
-                .. attribute:: source_interface
-                
-                	Specify interface for source address in connections
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
                 
                 .. attribute:: timeout
                 
@@ -390,16 +378,16 @@ class Tftp(Entity):
 
                     self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                    self.retry = YLeaf(YType.uint32, "retry")
-
                     self.source_interface = YLeaf(YType.str, "source-interface")
+
+                    self.retry = YLeaf(YType.uint32, "retry")
 
                     self.timeout = YLeaf(YType.uint32, "timeout")
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/vrfs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Tftp.TftpClient.Vrfs.Vrf, ['vrf_name', 'retry', 'source_interface', 'timeout'], name, value)
+                    self._perform_setattr(Tftp.TftpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'retry', 'timeout'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Tftp()

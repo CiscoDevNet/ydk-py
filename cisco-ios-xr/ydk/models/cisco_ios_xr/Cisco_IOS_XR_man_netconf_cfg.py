@@ -56,6 +56,16 @@ class NetconfYang(Entity):
         """
         NETCONF YANG agent configuration commands
         
+        .. attribute:: ssh
+        
+        	NETCONF YANG agent over SSH connection
+        	**type**\:   :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
+        
+        .. attribute:: session
+        
+        	Session settings
+        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
+        
         .. attribute:: rate_limit
         
         	Number of bytes to process per sec
@@ -64,16 +74,6 @@ class NetconfYang(Entity):
         	**range:** 4096..4294967295
         
         	**units**\: byte
-        
-        .. attribute:: session
-        
-        	Session settings
-        	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Session>`
-        
-        .. attribute:: ssh
-        
-        	NETCONF YANG agent over SSH connection
-        	**type**\:   :py:class:`Ssh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_netconf_cfg.NetconfYang.Agent.Ssh>`
         
         
 
@@ -89,85 +89,25 @@ class NetconfYang(Entity):
             self.yang_parent_name = "netconf-yang"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"session" : ("session", NetconfYang.Agent.Session), "ssh" : ("ssh", NetconfYang.Agent.Ssh)}
+            self._child_container_classes = {"ssh" : ("ssh", NetconfYang.Agent.Ssh), "session" : ("session", NetconfYang.Agent.Session)}
             self._child_list_classes = {}
 
             self.rate_limit = YLeaf(YType.uint32, "rate-limit")
-
-            self.session = NetconfYang.Agent.Session()
-            self.session.parent = self
-            self._children_name_map["session"] = "session"
-            self._children_yang_names.add("session")
 
             self.ssh = NetconfYang.Agent.Ssh()
             self.ssh.parent = self
             self._children_name_map["ssh"] = "ssh"
             self._children_yang_names.add("ssh")
+
+            self.session = NetconfYang.Agent.Session()
+            self.session.parent = self
+            self._children_name_map["session"] = "session"
+            self._children_yang_names.add("session")
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfYang.Agent, ['rate_limit'], name, value)
-
-
-        class Session(Entity):
-            """
-            Session settings
-            
-            .. attribute:: absolute_timeout
-            
-            	Absolute timeout in minutes
-            	**type**\:  int
-            
-            	**range:** 1..1440
-            
-            	**units**\: minute
-            
-            .. attribute:: idle_timeout
-            
-            	Non\-active session lifetime
-            	**type**\:  int
-            
-            	**range:** 1..1440
-            
-            	**units**\: minute
-            
-            .. attribute:: limit
-            
-            	Count of allowable concurrent netconf\-yang sessions
-            	**type**\:  int
-            
-            	**range:** 1..50
-            
-            	**default value**\: 50
-            
-            
-
-            """
-
-            _prefix = 'man-netconf-cfg'
-            _revision = '2016-03-15'
-
-            def __init__(self):
-                super(NetconfYang.Agent.Session, self).__init__()
-
-                self.yang_name = "session"
-                self.yang_parent_name = "agent"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
-
-                self.idle_timeout = YLeaf(YType.uint32, "idle-timeout")
-
-                self.limit = YLeaf(YType.uint32, "limit")
-                self._segment_path = lambda: "session"
-                self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NetconfYang.Agent.Session, ['absolute_timeout', 'idle_timeout', 'limit'], name, value)
 
 
         class Ssh(Entity):
@@ -202,6 +142,66 @@ class NetconfYang(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.Agent.Ssh, ['enable'], name, value)
+
+
+        class Session(Entity):
+            """
+            Session settings
+            
+            .. attribute:: limit
+            
+            	Count of allowable concurrent netconf\-yang sessions
+            	**type**\:  int
+            
+            	**range:** 1..50
+            
+            	**default value**\: 50
+            
+            .. attribute:: absolute_timeout
+            
+            	Absolute timeout in minutes
+            	**type**\:  int
+            
+            	**range:** 1..1440
+            
+            	**units**\: minute
+            
+            .. attribute:: idle_timeout
+            
+            	Non\-active session lifetime
+            	**type**\:  int
+            
+            	**range:** 1..1440
+            
+            	**units**\: minute
+            
+            
+
+            """
+
+            _prefix = 'man-netconf-cfg'
+            _revision = '2016-03-15'
+
+            def __init__(self):
+                super(NetconfYang.Agent.Session, self).__init__()
+
+                self.yang_name = "session"
+                self.yang_parent_name = "agent"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.limit = YLeaf(YType.uint32, "limit")
+
+                self.absolute_timeout = YLeaf(YType.uint32, "absolute-timeout")
+
+                self.idle_timeout = YLeaf(YType.uint32, "idle-timeout")
+                self._segment_path = lambda: "session"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-netconf-cfg:netconf-yang/agent/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NetconfYang.Agent.Session, ['limit', 'absolute_timeout', 'idle_timeout'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NetconfYang()

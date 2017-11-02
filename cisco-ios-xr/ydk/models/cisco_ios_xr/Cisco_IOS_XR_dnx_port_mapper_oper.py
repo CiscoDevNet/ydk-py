@@ -95,17 +95,15 @@ class Oor(Entity):
             	Node ID
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: summary
+            
+            	Summary
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
             
             .. attribute:: interface_names
             
             	OOR Interface Information
             	**type**\:   :py:class:`InterfaceNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.InterfaceNames>`
-            
-            .. attribute:: summary
-            
-            	Summary
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper.Oor.Nodes.Node.Summary>`
             
             
 
@@ -121,25 +119,78 @@ class Oor(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"interface-names" : ("interface_names", Oor.Nodes.Node.InterfaceNames), "summary" : ("summary", Oor.Nodes.Node.Summary)}
+                self._child_container_classes = {"summary" : ("summary", Oor.Nodes.Node.Summary), "interface-names" : ("interface_names", Oor.Nodes.Node.InterfaceNames)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
-
-                self.interface_names = Oor.Nodes.Node.InterfaceNames()
-                self.interface_names.parent = self
-                self._children_name_map["interface_names"] = "interface-names"
-                self._children_yang_names.add("interface-names")
 
                 self.summary = Oor.Nodes.Node.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
                 self._children_yang_names.add("summary")
+
+                self.interface_names = Oor.Nodes.Node.InterfaceNames()
+                self.interface_names.parent = self
+                self._children_name_map["interface_names"] = "interface-names"
+                self._children_yang_names.add("interface-names")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-port-mapper-oper:oor/nodes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oor.Nodes.Node, ['node_name'], name, value)
+
+
+            class Summary(Entity):
+                """
+                Summary
+                
+                .. attribute:: red
+                
+                	interfaces in red state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: green
+                
+                	interfaces in green state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: yel_low
+                
+                	interfaces in yellow state
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'dnx-port-mapper-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Oor.Nodes.Node.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.red = YLeaf(YType.uint32, "red")
+
+                    self.green = YLeaf(YType.uint32, "green")
+
+                    self.yel_low = YLeaf(YType.uint32, "yel-low")
+                    self._segment_path = lambda: "summary"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Oor.Nodes.Node.Summary, ['red', 'green', 'yel_low'], name, value)
 
 
             class InterfaceNames(Entity):
@@ -184,8 +235,6 @@ class Oor(Entity):
                     	The name of the interface
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: interface
                     
                     	Interface details
@@ -221,11 +270,6 @@ class Oor(Entity):
                         """
                         Interface details
                         
-                        .. attribute:: hardware_resource
-                        
-                        	Type of harware resoruce
-                        	**type**\:  str
-                        
                         .. attribute:: interface_name
                         
                         	Name of the interface
@@ -236,14 +280,19 @@ class Oor(Entity):
                         	The current state of the interface
                         	**type**\:  str
                         
+                        .. attribute:: time_stamp
+                        
+                        	Timestamp
+                        	**type**\:  str
+                        
                         .. attribute:: npu_id
                         
                         	Npuid of the interface
                         	**type**\:  str
                         
-                        .. attribute:: time_stamp
+                        .. attribute:: hardware_resource
                         
-                        	Timestamp
+                        	Type of harware resoruce
                         	**type**\:  str
                         
                         
@@ -263,72 +312,19 @@ class Oor(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.hardware_resource = YLeaf(YType.str, "hardware-resource")
-
                             self.interface_name = YLeaf(YType.str, "interface-name")
 
                             self.interface_status = YLeaf(YType.str, "interface-status")
 
+                            self.time_stamp = YLeaf(YType.str, "time-stamp")
+
                             self.npu_id = YLeaf(YType.str, "npu-id")
 
-                            self.time_stamp = YLeaf(YType.str, "time-stamp")
+                            self.hardware_resource = YLeaf(YType.str, "hardware-resource")
                             self._segment_path = lambda: "interface"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, ['hardware_resource', 'interface_name', 'interface_status', 'npu_id', 'time_stamp'], name, value)
-
-
-            class Summary(Entity):
-                """
-                Summary
-                
-                .. attribute:: green
-                
-                	interfaces in green state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: red
-                
-                	interfaces in red state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: yel_low
-                
-                	interfaces in yellow state
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'dnx-port-mapper-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Oor.Nodes.Node.Summary, self).__init__()
-
-                    self.yang_name = "summary"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.green = YLeaf(YType.uint32, "green")
-
-                    self.red = YLeaf(YType.uint32, "red")
-
-                    self.yel_low = YLeaf(YType.uint32, "yel-low")
-                    self._segment_path = lambda: "summary"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Oor.Nodes.Node.Summary, ['green', 'red', 'yel_low'], name, value)
+                            self._perform_setattr(Oor.Nodes.Node.InterfaceNames.InterfaceName.Interface, ['interface_name', 'interface_status', 'time_stamp', 'npu_id', 'hardware_resource'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Oor()

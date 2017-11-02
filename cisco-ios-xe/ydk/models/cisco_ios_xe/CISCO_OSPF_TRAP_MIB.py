@@ -52,27 +52,25 @@ class CISCOOSPFTRAPMIB(Entity):
         """
         
         
+        .. attribute:: cospfsettrap
+        
+        	An octet string serving as a bit  map  for the trap events defined by the OSPF traps in  this MIB. This object is used to enable and   disable  specific OSPF   traps   where  a  1   in  the  corresponding bit  field represents  enabled
+        	**type**\:   :py:class:`Cospfsettrap <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfsettrap>`
+        
         .. attribute:: cospfconfigerrortype
         
         	Potential types of configuration conflicts. Used  by the cospfConfigError and cospfConfigVirtError traps. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
         	**type**\:   :py:class:`Cospfconfigerrortype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfconfigerrortype>`
-        
-        .. attribute:: cospfpacketsrc
-        
-        	The IP address of an inbound packet that can\- not be identified by a neighbor instance. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as 0.0.0.0
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
         .. attribute:: cospfpackettype
         
         	OSPF packet types. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
         	**type**\:   :py:class:`Cospfpackettype <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfpackettype>`
         
-        .. attribute:: cospfsettrap
+        .. attribute:: cospfpacketsrc
         
-        	An octet string serving as a bit  map  for the trap events defined by the OSPF traps in  this MIB. This object is used to enable and   disable  specific OSPF   traps   where  a  1   in  the  corresponding bit  field represents  enabled
-        	**type**\:   :py:class:`Cospfsettrap <ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB.CISCOOSPFTRAPMIB.Cospftrapcontrol.Cospfsettrap>`
+        	The IP address of an inbound packet that can\- not be identified by a neighbor instance. When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as 0.0.0.0
+        	**type**\:  str
         
         
 
@@ -91,18 +89,18 @@ class CISCOOSPFTRAPMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.cospfconfigerrortype = YLeaf(YType.enumeration, "cospfConfigErrorType")
+            self.cospfsettrap = YLeaf(YType.bits, "cospfSetTrap")
 
-            self.cospfpacketsrc = YLeaf(YType.str, "cospfPacketSrc")
+            self.cospfconfigerrortype = YLeaf(YType.enumeration, "cospfConfigErrorType")
 
             self.cospfpackettype = YLeaf(YType.enumeration, "cospfPacketType")
 
-            self.cospfsettrap = YLeaf(YType.bits, "cospfSetTrap")
+            self.cospfpacketsrc = YLeaf(YType.str, "cospfPacketSrc")
             self._segment_path = lambda: "cospfTrapControl"
             self._absolute_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFTRAPMIB.Cospftrapcontrol, ['cospfconfigerrortype', 'cospfpacketsrc', 'cospfpackettype', 'cospfsettrap'], name, value)
+            self._perform_setattr(CISCOOSPFTRAPMIB.Cospftrapcontrol, ['cospfsettrap', 'cospfconfigerrortype', 'cospfpackettype', 'cospfpacketsrc'], name, value)
 
         class Cospfconfigerrortype(Enum):
             """

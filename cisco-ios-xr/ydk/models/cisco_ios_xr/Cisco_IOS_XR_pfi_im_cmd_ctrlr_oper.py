@@ -218,24 +218,20 @@ class Controllers(Entity):
             	The name of the controller
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
             .. attribute:: controller
             
             	Controller
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: description
-            
-            	Controller description string
             	**type**\:  str
             
             .. attribute:: state
             
             	Operational state with no translation of error disable or shutdown
             	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper.ImStateEnum>`
+            
+            .. attribute:: description
+            
+            	Controller description string
+            	**type**\:  str
             
             
 
@@ -258,14 +254,14 @@ class Controllers(Entity):
 
                 self.controller = YLeaf(YType.str, "controller")
 
-                self.description = YLeaf(YType.str, "description")
-
                 self.state = YLeaf(YType.enumeration, "state")
+
+                self.description = YLeaf(YType.str, "description")
                 self._segment_path = lambda: "controller" + "[interafce-name='" + self.interafce_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers/controllers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Controllers.Controllers.Controller, ['interafce_name', 'controller', 'description', 'state'], name, value)
+                self._perform_setattr(Controllers.Controllers.Controller, ['interafce_name', 'controller', 'state', 'description'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Controllers()

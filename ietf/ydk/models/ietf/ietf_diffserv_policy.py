@@ -82,15 +82,15 @@ class Policies(Entity):
         	Diffserv policy name
         	**type**\:  str
         
-        .. attribute:: classifier_entry
-        
-        	Classifier entry configuration in a policy
-        	**type**\: list of    :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry>`
-        
         .. attribute:: policy_descr
         
         	Diffserv policy description
         	**type**\:  str
+        
+        .. attribute:: classifier_entry
+        
+        	Classifier entry configuration in a policy
+        	**type**\: list of    :py:class:`ClassifierEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry>`
         
         
 
@@ -130,10 +130,12 @@ class Policies(Entity):
             	Diffserv classifier entry name
             	**type**\:  str
             
-            .. attribute:: classifier_action_entry_cfg
+            .. attribute:: classifier_entry_inline
             
-            	Configuration of classifier & associated actions
-            	**type**\: list of    :py:class:`ClassifierActionEntryCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg>`
+            	Indication of inline classifier entry
+            	**type**\:  bool
+            
+            	**default value**\: false
             
             .. attribute:: classifier_entry_filter_oper
             
@@ -142,17 +144,15 @@ class Policies(Entity):
             
             	**default value**\: match-any-filter
             
-            .. attribute:: classifier_entry_inline
-            
-            	Indication of inline classifier entry
-            	**type**\:  bool
-            
-            	**default value**\: false
-            
             .. attribute:: filter_entry
             
             	Filters configured inline in a policy
             	**type**\: list of    :py:class:`FilterEntry <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry>`
+            
+            .. attribute:: classifier_action_entry_cfg
+            
+            	Configuration of classifier & associated actions
+            	**type**\: list of    :py:class:`ClassifierActionEntryCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg>`
             
             
 
@@ -169,20 +169,355 @@ class Policies(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self._child_container_classes = {}
-                self._child_list_classes = {"classifier-action-entry-cfg" : ("classifier_action_entry_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg), "filter-entry" : ("filter_entry", Policies.PolicyEntry.ClassifierEntry.FilterEntry)}
+                self._child_list_classes = {"filter-entry" : ("filter_entry", Policies.PolicyEntry.ClassifierEntry.FilterEntry), "classifier-action-entry-cfg" : ("classifier_action_entry_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg)}
 
                 self.classifier_entry_name = YLeaf(YType.str, "classifier-entry-name")
 
-                self.classifier_entry_filter_oper = YLeaf(YType.identityref, "classifier-entry-filter-oper")
-
                 self.classifier_entry_inline = YLeaf(YType.boolean, "classifier-entry-inline")
 
-                self.classifier_action_entry_cfg = YList(self)
+                self.classifier_entry_filter_oper = YLeaf(YType.identityref, "classifier-entry-filter-oper")
+
                 self.filter_entry = YList(self)
+                self.classifier_action_entry_cfg = YList(self)
                 self._segment_path = lambda: "classifier-entry" + "[classifier-entry-name='" + self.classifier_entry_name.get() + "']"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry, ['classifier_entry_name', 'classifier_entry_filter_oper', 'classifier_entry_inline'], name, value)
+                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry, ['classifier_entry_name', 'classifier_entry_inline', 'classifier_entry_filter_oper'], name, value)
+
+
+            class FilterEntry(Entity):
+                """
+                Filters configured inline in a policy
+                
+                .. attribute:: filter_type  <key>
+                
+                	This leaf defines type of the filter
+                	**type**\:   :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
+                
+                .. attribute:: filter_logical_not  <key>
+                
+                	 This is logical\-not operator for a filter. When true, it  indicates filter looks for absence of a pattern defined  by the filter 
+                	**type**\:  bool
+                
+                .. attribute:: dscp_cfg
+                
+                	list of dscp ranges
+                	**type**\: list of    :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg>`
+                
+                .. attribute:: source_ip_address_cfg
+                
+                	list of source ip address
+                	**type**\: list of    :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
+                
+                .. attribute:: destination_ip_address_cfg
+                
+                	list of destination ip address
+                	**type**\: list of    :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
+                
+                .. attribute:: source_port_cfg
+                
+                	list of ranges of source port
+                	**type**\: list of    :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg>`
+                
+                .. attribute:: destination_port_cfg
+                
+                	list of ranges of destination port
+                	**type**\: list of    :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg>`
+                
+                .. attribute:: protocol_cfg
+                
+                	list of ranges of protocol values
+                	**type**\: list of    :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg>`
+                
+                
+
+                """
+
+                _prefix = 'policy'
+                _revision = '2015-04-07'
+
+                def __init__(self):
+                    super(Policies.PolicyEntry.ClassifierEntry.FilterEntry, self).__init__()
+
+                    self.yang_name = "filter-entry"
+                    self.yang_parent_name = "classifier-entry"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"dscp-cfg" : ("dscp_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg), "source-ip-address-cfg" : ("source_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg), "destination-ip-address-cfg" : ("destination_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg), "source-port-cfg" : ("source_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg), "destination-port-cfg" : ("destination_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg), "protocol-cfg" : ("protocol_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg)}
+
+                    self.filter_type = YLeaf(YType.identityref, "filter-type")
+
+                    self.filter_logical_not = YLeaf(YType.boolean, "filter-logical-not")
+
+                    self.dscp_cfg = YList(self)
+                    self.source_ip_address_cfg = YList(self)
+                    self.destination_ip_address_cfg = YList(self)
+                    self.source_port_cfg = YList(self)
+                    self.destination_port_cfg = YList(self)
+                    self.protocol_cfg = YList(self)
+                    self._segment_path = lambda: "filter-entry" + "[filter-type='" + self.filter_type.get() + "']" + "[filter-logical-not='" + self.filter_logical_not.get() + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry, ['filter_type', 'filter_logical_not'], name, value)
+
+
+                class DscpCfg(Entity):
+                    """
+                    list of dscp ranges
+                    
+                    .. attribute:: dscp_min  <key>
+                    
+                    	Minimum value of dscp range
+                    	**type**\:  int
+                    
+                    	**range:** 0..63
+                    
+                    .. attribute:: dscp_max  <key>
+                    
+                    	maximum value of dscp range
+                    	**type**\:  int
+                    
+                    	**range:** 0..63
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, self).__init__()
+
+                        self.yang_name = "dscp-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.dscp_min = YLeaf(YType.uint8, "dscp-min")
+
+                        self.dscp_max = YLeaf(YType.uint8, "dscp-max")
+                        self._segment_path = lambda: "dscp-cfg" + "[dscp-min='" + self.dscp_min.get() + "']" + "[dscp-max='" + self.dscp_max.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, ['dscp_min', 'dscp_max'], name, value)
+
+
+                class SourceIpAddressCfg(Entity):
+                    """
+                    list of source ip address
+                    
+                    .. attribute:: source_ip_addr  <key>
+                    
+                    	source ip prefix
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__init__()
+
+                        self.yang_name = "source-ip-address-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.source_ip_addr = YLeaf(YType.str, "source-ip-addr")
+                        self._segment_path = lambda: "source-ip-address-cfg" + "[source-ip-addr='" + self.source_ip_addr.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, ['source_ip_addr'], name, value)
+
+
+                class DestinationIpAddressCfg(Entity):
+                    """
+                    list of destination ip address
+                    
+                    .. attribute:: destination_ip_addr  <key>
+                    
+                    	destination ip prefix
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__init__()
+
+                        self.yang_name = "destination-ip-address-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.destination_ip_addr = YLeaf(YType.str, "destination-ip-addr")
+                        self._segment_path = lambda: "destination-ip-address-cfg" + "[destination-ip-addr='" + self.destination_ip_addr.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, ['destination_ip_addr'], name, value)
+
+
+                class SourcePortCfg(Entity):
+                    """
+                    list of ranges of source port
+                    
+                    .. attribute:: source_port_min  <key>
+                    
+                    	minimum value of source port range
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: source_port_max  <key>
+                    
+                    	maximum value of source port range
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, self).__init__()
+
+                        self.yang_name = "source-port-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.source_port_min = YLeaf(YType.uint16, "source-port-min")
+
+                        self.source_port_max = YLeaf(YType.uint16, "source-port-max")
+                        self._segment_path = lambda: "source-port-cfg" + "[source-port-min='" + self.source_port_min.get() + "']" + "[source-port-max='" + self.source_port_max.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, ['source_port_min', 'source_port_max'], name, value)
+
+
+                class DestinationPortCfg(Entity):
+                    """
+                    list of ranges of destination port
+                    
+                    .. attribute:: destination_port_min  <key>
+                    
+                    	minimum value of destination port range
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: destination_port_max  <key>
+                    
+                    	maximum value of destination port range
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__init__()
+
+                        self.yang_name = "destination-port-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.destination_port_min = YLeaf(YType.uint16, "destination-port-min")
+
+                        self.destination_port_max = YLeaf(YType.uint16, "destination-port-max")
+                        self._segment_path = lambda: "destination-port-cfg" + "[destination-port-min='" + self.destination_port_min.get() + "']" + "[destination-port-max='" + self.destination_port_max.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, ['destination_port_min', 'destination_port_max'], name, value)
+
+
+                class ProtocolCfg(Entity):
+                    """
+                    list of ranges of protocol values
+                    
+                    .. attribute:: protocol_min  <key>
+                    
+                    	minimum value of protocol range
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: protocol_max  <key>
+                    
+                    	maximum value of protocol range
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'policy'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, self).__init__()
+
+                        self.yang_name = "protocol-cfg"
+                        self.yang_parent_name = "filter-entry"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.protocol_min = YLeaf(YType.uint8, "protocol-min")
+
+                        self.protocol_max = YLeaf(YType.uint8, "protocol-max")
+                        self._segment_path = lambda: "protocol-cfg" + "[protocol-min='" + self.protocol_min.get() + "']" + "[protocol-max='" + self.protocol_max.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, ['protocol_min', 'protocol_max'], name, value)
 
 
             class ClassifierActionEntryCfg(Entity):
@@ -194,20 +529,15 @@ class Policies(Entity):
                 	This defines action type 
                 	**type**\:   :py:class:`ActionType <ydk.models.ietf.ietf_diffserv_policy.ActionType>`
                 
-                .. attribute:: drop_cfg
-                
-                	Always Drop configuration container
-                	**type**\:   :py:class:`DropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg>`
-                
                 .. attribute:: marking_cfg
                 
                 	Marking configuration container
                 	**type**\:   :py:class:`MarkingCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg>`
                 
-                .. attribute:: max_rate_cfg
+                .. attribute:: priority_cfg
                 
-                	maximum rate attributes
-                	**type**\:   :py:class:`MaxRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg>`
+                	priority attributes container
+                	**type**\:   :py:class:`PriorityCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg>`
                 
                 .. attribute:: meter_cfg
                 
@@ -219,20 +549,25 @@ class Policies(Entity):
                 	min guaranteed bandwidth
                 	**type**\:   :py:class:`MinRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg>`
                 
-                .. attribute:: priority_cfg
+                .. attribute:: max_rate_cfg
                 
-                	priority attributes container
-                	**type**\:   :py:class:`PriorityCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg>`
+                	maximum rate attributes
+                	**type**\:   :py:class:`MaxRateCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg>`
                 
-                .. attribute:: random_detect_cfg
+                .. attribute:: drop_cfg
                 
-                	Random Detect configuration container
-                	**type**\:   :py:class:`RandomDetectCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg>`
+                	Always Drop configuration container
+                	**type**\:   :py:class:`DropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg>`
                 
                 .. attribute:: tail_drop_cfg
                 
                 	Tail Drop configuration container
                 	**type**\:   :py:class:`TailDropCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg>`
+                
+                .. attribute:: random_detect_cfg
+                
+                	Random Detect configuration container
+                	**type**\:   :py:class:`RandomDetectCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg>`
                 
                 
 
@@ -248,25 +583,20 @@ class Policies(Entity):
                     self.yang_parent_name = "classifier-entry"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"drop-cfg" : ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg), "marking-cfg" : ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg), "max-rate-cfg" : ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg), "meter-cfg" : ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg), "min-rate-cfg" : ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg), "priority-cfg" : ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg), "random-detect-cfg" : ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg), "tail-drop-cfg" : ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg)}
+                    self._child_container_classes = {"marking-cfg" : ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg), "priority-cfg" : ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg), "meter-cfg" : ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg), "min-rate-cfg" : ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg), "max-rate-cfg" : ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg), "drop-cfg" : ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg), "tail-drop-cfg" : ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg), "random-detect-cfg" : ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg)}
                     self._child_list_classes = {}
 
                     self.action_type = YLeaf(YType.identityref, "action-type")
-
-                    self.drop_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg()
-                    self.drop_cfg.parent = self
-                    self._children_name_map["drop_cfg"] = "drop-cfg"
-                    self._children_yang_names.add("drop-cfg")
 
                     self.marking_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg()
                     self.marking_cfg.parent = self
                     self._children_name_map["marking_cfg"] = "marking-cfg"
                     self._children_yang_names.add("marking-cfg")
 
-                    self.max_rate_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg()
-                    self.max_rate_cfg.parent = self
-                    self._children_name_map["max_rate_cfg"] = "max-rate-cfg"
-                    self._children_yang_names.add("max-rate-cfg")
+                    self.priority_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg()
+                    self.priority_cfg.parent = self
+                    self._children_name_map["priority_cfg"] = "priority-cfg"
+                    self._children_yang_names.add("priority-cfg")
 
                     self.meter_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg()
                     self.meter_cfg.parent = self
@@ -278,57 +608,29 @@ class Policies(Entity):
                     self._children_name_map["min_rate_cfg"] = "min-rate-cfg"
                     self._children_yang_names.add("min-rate-cfg")
 
-                    self.priority_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg()
-                    self.priority_cfg.parent = self
-                    self._children_name_map["priority_cfg"] = "priority-cfg"
-                    self._children_yang_names.add("priority-cfg")
+                    self.max_rate_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg()
+                    self.max_rate_cfg.parent = self
+                    self._children_name_map["max_rate_cfg"] = "max-rate-cfg"
+                    self._children_yang_names.add("max-rate-cfg")
 
-                    self.random_detect_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg()
-                    self.random_detect_cfg.parent = self
-                    self._children_name_map["random_detect_cfg"] = "random-detect-cfg"
-                    self._children_yang_names.add("random-detect-cfg")
+                    self.drop_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg()
+                    self.drop_cfg.parent = self
+                    self._children_name_map["drop_cfg"] = "drop-cfg"
+                    self._children_yang_names.add("drop-cfg")
 
                     self.tail_drop_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg()
                     self.tail_drop_cfg.parent = self
                     self._children_name_map["tail_drop_cfg"] = "tail-drop-cfg"
                     self._children_yang_names.add("tail-drop-cfg")
+
+                    self.random_detect_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg()
+                    self.random_detect_cfg.parent = self
+                    self._children_name_map["random_detect_cfg"] = "random-detect-cfg"
+                    self._children_yang_names.add("random-detect-cfg")
                     self._segment_path = lambda: "classifier-action-entry-cfg" + "[action-type='" + self.action_type.get() + "']"
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg, ['action_type'], name, value)
-
-
-                class DropCfg(Entity):
-                    """
-                    Always Drop configuration container
-                    
-                    .. attribute:: drop_action
-                    
-                    	always drop algorithm
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'action'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, self).__init__()
-
-                        self.yang_name = "drop-cfg"
-                        self.yang_parent_name = "classifier-action-entry-cfg"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.drop_action = YLeaf(YType.empty, "drop-action")
-                        self._segment_path = lambda: "ietf-diffserv-action:drop-cfg"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, ['drop_action'], name, value)
 
 
                 class MarkingCfg(Entity):
@@ -364,545 +666,6 @@ class Policies(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg, ['dscp'], name, value)
-
-
-                class MaxRateCfg(Entity):
-                    """
-                    maximum rate attributes
-                    
-                    .. attribute:: absolute_rate
-                    
-                    	rate in bits per second
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: bits-per-second
-                    
-                    .. attribute:: absolute_rate_metric
-                    
-                    	Metric
-                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
-                    
-                    	**default value**\: none
-                    
-                    .. attribute:: absolute_rate_units
-                    
-                    	Rate basic units
-                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
-                    
-                    .. attribute:: burst_interval
-                    
-                    	burst interval
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: microsecond
-                    
-                    .. attribute:: burst_size
-                    
-                    	burst size
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: bytes
-                    
-                    .. attribute:: rate_percent
-                    
-                    	percent
-                    	**type**\:  int
-                    
-                    	**range:** 1..100
-                    
-                    .. attribute:: rate_ratio
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 1..65532
-                    
-                    
-
-                    """
-
-                    _prefix = 'action'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, self).__init__()
-
-                        self.yang_name = "max-rate-cfg"
-                        self.yang_parent_name = "classifier-action-entry-cfg"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.absolute_rate = YLeaf(YType.uint64, "absolute-rate")
-
-                        self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
-
-                        self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
-
-                        self.burst_interval = YLeaf(YType.uint64, "burst-interval")
-
-                        self.burst_size = YLeaf(YType.uint64, "burst-size")
-
-                        self.rate_percent = YLeaf(YType.uint8, "rate-percent")
-
-                        self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
-                        self._segment_path = lambda: "ietf-diffserv-action:max-rate-cfg"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, ['absolute_rate', 'absolute_rate_metric', 'absolute_rate_units', 'burst_interval', 'burst_size', 'rate_percent', 'rate_ratio'], name, value)
-
-
-                class MeterCfg(Entity):
-                    """
-                    Meter list configuration container
-                    
-                    .. attribute:: meter_list
-                    
-                    	Meter configuration
-                    	**type**\: list of    :py:class:`MeterList <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'action'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg, self).__init__()
-
-                        self.yang_name = "meter-cfg"
-                        self.yang_parent_name = "classifier-action-entry-cfg"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"meter-list" : ("meter_list", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList)}
-
-                        self.meter_list = YList(self)
-                        self._segment_path = lambda: "ietf-diffserv-action:meter-cfg"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg, [], name, value)
-
-
-                    class MeterList(Entity):
-                        """
-                        Meter configuration
-                        
-                        .. attribute:: meter_id  <key>
-                        
-                        	meter identifier
-                        	**type**\:  int
-                        
-                        	**range:** 0..65535
-                        
-                        .. attribute:: burst_interval
-                        
-                        	burst interval
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: microsecond
-                        
-                        .. attribute:: burst_size
-                        
-                        	burst size
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: bytes
-                        
-                        .. attribute:: color
-                        
-                        	color aware & color blind attributes container
-                        	**type**\:   :py:class:`Color <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color>`
-                        
-                        .. attribute:: fail_action
-                        
-                        	exceed action
-                        	**type**\:   :py:class:`FailAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction>`
-                        
-                        .. attribute:: meter_rate
-                        
-                        	meter rate
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: bits-per-second
-                        
-                        .. attribute:: succeed_action
-                        
-                        	confirm action
-                        	**type**\:   :py:class:`SucceedAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'action'
-                        _revision = '2015-04-07'
-
-                        def __init__(self):
-                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList, self).__init__()
-
-                            self.yang_name = "meter-list"
-                            self.yang_parent_name = "meter-cfg"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"color" : ("color", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color), "fail-action" : ("fail_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction), "succeed-action" : ("succeed_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction)}
-                            self._child_list_classes = {}
-
-                            self.meter_id = YLeaf(YType.uint16, "meter-id")
-
-                            self.burst_interval = YLeaf(YType.uint64, "burst-interval")
-
-                            self.burst_size = YLeaf(YType.uint64, "burst-size")
-
-                            self.meter_rate = YLeaf(YType.uint64, "meter-rate")
-
-                            self.color = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color()
-                            self.color.parent = self
-                            self._children_name_map["color"] = "color"
-                            self._children_yang_names.add("color")
-
-                            self.fail_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction()
-                            self.fail_action.parent = self
-                            self._children_name_map["fail_action"] = "fail-action"
-                            self._children_yang_names.add("fail-action")
-
-                            self.succeed_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction()
-                            self.succeed_action.parent = self
-                            self._children_name_map["succeed_action"] = "succeed-action"
-                            self._children_yang_names.add("succeed-action")
-                            self._segment_path = lambda: "meter-list" + "[meter-id='" + self.meter_id.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList, ['meter_id', 'burst_interval', 'burst_size', 'meter_rate'], name, value)
-
-
-                        class Color(Entity):
-                            """
-                            color aware & color blind attributes container
-                            
-                            .. attribute:: classifier_entry_descr
-                            
-                            	Description of the class template
-                            	**type**\:  str
-                            
-                            .. attribute:: classifier_entry_filter_operation
-                            
-                            	Filters are applicable as any or all filters
-                            	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
-                            
-                            	**default value**\: match-any-filter
-                            
-                            .. attribute:: classifier_entry_name
-                            
-                            	Diffserv classifier name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'action'
-                            _revision = '2015-04-07'
-
-                            def __init__(self):
-                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, self).__init__()
-
-                                self.yang_name = "color"
-                                self.yang_parent_name = "meter-list"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.classifier_entry_descr = YLeaf(YType.str, "classifier-entry-descr")
-
-                                self.classifier_entry_filter_operation = YLeaf(YType.identityref, "classifier-entry-filter-operation")
-
-                                self.classifier_entry_name = YLeaf(YType.str, "classifier-entry-name")
-                                self._segment_path = lambda: "color"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, ['classifier_entry_descr', 'classifier_entry_filter_operation', 'classifier_entry_name'], name, value)
-
-
-                        class FailAction(Entity):
-                            """
-                            exceed action
-                            
-                            .. attribute:: drop_action
-                            
-                            	always drop algorithm
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: dscp
-                            
-                            	dscp marking
-                            	**type**\:  int
-                            
-                            	**range:** 0..63
-                            
-                            .. attribute:: meter_action_type
-                            
-                            	meter action type
-                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
-                            
-                            .. attribute:: next_meter_id
-                            
-                            	next meter identifier
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'action'
-                            _revision = '2015-04-07'
-
-                            def __init__(self):
-                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, self).__init__()
-
-                                self.yang_name = "fail-action"
-                                self.yang_parent_name = "meter-list"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.drop_action = YLeaf(YType.empty, "drop-action")
-
-                                self.dscp = YLeaf(YType.uint8, "dscp")
-
-                                self.meter_action_type = YLeaf(YType.identityref, "meter-action-type")
-
-                                self.next_meter_id = YLeaf(YType.uint16, "next-meter-id")
-                                self._segment_path = lambda: "fail-action"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, ['drop_action', 'dscp', 'meter_action_type', 'next_meter_id'], name, value)
-
-
-                        class SucceedAction(Entity):
-                            """
-                            confirm action
-                            
-                            .. attribute:: drop_action
-                            
-                            	always drop algorithm
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: dscp
-                            
-                            	dscp marking
-                            	**type**\:  int
-                            
-                            	**range:** 0..63
-                            
-                            .. attribute:: meter_action_type
-                            
-                            	meter action type
-                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
-                            
-                            .. attribute:: next_meter_id
-                            
-                            	next meter identifier
-                            	**type**\:  int
-                            
-                            	**range:** 0..65535
-                            
-                            
-
-                            """
-
-                            _prefix = 'action'
-                            _revision = '2015-04-07'
-
-                            def __init__(self):
-                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, self).__init__()
-
-                                self.yang_name = "succeed-action"
-                                self.yang_parent_name = "meter-list"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.drop_action = YLeaf(YType.empty, "drop-action")
-
-                                self.dscp = YLeaf(YType.uint8, "dscp")
-
-                                self.meter_action_type = YLeaf(YType.identityref, "meter-action-type")
-
-                                self.next_meter_id = YLeaf(YType.uint16, "next-meter-id")
-                                self._segment_path = lambda: "succeed-action"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, ['drop_action', 'dscp', 'meter_action_type', 'next_meter_id'], name, value)
-
-
-                class MinRateCfg(Entity):
-                    """
-                    min guaranteed bandwidth
-                    
-                    .. attribute:: absolute_rate_metric
-                    
-                    	Metric
-                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
-                    
-                    	**default value**\: none
-                    
-                    .. attribute:: absolute_rate_units
-                    
-                    	Rate basic units
-                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
-                    
-                    .. attribute:: bw_excess_share_cfg
-                    
-                    	share the bandwidth remaming
-                    	**type**\:   :py:class:`BwExcessShareCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg>`
-                    
-                    .. attribute:: min_rate
-                    
-                    	minimum rate
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: bits-per-second
-                    
-                    .. attribute:: rate_percent
-                    
-                    	percent
-                    	**type**\:  int
-                    
-                    	**range:** 1..100
-                    
-                    .. attribute:: rate_ratio
-                    
-                    	
-                    	**type**\:  int
-                    
-                    	**range:** 1..65532
-                    
-                    
-
-                    """
-
-                    _prefix = 'action'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg, self).__init__()
-
-                        self.yang_name = "min-rate-cfg"
-                        self.yang_parent_name = "classifier-action-entry-cfg"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"bw-excess-share-cfg" : ("bw_excess_share_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg)}
-                        self._child_list_classes = {}
-
-                        self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
-
-                        self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
-
-                        self.min_rate = YLeaf(YType.uint64, "min-rate")
-
-                        self.rate_percent = YLeaf(YType.uint8, "rate-percent")
-
-                        self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
-
-                        self.bw_excess_share_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg()
-                        self.bw_excess_share_cfg.parent = self
-                        self._children_name_map["bw_excess_share_cfg"] = "bw-excess-share-cfg"
-                        self._children_yang_names.add("bw-excess-share-cfg")
-                        self._segment_path = lambda: "ietf-diffserv-action:min-rate-cfg"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg, ['absolute_rate_metric', 'absolute_rate_units', 'min_rate', 'rate_percent', 'rate_ratio'], name, value)
-
-
-                    class BwExcessShareCfg(Entity):
-                        """
-                        share the bandwidth remaming
-                        
-                        .. attribute:: absolute_rate_metric
-                        
-                        	Metric
-                        	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
-                        
-                        	**default value**\: none
-                        
-                        .. attribute:: absolute_rate_units
-                        
-                        	Rate basic units
-                        	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
-                        
-                        .. attribute:: rate_percent
-                        
-                        	percent
-                        	**type**\:  int
-                        
-                        	**range:** 1..100
-                        
-                        .. attribute:: rate_ratio
-                        
-                        	
-                        	**type**\:  int
-                        
-                        	**range:** 1..65532
-                        
-                        .. attribute:: value
-                        
-                        	percentage or ratio value
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'action'
-                        _revision = '2015-04-07'
-
-                        def __init__(self):
-                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, self).__init__()
-
-                            self.yang_name = "bw-excess-share-cfg"
-                            self.yang_parent_name = "min-rate-cfg"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
-
-                            self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
-
-                            self.rate_percent = YLeaf(YType.uint8, "rate-percent")
-
-                            self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
-
-                            self.value = YLeaf(YType.uint32, "value")
-                            self._segment_path = lambda: "bw-excess-share-cfg"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, ['absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio', 'value'], name, value)
 
 
                 class PriorityCfg(Entity):
@@ -954,6 +717,15 @@ class Policies(Entity):
                         """
                         absolute priority rate with/without burst rateand absolute percent
                         
+                        .. attribute:: rate
+                        
+                        	Rate value
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: bits-per-second
+                        
                         .. attribute:: absolute_rate_metric
                         
                         	Metric
@@ -966,14 +738,19 @@ class Policies(Entity):
                         	Rate basic units
                         	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                         
-                        .. attribute:: burst_interval
+                        .. attribute:: rate_percent
                         
-                        	burst interval
+                        	percent
                         	**type**\:  int
                         
-                        	**range:** 0..18446744073709551615
+                        	**range:** 1..100
                         
-                        	**units**\: microsecond
+                        .. attribute:: rate_ratio
+                        
+                        	
+                        	**type**\:  int
+                        
+                        	**range:** 1..65532
                         
                         .. attribute:: burst_size
                         
@@ -984,14 +761,450 @@ class Policies(Entity):
                         
                         	**units**\: bytes
                         
-                        .. attribute:: rate
+                        .. attribute:: burst_interval
                         
-                        	Rate value
+                        	burst interval
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: microsecond
+                        
+                        
+
+                        """
+
+                        _prefix = 'action'
+                        _revision = '2015-04-07'
+
+                        def __init__(self):
+                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, self).__init__()
+
+                            self.yang_name = "rate-burst"
+                            self.yang_parent_name = "priority-cfg"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.rate = YLeaf(YType.uint64, "rate")
+
+                            self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
+
+                            self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
+
+                            self.rate_percent = YLeaf(YType.uint8, "rate-percent")
+
+                            self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
+
+                            self.burst_size = YLeaf(YType.uint64, "burst-size")
+
+                            self.burst_interval = YLeaf(YType.uint64, "burst-interval")
+                            self._segment_path = lambda: "rate-burst"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, ['rate', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio', 'burst_size', 'burst_interval'], name, value)
+
+
+                class MeterCfg(Entity):
+                    """
+                    Meter list configuration container
+                    
+                    .. attribute:: meter_list
+                    
+                    	Meter configuration
+                    	**type**\: list of    :py:class:`MeterList <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'action'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg, self).__init__()
+
+                        self.yang_name = "meter-cfg"
+                        self.yang_parent_name = "classifier-action-entry-cfg"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"meter-list" : ("meter_list", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList)}
+
+                        self.meter_list = YList(self)
+                        self._segment_path = lambda: "ietf-diffserv-action:meter-cfg"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg, [], name, value)
+
+
+                    class MeterList(Entity):
+                        """
+                        Meter configuration
+                        
+                        .. attribute:: meter_id  <key>
+                        
+                        	meter identifier
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: meter_rate
+                        
+                        	meter rate
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         	**units**\: bits-per-second
+                        
+                        .. attribute:: burst_size
+                        
+                        	burst size
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: bytes
+                        
+                        .. attribute:: burst_interval
+                        
+                        	burst interval
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        	**units**\: microsecond
+                        
+                        .. attribute:: color
+                        
+                        	color aware & color blind attributes container
+                        	**type**\:   :py:class:`Color <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color>`
+                        
+                        .. attribute:: succeed_action
+                        
+                        	confirm action
+                        	**type**\:   :py:class:`SucceedAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction>`
+                        
+                        .. attribute:: fail_action
+                        
+                        	exceed action
+                        	**type**\:   :py:class:`FailAction <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'action'
+                        _revision = '2015-04-07'
+
+                        def __init__(self):
+                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList, self).__init__()
+
+                            self.yang_name = "meter-list"
+                            self.yang_parent_name = "meter-cfg"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"color" : ("color", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color), "succeed-action" : ("succeed_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction), "fail-action" : ("fail_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction)}
+                            self._child_list_classes = {}
+
+                            self.meter_id = YLeaf(YType.uint16, "meter-id")
+
+                            self.meter_rate = YLeaf(YType.uint64, "meter-rate")
+
+                            self.burst_size = YLeaf(YType.uint64, "burst-size")
+
+                            self.burst_interval = YLeaf(YType.uint64, "burst-interval")
+
+                            self.color = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color()
+                            self.color.parent = self
+                            self._children_name_map["color"] = "color"
+                            self._children_yang_names.add("color")
+
+                            self.succeed_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction()
+                            self.succeed_action.parent = self
+                            self._children_name_map["succeed_action"] = "succeed-action"
+                            self._children_yang_names.add("succeed-action")
+
+                            self.fail_action = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction()
+                            self.fail_action.parent = self
+                            self._children_name_map["fail_action"] = "fail-action"
+                            self._children_yang_names.add("fail-action")
+                            self._segment_path = lambda: "meter-list" + "[meter-id='" + self.meter_id.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList, ['meter_id', 'meter_rate', 'burst_size', 'burst_interval'], name, value)
+
+
+                        class Color(Entity):
+                            """
+                            color aware & color blind attributes container
+                            
+                            .. attribute:: classifier_entry_name
+                            
+                            	Diffserv classifier name
+                            	**type**\:  str
+                            
+                            .. attribute:: classifier_entry_descr
+                            
+                            	Description of the class template
+                            	**type**\:  str
+                            
+                            .. attribute:: classifier_entry_filter_operation
+                            
+                            	Filters are applicable as any or all filters
+                            	**type**\:   :py:class:`ClassifierEntryFilterOperationType <ydk.models.ietf.ietf_diffserv_classifier.ClassifierEntryFilterOperationType>`
+                            
+                            	**default value**\: match-any-filter
+                            
+                            
+
+                            """
+
+                            _prefix = 'action'
+                            _revision = '2015-04-07'
+
+                            def __init__(self):
+                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, self).__init__()
+
+                                self.yang_name = "color"
+                                self.yang_parent_name = "meter-list"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.classifier_entry_name = YLeaf(YType.str, "classifier-entry-name")
+
+                                self.classifier_entry_descr = YLeaf(YType.str, "classifier-entry-descr")
+
+                                self.classifier_entry_filter_operation = YLeaf(YType.identityref, "classifier-entry-filter-operation")
+                                self._segment_path = lambda: "color"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, ['classifier_entry_name', 'classifier_entry_descr', 'classifier_entry_filter_operation'], name, value)
+
+
+                        class SucceedAction(Entity):
+                            """
+                            confirm action
+                            
+                            .. attribute:: meter_action_type
+                            
+                            	meter action type
+                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
+                            
+                            .. attribute:: next_meter_id
+                            
+                            	next meter identifier
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: dscp
+                            
+                            	dscp marking
+                            	**type**\:  int
+                            
+                            	**range:** 0..63
+                            
+                            .. attribute:: drop_action
+                            
+                            	always drop algorithm
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'action'
+                            _revision = '2015-04-07'
+
+                            def __init__(self):
+                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, self).__init__()
+
+                                self.yang_name = "succeed-action"
+                                self.yang_parent_name = "meter-list"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.meter_action_type = YLeaf(YType.identityref, "meter-action-type")
+
+                                self.next_meter_id = YLeaf(YType.uint16, "next-meter-id")
+
+                                self.dscp = YLeaf(YType.uint8, "dscp")
+
+                                self.drop_action = YLeaf(YType.empty, "drop-action")
+                                self._segment_path = lambda: "succeed-action"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
+
+
+                        class FailAction(Entity):
+                            """
+                            exceed action
+                            
+                            .. attribute:: meter_action_type
+                            
+                            	meter action type
+                            	**type**\:   :py:class:`MeterActionType <ydk.models.ietf.ietf_diffserv_action.MeterActionType>`
+                            
+                            .. attribute:: next_meter_id
+                            
+                            	next meter identifier
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: dscp
+                            
+                            	dscp marking
+                            	**type**\:  int
+                            
+                            	**range:** 0..63
+                            
+                            .. attribute:: drop_action
+                            
+                            	always drop algorithm
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'action'
+                            _revision = '2015-04-07'
+
+                            def __init__(self):
+                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, self).__init__()
+
+                                self.yang_name = "fail-action"
+                                self.yang_parent_name = "meter-list"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.meter_action_type = YLeaf(YType.identityref, "meter-action-type")
+
+                                self.next_meter_id = YLeaf(YType.uint16, "next-meter-id")
+
+                                self.dscp = YLeaf(YType.uint8, "dscp")
+
+                                self.drop_action = YLeaf(YType.empty, "drop-action")
+                                self._segment_path = lambda: "fail-action"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
+
+
+                class MinRateCfg(Entity):
+                    """
+                    min guaranteed bandwidth
+                    
+                    .. attribute:: min_rate
+                    
+                    	minimum rate
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bits-per-second
+                    
+                    .. attribute:: absolute_rate_metric
+                    
+                    	Metric
+                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                    
+                    	**default value**\: none
+                    
+                    .. attribute:: absolute_rate_units
+                    
+                    	Rate basic units
+                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                    
+                    .. attribute:: rate_percent
+                    
+                    	percent
+                    	**type**\:  int
+                    
+                    	**range:** 1..100
+                    
+                    .. attribute:: rate_ratio
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 1..65532
+                    
+                    .. attribute:: bw_excess_share_cfg
+                    
+                    	share the bandwidth remaming
+                    	**type**\:   :py:class:`BwExcessShareCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'action'
+                    _revision = '2015-04-07'
+
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg, self).__init__()
+
+                        self.yang_name = "min-rate-cfg"
+                        self.yang_parent_name = "classifier-action-entry-cfg"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"bw-excess-share-cfg" : ("bw_excess_share_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg)}
+                        self._child_list_classes = {}
+
+                        self.min_rate = YLeaf(YType.uint64, "min-rate")
+
+                        self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
+
+                        self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
+
+                        self.rate_percent = YLeaf(YType.uint8, "rate-percent")
+
+                        self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
+
+                        self.bw_excess_share_cfg = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg()
+                        self.bw_excess_share_cfg.parent = self
+                        self._children_name_map["bw_excess_share_cfg"] = "bw-excess-share-cfg"
+                        self._children_yang_names.add("bw-excess-share-cfg")
+                        self._segment_path = lambda: "ietf-diffserv-action:min-rate-cfg"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg, ['min_rate', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
+
+
+                    class BwExcessShareCfg(Entity):
+                        """
+                        share the bandwidth remaming
+                        
+                        .. attribute:: value
+                        
+                        	percentage or ratio value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: absolute_rate_metric
+                        
+                        	Metric
+                        	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                        
+                        	**default value**\: none
+                        
+                        .. attribute:: absolute_rate_units
+                        
+                        	Rate basic units
+                        	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
                         
                         .. attribute:: rate_percent
                         
@@ -1015,61 +1228,86 @@ class Policies(Entity):
                         _revision = '2015-04-07'
 
                         def __init__(self):
-                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, self).__init__()
+                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, self).__init__()
 
-                            self.yang_name = "rate-burst"
-                            self.yang_parent_name = "priority-cfg"
+                            self.yang_name = "bw-excess-share-cfg"
+                            self.yang_parent_name = "min-rate-cfg"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
+                            self.value = YLeaf(YType.uint32, "value")
+
                             self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
 
                             self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
 
-                            self.burst_interval = YLeaf(YType.uint64, "burst-interval")
-
-                            self.burst_size = YLeaf(YType.uint64, "burst-size")
-
-                            self.rate = YLeaf(YType.uint64, "rate")
-
                             self.rate_percent = YLeaf(YType.uint8, "rate-percent")
 
                             self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
-                            self._segment_path = lambda: "rate-burst"
+                            self._segment_path = lambda: "bw-excess-share-cfg"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, ['absolute_rate_metric', 'absolute_rate_units', 'burst_interval', 'burst_size', 'rate', 'rate_percent', 'rate_ratio'], name, value)
+                            self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, ['value', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
 
 
-                class RandomDetectCfg(Entity):
+                class MaxRateCfg(Entity):
                     """
-                    Random Detect configuration container
+                    maximum rate attributes
                     
-                    .. attribute:: exp_weighting_const
+                    .. attribute:: absolute_rate
                     
-                    	Exponential weighting constant factor for red profile 
+                    	rate in bits per second
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
-                    .. attribute:: mark_probability
+                    	**units**\: bits-per-second
                     
-                    	Mark probability
+                    .. attribute:: burst_size
+                    
+                    	burst size
                     	**type**\:  int
                     
-                    	**range:** 1..1000
+                    	**range:** 0..18446744073709551615
                     
-                    .. attribute:: red_max_thresh
+                    	**units**\: bytes
                     
-                    	Maximum threshold
-                    	**type**\:   :py:class:`RedMaxThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh>`
+                    .. attribute:: burst_interval
                     
-                    .. attribute:: red_min_thresh
+                    	burst interval
+                    	**type**\:  int
                     
-                    	Minimum threshold
-                    	**type**\:   :py:class:`RedMinThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh>`
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: microsecond
+                    
+                    .. attribute:: absolute_rate_metric
+                    
+                    	Metric
+                    	**type**\:   :py:class:`Metric <ydk.models.ietf.policy_types.Metric>`
+                    
+                    	**default value**\: none
+                    
+                    .. attribute:: absolute_rate_units
+                    
+                    	Rate basic units
+                    	**type**\:   :py:class:`RateUnit <ydk.models.ietf.policy_types.RateUnit>`
+                    
+                    .. attribute:: rate_percent
+                    
+                    	percent
+                    	**type**\:  int
+                    
+                    	**range:** 1..100
+                    
+                    .. attribute:: rate_ratio
+                    
+                    	
+                    	**type**\:  int
+                    
+                    	**range:** 1..65532
                     
                     
 
@@ -1079,194 +1317,65 @@ class Policies(Entity):
                     _revision = '2015-04-07'
 
                     def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg, self).__init__()
+                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, self).__init__()
 
-                        self.yang_name = "random-detect-cfg"
+                        self.yang_name = "max-rate-cfg"
                         self.yang_parent_name = "classifier-action-entry-cfg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"red-max-thresh" : ("red_max_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh), "red-min-thresh" : ("red_min_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh)}
+                        self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.exp_weighting_const = YLeaf(YType.uint32, "exp-weighting-const")
+                        self.absolute_rate = YLeaf(YType.uint64, "absolute-rate")
 
-                        self.mark_probability = YLeaf(YType.uint32, "mark-probability")
+                        self.burst_size = YLeaf(YType.uint64, "burst-size")
 
-                        self.red_max_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh()
-                        self.red_max_thresh.parent = self
-                        self._children_name_map["red_max_thresh"] = "red-max-thresh"
-                        self._children_yang_names.add("red-max-thresh")
+                        self.burst_interval = YLeaf(YType.uint64, "burst-interval")
 
-                        self.red_min_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh()
-                        self.red_min_thresh.parent = self
-                        self._children_name_map["red_min_thresh"] = "red-min-thresh"
-                        self._children_yang_names.add("red-min-thresh")
-                        self._segment_path = lambda: "ietf-diffserv-action:random-detect-cfg"
+                        self.absolute_rate_metric = YLeaf(YType.enumeration, "absolute-rate-metric")
+
+                        self.absolute_rate_units = YLeaf(YType.enumeration, "absolute-rate-units")
+
+                        self.rate_percent = YLeaf(YType.uint8, "rate-percent")
+
+                        self.rate_ratio = YLeaf(YType.uint32, "rate-ratio")
+                        self._segment_path = lambda: "ietf-diffserv-action:max-rate-cfg"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg, ['exp_weighting_const', 'mark_probability'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, ['absolute_rate', 'burst_size', 'burst_interval', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
 
 
-                    class RedMaxThresh(Entity):
-                        """
-                        Maximum threshold
-                        
-                        .. attribute:: threshold
-                        
-                        	threshold
-                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold>`
-                        
-                        
+                class DropCfg(Entity):
+                    """
+                    Always Drop configuration container
+                    
+                    .. attribute:: drop_action
+                    
+                    	always drop algorithm
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
 
-                        """
+                    """
 
-                        _prefix = 'action'
-                        _revision = '2015-04-07'
+                    _prefix = 'action'
+                    _revision = '2015-04-07'
 
-                        def __init__(self):
-                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh, self).__init__()
+                    def __init__(self):
+                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, self).__init__()
 
-                            self.yang_name = "red-max-thresh"
-                            self.yang_parent_name = "random-detect-cfg"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"threshold" : ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold)}
-                            self._child_list_classes = {}
+                        self.yang_name = "drop-cfg"
+                        self.yang_parent_name = "classifier-action-entry-cfg"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
 
-                            self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold()
-                            self.threshold.parent = self
-                            self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
-                            self._segment_path = lambda: "red-max-thresh"
+                        self.drop_action = YLeaf(YType.empty, "drop-action")
+                        self._segment_path = lambda: "ietf-diffserv-action:drop-cfg"
 
-
-                        class Threshold(Entity):
-                            """
-                            threshold
-                            
-                            .. attribute:: threshold_interval
-                            
-                            	Threshold interval
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: microsecond
-                            
-                            .. attribute:: threshold_size
-                            
-                            	Threshold size
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: bytes
-                            
-                            
-
-                            """
-
-                            _prefix = 'action'
-                            _revision = '2015-04-07'
-
-                            def __init__(self):
-                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, self).__init__()
-
-                                self.yang_name = "threshold"
-                                self.yang_parent_name = "red-max-thresh"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
-
-                                self.threshold_size = YLeaf(YType.uint64, "threshold-size")
-                                self._segment_path = lambda: "threshold"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, ['threshold_interval', 'threshold_size'], name, value)
-
-
-                    class RedMinThresh(Entity):
-                        """
-                        Minimum threshold
-                        
-                        .. attribute:: threshold
-                        
-                        	threshold
-                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'action'
-                        _revision = '2015-04-07'
-
-                        def __init__(self):
-                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh, self).__init__()
-
-                            self.yang_name = "red-min-thresh"
-                            self.yang_parent_name = "random-detect-cfg"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"threshold" : ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold)}
-                            self._child_list_classes = {}
-
-                            self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold()
-                            self.threshold.parent = self
-                            self._children_name_map["threshold"] = "threshold"
-                            self._children_yang_names.add("threshold")
-                            self._segment_path = lambda: "red-min-thresh"
-
-
-                        class Threshold(Entity):
-                            """
-                            threshold
-                            
-                            .. attribute:: threshold_interval
-                            
-                            	Threshold interval
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: microsecond
-                            
-                            .. attribute:: threshold_size
-                            
-                            	Threshold size
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: bytes
-                            
-                            
-
-                            """
-
-                            _prefix = 'action'
-                            _revision = '2015-04-07'
-
-                            def __init__(self):
-                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, self).__init__()
-
-                                self.yang_name = "threshold"
-                                self.yang_parent_name = "red-min-thresh"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
-
-                                self.threshold_size = YLeaf(YType.uint64, "threshold-size")
-                                self._segment_path = lambda: "threshold"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, ['threshold_interval', 'threshold_size'], name, value)
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, ['drop_action'], name, value)
 
 
                 class TailDropCfg(Entity):
@@ -1360,15 +1469,6 @@ class Policies(Entity):
                             """
                             threshold
                             
-                            .. attribute:: threshold_interval
-                            
-                            	Threshold interval
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: microsecond
-                            
                             .. attribute:: threshold_size
                             
                             	Threshold size
@@ -1377,6 +1477,15 @@ class Policies(Entity):
                             	**range:** 0..18446744073709551615
                             
                             	**units**\: bytes
+                            
+                            .. attribute:: threshold_interval
+                            
+                            	Threshold interval
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: microsecond
                             
                             
 
@@ -1395,356 +1504,239 @@ class Policies(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
-
                                 self.threshold_size = YLeaf(YType.uint64, "threshold-size")
+
+                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
                                 self._segment_path = lambda: "threshold"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold, ['threshold_interval', 'threshold_size'], name, value)
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
 
 
-            class FilterEntry(Entity):
-                """
-                Filters configured inline in a policy
-                
-                .. attribute:: filter_type  <key>
-                
-                	This leaf defines type of the filter
-                	**type**\:   :py:class:`FilterType <ydk.models.ietf.ietf_diffserv_classifier.FilterType>`
-                
-                .. attribute:: filter_logical_not  <key>
-                
-                	 This is logical\-not operator for a filter. When true, it  indicates filter looks for absence of a pattern defined  by the filter 
-                	**type**\:  bool
-                
-                .. attribute:: destination_ip_address_cfg
-                
-                	list of destination ip address
-                	**type**\: list of    :py:class:`DestinationIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg>`
-                
-                .. attribute:: destination_port_cfg
-                
-                	list of ranges of destination port
-                	**type**\: list of    :py:class:`DestinationPortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg>`
-                
-                .. attribute:: dscp_cfg
-                
-                	list of dscp ranges
-                	**type**\: list of    :py:class:`DscpCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg>`
-                
-                .. attribute:: protocol_cfg
-                
-                	list of ranges of protocol values
-                	**type**\: list of    :py:class:`ProtocolCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg>`
-                
-                .. attribute:: source_ip_address_cfg
-                
-                	list of source ip address
-                	**type**\: list of    :py:class:`SourceIpAddressCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg>`
-                
-                .. attribute:: source_port_cfg
-                
-                	list of ranges of source port
-                	**type**\: list of    :py:class:`SourcePortCfg <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg>`
-                
-                
-
-                """
-
-                _prefix = 'policy'
-                _revision = '2015-04-07'
-
-                def __init__(self):
-                    super(Policies.PolicyEntry.ClassifierEntry.FilterEntry, self).__init__()
-
-                    self.yang_name = "filter-entry"
-                    self.yang_parent_name = "classifier-entry"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"destination-ip-address-cfg" : ("destination_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg), "destination-port-cfg" : ("destination_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg), "dscp-cfg" : ("dscp_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg), "protocol-cfg" : ("protocol_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg), "source-ip-address-cfg" : ("source_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg), "source-port-cfg" : ("source_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg)}
-
-                    self.filter_type = YLeaf(YType.identityref, "filter-type")
-
-                    self.filter_logical_not = YLeaf(YType.boolean, "filter-logical-not")
-
-                    self.destination_ip_address_cfg = YList(self)
-                    self.destination_port_cfg = YList(self)
-                    self.dscp_cfg = YList(self)
-                    self.protocol_cfg = YList(self)
-                    self.source_ip_address_cfg = YList(self)
-                    self.source_port_cfg = YList(self)
-                    self._segment_path = lambda: "filter-entry" + "[filter-type='" + self.filter_type.get() + "']" + "[filter-logical-not='" + self.filter_logical_not.get() + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry, ['filter_type', 'filter_logical_not'], name, value)
-
-
-                class DestinationIpAddressCfg(Entity):
+                class RandomDetectCfg(Entity):
                     """
-                    list of destination ip address
+                    Random Detect configuration container
                     
-                    .. attribute:: destination_ip_addr  <key>
+                    .. attribute:: exp_weighting_const
                     
-                    	destination ip prefix
-                    	**type**\: one of the below types:
+                    	Exponential weighting constant factor for red profile 
+                    	**type**\:  int
                     
-                    	**type**\:  str
+                    	**range:** 0..4294967295
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                    .. attribute:: red_min_thresh
                     
+                    	Minimum threshold
+                    	**type**\:   :py:class:`RedMinThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh>`
                     
-                    ----
-                    	**type**\:  str
+                    .. attribute:: red_max_thresh
                     
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                    	Maximum threshold
+                    	**type**\:   :py:class:`RedMaxThresh <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh>`
                     
+                    .. attribute:: mark_probability
                     
-                    ----
+                    	Mark probability
+                    	**type**\:  int
+                    
+                    	**range:** 1..1000
+                    
                     
 
                     """
 
-                    _prefix = 'policy'
+                    _prefix = 'action'
                     _revision = '2015-04-07'
 
                     def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, self).__init__()
+                        super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg, self).__init__()
 
-                        self.yang_name = "destination-ip-address-cfg"
-                        self.yang_parent_name = "filter-entry"
+                        self.yang_name = "random-detect-cfg"
+                        self.yang_parent_name = "classifier-action-entry-cfg"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {}
+                        self._child_container_classes = {"red-min-thresh" : ("red_min_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh), "red-max-thresh" : ("red_max_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh)}
                         self._child_list_classes = {}
 
-                        self.destination_ip_addr = YLeaf(YType.str, "destination-ip-addr")
-                        self._segment_path = lambda: "destination-ip-address-cfg" + "[destination-ip-addr='" + self.destination_ip_addr.get() + "']"
+                        self.exp_weighting_const = YLeaf(YType.uint32, "exp-weighting-const")
+
+                        self.mark_probability = YLeaf(YType.uint32, "mark-probability")
+
+                        self.red_min_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh()
+                        self.red_min_thresh.parent = self
+                        self._children_name_map["red_min_thresh"] = "red-min-thresh"
+                        self._children_yang_names.add("red-min-thresh")
+
+                        self.red_max_thresh = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh()
+                        self.red_max_thresh.parent = self
+                        self._children_name_map["red_max_thresh"] = "red-max-thresh"
+                        self._children_yang_names.add("red-max-thresh")
+                        self._segment_path = lambda: "ietf-diffserv-action:random-detect-cfg"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, ['destination_ip_addr'], name, value)
+                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg, ['exp_weighting_const', 'mark_probability'], name, value)
 
 
-                class DestinationPortCfg(Entity):
-                    """
-                    list of ranges of destination port
-                    
-                    .. attribute:: destination_port_min  <key>
-                    
-                    	minimum value of destination port range
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: destination_port_max  <key>
-                    
-                    	maximum value of destination port range
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
+                    class RedMinThresh(Entity):
+                        """
+                        Minimum threshold
+                        
+                        .. attribute:: threshold
+                        
+                        	threshold
+                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold>`
+                        
+                        
 
-                    """
+                        """
 
-                    _prefix = 'policy'
-                    _revision = '2015-04-07'
+                        _prefix = 'action'
+                        _revision = '2015-04-07'
 
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, self).__init__()
+                        def __init__(self):
+                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh, self).__init__()
 
-                        self.yang_name = "destination-port-cfg"
-                        self.yang_parent_name = "filter-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                            self.yang_name = "red-min-thresh"
+                            self.yang_parent_name = "random-detect-cfg"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"threshold" : ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold)}
+                            self._child_list_classes = {}
 
-                        self.destination_port_min = YLeaf(YType.uint16, "destination-port-min")
-
-                        self.destination_port_max = YLeaf(YType.uint16, "destination-port-max")
-                        self._segment_path = lambda: "destination-port-cfg" + "[destination-port-min='" + self.destination_port_min.get() + "']" + "[destination-port-max='" + self.destination_port_max.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, ['destination_port_min', 'destination_port_max'], name, value)
+                            self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold()
+                            self.threshold.parent = self
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+                            self._segment_path = lambda: "red-min-thresh"
 
 
-                class DscpCfg(Entity):
-                    """
-                    list of dscp ranges
-                    
-                    .. attribute:: dscp_min  <key>
-                    
-                    	Minimum value of dscp range
-                    	**type**\:  int
-                    
-                    	**range:** 0..63
-                    
-                    .. attribute:: dscp_max  <key>
-                    
-                    	maximum value of dscp range
-                    	**type**\:  int
-                    
-                    	**range:** 0..63
-                    
-                    
+                        class Threshold(Entity):
+                            """
+                            threshold
+                            
+                            .. attribute:: threshold_size
+                            
+                            	Threshold size
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: bytes
+                            
+                            .. attribute:: threshold_interval
+                            
+                            	Threshold interval
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: microsecond
+                            
+                            
 
-                    """
+                            """
 
-                    _prefix = 'policy'
-                    _revision = '2015-04-07'
+                            _prefix = 'action'
+                            _revision = '2015-04-07'
 
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, self).__init__()
+                            def __init__(self):
+                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, self).__init__()
 
-                        self.yang_name = "dscp-cfg"
-                        self.yang_parent_name = "filter-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "red-min-thresh"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                        self.dscp_min = YLeaf(YType.uint8, "dscp-min")
+                                self.threshold_size = YLeaf(YType.uint64, "threshold-size")
 
-                        self.dscp_max = YLeaf(YType.uint8, "dscp-max")
-                        self._segment_path = lambda: "dscp-cfg" + "[dscp-min='" + self.dscp_min.get() + "']" + "[dscp-max='" + self.dscp_max.get() + "']"
+                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
+                                self._segment_path = lambda: "threshold"
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, ['dscp_min', 'dscp_max'], name, value)
-
-
-                class ProtocolCfg(Entity):
-                    """
-                    list of ranges of protocol values
-                    
-                    .. attribute:: protocol_min  <key>
-                    
-                    	minimum value of protocol range
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: protocol_max  <key>
-                    
-                    	maximum value of protocol range
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    
-
-                    """
-
-                    _prefix = 'policy'
-                    _revision = '2015-04-07'
-
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, self).__init__()
-
-                        self.yang_name = "protocol-cfg"
-                        self.yang_parent_name = "filter-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.protocol_min = YLeaf(YType.uint8, "protocol-min")
-
-                        self.protocol_max = YLeaf(YType.uint8, "protocol-max")
-                        self._segment_path = lambda: "protocol-cfg" + "[protocol-min='" + self.protocol_min.get() + "']" + "[protocol-max='" + self.protocol_max.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, ['protocol_min', 'protocol_max'], name, value)
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
 
 
-                class SourceIpAddressCfg(Entity):
-                    """
-                    list of source ip address
-                    
-                    .. attribute:: source_ip_addr  <key>
-                    
-                    	source ip prefix
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-                    
-                    
-                    ----
-                    
+                    class RedMaxThresh(Entity):
+                        """
+                        Maximum threshold
+                        
+                        .. attribute:: threshold
+                        
+                        	threshold
+                        	**type**\:   :py:class:`Threshold <ydk.models.ietf.ietf_diffserv_policy.Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold>`
+                        
+                        
 
-                    """
+                        """
 
-                    _prefix = 'policy'
-                    _revision = '2015-04-07'
+                        _prefix = 'action'
+                        _revision = '2015-04-07'
 
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, self).__init__()
+                        def __init__(self):
+                            super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh, self).__init__()
 
-                        self.yang_name = "source-ip-address-cfg"
-                        self.yang_parent_name = "filter-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                            self.yang_name = "red-max-thresh"
+                            self.yang_parent_name = "random-detect-cfg"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"threshold" : ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold)}
+                            self._child_list_classes = {}
 
-                        self.source_ip_addr = YLeaf(YType.str, "source-ip-addr")
-                        self._segment_path = lambda: "source-ip-address-cfg" + "[source-ip-addr='" + self.source_ip_addr.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, ['source_ip_addr'], name, value)
+                            self.threshold = Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold()
+                            self.threshold.parent = self
+                            self._children_name_map["threshold"] = "threshold"
+                            self._children_yang_names.add("threshold")
+                            self._segment_path = lambda: "red-max-thresh"
 
 
-                class SourcePortCfg(Entity):
-                    """
-                    list of ranges of source port
-                    
-                    .. attribute:: source_port_min  <key>
-                    
-                    	minimum value of source port range
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: source_port_max  <key>
-                    
-                    	maximum value of source port range
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
+                        class Threshold(Entity):
+                            """
+                            threshold
+                            
+                            .. attribute:: threshold_size
+                            
+                            	Threshold size
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: bytes
+                            
+                            .. attribute:: threshold_interval
+                            
+                            	Threshold interval
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: microsecond
+                            
+                            
 
-                    """
+                            """
 
-                    _prefix = 'policy'
-                    _revision = '2015-04-07'
+                            _prefix = 'action'
+                            _revision = '2015-04-07'
 
-                    def __init__(self):
-                        super(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, self).__init__()
+                            def __init__(self):
+                                super(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, self).__init__()
 
-                        self.yang_name = "source-port-cfg"
-                        self.yang_parent_name = "filter-entry"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
+                                self.yang_name = "threshold"
+                                self.yang_parent_name = "red-max-thresh"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
 
-                        self.source_port_min = YLeaf(YType.uint16, "source-port-min")
+                                self.threshold_size = YLeaf(YType.uint64, "threshold-size")
 
-                        self.source_port_max = YLeaf(YType.uint16, "source-port-max")
-                        self._segment_path = lambda: "source-port-cfg" + "[source-port-min='" + self.source_port_min.get() + "']" + "[source-port-max='" + self.source_port_max.get() + "']"
+                                self.threshold_interval = YLeaf(YType.uint64, "threshold-interval")
+                                self._segment_path = lambda: "threshold"
 
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, ['source_port_min', 'source_port_max'], name, value)
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Policies()

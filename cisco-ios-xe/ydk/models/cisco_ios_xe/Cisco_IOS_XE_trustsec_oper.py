@@ -185,15 +185,15 @@ class TrustsecState(Entity):
     Group, SXP Connection information for a given peer
     IP\-Address in this device
     
-    .. attribute:: cts_rolebased_policies
-    
-    	Role based permissions between a Source Security Group and a Destination Security Group are configured by the administrator in the Identity Services Engine or in the Device
-    	**type**\:   :py:class:`CtsRolebasedPolicies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies>`
-    
     .. attribute:: cts_rolebased_sgtmaps
     
     	Security Group Tag value corresponding to an IP\-Address  in the given VRF instance in this device
     	**type**\:   :py:class:`CtsRolebasedSgtmaps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps>`
+    
+    .. attribute:: cts_rolebased_policies
+    
+    	Role based permissions between a Source Security Group and a Destination Security Group are configured by the administrator in the Identity Services Engine or in the Device
+    	**type**\:   :py:class:`CtsRolebasedPolicies <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedPolicies>`
     
     .. attribute:: cts_sxp_connections
     
@@ -215,24 +215,127 @@ class TrustsecState(Entity):
         self.yang_parent_name = "Cisco-IOS-XE-trustsec-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cts-rolebased-policies" : ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies), "cts-rolebased-sgtmaps" : ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps), "cts-sxp-connections" : ("cts_sxp_connections", TrustsecState.CtsSxpConnections)}
+        self._child_container_classes = {"cts-rolebased-sgtmaps" : ("cts_rolebased_sgtmaps", TrustsecState.CtsRolebasedSgtmaps), "cts-rolebased-policies" : ("cts_rolebased_policies", TrustsecState.CtsRolebasedPolicies), "cts-sxp-connections" : ("cts_sxp_connections", TrustsecState.CtsSxpConnections)}
         self._child_list_classes = {}
-
-        self.cts_rolebased_policies = TrustsecState.CtsRolebasedPolicies()
-        self.cts_rolebased_policies.parent = self
-        self._children_name_map["cts_rolebased_policies"] = "cts-rolebased-policies"
-        self._children_yang_names.add("cts-rolebased-policies")
 
         self.cts_rolebased_sgtmaps = TrustsecState.CtsRolebasedSgtmaps()
         self.cts_rolebased_sgtmaps.parent = self
         self._children_name_map["cts_rolebased_sgtmaps"] = "cts-rolebased-sgtmaps"
         self._children_yang_names.add("cts-rolebased-sgtmaps")
 
+        self.cts_rolebased_policies = TrustsecState.CtsRolebasedPolicies()
+        self.cts_rolebased_policies.parent = self
+        self._children_name_map["cts_rolebased_policies"] = "cts-rolebased-policies"
+        self._children_yang_names.add("cts-rolebased-policies")
+
         self.cts_sxp_connections = TrustsecState.CtsSxpConnections()
         self.cts_sxp_connections.parent = self
         self._children_name_map["cts_sxp_connections"] = "cts-sxp-connections"
         self._children_yang_names.add("cts-sxp-connections")
         self._segment_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state"
+
+
+    class CtsRolebasedSgtmaps(Entity):
+        """
+        Security Group Tag value corresponding to an IP\-Address 
+        in the given VRF instance in this device
+        
+        .. attribute:: cts_rolebased_sgtmap
+        
+        	Security Group Tag is assigned for an IP\-Address based on the user permissions and authorization  level as configured by the network administrator in Identity Service Engine server or in the device locally
+        	**type**\: list of    :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
+        
+        
+
+        """
+
+        _prefix = 'trustsec-ios-xe-oper'
+        _revision = '2017-02-07'
+
+        def __init__(self):
+            super(TrustsecState.CtsRolebasedSgtmaps, self).__init__()
+
+            self.yang_name = "cts-rolebased-sgtmaps"
+            self.yang_parent_name = "trustsec-state"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cts-rolebased-sgtmap" : ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap)}
+
+            self.cts_rolebased_sgtmap = YList(self)
+            self._segment_path = lambda: "cts-rolebased-sgtmaps"
+            self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps, [], name, value)
+
+
+        class CtsRolebasedSgtmap(Entity):
+            """
+            Security Group Tag is assigned for an IP\-Address
+            based on the user permissions and authorization 
+            level as configured by the network administrator
+            in Identity Service Engine server or in the device locally
+            
+            .. attribute:: ip  <key>
+            
+            	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            
+            ----
+            	**type**\:  str
+            
+            
+            ----
+            .. attribute:: vrf_name  <key>
+            
+            	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
+            	**type**\:  str
+            
+            .. attribute:: sgt
+            
+            	Security Group Tag value corresponding to the given IP\-Address
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: source
+            
+            	Source information via which the Security Group Tag binding was learned in this device
+            	**type**\:   :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
+            
+            
+
+            """
+
+            _prefix = 'trustsec-ios-xe-oper'
+            _revision = '2017-02-07'
+
+            def __init__(self):
+                super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__init__()
+
+                self.yang_name = "cts-rolebased-sgtmap"
+                self.yang_parent_name = "cts-rolebased-sgtmaps"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.ip = YLeaf(YType.str, "ip")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.sgt = YLeaf(YType.int32, "sgt")
+
+                self.source = YLeaf(YType.enumeration, "source")
+                self._segment_path = lambda: "cts-rolebased-sgtmap" + "[ip='" + self.ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, ['ip', 'vrf_name', 'sgt', 'source'], name, value)
 
 
     class CtsRolebasedPolicies(Entity):
@@ -292,38 +395,10 @@ class TrustsecState(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: hardware_deny_count
+            .. attribute:: sgacl_name
             
-            	Number of packets that have been denied in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: hardware_monitor_count
-            
-            	Number of packets that have been monitored in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: hardware_permit_count
-            
-            	Number of packets that have been permitted in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: last_updated_time
-            
-            	Indicates the time when the Role based permissions between a Source Security Group and a Destination Security Group was modified or updated last. The value will be represented as date and time  corresponding to the local time zone of the Identify Services Engine when the Role based  permissions was modified or updated last
+            	List of Security Group Access Control List names separated by semi\-colon(;)
             	**type**\:  str
-            
-            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-            
-            .. attribute:: monitor_mode
-            
-            	Indicates the monitor mode status between the Source Security Group and Destination Security Group is currently enabled or disabled. This will be TRUE if monitor mode is enabled and FALSE if it is disabled
-            	**type**\:  bool
             
             .. attribute:: num_of_sgacl
             
@@ -332,6 +407,11 @@ class TrustsecState(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: monitor_mode
+            
+            	Indicates the monitor mode status between the Source Security Group and Destination Security Group is currently enabled or disabled. This will be TRUE if monitor mode is enabled and FALSE if it is disabled
+            	**type**\:  bool
+            
             .. attribute:: policy_life_time
             
             	Duration of the Role based permissions that are applied between a Source Security Group and a Destination Security Group. The duration is represented in seconds
@@ -339,31 +419,10 @@ class TrustsecState(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: sgacl_name
+            .. attribute:: last_updated_time
             
-            	List of Security Group Access Control List names separated by semi\-colon(;)
+            	Indicates the time when the Role based permissions between a Source Security Group and a Destination Security Group was modified or updated last. The value will be represented as date and time  corresponding to the local time zone of the Identify Services Engine when the Role based  permissions was modified or updated last
             	**type**\:  str
-            
-            .. attribute:: software_deny_count
-            
-            	Number of packets that have been denied in the  software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: software_monitor_count
-            
-            	Number of packets that have been monitored in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: software_permit_count
-            
-            	Number of packets that have been permitted in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
             
             .. attribute:: total_deny_count
             
@@ -375,6 +434,48 @@ class TrustsecState(Entity):
             .. attribute:: total_permit_count
             
             	Total number of packets that have been permitted by the Role based permissions between a Source Security Group and a Destination Security Group. This corresponds to total packets allowed in both hardware and software forwarding paths of the device
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: software_deny_count
+            
+            	Number of packets that have been denied in the  software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: software_permit_count
+            
+            	Number of packets that have been permitted in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: hardware_deny_count
+            
+            	Number of packets that have been denied in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: hardware_permit_count
+            
+            	Number of packets that have been permitted in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: software_monitor_count
+            
+            	Number of packets that have been monitored in the software forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: hardware_monitor_count
+            
+            	Number of packets that have been monitored in the hardware forwarding path of the device by the Role based permissions between a Source Security Group and a Destination Security Group
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -400,143 +501,36 @@ class TrustsecState(Entity):
 
                 self.dst_sgt = YLeaf(YType.int32, "dst-sgt")
 
-                self.hardware_deny_count = YLeaf(YType.uint64, "hardware-deny-count")
-
-                self.hardware_monitor_count = YLeaf(YType.uint64, "hardware-monitor-count")
-
-                self.hardware_permit_count = YLeaf(YType.uint64, "hardware-permit-count")
-
-                self.last_updated_time = YLeaf(YType.str, "last-updated-time")
-
-                self.monitor_mode = YLeaf(YType.boolean, "monitor-mode")
+                self.sgacl_name = YLeaf(YType.str, "sgacl-name")
 
                 self.num_of_sgacl = YLeaf(YType.uint32, "num-of-sgacl")
 
+                self.monitor_mode = YLeaf(YType.boolean, "monitor-mode")
+
                 self.policy_life_time = YLeaf(YType.uint64, "policy-life-time")
 
-                self.sgacl_name = YLeaf(YType.str, "sgacl-name")
-
-                self.software_deny_count = YLeaf(YType.uint64, "software-deny-count")
-
-                self.software_monitor_count = YLeaf(YType.uint64, "software-monitor-count")
-
-                self.software_permit_count = YLeaf(YType.uint64, "software-permit-count")
+                self.last_updated_time = YLeaf(YType.str, "last-updated-time")
 
                 self.total_deny_count = YLeaf(YType.uint64, "total-deny-count")
 
                 self.total_permit_count = YLeaf(YType.uint64, "total-permit-count")
+
+                self.software_deny_count = YLeaf(YType.uint64, "software-deny-count")
+
+                self.software_permit_count = YLeaf(YType.uint64, "software-permit-count")
+
+                self.hardware_deny_count = YLeaf(YType.uint64, "hardware-deny-count")
+
+                self.hardware_permit_count = YLeaf(YType.uint64, "hardware-permit-count")
+
+                self.software_monitor_count = YLeaf(YType.uint64, "software-monitor-count")
+
+                self.hardware_monitor_count = YLeaf(YType.uint64, "hardware-monitor-count")
                 self._segment_path = lambda: "cts-rolebased-policy" + "[src-sgt='" + self.src_sgt.get() + "']" + "[dst-sgt='" + self.dst_sgt.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy, ['src_sgt', 'dst_sgt', 'hardware_deny_count', 'hardware_monitor_count', 'hardware_permit_count', 'last_updated_time', 'monitor_mode', 'num_of_sgacl', 'policy_life_time', 'sgacl_name', 'software_deny_count', 'software_monitor_count', 'software_permit_count', 'total_deny_count', 'total_permit_count'], name, value)
-
-
-    class CtsRolebasedSgtmaps(Entity):
-        """
-        Security Group Tag value corresponding to an IP\-Address 
-        in the given VRF instance in this device
-        
-        .. attribute:: cts_rolebased_sgtmap
-        
-        	Security Group Tag is assigned for an IP\-Address based on the user permissions and authorization  level as configured by the network administrator in Identity Service Engine server or in the device locally
-        	**type**\: list of    :py:class:`CtsRolebasedSgtmap <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap>`
-        
-        
-
-        """
-
-        _prefix = 'trustsec-ios-xe-oper'
-        _revision = '2017-02-07'
-
-        def __init__(self):
-            super(TrustsecState.CtsRolebasedSgtmaps, self).__init__()
-
-            self.yang_name = "cts-rolebased-sgtmaps"
-            self.yang_parent_name = "trustsec-state"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cts-rolebased-sgtmap" : ("cts_rolebased_sgtmap", TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap)}
-
-            self.cts_rolebased_sgtmap = YList(self)
-            self._segment_path = lambda: "cts-rolebased-sgtmaps"
-            self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps, [], name, value)
-
-
-        class CtsRolebasedSgtmap(Entity):
-            """
-            Security Group Tag is assigned for an IP\-Address
-            based on the user permissions and authorization 
-            level as configured by the network administrator
-            in Identity Service Engine server or in the device locally
-            
-            .. attribute:: ip  <key>
-            
-            	IP\-Prefix information to find its corresponding Secure Group Tag. Only IPv4 prefix information is supported currently to get the Security Group Tag binding in this device
-            	**type**\: one of the below types:
-            
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
-            
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
-            
-            
-            ----
-            .. attribute:: vrf_name  <key>
-            
-            	VRF\-Name to find the Security Group Tag for the corresponding IP\-Address in this VRF instance. Only default VRF is supported currently which is indicated by (empty string)
-            	**type**\:  str
-            
-            .. attribute:: sgt
-            
-            	Security Group Tag value corresponding to the given IP\-Address
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: source
-            
-            	Source information via which the Security Group Tag binding was learned in this device
-            	**type**\:   :py:class:`CtsOdmBindingSource <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.CtsOdmBindingSource>`
-            
-            
-
-            """
-
-            _prefix = 'trustsec-ios-xe-oper'
-            _revision = '2017-02-07'
-
-            def __init__(self):
-                super(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, self).__init__()
-
-                self.yang_name = "cts-rolebased-sgtmap"
-                self.yang_parent_name = "cts-rolebased-sgtmaps"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.ip = YLeaf(YType.str, "ip")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.sgt = YLeaf(YType.int32, "sgt")
-
-                self.source = YLeaf(YType.enumeration, "source")
-                self._segment_path = lambda: "cts-rolebased-sgtmap" + "[ip='" + self.ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-rolebased-sgtmaps/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(TrustsecState.CtsRolebasedSgtmaps.CtsRolebasedSgtmap, ['ip', 'vrf_name', 'sgt', 'source'], name, value)
+                self._perform_setattr(TrustsecState.CtsRolebasedPolicies.CtsRolebasedPolicy, ['src_sgt', 'dst_sgt', 'sgacl_name', 'num_of_sgacl', 'monitor_mode', 'policy_life_time', 'last_updated_time', 'total_deny_count', 'total_permit_count', 'software_deny_count', 'software_permit_count', 'hardware_deny_count', 'hardware_permit_count', 'software_monitor_count', 'hardware_monitor_count'], name, value)
 
 
     class CtsSxpConnections(Entity):
@@ -591,13 +585,9 @@ class TrustsecState(Entity):
             
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
             
             ----
             	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
             
             
             ----
@@ -606,9 +596,27 @@ class TrustsecState(Entity):
             	vrf\-name string of the VRF instance in this device, to which the peer of an SXP connection belongs to. Only default VRF is supported currently which is indicated by empty string
             	**type**\:  str
             
-            .. attribute:: listener_duration
+            .. attribute:: source_ip
             
-            	Duration of the SXP listener of the SXP connection in this device. This information is valid Only if the local mode of the SXP connection is Listener
+            	Source IP\-Address of the SXP connection in this device for the given peer IP\-Address
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            
+            ----
+            	**type**\:  str
+            
+            
+            ----
+            .. attribute:: speaker_state
+            
+            	SXP speaker state information of the SXP connection in this device. This information is valid only if the local mode of the SXP connection in this device is Speaker
+            	**type**\:   :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
+            
+            .. attribute:: speaker_duration
+            
+            	Duration of the SXP speaker of the SXP connection in this device. This information is valid only if the local mode of the SXP connection is Speaker
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -618,39 +626,17 @@ class TrustsecState(Entity):
             	SXP listener state information of the SXP  connection in this device. This information is valid only if the local mode of the SXP connection in the device is Listener
             	**type**\:   :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
             
-            .. attribute:: local_mode
+            .. attribute:: listener_duration
             
-            	SXP connection mode of this device for the SXP connection with the given peer
-            	**type**\:   :py:class:`SxpConMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConMode>`
-            
-            .. attribute:: source_ip
-            
-            	Source IP\-Address of the SXP connection in this device for the given peer IP\-Address
-            	**type**\: one of the below types:
-            
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
-            
-            ----
-            .. attribute:: speaker_duration
-            
-            	Duration of the SXP speaker of the SXP connection in this device. This information is valid only if the local mode of the SXP connection is Speaker
+            	Duration of the SXP listener of the SXP connection in this device. This information is valid Only if the local mode of the SXP connection is Listener
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: speaker_state
+            .. attribute:: local_mode
             
-            	SXP speaker state information of the SXP connection in this device. This information is valid only if the local mode of the SXP connection in this device is Speaker
-            	**type**\:   :py:class:`SxpConState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConState>`
+            	SXP connection mode of this device for the SXP connection with the given peer
+            	**type**\:   :py:class:`SxpConMode <ydk.models.cisco_ios_xe.Cisco_IOS_XE_trustsec_oper.SxpConMode>`
             
             
 
@@ -673,22 +659,22 @@ class TrustsecState(Entity):
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                self.listener_duration = YLeaf(YType.uint64, "listener-duration")
-
-                self.listener_state = YLeaf(YType.enumeration, "listener-state")
-
-                self.local_mode = YLeaf(YType.enumeration, "local-mode")
-
                 self.source_ip = YLeaf(YType.str, "source-ip")
+
+                self.speaker_state = YLeaf(YType.enumeration, "speaker-state")
 
                 self.speaker_duration = YLeaf(YType.uint64, "speaker-duration")
 
-                self.speaker_state = YLeaf(YType.enumeration, "speaker-state")
+                self.listener_state = YLeaf(YType.enumeration, "listener-state")
+
+                self.listener_duration = YLeaf(YType.uint64, "listener-duration")
+
+                self.local_mode = YLeaf(YType.enumeration, "local-mode")
                 self._segment_path = lambda: "cts-sxp-connection" + "[peer-ip='" + self.peer_ip.get() + "']" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-trustsec-oper:trustsec-state/cts-sxp-connections/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrustsecState.CtsSxpConnections.CtsSxpConnection, ['peer_ip', 'vrf_name', 'listener_duration', 'listener_state', 'local_mode', 'source_ip', 'speaker_duration', 'speaker_state'], name, value)
+                self._perform_setattr(TrustsecState.CtsSxpConnections.CtsSxpConnection, ['peer_ip', 'vrf_name', 'source_ip', 'speaker_state', 'speaker_duration', 'listener_state', 'listener_duration', 'local_mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TrustsecState()

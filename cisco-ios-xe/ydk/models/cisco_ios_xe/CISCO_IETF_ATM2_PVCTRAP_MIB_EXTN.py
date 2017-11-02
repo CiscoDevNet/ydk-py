@@ -126,9 +126,9 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             
             	**refers to**\:  :py:class:`atmvclvci <ydk.models.cisco_ios_xe.ATM_MIB.ATMMIB.Atmvcltable.Atmvclentry>`
             
-            .. attribute:: atmpvclstatuschangeend
+            .. attribute:: atmpvclstatustransition
             
-            	The time stamp of the last state change of this PVCL in the last notification interval
+            	The number of state transitions that has happened  on this PVCL in the last notification interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -140,9 +140,9 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmpvclstatustransition
+            .. attribute:: atmpvclstatuschangeend
             
-            	The number of state transitions that has happened  on this PVCL in the last notification interval
+            	The time stamp of the last state change of this PVCL in the last notification interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -170,16 +170,16 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
 
                 self.atmvclvci = YLeaf(YType.str, "atmVclVci")
 
-                self.atmpvclstatuschangeend = YLeaf(YType.uint32, "atmPVclStatusChangeEnd")
+                self.atmpvclstatustransition = YLeaf(YType.uint32, "atmPVclStatusTransition")
 
                 self.atmpvclstatuschangestart = YLeaf(YType.uint32, "atmPVclStatusChangeStart")
 
-                self.atmpvclstatustransition = YLeaf(YType.uint32, "atmPVclStatusTransition")
+                self.atmpvclstatuschangeend = YLeaf(YType.uint32, "atmPVclStatusChangeEnd")
                 self._segment_path = lambda: "atmCurrentStatusChangePVclEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[atmVclVci='" + self.atmvclvci.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmCurrentStatusChangePVclTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmpvclstatuschangeend', 'atmpvclstatuschangestart', 'atmpvclstatustransition'], name, value)
+                self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.Atmcurrentstatuschangepvcltable.Atmcurrentstatuschangepvclentry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmpvclstatustransition', 'atmpvclstatuschangestart', 'atmpvclstatuschangeend'], name, value)
 
 
     class Atmstatuschangepvclrangetable(Entity):
@@ -253,13 +253,6 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: atmpvclhigherrangevalue
-            
-            	The last PVCL in a range of PVcls for which the  atmOperStatus to have changed in the last  notification interval
-            	**type**\:  int
-            
-            	**range:** 0..65536
-            
             .. attribute:: atmpvcllowerrangevalue
             
             	The first PVCL in a range of PVcls for which the  atmVclOperStatus to have changed in the last  notification interval
@@ -267,16 +260,23 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             
             	**range:** 0..65536
             
-            .. attribute:: atmpvclrangestatuschangeend
+            .. attribute:: atmpvclhigherrangevalue
             
-            	The time stamp at which the last PVCL in the range changed state in the last notification interval
+            	The last PVCL in a range of PVcls for which the  atmOperStatus to have changed in the last  notification interval
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..65536
             
             .. attribute:: atmpvclrangestatuschangestart
             
             	The time stamp at which the first PVCL in the range changed state in the last notification interval
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmpvclrangestatuschangeend
+            
+            	The time stamp at which the last PVCL in the range changed state in the last notification interval
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -304,18 +304,18 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
 
                 self.rangeindex = YLeaf(YType.uint32, "rangeIndex")
 
-                self.atmpvclhigherrangevalue = YLeaf(YType.int32, "atmPVclHigherRangeValue")
-
                 self.atmpvcllowerrangevalue = YLeaf(YType.int32, "atmPVclLowerRangeValue")
 
-                self.atmpvclrangestatuschangeend = YLeaf(YType.uint32, "atmPVclRangeStatusChangeEnd")
+                self.atmpvclhigherrangevalue = YLeaf(YType.int32, "atmPVclHigherRangeValue")
 
                 self.atmpvclrangestatuschangestart = YLeaf(YType.uint32, "atmPVclRangeStatusChangeStart")
+
+                self.atmpvclrangestatuschangeend = YLeaf(YType.uint32, "atmPVclRangeStatusChangeEnd")
                 self._segment_path = lambda: "atmStatusChangePVclRangeEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[atmVclVpi='" + self.atmvclvpi.get() + "']" + "[rangeIndex='" + self.rangeindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmStatusChangePVclRangeTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry, ['ifindex', 'atmvclvpi', 'rangeindex', 'atmpvclhigherrangevalue', 'atmpvcllowerrangevalue', 'atmpvclrangestatuschangeend', 'atmpvclrangestatuschangestart'], name, value)
+                self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.Atmstatuschangepvclrangetable.Atmstatuschangepvclrangeentry, ['ifindex', 'atmvclvpi', 'rangeindex', 'atmpvcllowerrangevalue', 'atmpvclhigherrangevalue', 'atmpvclrangestatuschangestart', 'atmpvclrangestatuschangeend'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFATM2PVCTRAPMIBEXTN()

@@ -29,18 +29,6 @@ class Ipv4Arm(Entity):
     	IPv4 ARM address database information
     	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses>`
     
-    .. attribute:: multicast_host_interface
-    
-    	Default multicast host interface
-    	**type**\:  str
-    
-    	**pattern:** [a\-zA\-Z0\-9./\-]+
-    
-    .. attribute:: router_id
-    
-    	IPv4 ARM Router ID information
-    	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.RouterId>`
-    
     .. attribute:: summary
     
     	IPv4 ARM summary information
@@ -50,6 +38,16 @@ class Ipv4Arm(Entity):
     
     	IPv4 ARM VRFs summary information
     	**type**\:   :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.VrfSummaries>`
+    
+    .. attribute:: router_id
+    
+    	IPv4 ARM Router ID information
+    	**type**\:   :py:class:`RouterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.RouterId>`
+    
+    .. attribute:: multicast_host_interface
+    
+    	Default multicast host interface
+    	**type**\:  str
     
     
 
@@ -66,7 +64,7 @@ class Ipv4Arm(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-iarm-v4-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"addresses" : ("addresses", Ipv4Arm.Addresses), "router-id" : ("router_id", Ipv4Arm.RouterId), "summary" : ("summary", Ipv4Arm.Summary), "vrf-summaries" : ("vrf_summaries", Ipv4Arm.VrfSummaries)}
+        self._child_container_classes = {"addresses" : ("addresses", Ipv4Arm.Addresses), "summary" : ("summary", Ipv4Arm.Summary), "vrf-summaries" : ("vrf_summaries", Ipv4Arm.VrfSummaries), "router-id" : ("router_id", Ipv4Arm.RouterId)}
         self._child_list_classes = {}
 
         self.multicast_host_interface = YLeaf(YType.str, "multicast-host-interface")
@@ -75,11 +73,6 @@ class Ipv4Arm(Entity):
         self.addresses.parent = self
         self._children_name_map["addresses"] = "addresses"
         self._children_yang_names.add("addresses")
-
-        self.router_id = Ipv4Arm.RouterId()
-        self.router_id.parent = self
-        self._children_name_map["router_id"] = "router-id"
-        self._children_yang_names.add("router-id")
 
         self.summary = Ipv4Arm.Summary()
         self.summary.parent = self
@@ -90,6 +83,11 @@ class Ipv4Arm(Entity):
         self.vrf_summaries.parent = self
         self._children_name_map["vrf_summaries"] = "vrf-summaries"
         self._children_yang_names.add("vrf-summaries")
+
+        self.router_id = Ipv4Arm.RouterId()
+        self.router_id.parent = self
+        self._children_name_map["router_id"] = "router-id"
+        self._children_yang_names.add("router-id")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm"
 
     def __setattr__(self, name, value):
@@ -173,15 +171,15 @@ class Ipv4Arm(Entity):
                 	VRF name
                 	**type**\:  str
                 
-                .. attribute:: interfaces
-                
-                	IPv4 ARM address database information by interface
-                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces>`
-                
                 .. attribute:: networks
                 
                 	IPv4 ARM address database information by network
                 	**type**\:   :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks>`
+                
+                .. attribute:: interfaces
+                
+                	IPv4 ARM address database information by interface
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces>`
                 
                 
 
@@ -197,250 +195,25 @@ class Ipv4Arm(Entity):
                     self.yang_parent_name = "vrfs"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"interfaces" : ("interfaces", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces), "networks" : ("networks", Ipv4Arm.Addresses.Vrfs.Vrf.Networks)}
+                    self._child_container_classes = {"networks" : ("networks", Ipv4Arm.Addresses.Vrfs.Vrf.Networks), "interfaces" : ("interfaces", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces)}
                     self._child_list_classes = {}
 
                     self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                    self.interfaces = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces()
-                    self.interfaces.parent = self
-                    self._children_name_map["interfaces"] = "interfaces"
-                    self._children_yang_names.add("interfaces")
 
                     self.networks = Ipv4Arm.Addresses.Vrfs.Vrf.Networks()
                     self.networks.parent = self
                     self._children_name_map["networks"] = "networks"
                     self._children_yang_names.add("networks")
+
+                    self.interfaces = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces()
+                    self.interfaces.parent = self
+                    self._children_name_map["interfaces"] = "interfaces"
+                    self._children_yang_names.add("interfaces")
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/addresses/vrfs/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf, ['vrf_name'], name, value)
-
-
-                class Interfaces(Entity):
-                    """
-                    IPv4 ARM address database information by
-                    interface
-                    
-                    .. attribute:: interface
-                    
-                    	An IPv4 address in IPv4 ARM
-                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ip-iarm-v4-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
-
-                        self.yang_name = "interfaces"
-                        self.yang_parent_name = "vrf"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"interface" : ("interface", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface)}
-
-                        self.interface = YList(self)
-                        self._segment_path = lambda: "interfaces"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
-
-
-                    class Interface(Entity):
-                        """
-                        An IPv4 address in IPv4 ARM
-                        
-                        .. attribute:: interface  <key>
-                        
-                        	Interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: address
-                        
-                        	Address info
-                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
-                        
-                        .. attribute:: referenced_interface
-                        
-                        	Referenced Interface \- only valid for an unnumbered interface
-                        	**type**\:  str
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF Name
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'ip-iarm-v4-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
-
-                            self.yang_name = "interface"
-                            self.yang_parent_name = "interfaces"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"address" : ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address)}
-
-                            self.interface = YLeaf(YType.str, "interface")
-
-                            self.referenced_interface = YLeaf(YType.str, "referenced-interface")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.address = YList(self)
-                            self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
-
-
-                        class Address(Entity):
-                            """
-                            Address info
-                            
-                            .. attribute:: address
-                            
-                            	Address
-                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address>`
-                            
-                            .. attribute:: is_prefix_sid
-                            
-                            	Is prefix\_sid valid \- valid only for IPV6 addresses
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_primary
-                            
-                            	Is address primary \- valid only for IPv4 addresses
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_tentative
-                            
-                            	Is address valid/tentative \- valid only for IPV6 addresses
-                            	**type**\:  bool
-                            
-                            .. attribute:: prefix_length
-                            
-                            	Prefix length
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: producer
-                            
-                            	Producer Name
-                            	**type**\:  str
-                            
-                            .. attribute:: route_tag
-                            
-                            	Route Tag of the address
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ip-iarm-v4-oper'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
-
-                                self.yang_name = "address"
-                                self.yang_parent_name = "interface"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"address" : ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address)}
-                                self._child_list_classes = {}
-
-                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
-
-                                self.is_primary = YLeaf(YType.boolean, "is-primary")
-
-                                self.is_tentative = YLeaf(YType.boolean, "is-tentative")
-
-                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
-
-                                self.producer = YLeaf(YType.str, "producer")
-
-                                self.route_tag = YLeaf(YType.uint32, "route-tag")
-
-                                self.address = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address()
-                                self.address.parent = self
-                                self._children_name_map["address"] = "address"
-                                self._children_yang_names.add("address")
-                                self._segment_path = lambda: "address"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['is_prefix_sid', 'is_primary', 'is_tentative', 'prefix_length', 'producer', 'route_tag'], name, value)
-
-
-                            class Address(Entity):
-                                """
-                                Address
-                                
-                                .. attribute:: afi
-                                
-                                	AFI
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPV4 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: ipv6_address
-                                
-                                	IPV6 Address
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-
-                                """
-
-                                _prefix = 'ip-iarm-v4-oper'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, self).__init__()
-
-                                    self.yang_name = "address"
-                                    self.yang_parent_name = "address"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.afi = YLeaf(YType.int32, "afi")
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-                                    self._segment_path = lambda: "address"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                 class Networks(Entity):
@@ -486,31 +259,27 @@ class Ipv4Arm(Entity):
                         	Address
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: address_xr
-                        
-                        	Address info
-                        	**type**\:   :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
-                        
-                        .. attribute:: handle
-                        
-                        	Interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: interface_name
-                        
-                        	Interface name
-                        	**type**\:  str
-                        
                         .. attribute:: prefix_length
                         
                         	Prefix Length
                         	**type**\:  int
                         
                         	**range:** 0..32
+                        
+                        .. attribute:: handle
+                        
+                        	Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: address_xr
+                        
+                        	Address info
+                        	**type**\:   :py:class:`AddressXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr>`
+                        
+                        .. attribute:: interface_name
+                        
+                        	Interface name
+                        	**type**\:  str
                         
                         .. attribute:: referenced_interface
                         
@@ -541,11 +310,11 @@ class Ipv4Arm(Entity):
 
                             self.address = YLeaf(YType.str, "address")
 
+                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
                             self.handle = YLeaf(YType.str, "handle")
 
                             self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.prefix_length = YLeaf(YType.uint32, "prefix-length")
 
                             self.referenced_interface = YLeaf(YType.str, "referenced-interface")
 
@@ -558,7 +327,7 @@ class Ipv4Arm(Entity):
                             self._segment_path = lambda: "network"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'handle', 'interface_name', 'prefix_length', 'referenced_interface', 'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -570,10 +339,19 @@ class Ipv4Arm(Entity):
                             	Address
                             	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address>`
                             
-                            .. attribute:: is_prefix_sid
+                            .. attribute:: prefix_length
                             
-                            	Is prefix\_sid valid \- valid only for IPV6 addresses
-                            	**type**\:  bool
+                            	Prefix length
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: route_tag
+                            
+                            	Route Tag of the address
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: is_primary
                             
@@ -585,24 +363,15 @@ class Ipv4Arm(Entity):
                             	Is address valid/tentative \- valid only for IPV6 addresses
                             	**type**\:  bool
                             
-                            .. attribute:: prefix_length
+                            .. attribute:: is_prefix_sid
                             
-                            	Prefix length
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
+                            	Is prefix\_sid valid \- valid only for IPV6 addresses
+                            	**type**\:  bool
                             
                             .. attribute:: producer
                             
                             	Producer Name
                             	**type**\:  str
-                            
-                            .. attribute:: route_tag
-                            
-                            	Route Tag of the address
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
                             
                             
 
@@ -621,17 +390,17 @@ class Ipv4Arm(Entity):
                                 self._child_container_classes = {"address" : ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address)}
                                 self._child_list_classes = {}
 
-                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
+                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                self.route_tag = YLeaf(YType.uint32, "route-tag")
 
                                 self.is_primary = YLeaf(YType.boolean, "is-primary")
 
                                 self.is_tentative = YLeaf(YType.boolean, "is-tentative")
 
-                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
 
                                 self.producer = YLeaf(YType.str, "producer")
-
-                                self.route_tag = YLeaf(YType.uint32, "route-tag")
 
                                 self.address = Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address()
                                 self.address.parent = self
@@ -640,7 +409,7 @@ class Ipv4Arm(Entity):
                                 self._segment_path = lambda: "address-xr"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['is_prefix_sid', 'is_primary', 'is_tentative', 'prefix_length', 'producer', 'route_tag'], name, value)
+                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
                             class Address(Entity):
@@ -659,14 +428,10 @@ class Ipv4Arm(Entity):
                                 	IPV4 Address
                                 	**type**\:  str
                                 
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
                                 .. attribute:: ipv6_address
                                 
                                 	IPV6 Address
                                 	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -696,86 +461,239 @@ class Ipv4Arm(Entity):
                                     self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
-    class RouterId(Entity):
-        """
-        IPv4 ARM Router ID information
-        
-        .. attribute:: interface_name
-        
-        	Interface name
-        	**type**\:  str
-        
-        .. attribute:: router_id
-        
-        	Router ID
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        .. attribute:: vrf_id
-        
-        	VRF ID
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: vrf_name
-        
-        	VRF Name
-        	**type**\:  str
-        
-        
+                class Interfaces(Entity):
+                    """
+                    IPv4 ARM address database information by
+                    interface
+                    
+                    .. attribute:: interface
+                    
+                    	An IPv4 address in IPv4 ARM
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface>`
+                    
+                    
 
-        """
+                    """
 
-        _prefix = 'ip-iarm-v4-oper'
-        _revision = '2017-05-01'
+                    _prefix = 'ip-iarm-v4-oper'
+                    _revision = '2017-05-01'
 
-        def __init__(self):
-            super(Ipv4Arm.RouterId, self).__init__()
+                    def __init__(self):
+                        super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, self).__init__()
 
-            self.yang_name = "router-id"
-            self.yang_parent_name = "ipv4arm"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+                        self.yang_name = "interfaces"
+                        self.yang_parent_name = "vrf"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"interface" : ("interface", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface)}
 
-            self.interface_name = YLeaf(YType.str, "interface-name")
+                        self.interface = YList(self)
+                        self._segment_path = lambda: "interfaces"
 
-            self.router_id = YLeaf(YType.str, "router-id")
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
 
-            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
 
-            self.vrf_name = YLeaf(YType.str, "vrf-name")
-            self._segment_path = lambda: "router-id"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+                    class Interface(Entity):
+                        """
+                        An IPv4 address in IPv4 ARM
+                        
+                        .. attribute:: interface  <key>
+                        
+                        	Interface
+                        	**type**\:  str
+                        
+                        .. attribute:: referenced_interface
+                        
+                        	Referenced Interface \- only valid for an unnumbered interface
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF Name
+                        	**type**\:  str
+                        
+                        .. attribute:: address
+                        
+                        	Address info
+                        	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address>`
+                        
+                        
 
-        def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Arm.RouterId, ['interface_name', 'router_id', 'vrf_id', 'vrf_name'], name, value)
+                        """
+
+                        _prefix = 'ip-iarm-v4-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, self).__init__()
+
+                            self.yang_name = "interface"
+                            self.yang_parent_name = "interfaces"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"address" : ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address)}
+
+                            self.interface = YLeaf(YType.str, "interface")
+
+                            self.referenced_interface = YLeaf(YType.str, "referenced-interface")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.address = YList(self)
+                            self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
+
+
+                        class Address(Entity):
+                            """
+                            Address info
+                            
+                            .. attribute:: address
+                            
+                            	Address
+                            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_v4_oper.Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address>`
+                            
+                            .. attribute:: prefix_length
+                            
+                            	Prefix length
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: route_tag
+                            
+                            	Route Tag of the address
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: is_primary
+                            
+                            	Is address primary \- valid only for IPv4 addresses
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_tentative
+                            
+                            	Is address valid/tentative \- valid only for IPV6 addresses
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_prefix_sid
+                            
+                            	Is prefix\_sid valid \- valid only for IPV6 addresses
+                            	**type**\:  bool
+                            
+                            .. attribute:: producer
+                            
+                            	Producer Name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-iarm-v4-oper'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, self).__init__()
+
+                                self.yang_name = "address"
+                                self.yang_parent_name = "interface"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"address" : ("address", Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address)}
+                                self._child_list_classes = {}
+
+                                self.prefix_length = YLeaf(YType.uint32, "prefix-length")
+
+                                self.route_tag = YLeaf(YType.uint32, "route-tag")
+
+                                self.is_primary = YLeaf(YType.boolean, "is-primary")
+
+                                self.is_tentative = YLeaf(YType.boolean, "is-tentative")
+
+                                self.is_prefix_sid = YLeaf(YType.boolean, "is-prefix-sid")
+
+                                self.producer = YLeaf(YType.str, "producer")
+
+                                self.address = Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address()
+                                self.address.parent = self
+                                self._children_name_map["address"] = "address"
+                                self._children_yang_names.add("address")
+                                self._segment_path = lambda: "address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
+
+
+                            class Address(Entity):
+                                """
+                                Address
+                                
+                                .. attribute:: afi
+                                
+                                	AFI
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPV4 Address
+                                	**type**\:  str
+                                
+                                .. attribute:: ipv6_address
+                                
+                                	IPV6 Address
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ip-iarm-v4-oper'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, self).__init__()
+
+                                    self.yang_name = "address"
+                                    self.yang_parent_name = "address"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.afi = YLeaf(YType.int32, "afi")
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+                                    self._segment_path = lambda: "address"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
     class Summary(Entity):
         """
         IPv4 ARM summary information
         
-        .. attribute:: address_conflict_count
+        .. attribute:: producer_count
         
-        	Number of address conflicts
+        	Number of producers
         	**type**\:  int
         
         	**range:** \-2147483648..2147483647
         
-        .. attribute:: db_master_version
+        .. attribute:: address_conflict_count
         
-        	IP\-ARM DB master version
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: producer_count
-        
-        	Number of producers
+        	Number of address conflicts
         	**type**\:  int
         
         	**range:** \-2147483648..2147483647
@@ -786,6 +704,13 @@ class Ipv4Arm(Entity):
         	**type**\:  int
         
         	**range:** \-2147483648..2147483647
+        
+        .. attribute:: db_master_version
+        
+        	IP\-ARM DB master version
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
         
         .. attribute:: vrf_count
         
@@ -811,20 +736,20 @@ class Ipv4Arm(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.address_conflict_count = YLeaf(YType.int32, "address-conflict-count")
-
-            self.db_master_version = YLeaf(YType.uint32, "db-master-version")
-
             self.producer_count = YLeaf(YType.int32, "producer-count")
 
+            self.address_conflict_count = YLeaf(YType.int32, "address-conflict-count")
+
             self.unnumbered_conflict_count = YLeaf(YType.int32, "unnumbered-conflict-count")
+
+            self.db_master_version = YLeaf(YType.uint32, "db-master-version")
 
             self.vrf_count = YLeaf(YType.int32, "vrf-count")
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4Arm.Summary, ['address_conflict_count', 'db_master_version', 'producer_count', 'unnumbered_conflict_count', 'vrf_count'], name, value)
+            self._perform_setattr(Ipv4Arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
 
 
     class VrfSummaries(Entity):
@@ -909,6 +834,63 @@ class Ipv4Arm(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
+
+
+    class RouterId(Entity):
+        """
+        IPv4 ARM Router ID information
+        
+        .. attribute:: vrf_id
+        
+        	VRF ID
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: vrf_name
+        
+        	VRF Name
+        	**type**\:  str
+        
+        .. attribute:: interface_name
+        
+        	Interface name
+        	**type**\:  str
+        
+        .. attribute:: router_id
+        
+        	Router ID
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'ip-iarm-v4-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Ipv4Arm.RouterId, self).__init__()
+
+            self.yang_name = "router-id"
+            self.yang_parent_name = "ipv4arm"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.vrf_id = YLeaf(YType.uint32, "vrf-id")
+
+            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+            self.interface_name = YLeaf(YType.str, "interface-name")
+
+            self.router_id = YLeaf(YType.str, "router-id")
+            self._segment_path = lambda: "router-id"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipv4Arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4Arm()

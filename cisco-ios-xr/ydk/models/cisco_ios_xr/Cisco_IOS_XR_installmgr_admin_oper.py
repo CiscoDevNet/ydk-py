@@ -1390,42 +1390,20 @@ class Install(Entity):
     Information of software packages and install
     operations
     
-    .. attribute:: boot_image
-    
-    	System Boot Image
-    	**type**\:   :py:class:`BootImage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootImage>`
-    
-    .. attribute:: boot_variables
-    
-    	Boot variable information
-    	**type**\:   :py:class:`BootVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables>`
-    
     .. attribute:: configuration_registers
     
     	Configuration register (confreg) information
     	**type**\:   :py:class:`ConfigurationRegisters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.ConfigurationRegisters>`
     
-    .. attribute:: issu
-    
-    	Information of install ISSU operations
-    	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu>`
-    
-    .. attribute:: log_size
-    
-    	Install operation log history size
-    	**type**\:  int
-    
-    	**range:** \-2147483648..2147483647
-    
-    .. attribute:: logs
-    
-    	Install operation log
-    	**type**\:   :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs>`
-    
     .. attribute:: request_statuses
     
     	Install operation request status
     	**type**\:   :py:class:`RequestStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses>`
+    
+    .. attribute:: boot_variables
+    
+    	Boot variable information
+    	**type**\:   :py:class:`BootVariables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables>`
     
     .. attribute:: software
     
@@ -1436,6 +1414,28 @@ class Install(Entity):
     
     	Information of install operations
     	**type**\:   :py:class:`SoftwareInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory>`
+    
+    .. attribute:: issu
+    
+    	Information of install ISSU operations
+    	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu>`
+    
+    .. attribute:: boot_image
+    
+    	System Boot Image
+    	**type**\:   :py:class:`BootImage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootImage>`
+    
+    .. attribute:: logs
+    
+    	Install operation log
+    	**type**\:   :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs>`
+    
+    .. attribute:: log_size
+    
+    	Install operation log history size
+    	**type**\:  int
+    
+    	**range:** \-2147483648..2147483647
     
     
 
@@ -1452,40 +1452,25 @@ class Install(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-installmgr-admin-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"boot-image" : ("boot_image", Install.BootImage), "boot-variables" : ("boot_variables", Install.BootVariables), "configuration-registers" : ("configuration_registers", Install.ConfigurationRegisters), "issu" : ("issu", Install.Issu), "logs" : ("logs", Install.Logs), "request-statuses" : ("request_statuses", Install.RequestStatuses), "software" : ("software", Install.Software), "software-inventory" : ("software_inventory", Install.SoftwareInventory)}
+        self._child_container_classes = {"configuration-registers" : ("configuration_registers", Install.ConfigurationRegisters), "request-statuses" : ("request_statuses", Install.RequestStatuses), "boot-variables" : ("boot_variables", Install.BootVariables), "software" : ("software", Install.Software), "software-inventory" : ("software_inventory", Install.SoftwareInventory), "issu" : ("issu", Install.Issu), "boot-image" : ("boot_image", Install.BootImage), "logs" : ("logs", Install.Logs)}
         self._child_list_classes = {}
 
         self.log_size = YLeaf(YType.int32, "log-size")
-
-        self.boot_image = Install.BootImage()
-        self.boot_image.parent = self
-        self._children_name_map["boot_image"] = "boot-image"
-        self._children_yang_names.add("boot-image")
-
-        self.boot_variables = Install.BootVariables()
-        self.boot_variables.parent = self
-        self._children_name_map["boot_variables"] = "boot-variables"
-        self._children_yang_names.add("boot-variables")
 
         self.configuration_registers = Install.ConfigurationRegisters()
         self.configuration_registers.parent = self
         self._children_name_map["configuration_registers"] = "configuration-registers"
         self._children_yang_names.add("configuration-registers")
 
-        self.issu = Install.Issu()
-        self.issu.parent = self
-        self._children_name_map["issu"] = "issu"
-        self._children_yang_names.add("issu")
-
-        self.logs = Install.Logs()
-        self.logs.parent = self
-        self._children_name_map["logs"] = "logs"
-        self._children_yang_names.add("logs")
-
         self.request_statuses = Install.RequestStatuses()
         self.request_statuses.parent = self
         self._children_name_map["request_statuses"] = "request-statuses"
         self._children_yang_names.add("request-statuses")
+
+        self.boot_variables = Install.BootVariables()
+        self.boot_variables.parent = self
+        self._children_name_map["boot_variables"] = "boot-variables"
+        self._children_yang_names.add("boot-variables")
 
         self.software = Install.Software()
         self.software.parent = self
@@ -1496,123 +1481,25 @@ class Install(Entity):
         self.software_inventory.parent = self
         self._children_name_map["software_inventory"] = "software-inventory"
         self._children_yang_names.add("software-inventory")
+
+        self.issu = Install.Issu()
+        self.issu.parent = self
+        self._children_name_map["issu"] = "issu"
+        self._children_yang_names.add("issu")
+
+        self.boot_image = Install.BootImage()
+        self.boot_image.parent = self
+        self._children_name_map["boot_image"] = "boot-image"
+        self._children_yang_names.add("boot-image")
+
+        self.logs = Install.Logs()
+        self.logs.parent = self
+        self._children_name_map["logs"] = "logs"
+        self._children_yang_names.add("logs")
         self._segment_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install"
 
     def __setattr__(self, name, value):
         self._perform_setattr(Install, ['log_size'], name, value)
-
-
-    class BootImage(Entity):
-        """
-        System Boot Image
-        
-        .. attribute:: system_image_file
-        
-        	The boot image
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'installmgr-admin-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Install.BootImage, self).__init__()
-
-            self.yang_name = "boot-image"
-            self.yang_parent_name = "install"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.system_image_file = YLeaf(YType.str, "system-image-file")
-            self._segment_path = lambda: "boot-image"
-            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Install.BootImage, ['system_image_file'], name, value)
-
-
-    class BootVariables(Entity):
-        """
-        Boot variable information
-        
-        .. attribute:: boot_variable
-        
-        	Boot variable for specific node
-        	**type**\: list of    :py:class:`BootVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables.BootVariable>`
-        
-        
-
-        """
-
-        _prefix = 'installmgr-admin-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Install.BootVariables, self).__init__()
-
-            self.yang_name = "boot-variables"
-            self.yang_parent_name = "install"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"boot-variable" : ("boot_variable", Install.BootVariables.BootVariable)}
-
-            self.boot_variable = YList(self)
-            self._segment_path = lambda: "boot-variables"
-            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Install.BootVariables, [], name, value)
-
-
-        class BootVariable(Entity):
-            """
-            Boot variable for specific node
-            
-            .. attribute:: node_name  <key>
-            
-            	Node name
-            	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: boot_variable
-            
-            	Boot variable value
-            	**type**\:  str
-            
-            	**mandatory**\: True
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.BootVariables.BootVariable, self).__init__()
-
-                self.yang_name = "boot-variable"
-                self.yang_parent_name = "boot-variables"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.node_name = YLeaf(YType.str, "node-name")
-
-                self.boot_variable = YLeaf(YType.str, "boot-variable")
-                self._segment_path = lambda: "boot-variable" + "[node-name='" + self.node_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/boot-variables/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Install.BootVariables.BootVariable, ['node_name', 'boot_variable'], name, value)
 
 
     class ConfigurationRegisters(Entity):
@@ -1658,14 +1545,10 @@ class Install(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: config_register
             
             	Configuration register value
             	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{1,8}
             
             	**mandatory**\: True
             
@@ -1694,1673 +1577,6 @@ class Install(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.ConfigurationRegisters.ConfigurationRegister, ['node_name', 'config_register'], name, value)
-
-
-    class Issu(Entity):
-        """
-        Information of install ISSU operations
-        
-        .. attribute:: card_inventories
-        
-        	ISSU manager card inventory table
-        	**type**\:   :py:class:`CardInventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories>`
-        
-        .. attribute:: stage
-        
-        	Summarized ISSU stage information
-        	**type**\:   :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage>`
-        
-        
-
-        """
-
-        _prefix = 'installmgr-admin-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Install.Issu, self).__init__()
-
-            self.yang_name = "issu"
-            self.yang_parent_name = "install"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"card-inventories" : ("card_inventories", Install.Issu.CardInventories), "stage" : ("stage", Install.Issu.Stage)}
-            self._child_list_classes = {}
-
-            self.card_inventories = Install.Issu.CardInventories()
-            self.card_inventories.parent = self
-            self._children_name_map["card_inventories"] = "card-inventories"
-            self._children_yang_names.add("card-inventories")
-
-            self.stage = Install.Issu.Stage()
-            self.stage.parent = self
-            self._children_name_map["stage"] = "stage"
-            self._children_yang_names.add("stage")
-            self._segment_path = lambda: "issu"
-            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
-
-
-        class CardInventories(Entity):
-            """
-            ISSU manager card inventory table
-            
-            .. attribute:: card_inventory
-            
-            	ISSU manager inventory summary of the same card type
-            	**type**\: list of    :py:class:`CardInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory>`
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.Issu.CardInventories, self).__init__()
-
-                self.yang_name = "card-inventories"
-                self.yang_parent_name = "issu"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"card-inventory" : ("card_inventory", Install.Issu.CardInventories.CardInventory)}
-
-                self.card_inventory = YList(self)
-                self._segment_path = lambda: "card-inventories"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Install.Issu.CardInventories, [], name, value)
-
-
-            class CardInventory(Entity):
-                """
-                ISSU manager inventory summary of the same
-                card type
-                
-                .. attribute:: card_type_id  <key>
-                
-                	ISSU manager card type ID
-                	**type**\:   :py:class:`IsmCardTypeFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.IsmCardTypeFamily>`
-                
-                .. attribute:: summary
-                
-                	node state for all nodes
-                	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory.Summary>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Issu.CardInventories.CardInventory, self).__init__()
-
-                    self.yang_name = "card-inventory"
-                    self.yang_parent_name = "card-inventories"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"summary" : ("summary", Install.Issu.CardInventories.CardInventory.Summary)}
-
-                    self.card_type_id = YLeaf(YType.enumeration, "card-type-id")
-
-                    self.summary = YList(self)
-                    self._segment_path = lambda: "card-inventory" + "[card-type-id='" + self.card_type_id.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/card-inventories/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.CardInventories.CardInventory, ['card_type_id'], name, value)
-
-
-                class Summary(Entity):
-                    """
-                    node state for all nodes
-                    
-                    .. attribute:: attempts
-                    
-                    	Number of attempts made
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: is_conforming_node
-                    
-                    	Node none\-cnforming
-                    	**type**\:   :py:class:`InstallmgrIsmNodeConforming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstallmgrIsmNodeConforming>`
-                    
-                    .. attribute:: is_node_upgraded
-                    
-                    	Is node upgraded?
-                    	**type**\:  bool
-                    
-                    .. attribute:: node_current_state
-                    
-                    	Current node ISSU state
-                    	**type**\:   :py:class:`InstmgrIsmNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeState>`
-                    
-                    .. attribute:: node_expected_state
-                    
-                    	Expected ISSU state
-                    	**type**\:   :py:class:`InstmgrIsmNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeState>`
-                    
-                    .. attribute:: node_failure_reason
-                    
-                    	Node failure reason
-                    	**type**\:  str
-                    
-                    .. attribute:: node_name
-                    
-                    	Node identifier
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: node_role
-                    
-                    	Node roll
-                    	**type**\:   :py:class:`InstmgrNodeRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrNodeRole>`
-                    
-                    .. attribute:: node_state
-                    
-                    	Node state
-                    	**type**\:   :py:class:`InstmgrCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrCardState>`
-                    
-                    .. attribute:: node_type_issu
-                    
-                    	ISSU node type
-                    	**type**\:  str
-                    
-                    .. attribute:: node_type_pi
-                    
-                    	PI Node type
-                    	**type**\:   :py:class:`InstmgrPiCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPiCard>`
-                    
-                    .. attribute:: partner_node_name
-                    
-                    	Partner Node IDs
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Issu.CardInventories.CardInventory.Summary, self).__init__()
-
-                        self.yang_name = "summary"
-                        self.yang_parent_name = "card-inventory"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.attempts = YLeaf(YType.uint32, "attempts")
-
-                        self.is_conforming_node = YLeaf(YType.enumeration, "is-conforming-node")
-
-                        self.is_node_upgraded = YLeaf(YType.boolean, "is-node-upgraded")
-
-                        self.node_current_state = YLeaf(YType.enumeration, "node-current-state")
-
-                        self.node_expected_state = YLeaf(YType.enumeration, "node-expected-state")
-
-                        self.node_failure_reason = YLeaf(YType.str, "node-failure-reason")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.node_role = YLeaf(YType.enumeration, "node-role")
-
-                        self.node_state = YLeaf(YType.enumeration, "node-state")
-
-                        self.node_type_issu = YLeaf(YType.str, "node-type-issu")
-
-                        self.node_type_pi = YLeaf(YType.enumeration, "node-type-pi")
-
-                        self.partner_node_name = YLeaf(YType.str, "partner-node-name")
-                        self._segment_path = lambda: "summary"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Issu.CardInventories.CardInventory.Summary, ['attempts', 'is_conforming_node', 'is_node_upgraded', 'node_current_state', 'node_expected_state', 'node_failure_reason', 'node_name', 'node_role', 'node_state', 'node_type_issu', 'node_type_pi', 'partner_node_name'], name, value)
-
-
-        class Stage(Entity):
-            """
-            Summarized ISSU stage information
-            
-            .. attribute:: is_issu_aborted
-            
-            	ISSU aborted?
-            	**type**\:  bool
-            
-            .. attribute:: is_issu_aborted_by_ism
-            
-            	ISSU aborted by ISM?
-            	**type**\:  bool
-            
-            .. attribute:: issu_manager_fsm_state
-            
-            	ISM FSM state
-            	**type**\:   :py:class:`InstmgrIsmFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmFsmState>`
-            
-            .. attribute:: issu_op_id
-            
-            	ISSU operational ID
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: issu_state
-            
-            	Current ISSU state
-            	**type**\:  str
-            
-            .. attribute:: nc_nodes
-            
-            	None\-conforming nodes
-            	**type**\:   :py:class:`NcNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NcNodes>`
-            
-            .. attribute:: node_in_progress
-            
-            	Nodes in progress
-            	**type**\:   :py:class:`NodeInProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodeInProgress>`
-            
-            .. attribute:: nodes_in_load
-            
-            	Node in LOAD phase
-            	**type**\:   :py:class:`NodesInLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInLoad>`
-            
-            .. attribute:: nodes_in_run
-            
-            	Node in RUN phase
-            	**type**\:   :py:class:`NodesInRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInRun>`
-            
-            .. attribute:: num_nodes_in_progress
-            
-            	Number of node in progress
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_of_nodes_in_load
-            
-            	Number of nodes in LOAD phase
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: num_of_nodes_in_run
-            
-            	Number of nodes in RUN phase
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: numof_nc_nodes
-            
-            	Number of none\-conforming nodes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: participating_node_all
-            
-            	Number of participating nodes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: percentage
-            
-            	ISSU progress percentage
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: percentage
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.Issu.Stage, self).__init__()
-
-                self.yang_name = "stage"
-                self.yang_parent_name = "issu"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"nc-nodes" : ("nc_nodes", Install.Issu.Stage.NcNodes), "node-in-progress" : ("node_in_progress", Install.Issu.Stage.NodeInProgress), "nodes-in-load" : ("nodes_in_load", Install.Issu.Stage.NodesInLoad), "nodes-in-run" : ("nodes_in_run", Install.Issu.Stage.NodesInRun)}
-                self._child_list_classes = {}
-
-                self.is_issu_aborted = YLeaf(YType.boolean, "is-issu-aborted")
-
-                self.is_issu_aborted_by_ism = YLeaf(YType.boolean, "is-issu-aborted-by-ism")
-
-                self.issu_manager_fsm_state = YLeaf(YType.enumeration, "issu-manager-fsm-state")
-
-                self.issu_op_id = YLeaf(YType.uint32, "issu-op-id")
-
-                self.issu_state = YLeaf(YType.str, "issu-state")
-
-                self.num_nodes_in_progress = YLeaf(YType.uint32, "num-nodes-in-progress")
-
-                self.num_of_nodes_in_load = YLeaf(YType.uint32, "num-of-nodes-in-load")
-
-                self.num_of_nodes_in_run = YLeaf(YType.uint32, "num-of-nodes-in-run")
-
-                self.numof_nc_nodes = YLeaf(YType.uint32, "numof-nc-nodes")
-
-                self.participating_node_all = YLeaf(YType.uint32, "participating-node-all")
-
-                self.percentage = YLeaf(YType.uint32, "percentage")
-
-                self.nc_nodes = Install.Issu.Stage.NcNodes()
-                self.nc_nodes.parent = self
-                self._children_name_map["nc_nodes"] = "nc-nodes"
-                self._children_yang_names.add("nc-nodes")
-
-                self.node_in_progress = Install.Issu.Stage.NodeInProgress()
-                self.node_in_progress.parent = self
-                self._children_name_map["node_in_progress"] = "node-in-progress"
-                self._children_yang_names.add("node-in-progress")
-
-                self.nodes_in_load = Install.Issu.Stage.NodesInLoad()
-                self.nodes_in_load.parent = self
-                self._children_name_map["nodes_in_load"] = "nodes-in-load"
-                self._children_yang_names.add("nodes-in-load")
-
-                self.nodes_in_run = Install.Issu.Stage.NodesInRun()
-                self.nodes_in_run.parent = self
-                self._children_name_map["nodes_in_run"] = "nodes-in-run"
-                self._children_yang_names.add("nodes-in-run")
-                self._segment_path = lambda: "stage"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Install.Issu.Stage, ['is_issu_aborted', 'is_issu_aborted_by_ism', 'issu_manager_fsm_state', 'issu_op_id', 'issu_state', 'num_nodes_in_progress', 'num_of_nodes_in_load', 'num_of_nodes_in_run', 'numof_nc_nodes', 'participating_node_all', 'percentage'], name, value)
-
-
-            class NcNodes(Entity):
-                """
-                None\-conforming nodes
-                
-                .. attribute:: node
-                
-                	node
-                	**type**\:  list of str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Issu.Stage.NcNodes, self).__init__()
-
-                    self.yang_name = "nc-nodes"
-                    self.yang_parent_name = "stage"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
-                    self._segment_path = lambda: "nc-nodes"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NcNodes, ['node'], name, value)
-
-
-            class NodeInProgress(Entity):
-                """
-                Nodes in progress
-                
-                .. attribute:: node
-                
-                	node
-                	**type**\:  list of str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Issu.Stage.NodeInProgress, self).__init__()
-
-                    self.yang_name = "node-in-progress"
-                    self.yang_parent_name = "stage"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
-                    self._segment_path = lambda: "node-in-progress"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodeInProgress, ['node'], name, value)
-
-
-            class NodesInLoad(Entity):
-                """
-                Node in LOAD phase
-                
-                .. attribute:: node
-                
-                	node
-                	**type**\:  list of str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Issu.Stage.NodesInLoad, self).__init__()
-
-                    self.yang_name = "nodes-in-load"
-                    self.yang_parent_name = "stage"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
-                    self._segment_path = lambda: "nodes-in-load"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodesInLoad, ['node'], name, value)
-
-
-            class NodesInRun(Entity):
-                """
-                Node in RUN phase
-                
-                .. attribute:: node
-                
-                	node
-                	**type**\:  list of str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Issu.Stage.NodesInRun, self).__init__()
-
-                    self.yang_name = "nodes-in-run"
-                    self.yang_parent_name = "stage"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.node = YLeafList(YType.str, "node")
-                    self._segment_path = lambda: "nodes-in-run"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Issu.Stage.NodesInRun, ['node'], name, value)
-
-
-    class Logs(Entity):
-        """
-        Install operation log
-        
-        .. attribute:: log
-        
-        	Log information
-        	**type**\: list of    :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log>`
-        
-        
-
-        """
-
-        _prefix = 'installmgr-admin-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Install.Logs, self).__init__()
-
-            self.yang_name = "logs"
-            self.yang_parent_name = "install"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"log" : ("log", Install.Logs.Log)}
-
-            self.log = YList(self)
-            self._segment_path = lambda: "logs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Install.Logs, [], name, value)
-
-
-        class Log(Entity):
-            """
-            Log information
-            
-            .. attribute:: request_id  <key>
-            
-            	Install operation request ID
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: change
-            
-            	Install changes
-            	**type**\: list of    :py:class:`Change <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change>`
-            
-            .. attribute:: communication
-            
-            	Install communications
-            	**type**\: list of    :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication>`
-            
-            .. attribute:: detail
-            
-            	Install details
-            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail>`
-            
-            .. attribute:: header
-            
-            	Header information
-            	**type**\: list of    :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header>`
-            
-            .. attribute:: message
-            
-            	Status Information Logs
-            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message>`
-            
-            .. attribute:: summary
-            
-            	Summary information
-            	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary>`
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.Logs.Log, self).__init__()
-
-                self.yang_name = "log"
-                self.yang_parent_name = "logs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"change" : ("change", Install.Logs.Log.Change), "communication" : ("communication", Install.Logs.Log.Communication), "detail" : ("detail", Install.Logs.Log.Detail), "header" : ("header", Install.Logs.Log.Header), "message" : ("message", Install.Logs.Log.Message), "summary" : ("summary", Install.Logs.Log.Summary)}
-
-                self.request_id = YLeaf(YType.int32, "request-id")
-
-                self.change = YList(self)
-                self.communication = YList(self)
-                self.detail = YList(self)
-                self.header = YList(self)
-                self.message = YList(self)
-                self.summary = YList(self)
-                self._segment_path = lambda: "log" + "[request-id='" + self.request_id.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/logs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Install.Logs.Log, ['request_id'], name, value)
-
-
-            class Change(Entity):
-                """
-                Install changes
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Change, self).__init__()
-
-                    self.yang_name = "change"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Change.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Change.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "change"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Change.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "change"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Change.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Change.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Change.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Change.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Change.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Change.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Change.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Change.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Change.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
-
-
-            class Communication(Entity):
-                """
-                Install communications
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Communication, self).__init__()
-
-                    self.yang_name = "communication"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Communication.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Communication.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "communication"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Communication.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "communication"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Communication.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Communication.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Communication.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Communication.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Communication.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Communication.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Communication.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
-
-
-            class Detail(Entity):
-                """
-                Install details
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Detail, self).__init__()
-
-                    self.yang_name = "detail"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Detail.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Detail.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "detail"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Detail.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "detail"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Detail.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Detail.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Detail.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Detail.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Detail.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Detail.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Detail.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
-
-
-            class Header(Entity):
-                """
-                Header information
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Header, self).__init__()
-
-                    self.yang_name = "header"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Header.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Header.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "header"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Header.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "header"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Header.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Header.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Header.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Header.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Header.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Header.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Header.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Header.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Header.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
-
-
-            class Message(Entity):
-                """
-                Status Information Logs
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Message, self).__init__()
-
-                    self.yang_name = "message"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Message.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Message.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "message"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Message.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "message"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Message.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Message.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Message.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Message.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Message.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Message.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Message.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Message.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Message.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
-
-
-            class Summary(Entity):
-                """
-                Summary information
-                
-                .. attribute:: log_contents
-                
-                	Log contents
-                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Logs.Log.Summary, self).__init__()
-
-                    self.yang_name = "summary"
-                    self.yang_parent_name = "log"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Summary.LogContents)}
-                    self._child_list_classes = {}
-
-                    self.log_contents = Install.Logs.Log.Summary.LogContents()
-                    self.log_contents.parent = self
-                    self._children_name_map["log_contents"] = "log-contents"
-                    self._children_yang_names.add("log-contents")
-                    self._segment_path = lambda: "summary"
-
-
-                class LogContents(Entity):
-                    """
-                    Log contents
-                    
-                    .. attribute:: v3
-                    
-                    	v3
-                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3>`
-                    
-                    .. attribute:: version
-                    
-                    	Version
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Logs.Log.Summary.LogContents, self).__init__()
-
-                        self.yang_name = "log-contents"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Summary.LogContents.V3)}
-                        self._child_list_classes = {}
-
-                        self.version = YLeaf(YType.uint32, "version")
-
-                        self.v3 = Install.Logs.Log.Summary.LogContents.V3()
-                        self.v3.parent = self
-                        self._children_name_map["v3"] = "v3"
-                        self._children_yang_names.add("v3")
-                        self._segment_path = lambda: "log-contents"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Logs.Log.Summary.LogContents, ['version'], name, value)
-
-
-                    class V3(Entity):
-                        """
-                        v3
-                        
-                        .. attribute:: category
-                        
-                        	Category of the message
-                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
-                        
-                        .. attribute:: message
-                        
-                        	Message
-                        	**type**\:  str
-                        
-                        .. attribute:: scope
-                        
-                        	Scope of the message
-                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3.Scope>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Logs.Log.Summary.LogContents.V3, self).__init__()
-
-                            self.yang_name = "v3"
-                            self.yang_parent_name = "log-contents"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Summary.LogContents.V3.Scope)}
-                            self._child_list_classes = {}
-
-                            self.category = YLeaf(YType.enumeration, "category")
-
-                            self.message = YLeaf(YType.str, "message")
-
-                            self.scope = Install.Logs.Log.Summary.LogContents.V3.Scope()
-                            self.scope.parent = self
-                            self._children_name_map["scope"] = "scope"
-                            self._children_yang_names.add("scope")
-                            self._segment_path = lambda: "v3"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3, ['category', 'message'], name, value)
-
-
-                        class Scope(Entity):
-                            """
-                            Scope of the message
-                            
-                            .. attribute:: admin_read
-                            
-                            	Does the admin want to read this?
-                            	**type**\:  bool
-                            
-                            .. attribute:: affected_sd_rs
-                            
-                            	Which SDRs are affected by the message
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Logs.Log.Summary.LogContents.V3.Scope, self).__init__()
-
-                                self.yang_name = "scope"
-                                self.yang_parent_name = "v3"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.admin_read = YLeaf(YType.boolean, "admin-read")
-
-                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
-                                self._segment_path = lambda: "scope"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
     class RequestStatuses(Entity):
@@ -3408,44 +1624,20 @@ class Install(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: abort_state
+            .. attribute:: request_information
             
-            	Abort state
-            	**type**\:   :py:class:`InstmgrBagAbortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagAbortState>`
+            	Requested install operation
+            	**type**\:   :py:class:`RequestInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.RequestInformation>`
             
             .. attribute:: abort_status
             
             	How the abort will occur
             	**type**\:   :py:class:`AbortStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.AbortStatus>`
             
-            .. attribute:: downloaded_bytes
-            
-            	Downloaded bytes
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: byte
-            
             .. attribute:: incremental_install_information
             
             	Incremental Install information
             	**type**\:   :py:class:`IncrementalInstallInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IncrementalInstallInformation>`
-            
-            .. attribute:: issu_message
-            
-            	Messages related to ISSU operations
-            	**type**\: list of    :py:class:`IssuMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage>`
-            
-            .. attribute:: message
-            
-            	Messages output to the user
-            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message>`
-            
-            .. attribute:: operation_phase
-            
-            	Phase of the operation
-            	**type**\:   :py:class:`InstmgrInstallPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrInstallPhase>`
             
             .. attribute:: percentage
             
@@ -3456,15 +1648,39 @@ class Install(Entity):
             
             	**units**\: percentage
             
-            .. attribute:: request_information
+            .. attribute:: abort_state
             
-            	Requested install operation
-            	**type**\:   :py:class:`RequestInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.RequestInformation>`
+            	Abort state
+            	**type**\:   :py:class:`InstmgrBagAbortState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagAbortState>`
+            
+            .. attribute:: downloaded_bytes
+            
+            	Downloaded bytes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: byte
             
             .. attribute:: unanswered_query
             
             	Whether the operation is blocked waiting for a response from the user
             	**type**\:  bool
+            
+            .. attribute:: operation_phase
+            
+            	Phase of the operation
+            	**type**\:   :py:class:`InstmgrInstallPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrInstallPhase>`
+            
+            .. attribute:: issu_message
+            
+            	Messages related to ISSU operations
+            	**type**\: list of    :py:class:`IssuMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage>`
+            
+            .. attribute:: message
+            
+            	Messages output to the user
+            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message>`
             
             
 
@@ -3480,20 +1696,25 @@ class Install(Entity):
                 self.yang_parent_name = "request-statuses"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"abort-status" : ("abort_status", Install.RequestStatuses.RequestStatus.AbortStatus), "incremental-install-information" : ("incremental_install_information", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation), "request-information" : ("request_information", Install.RequestStatuses.RequestStatus.RequestInformation)}
+                self._child_container_classes = {"request-information" : ("request_information", Install.RequestStatuses.RequestStatus.RequestInformation), "abort-status" : ("abort_status", Install.RequestStatuses.RequestStatus.AbortStatus), "incremental-install-information" : ("incremental_install_information", Install.RequestStatuses.RequestStatus.IncrementalInstallInformation)}
                 self._child_list_classes = {"issu-message" : ("issu_message", Install.RequestStatuses.RequestStatus.IssuMessage), "message" : ("message", Install.RequestStatuses.RequestStatus.Message)}
 
                 self.request_id = YLeaf(YType.int32, "request-id")
+
+                self.percentage = YLeaf(YType.uint8, "percentage")
 
                 self.abort_state = YLeaf(YType.enumeration, "abort-state")
 
                 self.downloaded_bytes = YLeaf(YType.uint32, "downloaded-bytes")
 
+                self.unanswered_query = YLeaf(YType.boolean, "unanswered-query")
+
                 self.operation_phase = YLeaf(YType.enumeration, "operation-phase")
 
-                self.percentage = YLeaf(YType.uint8, "percentage")
-
-                self.unanswered_query = YLeaf(YType.boolean, "unanswered-query")
+                self.request_information = Install.RequestStatuses.RequestStatus.RequestInformation()
+                self.request_information.parent = self
+                self._children_name_map["request_information"] = "request-information"
+                self._children_yang_names.add("request-information")
 
                 self.abort_status = Install.RequestStatuses.RequestStatus.AbortStatus()
                 self.abort_status.parent = self
@@ -3505,33 +1726,100 @@ class Install(Entity):
                 self._children_name_map["incremental_install_information"] = "incremental-install-information"
                 self._children_yang_names.add("incremental-install-information")
 
-                self.request_information = Install.RequestStatuses.RequestStatus.RequestInformation()
-                self.request_information.parent = self
-                self._children_name_map["request_information"] = "request-information"
-                self._children_yang_names.add("request-information")
-
                 self.issu_message = YList(self)
                 self.message = YList(self)
                 self._segment_path = lambda: "request-status" + "[request-id='" + self.request_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/request-statuses/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Install.RequestStatuses.RequestStatus, ['request_id', 'abort_state', 'downloaded_bytes', 'operation_phase', 'percentage', 'unanswered_query'], name, value)
+                self._perform_setattr(Install.RequestStatuses.RequestStatus, ['request_id', 'percentage', 'abort_state', 'downloaded_bytes', 'unanswered_query', 'operation_phase'], name, value)
+
+
+            class RequestInformation(Entity):
+                """
+                Requested install operation
+                
+                .. attribute:: request_id
+                
+                	Install id of operation
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: user_id
+                
+                	User ID that started the reqeust
+                	**type**\:  str
+                
+                .. attribute:: trigger_type
+                
+                	Request trigger type
+                	**type**\:   :py:class:`InstmgrBagRequestTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagRequestTrigger>`
+                
+                .. attribute:: request_option
+                
+                	Options affecting processing of install requests
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: operation_type
+                
+                	Requested operation type
+                	**type**\:   :py:class:`InstmgrRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrRequest>`
+                
+                .. attribute:: operation_detail
+                
+                	Detail operation information
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.RequestStatuses.RequestStatus.RequestInformation, self).__init__()
+
+                    self.yang_name = "request-information"
+                    self.yang_parent_name = "request-status"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.request_id = YLeaf(YType.uint32, "request-id")
+
+                    self.user_id = YLeaf(YType.str, "user-id")
+
+                    self.trigger_type = YLeaf(YType.enumeration, "trigger-type")
+
+                    self.request_option = YLeaf(YType.int32, "request-option")
+
+                    self.operation_type = YLeaf(YType.enumeration, "operation-type")
+
+                    self.operation_detail = YLeaf(YType.str, "operation-detail")
+                    self._segment_path = lambda: "request-information"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.RequestInformation, ['request_id', 'user_id', 'trigger_type', 'request_option', 'operation_type', 'operation_detail'], name, value)
 
 
             class AbortStatus(Entity):
                 """
                 How the abort will occur
                 
-                .. attribute:: abort_impact
-                
-                	Impact of abort
-                	**type**\:   :py:class:`InstmgrIssuAbortImpact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortImpact>`
-                
                 .. attribute:: abort_method
                 
                 	Method of abort
                 	**type**\:   :py:class:`InstmgrIssuAbortMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortMethod>`
+                
+                .. attribute:: abort_impact
+                
+                	Impact of abort
+                	**type**\:   :py:class:`InstmgrIssuAbortImpact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIssuAbortImpact>`
                 
                 
 
@@ -3550,13 +1838,13 @@ class Install(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.abort_impact = YLeaf(YType.enumeration, "abort-impact")
-
                     self.abort_method = YLeaf(YType.enumeration, "abort-method")
+
+                    self.abort_impact = YLeaf(YType.enumeration, "abort-impact")
                     self._segment_path = lambda: "abort-status"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.AbortStatus, ['abort_impact', 'abort_method'], name, value)
+                    self._perform_setattr(Install.RequestStatuses.RequestStatus.AbortStatus, ['abort_method', 'abort_impact'], name, value)
 
 
             class IncrementalInstallInformation(Entity):
@@ -3615,8 +1903,6 @@ class Install(Entity):
                     	Node identifier
                     	**type**\:  str
                     
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
                     .. attribute:: state
                     
                     	State
@@ -3652,6 +1938,11 @@ class Install(Entity):
                 """
                 Messages related to ISSU operations
                 
+                .. attribute:: scope
+                
+                	Scope of the message
+                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage.Scope>`
+                
                 .. attribute:: category
                 
                 	Category of the message
@@ -3661,11 +1952,6 @@ class Install(Entity):
                 
                 	Message
                 	**type**\:  str
-                
-                .. attribute:: scope
-                
-                	Scope of the message
-                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.IssuMessage.Scope>`
                 
                 
 
@@ -3744,6 +2030,11 @@ class Install(Entity):
                 """
                 Messages output to the user
                 
+                .. attribute:: scope
+                
+                	Scope of the message
+                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message.Scope>`
+                
                 .. attribute:: category
                 
                 	Category of the message
@@ -3753,11 +2044,6 @@ class Install(Entity):
                 
                 	Message
                 	**type**\:  str
-                
-                .. attribute:: scope
-                
-                	Scope of the message
-                	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.RequestStatuses.RequestStatus.Message.Scope>`
                 
                 
 
@@ -3832,76 +2118,81 @@ class Install(Entity):
                         self._perform_setattr(Install.RequestStatuses.RequestStatus.Message.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
 
-            class RequestInformation(Entity):
-                """
-                Requested install operation
-                
-                .. attribute:: operation_detail
-                
-                	Detail operation information
-                	**type**\:  str
-                
-                .. attribute:: operation_type
-                
-                	Requested operation type
-                	**type**\:   :py:class:`InstmgrRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrRequest>`
-                
-                .. attribute:: request_id
-                
-                	Install id of operation
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: request_option
-                
-                	Options affecting processing of install requests
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                .. attribute:: trigger_type
-                
-                	Request trigger type
-                	**type**\:   :py:class:`InstmgrBagRequestTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagRequestTrigger>`
-                
-                .. attribute:: user_id
-                
-                	User ID that started the reqeust
-                	**type**\:  str
-                
-                
+    class BootVariables(Entity):
+        """
+        Boot variable information
+        
+        .. attribute:: boot_variable
+        
+        	Boot variable for specific node
+        	**type**\: list of    :py:class:`BootVariable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.BootVariables.BootVariable>`
+        
+        
 
-                """
+        """
 
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
+        _prefix = 'installmgr-admin-oper'
+        _revision = '2015-11-09'
 
-                def __init__(self):
-                    super(Install.RequestStatuses.RequestStatus.RequestInformation, self).__init__()
+        def __init__(self):
+            super(Install.BootVariables, self).__init__()
 
-                    self.yang_name = "request-information"
-                    self.yang_parent_name = "request-status"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
+            self.yang_name = "boot-variables"
+            self.yang_parent_name = "install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"boot-variable" : ("boot_variable", Install.BootVariables.BootVariable)}
 
-                    self.operation_detail = YLeaf(YType.str, "operation-detail")
+            self.boot_variable = YList(self)
+            self._segment_path = lambda: "boot-variables"
+            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
 
-                    self.operation_type = YLeaf(YType.enumeration, "operation-type")
+        def __setattr__(self, name, value):
+            self._perform_setattr(Install.BootVariables, [], name, value)
 
-                    self.request_id = YLeaf(YType.uint32, "request-id")
 
-                    self.request_option = YLeaf(YType.int32, "request-option")
+        class BootVariable(Entity):
+            """
+            Boot variable for specific node
+            
+            .. attribute:: node_name  <key>
+            
+            	Node name
+            	**type**\:  str
+            
+            .. attribute:: boot_variable
+            
+            	Boot variable value
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
+            
 
-                    self.trigger_type = YLeaf(YType.enumeration, "trigger-type")
+            """
 
-                    self.user_id = YLeaf(YType.str, "user-id")
-                    self._segment_path = lambda: "request-information"
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.RequestStatuses.RequestStatus.RequestInformation, ['operation_detail', 'operation_type', 'request_id', 'request_option', 'trigger_type', 'user_id'], name, value)
+            def __init__(self):
+                super(Install.BootVariables.BootVariable, self).__init__()
+
+                self.yang_name = "boot-variable"
+                self.yang_parent_name = "boot-variables"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.node_name = YLeaf(YType.str, "node-name")
+
+                self.boot_variable = YLeaf(YType.str, "boot-variable")
+                self._segment_path = lambda: "boot-variable" + "[node-name='" + self.node_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/boot-variables/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.BootVariables.BootVariable, ['node_name', 'boot_variable'], name, value)
 
 
     class Software(Entity):
@@ -3913,15 +2204,15 @@ class Install(Entity):
         	Package alias information
         	**type**\:   :py:class:`AliasDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.AliasDevices>`
         
-        .. attribute:: component_devices
-        
-        	Software component information
-        	**type**\:   :py:class:`ComponentDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices>`
-        
         .. attribute:: package_devices
         
         	Package information
         	**type**\:   :py:class:`PackageDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices>`
+        
+        .. attribute:: component_devices
+        
+        	Software component information
+        	**type**\:   :py:class:`ComponentDevices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.ComponentDevices>`
         
         
 
@@ -3937,7 +2228,7 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"alias-devices" : ("alias_devices", Install.Software.AliasDevices), "component-devices" : ("component_devices", Install.Software.ComponentDevices), "package-devices" : ("package_devices", Install.Software.PackageDevices)}
+            self._child_container_classes = {"alias-devices" : ("alias_devices", Install.Software.AliasDevices), "package-devices" : ("package_devices", Install.Software.PackageDevices), "component-devices" : ("component_devices", Install.Software.ComponentDevices)}
             self._child_list_classes = {}
 
             self.alias_devices = Install.Software.AliasDevices()
@@ -3945,15 +2236,15 @@ class Install(Entity):
             self._children_name_map["alias_devices"] = "alias-devices"
             self._children_yang_names.add("alias-devices")
 
-            self.component_devices = Install.Software.ComponentDevices()
-            self.component_devices.parent = self
-            self._children_name_map["component_devices"] = "component-devices"
-            self._children_yang_names.add("component-devices")
-
             self.package_devices = Install.Software.PackageDevices()
             self.package_devices.parent = self
             self._children_name_map["package_devices"] = "package-devices"
             self._children_yang_names.add("package-devices")
+
+            self.component_devices = Install.Software.ComponentDevices()
+            self.component_devices.parent = self
+            self._children_name_map["component_devices"] = "component-devices"
+            self._children_yang_names.add("component-devices")
             self._segment_path = lambda: "software"
             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
 
@@ -4000,8 +2291,6 @@ class Install(Entity):
                 
                 	Device Name
                 	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: aliases
                 
@@ -4113,6 +2402,324 @@ class Install(Entity):
                             self._perform_setattr(Install.Software.AliasDevices.AliasDevice.Aliases.Alias, ['package_name', 'alias_names'], name, value)
 
 
+        class PackageDevices(Entity):
+            """
+            Package information
+            
+            .. attribute:: package_device
+            
+            	Package information for specific device
+            	**type**\: list of    :py:class:`PackageDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice>`
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.Software.PackageDevices, self).__init__()
+
+                self.yang_name = "package-devices"
+                self.yang_parent_name = "software"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"package-device" : ("package_device", Install.Software.PackageDevices.PackageDevice)}
+
+                self.package_device = YList(self)
+                self._segment_path = lambda: "package-devices"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.Software.PackageDevices, [], name, value)
+
+
+            class PackageDevice(Entity):
+                """
+                Package information for specific device
+                
+                .. attribute:: device_name  <key>
+                
+                	Device Name
+                	**type**\:  str
+                
+                .. attribute:: packages
+                
+                	Package information for specific package
+                	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Software.PackageDevices.PackageDevice, self).__init__()
+
+                    self.yang_name = "package-device"
+                    self.yang_parent_name = "package-devices"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"packages" : ("packages", Install.Software.PackageDevices.PackageDevice.Packages)}
+                    self._child_list_classes = {}
+
+                    self.device_name = YLeaf(YType.str, "device-name")
+
+                    self.packages = Install.Software.PackageDevices.PackageDevice.Packages()
+                    self.packages.parent = self
+                    self._children_name_map["packages"] = "packages"
+                    self._children_yang_names.add("packages")
+                    self._segment_path = lambda: "package-device" + "[device-name='" + self.device_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/package-devices/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Software.PackageDevices.PackageDevice, ['device_name'], name, value)
+
+
+                class Packages(Entity):
+                    """
+                    Package information for specific package
+                    
+                    .. attribute:: package
+                    
+                    	Package information
+                    	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Software.PackageDevices.PackageDevice.Packages, self).__init__()
+
+                        self.yang_name = "packages"
+                        self.yang_parent_name = "package-device"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"package" : ("package", Install.Software.PackageDevices.PackageDevice.Packages.Package)}
+
+                        self.package = YList(self)
+                        self._segment_path = lambda: "packages"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages, [], name, value)
+
+
+                    class Package(Entity):
+                        """
+                        Package information
+                        
+                        .. attribute:: package_name  <key>
+                        
+                        	Package Name
+                        	**type**\:  str
+                        
+                        .. attribute:: name
+                        
+                        	Name of the package
+                        	**type**\:  str
+                        
+                        .. attribute:: version
+                        
+                        	Version of the package
+                        	**type**\:  str
+                        
+                        .. attribute:: description
+                        
+                        	Description of the package
+                        	**type**\:  str
+                        
+                        .. attribute:: release
+                        
+                        	Release that the package belongs to
+                        	**type**\:  str
+                        
+                        .. attribute:: vendor
+                        
+                        	Information about the vendor that supplied the package
+                        	**type**\:  str
+                        
+                        .. attribute:: date
+                        
+                        	Time and date that the package was built
+                        	**type**\:  str
+                        
+                        .. attribute:: source
+                        
+                        	Identifies the provider of the package
+                        	**type**\:  str
+                        
+                        .. attribute:: base
+                        
+                        	Identifies the base bundle that the package is for
+                        	**type**\:  str
+                        
+                        .. attribute:: bootable
+                        
+                        	TRUE if package has BOOTIMAGE tag set
+                        	**type**\:  bool
+                        
+                        .. attribute:: composite
+                        
+                        	TRUE if package is a composite package
+                        	**type**\:  bool
+                        
+                        .. attribute:: restart_info
+                        
+                        	Restart info of the package
+                        	**type**\:  str
+                        
+                        .. attribute:: package_type
+                        
+                        	Type of the package
+                        	**type**\:   :py:class:`InstmgrPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPkg>`
+                        
+                        .. attribute:: group_type
+                        
+                        	Group type of the package
+                        	**type**\:   :py:class:`InstmgrGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrGroup>`
+                        
+                        .. attribute:: depth
+                        
+                        	Number of layers of parent packages
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: uncompressed_size
+                        
+                        	Uncompressed size of package
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: compressed_size
+                        
+                        	Compressed size of package
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: cards
+                        
+                        	Card types that the package should be installed on
+                        	**type**\:  list of str
+                        
+                        .. attribute:: sub_pkg
+                        
+                        	Sub\-package info of the package
+                        	**type**\: list of    :py:class:`SubPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Software.PackageDevices.PackageDevice.Packages.Package, self).__init__()
+
+                            self.yang_name = "package"
+                            self.yang_parent_name = "packages"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"sub-pkg" : ("sub_pkg", Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg)}
+
+                            self.package_name = YLeaf(YType.str, "package-name")
+
+                            self.name = YLeaf(YType.str, "name")
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.description = YLeaf(YType.str, "description")
+
+                            self.release = YLeaf(YType.str, "release")
+
+                            self.vendor = YLeaf(YType.str, "vendor")
+
+                            self.date = YLeaf(YType.str, "date")
+
+                            self.source = YLeaf(YType.str, "source")
+
+                            self.base = YLeaf(YType.str, "base")
+
+                            self.bootable = YLeaf(YType.boolean, "bootable")
+
+                            self.composite = YLeaf(YType.boolean, "composite")
+
+                            self.restart_info = YLeaf(YType.str, "restart-info")
+
+                            self.package_type = YLeaf(YType.enumeration, "package-type")
+
+                            self.group_type = YLeaf(YType.enumeration, "group-type")
+
+                            self.depth = YLeaf(YType.uint32, "depth")
+
+                            self.uncompressed_size = YLeaf(YType.uint32, "uncompressed-size")
+
+                            self.compressed_size = YLeaf(YType.uint32, "compressed-size")
+
+                            self.cards = YLeafList(YType.str, "cards")
+
+                            self.sub_pkg = YList(self)
+                            self._segment_path = lambda: "package" + "[package-name='" + self.package_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', 'name', 'version', 'description', 'release', 'vendor', 'date', 'source', 'base', 'bootable', 'composite', 'restart_info', 'package_type', 'group_type', 'depth', 'uncompressed_size', 'compressed_size', 'cards'], name, value)
+
+
+                        class SubPkg(Entity):
+                            """
+                            Sub\-package info of the package
+                            
+                            .. attribute:: name
+                            
+                            	Name of the sub\-package
+                            	**type**\:  str
+                            
+                            .. attribute:: node_types
+                            
+                            	Node types of the package
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, self).__init__()
+
+                                self.yang_name = "sub-pkg"
+                                self.yang_parent_name = "package"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.name = YLeaf(YType.str, "name")
+
+                                self.node_types = YLeaf(YType.uint64, "node-types")
+                                self._segment_path = lambda: "sub-pkg"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, ['name', 'node_types'], name, value)
+
+
         class ComponentDevices(Entity):
             """
             Software component information
@@ -4155,8 +2762,6 @@ class Install(Entity):
                 
                 	Device Name
                 	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: component_packages
                 
@@ -4275,6 +2880,21 @@ class Install(Entity):
                             	Component Name
                             	**type**\:  str
                             
+                            .. attribute:: name
+                            
+                            	Name of the component
+                            	**type**\:  str
+                            
+                            .. attribute:: version
+                            
+                            	Version of the component
+                            	**type**\:  str
+                            
+                            .. attribute:: release
+                            
+                            	Release that the component belongs to
+                            	**type**\:  str
+                            
                             .. attribute:: description
                             
                             	Description of the component
@@ -4284,21 +2904,6 @@ class Install(Entity):
                             
                             	The set of files belonging to the component
                             	**type**\:  list of str
-                            
-                            .. attribute:: name
-                            
-                            	Name of the component
-                            	**type**\:  str
-                            
-                            .. attribute:: release
-                            
-                            	Release that the component belongs to
-                            	**type**\:  str
-                            
-                            .. attribute:: version
-                            
-                            	Version of the component
-                            	**type**\:  str
                             
                             
 
@@ -4319,349 +2924,24 @@ class Install(Entity):
 
                                 self.component_name = YLeaf(YType.str, "component-name")
 
-                                self.description = YLeaf(YType.str, "description")
-
-                                self.files = YLeafList(YType.str, "files")
-
                                 self.name = YLeaf(YType.str, "name")
+
+                                self.version = YLeaf(YType.str, "version")
 
                                 self.release = YLeaf(YType.str, "release")
 
-                                self.version = YLeaf(YType.str, "version")
+                                self.description = YLeaf(YType.str, "description")
+
+                                self.files = YLeafList(YType.str, "files")
                                 self._segment_path = lambda: "component" + "[component-name='" + self.component_name.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', 'description', 'files', 'name', 'release', 'version'], name, value)
-
-
-        class PackageDevices(Entity):
-            """
-            Package information
-            
-            .. attribute:: package_device
-            
-            	Package information for specific device
-            	**type**\: list of    :py:class:`PackageDevice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice>`
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.Software.PackageDevices, self).__init__()
-
-                self.yang_name = "package-devices"
-                self.yang_parent_name = "software"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"package-device" : ("package_device", Install.Software.PackageDevices.PackageDevice)}
-
-                self.package_device = YList(self)
-                self._segment_path = lambda: "package-devices"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Install.Software.PackageDevices, [], name, value)
-
-
-            class PackageDevice(Entity):
-                """
-                Package information for specific device
-                
-                .. attribute:: device_name  <key>
-                
-                	Device Name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: packages
-                
-                	Package information for specific package
-                	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.Software.PackageDevices.PackageDevice, self).__init__()
-
-                    self.yang_name = "package-device"
-                    self.yang_parent_name = "package-devices"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"packages" : ("packages", Install.Software.PackageDevices.PackageDevice.Packages)}
-                    self._child_list_classes = {}
-
-                    self.device_name = YLeaf(YType.str, "device-name")
-
-                    self.packages = Install.Software.PackageDevices.PackageDevice.Packages()
-                    self.packages.parent = self
-                    self._children_name_map["packages"] = "packages"
-                    self._children_yang_names.add("packages")
-                    self._segment_path = lambda: "package-device" + "[device-name='" + self.device_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software/package-devices/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.Software.PackageDevices.PackageDevice, ['device_name'], name, value)
-
-
-                class Packages(Entity):
-                    """
-                    Package information for specific package
-                    
-                    .. attribute:: package
-                    
-                    	Package information
-                    	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.Software.PackageDevices.PackageDevice.Packages, self).__init__()
-
-                        self.yang_name = "packages"
-                        self.yang_parent_name = "package-device"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"package" : ("package", Install.Software.PackageDevices.PackageDevice.Packages.Package)}
-
-                        self.package = YList(self)
-                        self._segment_path = lambda: "packages"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages, [], name, value)
-
-
-                    class Package(Entity):
-                        """
-                        Package information
-                        
-                        .. attribute:: package_name  <key>
-                        
-                        	Package Name
-                        	**type**\:  str
-                        
-                        .. attribute:: base
-                        
-                        	Identifies the base bundle that the package is for
-                        	**type**\:  str
-                        
-                        .. attribute:: bootable
-                        
-                        	TRUE if package has BOOTIMAGE tag set
-                        	**type**\:  bool
-                        
-                        .. attribute:: cards
-                        
-                        	Card types that the package should be installed on
-                        	**type**\:  list of str
-                        
-                        .. attribute:: composite
-                        
-                        	TRUE if package is a composite package
-                        	**type**\:  bool
-                        
-                        .. attribute:: compressed_size
-                        
-                        	Compressed size of package
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: date
-                        
-                        	Time and date that the package was built
-                        	**type**\:  str
-                        
-                        .. attribute:: depth
-                        
-                        	Number of layers of parent packages
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: description
-                        
-                        	Description of the package
-                        	**type**\:  str
-                        
-                        .. attribute:: group_type
-                        
-                        	Group type of the package
-                        	**type**\:   :py:class:`InstmgrGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrGroup>`
-                        
-                        .. attribute:: name
-                        
-                        	Name of the package
-                        	**type**\:  str
-                        
-                        .. attribute:: package_type
-                        
-                        	Type of the package
-                        	**type**\:   :py:class:`InstmgrPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPkg>`
-                        
-                        .. attribute:: release
-                        
-                        	Release that the package belongs to
-                        	**type**\:  str
-                        
-                        .. attribute:: restart_info
-                        
-                        	Restart info of the package
-                        	**type**\:  str
-                        
-                        .. attribute:: source
-                        
-                        	Identifies the provider of the package
-                        	**type**\:  str
-                        
-                        .. attribute:: sub_pkg
-                        
-                        	Sub\-package info of the package
-                        	**type**\: list of    :py:class:`SubPkg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg>`
-                        
-                        .. attribute:: uncompressed_size
-                        
-                        	Uncompressed size of package
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: vendor
-                        
-                        	Information about the vendor that supplied the package
-                        	**type**\:  str
-                        
-                        .. attribute:: version
-                        
-                        	Version of the package
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.Software.PackageDevices.PackageDevice.Packages.Package, self).__init__()
-
-                            self.yang_name = "package"
-                            self.yang_parent_name = "packages"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"sub-pkg" : ("sub_pkg", Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg)}
-
-                            self.package_name = YLeaf(YType.str, "package-name")
-
-                            self.base = YLeaf(YType.str, "base")
-
-                            self.bootable = YLeaf(YType.boolean, "bootable")
-
-                            self.cards = YLeafList(YType.str, "cards")
-
-                            self.composite = YLeaf(YType.boolean, "composite")
-
-                            self.compressed_size = YLeaf(YType.uint32, "compressed-size")
-
-                            self.date = YLeaf(YType.str, "date")
-
-                            self.depth = YLeaf(YType.uint32, "depth")
-
-                            self.description = YLeaf(YType.str, "description")
-
-                            self.group_type = YLeaf(YType.enumeration, "group-type")
-
-                            self.name = YLeaf(YType.str, "name")
-
-                            self.package_type = YLeaf(YType.enumeration, "package-type")
-
-                            self.release = YLeaf(YType.str, "release")
-
-                            self.restart_info = YLeaf(YType.str, "restart-info")
-
-                            self.source = YLeaf(YType.str, "source")
-
-                            self.uncompressed_size = YLeaf(YType.uint32, "uncompressed-size")
-
-                            self.vendor = YLeaf(YType.str, "vendor")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.sub_pkg = YList(self)
-                            self._segment_path = lambda: "package" + "[package-name='" + self.package_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package, ['package_name', 'base', 'bootable', 'cards', 'composite', 'compressed_size', 'date', 'depth', 'description', 'group_type', 'name', 'package_type', 'release', 'restart_info', 'source', 'uncompressed_size', 'vendor', 'version'], name, value)
-
-
-                        class SubPkg(Entity):
-                            """
-                            Sub\-package info of the package
-                            
-                            .. attribute:: name
-                            
-                            	Name of the sub\-package
-                            	**type**\:  str
-                            
-                            .. attribute:: node_types
-                            
-                            	Node types of the package
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, self).__init__()
-
-                                self.yang_name = "sub-pkg"
-                                self.yang_parent_name = "package"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.name = YLeaf(YType.str, "name")
-
-                                self.node_types = YLeaf(YType.uint64, "node-types")
-                                self._segment_path = lambda: "sub-pkg"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.Software.PackageDevices.PackageDevice.Packages.Package.SubPkg, ['name', 'node_types'], name, value)
+                                self._perform_setattr(Install.Software.ComponentDevices.ComponentDevice.ComponentPackages.ComponentPackage.Component, ['component_name', 'name', 'version', 'release', 'description', 'files'], name, value)
 
 
     class SoftwareInventory(Entity):
         """
         Information of install operations
-        
-        .. attribute:: active
-        
-        	Active inventory information
-        	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active>`
         
         .. attribute:: committed
         
@@ -4678,6 +2958,11 @@ class Install(Entity):
         	Install operation requests
         	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests>`
         
+        .. attribute:: active
+        
+        	Active inventory information
+        	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active>`
+        
         
 
         """
@@ -4692,13 +2977,8 @@ class Install(Entity):
             self.yang_parent_name = "install"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"active" : ("active", Install.SoftwareInventory.Active), "committed" : ("committed", Install.SoftwareInventory.Committed), "inactive" : ("inactive", Install.SoftwareInventory.Inactive), "requests" : ("requests", Install.SoftwareInventory.Requests)}
+            self._child_container_classes = {"committed" : ("committed", Install.SoftwareInventory.Committed), "inactive" : ("inactive", Install.SoftwareInventory.Inactive), "requests" : ("requests", Install.SoftwareInventory.Requests), "active" : ("active", Install.SoftwareInventory.Active)}
             self._child_list_classes = {}
-
-            self.active = Install.SoftwareInventory.Active()
-            self.active.parent = self
-            self._children_name_map["active"] = "active"
-            self._children_yang_names.add("active")
 
             self.committed = Install.SoftwareInventory.Committed()
             self.committed.parent = self
@@ -4714,1304 +2994,28 @@ class Install(Entity):
             self.requests.parent = self
             self._children_name_map["requests"] = "requests"
             self._children_yang_names.add("requests")
+
+            self.active = Install.SoftwareInventory.Active()
+            self.active.parent = self
+            self._children_name_map["active"] = "active"
+            self._children_yang_names.add("active")
             self._segment_path = lambda: "software-inventory"
             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
-
-
-        class Active(Entity):
-            """
-            Active inventory information
-            
-            .. attribute:: inventories
-            
-            	Software inventory
-            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories>`
-            
-            .. attribute:: summary
-            
-            	Summarized inventory information
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary>`
-            
-            
-
-            """
-
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Install.SoftwareInventory.Active, self).__init__()
-
-                self.yang_name = "active"
-                self.yang_parent_name = "software-inventory"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"inventories" : ("inventories", Install.SoftwareInventory.Active.Inventories), "summary" : ("summary", Install.SoftwareInventory.Active.Summary)}
-                self._child_list_classes = {}
-
-                self.inventories = Install.SoftwareInventory.Active.Inventories()
-                self.inventories.parent = self
-                self._children_name_map["inventories"] = "inventories"
-                self._children_yang_names.add("inventories")
-
-                self.summary = Install.SoftwareInventory.Active.Summary()
-                self.summary.parent = self
-                self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
-                self._segment_path = lambda: "active"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
-
-
-            class Inventories(Entity):
-                """
-                Software inventory
-                
-                .. attribute:: inventory
-                
-                	Inventory information for specific node
-                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.SoftwareInventory.Active.Inventories, self).__init__()
-
-                    self.yang_name = "inventories"
-                    self.yang_parent_name = "active"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Active.Inventories.Inventory)}
-
-                    self.inventory = YList(self)
-                    self._segment_path = lambda: "inventories"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.SoftwareInventory.Active.Inventories, [], name, value)
-
-
-                class Inventory(Entity):
-                    """
-                    Inventory information for specific node
-                    
-                    .. attribute:: node_name  <key>
-                    
-                    	Node name
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: boot_image_name
-                    
-                    	Name of the boot image
-                    	**type**\:  str
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath>`
-                    
-                    .. attribute:: major
-                    
-                    	Major data version number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: minor
-                    
-                    	Minor data version number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_type
-                    
-                    	Node's type
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: secure_domain_router_name
-                    
-                    	SDR name
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Active.Inventories.Inventory, self).__init__()
-
-                        self.yang_name = "inventory"
-                        self.yang_parent_name = "inventories"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                        self.major = YLeaf(YType.uint32, "major")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.node_type = YLeaf(YType.uint64, "node-type")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.load_path = YList(self)
-                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/inventories/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory, ['node_name', 'boot_image_name', 'major', 'minor', 'node_type', 'secure_domain_router_name'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "inventory"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-            class Summary(Entity):
-                """
-                Summarized inventory information
-                
-                .. attribute:: admin_load_path
-                
-                	Admin Resources load path
-                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath>`
-                
-                .. attribute:: default_load_path
-                
-                	Default load path
-                	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath>`
-                
-                .. attribute:: location_load_path
-                
-                	Location load paths
-                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath>`
-                
-                .. attribute:: sdr_load_path
-                
-                	SDR load paths
-                	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.SoftwareInventory.Active.Summary, self).__init__()
-
-                    self.yang_name = "summary"
-                    self.yang_parent_name = "active"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath), "default-load-path" : ("default_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath)}
-                    self._child_list_classes = {"location-load-path" : ("location_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath), "sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath)}
-
-                    self.admin_load_path = Install.SoftwareInventory.Active.Summary.AdminLoadPath()
-                    self.admin_load_path.parent = self
-                    self._children_name_map["admin_load_path"] = "admin-load-path"
-                    self._children_yang_names.add("admin-load-path")
-
-                    self.default_load_path = Install.SoftwareInventory.Active.Summary.DefaultLoadPath()
-                    self.default_load_path.parent = self
-                    self._children_name_map["default_load_path"] = "default-load-path"
-                    self._children_yang_names.add("default-load-path")
-
-                    self.location_load_path = YList(self)
-                    self.sdr_load_path = YList(self)
-                    self._segment_path = lambda: "summary"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.SoftwareInventory.Active.Summary, [], name, value)
-
-
-                class AdminLoadPath(Entity):
-                    """
-                    Admin Resources load path
-                    
-                    .. attribute:: load_path
-                    
-                    	Admin Resources load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath>`
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.AdminLoadPath, self).__init__()
-
-                        self.yang_name = "admin-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "admin-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath, ['request_id'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Admin Resources load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                class DefaultLoadPath(Entity):
-                    """
-                    Default load path
-                    
-                    .. attribute:: admin_match
-                    
-                    	Does this match the Admin Resources load path?
-                    	**type**\:  bool
-                    
-                    .. attribute:: load_path
-                    
-                    	Default load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath>`
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: secure_domain_router_name
-                    
-                    	Names of SDRs this applies to
-                    	**type**\:  list of str
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, self).__init__()
-
-                        self.yang_name = "default-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath)}
-
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "default-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, ['admin_match', 'request_id', 'secure_domain_router_name'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Default load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "default-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "default-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                class LocationLoadPath(Entity):
-                    """
-                    Location load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath>`
-                    
-                    .. attribute:: node_name
-                    
-                    	Node identifier
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: secure_domain_router_name
-                    
-                    	SDR name
-                    	**type**\:  str
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.LocationLoadPath, self).__init__()
-
-                        self.yang_name = "location-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "location-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath, ['node_name', 'request_id', 'secure_domain_router_name'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "location-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "location-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                class SdrLoadPath(Entity):
-                    """
-                    SDR load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath>`
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: secure_domain_router_name
-                    
-                    	SDR name
-                    	**type**\:  str
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Active.Summary.SdrLoadPath, self).__init__()
-
-                        self.yang_name = "sdr-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "sdr-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "sdr-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "sdr-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
         class Committed(Entity):
             """
             Committed inventory information
             
-            .. attribute:: inventories
-            
-            	Software inventory
-            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories>`
-            
             .. attribute:: summary
             
             	Summarized inventory information
             	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary>`
+            
+            .. attribute:: inventories
+            
+            	Software inventory
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories>`
             
             
 
@@ -6027,253 +3031,45 @@ class Install(Entity):
                 self.yang_parent_name = "software-inventory"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"inventories" : ("inventories", Install.SoftwareInventory.Committed.Inventories), "summary" : ("summary", Install.SoftwareInventory.Committed.Summary)}
+                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Committed.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Committed.Inventories)}
                 self._child_list_classes = {}
-
-                self.inventories = Install.SoftwareInventory.Committed.Inventories()
-                self.inventories.parent = self
-                self._children_name_map["inventories"] = "inventories"
-                self._children_yang_names.add("inventories")
 
                 self.summary = Install.SoftwareInventory.Committed.Summary()
                 self.summary.parent = self
                 self._children_name_map["summary"] = "summary"
                 self._children_yang_names.add("summary")
+
+                self.inventories = Install.SoftwareInventory.Committed.Inventories()
+                self.inventories.parent = self
+                self._children_name_map["inventories"] = "inventories"
+                self._children_yang_names.add("inventories")
                 self._segment_path = lambda: "committed"
                 self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
-
-
-            class Inventories(Entity):
-                """
-                Software inventory
-                
-                .. attribute:: inventory
-                
-                	Inventory information for specific node
-                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory>`
-                
-                
-
-                """
-
-                _prefix = 'installmgr-admin-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Install.SoftwareInventory.Committed.Inventories, self).__init__()
-
-                    self.yang_name = "inventories"
-                    self.yang_parent_name = "committed"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Committed.Inventories.Inventory)}
-
-                    self.inventory = YList(self)
-                    self._segment_path = lambda: "inventories"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Install.SoftwareInventory.Committed.Inventories, [], name, value)
-
-
-                class Inventory(Entity):
-                    """
-                    Inventory information for specific node
-                    
-                    .. attribute:: node_name  <key>
-                    
-                    	Node name
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: boot_image_name
-                    
-                    	Name of the boot image
-                    	**type**\:  str
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath>`
-                    
-                    .. attribute:: major
-                    
-                    	Major data version number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: minor
-                    
-                    	Minor data version number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_type
-                    
-                    	Node's type
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: secure_domain_router_name
-                    
-                    	SDR name
-                    	**type**\:  str
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Inventories.Inventory, self).__init__()
-
-                        self.yang_name = "inventory"
-                        self.yang_parent_name = "inventories"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
-                        self.major = YLeaf(YType.uint32, "major")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.node_type = YLeaf(YType.uint64, "node-type")
-
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
-                        self.load_path = YList(self)
-                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/inventories/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory, ['node_name', 'boot_image_name', 'major', 'minor', 'node_type', 'secure_domain_router_name'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "inventory"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
             class Summary(Entity):
                 """
                 Summarized inventory information
                 
-                .. attribute:: admin_load_path
-                
-                	Admin Resources load path
-                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath>`
-                
                 .. attribute:: default_load_path
                 
                 	Default load path
                 	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath>`
                 
-                .. attribute:: location_load_path
+                .. attribute:: admin_load_path
                 
-                	Location load paths
-                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath>`
+                	Admin Resources load path
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath>`
                 
                 .. attribute:: sdr_load_path
                 
                 	SDR load paths
                 	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath>`
+                
+                .. attribute:: location_load_path
+                
+                	Location load paths
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath>`
                 
                 
 
@@ -6289,21 +3085,21 @@ class Install(Entity):
                     self.yang_parent_name = "committed"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath), "default-load-path" : ("default_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath)}
-                    self._child_list_classes = {"location-load-path" : ("location_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath), "sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath)}
-
-                    self.admin_load_path = Install.SoftwareInventory.Committed.Summary.AdminLoadPath()
-                    self.admin_load_path.parent = self
-                    self._children_name_map["admin_load_path"] = "admin-load-path"
-                    self._children_yang_names.add("admin-load-path")
+                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath)}
+                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Committed.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath)}
 
                     self.default_load_path = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath()
                     self.default_load_path.parent = self
                     self._children_name_map["default_load_path"] = "default-load-path"
                     self._children_yang_names.add("default-load-path")
 
-                    self.location_load_path = YList(self)
+                    self.admin_load_path = Install.SoftwareInventory.Committed.Summary.AdminLoadPath()
+                    self.admin_load_path.parent = self
+                    self._children_name_map["admin_load_path"] = "admin-load-path"
+                    self._children_yang_names.add("admin-load-path")
+
                     self.sdr_load_path = YList(self)
+                    self.location_load_path = YList(self)
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/%s" % self._segment_path()
 
@@ -6311,14 +3107,9 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Committed.Summary, [], name, value)
 
 
-                class AdminLoadPath(Entity):
+                class DefaultLoadPath(Entity):
                     """
-                    Admin Resources load path
-                    
-                    .. attribute:: load_path
-                    
-                    	Admin Resources load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath>`
+                    Default load path
                     
                     .. attribute:: request_id
                     
@@ -6326,249 +3117,21 @@ class Install(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, self).__init__()
-
-                        self.yang_name = "admin-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "admin-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, ['request_id'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Admin Resources load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                class DefaultLoadPath(Entity):
-                    """
-                    Default load path
                     
                     .. attribute:: admin_match
                     
                     	Does this match the Admin Resources load path?
                     	**type**\:  bool
                     
-                    .. attribute:: load_path
-                    
-                    	Default load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath>`
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: secure_domain_router_name
                     
                     	Names of SDRs this applies to
                     	**type**\:  list of str
+                    
+                    .. attribute:: load_path
+                    
+                    	Default load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
@@ -6592,9 +3155,9 @@ class Install(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath)}
 
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
                         self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.admin_match = YLeaf(YType.boolean, "admin-match")
 
                         self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
 
@@ -6604,17 +3167,12 @@ class Install(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, ['admin_match', 'request_id', 'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
                         """
                         Default load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
                         
                         .. attribute:: package
                         
@@ -6624,6 +3182,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -6643,9 +3206,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -6655,7 +3218,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/default-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -6703,11 +3266,6 @@ class Install(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -6716,6 +3274,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -6735,9 +3298,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -6747,7 +3310,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/default-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -6791,21 +3354,9 @@ class Install(Entity):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
-                class LocationLoadPath(Entity):
+                class AdminLoadPath(Entity):
                     """
-                    Location load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath>`
-                    
-                    .. attribute:: node_name
-                    
-                    	Node identifier
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    Admin Resources load path
                     
                     .. attribute:: request_id
                     
@@ -6814,15 +3365,15 @@ class Install(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: secure_domain_router_name
+                    .. attribute:: load_path
                     
-                    	SDR name
-                    	**type**\:  str
+                    	Admin Resources load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -6832,47 +3383,43 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, self).__init__()
+                        super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, self).__init__()
 
-                        self.yang_name = "location-load-path"
+                        self.yang_name = "admin-load-path"
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath)}
 
                         self.request_id = YLeaf(YType.uint32, "request-id")
 
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "location-load-path"
+                        self._segment_path = lambda: "admin-load-path"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, ['node_name', 'request_id', 'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
                     class LoadPath(Entity):
                         """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
+                        Admin Resources load path
                         
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -6883,28 +3430,28 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, self).__init__()
+                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
-                            self.yang_parent_name = "location-load-path"
+                            self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package)}
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.version = YLeaf(YType.str, "version")
 
-                            self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package()
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package()
                             self.package.parent = self
                             self._children_name_map["package"] = "package"
                             self._children_yang_names.add("package")
                             self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/%s" % self._segment_path()
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -6929,7 +3476,7 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -6942,29 +3489,29 @@ class Install(Entity):
 
                                 self.name = YLeaf(YType.str, "name")
                                 self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/load-path/%s" % self._segment_path()
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/load-path/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
                     class StandbyLoadPath(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -6975,28 +3522,28 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+                            super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "location-load-path"
+                            self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package)}
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.version = YLeaf(YType.str, "version")
 
-                            self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package()
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
                             self._children_name_map["package"] = "package"
                             self._children_yang_names.add("package")
                             self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/%s" % self._segment_path()
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7021,7 +3568,7 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+                                super(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -7034,20 +3581,15 @@ class Install(Entity):
 
                                 self.name = YLeaf(YType.str, "name")
                                 self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/standby-load-path/%s" % self._segment_path()
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
                 class SdrLoadPath(Entity):
                     """
                     SDR load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -7060,6 +3602,11 @@ class Install(Entity):
                     
                     	SDR name
                     	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
@@ -7100,11 +3647,6 @@ class Install(Entity):
                         """
                         Load path
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -7113,6 +3655,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -7132,9 +3679,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -7144,7 +3691,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/sdr-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7192,11 +3739,6 @@ class Install(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -7205,6 +3747,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -7224,9 +3771,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -7236,7 +3783,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/sdr-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7280,48 +3827,251 @@ class Install(Entity):
                                 self._perform_setattr(Install.SoftwareInventory.Committed.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
-        class Inactive(Entity):
-            """
-            Inactive inventory information
-            
-            .. attribute:: inventories
-            
-            	Software inventory
-            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories>`
-            
-            .. attribute:: summary
-            
-            	Summarized inventory information
-            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary>`
-            
-            
+                class LocationLoadPath(Entity):
+                    """
+                    Location load paths
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: node_name
+                    
+                    	Node identifier
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath>`
+                    
+                    
 
-            """
+                    """
 
-            _prefix = 'installmgr-admin-oper'
-            _revision = '2015-11-09'
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
 
-            def __init__(self):
-                super(Install.SoftwareInventory.Inactive, self).__init__()
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, self).__init__()
 
-                self.yang_name = "inactive"
-                self.yang_parent_name = "software-inventory"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"inventories" : ("inventories", Install.SoftwareInventory.Inactive.Inventories), "summary" : ("summary", Install.SoftwareInventory.Inactive.Summary)}
-                self._child_list_classes = {}
+                        self.yang_name = "location-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath)}
 
-                self.inventories = Install.SoftwareInventory.Inactive.Inventories()
-                self.inventories.parent = self
-                self._children_name_map["inventories"] = "inventories"
-                self._children_yang_names.add("inventories")
+                        self.request_id = YLeaf(YType.uint32, "request-id")
 
-                self.summary = Install.SoftwareInventory.Inactive.Summary()
-                self.summary.parent = self
-                self._children_name_map["summary"] = "summary"
-                self._children_yang_names.add("summary")
-                self._segment_path = lambda: "inactive"
-                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "location-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/summary/location-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
             class Inventories(Entity):
@@ -7331,7 +4081,7 @@ class Install(Entity):
                 .. attribute:: inventory
                 
                 	Inventory information for specific node
-                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory>`
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory>`
                 
                 
 
@@ -7341,21 +4091,21 @@ class Install(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Install.SoftwareInventory.Inactive.Inventories, self).__init__()
+                    super(Install.SoftwareInventory.Committed.Inventories, self).__init__()
 
                     self.yang_name = "inventories"
-                    self.yang_parent_name = "inactive"
+                    self.yang_parent_name = "committed"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self._child_container_classes = {}
-                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Inactive.Inventories.Inventory)}
+                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Committed.Inventories.Inventory)}
 
                     self.inventory = YList(self)
                     self._segment_path = lambda: "inventories"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories, [], name, value)
+                    self._perform_setattr(Install.SoftwareInventory.Committed.Inventories, [], name, value)
 
 
                 class Inventory(Entity):
@@ -7366,18 +4116,6 @@ class Install(Entity):
                     
                     	Node name
                     	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: boot_image_name
-                    
-                    	Name of the boot image
-                    	**type**\:  str
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath>`
                     
                     .. attribute:: major
                     
@@ -7393,6 +4131,11 @@ class Install(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: boot_image_name
+                    
+                    	Name of the boot image
+                    	**type**\:  str
+                    
                     .. attribute:: node_type
                     
                     	Node's type
@@ -7405,6 +4148,11 @@ class Install(Entity):
                     	SDR name
                     	**type**\:  str
                     
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath>`
+                    
                     
 
                     """
@@ -7413,22 +4161,22 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Inventories.Inventory, self).__init__()
+                        super(Install.SoftwareInventory.Committed.Inventories.Inventory, self).__init__()
 
                         self.yang_name = "inventory"
                         self.yang_parent_name = "inventories"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath)}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath)}
 
                         self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
 
                         self.major = YLeaf(YType.uint32, "major")
 
                         self.minor = YLeaf(YType.uint32, "minor")
+
+                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
 
                         self.node_type = YLeaf(YType.uint64, "node-type")
 
@@ -7436,29 +4184,29 @@ class Install(Entity):
 
                         self.load_path = YList(self)
                         self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/inventories/%s" % self._segment_path()
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/committed/inventories/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory, ['node_name', 'boot_image_name', 'major', 'minor', 'node_type', 'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
                         """
                         Load path
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package>`
                         
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -7469,27 +4217,27 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, self).__init__()
+                            super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
                             self.yang_parent_name = "inventory"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package)}
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package)}
                             self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.version = YLeaf(YType.str, "version")
 
-                            self.package = Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package()
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package()
                             self.package.parent = self
                             self._children_name_map["package"] = "package"
                             self._children_yang_names.add("package")
                             self._segment_path = lambda: "load-path"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7514,7 +4262,7 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, self).__init__()
+                                super(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -7529,32 +4277,76 @@ class Install(Entity):
                                 self._segment_path = lambda: "package"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Committed.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+        class Inactive(Entity):
+            """
+            Inactive inventory information
+            
+            .. attribute:: summary
+            
+            	Summarized inventory information
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary>`
+            
+            .. attribute:: inventories
+            
+            	Software inventory
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories>`
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.SoftwareInventory.Inactive, self).__init__()
+
+                self.yang_name = "inactive"
+                self.yang_parent_name = "software-inventory"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Inactive.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Inactive.Inventories)}
+                self._child_list_classes = {}
+
+                self.summary = Install.SoftwareInventory.Inactive.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+                self._children_yang_names.add("summary")
+
+                self.inventories = Install.SoftwareInventory.Inactive.Inventories()
+                self.inventories.parent = self
+                self._children_name_map["inventories"] = "inventories"
+                self._children_yang_names.add("inventories")
+                self._segment_path = lambda: "inactive"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
 
 
             class Summary(Entity):
                 """
                 Summarized inventory information
                 
-                .. attribute:: admin_load_path
-                
-                	Admin Resources load path
-                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath>`
-                
                 .. attribute:: default_load_path
                 
                 	Default load path
                 	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath>`
                 
-                .. attribute:: location_load_path
+                .. attribute:: admin_load_path
                 
-                	Location load paths
-                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath>`
+                	Admin Resources load path
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath>`
                 
                 .. attribute:: sdr_load_path
                 
                 	SDR load paths
                 	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath>`
+                
+                .. attribute:: location_load_path
+                
+                	Location load paths
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath>`
                 
                 
 
@@ -7570,21 +4362,21 @@ class Install(Entity):
                     self.yang_parent_name = "inactive"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath), "default-load-path" : ("default_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath)}
-                    self._child_list_classes = {"location-load-path" : ("location_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath), "sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath)}
-
-                    self.admin_load_path = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath()
-                    self.admin_load_path.parent = self
-                    self._children_name_map["admin_load_path"] = "admin-load-path"
-                    self._children_yang_names.add("admin-load-path")
+                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath)}
+                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath)}
 
                     self.default_load_path = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath()
                     self.default_load_path.parent = self
                     self._children_name_map["default_load_path"] = "default-load-path"
                     self._children_yang_names.add("default-load-path")
 
-                    self.location_load_path = YList(self)
+                    self.admin_load_path = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath()
+                    self.admin_load_path.parent = self
+                    self._children_name_map["admin_load_path"] = "admin-load-path"
+                    self._children_yang_names.add("admin-load-path")
+
                     self.sdr_load_path = YList(self)
+                    self.location_load_path = YList(self)
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/%s" % self._segment_path()
 
@@ -7592,14 +4384,9 @@ class Install(Entity):
                     self._perform_setattr(Install.SoftwareInventory.Inactive.Summary, [], name, value)
 
 
-                class AdminLoadPath(Entity):
+                class DefaultLoadPath(Entity):
                     """
-                    Admin Resources load path
-                    
-                    .. attribute:: load_path
-                    
-                    	Admin Resources load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath>`
+                    Default load path
                     
                     .. attribute:: request_id
                     
@@ -7607,249 +4394,21 @@ class Install(Entity):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: standby_load_path
-                    
-                    	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'installmgr-admin-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, self).__init__()
-
-                        self.yang_name = "admin-load-path"
-                        self.yang_parent_name = "summary"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath)}
-
-                        self.request_id = YLeaf(YType.uint32, "request-id")
-
-                        self.load_path = YList(self)
-                        self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "admin-load-path"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, ['request_id'], name, value)
-
-
-                    class LoadPath(Entity):
-                        """
-                        Admin Resources load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, self).__init__()
-
-                            self.yang_name = "load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                    class StandbyLoadPath(Entity):
-                        """
-                        Load paths for standby nodes
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
-                        .. attribute:: package
-                        
-                        	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package>`
-                        
-                        .. attribute:: version
-                        
-                        	Version
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'installmgr-admin-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
-
-                            self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "admin-load-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package)}
-                            self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
-
-                            self.version = YLeaf(YType.str, "version")
-
-                            self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package()
-                            self.package.parent = self
-                            self._children_name_map["package"] = "package"
-                            self._children_yang_names.add("package")
-                            self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/%s" % self._segment_path()
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
-
-
-                        class Package(Entity):
-                            """
-                            Package
-                            
-                            .. attribute:: device_name
-                            
-                            	Device name
-                            	**type**\:  str
-                            
-                            .. attribute:: name
-                            
-                            	Package group name
-                            	**type**\:  str
-                            
-                            
-
-                            """
-
-                            _prefix = 'installmgr-admin-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
-
-                                self.yang_name = "package"
-                                self.yang_parent_name = "standby-load-path"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = False
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.device_name = YLeaf(YType.str, "device-name")
-
-                                self.name = YLeaf(YType.str, "name")
-                                self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
-
-
-                class DefaultLoadPath(Entity):
-                    """
-                    Default load path
                     
                     .. attribute:: admin_match
                     
                     	Does this match the Admin Resources load path?
                     	**type**\:  bool
                     
-                    .. attribute:: load_path
-                    
-                    	Default load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath>`
-                    
-                    .. attribute:: request_id
-                    
-                    	Install op affecting scope
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: secure_domain_router_name
                     
                     	Names of SDRs this applies to
                     	**type**\:  list of str
+                    
+                    .. attribute:: load_path
+                    
+                    	Default load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
@@ -7873,9 +4432,9 @@ class Install(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath)}
 
-                        self.admin_match = YLeaf(YType.boolean, "admin-match")
-
                         self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.admin_match = YLeaf(YType.boolean, "admin-match")
 
                         self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
 
@@ -7885,17 +4444,12 @@ class Install(Entity):
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, ['admin_match', 'request_id', 'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
 
 
                     class LoadPath(Entity):
                         """
                         Default load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
                         
                         .. attribute:: package
                         
@@ -7905,6 +4459,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -7924,9 +4483,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -7936,7 +4495,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/default-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -7984,11 +4543,6 @@ class Install(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -7997,6 +4551,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -8016,9 +4575,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -8028,7 +4587,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/default-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8072,21 +4631,9 @@ class Install(Entity):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
-                class LocationLoadPath(Entity):
+                class AdminLoadPath(Entity):
                     """
-                    Location load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath>`
-                    
-                    .. attribute:: node_name
-                    
-                    	Node identifier
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+                    Admin Resources load path
                     
                     .. attribute:: request_id
                     
@@ -8095,15 +4642,15 @@ class Install(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: secure_domain_router_name
+                    .. attribute:: load_path
                     
-                    	SDR name
-                    	**type**\:  str
+                    	Admin Resources load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
                     	Load paths for standby nodes
-                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath>`
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath>`
                     
                     
 
@@ -8113,47 +4660,43 @@ class Install(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, self).__init__()
+                        super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, self).__init__()
 
-                        self.yang_name = "location-load-path"
+                        self.yang_name = "admin-load-path"
                         self.yang_parent_name = "summary"
                         self.is_top_level_class = False
                         self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath)}
-
-                        self.node_name = YLeaf(YType.str, "node-name")
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath)}
 
                         self.request_id = YLeaf(YType.uint32, "request-id")
 
-                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
-
                         self.load_path = YList(self)
                         self.standby_load_path = YList(self)
-                        self._segment_path = lambda: "location-load-path"
+                        self._segment_path = lambda: "admin-load-path"
                         self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, ['node_name', 'request_id', 'secure_domain_router_name'], name, value)
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath, ['request_id'], name, value)
 
 
                     class LoadPath(Entity):
                         """
-                        Load path
-                        
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
+                        Admin Resources load path
                         
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package>`
                         
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -8164,28 +4707,28 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, self).__init__()
+                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, self).__init__()
 
                             self.yang_name = "load-path"
-                            self.yang_parent_name = "location-load-path"
+                            self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package)}
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.version = YLeaf(YType.str, "version")
 
-                            self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package()
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package()
                             self.package.parent = self
                             self._children_name_map["package"] = "package"
                             self._children_yang_names.add("package")
                             self._segment_path = lambda: "load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/%s" % self._segment_path()
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8210,7 +4753,7 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "load-path"
@@ -8223,29 +4766,29 @@ class Install(Entity):
 
                                 self.name = YLeaf(YType.str, "name")
                                 self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/load-path/%s" % self._segment_path()
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/load-path/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
                     class StandbyLoadPath(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
-                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package>`
                         
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -8256,28 +4799,28 @@ class Install(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+                            super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
 
                             self.yang_name = "standby-load-path"
-                            self.yang_parent_name = "location-load-path"
+                            self.yang_parent_name = "admin-load-path"
                             self.is_top_level_class = False
                             self.has_list_ancestor = False
-                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package)}
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
-
-                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.version = YLeaf(YType.str, "version")
 
-                            self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package()
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
                             self._children_name_map["package"] = "package"
                             self._children_yang_names.add("package")
                             self._segment_path = lambda: "standby-load-path"
-                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/%s" % self._segment_path()
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8302,7 +4845,7 @@ class Install(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+                                super(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
 
                                 self.yang_name = "package"
                                 self.yang_parent_name = "standby-load-path"
@@ -8315,20 +4858,15 @@ class Install(Entity):
 
                                 self.name = YLeaf(YType.str, "name")
                                 self._segment_path = lambda: "package"
-                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/standby-load-path/%s" % self._segment_path()
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
 
 
                 class SdrLoadPath(Entity):
                     """
                     SDR load paths
-                    
-                    .. attribute:: load_path
-                    
-                    	Load path
-                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: request_id
                     
@@ -8341,6 +4879,11 @@ class Install(Entity):
                     
                     	SDR name
                     	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath>`
                     
                     .. attribute:: standby_load_path
                     
@@ -8381,11 +4924,6 @@ class Install(Entity):
                         """
                         Load path
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -8394,6 +4932,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -8413,9 +4956,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath.Package()
                             self.package.parent = self
@@ -8425,7 +4968,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/sdr-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8473,11 +5016,6 @@ class Install(Entity):
                         """
                         Load paths for standby nodes
                         
-                        .. attribute:: build_information
-                        
-                        	Build information
-                        	**type**\:  str
-                        
                         .. attribute:: package
                         
                         	Package
@@ -8486,6 +5024,11 @@ class Install(Entity):
                         .. attribute:: version
                         
                         	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
                         	**type**\:  str
                         
                         
@@ -8505,9 +5048,9 @@ class Install(Entity):
                             self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package)}
                             self._child_list_classes = {}
 
-                            self.build_information = YLeaf(YType.str, "build-information")
-
                             self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
 
                             self.package = Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package()
                             self.package.parent = self
@@ -8517,7 +5060,7 @@ class Install(Entity):
                             self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/sdr-load-path/%s" % self._segment_path()
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, ['build_information', 'version'], name, value)
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
 
 
                         class Package(Entity):
@@ -8559,6 +5102,459 @@ class Install(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                class LocationLoadPath(Entity):
+                    """
+                    Location load paths
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: node_name
+                    
+                    	Node identifier
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, self).__init__()
+
+                        self.yang_name = "location-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath)}
+
+                        self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "location-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/summary/location-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+            class Inventories(Entity):
+                """
+                Software inventory
+                
+                .. attribute:: inventory
+                
+                	Inventory information for specific node
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.SoftwareInventory.Inactive.Inventories, self).__init__()
+
+                    self.yang_name = "inventories"
+                    self.yang_parent_name = "inactive"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Inactive.Inventories.Inventory)}
+
+                    self.inventory = YList(self)
+                    self._segment_path = lambda: "inventories"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories, [], name, value)
+
+
+                class Inventory(Entity):
+                    """
+                    Inventory information for specific node
+                    
+                    .. attribute:: node_name  <key>
+                    
+                    	Node name
+                    	**type**\:  str
+                    
+                    .. attribute:: major
+                    
+                    	Major data version number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: minor
+                    
+                    	Minor data version number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: boot_image_name
+                    
+                    	Name of the boot image
+                    	**type**\:  str
+                    
+                    .. attribute:: node_type
+                    
+                    	Node's type
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Inactive.Inventories.Inventory, self).__init__()
+
+                        self.yang_name = "inventory"
+                        self.yang_parent_name = "inventories"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath)}
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.major = YLeaf(YType.uint32, "major")
+
+                        self.minor = YLeaf(YType.uint32, "minor")
+
+                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
+
+                        self.node_type = YLeaf(YType.uint64, "node-type")
+
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.load_path = YList(self)
+                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/inactive/inventories/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "inventory"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Inactive.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
 
 
         class Requests(Entity):
@@ -8718,18 +5714,6 @@ class Install(Entity):
                             	Node name
                             	**type**\:  str
                             
-                            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                            
-                            .. attribute:: boot_image_name
-                            
-                            	Name of the boot image
-                            	**type**\:  str
-                            
-                            .. attribute:: load_path
-                            
-                            	Load path
-                            	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath>`
-                            
                             .. attribute:: major
                             
                             	Major data version number
@@ -8744,6 +5728,11 @@ class Install(Entity):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: boot_image_name
+                            
+                            	Name of the boot image
+                            	**type**\:  str
+                            
                             .. attribute:: node_type
                             
                             	Node's type
@@ -8755,6 +5744,11 @@ class Install(Entity):
                             
                             	SDR name
                             	**type**\:  str
+                            
+                            .. attribute:: load_path
+                            
+                            	Load path
+                            	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath>`
                             
                             
 
@@ -8775,11 +5769,11 @@ class Install(Entity):
 
                                 self.node_name = YLeaf(YType.str, "node-name")
 
-                                self.boot_image_name = YLeaf(YType.str, "boot-image-name")
-
                                 self.major = YLeaf(YType.uint32, "major")
 
                                 self.minor = YLeaf(YType.uint32, "minor")
+
+                                self.boot_image_name = YLeaf(YType.str, "boot-image-name")
 
                                 self.node_type = YLeaf(YType.uint64, "node-type")
 
@@ -8789,17 +5783,12 @@ class Install(Entity):
                                 self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory, ['node_name', 'boot_image_name', 'major', 'minor', 'node_type', 'secure_domain_router_name'], name, value)
+                                self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
 
 
                             class LoadPath(Entity):
                                 """
                                 Load path
-                                
-                                .. attribute:: build_information
-                                
-                                	Build information
-                                	**type**\:  str
                                 
                                 .. attribute:: package
                                 
@@ -8809,6 +5798,11 @@ class Install(Entity):
                                 .. attribute:: version
                                 
                                 	Version
+                                	**type**\:  str
+                                
+                                .. attribute:: build_information
+                                
+                                	Build information
                                 	**type**\:  str
                                 
                                 
@@ -8828,9 +5822,9 @@ class Install(Entity):
                                     self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package)}
                                     self._child_list_classes = {}
 
-                                    self.build_information = YLeaf(YType.str, "build-information")
-
                                     self.version = YLeaf(YType.str, "version")
+
+                                    self.build_information = YLeaf(YType.str, "build-information")
 
                                     self.package = Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package()
                                     self.package.parent = self
@@ -8839,7 +5833,7 @@ class Install(Entity):
                                     self._segment_path = lambda: "load-path"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath, ['build_information', 'version'], name, value)
+                                    self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
 
 
                                 class Package(Entity):
@@ -8880,6 +5874,2972 @@ class Install(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Install.SoftwareInventory.Requests.Requests.Request.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+        class Active(Entity):
+            """
+            Active inventory information
+            
+            .. attribute:: summary
+            
+            	Summarized inventory information
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary>`
+            
+            .. attribute:: inventories
+            
+            	Software inventory
+            	**type**\:   :py:class:`Inventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories>`
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.SoftwareInventory.Active, self).__init__()
+
+                self.yang_name = "active"
+                self.yang_parent_name = "software-inventory"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"summary" : ("summary", Install.SoftwareInventory.Active.Summary), "inventories" : ("inventories", Install.SoftwareInventory.Active.Inventories)}
+                self._child_list_classes = {}
+
+                self.summary = Install.SoftwareInventory.Active.Summary()
+                self.summary.parent = self
+                self._children_name_map["summary"] = "summary"
+                self._children_yang_names.add("summary")
+
+                self.inventories = Install.SoftwareInventory.Active.Inventories()
+                self.inventories.parent = self
+                self._children_name_map["inventories"] = "inventories"
+                self._children_yang_names.add("inventories")
+                self._segment_path = lambda: "active"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/%s" % self._segment_path()
+
+
+            class Summary(Entity):
+                """
+                Summarized inventory information
+                
+                .. attribute:: default_load_path
+                
+                	Default load path
+                	**type**\:   :py:class:`DefaultLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath>`
+                
+                .. attribute:: admin_load_path
+                
+                	Admin Resources load path
+                	**type**\:   :py:class:`AdminLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath>`
+                
+                .. attribute:: sdr_load_path
+                
+                	SDR load paths
+                	**type**\: list of    :py:class:`SdrLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath>`
+                
+                .. attribute:: location_load_path
+                
+                	Location load paths
+                	**type**\: list of    :py:class:`LocationLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.SoftwareInventory.Active.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "active"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"default-load-path" : ("default_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath), "admin-load-path" : ("admin_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath)}
+                    self._child_list_classes = {"sdr-load-path" : ("sdr_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath), "location-load-path" : ("location_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath)}
+
+                    self.default_load_path = Install.SoftwareInventory.Active.Summary.DefaultLoadPath()
+                    self.default_load_path.parent = self
+                    self._children_name_map["default_load_path"] = "default-load-path"
+                    self._children_yang_names.add("default-load-path")
+
+                    self.admin_load_path = Install.SoftwareInventory.Active.Summary.AdminLoadPath()
+                    self.admin_load_path.parent = self
+                    self._children_name_map["admin_load_path"] = "admin-load-path"
+                    self._children_yang_names.add("admin-load-path")
+
+                    self.sdr_load_path = YList(self)
+                    self.location_load_path = YList(self)
+                    self._segment_path = lambda: "summary"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.SoftwareInventory.Active.Summary, [], name, value)
+
+
+                class DefaultLoadPath(Entity):
+                    """
+                    Default load path
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: admin_match
+                    
+                    	Does this match the Admin Resources load path?
+                    	**type**\:  bool
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	Names of SDRs this applies to
+                    	**type**\:  list of str
+                    
+                    .. attribute:: load_path
+                    
+                    	Default load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, self).__init__()
+
+                        self.yang_name = "default-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath)}
+
+                        self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.admin_match = YLeaf(YType.boolean, "admin-match")
+
+                        self.secure_domain_router_name = YLeafList(YType.str, "secure-domain-router-name")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "default-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath, ['request_id', 'admin_match', 'secure_domain_router_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Default load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "default-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "default-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/default-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.DefaultLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                class AdminLoadPath(Entity):
+                    """
+                    Admin Resources load path
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: load_path
+                    
+                    	Admin Resources load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Active.Summary.AdminLoadPath, self).__init__()
+
+                        self.yang_name = "admin-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath)}
+
+                        self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "admin-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath, ['request_id'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Admin Resources load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "admin-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "admin-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/admin-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.AdminLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                class SdrLoadPath(Entity):
+                    """
+                    SDR load paths
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Active.Summary.SdrLoadPath, self).__init__()
+
+                        self.yang_name = "sdr-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath)}
+
+                        self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "sdr-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath, ['request_id', 'secure_domain_router_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "sdr-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "sdr-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/sdr-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.SdrLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                class LocationLoadPath(Entity):
+                    """
+                    Location load paths
+                    
+                    .. attribute:: request_id
+                    
+                    	Install op affecting scope
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: node_name
+                    
+                    	Node identifier
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath>`
+                    
+                    .. attribute:: standby_load_path
+                    
+                    	Load paths for standby nodes
+                    	**type**\: list of    :py:class:`StandbyLoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Active.Summary.LocationLoadPath, self).__init__()
+
+                        self.yang_name = "location-load-path"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath), "standby-load-path" : ("standby_load_path", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath)}
+
+                        self.request_id = YLeaf(YType.uint32, "request-id")
+
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.load_path = YList(self)
+                        self.standby_load_path = YList(self)
+                        self._segment_path = lambda: "location-load-path"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath, ['request_id', 'secure_domain_router_name', 'node_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+                    class StandbyLoadPath(Entity):
+                        """
+                        Load paths for standby nodes
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, self).__init__()
+
+                            self.yang_name = "standby-load-path"
+                            self.yang_parent_name = "location-load-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "standby-load-path"
+                            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/%s" % self._segment_path()
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "standby-load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+                                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/summary/location-load-path/standby-load-path/%s" % self._segment_path()
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Summary.LocationLoadPath.StandbyLoadPath.Package, ['device_name', 'name'], name, value)
+
+
+            class Inventories(Entity):
+                """
+                Software inventory
+                
+                .. attribute:: inventory
+                
+                	Inventory information for specific node
+                	**type**\: list of    :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.SoftwareInventory.Active.Inventories, self).__init__()
+
+                    self.yang_name = "inventories"
+                    self.yang_parent_name = "active"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"inventory" : ("inventory", Install.SoftwareInventory.Active.Inventories.Inventory)}
+
+                    self.inventory = YList(self)
+                    self._segment_path = lambda: "inventories"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.SoftwareInventory.Active.Inventories, [], name, value)
+
+
+                class Inventory(Entity):
+                    """
+                    Inventory information for specific node
+                    
+                    .. attribute:: node_name  <key>
+                    
+                    	Node name
+                    	**type**\:  str
+                    
+                    .. attribute:: major
+                    
+                    	Major data version number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: minor
+                    
+                    	Minor data version number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: boot_image_name
+                    
+                    	Name of the boot image
+                    	**type**\:  str
+                    
+                    .. attribute:: node_type
+                    
+                    	Node's type
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: secure_domain_router_name
+                    
+                    	SDR name
+                    	**type**\:  str
+                    
+                    .. attribute:: load_path
+                    
+                    	Load path
+                    	**type**\: list of    :py:class:`LoadPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.SoftwareInventory.Active.Inventories.Inventory, self).__init__()
+
+                        self.yang_name = "inventory"
+                        self.yang_parent_name = "inventories"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"load-path" : ("load_path", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath)}
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.major = YLeaf(YType.uint32, "major")
+
+                        self.minor = YLeaf(YType.uint32, "minor")
+
+                        self.boot_image_name = YLeaf(YType.str, "boot-image-name")
+
+                        self.node_type = YLeaf(YType.uint64, "node-type")
+
+                        self.secure_domain_router_name = YLeaf(YType.str, "secure-domain-router-name")
+
+                        self.load_path = YList(self)
+                        self._segment_path = lambda: "inventory" + "[node-name='" + self.node_name.get() + "']"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/software-inventory/active/inventories/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory, ['node_name', 'major', 'minor', 'boot_image_name', 'node_type', 'secure_domain_router_name'], name, value)
+
+
+                    class LoadPath(Entity):
+                        """
+                        Load path
+                        
+                        .. attribute:: package
+                        
+                        	Package
+                        	**type**\:   :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package>`
+                        
+                        .. attribute:: version
+                        
+                        	Version
+                        	**type**\:  str
+                        
+                        .. attribute:: build_information
+                        
+                        	Build information
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, self).__init__()
+
+                            self.yang_name = "load-path"
+                            self.yang_parent_name = "inventory"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"package" : ("package", Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package)}
+                            self._child_list_classes = {}
+
+                            self.version = YLeaf(YType.str, "version")
+
+                            self.build_information = YLeaf(YType.str, "build-information")
+
+                            self.package = Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package()
+                            self.package.parent = self
+                            self._children_name_map["package"] = "package"
+                            self._children_yang_names.add("package")
+                            self._segment_path = lambda: "load-path"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath, ['version', 'build_information'], name, value)
+
+
+                        class Package(Entity):
+                            """
+                            Package
+                            
+                            .. attribute:: device_name
+                            
+                            	Device name
+                            	**type**\:  str
+                            
+                            .. attribute:: name
+                            
+                            	Package group name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, self).__init__()
+
+                                self.yang_name = "package"
+                                self.yang_parent_name = "load-path"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.device_name = YLeaf(YType.str, "device-name")
+
+                                self.name = YLeaf(YType.str, "name")
+                                self._segment_path = lambda: "package"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.SoftwareInventory.Active.Inventories.Inventory.LoadPath.Package, ['device_name', 'name'], name, value)
+
+
+    class Issu(Entity):
+        """
+        Information of install ISSU operations
+        
+        .. attribute:: card_inventories
+        
+        	ISSU manager card inventory table
+        	**type**\:   :py:class:`CardInventories <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories>`
+        
+        .. attribute:: stage
+        
+        	Summarized ISSU stage information
+        	**type**\:   :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage>`
+        
+        
+
+        """
+
+        _prefix = 'installmgr-admin-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Install.Issu, self).__init__()
+
+            self.yang_name = "issu"
+            self.yang_parent_name = "install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"card-inventories" : ("card_inventories", Install.Issu.CardInventories), "stage" : ("stage", Install.Issu.Stage)}
+            self._child_list_classes = {}
+
+            self.card_inventories = Install.Issu.CardInventories()
+            self.card_inventories.parent = self
+            self._children_name_map["card_inventories"] = "card-inventories"
+            self._children_yang_names.add("card-inventories")
+
+            self.stage = Install.Issu.Stage()
+            self.stage.parent = self
+            self._children_name_map["stage"] = "stage"
+            self._children_yang_names.add("stage")
+            self._segment_path = lambda: "issu"
+            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
+
+
+        class CardInventories(Entity):
+            """
+            ISSU manager card inventory table
+            
+            .. attribute:: card_inventory
+            
+            	ISSU manager inventory summary of the same card type
+            	**type**\: list of    :py:class:`CardInventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory>`
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.Issu.CardInventories, self).__init__()
+
+                self.yang_name = "card-inventories"
+                self.yang_parent_name = "issu"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"card-inventory" : ("card_inventory", Install.Issu.CardInventories.CardInventory)}
+
+                self.card_inventory = YList(self)
+                self._segment_path = lambda: "card-inventories"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.Issu.CardInventories, [], name, value)
+
+
+            class CardInventory(Entity):
+                """
+                ISSU manager inventory summary of the same
+                card type
+                
+                .. attribute:: card_type_id  <key>
+                
+                	ISSU manager card type ID
+                	**type**\:   :py:class:`IsmCardTypeFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.IsmCardTypeFamily>`
+                
+                .. attribute:: summary
+                
+                	node state for all nodes
+                	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.CardInventories.CardInventory.Summary>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Issu.CardInventories.CardInventory, self).__init__()
+
+                    self.yang_name = "card-inventory"
+                    self.yang_parent_name = "card-inventories"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"summary" : ("summary", Install.Issu.CardInventories.CardInventory.Summary)}
+
+                    self.card_type_id = YLeaf(YType.enumeration, "card-type-id")
+
+                    self.summary = YList(self)
+                    self._segment_path = lambda: "card-inventory" + "[card-type-id='" + self.card_type_id.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/card-inventories/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Issu.CardInventories.CardInventory, ['card_type_id'], name, value)
+
+
+                class Summary(Entity):
+                    """
+                    node state for all nodes
+                    
+                    .. attribute:: node_name
+                    
+                    	Node identifier
+                    	**type**\:  str
+                    
+                    .. attribute:: partner_node_name
+                    
+                    	Partner Node IDs
+                    	**type**\:  str
+                    
+                    .. attribute:: node_state
+                    
+                    	Node state
+                    	**type**\:   :py:class:`InstmgrCardState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrCardState>`
+                    
+                    .. attribute:: node_role
+                    
+                    	Node roll
+                    	**type**\:   :py:class:`InstmgrNodeRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrNodeRole>`
+                    
+                    .. attribute:: node_type_pi
+                    
+                    	PI Node type
+                    	**type**\:   :py:class:`InstmgrPiCard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrPiCard>`
+                    
+                    .. attribute:: node_type_issu
+                    
+                    	ISSU node type
+                    	**type**\:  str
+                    
+                    .. attribute:: node_current_state
+                    
+                    	Current node ISSU state
+                    	**type**\:   :py:class:`InstmgrIsmNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeState>`
+                    
+                    .. attribute:: node_expected_state
+                    
+                    	Expected ISSU state
+                    	**type**\:   :py:class:`InstmgrIsmNodeState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmNodeState>`
+                    
+                    .. attribute:: node_failure_reason
+                    
+                    	Node failure reason
+                    	**type**\:  str
+                    
+                    .. attribute:: is_conforming_node
+                    
+                    	Node none\-cnforming
+                    	**type**\:   :py:class:`InstallmgrIsmNodeConforming <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstallmgrIsmNodeConforming>`
+                    
+                    .. attribute:: attempts
+                    
+                    	Number of attempts made
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: is_node_upgraded
+                    
+                    	Is node upgraded?
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Issu.CardInventories.CardInventory.Summary, self).__init__()
+
+                        self.yang_name = "summary"
+                        self.yang_parent_name = "card-inventory"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.partner_node_name = YLeaf(YType.str, "partner-node-name")
+
+                        self.node_state = YLeaf(YType.enumeration, "node-state")
+
+                        self.node_role = YLeaf(YType.enumeration, "node-role")
+
+                        self.node_type_pi = YLeaf(YType.enumeration, "node-type-pi")
+
+                        self.node_type_issu = YLeaf(YType.str, "node-type-issu")
+
+                        self.node_current_state = YLeaf(YType.enumeration, "node-current-state")
+
+                        self.node_expected_state = YLeaf(YType.enumeration, "node-expected-state")
+
+                        self.node_failure_reason = YLeaf(YType.str, "node-failure-reason")
+
+                        self.is_conforming_node = YLeaf(YType.enumeration, "is-conforming-node")
+
+                        self.attempts = YLeaf(YType.uint32, "attempts")
+
+                        self.is_node_upgraded = YLeaf(YType.boolean, "is-node-upgraded")
+                        self._segment_path = lambda: "summary"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Issu.CardInventories.CardInventory.Summary, ['node_name', 'partner_node_name', 'node_state', 'node_role', 'node_type_pi', 'node_type_issu', 'node_current_state', 'node_expected_state', 'node_failure_reason', 'is_conforming_node', 'attempts', 'is_node_upgraded'], name, value)
+
+
+        class Stage(Entity):
+            """
+            Summarized ISSU stage information
+            
+            .. attribute:: node_in_progress
+            
+            	Nodes in progress
+            	**type**\:   :py:class:`NodeInProgress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodeInProgress>`
+            
+            .. attribute:: nodes_in_load
+            
+            	Node in LOAD phase
+            	**type**\:   :py:class:`NodesInLoad <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInLoad>`
+            
+            .. attribute:: nodes_in_run
+            
+            	Node in RUN phase
+            	**type**\:   :py:class:`NodesInRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NodesInRun>`
+            
+            .. attribute:: nc_nodes
+            
+            	None\-conforming nodes
+            	**type**\:   :py:class:`NcNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Issu.Stage.NcNodes>`
+            
+            .. attribute:: issu_state
+            
+            	Current ISSU state
+            	**type**\:  str
+            
+            .. attribute:: issu_op_id
+            
+            	ISSU operational ID
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: percentage
+            
+            	ISSU progress percentage
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: percentage
+            
+            .. attribute:: is_issu_aborted
+            
+            	ISSU aborted?
+            	**type**\:  bool
+            
+            .. attribute:: is_issu_aborted_by_ism
+            
+            	ISSU aborted by ISM?
+            	**type**\:  bool
+            
+            .. attribute:: issu_manager_fsm_state
+            
+            	ISM FSM state
+            	**type**\:   :py:class:`InstmgrIsmFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrIsmFsmState>`
+            
+            .. attribute:: participating_node_all
+            
+            	Number of participating nodes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: num_nodes_in_progress
+            
+            	Number of node in progress
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: num_of_nodes_in_load
+            
+            	Number of nodes in LOAD phase
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: num_of_nodes_in_run
+            
+            	Number of nodes in RUN phase
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: numof_nc_nodes
+            
+            	Number of none\-conforming nodes
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.Issu.Stage, self).__init__()
+
+                self.yang_name = "stage"
+                self.yang_parent_name = "issu"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"node-in-progress" : ("node_in_progress", Install.Issu.Stage.NodeInProgress), "nodes-in-load" : ("nodes_in_load", Install.Issu.Stage.NodesInLoad), "nodes-in-run" : ("nodes_in_run", Install.Issu.Stage.NodesInRun), "nc-nodes" : ("nc_nodes", Install.Issu.Stage.NcNodes)}
+                self._child_list_classes = {}
+
+                self.issu_state = YLeaf(YType.str, "issu-state")
+
+                self.issu_op_id = YLeaf(YType.uint32, "issu-op-id")
+
+                self.percentage = YLeaf(YType.uint32, "percentage")
+
+                self.is_issu_aborted = YLeaf(YType.boolean, "is-issu-aborted")
+
+                self.is_issu_aborted_by_ism = YLeaf(YType.boolean, "is-issu-aborted-by-ism")
+
+                self.issu_manager_fsm_state = YLeaf(YType.enumeration, "issu-manager-fsm-state")
+
+                self.participating_node_all = YLeaf(YType.uint32, "participating-node-all")
+
+                self.num_nodes_in_progress = YLeaf(YType.uint32, "num-nodes-in-progress")
+
+                self.num_of_nodes_in_load = YLeaf(YType.uint32, "num-of-nodes-in-load")
+
+                self.num_of_nodes_in_run = YLeaf(YType.uint32, "num-of-nodes-in-run")
+
+                self.numof_nc_nodes = YLeaf(YType.uint32, "numof-nc-nodes")
+
+                self.node_in_progress = Install.Issu.Stage.NodeInProgress()
+                self.node_in_progress.parent = self
+                self._children_name_map["node_in_progress"] = "node-in-progress"
+                self._children_yang_names.add("node-in-progress")
+
+                self.nodes_in_load = Install.Issu.Stage.NodesInLoad()
+                self.nodes_in_load.parent = self
+                self._children_name_map["nodes_in_load"] = "nodes-in-load"
+                self._children_yang_names.add("nodes-in-load")
+
+                self.nodes_in_run = Install.Issu.Stage.NodesInRun()
+                self.nodes_in_run.parent = self
+                self._children_name_map["nodes_in_run"] = "nodes-in-run"
+                self._children_yang_names.add("nodes-in-run")
+
+                self.nc_nodes = Install.Issu.Stage.NcNodes()
+                self.nc_nodes.parent = self
+                self._children_name_map["nc_nodes"] = "nc-nodes"
+                self._children_yang_names.add("nc-nodes")
+                self._segment_path = lambda: "stage"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.Issu.Stage, ['issu_state', 'issu_op_id', 'percentage', 'is_issu_aborted', 'is_issu_aborted_by_ism', 'issu_manager_fsm_state', 'participating_node_all', 'num_nodes_in_progress', 'num_of_nodes_in_load', 'num_of_nodes_in_run', 'numof_nc_nodes'], name, value)
+
+
+            class NodeInProgress(Entity):
+                """
+                Nodes in progress
+                
+                .. attribute:: node
+                
+                	node
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Issu.Stage.NodeInProgress, self).__init__()
+
+                    self.yang_name = "node-in-progress"
+                    self.yang_parent_name = "stage"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.node = YLeafList(YType.str, "node")
+                    self._segment_path = lambda: "node-in-progress"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Issu.Stage.NodeInProgress, ['node'], name, value)
+
+
+            class NodesInLoad(Entity):
+                """
+                Node in LOAD phase
+                
+                .. attribute:: node
+                
+                	node
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Issu.Stage.NodesInLoad, self).__init__()
+
+                    self.yang_name = "nodes-in-load"
+                    self.yang_parent_name = "stage"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.node = YLeafList(YType.str, "node")
+                    self._segment_path = lambda: "nodes-in-load"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Issu.Stage.NodesInLoad, ['node'], name, value)
+
+
+            class NodesInRun(Entity):
+                """
+                Node in RUN phase
+                
+                .. attribute:: node
+                
+                	node
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Issu.Stage.NodesInRun, self).__init__()
+
+                    self.yang_name = "nodes-in-run"
+                    self.yang_parent_name = "stage"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.node = YLeafList(YType.str, "node")
+                    self._segment_path = lambda: "nodes-in-run"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Issu.Stage.NodesInRun, ['node'], name, value)
+
+
+            class NcNodes(Entity):
+                """
+                None\-conforming nodes
+                
+                .. attribute:: node
+                
+                	node
+                	**type**\:  list of str
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Issu.Stage.NcNodes, self).__init__()
+
+                    self.yang_name = "nc-nodes"
+                    self.yang_parent_name = "stage"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.node = YLeafList(YType.str, "node")
+                    self._segment_path = lambda: "nc-nodes"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/issu/stage/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Install.Issu.Stage.NcNodes, ['node'], name, value)
+
+
+    class BootImage(Entity):
+        """
+        System Boot Image
+        
+        .. attribute:: system_image_file
+        
+        	The boot image
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'installmgr-admin-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Install.BootImage, self).__init__()
+
+            self.yang_name = "boot-image"
+            self.yang_parent_name = "install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.system_image_file = YLeaf(YType.str, "system-image-file")
+            self._segment_path = lambda: "boot-image"
+            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Install.BootImage, ['system_image_file'], name, value)
+
+
+    class Logs(Entity):
+        """
+        Install operation log
+        
+        .. attribute:: log
+        
+        	Log information
+        	**type**\: list of    :py:class:`Log <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log>`
+        
+        
+
+        """
+
+        _prefix = 'installmgr-admin-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Install.Logs, self).__init__()
+
+            self.yang_name = "logs"
+            self.yang_parent_name = "install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"log" : ("log", Install.Logs.Log)}
+
+            self.log = YList(self)
+            self._segment_path = lambda: "logs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Install.Logs, [], name, value)
+
+
+        class Log(Entity):
+            """
+            Log information
+            
+            .. attribute:: request_id  <key>
+            
+            	Install operation request ID
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: header
+            
+            	Header information
+            	**type**\: list of    :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header>`
+            
+            .. attribute:: summary
+            
+            	Summary information
+            	**type**\: list of    :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary>`
+            
+            .. attribute:: message
+            
+            	Status Information Logs
+            	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message>`
+            
+            .. attribute:: change
+            
+            	Install changes
+            	**type**\: list of    :py:class:`Change <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change>`
+            
+            .. attribute:: detail
+            
+            	Install details
+            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail>`
+            
+            .. attribute:: communication
+            
+            	Install communications
+            	**type**\: list of    :py:class:`Communication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication>`
+            
+            
+
+            """
+
+            _prefix = 'installmgr-admin-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Install.Logs.Log, self).__init__()
+
+                self.yang_name = "log"
+                self.yang_parent_name = "logs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"header" : ("header", Install.Logs.Log.Header), "summary" : ("summary", Install.Logs.Log.Summary), "message" : ("message", Install.Logs.Log.Message), "change" : ("change", Install.Logs.Log.Change), "detail" : ("detail", Install.Logs.Log.Detail), "communication" : ("communication", Install.Logs.Log.Communication)}
+
+                self.request_id = YLeaf(YType.int32, "request-id")
+
+                self.header = YList(self)
+                self.summary = YList(self)
+                self.message = YList(self)
+                self.change = YList(self)
+                self.detail = YList(self)
+                self.communication = YList(self)
+                self._segment_path = lambda: "log" + "[request-id='" + self.request_id.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-installmgr-admin-oper:install/logs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.Logs.Log, ['request_id'], name, value)
+
+
+            class Header(Entity):
+                """
+                Header information
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Header, self).__init__()
+
+                    self.yang_name = "header"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Header.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Header.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "header"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Header.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "header"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Header.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Header.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Header.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Header.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Header.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Header.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Header.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Header.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Header.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Header.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
+
+
+            class Summary(Entity):
+                """
+                Summary information
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Summary, self).__init__()
+
+                    self.yang_name = "summary"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Summary.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Summary.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "summary"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Summary.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "summary"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Summary.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Summary.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Summary.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Summary.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Summary.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Summary.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Summary.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Summary.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Summary.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
+
+
+            class Message(Entity):
+                """
+                Status Information Logs
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Message, self).__init__()
+
+                    self.yang_name = "message"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Message.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Message.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "message"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Message.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "message"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Message.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Message.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Message.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Message.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Message.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Message.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Message.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Message.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Message.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Message.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
+
+
+            class Change(Entity):
+                """
+                Install changes
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Change, self).__init__()
+
+                    self.yang_name = "change"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Change.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Change.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "change"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Change.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "change"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Change.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Change.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Change.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Change.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Change.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Change.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Change.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Change.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Change.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Change.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
+
+
+            class Detail(Entity):
+                """
+                Install details
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Detail, self).__init__()
+
+                    self.yang_name = "detail"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Detail.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Detail.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "detail"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Detail.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "detail"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Detail.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Detail.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Detail.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Detail.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Detail.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Detail.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Detail.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Detail.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Detail.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
+
+
+            class Communication(Entity):
+                """
+                Install communications
+                
+                .. attribute:: log_contents
+                
+                	Log contents
+                	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents>`
+                
+                
+
+                """
+
+                _prefix = 'installmgr-admin-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Install.Logs.Log.Communication, self).__init__()
+
+                    self.yang_name = "communication"
+                    self.yang_parent_name = "log"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"log-contents" : ("log_contents", Install.Logs.Log.Communication.LogContents)}
+                    self._child_list_classes = {}
+
+                    self.log_contents = Install.Logs.Log.Communication.LogContents()
+                    self.log_contents.parent = self
+                    self._children_name_map["log_contents"] = "log-contents"
+                    self._children_yang_names.add("log-contents")
+                    self._segment_path = lambda: "communication"
+
+
+                class LogContents(Entity):
+                    """
+                    Log contents
+                    
+                    .. attribute:: v3
+                    
+                    	v3
+                    	**type**\:   :py:class:`V3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3>`
+                    
+                    .. attribute:: version
+                    
+                    	Version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'installmgr-admin-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Install.Logs.Log.Communication.LogContents, self).__init__()
+
+                        self.yang_name = "log-contents"
+                        self.yang_parent_name = "communication"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"v3" : ("v3", Install.Logs.Log.Communication.LogContents.V3)}
+                        self._child_list_classes = {}
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.v3 = Install.Logs.Log.Communication.LogContents.V3()
+                        self.v3.parent = self
+                        self._children_name_map["v3"] = "v3"
+                        self._children_yang_names.add("v3")
+                        self._segment_path = lambda: "log-contents"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Install.Logs.Log.Communication.LogContents, ['version'], name, value)
+
+
+                    class V3(Entity):
+                        """
+                        v3
+                        
+                        .. attribute:: scope
+                        
+                        	Scope of the message
+                        	**type**\:   :py:class:`Scope <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.Install.Logs.Log.Communication.LogContents.V3.Scope>`
+                        
+                        .. attribute:: category
+                        
+                        	Category of the message
+                        	**type**\:   :py:class:`InstmgrBagLogEntryUserMsgCategory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper.InstmgrBagLogEntryUserMsgCategory>`
+                        
+                        .. attribute:: message
+                        
+                        	Message
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'installmgr-admin-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Install.Logs.Log.Communication.LogContents.V3, self).__init__()
+
+                            self.yang_name = "v3"
+                            self.yang_parent_name = "log-contents"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"scope" : ("scope", Install.Logs.Log.Communication.LogContents.V3.Scope)}
+                            self._child_list_classes = {}
+
+                            self.category = YLeaf(YType.enumeration, "category")
+
+                            self.message = YLeaf(YType.str, "message")
+
+                            self.scope = Install.Logs.Log.Communication.LogContents.V3.Scope()
+                            self.scope.parent = self
+                            self._children_name_map["scope"] = "scope"
+                            self._children_yang_names.add("scope")
+                            self._segment_path = lambda: "v3"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3, ['category', 'message'], name, value)
+
+
+                        class Scope(Entity):
+                            """
+                            Scope of the message
+                            
+                            .. attribute:: admin_read
+                            
+                            	Does the admin want to read this?
+                            	**type**\:  bool
+                            
+                            .. attribute:: affected_sd_rs
+                            
+                            	Which SDRs are affected by the message
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'installmgr-admin-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Install.Logs.Log.Communication.LogContents.V3.Scope, self).__init__()
+
+                                self.yang_name = "scope"
+                                self.yang_parent_name = "v3"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.admin_read = YLeaf(YType.boolean, "admin-read")
+
+                                self.affected_sd_rs = YLeaf(YType.uint32, "affected-sd-rs")
+                                self._segment_path = lambda: "scope"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Install.Logs.Log.Communication.LogContents.V3.Scope, ['admin_read', 'affected_sd_rs'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Install()

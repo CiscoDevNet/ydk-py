@@ -172,6 +172,14 @@ public:
         );
     }
 
+    std::vector<std::string> get_order_of_children() const override {
+        PYBIND11_OVERLOAD(
+            std::vector<std::string>,
+            ydk::Entity,
+            get_order_of_children
+        );
+    }
+
     bool has_leaf_or_child_of_name(const std::string & name) const override {
         PYBIND11_OVERLOAD_PURE(
             bool,
@@ -421,7 +429,7 @@ PYBIND11_MODULE(ydk_, ydk)
             (std::shared_ptr<ydk::path::RootSchemaNode> (ydk::path::Repository::*)(const std::vector<ydk::path::Capability>&)) &ydk::path::Repository::create_root_schema,
             return_value_policy::move)
         .def("create_root_schema",
-            (std::shared_ptr<ydk::path::RootSchemaNode> (ydk::path::Repository::*)(const std::vector<std::unordered_map<std::string, ydk::path::Capability>>& lookup_tables,
+            (std::shared_ptr<ydk::path::RootSchemaNode> (ydk::path::Repository::*)(const std::unordered_map<std::string, ydk::path::Capability>& lookup_tables,
                                                                                    const std::vector<ydk::path::Capability>& caps_to_load))
             &ydk::path::Repository::create_root_schema,
             return_value_policy::move);
@@ -498,6 +506,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("has_data", &ydk::Entity::has_data, return_value_policy::reference)
         .def("has_operation", &ydk::Entity::has_operation, return_value_policy::reference)
         .def("get_children", &ydk::Entity::get_children, return_value_policy::reference)
+        .def("get_order_of_children", &ydk::Entity::get_order_of_children, return_value_policy::reference)
         .def("clone_ptr", &ydk::Entity::clone_ptr)
         .def("__eq__", [](ydk::Entity& left, ydk::Entity& right)
                          {

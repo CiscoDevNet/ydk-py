@@ -61,8 +61,6 @@ class FileSystem(Entity):
         	Node name
         	**type**\:  str
         
-        	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-        
         .. attribute:: file_system
         
         	Available file systems
@@ -99,10 +97,12 @@ class FileSystem(Entity):
             """
             Available file systems
             
-            .. attribute:: flags
+            .. attribute:: size
             
-            	Flags of file system
+            	Size of the file system in bytes
             	**type**\:  str
+            
+            	**units**\: byte
             
             .. attribute:: free
             
@@ -111,21 +111,19 @@ class FileSystem(Entity):
             
             	**units**\: byte
             
-            .. attribute:: prefixes
-            
-            	Prefixes of file system
-            	**type**\:  str
-            
-            .. attribute:: size
-            
-            	Size of the file system in bytes
-            	**type**\:  str
-            
-            	**units**\: byte
-            
             .. attribute:: type
             
             	Type of file system
+            	**type**\:  str
+            
+            .. attribute:: flags
+            
+            	Flags of file system
+            	**type**\:  str
+            
+            .. attribute:: prefixes
+            
+            	Prefixes of file system
             	**type**\:  str
             
             
@@ -145,19 +143,19 @@ class FileSystem(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.flags = YLeaf(YType.str, "flags")
+                self.size = YLeaf(YType.str, "size")
 
                 self.free = YLeaf(YType.str, "free")
 
-                self.prefixes = YLeaf(YType.str, "prefixes")
-
-                self.size = YLeaf(YType.str, "size")
-
                 self.type = YLeaf(YType.str, "type")
+
+                self.flags = YLeaf(YType.str, "flags")
+
+                self.prefixes = YLeaf(YType.str, "prefixes")
                 self._segment_path = lambda: "file-system"
 
             def __setattr__(self, name, value):
-                self._perform_setattr(FileSystem.Node.FileSystem, ['flags', 'free', 'prefixes', 'size', 'type'], name, value)
+                self._perform_setattr(FileSystem.Node.FileSystem, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FileSystem()

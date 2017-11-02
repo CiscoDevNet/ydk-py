@@ -145,26 +145,39 @@ class L2Tp(Entity):
             
             	**length:** 1..31
             
-            .. attribute:: authentication
+            .. attribute:: security
             
-            	Authenticate the L2TP control connection
-            	**type**\:  int
+            	Security check
+            	**type**\:   :py:class:`Security <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security>`
             
-            	**range:** \-2147483648..2147483647
+            .. attribute:: retransmit
             
-            .. attribute:: congestion_control
+            	Control message retransmission parameters
+            	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit>`
             
-            	Congestion control enabled
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            .. attribute:: tunnel
+            
+            	l2TP tunnel
+            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Tunnel>`
             
             .. attribute:: digest
             
             	Message digest authentication for the L2TP control connection
             	**type**\:   :py:class:`Digest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest>`
             
-            .. attribute:: enable
+            .. attribute:: ip
             
-            	Enable L2TPv3 class used for L2VPNs
+            	IP TOS value
+            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Ip>`
+            
+            .. attribute:: host_name
+            
+            	Local hostname for control connection authentication
+            	**type**\:  str
+            
+            .. attribute:: hidden
+            
+            	Specify to hide AVPs in outgoing control messages
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: hello_interval
@@ -173,56 +186,6 @@ class L2Tp(Entity):
             	**type**\:  int
             
             	**range:** 0..1000
-            
-            	**units**\: second
-            
-            .. attribute:: hidden
-            
-            	Specify to hide AVPs in outgoing control messages
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: host_name
-            
-            	Local hostname for control connection authentication
-            	**type**\:  str
-            
-            .. attribute:: ip
-            
-            	IP TOS value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Ip>`
-            
-            .. attribute:: password
-            
-            	Specify the password for control channel authentication
-            	**type**\:  str
-            
-            	**pattern:** (!.+)\|([^!].+)
-            
-            .. attribute:: receive_window
-            
-            	Receive window size for the control connection
-            	**type**\:  int
-            
-            	**range:** 1..16384
-            
-            	**units**\: byte
-            
-            .. attribute:: retransmit
-            
-            	Control message retransmission parameters
-            	**type**\:   :py:class:`Retransmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Retransmit>`
-            
-            .. attribute:: security
-            
-            	Security check
-            	**type**\:   :py:class:`Security <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security>`
-            
-            .. attribute:: timeout_no_user
-            
-            	Timeout value for no\-user in seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
             
             	**units**\: second
             
@@ -235,10 +198,45 @@ class L2Tp(Entity):
             
             	**units**\: second
             
-            .. attribute:: tunnel
+            .. attribute:: receive_window
             
-            	l2TP tunnel
-            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Tunnel>`
+            	Receive window size for the control connection
+            	**type**\:  int
+            
+            	**range:** 1..16384
+            
+            	**units**\: byte
+            
+            .. attribute:: congestion_control
+            
+            	Congestion control enabled
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: timeout_no_user
+            
+            	Timeout value for no\-user in seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: second
+            
+            .. attribute:: authentication
+            
+            	Authenticate the L2TP control connection
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: enable
+            
+            	Enable L2TPv3 class used for L2VPNs
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: password
+            
+            	Specify the password for control channel authentication
+            	**type**\:  str
             
             
 
@@ -254,30 +252,45 @@ class L2Tp(Entity):
                 self.yang_parent_name = "classes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"digest" : ("digest", L2Tp.Classes.Class_.Digest), "ip" : ("ip", L2Tp.Classes.Class_.Ip), "retransmit" : ("retransmit", L2Tp.Classes.Class_.Retransmit), "security" : ("security", L2Tp.Classes.Class_.Security), "tunnel" : ("tunnel", L2Tp.Classes.Class_.Tunnel)}
+                self._child_container_classes = {"security" : ("security", L2Tp.Classes.Class_.Security), "retransmit" : ("retransmit", L2Tp.Classes.Class_.Retransmit), "tunnel" : ("tunnel", L2Tp.Classes.Class_.Tunnel), "digest" : ("digest", L2Tp.Classes.Class_.Digest), "ip" : ("ip", L2Tp.Classes.Class_.Ip)}
                 self._child_list_classes = {}
 
                 self.class_name = YLeaf(YType.str, "class-name")
 
-                self.authentication = YLeaf(YType.int32, "authentication")
-
-                self.congestion_control = YLeaf(YType.empty, "congestion-control")
-
-                self.enable = YLeaf(YType.empty, "enable")
-
-                self.hello_interval = YLeaf(YType.uint32, "hello-interval")
+                self.host_name = YLeaf(YType.str, "host-name")
 
                 self.hidden = YLeaf(YType.empty, "hidden")
 
-                self.host_name = YLeaf(YType.str, "host-name")
+                self.hello_interval = YLeaf(YType.uint32, "hello-interval")
 
-                self.password = YLeaf(YType.str, "password")
+                self.timeout_setup = YLeaf(YType.uint32, "timeout-setup")
 
                 self.receive_window = YLeaf(YType.uint32, "receive-window")
 
+                self.congestion_control = YLeaf(YType.empty, "congestion-control")
+
                 self.timeout_no_user = YLeaf(YType.uint32, "timeout-no-user")
 
-                self.timeout_setup = YLeaf(YType.uint32, "timeout-setup")
+                self.authentication = YLeaf(YType.int32, "authentication")
+
+                self.enable = YLeaf(YType.empty, "enable")
+
+                self.password = YLeaf(YType.str, "password")
+
+                self.security = L2Tp.Classes.Class_.Security()
+                self.security.parent = self
+                self._children_name_map["security"] = "security"
+                self._children_yang_names.add("security")
+
+                self.retransmit = L2Tp.Classes.Class_.Retransmit()
+                self.retransmit.parent = self
+                self._children_name_map["retransmit"] = "retransmit"
+                self._children_yang_names.add("retransmit")
+
+                self.tunnel = L2Tp.Classes.Class_.Tunnel()
+                self.tunnel.parent = self
+                self._children_name_map["tunnel"] = "tunnel"
+                self._children_yang_names.add("tunnel")
 
                 self.digest = L2Tp.Classes.Class_.Digest()
                 self.digest.parent = self
@@ -288,47 +301,21 @@ class L2Tp(Entity):
                 self.ip.parent = self
                 self._children_name_map["ip"] = "ip"
                 self._children_yang_names.add("ip")
-
-                self.retransmit = L2Tp.Classes.Class_.Retransmit()
-                self.retransmit.parent = self
-                self._children_name_map["retransmit"] = "retransmit"
-                self._children_yang_names.add("retransmit")
-
-                self.security = L2Tp.Classes.Class_.Security()
-                self.security.parent = self
-                self._children_name_map["security"] = "security"
-                self._children_yang_names.add("security")
-
-                self.tunnel = L2Tp.Classes.Class_.Tunnel()
-                self.tunnel.parent = self
-                self._children_name_map["tunnel"] = "tunnel"
-                self._children_yang_names.add("tunnel")
                 self._segment_path = lambda: "class" + "[class-name='" + self.class_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2Tp.Classes.Class_, ['class_name', 'authentication', 'congestion_control', 'enable', 'hello_interval', 'hidden', 'host_name', 'password', 'receive_window', 'timeout_no_user', 'timeout_setup'], name, value)
+                self._perform_setattr(L2Tp.Classes.Class_, ['class_name', 'host_name', 'hidden', 'hello_interval', 'timeout_setup', 'receive_window', 'congestion_control', 'timeout_no_user', 'authentication', 'enable', 'password'], name, value)
 
 
-            class Digest(Entity):
+            class Security(Entity):
                 """
-                Message digest authentication for the L2TP
-                control connection
+                Security check
                 
-                .. attribute:: check_disable
+                .. attribute:: ip
                 
-                	Disable digest checking
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: hash
-                
-                	Specify hash method
-                	**type**\:   :py:class:`L2tpDigestHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpDigestHashMethod>`
-                
-                .. attribute:: secrets
-                
-                	Set shared secret for message digest
-                	**type**\:   :py:class:`Secrets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets>`
+                	Security check for IP
+                	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security.Ip>`
                 
                 
 
@@ -338,37 +325,30 @@ class L2Tp(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(L2Tp.Classes.Class_.Digest, self).__init__()
+                    super(L2Tp.Classes.Class_.Security, self).__init__()
 
-                    self.yang_name = "digest"
+                    self.yang_name = "security"
                     self.yang_parent_name = "class"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"secrets" : ("secrets", L2Tp.Classes.Class_.Digest.Secrets)}
+                    self._child_container_classes = {"ip" : ("ip", L2Tp.Classes.Class_.Security.Ip)}
                     self._child_list_classes = {}
 
-                    self.check_disable = YLeaf(YType.empty, "check-disable")
-
-                    self.hash = YLeaf(YType.enumeration, "hash")
-
-                    self.secrets = L2Tp.Classes.Class_.Digest.Secrets()
-                    self.secrets.parent = self
-                    self._children_name_map["secrets"] = "secrets"
-                    self._children_yang_names.add("secrets")
-                    self._segment_path = lambda: "digest"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tp.Classes.Class_.Digest, ['check_disable', 'hash'], name, value)
+                    self.ip = L2Tp.Classes.Class_.Security.Ip()
+                    self.ip.parent = self
+                    self._children_name_map["ip"] = "ip"
+                    self._children_yang_names.add("ip")
+                    self._segment_path = lambda: "security"
 
 
-                class Secrets(Entity):
+                class Ip(Entity):
                     """
-                    Set shared secret for message digest
+                    Security check for IP
                     
-                    .. attribute:: secret
+                    .. attribute:: address_check
                     
-                    	The encrypted user secret and hash method
-                    	**type**\: list of    :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets.Secret>`
+                    	Enable IP address check for L2TP packets
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -378,99 +358,20 @@ class L2Tp(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(L2Tp.Classes.Class_.Digest.Secrets, self).__init__()
+                        super(L2Tp.Classes.Class_.Security.Ip, self).__init__()
 
-                        self.yang_name = "secrets"
-                        self.yang_parent_name = "digest"
+                        self.yang_name = "ip"
+                        self.yang_parent_name = "security"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"secret" : ("secret", L2Tp.Classes.Class_.Digest.Secrets.Secret)}
+                        self._child_list_classes = {}
 
-                        self.secret = YList(self)
-                        self._segment_path = lambda: "secrets"
+                        self.address_check = YLeaf(YType.empty, "address-check")
+                        self._segment_path = lambda: "ip"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Classes.Class_.Digest.Secrets, [], name, value)
-
-
-                    class Secret(Entity):
-                        """
-                        The encrypted user secret and hash method
-                        
-                        .. attribute:: secret_name  <key>
-                        
-                        	Specify the encrypted user secret
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: hash
-                        
-                        	Specify hash method
-                        	**type**\:   :py:class:`L2tpHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpHashMethod>`
-                        
-                        	**mandatory**\: True
-                        
-                        
-
-                        """
-
-                        _prefix = 'tunnel-l2tun-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(L2Tp.Classes.Class_.Digest.Secrets.Secret, self).__init__()
-
-                            self.yang_name = "secret"
-                            self.yang_parent_name = "secrets"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.secret_name = YLeaf(YType.str, "secret-name")
-
-                            self.hash = YLeaf(YType.enumeration, "hash")
-                            self._segment_path = lambda: "secret" + "[secret-name='" + self.secret_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Classes.Class_.Digest.Secrets.Secret, ['secret_name', 'hash'], name, value)
-
-
-            class Ip(Entity):
-                """
-                IP TOS value
-                
-                .. attribute:: tos
-                
-                	IP TOS value (decimal)
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                
-
-                """
-
-                _prefix = 'tunnel-l2tun-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(L2Tp.Classes.Class_.Ip, self).__init__()
-
-                    self.yang_name = "ip"
-                    self.yang_parent_name = "class"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.tos = YLeaf(YType.uint32, "tos")
-                    self._segment_path = lambda: "ip"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(L2Tp.Classes.Class_.Ip, ['tos'], name, value)
+                        self._perform_setattr(L2Tp.Classes.Class_.Security.Ip, ['address_check'], name, value)
 
 
             class Retransmit(Entity):
@@ -577,16 +478,16 @@ class L2Tp(Entity):
                         """
                         Set timeout value range
                         
-                        .. attribute:: maximum
+                        .. attribute:: minimum
                         
-                        	Specify maximum timeout
+                        	Specify minimum timeout
                         	**type**\:  int
                         
                         	**range:** 1..8
                         
-                        .. attribute:: minimum
+                        .. attribute:: maximum
                         
-                        	Specify minimum timeout
+                        	Specify maximum timeout
                         	**type**\:  int
                         
                         	**range:** 1..8
@@ -608,29 +509,29 @@ class L2Tp(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.maximum = YLeaf(YType.uint32, "maximum")
-
                             self.minimum = YLeaf(YType.uint32, "minimum")
+
+                            self.maximum = YLeaf(YType.uint32, "maximum")
                             self._segment_path = lambda: "timeout"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2Tp.Classes.Class_.Retransmit.Initial.Timeout, ['maximum', 'minimum'], name, value)
+                            self._perform_setattr(L2Tp.Classes.Class_.Retransmit.Initial.Timeout, ['minimum', 'maximum'], name, value)
 
 
                 class Timeout(Entity):
                     """
                     Set timeout value range
                     
-                    .. attribute:: maximum
+                    .. attribute:: minimum
                     
-                    	Specify maximum timeout
+                    	Specify minimum timeout
                     	**type**\:  int
                     
                     	**range:** 1..8
                     
-                    .. attribute:: minimum
+                    .. attribute:: maximum
                     
-                    	Specify minimum timeout
+                    	Specify maximum timeout
                     	**type**\:  int
                     
                     	**range:** 1..8
@@ -652,79 +553,13 @@ class L2Tp(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.maximum = YLeaf(YType.uint32, "maximum")
-
                         self.minimum = YLeaf(YType.uint32, "minimum")
+
+                        self.maximum = YLeaf(YType.uint32, "maximum")
                         self._segment_path = lambda: "timeout"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Classes.Class_.Retransmit.Timeout, ['maximum', 'minimum'], name, value)
-
-
-            class Security(Entity):
-                """
-                Security check
-                
-                .. attribute:: ip
-                
-                	Security check for IP
-                	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Security.Ip>`
-                
-                
-
-                """
-
-                _prefix = 'tunnel-l2tun-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(L2Tp.Classes.Class_.Security, self).__init__()
-
-                    self.yang_name = "security"
-                    self.yang_parent_name = "class"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"ip" : ("ip", L2Tp.Classes.Class_.Security.Ip)}
-                    self._child_list_classes = {}
-
-                    self.ip = L2Tp.Classes.Class_.Security.Ip()
-                    self.ip.parent = self
-                    self._children_name_map["ip"] = "ip"
-                    self._children_yang_names.add("ip")
-                    self._segment_path = lambda: "security"
-
-
-                class Ip(Entity):
-                    """
-                    Security check for IP
-                    
-                    .. attribute:: address_check
-                    
-                    	Enable IP address check for L2TP packets
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'tunnel-l2tun-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(L2Tp.Classes.Class_.Security.Ip, self).__init__()
-
-                        self.yang_name = "ip"
-                        self.yang_parent_name = "security"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.address_check = YLeaf(YType.empty, "address-check")
-                        self._segment_path = lambda: "ip"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(L2Tp.Classes.Class_.Security.Ip, ['address_check'], name, value)
+                        self._perform_setattr(L2Tp.Classes.Class_.Retransmit.Timeout, ['minimum', 'maximum'], name, value)
 
 
             class Tunnel(Entity):
@@ -758,6 +593,167 @@ class L2Tp(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2Tp.Classes.Class_.Tunnel, ['accounting'], name, value)
+
+
+            class Digest(Entity):
+                """
+                Message digest authentication for the L2TP
+                control connection
+                
+                .. attribute:: secrets
+                
+                	Set shared secret for message digest
+                	**type**\:   :py:class:`Secrets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets>`
+                
+                .. attribute:: hash
+                
+                	Specify hash method
+                	**type**\:   :py:class:`L2tpDigestHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpDigestHashMethod>`
+                
+                .. attribute:: check_disable
+                
+                	Disable digest checking
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'tunnel-l2tun-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(L2Tp.Classes.Class_.Digest, self).__init__()
+
+                    self.yang_name = "digest"
+                    self.yang_parent_name = "class"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"secrets" : ("secrets", L2Tp.Classes.Class_.Digest.Secrets)}
+                    self._child_list_classes = {}
+
+                    self.hash = YLeaf(YType.enumeration, "hash")
+
+                    self.check_disable = YLeaf(YType.empty, "check-disable")
+
+                    self.secrets = L2Tp.Classes.Class_.Digest.Secrets()
+                    self.secrets.parent = self
+                    self._children_name_map["secrets"] = "secrets"
+                    self._children_yang_names.add("secrets")
+                    self._segment_path = lambda: "digest"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2Tp.Classes.Class_.Digest, ['hash', 'check_disable'], name, value)
+
+
+                class Secrets(Entity):
+                    """
+                    Set shared secret for message digest
+                    
+                    .. attribute:: secret
+                    
+                    	The encrypted user secret and hash method
+                    	**type**\: list of    :py:class:`Secret <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2Tp.Classes.Class_.Digest.Secrets.Secret>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-l2tun-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(L2Tp.Classes.Class_.Digest.Secrets, self).__init__()
+
+                        self.yang_name = "secrets"
+                        self.yang_parent_name = "digest"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"secret" : ("secret", L2Tp.Classes.Class_.Digest.Secrets.Secret)}
+
+                        self.secret = YList(self)
+                        self._segment_path = lambda: "secrets"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2Tp.Classes.Class_.Digest.Secrets, [], name, value)
+
+
+                    class Secret(Entity):
+                        """
+                        The encrypted user secret and hash method
+                        
+                        .. attribute:: secret_name  <key>
+                        
+                        	Specify the encrypted user secret
+                        	**type**\:  str
+                        
+                        .. attribute:: hash
+                        
+                        	Specify hash method
+                        	**type**\:   :py:class:`L2tpHashMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg.L2tpHashMethod>`
+                        
+                        	**mandatory**\: True
+                        
+                        
+
+                        """
+
+                        _prefix = 'tunnel-l2tun-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(L2Tp.Classes.Class_.Digest.Secrets.Secret, self).__init__()
+
+                            self.yang_name = "secret"
+                            self.yang_parent_name = "secrets"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.secret_name = YLeaf(YType.str, "secret-name")
+
+                            self.hash = YLeaf(YType.enumeration, "hash")
+                            self._segment_path = lambda: "secret" + "[secret-name='" + self.secret_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2Tp.Classes.Class_.Digest.Secrets.Secret, ['secret_name', 'hash'], name, value)
+
+
+            class Ip(Entity):
+                """
+                IP TOS value
+                
+                .. attribute:: tos
+                
+                	IP TOS value (decimal)
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'tunnel-l2tun-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(L2Tp.Classes.Class_.Ip, self).__init__()
+
+                    self.yang_name = "ip"
+                    self.yang_parent_name = "class"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.tos = YLeaf(YType.uint32, "tos")
+                    self._segment_path = lambda: "ip"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2Tp.Classes.Class_.Ip, ['tos'], name, value)
 
     def clone_ptr(self):
         self._top_entity = L2Tp()

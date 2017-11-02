@@ -100,6 +100,11 @@ class SNMPPROXYMIB(Entity):
             
             	**length:** 1..32
             
+            .. attribute:: snmpproxytype
+            
+            	The type of message that may be forwarded using the translation parameters defined by this entry
+            	**type**\:   :py:class:`Snmpproxytype <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry.Snmpproxytype>`
+            
             .. attribute:: snmpproxycontextengineid
             
             	The contextEngineID contained in messages that may be forwarded using the translation parameters defined by this entry
@@ -112,19 +117,19 @@ class SNMPPROXYMIB(Entity):
             	The contextName contained in messages that may be forwarded using the translation parameters defined by this entry.  This object is optional, and if not supported, the contextName contained in a message is ignored when selecting an entry in the snmpProxyTable
             	**type**\:  str
             
-            .. attribute:: snmpproxymultipletargetout
+            .. attribute:: snmpproxytargetparamsin
             
-            	This object selects a set of management targets defined in the snmpTargetAddrTable (in the SNMP\-TARGET\-MIB).  This object is only used when selection of multiple targets is required (i.e. when forwarding an incoming notification)
+            	This object selects an entry in the snmpTargetParamsTable. The selected entry is used to determine which row of the snmpProxyTable to use for forwarding received messages
             	**type**\:  str
-            
-            .. attribute:: snmpproxyrowstatus
-            
-            	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  The following objects may not be modified while the value of this object is active(1)\:     \- snmpProxyType     \- snmpProxyContextEngineID     \- snmpProxyContextName     \- snmpProxyTargetParamsIn     \- snmpProxySingleTargetOut     \- snmpProxyMultipleTargetOut
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             .. attribute:: snmpproxysingletargetout
             
             	This object selects a management target defined in the snmpTargetAddrTable (in the SNMP\-TARGET\-MIB).  The selected target is defined by an entry in the snmpTargetAddrTable whose index value (snmpTargetAddrName) is equal to this object.  This object is only used when selection of a single target is required (i.e. when forwarding an incoming read or write request)
+            	**type**\:  str
+            
+            .. attribute:: snmpproxymultipletargetout
+            
+            	This object selects a set of management targets defined in the snmpTargetAddrTable (in the SNMP\-TARGET\-MIB).  This object is only used when selection of multiple targets is required (i.e. when forwarding an incoming notification)
             	**type**\:  str
             
             .. attribute:: snmpproxystoragetype
@@ -132,15 +137,10 @@ class SNMPPROXYMIB(Entity):
             	The storage type of this conceptual row. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
-            .. attribute:: snmpproxytargetparamsin
+            .. attribute:: snmpproxyrowstatus
             
-            	This object selects an entry in the snmpTargetParamsTable. The selected entry is used to determine which row of the snmpProxyTable to use for forwarding received messages
-            	**type**\:  str
-            
-            .. attribute:: snmpproxytype
-            
-            	The type of message that may be forwarded using the translation parameters defined by this entry
-            	**type**\:   :py:class:`Snmpproxytype <ydk.models.cisco_ios_xe.SNMP_PROXY_MIB.SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry.Snmpproxytype>`
+            	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  The following objects may not be modified while the value of this object is active(1)\:     \- snmpProxyType     \- snmpProxyContextEngineID     \- snmpProxyContextName     \- snmpProxyTargetParamsIn     \- snmpProxySingleTargetOut     \- snmpProxyMultipleTargetOut
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -161,26 +161,26 @@ class SNMPPROXYMIB(Entity):
 
                 self.snmpproxyname = YLeaf(YType.str, "snmpProxyName")
 
+                self.snmpproxytype = YLeaf(YType.enumeration, "snmpProxyType")
+
                 self.snmpproxycontextengineid = YLeaf(YType.str, "snmpProxyContextEngineID")
 
                 self.snmpproxycontextname = YLeaf(YType.str, "snmpProxyContextName")
 
-                self.snmpproxymultipletargetout = YLeaf(YType.str, "snmpProxyMultipleTargetOut")
-
-                self.snmpproxyrowstatus = YLeaf(YType.enumeration, "snmpProxyRowStatus")
+                self.snmpproxytargetparamsin = YLeaf(YType.str, "snmpProxyTargetParamsIn")
 
                 self.snmpproxysingletargetout = YLeaf(YType.str, "snmpProxySingleTargetOut")
 
+                self.snmpproxymultipletargetout = YLeaf(YType.str, "snmpProxyMultipleTargetOut")
+
                 self.snmpproxystoragetype = YLeaf(YType.enumeration, "snmpProxyStorageType")
 
-                self.snmpproxytargetparamsin = YLeaf(YType.str, "snmpProxyTargetParamsIn")
-
-                self.snmpproxytype = YLeaf(YType.enumeration, "snmpProxyType")
+                self.snmpproxyrowstatus = YLeaf(YType.enumeration, "snmpProxyRowStatus")
                 self._segment_path = lambda: "snmpProxyEntry" + "[snmpProxyName='" + self.snmpproxyname.get() + "']"
                 self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry, ['snmpproxyname', 'snmpproxycontextengineid', 'snmpproxycontextname', 'snmpproxymultipletargetout', 'snmpproxyrowstatus', 'snmpproxysingletargetout', 'snmpproxystoragetype', 'snmpproxytargetparamsin', 'snmpproxytype'], name, value)
+                self._perform_setattr(SNMPPROXYMIB.Snmpproxytable.Snmpproxyentry, ['snmpproxyname', 'snmpproxytype', 'snmpproxycontextengineid', 'snmpproxycontextname', 'snmpproxytargetparamsin', 'snmpproxysingletargetout', 'snmpproxymultipletargetout', 'snmpproxystoragetype', 'snmpproxyrowstatus'], name, value)
 
             class Snmpproxytype(Enum):
                 """

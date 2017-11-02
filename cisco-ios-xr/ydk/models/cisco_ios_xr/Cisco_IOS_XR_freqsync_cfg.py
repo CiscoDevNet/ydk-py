@@ -91,16 +91,6 @@ class FrequencySynchronization(Entity):
     """
     frequency synchronization
     
-    .. attribute:: clock_interface_source_type
-    
-    	Clock interface source type
-    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
-    
-    .. attribute:: enable
-    
-    	Enable Frequency Synchronization
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: quality_level_option
     
     	Quality level option
@@ -108,10 +98,20 @@ class FrequencySynchronization(Entity):
     
     	**default value**\: option-1
     
+    .. attribute:: enable
+    
+    	Enable Frequency Synchronization
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
     .. attribute:: source_selection_logging
     
     	Source selection logging option
     	**type**\:   :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
+    
+    .. attribute:: clock_interface_source_type
+    
+    	Clock interface source type
+    	**type**\:   :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
     
     .. attribute:: system_timing_mode
     
@@ -136,19 +136,19 @@ class FrequencySynchronization(Entity):
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
+        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
 
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.quality_level_option = YLeaf(YType.enumeration, "quality-level-option")
-
         self.source_selection_logging = YLeaf(YType.enumeration, "source-selection-logging")
+
+        self.clock_interface_source_type = YLeaf(YType.enumeration, "clock-interface-source-type")
 
         self.system_timing_mode = YLeaf(YType.enumeration, "system-timing-mode")
         self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(FrequencySynchronization, ['clock_interface_source_type', 'enable', 'quality_level_option', 'source_selection_logging', 'system_timing_mode'], name, value)
+        self._perform_setattr(FrequencySynchronization, ['quality_level_option', 'enable', 'source_selection_logging', 'clock_interface_source_type', 'system_timing_mode'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FrequencySynchronization()

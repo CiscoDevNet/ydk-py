@@ -123,57 +123,6 @@ class Traceroute(Entity):
             
             	**mandatory**\: True
             
-            .. attribute:: max_ttl
-            
-            	maximum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 30
-            
-            .. attribute:: min_ttl
-            
-            	minimum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 1
-            
-            .. attribute:: numeric
-            
-            	Numeric display only
-            	**type**\:  bool
-            
-            .. attribute:: outgoing_interface
-            
-            	Outgoing interface, needed in case of traceroute to link local address
-            	**type**\:  str
-            
-            .. attribute:: port
-            
-            	Port numbe
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: priority
-            
-            	Priority of hte packet
-            	**type**\:  int
-            
-            	**range:** 0..15
-            
-            .. attribute:: probe
-            
-            	Probe count
-            	**type**\:  int
-            
-            	**range:** 1..64
-            
-            	**default value**\: 3
-            
             .. attribute:: source
             
             	Source address or interface
@@ -188,14 +137,65 @@ class Traceroute(Entity):
             
             	**default value**\: 3
             
-            .. attribute:: verbose
+            .. attribute:: probe
             
-            	verbose output
+            	Probe count
+            	**type**\:  int
+            
+            	**range:** 1..64
+            
+            	**default value**\: 3
+            
+            .. attribute:: numeric
+            
+            	Numeric display only
             	**type**\:  bool
             
             .. attribute:: vrf_name
             
             	VRF name
+            	**type**\:  str
+            
+            .. attribute:: min_ttl
+            
+            	minimum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 1
+            
+            .. attribute:: max_ttl
+            
+            	maximum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 30
+            
+            .. attribute:: port
+            
+            	Port numbe
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: verbose
+            
+            	verbose output
+            	**type**\:  bool
+            
+            .. attribute:: priority
+            
+            	Priority of hte packet
+            	**type**\:  int
+            
+            	**range:** 0..15
+            
+            .. attribute:: outgoing_interface
+            
+            	Outgoing interface, needed in case of traceroute to link local address
             	**type**\:  str
             
             
@@ -217,32 +217,32 @@ class Traceroute(Entity):
 
                 self.destination = YLeaf(YType.str, "destination")
 
-                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
-
-                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
-
-                self.numeric = YLeaf(YType.boolean, "numeric")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                self.port = YLeaf(YType.uint32, "port")
-
-                self.priority = YLeaf(YType.uint16, "priority")
-
-                self.probe = YLeaf(YType.uint16, "probe")
-
                 self.source = YLeaf(YType.str, "source")
 
                 self.timeout = YLeaf(YType.uint32, "timeout")
 
-                self.verbose = YLeaf(YType.boolean, "verbose")
+                self.probe = YLeaf(YType.uint16, "probe")
+
+                self.numeric = YLeaf(YType.boolean, "numeric")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
+
+                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
+
+                self.port = YLeaf(YType.uint32, "port")
+
+                self.verbose = YLeaf(YType.boolean, "verbose")
+
+                self.priority = YLeaf(YType.uint16, "priority")
+
+                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
                 self._segment_path = lambda: "destination"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'max_ttl', 'min_ttl', 'numeric', 'outgoing_interface', 'port', 'priority', 'probe', 'source', 'timeout', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Traceroute.Input.Destination, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
         class Ipv4(Entity):
@@ -255,45 +255,6 @@ class Traceroute(Entity):
             	**type**\:  str
             
             	**mandatory**\: True
-            
-            .. attribute:: max_ttl
-            
-            	maximum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 30
-            
-            .. attribute:: min_ttl
-            
-            	minimum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 1
-            
-            .. attribute:: numeric
-            
-            	Numeric display only
-            	**type**\:  bool
-            
-            .. attribute:: port
-            
-            	Port numbe
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: probe
-            
-            	Probe count
-            	**type**\:  int
-            
-            	**range:** 1..64
-            
-            	**default value**\: 3
             
             .. attribute:: source
             
@@ -309,15 +270,54 @@ class Traceroute(Entity):
             
             	**default value**\: 3
             
-            .. attribute:: verbose
+            .. attribute:: probe
             
-            	verbose output
+            	Probe count
+            	**type**\:  int
+            
+            	**range:** 1..64
+            
+            	**default value**\: 3
+            
+            .. attribute:: numeric
+            
+            	Numeric display only
             	**type**\:  bool
             
             .. attribute:: vrf_name
             
             	VRF name
             	**type**\:  str
+            
+            .. attribute:: min_ttl
+            
+            	minimum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 1
+            
+            .. attribute:: max_ttl
+            
+            	maximum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 30
+            
+            .. attribute:: port
+            
+            	Port numbe
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: verbose
+            
+            	verbose output
+            	**type**\:  bool
             
             
 
@@ -338,28 +338,28 @@ class Traceroute(Entity):
 
                 self.destination = YLeaf(YType.str, "destination")
 
-                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
-
-                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
-
-                self.numeric = YLeaf(YType.boolean, "numeric")
-
-                self.port = YLeaf(YType.uint32, "port")
-
-                self.probe = YLeaf(YType.uint16, "probe")
-
                 self.source = YLeaf(YType.str, "source")
 
                 self.timeout = YLeaf(YType.uint32, "timeout")
 
-                self.verbose = YLeaf(YType.boolean, "verbose")
+                self.probe = YLeaf(YType.uint16, "probe")
+
+                self.numeric = YLeaf(YType.boolean, "numeric")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
+
+                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
+
+                self.port = YLeaf(YType.uint32, "port")
+
+                self.verbose = YLeaf(YType.boolean, "verbose")
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'max_ttl', 'min_ttl', 'numeric', 'port', 'probe', 'source', 'timeout', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv4, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose'], name, value)
 
 
         class Ipv6(Entity):
@@ -372,57 +372,6 @@ class Traceroute(Entity):
             	**type**\:  str
             
             	**mandatory**\: True
-            
-            .. attribute:: max_ttl
-            
-            	maximum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 30
-            
-            .. attribute:: min_ttl
-            
-            	minimum time to live
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            	**default value**\: 1
-            
-            .. attribute:: numeric
-            
-            	Numeric display only
-            	**type**\:  bool
-            
-            .. attribute:: outgoing_interface
-            
-            	Outgoing interface, needed in case of traceroute to link local address
-            	**type**\:  str
-            
-            .. attribute:: port
-            
-            	Port numbe
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: priority
-            
-            	Priority of hte packet
-            	**type**\:  int
-            
-            	**range:** 0..15
-            
-            .. attribute:: probe
-            
-            	Probe count
-            	**type**\:  int
-            
-            	**range:** 1..64
-            
-            	**default value**\: 3
             
             .. attribute:: source
             
@@ -438,14 +387,65 @@ class Traceroute(Entity):
             
             	**default value**\: 3
             
-            .. attribute:: verbose
+            .. attribute:: probe
             
-            	verbose output
+            	Probe count
+            	**type**\:  int
+            
+            	**range:** 1..64
+            
+            	**default value**\: 3
+            
+            .. attribute:: numeric
+            
+            	Numeric display only
             	**type**\:  bool
             
             .. attribute:: vrf_name
             
             	VRF name
+            	**type**\:  str
+            
+            .. attribute:: min_ttl
+            
+            	minimum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 1
+            
+            .. attribute:: max_ttl
+            
+            	maximum time to live
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            	**default value**\: 30
+            
+            .. attribute:: port
+            
+            	Port numbe
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: verbose
+            
+            	verbose output
+            	**type**\:  bool
+            
+            .. attribute:: priority
+            
+            	Priority of hte packet
+            	**type**\:  int
+            
+            	**range:** 0..15
+            
+            .. attribute:: outgoing_interface
+            
+            	Outgoing interface, needed in case of traceroute to link local address
             	**type**\:  str
             
             
@@ -467,32 +467,32 @@ class Traceroute(Entity):
 
                 self.destination = YLeaf(YType.str, "destination")
 
-                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
-
-                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
-
-                self.numeric = YLeaf(YType.boolean, "numeric")
-
-                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
-
-                self.port = YLeaf(YType.uint32, "port")
-
-                self.priority = YLeaf(YType.uint16, "priority")
-
-                self.probe = YLeaf(YType.uint16, "probe")
-
                 self.source = YLeaf(YType.str, "source")
 
                 self.timeout = YLeaf(YType.uint32, "timeout")
 
-                self.verbose = YLeaf(YType.boolean, "verbose")
+                self.probe = YLeaf(YType.uint16, "probe")
+
+                self.numeric = YLeaf(YType.boolean, "numeric")
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.min_ttl = YLeaf(YType.uint16, "min-ttl")
+
+                self.max_ttl = YLeaf(YType.uint16, "max-ttl")
+
+                self.port = YLeaf(YType.uint32, "port")
+
+                self.verbose = YLeaf(YType.boolean, "verbose")
+
+                self.priority = YLeaf(YType.uint16, "priority")
+
+                self.outgoing_interface = YLeaf(YType.str, "outgoing-interface")
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-traceroute-act:traceroute/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'max_ttl', 'min_ttl', 'numeric', 'outgoing_interface', 'port', 'priority', 'probe', 'source', 'timeout', 'verbose', 'vrf_name'], name, value)
+                self._perform_setattr(Traceroute.Input.Ipv6, ['destination', 'source', 'timeout', 'probe', 'numeric', 'vrf_name', 'min_ttl', 'max_ttl', 'port', 'verbose', 'priority', 'outgoing_interface'], name, value)
 
 
     class Output(Entity):
@@ -689,6 +689,11 @@ class Traceroute(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: result
+                        
+                        	Response for each probe
+                        	**type**\:  str
+                        
                         .. attribute:: delta_time
                         
                         	Delta time in seconds
@@ -704,11 +709,6 @@ class Traceroute(Entity):
                         .. attribute:: hop_hostname
                         
                         	Hostname of the hop
-                        	**type**\:  str
-                        
-                        .. attribute:: result
-                        
-                        	Response for each probe
                         	**type**\:  str
                         
                         
@@ -730,17 +730,17 @@ class Traceroute(Entity):
 
                             self.probe_index = YLeaf(YType.uint32, "probe-index")
 
+                            self.result = YLeaf(YType.str, "result")
+
                             self.delta_time = YLeaf(YType.uint32, "delta-time")
 
                             self.hop_address = YLeaf(YType.str, "hop-address")
 
                             self.hop_hostname = YLeaf(YType.str, "hop-hostname")
-
-                            self.result = YLeaf(YType.str, "result")
                             self._segment_path = lambda: "probes" + "[probe-index='" + self.probe_index.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Probes, ['probe_index', 'delta_time', 'hop_address', 'hop_hostname', 'result'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv4.Hops.Probes, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
 
             class Ipv6(Entity):
@@ -859,6 +859,11 @@ class Traceroute(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: result
+                        
+                        	Response for each probe
+                        	**type**\:  str
+                        
                         .. attribute:: delta_time
                         
                         	Delta time in seconds
@@ -874,11 +879,6 @@ class Traceroute(Entity):
                         .. attribute:: hop_hostname
                         
                         	Hostname of the hop
-                        	**type**\:  str
-                        
-                        .. attribute:: result
-                        
-                        	Response for each probe
                         	**type**\:  str
                         
                         
@@ -900,17 +900,17 @@ class Traceroute(Entity):
 
                             self.probe_index = YLeaf(YType.uint32, "probe-index")
 
+                            self.result = YLeaf(YType.str, "result")
+
                             self.delta_time = YLeaf(YType.uint32, "delta-time")
 
                             self.hop_address = YLeaf(YType.str, "hop-address")
 
                             self.hop_hostname = YLeaf(YType.str, "hop-hostname")
-
-                            self.result = YLeaf(YType.str, "result")
                             self._segment_path = lambda: "probes" + "[probe-index='" + self.probe_index.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Probes, ['probe_index', 'delta_time', 'hop_address', 'hop_hostname', 'result'], name, value)
+                            self._perform_setattr(Traceroute.Output.TracerouteResponse.Ipv6.Hops.Probes, ['probe_index', 'result', 'delta_time', 'hop_address', 'hop_hostname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Traceroute()

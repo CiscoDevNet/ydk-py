@@ -695,17 +695,15 @@ class Otu(Entity):
             	Port name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: prbs
+            
+            	OTU port PRBS operational data
+            	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Prbs>`
             
             .. attribute:: info
             
             	OTU port operational data
             	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
-            
-            .. attribute:: prbs
-            
-            	OTU port PRBS operational data
-            	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Prbs>`
             
             
 
@@ -721,20 +719,20 @@ class Otu(Entity):
                 self.yang_parent_name = "controllers"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"info" : ("info", Otu.Controllers.Controller.Info), "prbs" : ("prbs", Otu.Controllers.Controller.Prbs)}
+                self._child_container_classes = {"prbs" : ("prbs", Otu.Controllers.Controller.Prbs), "info" : ("info", Otu.Controllers.Controller.Info)}
                 self._child_list_classes = {}
 
                 self.controller_name = YLeaf(YType.str, "controller-name")
-
-                self.info = Otu.Controllers.Controller.Info()
-                self.info.parent = self
-                self._children_name_map["info"] = "info"
-                self._children_yang_names.add("info")
 
                 self.prbs = Otu.Controllers.Controller.Prbs()
                 self.prbs.parent = self
                 self._children_name_map["prbs"] = "prbs"
                 self._children_yang_names.add("prbs")
+
+                self.info = Otu.Controllers.Controller.Info()
+                self.info.parent = self
+                self._children_name_map["info"] = "info"
+                self._children_yang_names.add("info")
                 self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-otu-oper:otu/controllers/%s" % self._segment_path()
 
@@ -742,137 +740,152 @@ class Otu(Entity):
                 self._perform_setattr(Otu.Controllers.Controller, ['controller_name'], name, value)
 
 
+            class Prbs(Entity):
+                """
+                OTU port PRBS operational data
+                
+                .. attribute:: otu_prbs_test
+                
+                	otu prbs test
+                	**type**\:   :py:class:`OtuPrbsTest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsTest>`
+                
+                .. attribute:: otu_prbs_mode
+                
+                	otu prbs mode
+                	**type**\:   :py:class:`OtuPrbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsMode>`
+                
+                .. attribute:: otu_prbs_pattern
+                
+                	otu prbs pattern
+                	**type**\:   :py:class:`OtuPrbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsPattern>`
+                
+                .. attribute:: otu_prbs_status
+                
+                	otu prbs status
+                	**type**\:   :py:class:`OtuPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsStatus>`
+                
+                
+
+                """
+
+                _prefix = 'controller-otu-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Otu.Controllers.Controller.Prbs, self).__init__()
+
+                    self.yang_name = "prbs"
+                    self.yang_parent_name = "controller"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.otu_prbs_test = YLeaf(YType.enumeration, "otu-prbs-test")
+
+                    self.otu_prbs_mode = YLeaf(YType.enumeration, "otu-prbs-mode")
+
+                    self.otu_prbs_pattern = YLeaf(YType.enumeration, "otu-prbs-pattern")
+
+                    self.otu_prbs_status = YLeaf(YType.enumeration, "otu-prbs-status")
+                    self._segment_path = lambda: "prbs"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Otu.Controllers.Controller.Prbs, ['otu_prbs_test', 'otu_prbs_mode', 'otu_prbs_pattern', 'otu_prbs_status'], name, value)
+
+
             class Info(Entity):
                 """
                 OTU port operational data
-                
-                .. attribute:: auto_tti_flag
-                
-                	Auto tti flag
-                	**type**\:  bool
-                
-                .. attribute:: config_sec_state
-                
-                	Sec State
-                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
-                
-                .. attribute:: derivedstate_mode
-                
-                	Derived State
-                	**type**\:   :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
-                
-                .. attribute:: description
-                
-                	Controller description string
-                	**type**\:  str
-                
-                .. attribute:: ec
-                
-                	Average bit errors corrected
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: ec_value
-                
-                	EC value present
-                	**type**\:  bool
-                
-                .. attribute:: fec_mode
-                
-                	FEC
-                	**type**\:   :py:class:`OtuG709FecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecMode>`
-                
-                .. attribute:: gcc_mode
-                
-                	OTU GCC
-                	**type**\:  bool
-                
-                .. attribute:: gmpls_tti_mode
-                
-                	GMPLS TTI MODE
-                	**type**\:   :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
-                
-                .. attribute:: gmpls_tvm_id
-                
-                	GMPLS TCM ID
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: inherit_sec_state
-                
-                	Sec State
-                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
                 
                 .. attribute:: local
                 
                 	TTI
                 	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
                 
-                .. attribute:: loopback_mode
+                .. attribute:: remote
                 
-                	Loopback
-                	**type**\:   :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
+                	Remote
+                	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
                 
-                .. attribute:: name
+                .. attribute:: tti_mode
                 
-                	Interface Name
-                	**type**\:  str
+                	OTU TTI
+                	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
                 
                 .. attribute:: network_srlg
                 
                 	Network Shared Risk Link Group information
                 	**type**\:   :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
                 
-                .. attribute:: nv_optical_support
-                
-                	NV Optical support
-                	**type**\:  bool
-                
                 .. attribute:: otu_alarm_info
                 
                 	OTU layer alarm Information
                 	**type**\:   :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
+                
+                .. attribute:: proactive
+                
+                	Proactive Protection
+                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
                 
                 .. attribute:: otu_fec_satistics
                 
                 	OTU FEC Statistics
                 	**type**\:   :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
                 
-                .. attribute:: performance_monitoring
+                .. attribute:: state
                 
-                	Performance Monitoring
-                	**type**\:   :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
+                	Admin State
+                	**type**\:   :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
                 
-                .. attribute:: pre_fec_ber_mantissa
+                .. attribute:: name
                 
-                	Pre fec val mantissa
-                	**type**\:  bool
+                	Interface Name
+                	**type**\:  str
                 
-                .. attribute:: pre_fec_ber_value
+                .. attribute:: sf
                 
-                	Pre fec val present 
-                	**type**\:  bool
-                
-                .. attribute:: pre_fec_mantissa
-                
-                	Pre FEC BER Mantissa in form E\-<mantisaa>
+                	SF in the form of 1.0E \- <SF>
                 	**type**\:  int
                 
-                	**range:** \-128..127
+                	**range:** 0..255
                 
-                .. attribute:: pre_fec_val
+                .. attribute:: sd
                 
-                	Pre FEC BER Value in form 0.00
+                	SD in the form of 1.0E \- <SD>
                 	**type**\:  int
                 
-                	**range:** \-2147483648..2147483647
+                	**range:** 0..255
                 
-                .. attribute:: proactive
+                .. attribute:: loopback_mode
                 
-                	Proactive Protection
-                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
+                	Loopback
+                	**type**\:   :py:class:`OtuLoopBackMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackMode>`
+                
+                .. attribute:: fec_mode
+                
+                	FEC
+                	**type**\:   :py:class:`OtuG709FecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecMode>`
+                
+                .. attribute:: derivedstate_mode
+                
+                	Derived State
+                	**type**\:   :py:class:`OtuDerState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerState>`
+                
+                .. attribute:: inherit_sec_state
+                
+                	Sec State
+                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                
+                .. attribute:: config_sec_state
+                
+                	Sec State
+                	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                
+                .. attribute:: gcc_mode
+                
+                	OTU GCC
+                	**type**\:  bool
                 
                 .. attribute:: q
                 
@@ -888,34 +901,17 @@ class Otu(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
-                .. attribute:: remote
+                .. attribute:: performance_monitoring
                 
-                	Remote
-                	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                	Performance Monitoring
+                	**type**\:   :py:class:`OtuPerMon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMon>`
                 
-                .. attribute:: sd
+                .. attribute:: ec
                 
-                	SD in the form of 1.0E \- <SD>
+                	Average bit errors corrected
                 	**type**\:  int
                 
-                	**range:** 0..255
-                
-                .. attribute:: sf
-                
-                	SF in the form of 1.0E \- <SF>
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: state
-                
-                	Admin State
-                	**type**\:   :py:class:`OtuStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEt>`
-                
-                .. attribute:: tti_mode
-                
-                	OTU TTI
-                	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: uc
                 
@@ -924,10 +920,66 @@ class Otu(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                .. attribute:: pre_fec_val
+                
+                	Pre FEC BER Value in form 0.00
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: pre_fec_mantissa
+                
+                	Pre FEC BER Mantissa in form E\-<mantisaa>
+                	**type**\:  int
+                
+                	**range:** \-128..127
+                
+                .. attribute:: ec_value
+                
+                	EC value present
+                	**type**\:  bool
+                
                 .. attribute:: uc_value
                 
                 	Uc value present
                 	**type**\:  bool
+                
+                .. attribute:: pre_fec_ber_value
+                
+                	Pre fec val present 
+                	**type**\:  bool
+                
+                .. attribute:: pre_fec_ber_mantissa
+                
+                	Pre fec val mantissa
+                	**type**\:  bool
+                
+                .. attribute:: nv_optical_support
+                
+                	NV Optical support
+                	**type**\:  bool
+                
+                .. attribute:: gmpls_tti_mode
+                
+                	GMPLS TTI MODE
+                	**type**\:   :py:class:`GmplsOtuTtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiMode>`
+                
+                .. attribute:: gmpls_tvm_id
+                
+                	GMPLS TCM ID
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: auto_tti_flag
+                
+                	Auto tti flag
+                	**type**\:  bool
+                
+                .. attribute:: description
+                
+                	Controller description string
+                	**type**\:  str
                 
                 
 
@@ -943,65 +995,75 @@ class Otu(Entity):
                     self.yang_parent_name = "controller"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"local" : ("local", Otu.Controllers.Controller.Info.Local), "network-srlg" : ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg), "otu-alarm-info" : ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo), "otu-fec-satistics" : ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics), "proactive" : ("proactive", Otu.Controllers.Controller.Info.Proactive), "remote" : ("remote", Otu.Controllers.Controller.Info.Remote), "tti-mode" : ("tti_mode", Otu.Controllers.Controller.Info.TtiMode)}
+                    self._child_container_classes = {"local" : ("local", Otu.Controllers.Controller.Info.Local), "remote" : ("remote", Otu.Controllers.Controller.Info.Remote), "tti-mode" : ("tti_mode", Otu.Controllers.Controller.Info.TtiMode), "network-srlg" : ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg), "otu-alarm-info" : ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo), "proactive" : ("proactive", Otu.Controllers.Controller.Info.Proactive), "otu-fec-satistics" : ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics)}
                     self._child_list_classes = {}
 
-                    self.auto_tti_flag = YLeaf(YType.boolean, "auto-tti-flag")
-
-                    self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
-
-                    self.derivedstate_mode = YLeaf(YType.enumeration, "derivedstate-mode")
-
-                    self.description = YLeaf(YType.str, "description")
-
-                    self.ec = YLeaf(YType.uint64, "ec")
-
-                    self.ec_value = YLeaf(YType.boolean, "ec-value")
-
-                    self.fec_mode = YLeaf(YType.enumeration, "fec-mode")
-
-                    self.gcc_mode = YLeaf(YType.boolean, "gcc-mode")
-
-                    self.gmpls_tti_mode = YLeaf(YType.enumeration, "gmpls-tti-mode")
-
-                    self.gmpls_tvm_id = YLeaf(YType.uint8, "gmpls-tvm-id")
-
-                    self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
-
-                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
+                    self.state = YLeaf(YType.enumeration, "state")
 
                     self.name = YLeaf(YType.str, "name")
 
-                    self.nv_optical_support = YLeaf(YType.boolean, "nv-optical-support")
+                    self.sf = YLeaf(YType.uint8, "sf")
 
-                    self.performance_monitoring = YLeaf(YType.enumeration, "performance-monitoring")
+                    self.sd = YLeaf(YType.uint8, "sd")
 
-                    self.pre_fec_ber_mantissa = YLeaf(YType.boolean, "pre-fec-ber-mantissa")
+                    self.loopback_mode = YLeaf(YType.enumeration, "loopback-mode")
 
-                    self.pre_fec_ber_value = YLeaf(YType.boolean, "pre-fec-ber-value")
+                    self.fec_mode = YLeaf(YType.enumeration, "fec-mode")
 
-                    self.pre_fec_mantissa = YLeaf(YType.int8, "pre-fec-mantissa")
+                    self.derivedstate_mode = YLeaf(YType.enumeration, "derivedstate-mode")
 
-                    self.pre_fec_val = YLeaf(YType.int32, "pre-fec-val")
+                    self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
+
+                    self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
+
+                    self.gcc_mode = YLeaf(YType.boolean, "gcc-mode")
 
                     self.q = YLeaf(YType.uint64, "q")
 
                     self.q_margin = YLeaf(YType.uint64, "q-margin")
 
-                    self.sd = YLeaf(YType.uint8, "sd")
+                    self.performance_monitoring = YLeaf(YType.enumeration, "performance-monitoring")
 
-                    self.sf = YLeaf(YType.uint8, "sf")
-
-                    self.state = YLeaf(YType.enumeration, "state")
+                    self.ec = YLeaf(YType.uint64, "ec")
 
                     self.uc = YLeaf(YType.uint64, "uc")
 
+                    self.pre_fec_val = YLeaf(YType.int32, "pre-fec-val")
+
+                    self.pre_fec_mantissa = YLeaf(YType.int8, "pre-fec-mantissa")
+
+                    self.ec_value = YLeaf(YType.boolean, "ec-value")
+
                     self.uc_value = YLeaf(YType.boolean, "uc-value")
+
+                    self.pre_fec_ber_value = YLeaf(YType.boolean, "pre-fec-ber-value")
+
+                    self.pre_fec_ber_mantissa = YLeaf(YType.boolean, "pre-fec-ber-mantissa")
+
+                    self.nv_optical_support = YLeaf(YType.boolean, "nv-optical-support")
+
+                    self.gmpls_tti_mode = YLeaf(YType.enumeration, "gmpls-tti-mode")
+
+                    self.gmpls_tvm_id = YLeaf(YType.uint8, "gmpls-tvm-id")
+
+                    self.auto_tti_flag = YLeaf(YType.boolean, "auto-tti-flag")
+
+                    self.description = YLeaf(YType.str, "description")
 
                     self.local = Otu.Controllers.Controller.Info.Local()
                     self.local.parent = self
                     self._children_name_map["local"] = "local"
                     self._children_yang_names.add("local")
+
+                    self.remote = Otu.Controllers.Controller.Info.Remote()
+                    self.remote.parent = self
+                    self._children_name_map["remote"] = "remote"
+                    self._children_yang_names.add("remote")
+
+                    self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
+                    self.tti_mode.parent = self
+                    self._children_name_map["tti_mode"] = "tti-mode"
+                    self._children_yang_names.add("tti-mode")
 
                     self.network_srlg = Otu.Controllers.Controller.Info.NetworkSrlg()
                     self.network_srlg.parent = self
@@ -1013,45 +1075,35 @@ class Otu(Entity):
                     self._children_name_map["otu_alarm_info"] = "otu-alarm-info"
                     self._children_yang_names.add("otu-alarm-info")
 
-                    self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
-                    self.otu_fec_satistics.parent = self
-                    self._children_name_map["otu_fec_satistics"] = "otu-fec-satistics"
-                    self._children_yang_names.add("otu-fec-satistics")
-
                     self.proactive = Otu.Controllers.Controller.Info.Proactive()
                     self.proactive.parent = self
                     self._children_name_map["proactive"] = "proactive"
                     self._children_yang_names.add("proactive")
 
-                    self.remote = Otu.Controllers.Controller.Info.Remote()
-                    self.remote.parent = self
-                    self._children_name_map["remote"] = "remote"
-                    self._children_yang_names.add("remote")
-
-                    self.tti_mode = Otu.Controllers.Controller.Info.TtiMode()
-                    self.tti_mode.parent = self
-                    self._children_name_map["tti_mode"] = "tti-mode"
-                    self._children_yang_names.add("tti-mode")
+                    self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
+                    self.otu_fec_satistics.parent = self
+                    self._children_name_map["otu_fec_satistics"] = "otu-fec-satistics"
+                    self._children_yang_names.add("otu-fec-satistics")
                     self._segment_path = lambda: "info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Info, ['auto_tti_flag', 'config_sec_state', 'derivedstate_mode', 'description', 'ec', 'ec_value', 'fec_mode', 'gcc_mode', 'gmpls_tti_mode', 'gmpls_tvm_id', 'inherit_sec_state', 'loopback_mode', 'name', 'nv_optical_support', 'performance_monitoring', 'pre_fec_ber_mantissa', 'pre_fec_ber_value', 'pre_fec_mantissa', 'pre_fec_val', 'q', 'q_margin', 'sd', 'sf', 'state', 'uc', 'uc_value'], name, value)
+                    self._perform_setattr(Otu.Controllers.Controller.Info, ['state', 'name', 'sf', 'sd', 'loopback_mode', 'fec_mode', 'derivedstate_mode', 'inherit_sec_state', 'config_sec_state', 'gcc_mode', 'q', 'q_margin', 'performance_monitoring', 'ec', 'uc', 'pre_fec_val', 'pre_fec_mantissa', 'ec_value', 'uc_value', 'pre_fec_ber_value', 'pre_fec_ber_mantissa', 'nv_optical_support', 'gmpls_tti_mode', 'gmpls_tvm_id', 'auto_tti_flag', 'description'], name, value)
 
 
                 class Local(Entity):
                     """
                     TTI
                     
-                    .. attribute:: if_index
+                    .. attribute:: router_id
                     
-                    	IfIndex
+                    	Router ID
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: router_id
+                    .. attribute:: if_index
                     
-                    	Router ID
+                    	IfIndex
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1073,13 +1125,335 @@ class Otu(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.if_index = YLeaf(YType.uint32, "if-index")
-
                         self.router_id = YLeaf(YType.uint32, "router-id")
+
+                        self.if_index = YLeaf(YType.uint32, "if-index")
                         self._segment_path = lambda: "local"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, ['if_index', 'router_id'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, ['router_id', 'if_index'], name, value)
+
+
+                class Remote(Entity):
+                    """
+                    Remote
+                    
+                    .. attribute:: router_id
+                    
+                    	Router ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: if_index
+                    
+                    	IfIndex
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Otu.Controllers.Controller.Info.Remote, self).__init__()
+
+                        self.yang_name = "remote"
+                        self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.router_id = YLeaf(YType.uint32, "router-id")
+
+                        self.if_index = YLeaf(YType.uint32, "if-index")
+                        self._segment_path = lambda: "remote"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, ['router_id', 'if_index'], name, value)
+
+
+                class TtiMode(Entity):
+                    """
+                    OTU TTI
+                    
+                    .. attribute:: tx
+                    
+                    	String Sent
+                    	**type**\:   :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
+                    
+                    .. attribute:: exp
+                    
+                    	String Expected
+                    	**type**\:   :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
+                    
+                    .. attribute:: rec
+                    
+                    	String Received
+                    	**type**\:   :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
+                    
+                    .. attribute:: g709tti_sent_mode
+                    
+                    	G709TTI sent
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    
+                    .. attribute:: g709tti_exp_mode
+                    
+                    	G709TTI Expected
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    
+                    .. attribute:: g709tti_rec_mode
+                    
+                    	G709TTI Recieved
+                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
+                    
+                    .. attribute:: remote_interface
+                    
+                    	Remote Interface Name
+                    	**type**\:  str
+                    
+                    .. attribute:: remote_host_name
+                    
+                    	Remote host name
+                    	**type**\:  str
+                    
+                    .. attribute:: remote_ip_addr
+                    
+                    	Remote host ip
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Otu.Controllers.Controller.Info.TtiMode, self).__init__()
+
+                        self.yang_name = "tti-mode"
+                        self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"tx" : ("tx", Otu.Controllers.Controller.Info.TtiMode.Tx), "exp" : ("exp", Otu.Controllers.Controller.Info.TtiMode.Exp), "rec" : ("rec", Otu.Controllers.Controller.Info.TtiMode.Rec)}
+                        self._child_list_classes = {}
+
+                        self.g709tti_sent_mode = YLeaf(YType.enumeration, "g709tti-sent-mode")
+
+                        self.g709tti_exp_mode = YLeaf(YType.enumeration, "g709tti-exp-mode")
+
+                        self.g709tti_rec_mode = YLeaf(YType.enumeration, "g709tti-rec-mode")
+
+                        self.remote_interface = YLeaf(YType.str, "remote-interface")
+
+                        self.remote_host_name = YLeaf(YType.str, "remote-host-name")
+
+                        self.remote_ip_addr = YLeaf(YType.str, "remote-ip-addr")
+
+                        self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
+                        self.tx.parent = self
+                        self._children_name_map["tx"] = "tx"
+                        self._children_yang_names.add("tx")
+
+                        self.exp = Otu.Controllers.Controller.Info.TtiMode.Exp()
+                        self.exp.parent = self
+                        self._children_name_map["exp"] = "exp"
+                        self._children_yang_names.add("exp")
+
+                        self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
+                        self.rec.parent = self
+                        self._children_name_map["rec"] = "rec"
+                        self._children_yang_names.add("rec")
+                        self._segment_path = lambda: "tti-mode"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode', 'remote_interface', 'remote_host_name', 'remote_ip_addr'], name, value)
+
+
+                    class Tx(Entity):
+                        """
+                        String Sent
+                        
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
+                        
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dapi
+                        
+                        	exp String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: operator_specific
+                        
+                        	rec String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
+
+                            self.yang_name = "tx"
+                            self.yang_parent_name = "tti-mode"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
+
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                            self.dapi = YLeafList(YType.uint8, "dapi")
+
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self._segment_path = lambda: "tx"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, ['full_tti_ascii_string', 'sapi', 'dapi', 'operator_specific'], name, value)
+
+
+                    class Exp(Entity):
+                        """
+                        String Expected
+                        
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
+                        
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dapi
+                        
+                        	exp String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: operator_specific
+                        
+                        	rec String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
+
+                            self.yang_name = "exp"
+                            self.yang_parent_name = "tti-mode"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
+
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                            self.dapi = YLeafList(YType.uint8, "dapi")
+
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self._segment_path = lambda: "exp"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, ['full_tti_ascii_string', 'sapi', 'dapi', 'operator_specific'], name, value)
+
+
+                    class Rec(Entity):
+                        """
+                        String Received
+                        
+                        .. attribute:: full_tti_ascii_string
+                        
+                        	full tti ascii String 
+                        	**type**\:  str
+                        
+                        .. attribute:: sapi
+                        
+                        	tx String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: dapi
+                        
+                        	exp String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: operator_specific
+                        
+                        	rec String 
+                        	**type**\:  list of int
+                        
+                        	**range:** 0..255
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
+
+                            self.yang_name = "rec"
+                            self.yang_parent_name = "tti-mode"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
+
+                            self.sapi = YLeafList(YType.uint8, "sapi")
+
+                            self.dapi = YLeafList(YType.uint8, "dapi")
+
+                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
+                            self._segment_path = lambda: "rec"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, ['full_tti_ascii_string', 'sapi', 'dapi', 'operator_specific'], name, value)
 
 
                 class NetworkSrlg(Entity):
@@ -1164,45 +1538,10 @@ class Otu(Entity):
                     """
                     OTU layer alarm Information
                     
-                    .. attribute:: ais
+                    .. attribute:: los
                     
-                    	Alarm Indication Signal
-                    	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
-                    
-                    .. attribute:: bdi
-                    
-                    	Backward Defect Indication
-                    	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
-                    
-                    .. attribute:: biae
-                    
-                    	Backward Incoming Alignment Error
-                    	**type**\:   :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
-                    
-                    .. attribute:: ec
-                    
-                    	EC alarm
-                    	**type**\:   :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
-                    
-                    .. attribute:: eoc
-                    
-                    	GCC End of Channel
-                    	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
-                    
-                    .. attribute:: fec_mismatch
-                    
-                    	FEC mismatch alarm
-                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
-                    
-                    .. attribute:: fecunc
-                    
-                    	FEC UnCorrected Word
-                    	**type**\:   :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
-                    
-                    .. attribute:: iae
-                    
-                    	Incoming Alignment Error
-                    	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
+                    	Loss of Signal
+                    	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
                     
                     .. attribute:: lof
                     
@@ -1214,11 +1553,6 @@ class Otu(Entity):
                     	Loss of MultiFrame
                     	**type**\:   :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
                     
-                    .. attribute:: los
-                    
-                    	Loss of Signal
-                    	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
-                    
                     .. attribute:: oof
                     
                     	Out of Frame
@@ -1229,25 +1563,65 @@ class Otu(Entity):
                     	Out of MultiFrame
                     	**type**\:   :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
                     
-                    .. attribute:: sd_ber
+                    .. attribute:: ais
                     
-                    	SD BER alarm
-                    	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
+                    	Alarm Indication Signal
+                    	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
                     
-                    .. attribute:: sf_ber
+                    .. attribute:: iae
                     
-                    	SF BER alarm
-                    	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    	Incoming Alignment Error
+                    	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
+                    
+                    .. attribute:: biae
+                    
+                    	Backward Incoming Alignment Error
+                    	**type**\:   :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
+                    
+                    .. attribute:: bdi
+                    
+                    	Backward Defect Indication
+                    	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
                     
                     .. attribute:: tim
                     
                     	Trace Identifier Mismatch
                     	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
                     
+                    .. attribute:: eoc
+                    
+                    	GCC End of Channel
+                    	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
+                    
+                    .. attribute:: fec_mismatch
+                    
+                    	FEC mismatch alarm
+                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
+                    
+                    .. attribute:: sf_ber
+                    
+                    	SF BER alarm
+                    	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    
+                    .. attribute:: sd_ber
+                    
+                    	SD BER alarm
+                    	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
+                    
+                    .. attribute:: ec
+                    
+                    	EC alarm
+                    	**type**\:   :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
+                    
                     .. attribute:: uc
                     
                     	UC alarm
                     	**type**\:   :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
+                    
+                    .. attribute:: fecunc
+                    
+                    	FEC UnCorrected Word
+                    	**type**\:   :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
                     
                     
 
@@ -1263,48 +1637,13 @@ class Otu(Entity):
                         self.yang_parent_name = "info"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"ais" : ("ais", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais), "bdi" : ("bdi", Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi), "biae" : ("biae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae), "ec" : ("ec", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec), "eoc" : ("eoc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc), "fec-mismatch" : ("fec_mismatch", Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch), "fecunc" : ("fecunc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc), "iae" : ("iae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae), "lof" : ("lof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof), "lom" : ("lom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom), "los" : ("los", Otu.Controllers.Controller.Info.OtuAlarmInfo.Los), "oof" : ("oof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof), "oom" : ("oom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom), "sd-ber" : ("sd_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer), "sf-ber" : ("sf_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer), "tim" : ("tim", Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim), "uc" : ("uc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc)}
+                        self._child_container_classes = {"los" : ("los", Otu.Controllers.Controller.Info.OtuAlarmInfo.Los), "lof" : ("lof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof), "lom" : ("lom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom), "oof" : ("oof", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof), "oom" : ("oom", Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom), "ais" : ("ais", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais), "iae" : ("iae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae), "biae" : ("biae", Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae), "bdi" : ("bdi", Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi), "tim" : ("tim", Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim), "eoc" : ("eoc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc), "fec-mismatch" : ("fec_mismatch", Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch), "sf-ber" : ("sf_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer), "sd-ber" : ("sd_ber", Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer), "ec" : ("ec", Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec), "uc" : ("uc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc), "fecunc" : ("fecunc", Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc)}
                         self._child_list_classes = {}
 
-                        self.ais = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais()
-                        self.ais.parent = self
-                        self._children_name_map["ais"] = "ais"
-                        self._children_yang_names.add("ais")
-
-                        self.bdi = Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi()
-                        self.bdi.parent = self
-                        self._children_name_map["bdi"] = "bdi"
-                        self._children_yang_names.add("bdi")
-
-                        self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
-                        self.biae.parent = self
-                        self._children_name_map["biae"] = "biae"
-                        self._children_yang_names.add("biae")
-
-                        self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
-                        self.ec.parent = self
-                        self._children_name_map["ec"] = "ec"
-                        self._children_yang_names.add("ec")
-
-                        self.eoc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc()
-                        self.eoc.parent = self
-                        self._children_name_map["eoc"] = "eoc"
-                        self._children_yang_names.add("eoc")
-
-                        self.fec_mismatch = Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch()
-                        self.fec_mismatch.parent = self
-                        self._children_name_map["fec_mismatch"] = "fec-mismatch"
-                        self._children_yang_names.add("fec-mismatch")
-
-                        self.fecunc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc()
-                        self.fecunc.parent = self
-                        self._children_name_map["fecunc"] = "fecunc"
-                        self._children_yang_names.add("fecunc")
-
-                        self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
-                        self.iae.parent = self
-                        self._children_name_map["iae"] = "iae"
-                        self._children_yang_names.add("iae")
+                        self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
+                        self.los.parent = self
+                        self._children_name_map["los"] = "los"
+                        self._children_yang_names.add("los")
 
                         self.lof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof()
                         self.lof.parent = self
@@ -1316,11 +1655,6 @@ class Otu(Entity):
                         self._children_name_map["lom"] = "lom"
                         self._children_yang_names.add("lom")
 
-                        self.los = Otu.Controllers.Controller.Info.OtuAlarmInfo.Los()
-                        self.los.parent = self
-                        self._children_name_map["los"] = "los"
-                        self._children_yang_names.add("los")
-
                         self.oof = Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof()
                         self.oof.parent = self
                         self._children_name_map["oof"] = "oof"
@@ -1331,602 +1665,75 @@ class Otu(Entity):
                         self._children_name_map["oom"] = "oom"
                         self._children_yang_names.add("oom")
 
-                        self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
-                        self.sd_ber.parent = self
-                        self._children_name_map["sd_ber"] = "sd-ber"
-                        self._children_yang_names.add("sd-ber")
+                        self.ais = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais()
+                        self.ais.parent = self
+                        self._children_name_map["ais"] = "ais"
+                        self._children_yang_names.add("ais")
 
-                        self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
-                        self.sf_ber.parent = self
-                        self._children_name_map["sf_ber"] = "sf-ber"
-                        self._children_yang_names.add("sf-ber")
+                        self.iae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae()
+                        self.iae.parent = self
+                        self._children_name_map["iae"] = "iae"
+                        self._children_yang_names.add("iae")
+
+                        self.biae = Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae()
+                        self.biae.parent = self
+                        self._children_name_map["biae"] = "biae"
+                        self._children_yang_names.add("biae")
+
+                        self.bdi = Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi()
+                        self.bdi.parent = self
+                        self._children_name_map["bdi"] = "bdi"
+                        self._children_yang_names.add("bdi")
 
                         self.tim = Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim()
                         self.tim.parent = self
                         self._children_name_map["tim"] = "tim"
                         self._children_yang_names.add("tim")
 
+                        self.eoc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc()
+                        self.eoc.parent = self
+                        self._children_name_map["eoc"] = "eoc"
+                        self._children_yang_names.add("eoc")
+
+                        self.fec_mismatch = Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch()
+                        self.fec_mismatch.parent = self
+                        self._children_name_map["fec_mismatch"] = "fec-mismatch"
+                        self._children_yang_names.add("fec-mismatch")
+
+                        self.sf_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer()
+                        self.sf_ber.parent = self
+                        self._children_name_map["sf_ber"] = "sf-ber"
+                        self._children_yang_names.add("sf-ber")
+
+                        self.sd_ber = Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer()
+                        self.sd_ber.parent = self
+                        self._children_name_map["sd_ber"] = "sd-ber"
+                        self._children_yang_names.add("sd-ber")
+
+                        self.ec = Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec()
+                        self.ec.parent = self
+                        self._children_name_map["ec"] = "ec"
+                        self._children_yang_names.add("ec")
+
                         self.uc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc()
                         self.uc.parent = self
                         self._children_name_map["uc"] = "uc"
                         self._children_yang_names.add("uc")
+
+                        self.fecunc = Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc()
+                        self.fecunc.parent = self
+                        self._children_name_map["fecunc"] = "fecunc"
+                        self._children_yang_names.add("fecunc")
                         self._segment_path = lambda: "otu-alarm-info"
-
-
-                    class Ais(Entity):
-                        """
-                        Alarm Indication Signal
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__init__()
-
-                            self.yang_name = "ais"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "ais"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Bdi(Entity):
-                        """
-                        Backward Defect Indication
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__init__()
-
-                            self.yang_name = "bdi"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "bdi"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Biae(Entity):
-                        """
-                        Backward Incoming Alignment Error
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__init__()
-
-                            self.yang_name = "biae"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "biae"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Ec(Entity):
-                        """
-                        EC alarm
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__init__()
-
-                            self.yang_name = "ec"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "ec"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Eoc(Entity):
-                        """
-                        GCC End of Channel
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__init__()
-
-                            self.yang_name = "eoc"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "eoc"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class FecMismatch(Entity):
-                        """
-                        FEC mismatch alarm
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__init__()
-
-                            self.yang_name = "fec-mismatch"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "fec-mismatch"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Fecunc(Entity):
-                        """
-                        FEC UnCorrected Word
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__init__()
-
-                            self.yang_name = "fecunc"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "fecunc"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Iae(Entity):
-                        """
-                        Incoming Alignment Error
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__init__()
-
-                            self.yang_name = "iae"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "iae"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Lof(Entity):
-                        """
-                        Loss of Frame
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__init__()
-
-                            self.yang_name = "lof"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "lof"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
-
-
-                    class Lom(Entity):
-                        """
-                        Loss of MultiFrame
-                        
-                        .. attribute:: counter
-                        
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_detected
-                        
-                        	Is defect detected?
-                        	**type**\:  bool
-                        
-                        .. attribute:: reporting_enabled
-                        
-                        	Is reporting enabled?
-                        	**type**\:  bool
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__init__()
-
-                            self.yang_name = "lom"
-                            self.yang_parent_name = "otu-alarm-info"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
-
-                            self.is_detected = YLeaf(YType.boolean, "is-detected")
-
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "lom"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
 
 
                     class Los(Entity):
                         """
                         Loss of Signal
                         
-                        .. attribute:: counter
+                        .. attribute:: reporting_enabled
                         
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -1934,10 +1741,17 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: is_asserted
                         
-                        	Is reporting enabled?
+                        	Is defect delared?
                         	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -1956,22 +1770,37 @@ class Otu(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
                             self._segment_path = lambda: "los"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
-                    class Oof(Entity):
+                    class Lof(Entity):
                         """
-                        Out of Frame
+                        Loss of Frame
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
                         
                         .. attribute:: counter
                         
@@ -1980,9 +1809,43 @@ class Otu(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: is_asserted
                         
-                        	Is defect delared?
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, self).__init__()
+
+                            self.yang_name = "lof"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "lof"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Lom(Entity):
+                        """
+                        Loss of MultiFrame
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -1990,10 +1853,73 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, self).__init__()
+
+                            self.yang_name = "lom"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "lom"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Oof(Entity):
+                        """
+                        Out of Frame
+                        
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
                         	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2012,33 +1938,26 @@ class Otu(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
                             self._segment_path = lambda: "oof"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
                     class Oom(Entity):
                         """
                         Out of MultiFrame
                         
-                        .. attribute:: counter
+                        .. attribute:: reporting_enabled
                         
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -2046,10 +1965,17 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: is_asserted
                         
-                        	Is reporting enabled?
+                        	Is defect delared?
                         	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2068,33 +1994,26 @@ class Otu(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
                             self._segment_path = lambda: "oom"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
-                    class SdBer(Entity):
+                    class Ais(Entity):
                         """
-                        SD BER alarm
+                        Alarm Indication Signal
                         
-                        .. attribute:: counter
+                        .. attribute:: reporting_enabled
                         
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -2102,10 +2021,17 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: is_asserted
                         
-                        	Is reporting enabled?
+                        	Is defect delared?
                         	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2115,42 +2041,35 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__init__()
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, self).__init__()
 
-                            self.yang_name = "sd-ber"
+                            self.yang_name = "ais"
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "sd-ber"
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "ais"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
-                    class SfBer(Entity):
+                    class Iae(Entity):
                         """
-                        SF BER alarm
+                        Incoming Alignment Error
                         
-                        .. attribute:: counter
+                        .. attribute:: reporting_enabled
                         
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -2158,10 +2077,17 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: is_asserted
                         
-                        	Is reporting enabled?
+                        	Is defect delared?
                         	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2171,42 +2097,147 @@ class Otu(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__init__()
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, self).__init__()
 
-                            self.yang_name = "sf-ber"
+                            self.yang_name = "iae"
                             self.yang_parent_name = "otu-alarm-info"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
-                            self._segment_path = lambda: "sf-ber"
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "iae"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Biae(Entity):
+                        """
+                        Backward Incoming Alignment Error
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, self).__init__()
+
+                            self.yang_name = "biae"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "biae"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Bdi(Entity):
+                        """
+                        Backward Defect Indication
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, self).__init__()
+
+                            self.yang_name = "bdi"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "bdi"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
                     class Tim(Entity):
                         """
                         Trace Identifier Mismatch
                         
-                        .. attribute:: counter
+                        .. attribute:: reporting_enabled
                         
-                        	Alarm counter
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: is_asserted
-                        
-                        	Is defect delared?
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -2214,10 +2245,17 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
-                        .. attribute:: reporting_enabled
+                        .. attribute:: is_asserted
                         
-                        	Is reporting enabled?
+                        	Is defect delared?
                         	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2236,22 +2274,37 @@ class Otu(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
                             self._segment_path = lambda: "tim"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
 
 
-                    class Uc(Entity):
+                    class Eoc(Entity):
                         """
-                        UC alarm
+                        GCC End of Channel
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
                         
                         .. attribute:: counter
                         
@@ -2260,9 +2313,43 @@ class Otu(Entity):
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: is_asserted
                         
-                        	Is defect delared?
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, self).__init__()
+
+                            self.yang_name = "eoc"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "eoc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class FecMismatch(Entity):
+                        """
+                        FEC mismatch alarm
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
                         	**type**\:  bool
                         
                         .. attribute:: is_detected
@@ -2270,10 +2357,241 @@ class Otu(Entity):
                         	Is defect detected?
                         	**type**\:  bool
                         
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, self).__init__()
+
+                            self.yang_name = "fec-mismatch"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "fec-mismatch"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class SfBer(Entity):
+                        """
+                        SF BER alarm
+                        
                         .. attribute:: reporting_enabled
                         
                         	Is reporting enabled?
                         	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, self).__init__()
+
+                            self.yang_name = "sf-ber"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "sf-ber"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class SdBer(Entity):
+                        """
+                        SD BER alarm
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, self).__init__()
+
+                            self.yang_name = "sd-ber"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "sd-ber"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Ec(Entity):
+                        """
+                        EC alarm
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, self).__init__()
+
+                            self.yang_name = "ec"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "ec"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Uc(Entity):
+                        """
+                        UC alarm
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -2292,17 +2610,188 @@ class Otu(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.counter = YLeaf(YType.uint64, "counter")
-
-                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
 
                             self.is_detected = YLeaf(YType.boolean, "is-detected")
 
-                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
                             self._segment_path = lambda: "uc"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, ['counter', 'is_asserted', 'is_detected', 'reporting_enabled'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                    class Fecunc(Entity):
+                        """
+                        FEC UnCorrected Word
+                        
+                        .. attribute:: reporting_enabled
+                        
+                        	Is reporting enabled?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_detected
+                        
+                        	Is defect detected?
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_asserted
+                        
+                        	Is defect delared?
+                        	**type**\:  bool
+                        
+                        .. attribute:: counter
+                        
+                        	Alarm counter
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, self).__init__()
+
+                            self.yang_name = "fecunc"
+                            self.yang_parent_name = "otu-alarm-info"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.reporting_enabled = YLeaf(YType.boolean, "reporting-enabled")
+
+                            self.is_detected = YLeaf(YType.boolean, "is-detected")
+
+                            self.is_asserted = YLeaf(YType.boolean, "is-asserted")
+
+                            self.counter = YLeaf(YType.uint64, "counter")
+                            self._segment_path = lambda: "fecunc"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+
+
+                class Proactive(Entity):
+                    """
+                    Proactive Protection
+                    
+                    .. attribute:: proactive_status
+                    
+                    	Proactive Status
+                    	**type**\:  bool
+                    
+                    .. attribute:: inherit_sec_state
+                    
+                    	Secondary Admin State
+                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                    
+                    .. attribute:: config_sec_state
+                    
+                    	Sec State
+                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
+                    
+                    .. attribute:: proactive_fsm_state
+                    
+                    	Proactive FSM State
+                    	**type**\:   :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
+                    
+                    .. attribute:: proactive_fsm_if_state
+                    
+                    	Proactive FSM IF State
+                    	**type**\:   :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
+                    
+                    .. attribute:: trig_thresh_coeff
+                    
+                    	Trigger threshold coefficient
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: trig_thresh_power
+                    
+                    	Trigger threshold power
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rvrt_thresh_coeff
+                    
+                    	Revert threshold coefficient
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: rvrt_thresh_power
+                    
+                    	Revert threshold power
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: trigger_window
+                    
+                    	Trigger Integration window
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: revert_window
+                    
+                    	Revert Integration Window
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Otu.Controllers.Controller.Info.Proactive, self).__init__()
+
+                        self.yang_name = "proactive"
+                        self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.proactive_status = YLeaf(YType.boolean, "proactive-status")
+
+                        self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
+
+                        self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
+
+                        self.proactive_fsm_state = YLeaf(YType.enumeration, "proactive-fsm-state")
+
+                        self.proactive_fsm_if_state = YLeaf(YType.enumeration, "proactive-fsm-if-state")
+
+                        self.trig_thresh_coeff = YLeaf(YType.uint8, "trig-thresh-coeff")
+
+                        self.trig_thresh_power = YLeaf(YType.uint8, "trig-thresh-power")
+
+                        self.rvrt_thresh_coeff = YLeaf(YType.uint8, "rvrt-thresh-coeff")
+
+                        self.rvrt_thresh_power = YLeaf(YType.uint8, "rvrt-thresh-power")
+
+                        self.trigger_window = YLeaf(YType.uint32, "trigger-window")
+
+                        self.revert_window = YLeaf(YType.uint32, "revert-window")
+                        self._segment_path = lambda: "proactive"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, ['proactive_status', 'inherit_sec_state', 'config_sec_state', 'proactive_fsm_state', 'proactive_fsm_if_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'trigger_window', 'revert_window'], name, value)
 
 
                 class OtuFecSatistics(Entity):
@@ -2343,497 +2832,6 @@ class Otu(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, ['post_fec_ber', 'pre_fec_ber'], name, value)
-
-
-                class Proactive(Entity):
-                    """
-                    Proactive Protection
-                    
-                    .. attribute:: config_sec_state
-                    
-                    	Sec State
-                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
-                    
-                    .. attribute:: inherit_sec_state
-                    
-                    	Secondary Admin State
-                    	**type**\:   :py:class:`OtuSecState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecState>`
-                    
-                    .. attribute:: proactive_fsm_if_state
-                    
-                    	Proactive FSM IF State
-                    	**type**\:   :py:class:`OtuPpIntfState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfState>`
-                    
-                    .. attribute:: proactive_fsm_state
-                    
-                    	Proactive FSM State
-                    	**type**\:   :py:class:`OtuPpFsmState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmState>`
-                    
-                    .. attribute:: proactive_status
-                    
-                    	Proactive Status
-                    	**type**\:  bool
-                    
-                    .. attribute:: revert_window
-                    
-                    	Revert Integration Window
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rvrt_thresh_coeff
-                    
-                    	Revert threshold coefficient
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: rvrt_thresh_power
-                    
-                    	Revert threshold power
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: trig_thresh_coeff
-                    
-                    	Trigger threshold coefficient
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: trig_thresh_power
-                    
-                    	Trigger threshold power
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: trigger_window
-                    
-                    	Trigger Integration window
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'controller-otu-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Otu.Controllers.Controller.Info.Proactive, self).__init__()
-
-                        self.yang_name = "proactive"
-                        self.yang_parent_name = "info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.config_sec_state = YLeaf(YType.enumeration, "config-sec-state")
-
-                        self.inherit_sec_state = YLeaf(YType.enumeration, "inherit-sec-state")
-
-                        self.proactive_fsm_if_state = YLeaf(YType.enumeration, "proactive-fsm-if-state")
-
-                        self.proactive_fsm_state = YLeaf(YType.enumeration, "proactive-fsm-state")
-
-                        self.proactive_status = YLeaf(YType.boolean, "proactive-status")
-
-                        self.revert_window = YLeaf(YType.uint32, "revert-window")
-
-                        self.rvrt_thresh_coeff = YLeaf(YType.uint8, "rvrt-thresh-coeff")
-
-                        self.rvrt_thresh_power = YLeaf(YType.uint8, "rvrt-thresh-power")
-
-                        self.trig_thresh_coeff = YLeaf(YType.uint8, "trig-thresh-coeff")
-
-                        self.trig_thresh_power = YLeaf(YType.uint8, "trig-thresh-power")
-
-                        self.trigger_window = YLeaf(YType.uint32, "trigger-window")
-                        self._segment_path = lambda: "proactive"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, ['config_sec_state', 'inherit_sec_state', 'proactive_fsm_if_state', 'proactive_fsm_state', 'proactive_status', 'revert_window', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'trig_thresh_coeff', 'trig_thresh_power', 'trigger_window'], name, value)
-
-
-                class Remote(Entity):
-                    """
-                    Remote
-                    
-                    .. attribute:: if_index
-                    
-                    	IfIndex
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: router_id
-                    
-                    	Router ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'controller-otu-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Otu.Controllers.Controller.Info.Remote, self).__init__()
-
-                        self.yang_name = "remote"
-                        self.yang_parent_name = "info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
-
-                        self.router_id = YLeaf(YType.uint32, "router-id")
-                        self._segment_path = lambda: "remote"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, ['if_index', 'router_id'], name, value)
-
-
-                class TtiMode(Entity):
-                    """
-                    OTU TTI
-                    
-                    .. attribute:: exp
-                    
-                    	String Expected
-                    	**type**\:   :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
-                    
-                    .. attribute:: g709tti_exp_mode
-                    
-                    	G709TTI Expected
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
-                    
-                    .. attribute:: g709tti_rec_mode
-                    
-                    	G709TTI Recieved
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
-                    
-                    .. attribute:: g709tti_sent_mode
-                    
-                    	G709TTI sent
-                    	**type**\:   :py:class:`OtuTtiEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEt>`
-                    
-                    .. attribute:: rec
-                    
-                    	String Received
-                    	**type**\:   :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
-                    
-                    .. attribute:: remote_host_name
-                    
-                    	Remote host name
-                    	**type**\:  str
-                    
-                    .. attribute:: remote_interface
-                    
-                    	Remote Interface Name
-                    	**type**\:  str
-                    
-                    .. attribute:: remote_ip_addr
-                    
-                    	Remote host ip
-                    	**type**\:  str
-                    
-                    .. attribute:: tx
-                    
-                    	String Sent
-                    	**type**\:   :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'controller-otu-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Otu.Controllers.Controller.Info.TtiMode, self).__init__()
-
-                        self.yang_name = "tti-mode"
-                        self.yang_parent_name = "info"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"exp" : ("exp", Otu.Controllers.Controller.Info.TtiMode.Exp), "rec" : ("rec", Otu.Controllers.Controller.Info.TtiMode.Rec), "tx" : ("tx", Otu.Controllers.Controller.Info.TtiMode.Tx)}
-                        self._child_list_classes = {}
-
-                        self.g709tti_exp_mode = YLeaf(YType.enumeration, "g709tti-exp-mode")
-
-                        self.g709tti_rec_mode = YLeaf(YType.enumeration, "g709tti-rec-mode")
-
-                        self.g709tti_sent_mode = YLeaf(YType.enumeration, "g709tti-sent-mode")
-
-                        self.remote_host_name = YLeaf(YType.str, "remote-host-name")
-
-                        self.remote_interface = YLeaf(YType.str, "remote-interface")
-
-                        self.remote_ip_addr = YLeaf(YType.str, "remote-ip-addr")
-
-                        self.exp = Otu.Controllers.Controller.Info.TtiMode.Exp()
-                        self.exp.parent = self
-                        self._children_name_map["exp"] = "exp"
-                        self._children_yang_names.add("exp")
-
-                        self.rec = Otu.Controllers.Controller.Info.TtiMode.Rec()
-                        self.rec.parent = self
-                        self._children_name_map["rec"] = "rec"
-                        self._children_yang_names.add("rec")
-
-                        self.tx = Otu.Controllers.Controller.Info.TtiMode.Tx()
-                        self.tx.parent = self
-                        self._children_name_map["tx"] = "tx"
-                        self._children_yang_names.add("tx")
-                        self._segment_path = lambda: "tti-mode"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, ['g709tti_exp_mode', 'g709tti_rec_mode', 'g709tti_sent_mode', 'remote_host_name', 'remote_interface', 'remote_ip_addr'], name, value)
-
-
-                    class Exp(Entity):
-                        """
-                        String Expected
-                        
-                        .. attribute:: dapi
-                        
-                        	exp String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: full_tti_ascii_string
-                        
-                        	full tti ascii String 
-                        	**type**\:  str
-                        
-                        .. attribute:: operator_specific
-                        
-                        	rec String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Exp, self).__init__()
-
-                            self.yang_name = "exp"
-                            self.yang_parent_name = "tti-mode"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-                            self._segment_path = lambda: "exp"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, ['dapi', 'full_tti_ascii_string', 'operator_specific', 'sapi'], name, value)
-
-
-                    class Rec(Entity):
-                        """
-                        String Received
-                        
-                        .. attribute:: dapi
-                        
-                        	exp String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: full_tti_ascii_string
-                        
-                        	full tti ascii String 
-                        	**type**\:  str
-                        
-                        .. attribute:: operator_specific
-                        
-                        	rec String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Rec, self).__init__()
-
-                            self.yang_name = "rec"
-                            self.yang_parent_name = "tti-mode"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-                            self._segment_path = lambda: "rec"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, ['dapi', 'full_tti_ascii_string', 'operator_specific', 'sapi'], name, value)
-
-
-                    class Tx(Entity):
-                        """
-                        String Sent
-                        
-                        .. attribute:: dapi
-                        
-                        	exp String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: full_tti_ascii_string
-                        
-                        	full tti ascii String 
-                        	**type**\:  str
-                        
-                        .. attribute:: operator_specific
-                        
-                        	rec String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: sapi
-                        
-                        	tx String 
-                        	**type**\:  list of int
-                        
-                        	**range:** 0..255
-                        
-                        
-
-                        """
-
-                        _prefix = 'controller-otu-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Otu.Controllers.Controller.Info.TtiMode.Tx, self).__init__()
-
-                            self.yang_name = "tx"
-                            self.yang_parent_name = "tti-mode"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.dapi = YLeafList(YType.uint8, "dapi")
-
-                            self.full_tti_ascii_string = YLeaf(YType.str, "full-tti-ascii-string")
-
-                            self.operator_specific = YLeafList(YType.uint8, "operator-specific")
-
-                            self.sapi = YLeafList(YType.uint8, "sapi")
-                            self._segment_path = lambda: "tx"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, ['dapi', 'full_tti_ascii_string', 'operator_specific', 'sapi'], name, value)
-
-
-            class Prbs(Entity):
-                """
-                OTU port PRBS operational data
-                
-                .. attribute:: otu_prbs_mode
-                
-                	otu prbs mode
-                	**type**\:   :py:class:`OtuPrbsMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsMode>`
-                
-                .. attribute:: otu_prbs_pattern
-                
-                	otu prbs pattern
-                	**type**\:   :py:class:`OtuPrbsPattern <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsPattern>`
-                
-                .. attribute:: otu_prbs_status
-                
-                	otu prbs status
-                	**type**\:   :py:class:`OtuPrbsStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsStatus>`
-                
-                .. attribute:: otu_prbs_test
-                
-                	otu prbs test
-                	**type**\:   :py:class:`OtuPrbsTest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPrbsTest>`
-                
-                
-
-                """
-
-                _prefix = 'controller-otu-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Otu.Controllers.Controller.Prbs, self).__init__()
-
-                    self.yang_name = "prbs"
-                    self.yang_parent_name = "controller"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.otu_prbs_mode = YLeaf(YType.enumeration, "otu-prbs-mode")
-
-                    self.otu_prbs_pattern = YLeaf(YType.enumeration, "otu-prbs-pattern")
-
-                    self.otu_prbs_status = YLeaf(YType.enumeration, "otu-prbs-status")
-
-                    self.otu_prbs_test = YLeaf(YType.enumeration, "otu-prbs-test")
-                    self._segment_path = lambda: "prbs"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Prbs, ['otu_prbs_mode', 'otu_prbs_pattern', 'otu_prbs_status', 'otu_prbs_test'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Otu()

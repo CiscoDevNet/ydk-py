@@ -116,8 +116,6 @@ class Pbr(Entity):
             	The node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: policy_map
             
             	Operational data for policymaps
@@ -228,8 +226,6 @@ class Pbr(Entity):
                         	Name of the interface
                         	**type**\:  str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
                         .. attribute:: direction
                         
                         	PBR direction
@@ -301,11 +297,6 @@ class Pbr(Entity):
                                 """
                                 PBR policy statistics
                                 
-                                .. attribute:: class_stat
-                                
-                                	Array of classes contained in policy
-                                	**type**\: list of    :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
-                                
                                 .. attribute:: node_name
                                 
                                 	NodeName
@@ -331,6 +322,11 @@ class Pbr(Entity):
                                 	**type**\:  str
                                 
                                 	**length:** 0..128
+                                
+                                .. attribute:: class_stat
+                                
+                                	Array of classes contained in policy
+                                	**type**\: list of    :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
                                 
                                 
 
@@ -368,19 +364,15 @@ class Pbr(Entity):
                                     """
                                     Array of classes contained in policy
                                     
-                                    .. attribute:: class_id
+                                    .. attribute:: general_stats
                                     
-                                    	ClassId
-                                    	**type**\:  int
+                                    	general stats
+                                    	**type**\:   :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
                                     
-                                    	**range:** 0..4294967295
+                                    .. attribute:: httpr_stats
                                     
-                                    .. attribute:: class_name
-                                    
-                                    	ClassName
-                                    	**type**\:  str
-                                    
-                                    	**length:** 0..65
+                                    	HTTPR stats
+                                    	**type**\:   :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
                                     .. attribute:: counter_validity_bitmask
                                     
@@ -391,15 +383,19 @@ class Pbr(Entity):
                                     
                                     	**units**\: byte
                                     
-                                    .. attribute:: general_stats
+                                    .. attribute:: class_name
                                     
-                                    	general stats
-                                    	**type**\:   :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
+                                    	ClassName
+                                    	**type**\:  str
                                     
-                                    .. attribute:: httpr_stats
+                                    	**length:** 0..65
                                     
-                                    	HTTPR stats
-                                    	**type**\:   :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
+                                    .. attribute:: class_id
+                                    
+                                    	ClassId
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..4294967295
                                     
                                     
 
@@ -418,11 +414,11 @@ class Pbr(Entity):
                                         self._child_container_classes = {"general-stats" : ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats), "httpr-stats" : ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats)}
                                         self._child_list_classes = {}
 
-                                        self.class_id = YLeaf(YType.uint32, "class-id")
+                                        self.counter_validity_bitmask = YLeaf(YType.uint64, "counter-validity-bitmask")
 
                                         self.class_name = YLeaf(YType.str, "class-name")
 
-                                        self.counter_validity_bitmask = YLeaf(YType.uint64, "counter-validity-bitmask")
+                                        self.class_id = YLeaf(YType.uint32, "class-id")
 
                                         self.general_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats()
                                         self.general_stats.parent = self
@@ -436,41 +432,25 @@ class Pbr(Entity):
                                         self._segment_path = lambda: "class-stat"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['class_id', 'class_name', 'counter_validity_bitmask'], name, value)
+                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['counter_validity_bitmask', 'class_name', 'class_id'], name, value)
 
 
                                     class GeneralStats(Entity):
                                         """
                                         general stats
                                         
-                                        .. attribute:: match_data_rate
+                                        .. attribute:: transmit_packets
                                         
-                                        	Incoming matched data rate in kbps
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..4294967295
-                                        
-                                        	**units**\: kbit/s
-                                        
-                                        .. attribute:: pre_policy_matched_bytes
-                                        
-                                        	Matched bytes before applying policy
+                                        	Transmitted packets (packets/bytes)
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
                                         	**units**\: byte
                                         
-                                        .. attribute:: pre_policy_matched_packets
+                                        .. attribute:: transmit_bytes
                                         
-                                        	Matched pkts before applying policy
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: total_drop_bytes
-                                        
-                                        	Dropped bytes (packets/bytes)
+                                        	Transmitted bytes (packets/bytes)
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
@@ -486,6 +466,15 @@ class Pbr(Entity):
                                         
                                         	**units**\: byte
                                         
+                                        .. attribute:: total_drop_bytes
+                                        
+                                        	Dropped bytes (packets/bytes)
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
                                         .. attribute:: total_drop_rate
                                         
                                         	Total drop rate (packets/bytes)
@@ -494,6 +483,15 @@ class Pbr(Entity):
                                         	**range:** 0..4294967295
                                         
                                         	**units**\: byte
+                                        
+                                        .. attribute:: match_data_rate
+                                        
+                                        	Incoming matched data rate in kbps
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        	**units**\: kbit/s
                                         
                                         .. attribute:: total_transmit_rate
                                         
@@ -504,18 +502,16 @@ class Pbr(Entity):
                                         
                                         	**units**\: kbit/s
                                         
-                                        .. attribute:: transmit_bytes
+                                        .. attribute:: pre_policy_matched_packets
                                         
-                                        	Transmitted bytes (packets/bytes)
+                                        	Matched pkts before applying policy
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        	**units**\: byte
+                                        .. attribute:: pre_policy_matched_bytes
                                         
-                                        .. attribute:: transmit_packets
-                                        
-                                        	Transmitted packets (packets/bytes)
+                                        	Matched bytes before applying policy
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
@@ -539,61 +535,36 @@ class Pbr(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.match_data_rate = YLeaf(YType.uint32, "match-data-rate")
-
-                                            self.pre_policy_matched_bytes = YLeaf(YType.uint64, "pre-policy-matched-bytes")
-
-                                            self.pre_policy_matched_packets = YLeaf(YType.uint64, "pre-policy-matched-packets")
-
-                                            self.total_drop_bytes = YLeaf(YType.uint64, "total-drop-bytes")
-
-                                            self.total_drop_packets = YLeaf(YType.uint64, "total-drop-packets")
-
-                                            self.total_drop_rate = YLeaf(YType.uint32, "total-drop-rate")
-
-                                            self.total_transmit_rate = YLeaf(YType.uint32, "total-transmit-rate")
+                                            self.transmit_packets = YLeaf(YType.uint64, "transmit-packets")
 
                                             self.transmit_bytes = YLeaf(YType.uint64, "transmit-bytes")
 
-                                            self.transmit_packets = YLeaf(YType.uint64, "transmit-packets")
+                                            self.total_drop_packets = YLeaf(YType.uint64, "total-drop-packets")
+
+                                            self.total_drop_bytes = YLeaf(YType.uint64, "total-drop-bytes")
+
+                                            self.total_drop_rate = YLeaf(YType.uint32, "total-drop-rate")
+
+                                            self.match_data_rate = YLeaf(YType.uint32, "match-data-rate")
+
+                                            self.total_transmit_rate = YLeaf(YType.uint32, "total-transmit-rate")
+
+                                            self.pre_policy_matched_packets = YLeaf(YType.uint64, "pre-policy-matched-packets")
+
+                                            self.pre_policy_matched_bytes = YLeaf(YType.uint64, "pre-policy-matched-bytes")
                                             self._segment_path = lambda: "general-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['match_data_rate', 'pre_policy_matched_bytes', 'pre_policy_matched_packets', 'total_drop_bytes', 'total_drop_packets', 'total_drop_rate', 'total_transmit_rate', 'transmit_bytes', 'transmit_packets'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['transmit_packets', 'transmit_bytes', 'total_drop_packets', 'total_drop_bytes', 'total_drop_rate', 'match_data_rate', 'total_transmit_rate', 'pre_policy_matched_packets', 'pre_policy_matched_bytes'], name, value)
 
 
                                     class HttprStats(Entity):
                                         """
                                         HTTPR stats
                                         
-                                        .. attribute:: drop_bytes
+                                        .. attribute:: rqst_rcvd_packets
                                         
-                                        	Dropped bytes
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: drop_packets
-                                        
-                                        	Dropped  packets
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        .. attribute:: resp_sent_bytes
-                                        
-                                        	TotalNum of Bytes HTTPR response sent
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
-                                        
-                                        	**units**\: byte
-                                        
-                                        .. attribute:: resp_sent_packets
-                                        
-                                        	TotalNum of pkts HTTPR response sent
+                                        	TotalNum of pkts HTTP request received
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
@@ -607,12 +578,37 @@ class Pbr(Entity):
                                         
                                         	**units**\: byte
                                         
-                                        .. attribute:: rqst_rcvd_packets
+                                        .. attribute:: drop_packets
                                         
-                                        	TotalNum of pkts HTTP request received
+                                        	Dropped  packets
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: drop_bytes
+                                        
+                                        	Dropped bytes
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: resp_sent_packets
+                                        
+                                        	TotalNum of pkts HTTPR response sent
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: resp_sent_bytes
+                                        
+                                        	TotalNum of Bytes HTTPR response sent
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         
 
@@ -631,21 +627,21 @@ class Pbr(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
-
-                                            self.drop_packets = YLeaf(YType.uint64, "drop-packets")
-
-                                            self.resp_sent_bytes = YLeaf(YType.uint64, "resp-sent-bytes")
-
-                                            self.resp_sent_packets = YLeaf(YType.uint64, "resp-sent-packets")
+                                            self.rqst_rcvd_packets = YLeaf(YType.uint64, "rqst-rcvd-packets")
 
                                             self.rqst_rcvd_bytes = YLeaf(YType.uint64, "rqst-rcvd-bytes")
 
-                                            self.rqst_rcvd_packets = YLeaf(YType.uint64, "rqst-rcvd-packets")
+                                            self.drop_packets = YLeaf(YType.uint64, "drop-packets")
+
+                                            self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
+
+                                            self.resp_sent_packets = YLeaf(YType.uint64, "resp-sent-packets")
+
+                                            self.resp_sent_bytes = YLeaf(YType.uint64, "resp-sent-bytes")
                                             self._segment_path = lambda: "httpr-stats"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['drop_bytes', 'drop_packets', 'resp_sent_bytes', 'resp_sent_packets', 'rqst_rcvd_bytes', 'rqst_rcvd_packets'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pbr()

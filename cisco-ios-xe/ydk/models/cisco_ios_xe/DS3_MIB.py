@@ -25,6 +25,16 @@ class DS3MIB(Entity):
     	The DS3/E3 current table contains various statistics being collected for the current 15 minute interval
     	**type**\:   :py:class:`Dsx3Currenttable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Currenttable>`
     
+    .. attribute:: dsx3intervaltable
+    
+    	The DS3/E3 Interval Table contains various statistics collected by each DS3/E3 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx3IntervalNumber) and for one specific interface (identifed by dsx3IntervalIndex)
+    	**type**\:   :py:class:`Dsx3Intervaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable>`
+    
+    .. attribute:: dsx3totaltable
+    
+    	The DS3/E3 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
+    	**type**\:   :py:class:`Dsx3Totaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable>`
+    
     .. attribute:: dsx3farendconfigtable
     
     	The DS3 Far End Configuration Table contains configuration information reported in the C\-bits from the remote end
@@ -52,16 +62,6 @@ class DS3MIB(Entity):
     
     	**status**\: deprecated
     
-    .. attribute:: dsx3intervaltable
-    
-    	The DS3/E3 Interval Table contains various statistics collected by each DS3/E3 Interface over the previous 24 hours of operation.  The past 24 hours are broken into 96 completed 15 minute intervals.  Each row in this table represents one such interval (identified by dsx3IntervalNumber) and for one specific interface (identifed by dsx3IntervalIndex)
-    	**type**\:   :py:class:`Dsx3Intervaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable>`
-    
-    .. attribute:: dsx3totaltable
-    
-    	The DS3/E3 Total Table contains the cumulative sum of the various statistics for the 24 hour period preceding the current interval
-    	**type**\:   :py:class:`Dsx3Totaltable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable>`
-    
     
 
     """
@@ -77,7 +77,7 @@ class DS3MIB(Entity):
         self.yang_parent_name = "DS3-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"dsx3ConfigTable" : ("dsx3configtable", DS3MIB.Dsx3Configtable), "dsx3CurrentTable" : ("dsx3currenttable", DS3MIB.Dsx3Currenttable), "dsx3FarEndConfigTable" : ("dsx3farendconfigtable", DS3MIB.Dsx3Farendconfigtable), "dsx3FarEndCurrentTable" : ("dsx3farendcurrenttable", DS3MIB.Dsx3Farendcurrenttable), "dsx3FarEndIntervalTable" : ("dsx3farendintervaltable", DS3MIB.Dsx3Farendintervaltable), "dsx3FarEndTotalTable" : ("dsx3farendtotaltable", DS3MIB.Dsx3Farendtotaltable), "dsx3FracTable" : ("dsx3fractable", DS3MIB.Dsx3Fractable), "dsx3IntervalTable" : ("dsx3intervaltable", DS3MIB.Dsx3Intervaltable), "dsx3TotalTable" : ("dsx3totaltable", DS3MIB.Dsx3Totaltable)}
+        self._child_container_classes = {"dsx3ConfigTable" : ("dsx3configtable", DS3MIB.Dsx3Configtable), "dsx3CurrentTable" : ("dsx3currenttable", DS3MIB.Dsx3Currenttable), "dsx3IntervalTable" : ("dsx3intervaltable", DS3MIB.Dsx3Intervaltable), "dsx3TotalTable" : ("dsx3totaltable", DS3MIB.Dsx3Totaltable), "dsx3FarEndConfigTable" : ("dsx3farendconfigtable", DS3MIB.Dsx3Farendconfigtable), "dsx3FarEndCurrentTable" : ("dsx3farendcurrenttable", DS3MIB.Dsx3Farendcurrenttable), "dsx3FarEndIntervalTable" : ("dsx3farendintervaltable", DS3MIB.Dsx3Farendintervaltable), "dsx3FarEndTotalTable" : ("dsx3farendtotaltable", DS3MIB.Dsx3Farendtotaltable), "dsx3FracTable" : ("dsx3fractable", DS3MIB.Dsx3Fractable)}
         self._child_list_classes = {}
 
         self.dsx3configtable = DS3MIB.Dsx3Configtable()
@@ -89,6 +89,16 @@ class DS3MIB(Entity):
         self.dsx3currenttable.parent = self
         self._children_name_map["dsx3currenttable"] = "dsx3CurrentTable"
         self._children_yang_names.add("dsx3CurrentTable")
+
+        self.dsx3intervaltable = DS3MIB.Dsx3Intervaltable()
+        self.dsx3intervaltable.parent = self
+        self._children_name_map["dsx3intervaltable"] = "dsx3IntervalTable"
+        self._children_yang_names.add("dsx3IntervalTable")
+
+        self.dsx3totaltable = DS3MIB.Dsx3Totaltable()
+        self.dsx3totaltable.parent = self
+        self._children_name_map["dsx3totaltable"] = "dsx3TotalTable"
+        self._children_yang_names.add("dsx3TotalTable")
 
         self.dsx3farendconfigtable = DS3MIB.Dsx3Farendconfigtable()
         self.dsx3farendconfigtable.parent = self
@@ -114,16 +124,6 @@ class DS3MIB(Entity):
         self.dsx3fractable.parent = self
         self._children_name_map["dsx3fractable"] = "dsx3FracTable"
         self._children_yang_names.add("dsx3FracTable")
-
-        self.dsx3intervaltable = DS3MIB.Dsx3Intervaltable()
-        self.dsx3intervaltable.parent = self
-        self._children_name_map["dsx3intervaltable"] = "dsx3IntervalTable"
-        self._children_yang_names.add("dsx3IntervalTable")
-
-        self.dsx3totaltable = DS3MIB.Dsx3Totaltable()
-        self.dsx3totaltable.parent = self
-        self._children_name_map["dsx3totaltable"] = "dsx3TotalTable"
-        self._children_yang_names.add("dsx3TotalTable")
         self._segment_path = lambda: "DS3-MIB:DS3-MIB"
 
 
@@ -172,25 +172,6 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx3channelization
-            
-            	Indicates whether this ds3/e3 is channelized or unchannelized.  The value of enabledDs1 indicates that this is a DS3 channelized into DS1s.  The value of enabledDs3 indicated that this is a DS3 channelized into DS2s.  Setting this object will cause the creation or deletion of DS2 or DS1 entries in the ifTable.  
-            	**type**\:   :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Channelization>`
-            
-            .. attribute:: dsx3circuitidentifier
-            
-            	This variable contains the transmission vendor's circuit identifier, for the purpose of facilitating troubleshooting
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: dsx3ds1forremoteloop
-            
-            	Indicates which ds1/e1 on this ds3/e3 will be indicated in the remote ds1 loopback request.  A value of 0 means no DS1 will be looped.  A value of 29 means all ds1s/e1s will be looped
-            	**type**\:  int
-            
-            	**range:** 0..29
-            
             .. attribute:: dsx3ifindex
             
             	This value for this object is equal to the value of ifIndex from the Interfaces table of MIB II (RFC 1213)
@@ -200,17 +181,65 @@ class DS3MIB(Entity):
             
             	**status**\: deprecated
             
+            .. attribute:: dsx3timeelapsed
+            
+            	The number of seconds that have elapsed since the beginning of the near end current error\- measurement period.  If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
+            	**type**\:  int
+            
+            	**range:** 0..899
+            
+            .. attribute:: dsx3validintervals
+            
+            	The number of previous near end intervals for which data was collected.  The value will be 96 unless the interface was brought online within the last 24 hours, in which case the value will be the number of complete 15 minute near end intervals since the interface has been online.  In the case where the agent is a proxy, it is possible that some intervals are unavailable.  In this case, this interval is the maximum interval number for which data is available
+            	**type**\:  int
+            
+            	**range:** 0..96
+            
+            .. attribute:: dsx3linetype
+            
+            	This variable indicates the variety of DS3 C\-bit or E3 application implementing this interface. The type of interface affects the interpretation of the usage and error statistics.  The rate of DS3 is 44.736 Mbps and E3 is 34.368 Mbps.  The dsx3ClearChannel value means that the C\-bits are not used except for sending/receiving AIS. The values, in sequence, describe\:  TITLE\:            SPECIFICATION\: dsx3M23            ANSI T1.107\-1988 [9] dsx3SYNTRAN        ANSI T1.107\-1988 [9] dsx3CbitParity     ANSI T1.107a\-1990 [9a] dsx3ClearChannel   ANSI T1.102\-1987 [8] e3Framed           CCITT G.751 [12] e3Plcp             ETSI T/NA(91)18 [13]
+            	**type**\:   :py:class:`Dsx3Linetype <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linetype>`
+            
+            .. attribute:: dsx3linecoding
+            
+            	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx3B3ZS and e3HDB3 refer to the use of specified patterns of normal bits and bipolar violations which are used to replace sequences of zero bits of a specified length
+            	**type**\:   :py:class:`Dsx3Linecoding <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linecoding>`
+            
+            .. attribute:: dsx3sendcode
+            
+            	This variable indicates what type of code is being sent across the DS3/E3 interface by the device.  (These are optional for E3 interfaces.) Setting this variable causes the interface to begin sending the code requested. The values mean\:     dsx3SendNoCode        sending looped or normal data     dsx3SendLineCode        sending a request for a line loopback     dsx3SendPayloadCode        sending a request for a payload loopback        (i.e., all DS1/E1s in a DS3/E3 frame)     dsx3SendResetCode        sending a loopback deactivation request     dsx3SendDS1LoopCode        requesting to loopback a particular DS1/E1        within a DS3/E3 frame.  The DS1/E1 is        indicated in dsx3Ds1ForRemoteLoop.     dsx3SendTestPattern        sending a test pattern
+            	**type**\:   :py:class:`Dsx3Sendcode <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Sendcode>`
+            
+            .. attribute:: dsx3circuitidentifier
+            
+            	This variable contains the transmission vendor's circuit identifier, for the purpose of facilitating troubleshooting
+            	**type**\:  str
+            
+            	**length:** 0..255
+            
+            .. attribute:: dsx3loopbackconfig
+            
+            	This variable represents the desired loopback configuration of the DS3/E3 interface.  The values mean\:  dsx3NoLoop   Not in the loopback state.  A device that is   not capable of performing a loopback on   the interface shall always return this as   its value.  dsx3PayloadLoop   The received signal at this interface is looped   through the device.  Typically the received signal   is looped back for retransmission after it has   passed through the device's framing function.  dsx3LineLoop   The received signal at this interface does not   go through the device (minimum penetration) but   is looped back out.  dsx3OtherLoop   Loopbacks that are not defined here.  dsx3InwardLoop   The sent signal at this interface is looped back   through the device.  dsx3DualLoop   Both dsx1LineLoop and dsx1InwardLoop will be   active simultaneously
+            	**type**\:   :py:class:`Dsx3Loopbackconfig <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Loopbackconfig>`
+            
+            .. attribute:: dsx3linestatus
+            
+            	This variable indicates the Line Status of the interface.  It contains loopback state information and failure state information.  The dsx3LineStatus is a bit map represented as a sum, therefore, it can represent multiple failures and a loopback (see dsx3LoopbackConfig object for the type of loopback) simultaneously.  The dsx3NoAlarm must be set if and only if no other flag is set.  If the dsx3loopbackState bit is set, the loopback in effect can be determined from the dsx3loopbackConfig object. The various bit positions are\: 1     dsx3NoAlarm         No alarm present 2     dsx3RcvRAIFailure   Receiving Yellow/Remote                  Alarm Indication 4     dsx3XmitRAIAlarm    Transmitting Yellow/Remote                  Alarm Indication 8     dsx3RcvAIS          Receiving AIS failure state 16     dsx3XmitAIS         Transmitting AIS 32     dsx3LOF             Receiving LOF failure state 64     dsx3LOS             Receiving LOS failure state 128     dsx3LoopbackState   Looping the received signal 256     dsx3RcvTestCode     Receiving a Test Pattern 512     dsx3OtherFailure    any line status not defined                  here 1024     dsx3UnavailSigState Near End in Unavailable Signal                  State 2048     dsx3NetEquipOOS     Carrier Equipment Out of Service
+            	**type**\:  int
+            
+            	**range:** 1..4095
+            
+            .. attribute:: dsx3transmitclocksource
+            
+            	The source of Transmit Clock.  loopTiming indicates that the recovered receive clock is used as the transmit clock.  localTiming indicates that a local clock source is used or that an external clock is attached to the box containing the interface.  throughTiming indicates that transmit clock is derived from the recovered receive clock of another DS3 interface
+            	**type**\:   :py:class:`Dsx3Transmitclocksource <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Transmitclocksource>`
+            
             .. attribute:: dsx3invalidintervals
             
             	The number of intervals in the range from 0 to dsx3ValidIntervals for which no data is available.  This object will typically be zero except in cases where the data for some intervals are not available (e.g., in proxy situations)
             	**type**\:  int
             
             	**range:** 0..96
-            
-            .. attribute:: dsx3linecoding
-            
-            	This variable describes the variety of Zero Code Suppression used on this interface, which in turn affects a number of its characteristics.  dsx3B3ZS and e3HDB3 refer to the use of specified patterns of normal bits and bipolar violations which are used to replace sequences of zero bits of a specified length
-            	**type**\:   :py:class:`Dsx3Linecoding <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linecoding>`
             
             .. attribute:: dsx3linelength
             
@@ -221,18 +250,6 @@ class DS3MIB(Entity):
             
             	**units**\: meters
             
-            .. attribute:: dsx3linestatus
-            
-            	This variable indicates the Line Status of the interface.  It contains loopback state information and failure state information.  The dsx3LineStatus is a bit map represented as a sum, therefore, it can represent multiple failures and a loopback (see dsx3LoopbackConfig object for the type of loopback) simultaneously.  The dsx3NoAlarm must be set if and only if no other flag is set.  If the dsx3loopbackState bit is set, the loopback in effect can be determined from the dsx3loopbackConfig object. The various bit positions are\: 1     dsx3NoAlarm         No alarm present 2     dsx3RcvRAIFailure   Receiving Yellow/Remote                  Alarm Indication 4     dsx3XmitRAIAlarm    Transmitting Yellow/Remote                  Alarm Indication 8     dsx3RcvAIS          Receiving AIS failure state 16     dsx3XmitAIS         Transmitting AIS 32     dsx3LOF             Receiving LOF failure state 64     dsx3LOS             Receiving LOS failure state 128     dsx3LoopbackState   Looping the received signal 256     dsx3RcvTestCode     Receiving a Test Pattern 512     dsx3OtherFailure    any line status not defined                  here 1024     dsx3UnavailSigState Near End in Unavailable Signal                  State 2048     dsx3NetEquipOOS     Carrier Equipment Out of Service
-            	**type**\:  int
-            
-            	**range:** 1..4095
-            
-            .. attribute:: dsx3linestatuschangetrapenable
-            
-            	Indicates whether dsx3LineStatusChange traps should be generated for this interface
-            	**type**\:   :py:class:`Dsx3Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linestatuschangetrapenable>`
-            
             .. attribute:: dsx3linestatuslastchange
             
             	The value of MIB II's sysUpTime object at the time this DS3/E3 entered its current line status state.  If the current state was entered prior to the last re\-initialization of the proxy\-agent, then this object contains a zero value
@@ -240,15 +257,10 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: dsx3linetype
+            .. attribute:: dsx3linestatuschangetrapenable
             
-            	This variable indicates the variety of DS3 C\-bit or E3 application implementing this interface. The type of interface affects the interpretation of the usage and error statistics.  The rate of DS3 is 44.736 Mbps and E3 is 34.368 Mbps.  The dsx3ClearChannel value means that the C\-bits are not used except for sending/receiving AIS. The values, in sequence, describe\:  TITLE\:            SPECIFICATION\: dsx3M23            ANSI T1.107\-1988 [9] dsx3SYNTRAN        ANSI T1.107\-1988 [9] dsx3CbitParity     ANSI T1.107a\-1990 [9a] dsx3ClearChannel   ANSI T1.102\-1987 [8] e3Framed           CCITT G.751 [12] e3Plcp             ETSI T/NA(91)18 [13]
-            	**type**\:   :py:class:`Dsx3Linetype <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linetype>`
-            
-            .. attribute:: dsx3loopbackconfig
-            
-            	This variable represents the desired loopback configuration of the DS3/E3 interface.  The values mean\:  dsx3NoLoop   Not in the loopback state.  A device that is   not capable of performing a loopback on   the interface shall always return this as   its value.  dsx3PayloadLoop   The received signal at this interface is looped   through the device.  Typically the received signal   is looped back for retransmission after it has   passed through the device's framing function.  dsx3LineLoop   The received signal at this interface does not   go through the device (minimum penetration) but   is looped back out.  dsx3OtherLoop   Loopbacks that are not defined here.  dsx3InwardLoop   The sent signal at this interface is looped back   through the device.  dsx3DualLoop   Both dsx1LineLoop and dsx1InwardLoop will be   active simultaneously
-            	**type**\:   :py:class:`Dsx3Loopbackconfig <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Loopbackconfig>`
+            	Indicates whether dsx3LineStatusChange traps should be generated for this interface
+            	**type**\:   :py:class:`Dsx3Linestatuschangetrapenable <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Linestatuschangetrapenable>`
             
             .. attribute:: dsx3loopbackstatus
             
@@ -257,29 +269,17 @@ class DS3MIB(Entity):
             
             	**range:** 1..127
             
-            .. attribute:: dsx3sendcode
+            .. attribute:: dsx3channelization
             
-            	This variable indicates what type of code is being sent across the DS3/E3 interface by the device.  (These are optional for E3 interfaces.) Setting this variable causes the interface to begin sending the code requested. The values mean\:     dsx3SendNoCode        sending looped or normal data     dsx3SendLineCode        sending a request for a line loopback     dsx3SendPayloadCode        sending a request for a payload loopback        (i.e., all DS1/E1s in a DS3/E3 frame)     dsx3SendResetCode        sending a loopback deactivation request     dsx3SendDS1LoopCode        requesting to loopback a particular DS1/E1        within a DS3/E3 frame.  The DS1/E1 is        indicated in dsx3Ds1ForRemoteLoop.     dsx3SendTestPattern        sending a test pattern
-            	**type**\:   :py:class:`Dsx3Sendcode <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Sendcode>`
+            	Indicates whether this ds3/e3 is channelized or unchannelized.  The value of enabledDs1 indicates that this is a DS3 channelized into DS1s.  The value of enabledDs3 indicated that this is a DS3 channelized into DS2s.  Setting this object will cause the creation or deletion of DS2 or DS1 entries in the ifTable.  
+            	**type**\:   :py:class:`Dsx3Channelization <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Channelization>`
             
-            .. attribute:: dsx3timeelapsed
+            .. attribute:: dsx3ds1forremoteloop
             
-            	The number of seconds that have elapsed since the beginning of the near end current error\- measurement period.  If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
+            	Indicates which ds1/e1 on this ds3/e3 will be indicated in the remote ds1 loopback request.  A value of 0 means no DS1 will be looped.  A value of 29 means all ds1s/e1s will be looped
             	**type**\:  int
             
-            	**range:** 0..899
-            
-            .. attribute:: dsx3transmitclocksource
-            
-            	The source of Transmit Clock.  loopTiming indicates that the recovered receive clock is used as the transmit clock.  localTiming indicates that a local clock source is used or that an external clock is attached to the box containing the interface.  throughTiming indicates that transmit clock is derived from the recovered receive clock of another DS3 interface
-            	**type**\:   :py:class:`Dsx3Transmitclocksource <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Configtable.Dsx3Configentry.Dsx3Transmitclocksource>`
-            
-            .. attribute:: dsx3validintervals
-            
-            	The number of previous near end intervals for which data was collected.  The value will be 96 unless the interface was brought online within the last 24 hours, in which case the value will be the number of complete 15 minute near end intervals since the interface has been online.  In the case where the agent is a proxy, it is possible that some intervals are unavailable.  In this case, this interval is the maximum interval number for which data is available
-            	**type**\:  int
-            
-            	**range:** 0..96
+            	**range:** 0..29
             
             
 
@@ -300,44 +300,44 @@ class DS3MIB(Entity):
 
                 self.dsx3lineindex = YLeaf(YType.int32, "dsx3LineIndex")
 
-                self.dsx3channelization = YLeaf(YType.enumeration, "dsx3Channelization")
-
-                self.dsx3circuitidentifier = YLeaf(YType.str, "dsx3CircuitIdentifier")
-
-                self.dsx3ds1forremoteloop = YLeaf(YType.int32, "dsx3Ds1ForRemoteLoop")
-
                 self.dsx3ifindex = YLeaf(YType.int32, "dsx3IfIndex")
-
-                self.dsx3invalidintervals = YLeaf(YType.int32, "dsx3InvalidIntervals")
-
-                self.dsx3linecoding = YLeaf(YType.enumeration, "dsx3LineCoding")
-
-                self.dsx3linelength = YLeaf(YType.int32, "dsx3LineLength")
-
-                self.dsx3linestatus = YLeaf(YType.int32, "dsx3LineStatus")
-
-                self.dsx3linestatuschangetrapenable = YLeaf(YType.enumeration, "dsx3LineStatusChangeTrapEnable")
-
-                self.dsx3linestatuslastchange = YLeaf(YType.uint32, "dsx3LineStatusLastChange")
-
-                self.dsx3linetype = YLeaf(YType.enumeration, "dsx3LineType")
-
-                self.dsx3loopbackconfig = YLeaf(YType.enumeration, "dsx3LoopbackConfig")
-
-                self.dsx3loopbackstatus = YLeaf(YType.int32, "dsx3LoopbackStatus")
-
-                self.dsx3sendcode = YLeaf(YType.enumeration, "dsx3SendCode")
 
                 self.dsx3timeelapsed = YLeaf(YType.int32, "dsx3TimeElapsed")
 
+                self.dsx3validintervals = YLeaf(YType.int32, "dsx3ValidIntervals")
+
+                self.dsx3linetype = YLeaf(YType.enumeration, "dsx3LineType")
+
+                self.dsx3linecoding = YLeaf(YType.enumeration, "dsx3LineCoding")
+
+                self.dsx3sendcode = YLeaf(YType.enumeration, "dsx3SendCode")
+
+                self.dsx3circuitidentifier = YLeaf(YType.str, "dsx3CircuitIdentifier")
+
+                self.dsx3loopbackconfig = YLeaf(YType.enumeration, "dsx3LoopbackConfig")
+
+                self.dsx3linestatus = YLeaf(YType.int32, "dsx3LineStatus")
+
                 self.dsx3transmitclocksource = YLeaf(YType.enumeration, "dsx3TransmitClockSource")
 
-                self.dsx3validintervals = YLeaf(YType.int32, "dsx3ValidIntervals")
+                self.dsx3invalidintervals = YLeaf(YType.int32, "dsx3InvalidIntervals")
+
+                self.dsx3linelength = YLeaf(YType.int32, "dsx3LineLength")
+
+                self.dsx3linestatuslastchange = YLeaf(YType.uint32, "dsx3LineStatusLastChange")
+
+                self.dsx3linestatuschangetrapenable = YLeaf(YType.enumeration, "dsx3LineStatusChangeTrapEnable")
+
+                self.dsx3loopbackstatus = YLeaf(YType.int32, "dsx3LoopbackStatus")
+
+                self.dsx3channelization = YLeaf(YType.enumeration, "dsx3Channelization")
+
+                self.dsx3ds1forremoteloop = YLeaf(YType.int32, "dsx3Ds1ForRemoteLoop")
                 self._segment_path = lambda: "dsx3ConfigEntry" + "[dsx3LineIndex='" + self.dsx3lineindex.get() + "']"
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3ConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Configtable.Dsx3Configentry, ['dsx3lineindex', 'dsx3channelization', 'dsx3circuitidentifier', 'dsx3ds1forremoteloop', 'dsx3ifindex', 'dsx3invalidintervals', 'dsx3linecoding', 'dsx3linelength', 'dsx3linestatus', 'dsx3linestatuschangetrapenable', 'dsx3linestatuslastchange', 'dsx3linetype', 'dsx3loopbackconfig', 'dsx3loopbackstatus', 'dsx3sendcode', 'dsx3timeelapsed', 'dsx3transmitclocksource', 'dsx3validintervals'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Configtable.Dsx3Configentry, ['dsx3lineindex', 'dsx3ifindex', 'dsx3timeelapsed', 'dsx3validintervals', 'dsx3linetype', 'dsx3linecoding', 'dsx3sendcode', 'dsx3circuitidentifier', 'dsx3loopbackconfig', 'dsx3linestatus', 'dsx3transmitclocksource', 'dsx3invalidintervals', 'dsx3linelength', 'dsx3linestatuslastchange', 'dsx3linestatuschangetrapenable', 'dsx3loopbackstatus', 'dsx3channelization', 'dsx3ds1forremoteloop'], name, value)
 
             class Dsx3Channelization(Enum):
                 """
@@ -732,48 +732,6 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx3currentccvs
-            
-            	The number of C\-bit Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3currentcess
-            
-            	The number of C\-bit Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3currentcsess
-            
-            	The number of C\-bit Severely Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3currentlcvs
-            
-            	The counter associated with the number of Line Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3currentless
-            
-            	The number of Line Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3currentpcvs
-            
-            	The counter associated with the number of P\-bit Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: dsx3currentpess
             
             	The counter associated with the number of P\-bit Errored Seconds
@@ -802,6 +760,48 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: dsx3currentlcvs
+            
+            	The counter associated with the number of Line Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3currentpcvs
+            
+            	The counter associated with the number of P\-bit Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3currentless
+            
+            	The number of Line Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3currentccvs
+            
+            	The number of C\-bit Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3currentcess
+            
+            	The number of C\-bit Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3currentcsess
+            
+            	The number of C\-bit Severely Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
@@ -821,18 +821,6 @@ class DS3MIB(Entity):
 
                 self.dsx3currentindex = YLeaf(YType.int32, "dsx3CurrentIndex")
 
-                self.dsx3currentccvs = YLeaf(YType.uint32, "dsx3CurrentCCVs")
-
-                self.dsx3currentcess = YLeaf(YType.uint32, "dsx3CurrentCESs")
-
-                self.dsx3currentcsess = YLeaf(YType.uint32, "dsx3CurrentCSESs")
-
-                self.dsx3currentlcvs = YLeaf(YType.uint32, "dsx3CurrentLCVs")
-
-                self.dsx3currentless = YLeaf(YType.uint32, "dsx3CurrentLESs")
-
-                self.dsx3currentpcvs = YLeaf(YType.uint32, "dsx3CurrentPCVs")
-
                 self.dsx3currentpess = YLeaf(YType.uint32, "dsx3CurrentPESs")
 
                 self.dsx3currentpsess = YLeaf(YType.uint32, "dsx3CurrentPSESs")
@@ -840,11 +828,368 @@ class DS3MIB(Entity):
                 self.dsx3currentsefss = YLeaf(YType.uint32, "dsx3CurrentSEFSs")
 
                 self.dsx3currentuass = YLeaf(YType.uint32, "dsx3CurrentUASs")
+
+                self.dsx3currentlcvs = YLeaf(YType.uint32, "dsx3CurrentLCVs")
+
+                self.dsx3currentpcvs = YLeaf(YType.uint32, "dsx3CurrentPCVs")
+
+                self.dsx3currentless = YLeaf(YType.uint32, "dsx3CurrentLESs")
+
+                self.dsx3currentccvs = YLeaf(YType.uint32, "dsx3CurrentCCVs")
+
+                self.dsx3currentcess = YLeaf(YType.uint32, "dsx3CurrentCESs")
+
+                self.dsx3currentcsess = YLeaf(YType.uint32, "dsx3CurrentCSESs")
                 self._segment_path = lambda: "dsx3CurrentEntry" + "[dsx3CurrentIndex='" + self.dsx3currentindex.get() + "']"
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3CurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Currenttable.Dsx3Currententry, ['dsx3currentindex', 'dsx3currentccvs', 'dsx3currentcess', 'dsx3currentcsess', 'dsx3currentlcvs', 'dsx3currentless', 'dsx3currentpcvs', 'dsx3currentpess', 'dsx3currentpsess', 'dsx3currentsefss', 'dsx3currentuass'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Currenttable.Dsx3Currententry, ['dsx3currentindex', 'dsx3currentpess', 'dsx3currentpsess', 'dsx3currentsefss', 'dsx3currentuass', 'dsx3currentlcvs', 'dsx3currentpcvs', 'dsx3currentless', 'dsx3currentccvs', 'dsx3currentcess', 'dsx3currentcsess'], name, value)
+
+
+    class Dsx3Intervaltable(Entity):
+        """
+        The DS3/E3 Interval Table contains various
+        statistics collected by each DS3/E3 Interface over
+        the previous 24 hours of operation.  The past 24
+        hours are broken into 96 completed 15 minute
+        intervals.  Each row in this table represents one
+        such interval (identified by dsx3IntervalNumber)
+        and for one specific interface (identifed by
+        dsx3IntervalIndex).
+        
+        .. attribute:: dsx3intervalentry
+        
+        	An entry in the DS3/E3 Interval table
+        	**type**\: list of    :py:class:`Dsx3Intervalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry>`
+        
+        
+
+        """
+
+        _prefix = 'DS3-MIB'
+        _revision = '1998-08-01'
+
+        def __init__(self):
+            super(DS3MIB.Dsx3Intervaltable, self).__init__()
+
+            self.yang_name = "dsx3IntervalTable"
+            self.yang_parent_name = "DS3-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx3IntervalEntry" : ("dsx3intervalentry", DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry)}
+
+            self.dsx3intervalentry = YList(self)
+            self._segment_path = lambda: "dsx3IntervalTable"
+            self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DS3MIB.Dsx3Intervaltable, [], name, value)
+
+
+        class Dsx3Intervalentry(Entity):
+            """
+            An entry in the DS3/E3 Interval table.
+            
+            .. attribute:: dsx3intervalindex  <key>
+            
+            	The index value which uniquely identifies the DS3/E3 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value an dsx3LineIndex object instance
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: dsx3intervalnumber  <key>
+            
+            	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
+            	**type**\:  int
+            
+            	**range:** 1..96
+            
+            .. attribute:: dsx3intervalpess
+            
+            	The counter associated with the number of P\-bit Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalpsess
+            
+            	The counter associated with the number of P\-bit Severely Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalsefss
+            
+            	The counter associated with the number of Severely Errored Framing Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervaluass
+            
+            	The counter associated with the number of Unavailable Seconds.  This object may decrease if the occurance of unavailable seconds occurs across an inteval boundary
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervallcvs
+            
+            	The counter associated with the number of Line Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalpcvs
+            
+            	The counter associated with the number of P\-bit Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalless
+            
+            	The number of Line Errored  Seconds  (BPVs  or illegal  zero  sequences)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalccvs
+            
+            	The number of C\-bit Coding Violations
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalcess
+            
+            	The number of C\-bit Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalcsess
+            
+            	The number of C\-bit Severely Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3intervalvaliddata
+            
+            	This variable indicates if the data for this interval is valid
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'DS3-MIB'
+            _revision = '1998-08-01'
+
+            def __init__(self):
+                super(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, self).__init__()
+
+                self.yang_name = "dsx3IntervalEntry"
+                self.yang_parent_name = "dsx3IntervalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.dsx3intervalindex = YLeaf(YType.int32, "dsx3IntervalIndex")
+
+                self.dsx3intervalnumber = YLeaf(YType.int32, "dsx3IntervalNumber")
+
+                self.dsx3intervalpess = YLeaf(YType.uint32, "dsx3IntervalPESs")
+
+                self.dsx3intervalpsess = YLeaf(YType.uint32, "dsx3IntervalPSESs")
+
+                self.dsx3intervalsefss = YLeaf(YType.uint32, "dsx3IntervalSEFSs")
+
+                self.dsx3intervaluass = YLeaf(YType.uint32, "dsx3IntervalUASs")
+
+                self.dsx3intervallcvs = YLeaf(YType.uint32, "dsx3IntervalLCVs")
+
+                self.dsx3intervalpcvs = YLeaf(YType.uint32, "dsx3IntervalPCVs")
+
+                self.dsx3intervalless = YLeaf(YType.uint32, "dsx3IntervalLESs")
+
+                self.dsx3intervalccvs = YLeaf(YType.uint32, "dsx3IntervalCCVs")
+
+                self.dsx3intervalcess = YLeaf(YType.uint32, "dsx3IntervalCESs")
+
+                self.dsx3intervalcsess = YLeaf(YType.uint32, "dsx3IntervalCSESs")
+
+                self.dsx3intervalvaliddata = YLeaf(YType.boolean, "dsx3IntervalValidData")
+                self._segment_path = lambda: "dsx3IntervalEntry" + "[dsx3IntervalIndex='" + self.dsx3intervalindex.get() + "']" + "[dsx3IntervalNumber='" + self.dsx3intervalnumber.get() + "']"
+                self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3IntervalTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, ['dsx3intervalindex', 'dsx3intervalnumber', 'dsx3intervalpess', 'dsx3intervalpsess', 'dsx3intervalsefss', 'dsx3intervaluass', 'dsx3intervallcvs', 'dsx3intervalpcvs', 'dsx3intervalless', 'dsx3intervalccvs', 'dsx3intervalcess', 'dsx3intervalcsess', 'dsx3intervalvaliddata'], name, value)
+
+
+    class Dsx3Totaltable(Entity):
+        """
+        The DS3/E3 Total Table contains the cumulative
+        sum of the various statistics for the 24 hour
+        period preceding the current interval.
+        
+        .. attribute:: dsx3totalentry
+        
+        	An entry in the DS3/E3 Total table
+        	**type**\: list of    :py:class:`Dsx3Totalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable.Dsx3Totalentry>`
+        
+        
+
+        """
+
+        _prefix = 'DS3-MIB'
+        _revision = '1998-08-01'
+
+        def __init__(self):
+            super(DS3MIB.Dsx3Totaltable, self).__init__()
+
+            self.yang_name = "dsx3TotalTable"
+            self.yang_parent_name = "DS3-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"dsx3TotalEntry" : ("dsx3totalentry", DS3MIB.Dsx3Totaltable.Dsx3Totalentry)}
+
+            self.dsx3totalentry = YList(self)
+            self._segment_path = lambda: "dsx3TotalTable"
+            self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(DS3MIB.Dsx3Totaltable, [], name, value)
+
+
+        class Dsx3Totalentry(Entity):
+            """
+            An entry in the DS3/E3 Total table.
+            
+            .. attribute:: dsx3totalindex  <key>
+            
+            	The index value which uniquely identifies the DS3/E3 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value an dsx3LineIndex object instance
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: dsx3totalpess
+            
+            	The counter associated with the number of P\-bit Errored Seconds, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalpsess
+            
+            	The counter associated with the number of P\-bit Severely Errored Seconds, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalsefss
+            
+            	The counter associated with the number of Severely Errored Framing Seconds, encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totaluass
+            
+            	The counter associated with the number of Unavailable Seconds, encountered by a DS3 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totallcvs
+            
+            	The counter associated with the number of Line Coding Violations encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalpcvs
+            
+            	The counter associated with the number of P\-bit Coding Violations, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalless
+            
+            	The number of Line Errored  Seconds  (BPVs  or illegal  zero  sequences) encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalccvs
+            
+            	The number of C\-bit Coding Violations encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalcess
+            
+            	The number of C\-bit Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3totalcsess
+            
+            	The number of C\-bit Severely Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'DS3-MIB'
+            _revision = '1998-08-01'
+
+            def __init__(self):
+                super(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, self).__init__()
+
+                self.yang_name = "dsx3TotalEntry"
+                self.yang_parent_name = "dsx3TotalTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.dsx3totalindex = YLeaf(YType.int32, "dsx3TotalIndex")
+
+                self.dsx3totalpess = YLeaf(YType.uint32, "dsx3TotalPESs")
+
+                self.dsx3totalpsess = YLeaf(YType.uint32, "dsx3TotalPSESs")
+
+                self.dsx3totalsefss = YLeaf(YType.uint32, "dsx3TotalSEFSs")
+
+                self.dsx3totaluass = YLeaf(YType.uint32, "dsx3TotalUASs")
+
+                self.dsx3totallcvs = YLeaf(YType.uint32, "dsx3TotalLCVs")
+
+                self.dsx3totalpcvs = YLeaf(YType.uint32, "dsx3TotalPCVs")
+
+                self.dsx3totalless = YLeaf(YType.uint32, "dsx3TotalLESs")
+
+                self.dsx3totalccvs = YLeaf(YType.uint32, "dsx3TotalCCVs")
+
+                self.dsx3totalcess = YLeaf(YType.uint32, "dsx3TotalCESs")
+
+                self.dsx3totalcsess = YLeaf(YType.uint32, "dsx3TotalCSESs")
+                self._segment_path = lambda: "dsx3TotalEntry" + "[dsx3TotalIndex='" + self.dsx3totalindex.get() + "']"
+                self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3TotalTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, ['dsx3totalindex', 'dsx3totalpess', 'dsx3totalpsess', 'dsx3totalsefss', 'dsx3totaluass', 'dsx3totallcvs', 'dsx3totalpcvs', 'dsx3totalless', 'dsx3totalccvs', 'dsx3totalcess', 'dsx3totalcsess'], name, value)
 
 
     class Dsx3Farendconfigtable(Entity):
@@ -901,12 +1246,12 @@ class DS3MIB(Entity):
             
             	**length:** 0..10
             
-            .. attribute:: dsx3farendfacilityidcode
+            .. attribute:: dsx3farendlocationidcode
             
-            	This code identifies a specific Far End DS3 path. It is sent within the Path Identification Message
+            	This is the Far End Location Identification code that describes the specific location of the equipment.  It is sent within the Path Identification Message
             	**type**\:  str
             
-            	**length:** 0..38
+            	**length:** 0..11
             
             .. attribute:: dsx3farendframeidcode
             
@@ -915,19 +1260,19 @@ class DS3MIB(Entity):
             
             	**length:** 0..10
             
-            .. attribute:: dsx3farendlocationidcode
-            
-            	This is the Far End Location Identification code that describes the specific location of the equipment.  It is sent within the Path Identification Message
-            	**type**\:  str
-            
-            	**length:** 0..11
-            
             .. attribute:: dsx3farendunitcode
             
             	This is the Far End code that identifies the equipment location within a bay.  It is sent within the Path Identification Message
             	**type**\:  str
             
             	**length:** 0..6
+            
+            .. attribute:: dsx3farendfacilityidcode
+            
+            	This code identifies a specific Far End DS3 path. It is sent within the Path Identification Message
+            	**type**\:  str
+            
+            	**length:** 0..38
             
             
 
@@ -950,18 +1295,18 @@ class DS3MIB(Entity):
 
                 self.dsx3farendequipcode = YLeaf(YType.str, "dsx3FarEndEquipCode")
 
-                self.dsx3farendfacilityidcode = YLeaf(YType.str, "dsx3FarEndFacilityIDCode")
+                self.dsx3farendlocationidcode = YLeaf(YType.str, "dsx3FarEndLocationIDCode")
 
                 self.dsx3farendframeidcode = YLeaf(YType.str, "dsx3FarEndFrameIDCode")
 
-                self.dsx3farendlocationidcode = YLeaf(YType.str, "dsx3FarEndLocationIDCode")
-
                 self.dsx3farendunitcode = YLeaf(YType.str, "dsx3FarEndUnitCode")
+
+                self.dsx3farendfacilityidcode = YLeaf(YType.str, "dsx3FarEndFacilityIDCode")
                 self._segment_path = lambda: "dsx3FarEndConfigEntry" + "[dsx3FarEndLineIndex='" + self.dsx3farendlineindex.get() + "']"
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndConfigTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry, ['dsx3farendlineindex', 'dsx3farendequipcode', 'dsx3farendfacilityidcode', 'dsx3farendframeidcode', 'dsx3farendlocationidcode', 'dsx3farendunitcode'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Farendconfigtable.Dsx3Farendconfigentry, ['dsx3farendlineindex', 'dsx3farendequipcode', 'dsx3farendlocationidcode', 'dsx3farendframeidcode', 'dsx3farendunitcode', 'dsx3farendfacilityidcode'], name, value)
 
 
     class Dsx3Farendcurrenttable(Entity):
@@ -1013,12 +1358,19 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx3farendcurrentccvs
+            .. attribute:: dsx3farendtimeelapsed
             
-            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count
+            	The number of seconds that have elapsed since the beginning of the far end current error\-measurement period.  If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
             	**type**\:  int
             
-            	**range:** 0..4294967295
+            	**range:** 0..899
+            
+            .. attribute:: dsx3farendvalidintervals
+            
+            	The number of previous far end intervals for which data was collected.  The value will be 96 unless the interface was brought online within the last 24 hours, in which case the value will be the number of complete 15 minute far end intervals since the interface has been online
+            	**type**\:  int
+            
+            	**range:** 0..96
             
             .. attribute:: dsx3farendcurrentcess
             
@@ -1034,6 +1386,13 @@ class DS3MIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: dsx3farendcurrentccvs
+            
+            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: dsx3farendcurrentuass
             
             	The counter associated with the number of Far End unavailable seconds
@@ -1044,20 +1403,6 @@ class DS3MIB(Entity):
             .. attribute:: dsx3farendinvalidintervals
             
             	The number of intervals in the range from 0 to dsx3FarEndValidIntervals for which no data is available.  This object will typically be zero except in cases where the data for some intervals are not available (e.g., in proxy situations)
-            	**type**\:  int
-            
-            	**range:** 0..96
-            
-            .. attribute:: dsx3farendtimeelapsed
-            
-            	The number of seconds that have elapsed since the beginning of the far end current error\-measurement period.  If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
-            	**type**\:  int
-            
-            	**range:** 0..899
-            
-            .. attribute:: dsx3farendvalidintervals
-            
-            	The number of previous far end intervals for which data was collected.  The value will be 96 unless the interface was brought online within the last 24 hours, in which case the value will be the number of complete 15 minute far end intervals since the interface has been online
             	**type**\:  int
             
             	**range:** 0..96
@@ -1081,24 +1426,24 @@ class DS3MIB(Entity):
 
                 self.dsx3farendcurrentindex = YLeaf(YType.int32, "dsx3FarEndCurrentIndex")
 
-                self.dsx3farendcurrentccvs = YLeaf(YType.uint32, "dsx3FarEndCurrentCCVs")
+                self.dsx3farendtimeelapsed = YLeaf(YType.int32, "dsx3FarEndTimeElapsed")
+
+                self.dsx3farendvalidintervals = YLeaf(YType.int32, "dsx3FarEndValidIntervals")
 
                 self.dsx3farendcurrentcess = YLeaf(YType.uint32, "dsx3FarEndCurrentCESs")
 
                 self.dsx3farendcurrentcsess = YLeaf(YType.uint32, "dsx3FarEndCurrentCSESs")
 
+                self.dsx3farendcurrentccvs = YLeaf(YType.uint32, "dsx3FarEndCurrentCCVs")
+
                 self.dsx3farendcurrentuass = YLeaf(YType.uint32, "dsx3FarEndCurrentUASs")
 
                 self.dsx3farendinvalidintervals = YLeaf(YType.int32, "dsx3FarEndInvalidIntervals")
-
-                self.dsx3farendtimeelapsed = YLeaf(YType.int32, "dsx3FarEndTimeElapsed")
-
-                self.dsx3farendvalidintervals = YLeaf(YType.int32, "dsx3FarEndValidIntervals")
                 self._segment_path = lambda: "dsx3FarEndCurrentEntry" + "[dsx3FarEndCurrentIndex='" + self.dsx3farendcurrentindex.get() + "']"
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, ['dsx3farendcurrentindex', 'dsx3farendcurrentccvs', 'dsx3farendcurrentcess', 'dsx3farendcurrentcsess', 'dsx3farendcurrentuass', 'dsx3farendinvalidintervals', 'dsx3farendtimeelapsed', 'dsx3farendvalidintervals'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Farendcurrenttable.Dsx3Farendcurrententry, ['dsx3farendcurrentindex', 'dsx3farendtimeelapsed', 'dsx3farendvalidintervals', 'dsx3farendcurrentcess', 'dsx3farendcurrentcsess', 'dsx3farendcurrentccvs', 'dsx3farendcurrentuass', 'dsx3farendinvalidintervals'], name, value)
 
 
     class Dsx3Farendintervaltable(Entity):
@@ -1157,13 +1502,6 @@ class DS3MIB(Entity):
             
             	**range:** 1..96
             
-            .. attribute:: dsx3farendintervalccvs
-            
-            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: dsx3farendintervalcess
             
             	The counter associated with the number of Far End C\-bit Errored Seconds encountered by a DS3 interface in one of the previous 96, individual 15 minute, intervals. In the case where the agent is a proxy and data is not available, return noSuchInstance
@@ -1174,6 +1512,13 @@ class DS3MIB(Entity):
             .. attribute:: dsx3farendintervalcsess
             
             	The counter associated with the number of Far End C\-bit Severely Errored Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3farendintervalccvs
+            
+            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1211,11 +1556,11 @@ class DS3MIB(Entity):
 
                 self.dsx3farendintervalnumber = YLeaf(YType.int32, "dsx3FarEndIntervalNumber")
 
-                self.dsx3farendintervalccvs = YLeaf(YType.uint32, "dsx3FarEndIntervalCCVs")
-
                 self.dsx3farendintervalcess = YLeaf(YType.uint32, "dsx3FarEndIntervalCESs")
 
                 self.dsx3farendintervalcsess = YLeaf(YType.uint32, "dsx3FarEndIntervalCSESs")
+
+                self.dsx3farendintervalccvs = YLeaf(YType.uint32, "dsx3FarEndIntervalCCVs")
 
                 self.dsx3farendintervaluass = YLeaf(YType.uint32, "dsx3FarEndIntervalUASs")
 
@@ -1224,7 +1569,7 @@ class DS3MIB(Entity):
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry, ['dsx3farendintervalindex', 'dsx3farendintervalnumber', 'dsx3farendintervalccvs', 'dsx3farendintervalcess', 'dsx3farendintervalcsess', 'dsx3farendintervaluass', 'dsx3farendintervalvaliddata'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Farendintervaltable.Dsx3Farendintervalentry, ['dsx3farendintervalindex', 'dsx3farendintervalnumber', 'dsx3farendintervalcess', 'dsx3farendintervalcsess', 'dsx3farendintervalccvs', 'dsx3farendintervaluass', 'dsx3farendintervalvaliddata'], name, value)
 
 
     class Dsx3Farendtotaltable(Entity):
@@ -1274,13 +1619,6 @@ class DS3MIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: dsx3farendtotalccvs
-            
-            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: dsx3farendtotalcess
             
             	The counter associated with the number of Far End C\-bit Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
@@ -1291,6 +1629,13 @@ class DS3MIB(Entity):
             .. attribute:: dsx3farendtotalcsess
             
             	The counter associated with the number of Far End C\-bit Severely Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: dsx3farendtotalccvs
+            
+            	The counter associated with the number of Far End C\-bit Coding Violations reported via the far end block error count encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -1321,18 +1666,18 @@ class DS3MIB(Entity):
 
                 self.dsx3farendtotalindex = YLeaf(YType.int32, "dsx3FarEndTotalIndex")
 
-                self.dsx3farendtotalccvs = YLeaf(YType.uint32, "dsx3FarEndTotalCCVs")
-
                 self.dsx3farendtotalcess = YLeaf(YType.uint32, "dsx3FarEndTotalCESs")
 
                 self.dsx3farendtotalcsess = YLeaf(YType.uint32, "dsx3FarEndTotalCSESs")
+
+                self.dsx3farendtotalccvs = YLeaf(YType.uint32, "dsx3FarEndTotalCCVs")
 
                 self.dsx3farendtotaluass = YLeaf(YType.uint32, "dsx3FarEndTotalUASs")
                 self._segment_path = lambda: "dsx3FarEndTotalEntry" + "[dsx3FarEndTotalIndex='" + self.dsx3farendtotalindex.get() + "']"
                 self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3FarEndTotalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry, ['dsx3farendtotalindex', 'dsx3farendtotalccvs', 'dsx3farendtotalcess', 'dsx3farendtotalcsess', 'dsx3farendtotaluass'], name, value)
+                self._perform_setattr(DS3MIB.Dsx3Farendtotaltable.Dsx3Farendtotalentry, ['dsx3farendtotalindex', 'dsx3farendtotalcess', 'dsx3farendtotalcsess', 'dsx3farendtotalccvs', 'dsx3farendtotaluass'], name, value)
 
 
     class Dsx3Fractable(Entity):
@@ -1469,351 +1814,6 @@ class DS3MIB(Entity):
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS3MIB.Dsx3Fractable.Dsx3Fracentry, ['dsx3fracindex', 'dsx3fracnumber', 'dsx3fracifindex'], name, value)
-
-
-    class Dsx3Intervaltable(Entity):
-        """
-        The DS3/E3 Interval Table contains various
-        statistics collected by each DS3/E3 Interface over
-        the previous 24 hours of operation.  The past 24
-        hours are broken into 96 completed 15 minute
-        intervals.  Each row in this table represents one
-        such interval (identified by dsx3IntervalNumber)
-        and for one specific interface (identifed by
-        dsx3IntervalIndex).
-        
-        .. attribute:: dsx3intervalentry
-        
-        	An entry in the DS3/E3 Interval table
-        	**type**\: list of    :py:class:`Dsx3Intervalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry>`
-        
-        
-
-        """
-
-        _prefix = 'DS3-MIB'
-        _revision = '1998-08-01'
-
-        def __init__(self):
-            super(DS3MIB.Dsx3Intervaltable, self).__init__()
-
-            self.yang_name = "dsx3IntervalTable"
-            self.yang_parent_name = "DS3-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx3IntervalEntry" : ("dsx3intervalentry", DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry)}
-
-            self.dsx3intervalentry = YList(self)
-            self._segment_path = lambda: "dsx3IntervalTable"
-            self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Intervaltable, [], name, value)
-
-
-        class Dsx3Intervalentry(Entity):
-            """
-            An entry in the DS3/E3 Interval table.
-            
-            .. attribute:: dsx3intervalindex  <key>
-            
-            	The index value which uniquely identifies the DS3/E3 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value an dsx3LineIndex object instance
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: dsx3intervalnumber  <key>
-            
-            	A number between 1 and 96, where 1 is the most recently completed 15 minute interval and 96 is the 15 minutes interval completed 23 hours and 45 minutes prior to interval 1
-            	**type**\:  int
-            
-            	**range:** 1..96
-            
-            .. attribute:: dsx3intervalccvs
-            
-            	The number of C\-bit Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalcess
-            
-            	The number of C\-bit Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalcsess
-            
-            	The number of C\-bit Severely Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervallcvs
-            
-            	The counter associated with the number of Line Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalless
-            
-            	The number of Line Errored  Seconds  (BPVs  or illegal  zero  sequences)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalpcvs
-            
-            	The counter associated with the number of P\-bit Coding Violations
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalpess
-            
-            	The counter associated with the number of P\-bit Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalpsess
-            
-            	The counter associated with the number of P\-bit Severely Errored Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalsefss
-            
-            	The counter associated with the number of Severely Errored Framing Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervaluass
-            
-            	The counter associated with the number of Unavailable Seconds.  This object may decrease if the occurance of unavailable seconds occurs across an inteval boundary
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3intervalvaliddata
-            
-            	This variable indicates if the data for this interval is valid
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'DS3-MIB'
-            _revision = '1998-08-01'
-
-            def __init__(self):
-                super(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, self).__init__()
-
-                self.yang_name = "dsx3IntervalEntry"
-                self.yang_parent_name = "dsx3IntervalTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx3intervalindex = YLeaf(YType.int32, "dsx3IntervalIndex")
-
-                self.dsx3intervalnumber = YLeaf(YType.int32, "dsx3IntervalNumber")
-
-                self.dsx3intervalccvs = YLeaf(YType.uint32, "dsx3IntervalCCVs")
-
-                self.dsx3intervalcess = YLeaf(YType.uint32, "dsx3IntervalCESs")
-
-                self.dsx3intervalcsess = YLeaf(YType.uint32, "dsx3IntervalCSESs")
-
-                self.dsx3intervallcvs = YLeaf(YType.uint32, "dsx3IntervalLCVs")
-
-                self.dsx3intervalless = YLeaf(YType.uint32, "dsx3IntervalLESs")
-
-                self.dsx3intervalpcvs = YLeaf(YType.uint32, "dsx3IntervalPCVs")
-
-                self.dsx3intervalpess = YLeaf(YType.uint32, "dsx3IntervalPESs")
-
-                self.dsx3intervalpsess = YLeaf(YType.uint32, "dsx3IntervalPSESs")
-
-                self.dsx3intervalsefss = YLeaf(YType.uint32, "dsx3IntervalSEFSs")
-
-                self.dsx3intervaluass = YLeaf(YType.uint32, "dsx3IntervalUASs")
-
-                self.dsx3intervalvaliddata = YLeaf(YType.boolean, "dsx3IntervalValidData")
-                self._segment_path = lambda: "dsx3IntervalEntry" + "[dsx3IntervalIndex='" + self.dsx3intervalindex.get() + "']" + "[dsx3IntervalNumber='" + self.dsx3intervalnumber.get() + "']"
-                self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3IntervalTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Intervaltable.Dsx3Intervalentry, ['dsx3intervalindex', 'dsx3intervalnumber', 'dsx3intervalccvs', 'dsx3intervalcess', 'dsx3intervalcsess', 'dsx3intervallcvs', 'dsx3intervalless', 'dsx3intervalpcvs', 'dsx3intervalpess', 'dsx3intervalpsess', 'dsx3intervalsefss', 'dsx3intervaluass', 'dsx3intervalvaliddata'], name, value)
-
-
-    class Dsx3Totaltable(Entity):
-        """
-        The DS3/E3 Total Table contains the cumulative
-        sum of the various statistics for the 24 hour
-        period preceding the current interval.
-        
-        .. attribute:: dsx3totalentry
-        
-        	An entry in the DS3/E3 Total table
-        	**type**\: list of    :py:class:`Dsx3Totalentry <ydk.models.cisco_ios_xe.DS3_MIB.DS3MIB.Dsx3Totaltable.Dsx3Totalentry>`
-        
-        
-
-        """
-
-        _prefix = 'DS3-MIB'
-        _revision = '1998-08-01'
-
-        def __init__(self):
-            super(DS3MIB.Dsx3Totaltable, self).__init__()
-
-            self.yang_name = "dsx3TotalTable"
-            self.yang_parent_name = "DS3-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"dsx3TotalEntry" : ("dsx3totalentry", DS3MIB.Dsx3Totaltable.Dsx3Totalentry)}
-
-            self.dsx3totalentry = YList(self)
-            self._segment_path = lambda: "dsx3TotalTable"
-            self._absolute_path = lambda: "DS3-MIB:DS3-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(DS3MIB.Dsx3Totaltable, [], name, value)
-
-
-        class Dsx3Totalentry(Entity):
-            """
-            An entry in the DS3/E3 Total table.
-            
-            .. attribute:: dsx3totalindex  <key>
-            
-            	The index value which uniquely identifies the DS3/E3 interface to which this entry is applicable.  The interface identified by a particular value of this index is the same interface as identified by the same value an dsx3LineIndex object instance
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: dsx3totalccvs
-            
-            	The number of C\-bit Coding Violations encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalcess
-            
-            	The number of C\-bit Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalcsess
-            
-            	The number of C\-bit Severely Errored Seconds encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totallcvs
-            
-            	The counter associated with the number of Line Coding Violations encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalless
-            
-            	The number of Line Errored  Seconds  (BPVs  or illegal  zero  sequences) encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalpcvs
-            
-            	The counter associated with the number of P\-bit Coding Violations, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalpess
-            
-            	The counter associated with the number of P\-bit Errored Seconds, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalpsess
-            
-            	The counter associated with the number of P\-bit Severely Errored Seconds, encountered by a DS3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totalsefss
-            
-            	The counter associated with the number of Severely Errored Framing Seconds, encountered by a DS3/E3 interface in the previous 24 hour interval. Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: dsx3totaluass
-            
-            	The counter associated with the number of Unavailable Seconds, encountered by a DS3 interface in the previous 24 hour interval.  Invalid 15 minute intervals count as 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'DS3-MIB'
-            _revision = '1998-08-01'
-
-            def __init__(self):
-                super(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, self).__init__()
-
-                self.yang_name = "dsx3TotalEntry"
-                self.yang_parent_name = "dsx3TotalTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.dsx3totalindex = YLeaf(YType.int32, "dsx3TotalIndex")
-
-                self.dsx3totalccvs = YLeaf(YType.uint32, "dsx3TotalCCVs")
-
-                self.dsx3totalcess = YLeaf(YType.uint32, "dsx3TotalCESs")
-
-                self.dsx3totalcsess = YLeaf(YType.uint32, "dsx3TotalCSESs")
-
-                self.dsx3totallcvs = YLeaf(YType.uint32, "dsx3TotalLCVs")
-
-                self.dsx3totalless = YLeaf(YType.uint32, "dsx3TotalLESs")
-
-                self.dsx3totalpcvs = YLeaf(YType.uint32, "dsx3TotalPCVs")
-
-                self.dsx3totalpess = YLeaf(YType.uint32, "dsx3TotalPESs")
-
-                self.dsx3totalpsess = YLeaf(YType.uint32, "dsx3TotalPSESs")
-
-                self.dsx3totalsefss = YLeaf(YType.uint32, "dsx3TotalSEFSs")
-
-                self.dsx3totaluass = YLeaf(YType.uint32, "dsx3TotalUASs")
-                self._segment_path = lambda: "dsx3TotalEntry" + "[dsx3TotalIndex='" + self.dsx3totalindex.get() + "']"
-                self._absolute_path = lambda: "DS3-MIB:DS3-MIB/dsx3TotalTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DS3MIB.Dsx3Totaltable.Dsx3Totalentry, ['dsx3totalindex', 'dsx3totalccvs', 'dsx3totalcess', 'dsx3totalcsess', 'dsx3totallcvs', 'dsx3totalless', 'dsx3totalpcvs', 'dsx3totalpess', 'dsx3totalpsess', 'dsx3totalsefss', 'dsx3totaluass'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DS3MIB()

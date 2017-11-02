@@ -166,6 +166,11 @@ class NvSatellites(Entity):
         
         	**range:** 100..65534
         
+        .. attribute:: upgrade_on_connect
+        
+        	Satellite auto\-upgrade capability
+        	**type**\:   :py:class:`UpgradeOnConnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect>`
+        
         .. attribute:: candidate_fabric_ports
         
         	Enable interfaces on the satellite to be used as fabric ports table
@@ -176,69 +181,14 @@ class NvSatellites(Entity):
         	Satellite User
         	**type**\:   :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
         
-        .. attribute:: delayed_switchback
-        
-        	Timer (in seconds) for delaying switchback in a dual home setup
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: second
-        
-        .. attribute:: description
-        
-        	Satellite Description
-        	**type**\:  str
-        
-        .. attribute:: device_name
-        
-        	Satellite Name
-        	**type**\:  str
-        
-        .. attribute:: disc_timeout
-        
-        	Discovery timeout for the satellite
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: enable
-        
-        	Enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: ip_address
-        
-        	Satellite IP Address
-        	**type**\: one of the below types:
-        
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
-        	**type**\:  str
-        
-        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-        
-        
-        ----
         .. attribute:: redundancy
         
         	Redundancy submode
         	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.Redundancy>`
         
-        .. attribute:: secret
+        .. attribute:: vrf
         
-        	Encrypted password for the Satellite
-        	**type**\:  str
-        
-        	**pattern:** (!.+)\|([^!].+)
-        
-        .. attribute:: serial_number
-        
-        	Satellite Serial Number
+        	VRF for Satellite IP Address
         	**type**\:  str
         
         .. attribute:: timeout_warning
@@ -248,21 +198,65 @@ class NvSatellites(Entity):
         
         	**range:** 0..4294967295
         
+        .. attribute:: device_name
+        
+        	Satellite Name
+        	**type**\:  str
+        
+        .. attribute:: description
+        
+        	Satellite Description
+        	**type**\:  str
+        
         .. attribute:: type
         
         	Satellite Type
         	**type**\:  str
         
-        .. attribute:: upgrade_on_connect
+        .. attribute:: enable
         
-        	Satellite auto\-upgrade capability
-        	**type**\:   :py:class:`UpgradeOnConnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.UpgradeOnConnect>`
+        	Enable
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
-        .. attribute:: vrf
+        .. attribute:: disc_timeout
         
-        	VRF for Satellite IP Address
+        	Discovery timeout for the satellite
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: delayed_switchback
+        
+        	Timer (in seconds) for delaying switchback in a dual home setup
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: second
+        
+        .. attribute:: serial_number
+        
+        	Satellite Serial Number
         	**type**\:  str
         
+        .. attribute:: secret
+        
+        	Encrypted password for the Satellite
+        	**type**\:  str
+        
+        .. attribute:: ip_address
+        
+        	Satellite IP Address
+        	**type**\: one of the below types:
+        
+        	**type**\:  str
+        
+        
+        ----
+        	**type**\:  str
+        
+        
+        ----
         
 
         """
@@ -277,32 +271,37 @@ class NvSatellites(Entity):
             self.yang_parent_name = "nv-satellites"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"candidate-fabric-ports" : ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts), "connection-info" : ("connection_info", NvSatellites.NvSatellite.ConnectionInfo), "redundancy" : ("redundancy", NvSatellites.NvSatellite.Redundancy), "upgrade-on-connect" : ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)}
+            self._child_container_classes = {"upgrade-on-connect" : ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect), "candidate-fabric-ports" : ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts), "connection-info" : ("connection_info", NvSatellites.NvSatellite.ConnectionInfo), "redundancy" : ("redundancy", NvSatellites.NvSatellite.Redundancy)}
             self._child_list_classes = {}
 
             self.satellite_id = YLeaf(YType.uint32, "satellite-id")
 
-            self.delayed_switchback = YLeaf(YType.uint32, "delayed-switchback")
-
-            self.description = YLeaf(YType.str, "description")
-
-            self.device_name = YLeaf(YType.str, "device-name")
-
-            self.disc_timeout = YLeaf(YType.uint32, "disc-timeout")
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.ip_address = YLeaf(YType.str, "ip-address")
-
-            self.secret = YLeaf(YType.str, "secret")
-
-            self.serial_number = YLeaf(YType.str, "serial-number")
+            self.vrf = YLeaf(YType.str, "vrf")
 
             self.timeout_warning = YLeaf(YType.uint32, "timeout-warning")
 
+            self.device_name = YLeaf(YType.str, "device-name")
+
+            self.description = YLeaf(YType.str, "description")
+
             self.type = YLeaf(YType.str, "type")
 
-            self.vrf = YLeaf(YType.str, "vrf")
+            self.enable = YLeaf(YType.empty, "enable")
+
+            self.disc_timeout = YLeaf(YType.uint32, "disc-timeout")
+
+            self.delayed_switchback = YLeaf(YType.uint32, "delayed-switchback")
+
+            self.serial_number = YLeaf(YType.str, "serial-number")
+
+            self.secret = YLeaf(YType.str, "secret")
+
+            self.ip_address = YLeaf(YType.str, "ip-address")
+
+            self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
+            self.upgrade_on_connect.parent = self
+            self._children_name_map["upgrade_on_connect"] = "upgrade-on-connect"
+            self._children_yang_names.add("upgrade-on-connect")
 
             self.candidate_fabric_ports = NvSatellites.NvSatellite.CandidateFabricPorts()
             self.candidate_fabric_ports.parent = self
@@ -318,190 +317,11 @@ class NvSatellites(Entity):
             self.redundancy.parent = self
             self._children_name_map["redundancy"] = "redundancy"
             self._children_yang_names.add("redundancy")
-
-            self.upgrade_on_connect = NvSatellites.NvSatellite.UpgradeOnConnect()
-            self.upgrade_on_connect.parent = self
-            self._children_name_map["upgrade_on_connect"] = "upgrade-on-connect"
-            self._children_yang_names.add("upgrade-on-connect")
             self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + self.satellite_id.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'delayed_switchback', 'description', 'device_name', 'disc_timeout', 'enable', 'ip_address', 'secret', 'serial_number', 'timeout_warning', 'type', 'vrf'], name, value)
-
-
-        class CandidateFabricPorts(Entity):
-            """
-            Enable interfaces on the satellite to be used
-            as fabric ports table
-            
-            .. attribute:: candidate_fabric_port
-            
-            	Enable interfaces on the satellite to be used as fabric ports
-            	**type**\: list of    :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__init__()
-
-                self.yang_name = "candidate-fabric-ports"
-                self.yang_parent_name = "nv-satellite"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {"candidate-fabric-port" : ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort)}
-
-                self.candidate_fabric_port = YList(self)
-                self._segment_path = lambda: "candidate-fabric-ports"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts, [], name, value)
-
-
-            class CandidateFabricPort(Entity):
-                """
-                Enable interfaces on the satellite to be used
-                as fabric ports
-                
-                .. attribute:: port_type  <key>
-                
-                	Port type
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: slot  <key>
-                
-                	Slot
-                	**type**\:  int
-                
-                	**range:** 0..8
-                
-                .. attribute:: sub_slot  <key>
-                
-                	Sub slot
-                	**type**\:  int
-                
-                	**range:** 0..8
-                
-                .. attribute:: port_range
-                
-                	Port range
-                	**type**\:  str
-                
-                	**mandatory**\: True
-                
-                
-
-                """
-
-                _prefix = 'icpe-infra-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__init__()
-
-                    self.yang_name = "candidate-fabric-port"
-                    self.yang_parent_name = "candidate-fabric-ports"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.port_type = YLeaf(YType.str, "port-type")
-
-                    self.slot = YLeaf(YType.uint32, "slot")
-
-                    self.sub_slot = YLeaf(YType.uint32, "sub-slot")
-
-                    self.port_range = YLeaf(YType.str, "port-range")
-                    self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + self.port_type.get() + "']" + "[slot='" + self.slot.get() + "']" + "[sub-slot='" + self.sub_slot.get() + "']"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
-
-
-        class ConnectionInfo(Entity):
-            """
-            Satellite User
-            
-            .. attribute:: password
-            
-            	Encrypted password for the user
-            	**type**\:  str
-            
-            	**pattern:** (!.+)\|([^!].+)
-            
-            .. attribute:: username
-            
-            	Satellite Username
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(NvSatellites.NvSatellite.ConnectionInfo, self).__init__()
-
-                self.yang_name = "connection-info"
-                self.yang_parent_name = "nv-satellite"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.password = YLeaf(YType.str, "password")
-
-                self.username = YLeaf(YType.str, "username")
-                self._segment_path = lambda: "connection-info"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['password', 'username'], name, value)
-
-
-        class Redundancy(Entity):
-            """
-            Redundancy submode
-            
-            .. attribute:: host_priority
-            
-            	Priority for this host for the given satellite
-            	**type**\:  int
-            
-            	**range:** 0..255
-            
-            
-
-            """
-
-            _prefix = 'icpe-infra-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(NvSatellites.NvSatellite.Redundancy, self).__init__()
-
-                self.yang_name = "redundancy"
-                self.yang_parent_name = "nv-satellite"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.host_priority = YLeaf(YType.uint32, "host-priority")
-                self._segment_path = lambda: "redundancy"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
+            self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'vrf', 'timeout_warning', 'device_name', 'description', 'type', 'enable', 'disc_timeout', 'delayed_switchback', 'serial_number', 'secret', 'ip_address'], name, value)
 
 
         class UpgradeOnConnect(Entity):
@@ -565,6 +385,176 @@ class NvSatellites(Entity):
 
                 on_first_connection = Enum.YLeaf(2, "on-first-connection")
 
+
+
+        class CandidateFabricPorts(Entity):
+            """
+            Enable interfaces on the satellite to be used
+            as fabric ports table
+            
+            .. attribute:: candidate_fabric_port
+            
+            	Enable interfaces on the satellite to be used as fabric ports
+            	**type**\: list of    :py:class:`CandidateFabricPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort>`
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(NvSatellites.NvSatellite.CandidateFabricPorts, self).__init__()
+
+                self.yang_name = "candidate-fabric-ports"
+                self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {"candidate-fabric-port" : ("candidate_fabric_port", NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort)}
+
+                self.candidate_fabric_port = YList(self)
+                self._segment_path = lambda: "candidate-fabric-ports"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts, [], name, value)
+
+
+            class CandidateFabricPort(Entity):
+                """
+                Enable interfaces on the satellite to be used
+                as fabric ports
+                
+                .. attribute:: port_type  <key>
+                
+                	Port type
+                	**type**\:  str
+                
+                .. attribute:: slot  <key>
+                
+                	Slot
+                	**type**\:  int
+                
+                	**range:** 0..8
+                
+                .. attribute:: sub_slot  <key>
+                
+                	Sub slot
+                	**type**\:  int
+                
+                	**range:** 0..8
+                
+                .. attribute:: port_range
+                
+                	Port range
+                	**type**\:  str
+                
+                	**mandatory**\: True
+                
+                
+
+                """
+
+                _prefix = 'icpe-infra-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, self).__init__()
+
+                    self.yang_name = "candidate-fabric-port"
+                    self.yang_parent_name = "candidate-fabric-ports"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.port_type = YLeaf(YType.str, "port-type")
+
+                    self.slot = YLeaf(YType.uint32, "slot")
+
+                    self.sub_slot = YLeaf(YType.uint32, "sub-slot")
+
+                    self.port_range = YLeaf(YType.str, "port-range")
+                    self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + self.port_type.get() + "']" + "[slot='" + self.slot.get() + "']" + "[sub-slot='" + self.sub_slot.get() + "']"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
+
+
+        class ConnectionInfo(Entity):
+            """
+            Satellite User
+            
+            .. attribute:: username
+            
+            	Satellite Username
+            	**type**\:  str
+            
+            .. attribute:: password
+            
+            	Encrypted password for the user
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(NvSatellites.NvSatellite.ConnectionInfo, self).__init__()
+
+                self.yang_name = "connection-info"
+                self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.username = YLeaf(YType.str, "username")
+
+                self.password = YLeaf(YType.str, "password")
+                self._segment_path = lambda: "connection-info"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['username', 'password'], name, value)
+
+
+        class Redundancy(Entity):
+            """
+            Redundancy submode
+            
+            .. attribute:: host_priority
+            
+            	Priority for this host for the given satellite
+            	**type**\:  int
+            
+            	**range:** 0..255
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(NvSatellites.NvSatellite.Redundancy, self).__init__()
+
+                self.yang_name = "redundancy"
+                self.yang_parent_name = "nv-satellite"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.host_priority = YLeaf(YType.uint32, "host-priority")
+                self._segment_path = lambda: "redundancy"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvSatellites()

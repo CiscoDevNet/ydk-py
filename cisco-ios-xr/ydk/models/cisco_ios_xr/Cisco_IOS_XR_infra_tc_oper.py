@@ -44,11 +44,6 @@ class TrafficCollector(Entity):
     """
     Global Traffic Collector configuration commands
     
-    .. attribute:: afs
-    
-    	Address Family specific operational data
-    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs>`
-    
     .. attribute:: external_interfaces
     
     	External Interface
@@ -63,6 +58,11 @@ class TrafficCollector(Entity):
     
     	VRF specific operational data
     	**type**\:   :py:class:`VrfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable>`
+    
+    .. attribute:: afs
+    
+    	Address Family specific operational data
+    	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs>`
     
     
 
@@ -79,13 +79,8 @@ class TrafficCollector(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-tc-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"afs" : ("afs", TrafficCollector.Afs), "external-interfaces" : ("external_interfaces", TrafficCollector.ExternalInterfaces), "summary" : ("summary", TrafficCollector.Summary), "vrf-table" : ("vrf_table", TrafficCollector.VrfTable)}
+        self._child_container_classes = {"external-interfaces" : ("external_interfaces", TrafficCollector.ExternalInterfaces), "summary" : ("summary", TrafficCollector.Summary), "vrf-table" : ("vrf_table", TrafficCollector.VrfTable), "afs" : ("afs", TrafficCollector.Afs)}
         self._child_list_classes = {}
-
-        self.afs = TrafficCollector.Afs()
-        self.afs.parent = self
-        self._children_name_map["afs"] = "afs"
-        self._children_yang_names.add("afs")
 
         self.external_interfaces = TrafficCollector.ExternalInterfaces()
         self.external_interfaces.parent = self
@@ -101,745 +96,12 @@ class TrafficCollector(Entity):
         self.vrf_table.parent = self
         self._children_name_map["vrf_table"] = "vrf-table"
         self._children_yang_names.add("vrf-table")
+
+        self.afs = TrafficCollector.Afs()
+        self.afs.parent = self
+        self._children_name_map["afs"] = "afs"
+        self._children_yang_names.add("afs")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector"
-
-
-    class Afs(Entity):
-        """
-        Address Family specific operational data
-        
-        .. attribute:: af
-        
-        	Operational data for given Address Family
-        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af>`
-        
-        
-
-        """
-
-        _prefix = 'infra-tc-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(TrafficCollector.Afs, self).__init__()
-
-            self.yang_name = "afs"
-            self.yang_parent_name = "traffic-collector"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"af" : ("af", TrafficCollector.Afs.Af)}
-
-            self.af = YList(self)
-            self._segment_path = lambda: "afs"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(TrafficCollector.Afs, [], name, value)
-
-
-        class Af(Entity):
-            """
-            Operational data for given Address Family
-            
-            .. attribute:: af_name  <key>
-            
-            	Address Family name
-            	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
-            
-            .. attribute:: counters
-            
-            	Show Counters
-            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters>`
-            
-            
-
-            """
-
-            _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(TrafficCollector.Afs.Af, self).__init__()
-
-                self.yang_name = "af"
-                self.yang_parent_name = "afs"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"counters" : ("counters", TrafficCollector.Afs.Af.Counters)}
-                self._child_list_classes = {}
-
-                self.af_name = YLeaf(YType.enumeration, "af-name")
-
-                self.counters = TrafficCollector.Afs.Af.Counters()
-                self.counters.parent = self
-                self._children_name_map["counters"] = "counters"
-                self._children_yang_names.add("counters")
-                self._segment_path = lambda: "af" + "[af-name='" + self.af_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Afs.Af, ['af_name'], name, value)
-
-
-            class Counters(Entity):
-                """
-                Show Counters
-                
-                .. attribute:: prefixes
-                
-                	Prefix Database
-                	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes>`
-                
-                .. attribute:: tunnels
-                
-                	Tunnels
-                	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels>`
-                
-                
-
-                """
-
-                _prefix = 'infra-tc-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(TrafficCollector.Afs.Af.Counters, self).__init__()
-
-                    self.yang_name = "counters"
-                    self.yang_parent_name = "af"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"prefixes" : ("prefixes", TrafficCollector.Afs.Af.Counters.Prefixes), "tunnels" : ("tunnels", TrafficCollector.Afs.Af.Counters.Tunnels)}
-                    self._child_list_classes = {}
-
-                    self.prefixes = TrafficCollector.Afs.Af.Counters.Prefixes()
-                    self.prefixes.parent = self
-                    self._children_name_map["prefixes"] = "prefixes"
-                    self._children_yang_names.add("prefixes")
-
-                    self.tunnels = TrafficCollector.Afs.Af.Counters.Tunnels()
-                    self.tunnels.parent = self
-                    self._children_name_map["tunnels"] = "tunnels"
-                    self._children_yang_names.add("tunnels")
-                    self._segment_path = lambda: "counters"
-
-
-                class Prefixes(Entity):
-                    """
-                    Prefix Database
-                    
-                    .. attribute:: prefix
-                    
-                    	Show Prefix Counter
-                    	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-tc-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__init__()
-
-                        self.yang_name = "prefixes"
-                        self.yang_parent_name = "counters"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"prefix" : ("prefix", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix)}
-
-                        self.prefix = YList(self)
-                        self._segment_path = lambda: "prefixes"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes, [], name, value)
-
-
-                    class Prefix(Entity):
-                        """
-                        Show Prefix Counter
-                        
-                        .. attribute:: base_counter_statistics
-                        
-                        	Base counter statistics
-                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
-                        
-                        .. attribute:: ipaddr
-                        
-                        	IP Address
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: is_active
-                        
-                        	Prefix is Active and collecting new Statistics
-                        	**type**\:  bool
-                        
-                        .. attribute:: label
-                        
-                        	Local Label
-                        	**type**\:  int
-                        
-                        	**range:** 16..1048575
-                        
-                        .. attribute:: label_xr
-                        
-                        	Label
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: mask
-                        
-                        	Prefix Mask
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: prefix
-                        
-                        	Prefix Address (V4 or V6 Format)
-                        	**type**\:  str
-                        
-                        .. attribute:: traffic_matrix_counter_statistics
-                        
-                        	Traffic Matrix (TM) counter statistics
-                        	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-tc-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
-
-                            self.yang_name = "prefix"
-                            self.yang_parent_name = "prefixes"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics), "traffic-matrix-counter-statistics" : ("traffic_matrix_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics)}
-                            self._child_list_classes = {}
-
-                            self.ipaddr = YLeaf(YType.str, "ipaddr")
-
-                            self.is_active = YLeaf(YType.boolean, "is-active")
-
-                            self.label = YLeaf(YType.uint32, "label")
-
-                            self.label_xr = YLeaf(YType.uint32, "label-xr")
-
-                            self.mask = YLeaf(YType.str, "mask")
-
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
-                            self.base_counter_statistics.parent = self
-                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
-                            self._children_yang_names.add("base-counter-statistics")
-
-                            self.traffic_matrix_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
-                            self.traffic_matrix_counter_statistics.parent = self
-                            self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
-                            self._children_yang_names.add("traffic-matrix-counter-statistics")
-                            self._segment_path = lambda: "prefix"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'is_active', 'label', 'label_xr', 'mask', 'prefix'], name, value)
-
-
-                        class BaseCounterStatistics(Entity):
-                            """
-                            Base counter statistics
-                            
-                            .. attribute:: count_history
-                            
-                            	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
-                            
-                            .. attribute:: transmit_bytes_per_second_switched
-                            
-                            	Average Rate of Bytes/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte/s
-                            
-                            .. attribute:: transmit_packets_per_second_switched
-                            
-                            	Average Rate of Packets/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: packet/s
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
-
-                                self.yang_name = "base-counter-statistics"
-                                self.yang_parent_name = "prefix"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory)}
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.count_history = YList(self)
-                                self._segment_path = lambda: "base-counter-statistics"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
-
-
-                            class CountHistory(Entity):
-                                """
-                                Counter History
-                                
-                                .. attribute:: event_end_timestamp
-                                
-                                	Event End timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: event_start_timestamp
-                                
-                                	Event Start timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: is_valid
-                                
-                                	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
-                                
-                                .. attribute:: transmit_number_of_bytes_switched
-                                
-                                	Number of Bytes switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: transmit_number_of_packets_switched
-                                
-                                	Number of packets switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
-
-                                    self.yang_name = "count-history"
-                                    self.yang_parent_name = "base-counter-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-                                    self._segment_path = lambda: "count-history"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
-
-
-                        class TrafficMatrixCounterStatistics(Entity):
-                            """
-                            Traffic Matrix (TM) counter statistics
-                            
-                            .. attribute:: count_history
-                            
-                            	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
-                            
-                            .. attribute:: transmit_bytes_per_second_switched
-                            
-                            	Average Rate of Bytes/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte/s
-                            
-                            .. attribute:: transmit_packets_per_second_switched
-                            
-                            	Average Rate of Packets/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: packet/s
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
-
-                                self.yang_name = "traffic-matrix-counter-statistics"
-                                self.yang_parent_name = "prefix"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory)}
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.count_history = YList(self)
-                                self._segment_path = lambda: "traffic-matrix-counter-statistics"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
-
-
-                            class CountHistory(Entity):
-                                """
-                                Counter History
-                                
-                                .. attribute:: event_end_timestamp
-                                
-                                	Event End timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: event_start_timestamp
-                                
-                                	Event Start timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: is_valid
-                                
-                                	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
-                                
-                                .. attribute:: transmit_number_of_bytes_switched
-                                
-                                	Number of Bytes switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: transmit_number_of_packets_switched
-                                
-                                	Number of packets switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
-
-                                    self.yang_name = "count-history"
-                                    self.yang_parent_name = "traffic-matrix-counter-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-                                    self._segment_path = lambda: "count-history"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
-
-
-                class Tunnels(Entity):
-                    """
-                    Tunnels
-                    
-                    .. attribute:: tunnel
-                    
-                    	Tunnel information
-                    	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-tc-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__init__()
-
-                        self.yang_name = "tunnels"
-                        self.yang_parent_name = "counters"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"tunnel" : ("tunnel", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel)}
-
-                        self.tunnel = YList(self)
-                        self._segment_path = lambda: "tunnels"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels, [], name, value)
-
-
-                    class Tunnel(Entity):
-                        """
-                        Tunnel information
-                        
-                        .. attribute:: interface_name  <key>
-                        
-                        	The Interface Name
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: base_counter_statistics
-                        
-                        	Base counter statistics
-                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
-                        
-                        .. attribute:: interface_handle
-                        
-                        	Interface handle
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: interface_name_xr
-                        
-                        	Interface name in Display format
-                        	**type**\:  str
-                        
-                        .. attribute:: is_active
-                        
-                        	Interface is Active and collecting new Statistics
-                        	**type**\:  bool
-                        
-                        .. attribute:: vrfid
-                        
-                        	Interface VRF ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'infra-tc-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
-
-                            self.yang_name = "tunnel"
-                            self.yang_parent_name = "tunnels"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics)}
-                            self._child_list_classes = {}
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
-                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
-
-                            self.is_active = YLeaf(YType.boolean, "is-active")
-
-                            self.vrfid = YLeaf(YType.uint32, "vrfid")
-
-                            self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
-                            self.base_counter_statistics.parent = self
-                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
-                            self._children_yang_names.add("base-counter-statistics")
-                            self._segment_path = lambda: "tunnel" + "[interface-name='" + self.interface_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_handle', 'interface_name_xr', 'is_active', 'vrfid'], name, value)
-
-
-                        class BaseCounterStatistics(Entity):
-                            """
-                            Base counter statistics
-                            
-                            .. attribute:: count_history
-                            
-                            	Counter History
-                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
-                            
-                            .. attribute:: transmit_bytes_per_second_switched
-                            
-                            	Average Rate of Bytes/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: byte/s
-                            
-                            .. attribute:: transmit_packets_per_second_switched
-                            
-                            	Average Rate of Packets/second switched
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            	**units**\: packet/s
-                            
-                            
-
-                            """
-
-                            _prefix = 'infra-tc-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
-
-                                self.yang_name = "base-counter-statistics"
-                                self.yang_parent_name = "tunnel"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory)}
-
-                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
-                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
-
-                                self.count_history = YList(self)
-                                self._segment_path = lambda: "base-counter-statistics"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
-
-
-                            class CountHistory(Entity):
-                                """
-                                Counter History
-                                
-                                .. attribute:: event_end_timestamp
-                                
-                                	Event End timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: event_start_timestamp
-                                
-                                	Event Start timestamp
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: is_valid
-                                
-                                	Flag to indicate if this history entry is valid
-                                	**type**\:  bool
-                                
-                                .. attribute:: transmit_number_of_bytes_switched
-                                
-                                	Number of Bytes switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                	**units**\: byte
-                                
-                                .. attribute:: transmit_number_of_packets_switched
-                                
-                                	Number of packets switched in this interval
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'infra-tc-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
-
-                                    self.yang_name = "count-history"
-                                    self.yang_parent_name = "base-counter-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
-                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
-
-                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
-
-                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
-
-                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
-                                    self._segment_path = lambda: "count-history"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
 
 
     class ExternalInterfaces(Entity):
@@ -885,7 +147,10 @@ class TrafficCollector(Entity):
             	The Interface Name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: interface_name_xr
+            
+            	Interface name in Display format
+            	**type**\:  str
             
             .. attribute:: interface_handle
             
@@ -894,22 +159,17 @@ class TrafficCollector(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: interface_name_xr
-            
-            	Interface name in Display format
-            	**type**\:  str
-            
-            .. attribute:: is_interface_enabled
-            
-            	Flag to indicate interface enabled or not
-            	**type**\:  bool
-            
             .. attribute:: vrfid
             
             	Interface VRF ID
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: is_interface_enabled
+            
+            	Flag to indicate interface enabled or not
+            	**type**\:  bool
             
             
 
@@ -930,28 +190,28 @@ class TrafficCollector(Entity):
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
-                self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
                 self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                self.is_interface_enabled = YLeaf(YType.boolean, "is-interface-enabled")
+                self.interface_handle = YLeaf(YType.uint32, "interface-handle")
 
                 self.vrfid = YLeaf(YType.uint32, "vrfid")
+
+                self.is_interface_enabled = YLeaf(YType.boolean, "is-interface-enabled")
                 self._segment_path = lambda: "external-interface" + "[interface-name='" + self.interface_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/external-interfaces/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'interface_handle', 'interface_name_xr', 'is_interface_enabled', 'vrfid'], name, value)
+                self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_interface_enabled'], name, value)
 
 
     class Summary(Entity):
         """
         Traffic Collector summary
         
-        .. attribute:: checkpoint_message_statistic
+        .. attribute:: database_statistics_external_interface
         
-        	Statistics per message type for Chkpt
-        	**type**\: list of    :py:class:`CheckpointMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CheckpointMessageStatistic>`
+        	Database statistics for External Interface
+        	**type**\:   :py:class:`DatabaseStatisticsExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.DatabaseStatisticsExternalInterface>`
         
         .. attribute:: collection_interval
         
@@ -962,27 +222,10 @@ class TrafficCollector(Entity):
         
         	**units**\: minute
         
-        .. attribute:: collection_message_statistic
-        
-        	Statistics per message type for STAT collector
-        	**type**\: list of    :py:class:`CollectionMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CollectionMessageStatistic>`
-        
         .. attribute:: collection_timer_is_running
         
         	TRUE if collection timer is running
         	**type**\:  bool
-        
-        .. attribute:: database_statistics_external_interface
-        
-        	Database statistics for External Interface
-        	**type**\:   :py:class:`DatabaseStatisticsExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.DatabaseStatisticsExternalInterface>`
-        
-        .. attribute:: history_size
-        
-        	Statistics history size
-        	**type**\:  int
-        
-        	**range:** 0..255
         
         .. attribute:: timeout_interval
         
@@ -998,10 +241,27 @@ class TrafficCollector(Entity):
         	TRUE if history timeout timer is running
         	**type**\:  bool
         
+        .. attribute:: history_size
+        
+        	Statistics history size
+        	**type**\:  int
+        
+        	**range:** 0..255
+        
         .. attribute:: vrf_statistic
         
         	VRF table statistics
         	**type**\: list of    :py:class:`VrfStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.VrfStatistic>`
+        
+        .. attribute:: collection_message_statistic
+        
+        	Statistics per message type for STAT collector
+        	**type**\: list of    :py:class:`CollectionMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CollectionMessageStatistic>`
+        
+        .. attribute:: checkpoint_message_statistic
+        
+        	Statistics per message type for Chkpt
+        	**type**\: list of    :py:class:`CheckpointMessageStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Summary.CheckpointMessageStatistic>`
         
         
 
@@ -1018,220 +278,36 @@ class TrafficCollector(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {"database-statistics-external-interface" : ("database_statistics_external_interface", TrafficCollector.Summary.DatabaseStatisticsExternalInterface)}
-            self._child_list_classes = {"checkpoint-message-statistic" : ("checkpoint_message_statistic", TrafficCollector.Summary.CheckpointMessageStatistic), "collection-message-statistic" : ("collection_message_statistic", TrafficCollector.Summary.CollectionMessageStatistic), "vrf-statistic" : ("vrf_statistic", TrafficCollector.Summary.VrfStatistic)}
+            self._child_list_classes = {"vrf-statistic" : ("vrf_statistic", TrafficCollector.Summary.VrfStatistic), "collection-message-statistic" : ("collection_message_statistic", TrafficCollector.Summary.CollectionMessageStatistic), "checkpoint-message-statistic" : ("checkpoint_message_statistic", TrafficCollector.Summary.CheckpointMessageStatistic)}
 
             self.collection_interval = YLeaf(YType.uint8, "collection-interval")
 
             self.collection_timer_is_running = YLeaf(YType.boolean, "collection-timer-is-running")
 
-            self.history_size = YLeaf(YType.uint8, "history-size")
-
             self.timeout_interval = YLeaf(YType.uint16, "timeout-interval")
 
             self.timeout_timer_is_running = YLeaf(YType.boolean, "timeout-timer-is-running")
+
+            self.history_size = YLeaf(YType.uint8, "history-size")
 
             self.database_statistics_external_interface = TrafficCollector.Summary.DatabaseStatisticsExternalInterface()
             self.database_statistics_external_interface.parent = self
             self._children_name_map["database_statistics_external_interface"] = "database-statistics-external-interface"
             self._children_yang_names.add("database-statistics-external-interface")
 
-            self.checkpoint_message_statistic = YList(self)
-            self.collection_message_statistic = YList(self)
             self.vrf_statistic = YList(self)
+            self.collection_message_statistic = YList(self)
+            self.checkpoint_message_statistic = YList(self)
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(TrafficCollector.Summary, ['collection_interval', 'collection_timer_is_running', 'history_size', 'timeout_interval', 'timeout_timer_is_running'], name, value)
-
-
-        class CheckpointMessageStatistic(Entity):
-            """
-            Statistics per message type for Chkpt
-            
-            .. attribute:: byte_received
-            
-            	Number of bytes received
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: byte
-            
-            .. attribute:: byte_sent
-            
-            	Number of bytes sent
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: byte
-            
-            .. attribute:: maimum_latency_timestamp
-            
-            	Timestamp of maximum latency
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: maximum_roundtrip_latency
-            
-            	Maximum roundtrip latency in msec
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: packet_received
-            
-            	Number of packets received
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: packet_sent
-            
-            	Number of packets sent
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            
-
-            """
-
-            _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__init__()
-
-                self.yang_name = "checkpoint-message-statistic"
-                self.yang_parent_name = "summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.byte_received = YLeaf(YType.uint64, "byte-received")
-
-                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
-
-                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
-
-                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
-
-                self.packet_received = YLeaf(YType.uint64, "packet-received")
-
-                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
-                self._segment_path = lambda: "checkpoint-message-statistic"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.CheckpointMessageStatistic, ['byte_received', 'byte_sent', 'maimum_latency_timestamp', 'maximum_roundtrip_latency', 'packet_received', 'packet_sent'], name, value)
-
-
-        class CollectionMessageStatistic(Entity):
-            """
-            Statistics per message type for STAT collector
-            
-            .. attribute:: byte_received
-            
-            	Number of bytes received
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: byte
-            
-            .. attribute:: byte_sent
-            
-            	Number of bytes sent
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: byte
-            
-            .. attribute:: maimum_latency_timestamp
-            
-            	Timestamp of maximum latency
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: maximum_roundtrip_latency
-            
-            	Maximum roundtrip latency in msec
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: packet_received
-            
-            	Number of packets received
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: packet_sent
-            
-            	Number of packets sent
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            
-
-            """
-
-            _prefix = 'infra-tc-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(TrafficCollector.Summary.CollectionMessageStatistic, self).__init__()
-
-                self.yang_name = "collection-message-statistic"
-                self.yang_parent_name = "summary"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.byte_received = YLeaf(YType.uint64, "byte-received")
-
-                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
-
-                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
-
-                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
-
-                self.packet_received = YLeaf(YType.uint64, "packet-received")
-
-                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
-                self._segment_path = lambda: "collection-message-statistic"
-                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.CollectionMessageStatistic, ['byte_received', 'byte_sent', 'maimum_latency_timestamp', 'maximum_roundtrip_latency', 'packet_received', 'packet_sent'], name, value)
+            self._perform_setattr(TrafficCollector.Summary, ['collection_interval', 'collection_timer_is_running', 'timeout_interval', 'timeout_timer_is_running', 'history_size'], name, value)
 
 
         class DatabaseStatisticsExternalInterface(Entity):
             """
             Database statistics for External Interface
-            
-            .. attribute:: number_of_add_o_perations
-            
-            	Number of add operations
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            .. attribute:: number_of_delete_o_perations
-            
-            	Number of delete operations
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
             
             .. attribute:: number_of_entries
             
@@ -1246,6 +322,20 @@ class TrafficCollector(Entity):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: number_of_add_o_perations
+            
+            	Number of add operations
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: number_of_delete_o_perations
+            
+            	Number of delete operations
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
             
             
 
@@ -1264,18 +354,18 @@ class TrafficCollector(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
-
                 self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
 
                 self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+                self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
+
+                self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
                 self._segment_path = lambda: "database-statistics-external-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, ['number_of_add_o_perations', 'number_of_delete_o_perations', 'number_of_entries', 'number_of_stale_entries'], name, value)
+                self._perform_setattr(TrafficCollector.Summary.DatabaseStatisticsExternalInterface, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
 
         class VrfStatistic(Entity):
@@ -1336,20 +426,6 @@ class TrafficCollector(Entity):
                 """
                 Database statistics for IPv4 table
                 
-                .. attribute:: number_of_add_o_perations
-                
-                	Number of add operations
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: number_of_delete_o_perations
-                
-                	Number of delete operations
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
                 .. attribute:: number_of_entries
                 
                 	Number of DB entries
@@ -1363,6 +439,20 @@ class TrafficCollector(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: number_of_add_o_perations
+                
+                	Number of add operations
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: number_of_delete_o_perations
+                
+                	Number of delete operations
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
                 
                 
 
@@ -1381,37 +471,23 @@ class TrafficCollector(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
-
                     self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
 
                     self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
+
+                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
                     self._segment_path = lambda: "database-statistics-ipv4"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, ['number_of_add_o_perations', 'number_of_delete_o_perations', 'number_of_entries', 'number_of_stale_entries'], name, value)
+                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsIpv4, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
 
 
             class DatabaseStatisticsTunnel(Entity):
                 """
                 Database statistics for Tunnel table
-                
-                .. attribute:: number_of_add_o_perations
-                
-                	Number of add operations
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: number_of_delete_o_perations
-                
-                	Number of delete operations
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
                 
                 .. attribute:: number_of_entries
                 
@@ -1426,6 +502,20 @@ class TrafficCollector(Entity):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                .. attribute:: number_of_add_o_perations
+                
+                	Number of add operations
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: number_of_delete_o_perations
+                
+                	Number of delete operations
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
                 
                 
 
@@ -1444,18 +534,188 @@ class TrafficCollector(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
-
-                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
-
                     self.number_of_entries = YLeaf(YType.uint32, "number-of-entries")
 
                     self.number_of_stale_entries = YLeaf(YType.uint32, "number-of-stale-entries")
+
+                    self.number_of_add_o_perations = YLeaf(YType.uint64, "number-of-add-o-perations")
+
+                    self.number_of_delete_o_perations = YLeaf(YType.uint64, "number-of-delete-o-perations")
                     self._segment_path = lambda: "database-statistics-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/vrf-statistic/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, ['number_of_add_o_perations', 'number_of_delete_o_perations', 'number_of_entries', 'number_of_stale_entries'], name, value)
+                    self._perform_setattr(TrafficCollector.Summary.VrfStatistic.DatabaseStatisticsTunnel, ['number_of_entries', 'number_of_stale_entries', 'number_of_add_o_perations', 'number_of_delete_o_perations'], name, value)
+
+
+        class CollectionMessageStatistic(Entity):
+            """
+            Statistics per message type for STAT collector
+            
+            .. attribute:: packet_sent
+            
+            	Number of packets sent
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: byte_sent
+            
+            	Number of bytes sent
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: byte
+            
+            .. attribute:: packet_received
+            
+            	Number of packets received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: byte_received
+            
+            	Number of bytes received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: byte
+            
+            .. attribute:: maximum_roundtrip_latency
+            
+            	Maximum roundtrip latency in msec
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: maimum_latency_timestamp
+            
+            	Timestamp of maximum latency
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            
+
+            """
+
+            _prefix = 'infra-tc-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(TrafficCollector.Summary.CollectionMessageStatistic, self).__init__()
+
+                self.yang_name = "collection-message-statistic"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
+
+                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
+
+                self.packet_received = YLeaf(YType.uint64, "packet-received")
+
+                self.byte_received = YLeaf(YType.uint64, "byte-received")
+
+                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
+
+                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+                self._segment_path = lambda: "collection-message-statistic"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(TrafficCollector.Summary.CollectionMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
+
+
+        class CheckpointMessageStatistic(Entity):
+            """
+            Statistics per message type for Chkpt
+            
+            .. attribute:: packet_sent
+            
+            	Number of packets sent
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: byte_sent
+            
+            	Number of bytes sent
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: byte
+            
+            .. attribute:: packet_received
+            
+            	Number of packets received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: byte_received
+            
+            	Number of bytes received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: byte
+            
+            .. attribute:: maximum_roundtrip_latency
+            
+            	Maximum roundtrip latency in msec
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: maimum_latency_timestamp
+            
+            	Timestamp of maximum latency
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            
+
+            """
+
+            _prefix = 'infra-tc-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(TrafficCollector.Summary.CheckpointMessageStatistic, self).__init__()
+
+                self.yang_name = "checkpoint-message-statistic"
+                self.yang_parent_name = "summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.packet_sent = YLeaf(YType.uint64, "packet-sent")
+
+                self.byte_sent = YLeaf(YType.uint64, "byte-sent")
+
+                self.packet_received = YLeaf(YType.uint64, "packet-received")
+
+                self.byte_received = YLeaf(YType.uint64, "byte-received")
+
+                self.maximum_roundtrip_latency = YLeaf(YType.uint32, "maximum-roundtrip-latency")
+
+                self.maimum_latency_timestamp = YLeaf(YType.uint64, "maimum-latency-timestamp")
+                self._segment_path = lambda: "checkpoint-message-statistic"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/summary/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(TrafficCollector.Summary.CheckpointMessageStatistic, ['packet_sent', 'byte_sent', 'packet_received', 'byte_received', 'maximum_roundtrip_latency', 'maimum_latency_timestamp'], name, value)
 
 
     class VrfTable(Entity):
@@ -1684,22 +944,15 @@ class TrafficCollector(Entity):
                                 """
                                 Show Prefix Counter
                                 
-                                .. attribute:: base_counter_statistics
-                                
-                                	Base counter statistics
-                                	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
-                                
                                 .. attribute:: ipaddr
                                 
                                 	IP Address
                                 	**type**\:  str
                                 
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                .. attribute:: mask
                                 
-                                .. attribute:: is_active
-                                
-                                	Prefix is Active and collecting new Statistics
-                                	**type**\:  bool
+                                	Prefix Mask
+                                	**type**\:  str
                                 
                                 .. attribute:: label
                                 
@@ -1708,6 +961,21 @@ class TrafficCollector(Entity):
                                 
                                 	**range:** 16..1048575
                                 
+                                .. attribute:: base_counter_statistics
+                                
+                                	Base counter statistics
+                                	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
+                                
+                                .. attribute:: traffic_matrix_counter_statistics
+                                
+                                	Traffic Matrix (TM) counter statistics
+                                	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
+                                
+                                .. attribute:: prefix
+                                
+                                	Prefix Address (V4 or V6 Format)
+                                	**type**\:  str
+                                
                                 .. attribute:: label_xr
                                 
                                 	Label
@@ -1715,22 +983,10 @@ class TrafficCollector(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: mask
+                                .. attribute:: is_active
                                 
-                                	Prefix Mask
-                                	**type**\:  str
-                                
-                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                
-                                .. attribute:: prefix
-                                
-                                	Prefix Address (V4 or V6 Format)
-                                	**type**\:  str
-                                
-                                .. attribute:: traffic_matrix_counter_statistics
-                                
-                                	Traffic Matrix (TM) counter statistics
-                                	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
+                                	Prefix is Active and collecting new Statistics
+                                	**type**\:  bool
                                 
                                 
 
@@ -1751,15 +1007,15 @@ class TrafficCollector(Entity):
 
                                     self.ipaddr = YLeaf(YType.str, "ipaddr")
 
-                                    self.is_active = YLeaf(YType.boolean, "is-active")
+                                    self.mask = YLeaf(YType.str, "mask")
 
                                     self.label = YLeaf(YType.uint32, "label")
 
+                                    self.prefix = YLeaf(YType.str, "prefix")
+
                                     self.label_xr = YLeaf(YType.uint32, "label-xr")
 
-                                    self.mask = YLeaf(YType.str, "mask")
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
+                                    self.is_active = YLeaf(YType.boolean, "is-active")
 
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
@@ -1773,17 +1029,21 @@ class TrafficCollector(Entity):
                                     self._segment_path = lambda: "prefix"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'is_active', 'label', 'label_xr', 'mask', 'prefix'], name, value)
+                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'is_active'], name, value)
 
 
                                 class BaseCounterStatistics(Entity):
                                     """
                                     Base counter statistics
                                     
-                                    .. attribute:: count_history
+                                    .. attribute:: transmit_packets_per_second_switched
                                     
-                                    	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
+                                    	Average Rate of Packets/second switched
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: packet/s
                                     
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
@@ -1794,14 +1054,10 @@ class TrafficCollector(Entity):
                                     
                                     	**units**\: byte/s
                                     
-                                    .. attribute:: transmit_packets_per_second_switched
+                                    .. attribute:: count_history
                                     
-                                    	Average Rate of Packets/second switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: packet/s
+                                    	Counter History
+                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -1820,27 +1076,20 @@ class TrafficCollector(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory)}
 
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
                                         self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "base-counter-statistics"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
                                         """
                                         Counter History
-                                        
-                                        .. attribute:: event_end_timestamp
-                                        
-                                        	Event End timestamp
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_start_timestamp
                                         
@@ -1849,10 +1098,19 @@ class TrafficCollector(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: is_valid
+                                        .. attribute:: event_end_timestamp
                                         
-                                        	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	Event End timestamp
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: transmit_number_of_packets_switched
+                                        
+                                        	Number of packets switched in this interval
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
@@ -1863,12 +1121,10 @@ class TrafficCollector(Entity):
                                         
                                         	**units**\: byte
                                         
-                                        .. attribute:: transmit_number_of_packets_switched
+                                        .. attribute:: is_valid
                                         
-                                        	Number of packets switched in this interval
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
+                                        	Flag to indicate if this history entry is valid
+                                        	**type**\:  bool
                                         
                                         
 
@@ -1887,29 +1143,33 @@ class TrafficCollector(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
                                             self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
 
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
 
                                             self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
 
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
                                 class TrafficMatrixCounterStatistics(Entity):
                                     """
                                     Traffic Matrix (TM) counter statistics
                                     
-                                    .. attribute:: count_history
+                                    .. attribute:: transmit_packets_per_second_switched
                                     
-                                    	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
+                                    	Average Rate of Packets/second switched
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: packet/s
                                     
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
@@ -1920,14 +1180,10 @@ class TrafficCollector(Entity):
                                     
                                     	**units**\: byte/s
                                     
-                                    .. attribute:: transmit_packets_per_second_switched
+                                    .. attribute:: count_history
                                     
-                                    	Average Rate of Packets/second switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: packet/s
+                                    	Counter History
+                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -1946,27 +1202,20 @@ class TrafficCollector(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory)}
 
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
                                         self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "traffic-matrix-counter-statistics"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
                                         """
                                         Counter History
-                                        
-                                        .. attribute:: event_end_timestamp
-                                        
-                                        	Event End timestamp
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_start_timestamp
                                         
@@ -1975,10 +1224,19 @@ class TrafficCollector(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: is_valid
+                                        .. attribute:: event_end_timestamp
                                         
-                                        	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	Event End timestamp
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: transmit_number_of_packets_switched
+                                        
+                                        	Number of packets switched in this interval
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
@@ -1989,12 +1247,10 @@ class TrafficCollector(Entity):
                                         
                                         	**units**\: byte
                                         
-                                        .. attribute:: transmit_number_of_packets_switched
+                                        .. attribute:: is_valid
                                         
-                                        	Number of packets switched in this interval
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
+                                        	Flag to indicate if this history entry is valid
+                                        	**type**\:  bool
                                         
                                         
 
@@ -2013,19 +1269,19 @@ class TrafficCollector(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
                                             self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
 
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
 
                                             self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
 
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
 
                         class Tunnels(Entity):
@@ -2070,12 +1326,15 @@ class TrafficCollector(Entity):
                                 	The Interface Name
                                 	**type**\:  str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
                                 .. attribute:: base_counter_statistics
                                 
                                 	Base counter statistics
                                 	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
+                                
+                                .. attribute:: interface_name_xr
+                                
+                                	Interface name in Display format
+                                	**type**\:  str
                                 
                                 .. attribute:: interface_handle
                                 
@@ -2084,22 +1343,17 @@ class TrafficCollector(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
-                                .. attribute:: interface_name_xr
-                                
-                                	Interface name in Display format
-                                	**type**\:  str
-                                
-                                .. attribute:: is_active
-                                
-                                	Interface is Active and collecting new Statistics
-                                	**type**\:  bool
-                                
                                 .. attribute:: vrfid
                                 
                                 	Interface VRF ID
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                .. attribute:: is_active
+                                
+                                	Interface is Active and collecting new Statistics
+                                	**type**\:  bool
                                 
                                 
 
@@ -2120,13 +1374,13 @@ class TrafficCollector(Entity):
 
                                     self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                    self.interface_handle = YLeaf(YType.uint32, "interface-handle")
-
                                     self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
 
-                                    self.is_active = YLeaf(YType.boolean, "is-active")
+                                    self.interface_handle = YLeaf(YType.uint32, "interface-handle")
 
                                     self.vrfid = YLeaf(YType.uint32, "vrfid")
+
+                                    self.is_active = YLeaf(YType.boolean, "is-active")
 
                                     self.base_counter_statistics = TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
                                     self.base_counter_statistics.parent = self
@@ -2135,17 +1389,21 @@ class TrafficCollector(Entity):
                                     self._segment_path = lambda: "tunnel" + "[interface-name='" + self.interface_name.get() + "']"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_handle', 'interface_name_xr', 'is_active', 'vrfid'], name, value)
+                                    self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
 
 
                                 class BaseCounterStatistics(Entity):
                                     """
                                     Base counter statistics
                                     
-                                    .. attribute:: count_history
+                                    .. attribute:: transmit_packets_per_second_switched
                                     
-                                    	Counter History
-                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
+                                    	Average Rate of Packets/second switched
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: packet/s
                                     
                                     .. attribute:: transmit_bytes_per_second_switched
                                     
@@ -2156,14 +1414,10 @@ class TrafficCollector(Entity):
                                     
                                     	**units**\: byte/s
                                     
-                                    .. attribute:: transmit_packets_per_second_switched
+                                    .. attribute:: count_history
                                     
-                                    	Average Rate of Packets/second switched
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..18446744073709551615
-                                    
-                                    	**units**\: packet/s
+                                    	Counter History
+                                    	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
                                     
                                     
 
@@ -2182,27 +1436,20 @@ class TrafficCollector(Entity):
                                         self._child_container_classes = {}
                                         self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory)}
 
-                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
-
                                         self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                        self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
 
                                         self.count_history = YList(self)
                                         self._segment_path = lambda: "base-counter-statistics"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_bytes_per_second_switched', 'transmit_packets_per_second_switched'], name, value)
+                                        self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
 
 
                                     class CountHistory(Entity):
                                         """
                                         Counter History
-                                        
-                                        .. attribute:: event_end_timestamp
-                                        
-                                        	Event End timestamp
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: event_start_timestamp
                                         
@@ -2211,10 +1458,19 @@ class TrafficCollector(Entity):
                                         
                                         	**range:** 0..18446744073709551615
                                         
-                                        .. attribute:: is_valid
+                                        .. attribute:: event_end_timestamp
                                         
-                                        	Flag to indicate if this history entry is valid
-                                        	**type**\:  bool
+                                        	Event End timestamp
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: transmit_number_of_packets_switched
+                                        
+                                        	Number of packets switched in this interval
+                                        	**type**\:  int
+                                        
+                                        	**range:** 0..18446744073709551615
                                         
                                         .. attribute:: transmit_number_of_bytes_switched
                                         
@@ -2225,12 +1481,10 @@ class TrafficCollector(Entity):
                                         
                                         	**units**\: byte
                                         
-                                        .. attribute:: transmit_number_of_packets_switched
+                                        .. attribute:: is_valid
                                         
-                                        	Number of packets switched in this interval
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..18446744073709551615
+                                        	Flag to indicate if this history entry is valid
+                                        	**type**\:  bool
                                         
                                         
 
@@ -2249,19 +1503,751 @@ class TrafficCollector(Entity):
                                             self._child_container_classes = {}
                                             self._child_list_classes = {}
 
-                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
-
                                             self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
 
-                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                            self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
 
                                             self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
 
-                                            self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+                                            self.is_valid = YLeaf(YType.boolean, "is-valid")
                                             self._segment_path = lambda: "count-history"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_end_timestamp', 'event_start_timestamp', 'is_valid', 'transmit_number_of_bytes_switched', 'transmit_number_of_packets_switched'], name, value)
+                                            self._perform_setattr(TrafficCollector.VrfTable.DefaultVrf.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
+
+
+    class Afs(Entity):
+        """
+        Address Family specific operational data
+        
+        .. attribute:: af
+        
+        	Operational data for given Address Family
+        	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af>`
+        
+        
+
+        """
+
+        _prefix = 'infra-tc-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(TrafficCollector.Afs, self).__init__()
+
+            self.yang_name = "afs"
+            self.yang_parent_name = "traffic-collector"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"af" : ("af", TrafficCollector.Afs.Af)}
+
+            self.af = YList(self)
+            self._segment_path = lambda: "afs"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TrafficCollector.Afs, [], name, value)
+
+
+        class Af(Entity):
+            """
+            Operational data for given Address Family
+            
+            .. attribute:: af_name  <key>
+            
+            	Address Family name
+            	**type**\:   :py:class:`TcOperAfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TcOperAfName>`
+            
+            .. attribute:: counters
+            
+            	Show Counters
+            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters>`
+            
+            
+
+            """
+
+            _prefix = 'infra-tc-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(TrafficCollector.Afs.Af, self).__init__()
+
+                self.yang_name = "af"
+                self.yang_parent_name = "afs"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"counters" : ("counters", TrafficCollector.Afs.Af.Counters)}
+                self._child_list_classes = {}
+
+                self.af_name = YLeaf(YType.enumeration, "af-name")
+
+                self.counters = TrafficCollector.Afs.Af.Counters()
+                self.counters.parent = self
+                self._children_name_map["counters"] = "counters"
+                self._children_yang_names.add("counters")
+                self._segment_path = lambda: "af" + "[af-name='" + self.af_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-oper:traffic-collector/afs/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(TrafficCollector.Afs.Af, ['af_name'], name, value)
+
+
+            class Counters(Entity):
+                """
+                Show Counters
+                
+                .. attribute:: prefixes
+                
+                	Prefix Database
+                	**type**\:   :py:class:`Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes>`
+                
+                .. attribute:: tunnels
+                
+                	Tunnels
+                	**type**\:   :py:class:`Tunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels>`
+                
+                
+
+                """
+
+                _prefix = 'infra-tc-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(TrafficCollector.Afs.Af.Counters, self).__init__()
+
+                    self.yang_name = "counters"
+                    self.yang_parent_name = "af"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"prefixes" : ("prefixes", TrafficCollector.Afs.Af.Counters.Prefixes), "tunnels" : ("tunnels", TrafficCollector.Afs.Af.Counters.Tunnels)}
+                    self._child_list_classes = {}
+
+                    self.prefixes = TrafficCollector.Afs.Af.Counters.Prefixes()
+                    self.prefixes.parent = self
+                    self._children_name_map["prefixes"] = "prefixes"
+                    self._children_yang_names.add("prefixes")
+
+                    self.tunnels = TrafficCollector.Afs.Af.Counters.Tunnels()
+                    self.tunnels.parent = self
+                    self._children_name_map["tunnels"] = "tunnels"
+                    self._children_yang_names.add("tunnels")
+                    self._segment_path = lambda: "counters"
+
+
+                class Prefixes(Entity):
+                    """
+                    Prefix Database
+                    
+                    .. attribute:: prefix
+                    
+                    	Show Prefix Counter
+                    	**type**\: list of    :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-tc-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(TrafficCollector.Afs.Af.Counters.Prefixes, self).__init__()
+
+                        self.yang_name = "prefixes"
+                        self.yang_parent_name = "counters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"prefix" : ("prefix", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix)}
+
+                        self.prefix = YList(self)
+                        self._segment_path = lambda: "prefixes"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes, [], name, value)
+
+
+                    class Prefix(Entity):
+                        """
+                        Show Prefix Counter
+                        
+                        .. attribute:: ipaddr
+                        
+                        	IP Address
+                        	**type**\:  str
+                        
+                        .. attribute:: mask
+                        
+                        	Prefix Mask
+                        	**type**\:  str
+                        
+                        .. attribute:: label
+                        
+                        	Local Label
+                        	**type**\:  int
+                        
+                        	**range:** 16..1048575
+                        
+                        .. attribute:: base_counter_statistics
+                        
+                        	Base counter statistics
+                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics>`
+                        
+                        .. attribute:: traffic_matrix_counter_statistics
+                        
+                        	Traffic Matrix (TM) counter statistics
+                        	**type**\:   :py:class:`TrafficMatrixCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics>`
+                        
+                        .. attribute:: prefix
+                        
+                        	Prefix Address (V4 or V6 Format)
+                        	**type**\:  str
+                        
+                        .. attribute:: label_xr
+                        
+                        	Label
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_active
+                        
+                        	Prefix is Active and collecting new Statistics
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-tc-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, self).__init__()
+
+                            self.yang_name = "prefix"
+                            self.yang_parent_name = "prefixes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics), "traffic-matrix-counter-statistics" : ("traffic_matrix_counter_statistics", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics)}
+                            self._child_list_classes = {}
+
+                            self.ipaddr = YLeaf(YType.str, "ipaddr")
+
+                            self.mask = YLeaf(YType.str, "mask")
+
+                            self.label = YLeaf(YType.uint32, "label")
+
+                            self.prefix = YLeaf(YType.str, "prefix")
+
+                            self.label_xr = YLeaf(YType.uint32, "label-xr")
+
+                            self.is_active = YLeaf(YType.boolean, "is-active")
+
+                            self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics()
+                            self.base_counter_statistics.parent = self
+                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                            self._children_yang_names.add("base-counter-statistics")
+
+                            self.traffic_matrix_counter_statistics = TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics()
+                            self.traffic_matrix_counter_statistics.parent = self
+                            self._children_name_map["traffic_matrix_counter_statistics"] = "traffic-matrix-counter-statistics"
+                            self._children_yang_names.add("traffic-matrix-counter-statistics")
+                            self._segment_path = lambda: "prefix"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix, ['ipaddr', 'mask', 'label', 'prefix', 'label_xr', 'is_active'], name, value)
+
+
+                        class BaseCounterStatistics(Entity):
+                            """
+                            Base counter statistics
+                            
+                            .. attribute:: transmit_packets_per_second_switched
+                            
+                            	Average Rate of Packets/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: packet/s
+                            
+                            .. attribute:: transmit_bytes_per_second_switched
+                            
+                            	Average Rate of Bytes/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte/s
+                            
+                            .. attribute:: count_history
+                            
+                            	Counter History
+                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-tc-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, self).__init__()
+
+                                self.yang_name = "base-counter-statistics"
+                                self.yang_parent_name = "prefix"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory)}
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.count_history = YList(self)
+                                self._segment_path = lambda: "base-counter-statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
+
+
+                            class CountHistory(Entity):
+                                """
+                                Counter History
+                                
+                                .. attribute:: event_start_timestamp
+                                
+                                	Event Start timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: event_end_timestamp
+                                
+                                	Event End timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_packets_switched
+                                
+                                	Number of packets switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_bytes_switched
+                                
+                                	Number of Bytes switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: is_valid
+                                
+                                	Flag to indicate if this history entry is valid
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-tc-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, self).__init__()
+
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "base-counter-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self._segment_path = lambda: "count-history"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
+
+
+                        class TrafficMatrixCounterStatistics(Entity):
+                            """
+                            Traffic Matrix (TM) counter statistics
+                            
+                            .. attribute:: transmit_packets_per_second_switched
+                            
+                            	Average Rate of Packets/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: packet/s
+                            
+                            .. attribute:: transmit_bytes_per_second_switched
+                            
+                            	Average Rate of Bytes/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte/s
+                            
+                            .. attribute:: count_history
+                            
+                            	Counter History
+                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-tc-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, self).__init__()
+
+                                self.yang_name = "traffic-matrix-counter-statistics"
+                                self.yang_parent_name = "prefix"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory)}
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.count_history = YList(self)
+                                self._segment_path = lambda: "traffic-matrix-counter-statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
+
+
+                            class CountHistory(Entity):
+                                """
+                                Counter History
+                                
+                                .. attribute:: event_start_timestamp
+                                
+                                	Event Start timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: event_end_timestamp
+                                
+                                	Event End timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_packets_switched
+                                
+                                	Number of packets switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_bytes_switched
+                                
+                                	Number of Bytes switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: is_valid
+                                
+                                	Flag to indicate if this history entry is valid
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-tc-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, self).__init__()
+
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "traffic-matrix-counter-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self._segment_path = lambda: "count-history"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Prefixes.Prefix.TrafficMatrixCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
+
+
+                class Tunnels(Entity):
+                    """
+                    Tunnels
+                    
+                    .. attribute:: tunnel
+                    
+                    	Tunnel information
+                    	**type**\: list of    :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-tc-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(TrafficCollector.Afs.Af.Counters.Tunnels, self).__init__()
+
+                        self.yang_name = "tunnels"
+                        self.yang_parent_name = "counters"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"tunnel" : ("tunnel", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel)}
+
+                        self.tunnel = YList(self)
+                        self._segment_path = lambda: "tunnels"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels, [], name, value)
+
+
+                    class Tunnel(Entity):
+                        """
+                        Tunnel information
+                        
+                        .. attribute:: interface_name  <key>
+                        
+                        	The Interface Name
+                        	**type**\:  str
+                        
+                        .. attribute:: base_counter_statistics
+                        
+                        	Base counter statistics
+                        	**type**\:   :py:class:`BaseCounterStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics>`
+                        
+                        .. attribute:: interface_name_xr
+                        
+                        	Interface name in Display format
+                        	**type**\:  str
+                        
+                        .. attribute:: interface_handle
+                        
+                        	Interface handle
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: vrfid
+                        
+                        	Interface VRF ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_active
+                        
+                        	Interface is Active and collecting new Statistics
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-tc-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, self).__init__()
+
+                            self.yang_name = "tunnel"
+                            self.yang_parent_name = "tunnels"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"base-counter-statistics" : ("base_counter_statistics", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics)}
+                            self._child_list_classes = {}
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.interface_name_xr = YLeaf(YType.str, "interface-name-xr")
+
+                            self.interface_handle = YLeaf(YType.uint32, "interface-handle")
+
+                            self.vrfid = YLeaf(YType.uint32, "vrfid")
+
+                            self.is_active = YLeaf(YType.boolean, "is-active")
+
+                            self.base_counter_statistics = TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics()
+                            self.base_counter_statistics.parent = self
+                            self._children_name_map["base_counter_statistics"] = "base-counter-statistics"
+                            self._children_yang_names.add("base-counter-statistics")
+                            self._segment_path = lambda: "tunnel" + "[interface-name='" + self.interface_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel, ['interface_name', 'interface_name_xr', 'interface_handle', 'vrfid', 'is_active'], name, value)
+
+
+                        class BaseCounterStatistics(Entity):
+                            """
+                            Base counter statistics
+                            
+                            .. attribute:: transmit_packets_per_second_switched
+                            
+                            	Average Rate of Packets/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: packet/s
+                            
+                            .. attribute:: transmit_bytes_per_second_switched
+                            
+                            	Average Rate of Bytes/second switched
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte/s
+                            
+                            .. attribute:: count_history
+                            
+                            	Counter History
+                            	**type**\: list of    :py:class:`CountHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper.TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-tc-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, self).__init__()
+
+                                self.yang_name = "base-counter-statistics"
+                                self.yang_parent_name = "tunnel"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"count-history" : ("count_history", TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory)}
+
+                                self.transmit_packets_per_second_switched = YLeaf(YType.uint64, "transmit-packets-per-second-switched")
+
+                                self.transmit_bytes_per_second_switched = YLeaf(YType.uint64, "transmit-bytes-per-second-switched")
+
+                                self.count_history = YList(self)
+                                self._segment_path = lambda: "base-counter-statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics, ['transmit_packets_per_second_switched', 'transmit_bytes_per_second_switched'], name, value)
+
+
+                            class CountHistory(Entity):
+                                """
+                                Counter History
+                                
+                                .. attribute:: event_start_timestamp
+                                
+                                	Event Start timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: event_end_timestamp
+                                
+                                	Event End timestamp
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_packets_switched
+                                
+                                	Number of packets switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmit_number_of_bytes_switched
+                                
+                                	Number of Bytes switched in this interval
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte
+                                
+                                .. attribute:: is_valid
+                                
+                                	Flag to indicate if this history entry is valid
+                                	**type**\:  bool
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-tc-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, self).__init__()
+
+                                    self.yang_name = "count-history"
+                                    self.yang_parent_name = "base-counter-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.event_start_timestamp = YLeaf(YType.uint64, "event-start-timestamp")
+
+                                    self.event_end_timestamp = YLeaf(YType.uint64, "event-end-timestamp")
+
+                                    self.transmit_number_of_packets_switched = YLeaf(YType.uint64, "transmit-number-of-packets-switched")
+
+                                    self.transmit_number_of_bytes_switched = YLeaf(YType.uint64, "transmit-number-of-bytes-switched")
+
+                                    self.is_valid = YLeaf(YType.boolean, "is-valid")
+                                    self._segment_path = lambda: "count-history"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(TrafficCollector.Afs.Af.Counters.Tunnels.Tunnel.BaseCounterStatistics.CountHistory, ['event_start_timestamp', 'event_end_timestamp', 'transmit_number_of_packets_switched', 'transmit_number_of_bytes_switched', 'is_valid'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TrafficCollector()

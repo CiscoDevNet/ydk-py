@@ -112,13 +112,6 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: cbpacctinoctetcount
-            
-            	The total number of octets received for a particular traffic\-type on an interface
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
             .. attribute:: cbpacctinpacketcount
             
             	The total number of packets received for a particular traffic\-type on an interface
@@ -126,9 +119,9 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: cbpacctoutoctetcount
+            .. attribute:: cbpacctinoctetcount
             
-            	The total number of octets transmitted for a particular traffic\-type on an interface
+            	The total number of octets received for a particular traffic\-type on an interface
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -136,6 +129,13 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             .. attribute:: cbpacctoutpacketcount
             
             	The total number of packets transmitted for a particular traffic\-type on an interface
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: cbpacctoutoctetcount
+            
+            	The total number of octets transmitted for a particular traffic\-type on an interface
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -161,18 +161,18 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
 
                 self.cbpaccttrafficindex = YLeaf(YType.int32, "cbpAcctTrafficIndex")
 
-                self.cbpacctinoctetcount = YLeaf(YType.uint64, "cbpAcctInOctetCount")
-
                 self.cbpacctinpacketcount = YLeaf(YType.uint64, "cbpAcctInPacketCount")
 
-                self.cbpacctoutoctetcount = YLeaf(YType.uint64, "cbpAcctOutOctetCount")
+                self.cbpacctinoctetcount = YLeaf(YType.uint64, "cbpAcctInOctetCount")
 
                 self.cbpacctoutpacketcount = YLeaf(YType.uint64, "cbpAcctOutPacketCount")
+
+                self.cbpacctoutoctetcount = YLeaf(YType.uint64, "cbpAcctOutOctetCount")
                 self._segment_path = lambda: "cbpAcctEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cbpAcctTrafficIndex='" + self.cbpaccttrafficindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/cbpAcctTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry, ['ifindex', 'cbpaccttrafficindex', 'cbpacctinoctetcount', 'cbpacctinpacketcount', 'cbpacctoutoctetcount', 'cbpacctoutpacketcount'], name, value)
+                self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB.Cbpaccttable.Cbpacctentry, ['ifindex', 'cbpaccttrafficindex', 'cbpacctinpacketcount', 'cbpacctinoctetcount', 'cbpacctoutpacketcount', 'cbpacctoutoctetcount'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOBGPPOLICYACCOUNTINGMIB()

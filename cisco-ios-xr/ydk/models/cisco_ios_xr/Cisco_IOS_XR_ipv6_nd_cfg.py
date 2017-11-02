@@ -243,28 +243,10 @@ class Ipv6Neighbor(Entity):
             	IPv6 address
             	**type**\:  str
             
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
             .. attribute:: interface_name  <key>
             
             	Interface name
             	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: encapsulation
-            
-            	Encapsulation type only if interface type is SRP
-            	**type**\:   :py:class:`Ipv6srpEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation>`
-            
-            .. attribute:: mac_address
-            
-            	48\-bit hardware address H.H.H
-            	**type**\:  str
-            
-            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-            
-            	**mandatory**\: True
             
             .. attribute:: zone
             
@@ -272,6 +254,18 @@ class Ipv6Neighbor(Entity):
             	**type**\:  str
             
             	**default value**\: 0
+            
+            .. attribute:: mac_address
+            
+            	48\-bit hardware address H.H.H
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
+            .. attribute:: encapsulation
+            
+            	Encapsulation type only if interface type is SRP
+            	**type**\:   :py:class:`Ipv6srpEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6srpEncapsulation>`
             
             
 
@@ -294,16 +288,16 @@ class Ipv6Neighbor(Entity):
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
-                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
+                self.zone = YLeaf(YType.str, "zone")
 
                 self.mac_address = YLeaf(YType.str, "mac-address")
 
-                self.zone = YLeaf(YType.str, "zone")
+                self.encapsulation = YLeaf(YType.enumeration, "encapsulation")
                 self._segment_path = lambda: "neighbor" + "[neighbor-address='" + self.neighbor_address.get() + "']" + "[interface-name='" + self.interface_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/neighbors/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv6Neighbor.Neighbors.Neighbor, ['neighbor_address', 'interface_name', 'encapsulation', 'mac_address', 'zone'], name, value)
+                self._perform_setattr(Ipv6Neighbor.Neighbors.Neighbor, ['neighbor_address', 'interface_name', 'zone', 'mac_address', 'encapsulation'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6Neighbor()

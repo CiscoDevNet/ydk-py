@@ -21,15 +21,25 @@ class MPLSVPNMIB(Entity):
     """
     
     
+    .. attribute:: mplsvpnscalars
+    
+    	
+    	**type**\:   :py:class:`Mplsvpnscalars <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnscalars>`
+    
     .. attribute:: mplsvpninterfaceconftable
     
     	This table specifies per\-interface MPLS capability and associated information
     	**type**\:   :py:class:`Mplsvpninterfaceconftable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable>`
     
-    .. attribute:: mplsvpnscalars
+    .. attribute:: mplsvpnvrftable
     
-    	
-    	**type**\:   :py:class:`Mplsvpnscalars <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnscalars>`
+    	This table specifies per\-interface MPLS/BGP VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces. Note that multiple interfaces can belong to the same VRF instance. The collection of all VRF instances comprises an actual VPN
+    	**type**\:   :py:class:`Mplsvpnvrftable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable>`
+    
+    .. attribute:: mplsvpnvrfroutetargettable
+    
+    	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
+    	**type**\:   :py:class:`Mplsvpnvrfroutetargettable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable>`
     
     .. attribute:: mplsvpnvrfbgpnbraddrtable
     
@@ -46,16 +56,6 @@ class MPLSVPNMIB(Entity):
     	This table specifies per\-interface MPLS/BGP VPN VRF Table routing information. Entries in this table define VRF routing entries associated with the specified MPLS/VPN interfaces. Note that this table contains both BGP and IGP routes, as both may appear in the same VRF
     	**type**\:   :py:class:`Mplsvpnvrfroutetable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable>`
     
-    .. attribute:: mplsvpnvrfroutetargettable
-    
-    	This table specifies per\-VRF route target association. Each entry identifies a connectivity policy supported as part of a VPN
-    	**type**\:   :py:class:`Mplsvpnvrfroutetargettable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable>`
-    
-    .. attribute:: mplsvpnvrftable
-    
-    	This table specifies per\-interface MPLS/BGP VPN VRF Table capability and associated information. Entries in this table define VRF routing instances associated with MPLS/VPN interfaces. Note that multiple interfaces can belong to the same VRF instance. The collection of all VRF instances comprises an actual VPN
-    	**type**\:   :py:class:`Mplsvpnvrftable <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable>`
-    
     
 
     """
@@ -71,18 +71,28 @@ class MPLSVPNMIB(Entity):
         self.yang_parent_name = "MPLS-VPN-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mplsVpnInterfaceConfTable" : ("mplsvpninterfaceconftable", MPLSVPNMIB.Mplsvpninterfaceconftable), "mplsVpnScalars" : ("mplsvpnscalars", MPLSVPNMIB.Mplsvpnscalars), "mplsVpnVrfBgpNbrAddrTable" : ("mplsvpnvrfbgpnbraddrtable", MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable), "mplsVpnVrfBgpNbrPrefixTable" : ("mplsvpnvrfbgpnbrprefixtable", MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable), "mplsVpnVrfRouteTable" : ("mplsvpnvrfroutetable", MPLSVPNMIB.Mplsvpnvrfroutetable), "mplsVpnVrfRouteTargetTable" : ("mplsvpnvrfroutetargettable", MPLSVPNMIB.Mplsvpnvrfroutetargettable), "mplsVpnVrfTable" : ("mplsvpnvrftable", MPLSVPNMIB.Mplsvpnvrftable)}
+        self._child_container_classes = {"mplsVpnScalars" : ("mplsvpnscalars", MPLSVPNMIB.Mplsvpnscalars), "mplsVpnInterfaceConfTable" : ("mplsvpninterfaceconftable", MPLSVPNMIB.Mplsvpninterfaceconftable), "mplsVpnVrfTable" : ("mplsvpnvrftable", MPLSVPNMIB.Mplsvpnvrftable), "mplsVpnVrfRouteTargetTable" : ("mplsvpnvrfroutetargettable", MPLSVPNMIB.Mplsvpnvrfroutetargettable), "mplsVpnVrfBgpNbrAddrTable" : ("mplsvpnvrfbgpnbraddrtable", MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable), "mplsVpnVrfBgpNbrPrefixTable" : ("mplsvpnvrfbgpnbrprefixtable", MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable), "mplsVpnVrfRouteTable" : ("mplsvpnvrfroutetable", MPLSVPNMIB.Mplsvpnvrfroutetable)}
         self._child_list_classes = {}
+
+        self.mplsvpnscalars = MPLSVPNMIB.Mplsvpnscalars()
+        self.mplsvpnscalars.parent = self
+        self._children_name_map["mplsvpnscalars"] = "mplsVpnScalars"
+        self._children_yang_names.add("mplsVpnScalars")
 
         self.mplsvpninterfaceconftable = MPLSVPNMIB.Mplsvpninterfaceconftable()
         self.mplsvpninterfaceconftable.parent = self
         self._children_name_map["mplsvpninterfaceconftable"] = "mplsVpnInterfaceConfTable"
         self._children_yang_names.add("mplsVpnInterfaceConfTable")
 
-        self.mplsvpnscalars = MPLSVPNMIB.Mplsvpnscalars()
-        self.mplsvpnscalars.parent = self
-        self._children_name_map["mplsvpnscalars"] = "mplsVpnScalars"
-        self._children_yang_names.add("mplsVpnScalars")
+        self.mplsvpnvrftable = MPLSVPNMIB.Mplsvpnvrftable()
+        self.mplsvpnvrftable.parent = self
+        self._children_name_map["mplsvpnvrftable"] = "mplsVpnVrfTable"
+        self._children_yang_names.add("mplsVpnVrfTable")
+
+        self.mplsvpnvrfroutetargettable = MPLSVPNMIB.Mplsvpnvrfroutetargettable()
+        self.mplsvpnvrfroutetargettable.parent = self
+        self._children_name_map["mplsvpnvrfroutetargettable"] = "mplsVpnVrfRouteTargetTable"
+        self._children_yang_names.add("mplsVpnVrfRouteTargetTable")
 
         self.mplsvpnvrfbgpnbraddrtable = MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable()
         self.mplsvpnvrfbgpnbraddrtable.parent = self
@@ -98,17 +108,77 @@ class MPLSVPNMIB(Entity):
         self.mplsvpnvrfroutetable.parent = self
         self._children_name_map["mplsvpnvrfroutetable"] = "mplsVpnVrfRouteTable"
         self._children_yang_names.add("mplsVpnVrfRouteTable")
-
-        self.mplsvpnvrfroutetargettable = MPLSVPNMIB.Mplsvpnvrfroutetargettable()
-        self.mplsvpnvrfroutetargettable.parent = self
-        self._children_name_map["mplsvpnvrfroutetargettable"] = "mplsVpnVrfRouteTargetTable"
-        self._children_yang_names.add("mplsVpnVrfRouteTargetTable")
-
-        self.mplsvpnvrftable = MPLSVPNMIB.Mplsvpnvrftable()
-        self.mplsvpnvrftable.parent = self
-        self._children_name_map["mplsvpnvrftable"] = "mplsVpnVrfTable"
-        self._children_yang_names.add("mplsVpnVrfTable")
         self._segment_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB"
+
+
+    class Mplsvpnscalars(Entity):
+        """
+        
+        
+        .. attribute:: mplsvpnconfiguredvrfs
+        
+        	The number of VRFs which are configured on this node
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: mplsvpnactivevrfs
+        
+        	The number of VRFs which are active on this node. That is, those VRFs whose corresponding mplsVpnVrfOperStatus  object value is equal to operational (1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: mplsvpnconnectedinterfaces
+        
+        	Total number of interfaces connected to a VRF
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: mplsvpnnotificationenable
+        
+        	If this object is true, then it enables the generation of all notifications defined in  this MIB
+        	**type**\:  bool
+        
+        .. attribute:: mplsvpnvrfconfmaxpossibleroutes
+        
+        	Denotes maximum number of routes which the device will allow all VRFs jointly to hold. If this value is set to 0, this indicates that the device is  unable to determine the absolute maximum. In this case, the configured maximum MAY not actually be allowed by the device
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'MPLS-VPN-MIB'
+        _revision = '2001-10-15'
+
+        def __init__(self):
+            super(MPLSVPNMIB.Mplsvpnscalars, self).__init__()
+
+            self.yang_name = "mplsVpnScalars"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.mplsvpnconfiguredvrfs = YLeaf(YType.uint32, "mplsVpnConfiguredVrfs")
+
+            self.mplsvpnactivevrfs = YLeaf(YType.uint32, "mplsVpnActiveVrfs")
+
+            self.mplsvpnconnectedinterfaces = YLeaf(YType.uint32, "mplsVpnConnectedInterfaces")
+
+            self.mplsvpnnotificationenable = YLeaf(YType.boolean, "mplsVpnNotificationEnable")
+
+            self.mplsvpnvrfconfmaxpossibleroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxPossibleRoutes")
+            self._segment_path = lambda: "mplsVpnScalars"
+            self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MPLSVPNMIB.Mplsvpnscalars, ['mplsvpnconfiguredvrfs', 'mplsvpnactivevrfs', 'mplsvpnconnectedinterfaces', 'mplsvpnnotificationenable', 'mplsvpnvrfconfmaxpossibleroutes'], name, value)
 
 
     class Mplsvpninterfaceconftable(Entity):
@@ -171,16 +241,6 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 1..2147483647
             
-            .. attribute:: mplsvpninterfaceconfrowstatus
-            
-            	The row status for this entry. This value is used to create a row in this table, signifying that the specified interface is to be associated with the specified interface. If this operation succeeds, the interface will have been associated, otherwise the agent would not allow the association.  If the agent only allows read\-only operations on this table, it will create entries in this table as they are created
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mplsvpninterfaceconfstoragetype
-            
-            	The storage type for this entry
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
             .. attribute:: mplsvpninterfacelabeledgetype
             
             	Either the providerEdge(0) (PE) or customerEdge(1) (CE) bit MUST be set
@@ -195,6 +255,16 @@ class MPLSVPNMIB(Entity):
             
             	Denotes the route distribution protocol across the PE\-CE link. Note that more than one routing protocol may be enabled at the same time
             	**type**\:   :py:class:`Mplsvpninterfacevpnroutedistprotocol <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry.Mplsvpninterfacevpnroutedistprotocol>`
+            
+            .. attribute:: mplsvpninterfaceconfstoragetype
+            
+            	The storage type for this entry
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: mplsvpninterfaceconfrowstatus
+            
+            	The row status for this entry. This value is used to create a row in this table, signifying that the specified interface is to be associated with the specified interface. If this operation succeeds, the interface will have been associated, otherwise the agent would not allow the association.  If the agent only allows read\-only operations on this table, it will create entries in this table as they are created
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -217,20 +287,20 @@ class MPLSVPNMIB(Entity):
 
                 self.mplsvpninterfaceconfindex = YLeaf(YType.int32, "mplsVpnInterfaceConfIndex")
 
-                self.mplsvpninterfaceconfrowstatus = YLeaf(YType.enumeration, "mplsVpnInterfaceConfRowStatus")
-
-                self.mplsvpninterfaceconfstoragetype = YLeaf(YType.enumeration, "mplsVpnInterfaceConfStorageType")
-
                 self.mplsvpninterfacelabeledgetype = YLeaf(YType.enumeration, "mplsVpnInterfaceLabelEdgeType")
 
                 self.mplsvpninterfacevpnclassification = YLeaf(YType.enumeration, "mplsVpnInterfaceVpnClassification")
 
                 self.mplsvpninterfacevpnroutedistprotocol = YLeaf(YType.bits, "mplsVpnInterfaceVpnRouteDistProtocol")
+
+                self.mplsvpninterfaceconfstoragetype = YLeaf(YType.enumeration, "mplsVpnInterfaceConfStorageType")
+
+                self.mplsvpninterfaceconfrowstatus = YLeaf(YType.enumeration, "mplsVpnInterfaceConfRowStatus")
                 self._segment_path = lambda: "mplsVpnInterfaceConfEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnInterfaceConfIndex='" + self.mplsvpninterfaceconfindex.get() + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnInterfaceConfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpninterfaceconfrowstatus', 'mplsvpninterfaceconfstoragetype', 'mplsvpninterfacelabeledgetype', 'mplsvpninterfacevpnclassification', 'mplsvpninterfacevpnroutedistprotocol'], name, value)
+                self._perform_setattr(MPLSVPNMIB.Mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpninterfacelabeledgetype', 'mplsvpninterfacevpnclassification', 'mplsvpninterfacevpnroutedistprotocol', 'mplsvpninterfaceconfstoragetype', 'mplsvpninterfaceconfrowstatus'], name, value)
 
             class Mplsvpninterfacelabeledgetype(Enum):
                 """
@@ -277,42 +347,20 @@ class MPLSVPNMIB(Entity):
 
 
 
-    class Mplsvpnscalars(Entity):
+    class Mplsvpnvrftable(Entity):
         """
+        This table specifies per\-interface MPLS/BGP VPN
+        VRF Table capability and associated information.
+        Entries in this table define VRF routing instances
+        associated with MPLS/VPN interfaces. Note that
+        multiple interfaces can belong to the same VRF
+        instance. The collection of all VRF instances
+        comprises an actual VPN.
         
+        .. attribute:: mplsvpnvrfentry
         
-        .. attribute:: mplsvpnactivevrfs
-        
-        	The number of VRFs which are active on this node. That is, those VRFs whose corresponding mplsVpnVrfOperStatus  object value is equal to operational (1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: mplsvpnconfiguredvrfs
-        
-        	The number of VRFs which are configured on this node
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: mplsvpnconnectedinterfaces
-        
-        	Total number of interfaces connected to a VRF
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: mplsvpnnotificationenable
-        
-        	If this object is true, then it enables the generation of all notifications defined in  this MIB
-        	**type**\:  bool
-        
-        .. attribute:: mplsvpnvrfconfmaxpossibleroutes
-        
-        	Denotes maximum number of routes which the device will allow all VRFs jointly to hold. If this value is set to 0, this indicates that the device is  unable to determine the absolute maximum. In this case, the configured maximum MAY not actually be allowed by the device
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
+        	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
+        	**type**\: list of    :py:class:`Mplsvpnvrfentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
         
         
 
@@ -322,29 +370,369 @@ class MPLSVPNMIB(Entity):
         _revision = '2001-10-15'
 
         def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnscalars, self).__init__()
+            super(MPLSVPNMIB.Mplsvpnvrftable, self).__init__()
 
-            self.yang_name = "mplsVpnScalars"
+            self.yang_name = "mplsVpnVrfTable"
             self.yang_parent_name = "MPLS-VPN-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {}
+            self._child_list_classes = {"mplsVpnVrfEntry" : ("mplsvpnvrfentry", MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry)}
 
-            self.mplsvpnactivevrfs = YLeaf(YType.uint32, "mplsVpnActiveVrfs")
-
-            self.mplsvpnconfiguredvrfs = YLeaf(YType.uint32, "mplsVpnConfiguredVrfs")
-
-            self.mplsvpnconnectedinterfaces = YLeaf(YType.uint32, "mplsVpnConnectedInterfaces")
-
-            self.mplsvpnnotificationenable = YLeaf(YType.boolean, "mplsVpnNotificationEnable")
-
-            self.mplsvpnvrfconfmaxpossibleroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxPossibleRoutes")
-            self._segment_path = lambda: "mplsVpnScalars"
+            self.mplsvpnvrfentry = YList(self)
+            self._segment_path = lambda: "mplsVpnVrfTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnscalars, ['mplsvpnactivevrfs', 'mplsvpnconfiguredvrfs', 'mplsvpnconnectedinterfaces', 'mplsvpnnotificationenable', 'mplsvpnvrfconfmaxpossibleroutes'], name, value)
+            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable, [], name, value)
+
+
+        class Mplsvpnvrfentry(Entity):
+            """
+            An entry in this table is created by an LSR for
+            every VRF capable of supporting MPLS/BGP VPN. The
+            indexing provides an ordering of VRFs per\-VPN
+            interface.
+            
+            .. attribute:: mplsvpnvrfname  <key>
+            
+            	The human\-readable name of this VPN. This MAY be equivalent to the RFC2685 VPN\-ID
+            	**type**\:  str
+            
+            	**length:** 0..31
+            
+            .. attribute:: mplsvpnvrfdescription
+            
+            	The human\-readable description of this VRF
+            	**type**\:  str
+            
+            .. attribute:: mplsvpnvrfroutedistinguisher
+            
+            	The route distinguisher for this VRF
+            	**type**\:  str
+            
+            	**length:** 0..256
+            
+            .. attribute:: mplsvpnvrfcreationtime
+            
+            	The time at which this VRF entry was created
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfoperstatus
+            
+            	Denotes whether a VRF is operational or not. A VRF is  up(1) when at least one interface associated with the VRF, which ifOperStatus is up(1). A VRF is down(2) when\:  a. There does not exist at least one interface whose    ifOperStatus is up(1).  b. There are no interfaces associated with the VRF
+            	**type**\:   :py:class:`Mplsvpnvrfoperstatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry.Mplsvpnvrfoperstatus>`
+            
+            .. attribute:: mplsvpnvrfactiveinterfaces
+            
+            	Total number of interfaces connected to this VRF with    ifOperStatus = up(1).   This counter should be incremented when\:  a. When the ifOperStatus of one of the connected interfaces     changes from down(2) to up(1).  b. When an interface with ifOperStatus = up(1) is connected    to this VRF.  This counter should be decremented when\:  a. When the ifOperStatus of one of the connected interfaces     changes from up(1) to down(2).  b. When one of the connected interfaces with     ifOperStatus = up(1) gets disconnected from this VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfassociatedinterfaces
+            
+            	Total number of interfaces connected to this VRF  (independent of ifOperStatus type)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfconfmidroutethreshold
+            
+            	Denotes mid\-level water marker for the number of routes which  this VRF may hold
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfconfhighroutethreshold
+            
+            	Denotes high\-level water marker for the number of routes which  this VRF may hold
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfconfmaxroutes
+            
+            	Denotes maximum number of routes which this VRF is configured to hold. This value MUST be less than or equal to mplsVrfMaxPossibleRoutes unless it is set to 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfconflastchanged
+            
+            	The value of sysUpTime at the time of the last change of this table entry, which includes changes of VRF parameters defined in this table or addition or deletion of interfaces associated with this VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfconfrowstatus
+            
+            	This variable is used to create, modify, and/or delete a row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: mplsvpnvrfconfstoragetype
+            
+            	The storage type for this entry
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: mplsvpnvrfsecillegallabelviolations
+            
+            	Indicates the number of illegally received labels on this VPN/VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfsecillegallabelrcvthresh
+            
+            	The number of illegally received labels above which this  notification is issued
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfperfroutesadded
+            
+            	Indicates the number of routes added to this VPN/VRF over the coarse of its lifetime
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfperfroutesdeleted
+            
+            	Indicates the number of routes removed from this VPN/VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfperfcurrnumroutes
+            
+            	Indicates the number of routes currently used by this VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'MPLS-VPN-MIB'
+            _revision = '2001-10-15'
+
+            def __init__(self):
+                super(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, self).__init__()
+
+                self.yang_name = "mplsVpnVrfEntry"
+                self.yang_parent_name = "mplsVpnVrfTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfdescription = YLeaf(YType.str, "mplsVpnVrfDescription")
+
+                self.mplsvpnvrfroutedistinguisher = YLeaf(YType.str, "mplsVpnVrfRouteDistinguisher")
+
+                self.mplsvpnvrfcreationtime = YLeaf(YType.uint32, "mplsVpnVrfCreationTime")
+
+                self.mplsvpnvrfoperstatus = YLeaf(YType.enumeration, "mplsVpnVrfOperStatus")
+
+                self.mplsvpnvrfactiveinterfaces = YLeaf(YType.uint32, "mplsVpnVrfActiveInterfaces")
+
+                self.mplsvpnvrfassociatedinterfaces = YLeaf(YType.uint32, "mplsVpnVrfAssociatedInterfaces")
+
+                self.mplsvpnvrfconfmidroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfMidRouteThreshold")
+
+                self.mplsvpnvrfconfhighroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfHighRouteThreshold")
+
+                self.mplsvpnvrfconfmaxroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxRoutes")
+
+                self.mplsvpnvrfconflastchanged = YLeaf(YType.uint32, "mplsVpnVrfConfLastChanged")
+
+                self.mplsvpnvrfconfrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfConfRowStatus")
+
+                self.mplsvpnvrfconfstoragetype = YLeaf(YType.enumeration, "mplsVpnVrfConfStorageType")
+
+                self.mplsvpnvrfsecillegallabelviolations = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelViolations")
+
+                self.mplsvpnvrfsecillegallabelrcvthresh = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelRcvThresh")
+
+                self.mplsvpnvrfperfroutesadded = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesAdded")
+
+                self.mplsvpnvrfperfroutesdeleted = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesDeleted")
+
+                self.mplsvpnvrfperfcurrnumroutes = YLeaf(YType.uint32, "mplsVpnVrfPerfCurrNumRoutes")
+                self._segment_path = lambda: "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']"
+                self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, ['mplsvpnvrfname', 'mplsvpnvrfdescription', 'mplsvpnvrfroutedistinguisher', 'mplsvpnvrfcreationtime', 'mplsvpnvrfoperstatus', 'mplsvpnvrfactiveinterfaces', 'mplsvpnvrfassociatedinterfaces', 'mplsvpnvrfconfmidroutethreshold', 'mplsvpnvrfconfhighroutethreshold', 'mplsvpnvrfconfmaxroutes', 'mplsvpnvrfconflastchanged', 'mplsvpnvrfconfrowstatus', 'mplsvpnvrfconfstoragetype', 'mplsvpnvrfsecillegallabelviolations', 'mplsvpnvrfsecillegallabelrcvthresh', 'mplsvpnvrfperfroutesadded', 'mplsvpnvrfperfroutesdeleted', 'mplsvpnvrfperfcurrnumroutes'], name, value)
+
+            class Mplsvpnvrfoperstatus(Enum):
+                """
+                Mplsvpnvrfoperstatus
+
+                Denotes whether a VRF is operational or not. A VRF is 
+
+                up(1) when at least one interface associated with the
+
+                VRF, which ifOperStatus is up(1). A VRF is down(2) when\:
+
+                a. There does not exist at least one interface whose
+
+                   ifOperStatus is up(1).
+
+                b. There are no interfaces associated with the VRF.
+
+                .. data:: up = 1
+
+                .. data:: down = 2
+
+                """
+
+                up = Enum.YLeaf(1, "up")
+
+                down = Enum.YLeaf(2, "down")
+
+
+
+    class Mplsvpnvrfroutetargettable(Entity):
+        """
+        This table specifies per\-VRF route target association.
+        Each entry identifies a connectivity policy supported
+        as part of a VPN.
+        
+        .. attribute:: mplsvpnvrfroutetargetentry
+        
+        	 An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS/BGP VPN instance. The indexing provides an ordering per\-VRF instance
+        	**type**\: list of    :py:class:`Mplsvpnvrfroutetargetentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry>`
+        
+        
+
+        """
+
+        _prefix = 'MPLS-VPN-MIB'
+        _revision = '2001-10-15'
+
+        def __init__(self):
+            super(MPLSVPNMIB.Mplsvpnvrfroutetargettable, self).__init__()
+
+            self.yang_name = "mplsVpnVrfRouteTargetTable"
+            self.yang_parent_name = "MPLS-VPN-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mplsVpnVrfRouteTargetEntry" : ("mplsvpnvrfroutetargetentry", MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry)}
+
+            self.mplsvpnvrfroutetargetentry = YList(self)
+            self._segment_path = lambda: "mplsVpnVrfRouteTargetTable"
+            self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable, [], name, value)
+
+
+        class Mplsvpnvrfroutetargetentry(Entity):
+            """
+             An entry in this table is created by an LSR for
+            each route target configured for a VRF supporting
+            a MPLS/BGP VPN instance. The indexing provides an
+            ordering per\-VRF instance.
+            
+            .. attribute:: mplsvpnvrfname  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**length:** 0..31
+            
+            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
+            
+            .. attribute:: mplsvpnvrfroutetargetindex  <key>
+            
+            	Auxiliary index for route\-targets configured for a  particular VRF
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsvpnvrfroutetargettype  <key>
+            
+            	The route target export distribution type
+            	**type**\:   :py:class:`Mplsvpnvrfroutetargettype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype>`
+            
+            .. attribute:: mplsvpnvrfroutetarget
+            
+            	The route target distribution policy
+            	**type**\:  str
+            
+            	**length:** 0..256
+            
+            .. attribute:: mplsvpnvrfroutetargetdescr
+            
+            	Description of the route target
+            	**type**\:  str
+            
+            .. attribute:: mplsvpnvrfroutetargetrowstatus
+            
+            	Row status for this entry
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'MPLS-VPN-MIB'
+            _revision = '2001-10-15'
+
+            def __init__(self):
+                super(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__init__()
+
+                self.yang_name = "mplsVpnVrfRouteTargetEntry"
+                self.yang_parent_name = "mplsVpnVrfRouteTargetTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
+
+                self.mplsvpnvrfroutetargetindex = YLeaf(YType.uint32, "mplsVpnVrfRouteTargetIndex")
+
+                self.mplsvpnvrfroutetargettype = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetType")
+
+                self.mplsvpnvrfroutetarget = YLeaf(YType.str, "mplsVpnVrfRouteTarget")
+
+                self.mplsvpnvrfroutetargetdescr = YLeaf(YType.str, "mplsVpnVrfRouteTargetDescr")
+
+                self.mplsvpnvrfroutetargetrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetRowStatus")
+                self._segment_path = lambda: "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfRouteTargetIndex='" + self.mplsvpnvrfroutetargetindex.get() + "']" + "[mplsVpnVrfRouteTargetType='" + self.mplsvpnvrfroutetargettype.get() + "']"
+                self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, ['mplsvpnvrfname', 'mplsvpnvrfroutetargetindex', 'mplsvpnvrfroutetargettype', 'mplsvpnvrfroutetarget', 'mplsvpnvrfroutetargetdescr', 'mplsvpnvrfroutetargetrowstatus'], name, value)
+
+            class Mplsvpnvrfroutetargettype(Enum):
+                """
+                Mplsvpnvrfroutetargettype
+
+                The route target export distribution type.
+
+                .. data:: import_ = 1
+
+                .. data:: export = 2
+
+                .. data:: both = 3
+
+                """
+
+                import_ = Enum.YLeaf(1, "import")
+
+                export = Enum.YLeaf(2, "export")
+
+                both = Enum.YLeaf(3, "both")
+
 
 
     class Mplsvpnvrfbgpnbraddrtable(Entity):
@@ -414,17 +802,22 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: mplsvpnvrfbgpnbrrole
+            
+            	Denotes the role played by this EBGP neighbor with respect to this VRF
+            	**type**\:   :py:class:`Mplsvpnvrfbgpnbrrole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole>`
+            
+            .. attribute:: mplsvpnvrfbgpnbrtype
+            
+            	Denotes the address family of the PE address
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
             .. attribute:: mplsvpnvrfbgpnbraddr
             
             	Denotes the EBGP neighbor address
             	**type**\:  str
             
             	**length:** 0..255
-            
-            .. attribute:: mplsvpnvrfbgpnbrrole
-            
-            	Denotes the role played by this EBGP neighbor with respect to this VRF
-            	**type**\:   :py:class:`Mplsvpnvrfbgpnbrrole <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole>`
             
             .. attribute:: mplsvpnvrfbgpnbrrowstatus
             
@@ -435,11 +828,6 @@ class MPLSVPNMIB(Entity):
             
             	The storage type for this entry
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: mplsvpnvrfbgpnbrtype
-            
-            	Denotes the address family of the PE address
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             
 
@@ -464,20 +852,20 @@ class MPLSVPNMIB(Entity):
 
                 self.mplsvpnvrfbgpnbrindex = YLeaf(YType.uint32, "mplsVpnVrfBgpNbrIndex")
 
-                self.mplsvpnvrfbgpnbraddr = YLeaf(YType.str, "mplsVpnVrfBgpNbrAddr")
-
                 self.mplsvpnvrfbgpnbrrole = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrRole")
+
+                self.mplsvpnvrfbgpnbrtype = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrType")
+
+                self.mplsvpnvrfbgpnbraddr = YLeaf(YType.str, "mplsVpnVrfBgpNbrAddr")
 
                 self.mplsvpnvrfbgpnbrrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrRowStatus")
 
                 self.mplsvpnvrfbgpnbrstoragetype = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrStorageType")
-
-                self.mplsvpnvrfbgpnbrtype = YLeaf(YType.enumeration, "mplsVpnVrfBgpNbrType")
                 self._segment_path = lambda: "mplsVpnVrfBgpNbrAddrEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnInterfaceConfIndex='" + self.mplsvpninterfaceconfindex.get() + "']" + "[mplsVpnVrfBgpNbrIndex='" + self.mplsvpnvrfbgpnbrindex.get() + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrAddrTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpnvrfbgpnbrindex', 'mplsvpnvrfbgpnbraddr', 'mplsvpnvrfbgpnbrrole', 'mplsvpnvrfbgpnbrrowstatus', 'mplsvpnvrfbgpnbrstoragetype', 'mplsvpnvrfbgpnbrtype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpnvrfbgpnbrindex', 'mplsvpnvrfbgpnbrrole', 'mplsvpnvrfbgpnbrtype', 'mplsvpnvrfbgpnbraddr', 'mplsvpnvrfbgpnbrrowstatus', 'mplsvpnvrfbgpnbrstoragetype'], name, value)
 
             class Mplsvpnvrfbgpnbrrole(Enum):
                 """
@@ -571,19 +959,10 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: mplsvpnvrfbgppathattraggregatoraddr
+            .. attribute:: mplsvpnvrfbgppathattrorigin
             
-            	The IP address of the last BGP4 speaker that performed route aggregation.  A value of 0.0.0.0 indicates the absence of this attribute
-            	**type**\:  str
-            
-            	**length:** 0..255
-            
-            .. attribute:: mplsvpnvrfbgppathattraggregatoras
-            
-            	The AS number of the last BGP4 speaker that performed route aggregation.  A value of zero (0) indicates the absence of this attribute
-            	**type**\:  int
-            
-            	**range:** 0..65535
+            	The ultimate origin of the path information
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrorigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin>`
             
             .. attribute:: mplsvpnvrfbgppathattraspathsegment
             
@@ -592,19 +971,16 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 2..255
             
-            .. attribute:: mplsvpnvrfbgppathattratomicaggregate
+            .. attribute:: mplsvpnvrfbgppathattrnexthop
             
-            	Whether or not the local system has selected a less specific route without selecting a more specific route
-            	**type**\:   :py:class:`Mplsvpnvrfbgppathattratomicaggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate>`
+            	The address of the border router that should be used for the destination network
+            	**type**\:  str
             
-            .. attribute:: mplsvpnvrfbgppathattrbest
+            	**length:** 0..255
             
-            	An indication of whether or not this route was chosen as the best BGP4 route
-            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrbest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest>`
+            .. attribute:: mplsvpnvrfbgppathattrmultiexitdisc
             
-            .. attribute:: mplsvpnvrfbgppathattrcalclocalpref
-            
-            	The degree of preference calculated by the receiving BGP4 speaker for an advertised route.  A value of \-1 indicates the absence of this attribute
+            	This metric is used to discriminate between multiple exit points to an adjacent autonomous system.  A value of \-1 indicates the absence of this attribute
             	**type**\:  int
             
             	**range:** \-1..2147483647
@@ -616,24 +992,36 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-1..2147483647
             
-            .. attribute:: mplsvpnvrfbgppathattrmultiexitdisc
+            .. attribute:: mplsvpnvrfbgppathattratomicaggregate
             
-            	This metric is used to discriminate between multiple exit points to an adjacent autonomous system.  A value of \-1 indicates the absence of this attribute
+            	Whether or not the local system has selected a less specific route without selecting a more specific route
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattratomicaggregate <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate>`
+            
+            .. attribute:: mplsvpnvrfbgppathattraggregatoras
+            
+            	The AS number of the last BGP4 speaker that performed route aggregation.  A value of zero (0) indicates the absence of this attribute
             	**type**\:  int
             
-            	**range:** \-1..2147483647
+            	**range:** 0..65535
             
-            .. attribute:: mplsvpnvrfbgppathattrnexthop
+            .. attribute:: mplsvpnvrfbgppathattraggregatoraddr
             
-            	The address of the border router that should be used for the destination network
+            	The IP address of the last BGP4 speaker that performed route aggregation.  A value of 0.0.0.0 indicates the absence of this attribute
             	**type**\:  str
             
             	**length:** 0..255
             
-            .. attribute:: mplsvpnvrfbgppathattrorigin
+            .. attribute:: mplsvpnvrfbgppathattrcalclocalpref
             
-            	The ultimate origin of the path information
-            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrorigin <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin>`
+            	The degree of preference calculated by the receiving BGP4 speaker for an advertised route.  A value of \-1 indicates the absence of this attribute
+            	**type**\:  int
+            
+            	**range:** \-1..2147483647
+            
+            .. attribute:: mplsvpnvrfbgppathattrbest
+            
+            	An indication of whether or not this route was chosen as the best BGP4 route
+            	**type**\:   :py:class:`Mplsvpnvrfbgppathattrbest <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest>`
             
             .. attribute:: mplsvpnvrfbgppathattrunknown
             
@@ -667,32 +1055,32 @@ class MPLSVPNMIB(Entity):
 
                 self.mplsvpnvrfbgppathattrpeer = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrPeer")
 
-                self.mplsvpnvrfbgppathattraggregatoraddr = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrAggregatorAddr")
-
-                self.mplsvpnvrfbgppathattraggregatoras = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrAggregatorAS")
+                self.mplsvpnvrfbgppathattrorigin = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrOrigin")
 
                 self.mplsvpnvrfbgppathattraspathsegment = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrASPathSegment")
 
-                self.mplsvpnvrfbgppathattratomicaggregate = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrAtomicAggregate")
-
-                self.mplsvpnvrfbgppathattrbest = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrBest")
-
-                self.mplsvpnvrfbgppathattrcalclocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrCalcLocalPref")
-
-                self.mplsvpnvrfbgppathattrlocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrLocalPref")
+                self.mplsvpnvrfbgppathattrnexthop = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrNextHop")
 
                 self.mplsvpnvrfbgppathattrmultiexitdisc = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrMultiExitDisc")
 
-                self.mplsvpnvrfbgppathattrnexthop = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrNextHop")
+                self.mplsvpnvrfbgppathattrlocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrLocalPref")
 
-                self.mplsvpnvrfbgppathattrorigin = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrOrigin")
+                self.mplsvpnvrfbgppathattratomicaggregate = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrAtomicAggregate")
+
+                self.mplsvpnvrfbgppathattraggregatoras = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrAggregatorAS")
+
+                self.mplsvpnvrfbgppathattraggregatoraddr = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrAggregatorAddr")
+
+                self.mplsvpnvrfbgppathattrcalclocalpref = YLeaf(YType.int32, "mplsVpnVrfBgpPathAttrCalcLocalPref")
+
+                self.mplsvpnvrfbgppathattrbest = YLeaf(YType.enumeration, "mplsVpnVrfBgpPathAttrBest")
 
                 self.mplsvpnvrfbgppathattrunknown = YLeaf(YType.str, "mplsVpnVrfBgpPathAttrUnknown")
                 self._segment_path = lambda: "mplsVpnVrfBgpNbrPrefixEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefix='" + self.mplsvpnvrfbgppathattripaddrprefix.get() + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefixLen='" + self.mplsvpnvrfbgppathattripaddrprefixlen.get() + "']" + "[mplsVpnVrfBgpPathAttrPeer='" + self.mplsvpnvrfbgppathattrpeer.get() + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrPrefixTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, ['mplsvpnvrfname', 'mplsvpnvrfbgppathattripaddrprefix', 'mplsvpnvrfbgppathattripaddrprefixlen', 'mplsvpnvrfbgppathattrpeer', 'mplsvpnvrfbgppathattraggregatoraddr', 'mplsvpnvrfbgppathattraggregatoras', 'mplsvpnvrfbgppathattraspathsegment', 'mplsvpnvrfbgppathattratomicaggregate', 'mplsvpnvrfbgppathattrbest', 'mplsvpnvrfbgppathattrcalclocalpref', 'mplsvpnvrfbgppathattrlocalpref', 'mplsvpnvrfbgppathattrmultiexitdisc', 'mplsvpnvrfbgppathattrnexthop', 'mplsvpnvrfbgppathattrorigin', 'mplsvpnvrfbgppathattrunknown'], name, value)
+                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, ['mplsvpnvrfname', 'mplsvpnvrfbgppathattripaddrprefix', 'mplsvpnvrfbgppathattripaddrprefixlen', 'mplsvpnvrfbgppathattrpeer', 'mplsvpnvrfbgppathattrorigin', 'mplsvpnvrfbgppathattraspathsegment', 'mplsvpnvrfbgppathattrnexthop', 'mplsvpnvrfbgppathattrmultiexitdisc', 'mplsvpnvrfbgppathattrlocalpref', 'mplsvpnvrfbgppathattratomicaggregate', 'mplsvpnvrfbgppathattraggregatoras', 'mplsvpnvrfbgppathattraggregatoraddr', 'mplsvpnvrfbgppathattrcalclocalpref', 'mplsvpnvrfbgppathattrbest', 'mplsvpnvrfbgppathattrunknown'], name, value)
 
             class Mplsvpnvrfbgppathattratomicaggregate(Enum):
                 """
@@ -841,16 +1229,19 @@ class MPLSVPNMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: mplsvpnvrfrouteage
-            
-            	The number of seconds since this route was last updated or otherwise determined to be correct. Note that no semantics of `too old' can be implied except through knowledge of the routing protocol by which the route was learned
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
             .. attribute:: mplsvpnvrfroutedestaddrtype
             
             	The address type of the mplsVpnVrfRouteDest entry
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: mplsvpnvrfroutemaskaddrtype
+            
+            	The address type of mplsVpnVrfRouteMask
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
+            .. attribute:: mplsvpnvrfroutenexthopaddrtype
+            
+            	The address type of the mplsVpnVrfRouteNextHopAddrType object
             	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
             
             .. attribute:: mplsvpnvrfrouteifindex
@@ -860,17 +1251,34 @@ class MPLSVPNMIB(Entity):
             
             	**range:** 0..2147483647
             
+            .. attribute:: mplsvpnvrfroutetype
+            
+            	The type of route.  Note that local(3)  refers to a route for which the next hop is the final destination; remote(4) refers to a route for that the next  hop is not the final destination. Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
+            	**type**\:   :py:class:`Mplsvpnvrfroutetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfroutetype>`
+            
+            .. attribute:: mplsvpnvrfrouteproto
+            
+            	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
+            	**type**\:   :py:class:`Mplsvpnvrfrouteproto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto>`
+            
+            .. attribute:: mplsvpnvrfrouteage
+            
+            	The number of seconds since this route was last updated or otherwise determined to be correct. Note that no semantics of `too old' can be implied except through knowledge of the routing protocol by which the route was learned
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: mplsvpnvrfrouteinfo
             
             	A reference to MIB definitions specific to the particular routing protocol which is responsi\-   ble for this route, as determined by the  value specified  in the route's mplsVpnVrfRouteProto value. If this information is not present, its value SHOULD be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntactically valid object identif\-ier, and any implementation conforming to ASN.1 and the Basic Encoding Rules must be able to generate and recognize this value
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: mplsvpnvrfroutenexthopas
             
-            .. attribute:: mplsvpnvrfroutemaskaddrtype
+            	The Autonomous System Number of the Next Hop. The semantics of this object are determined by the routing\-protocol specified in the route's mplsVpnVrfRouteProto value. When this object is unknown or not relevant its value should be set to zero
+            	**type**\:  int
             
-            	The address type of mplsVpnVrfRouteMask
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	**range:** 0..4294967295
             
             .. attribute:: mplsvpnvrfroutemetric1
             
@@ -907,23 +1315,6 @@ class MPLSVPNMIB(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: mplsvpnvrfroutenexthopaddrtype
-            
-            	The address type of the mplsVpnVrfRouteNextHopAddrType object
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
-            
-            .. attribute:: mplsvpnvrfroutenexthopas
-            
-            	The Autonomous System Number of the Next Hop. The semantics of this object are determined by the routing\-protocol specified in the route's mplsVpnVrfRouteProto value. When this object is unknown or not relevant its value should be set to zero
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfrouteproto
-            
-            	The routing mechanism via which this route was learned.  Inclusion of values for gateway rout\- ing protocols is not  intended  to  imply  that hosts should support those protocols
-            	**type**\:   :py:class:`Mplsvpnvrfrouteproto <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto>`
-            
             .. attribute:: mplsvpnvrfrouterowstatus
             
             	Row status for this table. It is used according to row installation and removal conventions
@@ -933,11 +1324,6 @@ class MPLSVPNMIB(Entity):
             
             	Storage type value
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: mplsvpnvrfroutetype
-            
-            	The type of route.  Note that local(3)  refers to a route for which the next hop is the final destination; remote(4) refers to a route for that the next  hop is not the final destination. Routes which do not result in traffic forwarding or rejection should not be displayed even if the implementation keeps them stored internally.  reject (2) refers to a route which, if matched, discards the message as unreachable. This is used in some protocols as a means of correctly aggregating routes
-            	**type**\:   :py:class:`Mplsvpnvrfroutetype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry.Mplsvpnvrfroutetype>`
             
             
 
@@ -966,15 +1352,23 @@ class MPLSVPNMIB(Entity):
 
                 self.mplsvpnvrfroutenexthop = YLeaf(YType.str, "mplsVpnVrfRouteNextHop")
 
-                self.mplsvpnvrfrouteage = YLeaf(YType.uint32, "mplsVpnVrfRouteAge")
-
                 self.mplsvpnvrfroutedestaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteDestAddrType")
+
+                self.mplsvpnvrfroutemaskaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteMaskAddrType")
+
+                self.mplsvpnvrfroutenexthopaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteNextHopAddrType")
 
                 self.mplsvpnvrfrouteifindex = YLeaf(YType.int32, "mplsVpnVrfRouteIfIndex")
 
+                self.mplsvpnvrfroutetype = YLeaf(YType.enumeration, "mplsVpnVrfRouteType")
+
+                self.mplsvpnvrfrouteproto = YLeaf(YType.enumeration, "mplsVpnVrfRouteProto")
+
+                self.mplsvpnvrfrouteage = YLeaf(YType.uint32, "mplsVpnVrfRouteAge")
+
                 self.mplsvpnvrfrouteinfo = YLeaf(YType.str, "mplsVpnVrfRouteInfo")
 
-                self.mplsvpnvrfroutemaskaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteMaskAddrType")
+                self.mplsvpnvrfroutenexthopas = YLeaf(YType.uint32, "mplsVpnVrfRouteNextHopAS")
 
                 self.mplsvpnvrfroutemetric1 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric1")
 
@@ -986,22 +1380,14 @@ class MPLSVPNMIB(Entity):
 
                 self.mplsvpnvrfroutemetric5 = YLeaf(YType.int32, "mplsVpnVrfRouteMetric5")
 
-                self.mplsvpnvrfroutenexthopaddrtype = YLeaf(YType.enumeration, "mplsVpnVrfRouteNextHopAddrType")
-
-                self.mplsvpnvrfroutenexthopas = YLeaf(YType.uint32, "mplsVpnVrfRouteNextHopAS")
-
-                self.mplsvpnvrfrouteproto = YLeaf(YType.enumeration, "mplsVpnVrfRouteProto")
-
                 self.mplsvpnvrfrouterowstatus = YLeaf(YType.enumeration, "mplsVpnVrfRouteRowStatus")
 
                 self.mplsvpnvrfroutestoragetype = YLeaf(YType.enumeration, "mplsVpnVrfRouteStorageType")
-
-                self.mplsvpnvrfroutetype = YLeaf(YType.enumeration, "mplsVpnVrfRouteType")
                 self._segment_path = lambda: "mplsVpnVrfRouteEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfRouteDest='" + self.mplsvpnvrfroutedest.get() + "']" + "[mplsVpnVrfRouteMask='" + self.mplsvpnvrfroutemask.get() + "']" + "[mplsVpnVrfRouteTos='" + self.mplsvpnvrfroutetos.get() + "']" + "[mplsVpnVrfRouteNextHop='" + self.mplsvpnvrfroutenexthop.get() + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, ['mplsvpnvrfname', 'mplsvpnvrfroutedest', 'mplsvpnvrfroutemask', 'mplsvpnvrfroutetos', 'mplsvpnvrfroutenexthop', 'mplsvpnvrfrouteage', 'mplsvpnvrfroutedestaddrtype', 'mplsvpnvrfrouteifindex', 'mplsvpnvrfrouteinfo', 'mplsvpnvrfroutemaskaddrtype', 'mplsvpnvrfroutemetric1', 'mplsvpnvrfroutemetric2', 'mplsvpnvrfroutemetric3', 'mplsvpnvrfroutemetric4', 'mplsvpnvrfroutemetric5', 'mplsvpnvrfroutenexthopaddrtype', 'mplsvpnvrfroutenexthopas', 'mplsvpnvrfrouteproto', 'mplsvpnvrfrouterowstatus', 'mplsvpnvrfroutestoragetype', 'mplsvpnvrfroutetype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, ['mplsvpnvrfname', 'mplsvpnvrfroutedest', 'mplsvpnvrfroutemask', 'mplsvpnvrfroutetos', 'mplsvpnvrfroutenexthop', 'mplsvpnvrfroutedestaddrtype', 'mplsvpnvrfroutemaskaddrtype', 'mplsvpnvrfroutenexthopaddrtype', 'mplsvpnvrfrouteifindex', 'mplsvpnvrfroutetype', 'mplsvpnvrfrouteproto', 'mplsvpnvrfrouteage', 'mplsvpnvrfrouteinfo', 'mplsvpnvrfroutenexthopas', 'mplsvpnvrfroutemetric1', 'mplsvpnvrfroutemetric2', 'mplsvpnvrfroutemetric3', 'mplsvpnvrfroutemetric4', 'mplsvpnvrfroutemetric5', 'mplsvpnvrfrouterowstatus', 'mplsvpnvrfroutestoragetype'], name, value)
 
             class Mplsvpnvrfrouteproto(Enum):
                 """
@@ -1125,394 +1511,6 @@ class MPLSVPNMIB(Entity):
                 local = Enum.YLeaf(3, "local")
 
                 remote = Enum.YLeaf(4, "remote")
-
-
-
-    class Mplsvpnvrfroutetargettable(Entity):
-        """
-        This table specifies per\-VRF route target association.
-        Each entry identifies a connectivity policy supported
-        as part of a VPN.
-        
-        .. attribute:: mplsvpnvrfroutetargetentry
-        
-        	 An entry in this table is created by an LSR for each route target configured for a VRF supporting a MPLS/BGP VPN instance. The indexing provides an ordering per\-VRF instance
-        	**type**\: list of    :py:class:`Mplsvpnvrfroutetargetentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry>`
-        
-        
-
-        """
-
-        _prefix = 'MPLS-VPN-MIB'
-        _revision = '2001-10-15'
-
-        def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrfroutetargettable, self).__init__()
-
-            self.yang_name = "mplsVpnVrfRouteTargetTable"
-            self.yang_parent_name = "MPLS-VPN-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsVpnVrfRouteTargetEntry" : ("mplsvpnvrfroutetargetentry", MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry)}
-
-            self.mplsvpnvrfroutetargetentry = YList(self)
-            self._segment_path = lambda: "mplsVpnVrfRouteTargetTable"
-            self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable, [], name, value)
-
-
-        class Mplsvpnvrfroutetargetentry(Entity):
-            """
-             An entry in this table is created by an LSR for
-            each route target configured for a VRF supporting
-            a MPLS/BGP VPN instance. The indexing provides an
-            ordering per\-VRF instance.
-            
-            .. attribute:: mplsvpnvrfname  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**length:** 0..31
-            
-            	**refers to**\:  :py:class:`mplsvpnvrfname <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
-            
-            .. attribute:: mplsvpnvrfroutetargetindex  <key>
-            
-            	Auxiliary index for route\-targets configured for a  particular VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfroutetargettype  <key>
-            
-            	The route target export distribution type
-            	**type**\:   :py:class:`Mplsvpnvrfroutetargettype <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype>`
-            
-            .. attribute:: mplsvpnvrfroutetarget
-            
-            	The route target distribution policy
-            	**type**\:  str
-            
-            	**length:** 0..256
-            
-            .. attribute:: mplsvpnvrfroutetargetdescr
-            
-            	Description of the route target
-            	**type**\:  str
-            
-            .. attribute:: mplsvpnvrfroutetargetrowstatus
-            
-            	Row status for this entry
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            
-
-            """
-
-            _prefix = 'MPLS-VPN-MIB'
-            _revision = '2001-10-15'
-
-            def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, self).__init__()
-
-                self.yang_name = "mplsVpnVrfRouteTargetEntry"
-                self.yang_parent_name = "mplsVpnVrfRouteTargetTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
-
-                self.mplsvpnvrfroutetargetindex = YLeaf(YType.uint32, "mplsVpnVrfRouteTargetIndex")
-
-                self.mplsvpnvrfroutetargettype = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetType")
-
-                self.mplsvpnvrfroutetarget = YLeaf(YType.str, "mplsVpnVrfRouteTarget")
-
-                self.mplsvpnvrfroutetargetdescr = YLeaf(YType.str, "mplsVpnVrfRouteTargetDescr")
-
-                self.mplsvpnvrfroutetargetrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfRouteTargetRowStatus")
-                self._segment_path = lambda: "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']" + "[mplsVpnVrfRouteTargetIndex='" + self.mplsvpnvrfroutetargetindex.get() + "']" + "[mplsVpnVrfRouteTargetType='" + self.mplsvpnvrfroutetargettype.get() + "']"
-                self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, ['mplsvpnvrfname', 'mplsvpnvrfroutetargetindex', 'mplsvpnvrfroutetargettype', 'mplsvpnvrfroutetarget', 'mplsvpnvrfroutetargetdescr', 'mplsvpnvrfroutetargetrowstatus'], name, value)
-
-            class Mplsvpnvrfroutetargettype(Enum):
-                """
-                Mplsvpnvrfroutetargettype
-
-                The route target export distribution type.
-
-                .. data:: import_ = 1
-
-                .. data:: export = 2
-
-                .. data:: both = 3
-
-                """
-
-                import_ = Enum.YLeaf(1, "import")
-
-                export = Enum.YLeaf(2, "export")
-
-                both = Enum.YLeaf(3, "both")
-
-
-
-    class Mplsvpnvrftable(Entity):
-        """
-        This table specifies per\-interface MPLS/BGP VPN
-        VRF Table capability and associated information.
-        Entries in this table define VRF routing instances
-        associated with MPLS/VPN interfaces. Note that
-        multiple interfaces can belong to the same VRF
-        instance. The collection of all VRF instances
-        comprises an actual VPN.
-        
-        .. attribute:: mplsvpnvrfentry
-        
-        	An entry in this table is created by an LSR for every VRF capable of supporting MPLS/BGP VPN. The indexing provides an ordering of VRFs per\-VPN interface
-        	**type**\: list of    :py:class:`Mplsvpnvrfentry <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry>`
-        
-        
-
-        """
-
-        _prefix = 'MPLS-VPN-MIB'
-        _revision = '2001-10-15'
-
-        def __init__(self):
-            super(MPLSVPNMIB.Mplsvpnvrftable, self).__init__()
-
-            self.yang_name = "mplsVpnVrfTable"
-            self.yang_parent_name = "MPLS-VPN-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsVpnVrfEntry" : ("mplsvpnvrfentry", MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry)}
-
-            self.mplsvpnvrfentry = YList(self)
-            self._segment_path = lambda: "mplsVpnVrfTable"
-            self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable, [], name, value)
-
-
-        class Mplsvpnvrfentry(Entity):
-            """
-            An entry in this table is created by an LSR for
-            every VRF capable of supporting MPLS/BGP VPN. The
-            indexing provides an ordering of VRFs per\-VPN
-            interface.
-            
-            .. attribute:: mplsvpnvrfname  <key>
-            
-            	The human\-readable name of this VPN. This MAY be equivalent to the RFC2685 VPN\-ID
-            	**type**\:  str
-            
-            	**length:** 0..31
-            
-            .. attribute:: mplsvpnvrfactiveinterfaces
-            
-            	Total number of interfaces connected to this VRF with    ifOperStatus = up(1).   This counter should be incremented when\:  a. When the ifOperStatus of one of the connected interfaces     changes from down(2) to up(1).  b. When an interface with ifOperStatus = up(1) is connected    to this VRF.  This counter should be decremented when\:  a. When the ifOperStatus of one of the connected interfaces     changes from up(1) to down(2).  b. When one of the connected interfaces with     ifOperStatus = up(1) gets disconnected from this VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfassociatedinterfaces
-            
-            	Total number of interfaces connected to this VRF  (independent of ifOperStatus type)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfconfhighroutethreshold
-            
-            	Denotes high\-level water marker for the number of routes which  this VRF may hold
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfconflastchanged
-            
-            	The value of sysUpTime at the time of the last change of this table entry, which includes changes of VRF parameters defined in this table or addition or deletion of interfaces associated with this VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfconfmaxroutes
-            
-            	Denotes maximum number of routes which this VRF is configured to hold. This value MUST be less than or equal to mplsVrfMaxPossibleRoutes unless it is set to 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfconfmidroutethreshold
-            
-            	Denotes mid\-level water marker for the number of routes which  this VRF may hold
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfconfrowstatus
-            
-            	This variable is used to create, modify, and/or delete a row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mplsvpnvrfconfstoragetype
-            
-            	The storage type for this entry
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: mplsvpnvrfcreationtime
-            
-            	The time at which this VRF entry was created
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfdescription
-            
-            	The human\-readable description of this VRF
-            	**type**\:  str
-            
-            .. attribute:: mplsvpnvrfoperstatus
-            
-            	Denotes whether a VRF is operational or not. A VRF is  up(1) when at least one interface associated with the VRF, which ifOperStatus is up(1). A VRF is down(2) when\:  a. There does not exist at least one interface whose    ifOperStatus is up(1).  b. There are no interfaces associated with the VRF
-            	**type**\:   :py:class:`Mplsvpnvrfoperstatus <ydk.models.cisco_ios_xe.MPLS_VPN_MIB.MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry.Mplsvpnvrfoperstatus>`
-            
-            .. attribute:: mplsvpnvrfperfcurrnumroutes
-            
-            	Indicates the number of routes currently used by this VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfperfroutesadded
-            
-            	Indicates the number of routes added to this VPN/VRF over the coarse of its lifetime
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfperfroutesdeleted
-            
-            	Indicates the number of routes removed from this VPN/VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfroutedistinguisher
-            
-            	The route distinguisher for this VRF
-            	**type**\:  str
-            
-            	**length:** 0..256
-            
-            .. attribute:: mplsvpnvrfsecillegallabelrcvthresh
-            
-            	The number of illegally received labels above which this  notification is issued
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsvpnvrfsecillegallabelviolations
-            
-            	Indicates the number of illegally received labels on this VPN/VRF
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'MPLS-VPN-MIB'
-            _revision = '2001-10-15'
-
-            def __init__(self):
-                super(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, self).__init__()
-
-                self.yang_name = "mplsVpnVrfEntry"
-                self.yang_parent_name = "mplsVpnVrfTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsvpnvrfname = YLeaf(YType.str, "mplsVpnVrfName")
-
-                self.mplsvpnvrfactiveinterfaces = YLeaf(YType.uint32, "mplsVpnVrfActiveInterfaces")
-
-                self.mplsvpnvrfassociatedinterfaces = YLeaf(YType.uint32, "mplsVpnVrfAssociatedInterfaces")
-
-                self.mplsvpnvrfconfhighroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfHighRouteThreshold")
-
-                self.mplsvpnvrfconflastchanged = YLeaf(YType.uint32, "mplsVpnVrfConfLastChanged")
-
-                self.mplsvpnvrfconfmaxroutes = YLeaf(YType.uint32, "mplsVpnVrfConfMaxRoutes")
-
-                self.mplsvpnvrfconfmidroutethreshold = YLeaf(YType.uint32, "mplsVpnVrfConfMidRouteThreshold")
-
-                self.mplsvpnvrfconfrowstatus = YLeaf(YType.enumeration, "mplsVpnVrfConfRowStatus")
-
-                self.mplsvpnvrfconfstoragetype = YLeaf(YType.enumeration, "mplsVpnVrfConfStorageType")
-
-                self.mplsvpnvrfcreationtime = YLeaf(YType.uint32, "mplsVpnVrfCreationTime")
-
-                self.mplsvpnvrfdescription = YLeaf(YType.str, "mplsVpnVrfDescription")
-
-                self.mplsvpnvrfoperstatus = YLeaf(YType.enumeration, "mplsVpnVrfOperStatus")
-
-                self.mplsvpnvrfperfcurrnumroutes = YLeaf(YType.uint32, "mplsVpnVrfPerfCurrNumRoutes")
-
-                self.mplsvpnvrfperfroutesadded = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesAdded")
-
-                self.mplsvpnvrfperfroutesdeleted = YLeaf(YType.uint32, "mplsVpnVrfPerfRoutesDeleted")
-
-                self.mplsvpnvrfroutedistinguisher = YLeaf(YType.str, "mplsVpnVrfRouteDistinguisher")
-
-                self.mplsvpnvrfsecillegallabelrcvthresh = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelRcvThresh")
-
-                self.mplsvpnvrfsecillegallabelviolations = YLeaf(YType.uint32, "mplsVpnVrfSecIllegalLabelViolations")
-                self._segment_path = lambda: "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + self.mplsvpnvrfname.get() + "']"
-                self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.Mplsvpnvrftable.Mplsvpnvrfentry, ['mplsvpnvrfname', 'mplsvpnvrfactiveinterfaces', 'mplsvpnvrfassociatedinterfaces', 'mplsvpnvrfconfhighroutethreshold', 'mplsvpnvrfconflastchanged', 'mplsvpnvrfconfmaxroutes', 'mplsvpnvrfconfmidroutethreshold', 'mplsvpnvrfconfrowstatus', 'mplsvpnvrfconfstoragetype', 'mplsvpnvrfcreationtime', 'mplsvpnvrfdescription', 'mplsvpnvrfoperstatus', 'mplsvpnvrfperfcurrnumroutes', 'mplsvpnvrfperfroutesadded', 'mplsvpnvrfperfroutesdeleted', 'mplsvpnvrfroutedistinguisher', 'mplsvpnvrfsecillegallabelrcvthresh', 'mplsvpnvrfsecillegallabelviolations'], name, value)
-
-            class Mplsvpnvrfoperstatus(Enum):
-                """
-                Mplsvpnvrfoperstatus
-
-                Denotes whether a VRF is operational or not. A VRF is 
-
-                up(1) when at least one interface associated with the
-
-                VRF, which ifOperStatus is up(1). A VRF is down(2) when\:
-
-                a. There does not exist at least one interface whose
-
-                   ifOperStatus is up(1).
-
-                b. There are no interfaces associated with the VRF.
-
-                .. data:: up = 1
-
-                .. data:: down = 2
-
-                """
-
-                up = Enum.YLeaf(1, "up")
-
-                down = Enum.YLeaf(2, "down")
 
 
     def clone_ptr(self):

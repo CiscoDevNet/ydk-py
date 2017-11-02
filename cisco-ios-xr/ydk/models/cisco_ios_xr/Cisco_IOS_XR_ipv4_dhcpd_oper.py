@@ -519,8 +519,6 @@ class DhcpClient(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: client_stats
             
             	IPv4 DHCP client statistics table
@@ -608,8 +606,6 @@ class DhcpClient(Entity):
                     	Client Ifhandle
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
                     .. attribute:: interface_name
                     
                     	Dhcp Client interface name
@@ -617,16 +613,9 @@ class DhcpClient(Entity):
                     
                     	**length:** 0..65
                     
-                    .. attribute:: num_broadcast_failed
+                    .. attribute:: num_events_received
                     
-                    	Number of broadcast packet send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_broadcast_packet_sent_success
-                    
-                    	Number of broadcast packet sent successfully
+                    	Number of events received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -638,142 +627,9 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_declines_failed
-                    
-                    	Number of decline send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_declines_sent_successfully
-                    
-                    	Number of declines sent successfully
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: num_delete_event_received
                     
                     	Number of delete client event received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_discovers_failed
-                    
-                    	Number of discover send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_discovers_sent_successfully
-                    
-                    	Number of discovers sent successfully
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_events_received
-                    
-                    	Number of events received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_init_timer_eventi
-                    
-                    	Number of init timer event
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_init_timer_start
-                    
-                    	Number of init timer starts
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_init_timer_stop
-                    
-                    	Number of init timer stops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_invalid_acks
-                    
-                    	Number of invalid acks received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_invalid_events
-                    
-                    	Number of invalid events received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_invalid_nacks
-                    
-                    	Number of invalid nacks received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_invalid_offers
-                    
-                    	Number of invalid offers received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_invalid_packets
-                    
-                    	Number of invalid packets dropped
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_lease_timer_event
-                    
-                    	Number of Lease timer event
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_lease_timer_start
-                    
-                    	Number of Lease timer starts
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_lease_timer_stop
-                    
-                    	Number of Lease timer stops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_packet_event_received
-                    
-                    	Number of packet event received
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_rebinds_failed
-                    
-                    	Number of rebind send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_rebinds_sent_successfully
-                    
-                    	Number of rebinds sent successfully
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -792,58 +648,16 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_releases_failed
+                    .. attribute:: num_packet_event_received
                     
-                    	Number of release send failed
+                    	Number of packet event received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_releases_sent_successfully
+                    .. attribute:: num_init_timer_eventi
                     
-                    	Number of releases sent successfully
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_renews_failed
-                    
-                    	Number of renew send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_renews_sent_successfully
-                    
-                    	Number of renews sent successfully
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_request_after_reboot_failed
-                    
-                    	Number of requests sent after reboot failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_request_after_reboot_sent
-                    
-                    	Number of requests sent after reboot
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_requests_failed
-                    
-                    	Number of request send failed
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_requests_sent_successfully
-                    
-                    	Number of requests sent successfully
+                    	Number of init timer event
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -855,20 +669,6 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_t1_timer_start
-                    
-                    	Number of T1 timer starts
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: num_t1_timer_stop
-                    
-                    	Number of T1 timer stops
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: num_t2_timer_event
                     
                     	Number of T2 timer event
@@ -876,30 +676,65 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_t2_timer_start
+                    .. attribute:: num_lease_timer_event
                     
-                    	Number of T2 timer starts
+                    	Number of Lease timer event
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_t2_timer_stop
+                    .. attribute:: num_discovers_sent_successfully
                     
-                    	Number of T2 timer stops
+                    	Number of discovers sent successfully
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_unicast_failed
+                    .. attribute:: num_requests_sent_successfully
                     
-                    	Number of unicast packet send failed
+                    	Number of requests sent successfully
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_unicast_packet_sent_successfully
+                    .. attribute:: num_releases_sent_successfully
                     
-                    	Number of unicast packet sent successfully
+                    	Number of releases sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_renews_sent_successfully
+                    
+                    	Number of renews sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_rebinds_sent_successfully
+                    
+                    	Number of rebinds sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_declines_sent_successfully
+                    
+                    	Number of declines sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_request_after_reboot_sent
+                    
+                    	Number of requests sent after reboot
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_valid_offers_received
+                    
+                    	Number of valid offers received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -918,9 +753,170 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: num_valid_offers_received
+                    .. attribute:: num_unicast_packet_sent_successfully
                     
-                    	Number of valid offers received
+                    	Number of unicast packet sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_broadcast_packet_sent_success
+                    
+                    	Number of broadcast packet sent successfully
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_init_timer_start
+                    
+                    	Number of init timer starts
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_init_timer_stop
+                    
+                    	Number of init timer stops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_t1_timer_start
+                    
+                    	Number of T1 timer starts
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_t1_timer_stop
+                    
+                    	Number of T1 timer stops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_t2_timer_start
+                    
+                    	Number of T2 timer starts
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_t2_timer_stop
+                    
+                    	Number of T2 timer stops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_lease_timer_start
+                    
+                    	Number of Lease timer starts
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_lease_timer_stop
+                    
+                    	Number of Lease timer stops
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_invalid_events
+                    
+                    	Number of invalid events received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_discovers_failed
+                    
+                    	Number of discover send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_requests_failed
+                    
+                    	Number of request send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_releases_failed
+                    
+                    	Number of release send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_renews_failed
+                    
+                    	Number of renew send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_rebinds_failed
+                    
+                    	Number of rebind send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_declines_failed
+                    
+                    	Number of decline send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_request_after_reboot_failed
+                    
+                    	Number of requests sent after reboot failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_invalid_offers
+                    
+                    	Number of invalid offers received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_invalid_acks
+                    
+                    	Number of invalid acks received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_invalid_nacks
+                    
+                    	Number of invalid nacks received
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_invalid_packets
+                    
+                    	Number of invalid packets dropped
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_unicast_failed
+                    
+                    	Number of unicast packet send failed
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: num_broadcast_failed
+                    
+                    	Number of broadcast packet send failed
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -953,99 +949,99 @@ class DhcpClient(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
-                        self.num_broadcast_failed = YLeaf(YType.uint32, "num-broadcast-failed")
-
-                        self.num_broadcast_packet_sent_success = YLeaf(YType.uint32, "num-broadcast-packet-sent-success")
+                        self.num_events_received = YLeaf(YType.uint32, "num-events-received")
 
                         self.num_create_event_received = YLeaf(YType.uint32, "num-create-event-received")
 
-                        self.num_declines_failed = YLeaf(YType.uint32, "num-declines-failed")
-
-                        self.num_declines_sent_successfully = YLeaf(YType.uint32, "num-declines-sent-successfully")
-
                         self.num_delete_event_received = YLeaf(YType.uint32, "num-delete-event-received")
-
-                        self.num_discovers_failed = YLeaf(YType.uint32, "num-discovers-failed")
-
-                        self.num_discovers_sent_successfully = YLeaf(YType.uint32, "num-discovers-sent-successfully")
-
-                        self.num_events_received = YLeaf(YType.uint32, "num-events-received")
-
-                        self.num_init_timer_eventi = YLeaf(YType.uint32, "num-init-timer-eventi")
-
-                        self.num_init_timer_start = YLeaf(YType.uint32, "num-init-timer-start")
-
-                        self.num_init_timer_stop = YLeaf(YType.uint32, "num-init-timer-stop")
-
-                        self.num_invalid_acks = YLeaf(YType.uint32, "num-invalid-acks")
-
-                        self.num_invalid_events = YLeaf(YType.uint32, "num-invalid-events")
-
-                        self.num_invalid_nacks = YLeaf(YType.uint32, "num-invalid-nacks")
-
-                        self.num_invalid_offers = YLeaf(YType.uint32, "num-invalid-offers")
-
-                        self.num_invalid_packets = YLeaf(YType.uint32, "num-invalid-packets")
-
-                        self.num_lease_timer_event = YLeaf(YType.uint32, "num-lease-timer-event")
-
-                        self.num_lease_timer_start = YLeaf(YType.uint32, "num-lease-timer-start")
-
-                        self.num_lease_timer_stop = YLeaf(YType.uint32, "num-lease-timer-stop")
-
-                        self.num_packet_event_received = YLeaf(YType.uint32, "num-packet-event-received")
-
-                        self.num_rebinds_failed = YLeaf(YType.uint32, "num-rebinds-failed")
-
-                        self.num_rebinds_sent_successfully = YLeaf(YType.uint32, "num-rebinds-sent-successfully")
 
                         self.num_reboot_event_received = YLeaf(YType.uint32, "num-reboot-event-received")
 
                         self.num_reinit_event_received = YLeaf(YType.uint32, "num-reinit-event-received")
 
-                        self.num_releases_failed = YLeaf(YType.uint32, "num-releases-failed")
+                        self.num_packet_event_received = YLeaf(YType.uint32, "num-packet-event-received")
 
-                        self.num_releases_sent_successfully = YLeaf(YType.uint32, "num-releases-sent-successfully")
-
-                        self.num_renews_failed = YLeaf(YType.uint32, "num-renews-failed")
-
-                        self.num_renews_sent_successfully = YLeaf(YType.uint32, "num-renews-sent-successfully")
-
-                        self.num_request_after_reboot_failed = YLeaf(YType.uint32, "num-request-after-reboot-failed")
-
-                        self.num_request_after_reboot_sent = YLeaf(YType.uint32, "num-request-after-reboot-sent")
-
-                        self.num_requests_failed = YLeaf(YType.uint32, "num-requests-failed")
-
-                        self.num_requests_sent_successfully = YLeaf(YType.uint32, "num-requests-sent-successfully")
+                        self.num_init_timer_eventi = YLeaf(YType.uint32, "num-init-timer-eventi")
 
                         self.num_t1_timer_event = YLeaf(YType.uint32, "num-t1-timer-event")
 
-                        self.num_t1_timer_start = YLeaf(YType.uint32, "num-t1-timer-start")
-
-                        self.num_t1_timer_stop = YLeaf(YType.uint32, "num-t1-timer-stop")
-
                         self.num_t2_timer_event = YLeaf(YType.uint32, "num-t2-timer-event")
 
-                        self.num_t2_timer_start = YLeaf(YType.uint32, "num-t2-timer-start")
+                        self.num_lease_timer_event = YLeaf(YType.uint32, "num-lease-timer-event")
 
-                        self.num_t2_timer_stop = YLeaf(YType.uint32, "num-t2-timer-stop")
+                        self.num_discovers_sent_successfully = YLeaf(YType.uint32, "num-discovers-sent-successfully")
 
-                        self.num_unicast_failed = YLeaf(YType.uint32, "num-unicast-failed")
+                        self.num_requests_sent_successfully = YLeaf(YType.uint32, "num-requests-sent-successfully")
 
-                        self.num_unicast_packet_sent_successfully = YLeaf(YType.uint32, "num-unicast-packet-sent-successfully")
+                        self.num_releases_sent_successfully = YLeaf(YType.uint32, "num-releases-sent-successfully")
+
+                        self.num_renews_sent_successfully = YLeaf(YType.uint32, "num-renews-sent-successfully")
+
+                        self.num_rebinds_sent_successfully = YLeaf(YType.uint32, "num-rebinds-sent-successfully")
+
+                        self.num_declines_sent_successfully = YLeaf(YType.uint32, "num-declines-sent-successfully")
+
+                        self.num_request_after_reboot_sent = YLeaf(YType.uint32, "num-request-after-reboot-sent")
+
+                        self.num_valid_offers_received = YLeaf(YType.uint32, "num-valid-offers-received")
 
                         self.num_valid_acks_received = YLeaf(YType.uint32, "num-valid-acks-received")
 
                         self.num_valid_nacks_received = YLeaf(YType.uint32, "num-valid-nacks-received")
 
-                        self.num_valid_offers_received = YLeaf(YType.uint32, "num-valid-offers-received")
+                        self.num_unicast_packet_sent_successfully = YLeaf(YType.uint32, "num-unicast-packet-sent-successfully")
+
+                        self.num_broadcast_packet_sent_success = YLeaf(YType.uint32, "num-broadcast-packet-sent-success")
+
+                        self.num_init_timer_start = YLeaf(YType.uint32, "num-init-timer-start")
+
+                        self.num_init_timer_stop = YLeaf(YType.uint32, "num-init-timer-stop")
+
+                        self.num_t1_timer_start = YLeaf(YType.uint32, "num-t1-timer-start")
+
+                        self.num_t1_timer_stop = YLeaf(YType.uint32, "num-t1-timer-stop")
+
+                        self.num_t2_timer_start = YLeaf(YType.uint32, "num-t2-timer-start")
+
+                        self.num_t2_timer_stop = YLeaf(YType.uint32, "num-t2-timer-stop")
+
+                        self.num_lease_timer_start = YLeaf(YType.uint32, "num-lease-timer-start")
+
+                        self.num_lease_timer_stop = YLeaf(YType.uint32, "num-lease-timer-stop")
+
+                        self.num_invalid_events = YLeaf(YType.uint32, "num-invalid-events")
+
+                        self.num_discovers_failed = YLeaf(YType.uint32, "num-discovers-failed")
+
+                        self.num_requests_failed = YLeaf(YType.uint32, "num-requests-failed")
+
+                        self.num_releases_failed = YLeaf(YType.uint32, "num-releases-failed")
+
+                        self.num_renews_failed = YLeaf(YType.uint32, "num-renews-failed")
+
+                        self.num_rebinds_failed = YLeaf(YType.uint32, "num-rebinds-failed")
+
+                        self.num_declines_failed = YLeaf(YType.uint32, "num-declines-failed")
+
+                        self.num_request_after_reboot_failed = YLeaf(YType.uint32, "num-request-after-reboot-failed")
+
+                        self.num_invalid_offers = YLeaf(YType.uint32, "num-invalid-offers")
+
+                        self.num_invalid_acks = YLeaf(YType.uint32, "num-invalid-acks")
+
+                        self.num_invalid_nacks = YLeaf(YType.uint32, "num-invalid-nacks")
+
+                        self.num_invalid_packets = YLeaf(YType.uint32, "num-invalid-packets")
+
+                        self.num_unicast_failed = YLeaf(YType.uint32, "num-unicast-failed")
+
+                        self.num_broadcast_failed = YLeaf(YType.uint32, "num-broadcast-failed")
 
                         self.num_xid_mismatch = YLeaf(YType.uint32, "num-xid-mismatch")
                         self._segment_path = lambda: "client-stat" + "[client-ifhandle='" + self.client_ifhandle.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', 'interface_name', 'num_broadcast_failed', 'num_broadcast_packet_sent_success', 'num_create_event_received', 'num_declines_failed', 'num_declines_sent_successfully', 'num_delete_event_received', 'num_discovers_failed', 'num_discovers_sent_successfully', 'num_events_received', 'num_init_timer_eventi', 'num_init_timer_start', 'num_init_timer_stop', 'num_invalid_acks', 'num_invalid_events', 'num_invalid_nacks', 'num_invalid_offers', 'num_invalid_packets', 'num_lease_timer_event', 'num_lease_timer_start', 'num_lease_timer_stop', 'num_packet_event_received', 'num_rebinds_failed', 'num_rebinds_sent_successfully', 'num_reboot_event_received', 'num_reinit_event_received', 'num_releases_failed', 'num_releases_sent_successfully', 'num_renews_failed', 'num_renews_sent_successfully', 'num_request_after_reboot_failed', 'num_request_after_reboot_sent', 'num_requests_failed', 'num_requests_sent_successfully', 'num_t1_timer_event', 'num_t1_timer_start', 'num_t1_timer_stop', 'num_t2_timer_event', 'num_t2_timer_start', 'num_t2_timer_stop', 'num_unicast_failed', 'num_unicast_packet_sent_successfully', 'num_valid_acks_received', 'num_valid_nacks_received', 'num_valid_offers_received', 'num_xid_mismatch'], name, value)
+                        self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', 'interface_name', 'num_events_received', 'num_create_event_received', 'num_delete_event_received', 'num_reboot_event_received', 'num_reinit_event_received', 'num_packet_event_received', 'num_init_timer_eventi', 'num_t1_timer_event', 'num_t2_timer_event', 'num_lease_timer_event', 'num_discovers_sent_successfully', 'num_requests_sent_successfully', 'num_releases_sent_successfully', 'num_renews_sent_successfully', 'num_rebinds_sent_successfully', 'num_declines_sent_successfully', 'num_request_after_reboot_sent', 'num_valid_offers_received', 'num_valid_acks_received', 'num_valid_nacks_received', 'num_unicast_packet_sent_successfully', 'num_broadcast_packet_sent_success', 'num_init_timer_start', 'num_init_timer_stop', 'num_t1_timer_start', 'num_t1_timer_stop', 'num_t2_timer_start', 'num_t2_timer_stop', 'num_lease_timer_start', 'num_lease_timer_stop', 'num_invalid_events', 'num_discovers_failed', 'num_requests_failed', 'num_releases_failed', 'num_renews_failed', 'num_rebinds_failed', 'num_declines_failed', 'num_request_after_reboot_failed', 'num_invalid_offers', 'num_invalid_acks', 'num_invalid_nacks', 'num_invalid_packets', 'num_unicast_failed', 'num_broadcast_failed', 'num_xid_mismatch'], name, value)
 
 
             class Clients(Entity):
@@ -1090,14 +1086,12 @@ class DhcpClient(Entity):
                     	Client Ifhandle
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    .. attribute:: interface_name
                     
-                    .. attribute:: client_id
-                    
-                    	Dhcp Client ID
+                    	Dhcp Client interface name
                     	**type**\:  str
                     
-                    	**length:** 0..256
+                    	**length:** 0..65
                     
                     .. attribute:: client_mac_address
                     
@@ -1106,40 +1100,41 @@ class DhcpClient(Entity):
                     
                     	**length:** 0..17
                     
-                    .. attribute:: interface_name
+                    .. attribute:: client_id
                     
-                    	Dhcp Client interface name
+                    	Dhcp Client ID
                     	**type**\:  str
                     
-                    	**length:** 0..65
-                    
-                    .. attribute:: ipv4_address
-                    
-                    	Dhcp Client IP Address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: ipv4_address_configured
-                    
-                    	Dhcp Client IPV4 address configured in interface
-                    	**type**\:  bool
+                    	**length:** 0..256
                     
                     .. attribute:: ipv4_client_state
                     
                     	Dhcp Client State
                     	**type**\:   :py:class:`DhcpcIpv4State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpcIpv4State>`
                     
+                    .. attribute:: ipv4_address
+                    
+                    	Dhcp Client IP Address
+                    	**type**\:  str
+                    
+                    .. attribute:: ipv4_subnet_mask
+                    
+                    	Dhcp Client IP Address mask
+                    	**type**\:  str
+                    
+                    .. attribute:: ipv4_server_address
+                    
+                    	Dhcp Client selected server IP Address
+                    	**type**\:  str
+                    
+                    .. attribute:: next_hop_ipv4_address
+                    
+                    	Dhcp Client next hop IP Address
+                    	**type**\:  str
+                    
                     .. attribute:: ipv4_lease_time
                     
                     	Dhcp Client Lease time
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: ipv4_rebind_time
-                    
-                    	Dhcp Client Rebind time
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1151,26 +1146,17 @@ class DhcpClient(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: ipv4_server_address
+                    .. attribute:: ipv4_rebind_time
                     
-                    	Dhcp Client selected server IP Address
-                    	**type**\:  str
+                    	Dhcp Client Rebind time
+                    	**type**\:  int
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	**range:** 0..4294967295
                     
-                    .. attribute:: ipv4_subnet_mask
+                    .. attribute:: ipv4_address_configured
                     
-                    	Dhcp Client IP Address mask
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: next_hop_ipv4_address
-                    
-                    	Dhcp Client next hop IP Address
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    	Dhcp Client IPV4 address configured in interface
+                    	**type**\:  bool
                     
                     
 
@@ -1191,33 +1177,33 @@ class DhcpClient(Entity):
 
                         self.client_ifhandle = YLeaf(YType.str, "client-ifhandle")
 
-                        self.client_id = YLeaf(YType.str, "client-id")
+                        self.interface_name = YLeaf(YType.str, "interface-name")
 
                         self.client_mac_address = YLeaf(YType.str, "client-mac-address")
 
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                        self.ipv4_address_configured = YLeaf(YType.boolean, "ipv4-address-configured")
+                        self.client_id = YLeaf(YType.str, "client-id")
 
                         self.ipv4_client_state = YLeaf(YType.enumeration, "ipv4-client-state")
 
-                        self.ipv4_lease_time = YLeaf(YType.uint32, "ipv4-lease-time")
-
-                        self.ipv4_rebind_time = YLeaf(YType.uint32, "ipv4-rebind-time")
-
-                        self.ipv4_renew_time = YLeaf(YType.uint32, "ipv4-renew-time")
-
-                        self.ipv4_server_address = YLeaf(YType.str, "ipv4-server-address")
+                        self.ipv4_address = YLeaf(YType.str, "ipv4-address")
 
                         self.ipv4_subnet_mask = YLeaf(YType.str, "ipv4-subnet-mask")
 
+                        self.ipv4_server_address = YLeaf(YType.str, "ipv4-server-address")
+
                         self.next_hop_ipv4_address = YLeaf(YType.str, "next-hop-ipv4-address")
+
+                        self.ipv4_lease_time = YLeaf(YType.uint32, "ipv4-lease-time")
+
+                        self.ipv4_renew_time = YLeaf(YType.uint32, "ipv4-renew-time")
+
+                        self.ipv4_rebind_time = YLeaf(YType.uint32, "ipv4-rebind-time")
+
+                        self.ipv4_address_configured = YLeaf(YType.boolean, "ipv4-address-configured")
                         self._segment_path = lambda: "client" + "[client-ifhandle='" + self.client_ifhandle.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', 'client_id', 'client_mac_address', 'interface_name', 'ipv4_address', 'ipv4_address_configured', 'ipv4_client_state', 'ipv4_lease_time', 'ipv4_rebind_time', 'ipv4_renew_time', 'ipv4_server_address', 'ipv4_subnet_mask', 'next_hop_ipv4_address'], name, value)
+                        self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', 'interface_name', 'client_mac_address', 'client_id', 'ipv4_client_state', 'ipv4_address', 'ipv4_subnet_mask', 'ipv4_server_address', 'next_hop_ipv4_address', 'ipv4_lease_time', 'ipv4_renew_time', 'ipv4_rebind_time', 'ipv4_address_configured'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DhcpClient()
@@ -1227,15 +1213,15 @@ class Ipv4Dhcpd(Entity):
     """
     ipv4 dhcpd
     
-    .. attribute:: nodes
-    
-    	IPv4 DHCPD operational data for a particular location
-    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes>`
-    
     .. attribute:: snoop
     
     	DHCP Snoop operational data
     	**type**\:   :py:class:`Snoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop>`
+    
+    .. attribute:: nodes
+    
+    	IPv4 DHCPD operational data for a particular location
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes>`
     
     
 
@@ -1252,19 +1238,543 @@ class Ipv4Dhcpd(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-dhcpd-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"nodes" : ("nodes", Ipv4Dhcpd.Nodes), "snoop" : ("snoop", Ipv4Dhcpd.Snoop)}
+        self._child_container_classes = {"snoop" : ("snoop", Ipv4Dhcpd.Snoop), "nodes" : ("nodes", Ipv4Dhcpd.Nodes)}
         self._child_list_classes = {}
-
-        self.nodes = Ipv4Dhcpd.Nodes()
-        self.nodes.parent = self
-        self._children_name_map["nodes"] = "nodes"
-        self._children_yang_names.add("nodes")
 
         self.snoop = Ipv4Dhcpd.Snoop()
         self.snoop.parent = self
         self._children_name_map["snoop"] = "snoop"
         self._children_yang_names.add("snoop")
+
+        self.nodes = Ipv4Dhcpd.Nodes()
+        self.nodes.parent = self
+        self._children_name_map["nodes"] = "nodes"
+        self._children_yang_names.add("nodes")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd"
+
+
+    class Snoop(Entity):
+        """
+        DHCP Snoop operational data
+        
+        .. attribute:: bindings
+        
+        	DHCP Snoop Bindings
+        	**type**\:   :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings>`
+        
+        .. attribute:: binding_statistics
+        
+        	DHCP snoop binding statistics
+        	**type**\:   :py:class:`BindingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.BindingStatistics>`
+        
+        .. attribute:: statistics_info
+        
+        	DHCP snoop statistics info
+        	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.StatisticsInfo>`
+        
+        .. attribute:: profiles
+        
+        	DHCP Snoop Profile
+        	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles>`
+        
+        .. attribute:: statistics
+        
+        	DHCP Snoop Statistics
+        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-dhcpd-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Ipv4Dhcpd.Snoop, self).__init__()
+
+            self.yang_name = "snoop"
+            self.yang_parent_name = "ipv4-dhcpd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"bindings" : ("bindings", Ipv4Dhcpd.Snoop.Bindings), "binding-statistics" : ("binding_statistics", Ipv4Dhcpd.Snoop.BindingStatistics), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Snoop.StatisticsInfo), "profiles" : ("profiles", Ipv4Dhcpd.Snoop.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Snoop.Statistics)}
+            self._child_list_classes = {}
+
+            self.bindings = Ipv4Dhcpd.Snoop.Bindings()
+            self.bindings.parent = self
+            self._children_name_map["bindings"] = "bindings"
+            self._children_yang_names.add("bindings")
+
+            self.binding_statistics = Ipv4Dhcpd.Snoop.BindingStatistics()
+            self.binding_statistics.parent = self
+            self._children_name_map["binding_statistics"] = "binding-statistics"
+            self._children_yang_names.add("binding-statistics")
+
+            self.statistics_info = Ipv4Dhcpd.Snoop.StatisticsInfo()
+            self.statistics_info.parent = self
+            self._children_name_map["statistics_info"] = "statistics-info"
+            self._children_yang_names.add("statistics-info")
+
+            self.profiles = Ipv4Dhcpd.Snoop.Profiles()
+            self.profiles.parent = self
+            self._children_name_map["profiles"] = "profiles"
+            self._children_yang_names.add("profiles")
+
+            self.statistics = Ipv4Dhcpd.Snoop.Statistics()
+            self.statistics.parent = self
+            self._children_name_map["statistics"] = "statistics"
+            self._children_yang_names.add("statistics")
+            self._segment_path = lambda: "snoop"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/%s" % self._segment_path()
+
+
+        class Bindings(Entity):
+            """
+            DHCP Snoop Bindings
+            
+            .. attribute:: binding
+            
+            	DHCP Snoop binding
+            	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings.Binding>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-dhcpd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipv4Dhcpd.Snoop.Bindings, self).__init__()
+
+                self.yang_name = "bindings"
+                self.yang_parent_name = "snoop"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"binding" : ("binding", Ipv4Dhcpd.Snoop.Bindings.Binding)}
+
+                self.binding = YList(self)
+                self._segment_path = lambda: "bindings"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings, [], name, value)
+
+
+            class Binding(Entity):
+                """
+                DHCP Snoop binding
+                
+                .. attribute:: client_uid  <key>
+                
+                	Client opaque handle
+                	**type**\:  str
+                
+                .. attribute:: snoop_binding_ch_addr
+                
+                	DHCP client MAC address
+                	**type**\:  str
+                
+                .. attribute:: snoop_binding_ch_addr_len
+                
+                	DHCP client MAC address length
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_binding_i_addr
+                
+                	DHCP iaddr
+                	**type**\:  str
+                
+                .. attribute:: snoop_binding_client_id
+                
+                	DHCP client id
+                	**type**\:  str
+                
+                .. attribute:: snoop_binding_client_id_len
+                
+                	DHCP client id len
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_binding_state
+                
+                	DHCP sm state
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_binding_lease
+                
+                	DHCP lease time
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: snoop_binding_lease_start_time
+                
+                	DHCP lease start time
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: snoop_binding_profile_name
+                
+                	DHCP profile name
+                	**type**\:  str
+                
+                	**length:** 0..65
+                
+                .. attribute:: snoop_bindng_interface_name
+                
+                	DHCP interface to client
+                	**type**\:  str
+                
+                	**length:** 0..321
+                
+                .. attribute:: snoop_binding_bridge_name
+                
+                	DHCP L2 bridge name
+                	**type**\:  str
+                
+                	**length:** 0..74
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv4Dhcpd.Snoop.Bindings.Binding, self).__init__()
+
+                    self.yang_name = "binding"
+                    self.yang_parent_name = "bindings"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.client_uid = YLeaf(YType.str, "client-uid")
+
+                    self.snoop_binding_ch_addr = YLeaf(YType.str, "snoop-binding-ch-addr")
+
+                    self.snoop_binding_ch_addr_len = YLeaf(YType.uint8, "snoop-binding-ch-addr-len")
+
+                    self.snoop_binding_i_addr = YLeaf(YType.str, "snoop-binding-i-addr")
+
+                    self.snoop_binding_client_id = YLeaf(YType.str, "snoop-binding-client-id")
+
+                    self.snoop_binding_client_id_len = YLeaf(YType.uint8, "snoop-binding-client-id-len")
+
+                    self.snoop_binding_state = YLeaf(YType.uint8, "snoop-binding-state")
+
+                    self.snoop_binding_lease = YLeaf(YType.uint32, "snoop-binding-lease")
+
+                    self.snoop_binding_lease_start_time = YLeaf(YType.uint32, "snoop-binding-lease-start-time")
+
+                    self.snoop_binding_profile_name = YLeaf(YType.str, "snoop-binding-profile-name")
+
+                    self.snoop_bindng_interface_name = YLeaf(YType.str, "snoop-bindng-interface-name")
+
+                    self.snoop_binding_bridge_name = YLeaf(YType.str, "snoop-binding-bridge-name")
+                    self._segment_path = lambda: "binding" + "[client-uid='" + self.client_uid.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/bindings/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', 'snoop_binding_ch_addr', 'snoop_binding_ch_addr_len', 'snoop_binding_i_addr', 'snoop_binding_client_id', 'snoop_binding_client_id_len', 'snoop_binding_state', 'snoop_binding_lease', 'snoop_binding_lease_start_time', 'snoop_binding_profile_name', 'snoop_bindng_interface_name', 'snoop_binding_bridge_name'], name, value)
+
+
+        class BindingStatistics(Entity):
+            """
+            DHCP snoop binding statistics
+            
+            .. attribute:: snoop_binding_total
+            
+            	Total number of snoop bindings
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: snoop_binding_timestamp
+            
+            	Snoop binding timestamp
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ipv4-dhcpd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipv4Dhcpd.Snoop.BindingStatistics, self).__init__()
+
+                self.yang_name = "binding-statistics"
+                self.yang_parent_name = "snoop"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.snoop_binding_total = YLeaf(YType.uint32, "snoop-binding-total")
+
+                self.snoop_binding_timestamp = YLeaf(YType.uint32, "snoop-binding-timestamp")
+                self._segment_path = lambda: "binding-statistics"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, ['snoop_binding_total', 'snoop_binding_timestamp'], name, value)
+
+
+        class StatisticsInfo(Entity):
+            """
+            DHCP snoop statistics info
+            
+            .. attribute:: snoop_stats_timestamp
+            
+            	Snoop Stats timestamp
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'ipv4-dhcpd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipv4Dhcpd.Snoop.StatisticsInfo, self).__init__()
+
+                self.yang_name = "statistics-info"
+                self.yang_parent_name = "snoop"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.snoop_stats_timestamp = YLeaf(YType.uint32, "snoop-stats-timestamp")
+                self._segment_path = lambda: "statistics-info"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, ['snoop_stats_timestamp'], name, value)
+
+
+        class Profiles(Entity):
+            """
+            DHCP Snoop Profile
+            
+            .. attribute:: profile
+            
+            	DHCP Snoop profile
+            	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles.Profile>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-dhcpd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipv4Dhcpd.Snoop.Profiles, self).__init__()
+
+                self.yang_name = "profiles"
+                self.yang_parent_name = "snoop"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Snoop.Profiles.Profile)}
+
+                self.profile = YList(self)
+                self._segment_path = lambda: "profiles"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles, [], name, value)
+
+
+            class Profile(Entity):
+                """
+                DHCP Snoop profile
+                
+                .. attribute:: profile_name  <key>
+                
+                	Profile name
+                	**type**\:  str
+                
+                .. attribute:: snoop_profile_name
+                
+                	Profile Name
+                	**type**\:  str
+                
+                	**length:** 0..65
+                
+                .. attribute:: snoop_profile_uid
+                
+                	Profile unique ID
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: snoop_profile_relay_info_option
+                
+                	Relay info option
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_profile_relay_info_allow_untrusted
+                
+                	Allow untrusted relay info
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_profile_relay_info_policy
+                
+                	Relay info policy
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                .. attribute:: snoop_profile_trusted
+                
+                	Trust
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv4Dhcpd.Snoop.Profiles.Profile, self).__init__()
+
+                    self.yang_name = "profile"
+                    self.yang_parent_name = "profiles"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.profile_name = YLeaf(YType.str, "profile-name")
+
+                    self.snoop_profile_name = YLeaf(YType.str, "snoop-profile-name")
+
+                    self.snoop_profile_uid = YLeaf(YType.uint32, "snoop-profile-uid")
+
+                    self.snoop_profile_relay_info_option = YLeaf(YType.uint8, "snoop-profile-relay-info-option")
+
+                    self.snoop_profile_relay_info_allow_untrusted = YLeaf(YType.uint8, "snoop-profile-relay-info-allow-untrusted")
+
+                    self.snoop_profile_relay_info_policy = YLeaf(YType.uint8, "snoop-profile-relay-info-policy")
+
+                    self.snoop_profile_trusted = YLeaf(YType.uint8, "snoop-profile-trusted")
+                    self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/profiles/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', 'snoop_profile_name', 'snoop_profile_uid', 'snoop_profile_relay_info_option', 'snoop_profile_relay_info_allow_untrusted', 'snoop_profile_relay_info_policy', 'snoop_profile_trusted'], name, value)
+
+
+        class Statistics(Entity):
+            """
+            DHCP Snoop Statistics
+            
+            .. attribute:: statistic
+            
+            	DHCP Snoop bridge domain statistics
+            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics.Statistic>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-dhcpd-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipv4Dhcpd.Snoop.Statistics, self).__init__()
+
+                self.yang_name = "statistics"
+                self.yang_parent_name = "snoop"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"statistic" : ("statistic", Ipv4Dhcpd.Snoop.Statistics.Statistic)}
+
+                self.statistic = YList(self)
+                self._segment_path = lambda: "statistics"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics, [], name, value)
+
+
+            class Statistic(Entity):
+                """
+                DHCP Snoop bridge domain statistics
+                
+                .. attribute:: bridge_name  <key>
+                
+                	Bridge domain name
+                	**type**\:  str
+                
+                .. attribute:: snoop_statistics_bridge_name
+                
+                	DHCP L2 bridge name
+                	**type**\:  str
+                
+                	**length:** 0..74
+                
+                .. attribute:: snoop_statistic
+                
+                	Public snoop statistics
+                	**type**\:  list of int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv4Dhcpd.Snoop.Statistics.Statistic, self).__init__()
+
+                    self.yang_name = "statistic"
+                    self.yang_parent_name = "statistics"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.bridge_name = YLeaf(YType.str, "bridge-name")
+
+                    self.snoop_statistics_bridge_name = YLeaf(YType.str, "snoop-statistics-bridge-name")
+
+                    self.snoop_statistic = YLeafList(YType.uint64, "snoop-statistic")
+                    self._segment_path = lambda: "statistic" + "[bridge-name='" + self.bridge_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/statistics/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', 'snoop_statistics_bridge_name', 'snoop_statistic'], name, value)
 
 
     class Nodes(Entity):
@@ -1311,32 +1821,30 @@ class Ipv4Dhcpd(Entity):
             	The node id to filter on. For eg., 0/1/CPU0
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: proxy
             
-            .. attribute:: base
-            
-            	IPv4 DHCP base operational data
-            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base>`
+            	IPv4 DHCP proxy operational data
+            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy>`
             
             .. attribute:: interfaces
             
             	IPv4 DHCP proxy/server Interface
             	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces>`
             
-            .. attribute:: proxy
+            .. attribute:: base
             
-            	IPv4 DHCP proxy operational data
-            	**type**\:   :py:class:`Proxy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy>`
-            
-            .. attribute:: relay
-            
-            	IPv4 DHCPD Relay operational data
-            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay>`
+            	IPv4 DHCP base operational data
+            	**type**\:   :py:class:`Base <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base>`
             
             .. attribute:: server
             
             	IPv4 DHCP Server operational data
             	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server>`
+            
+            .. attribute:: relay
+            
+            	IPv4 DHCPD Relay operational data
+            	**type**\:   :py:class:`Relay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay>`
             
             
 
@@ -1352,35 +1860,35 @@ class Ipv4Dhcpd(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"base" : ("base", Ipv4Dhcpd.Nodes.Node.Base), "interfaces" : ("interfaces", Ipv4Dhcpd.Nodes.Node.Interfaces), "proxy" : ("proxy", Ipv4Dhcpd.Nodes.Node.Proxy), "relay" : ("relay", Ipv4Dhcpd.Nodes.Node.Relay), "server" : ("server", Ipv4Dhcpd.Nodes.Node.Server)}
+                self._child_container_classes = {"proxy" : ("proxy", Ipv4Dhcpd.Nodes.Node.Proxy), "interfaces" : ("interfaces", Ipv4Dhcpd.Nodes.Node.Interfaces), "base" : ("base", Ipv4Dhcpd.Nodes.Node.Base), "server" : ("server", Ipv4Dhcpd.Nodes.Node.Server), "relay" : ("relay", Ipv4Dhcpd.Nodes.Node.Relay)}
                 self._child_list_classes = {}
 
                 self.nodeid = YLeaf(YType.str, "nodeid")
-
-                self.base = Ipv4Dhcpd.Nodes.Node.Base()
-                self.base.parent = self
-                self._children_name_map["base"] = "base"
-                self._children_yang_names.add("base")
-
-                self.interfaces = Ipv4Dhcpd.Nodes.Node.Interfaces()
-                self.interfaces.parent = self
-                self._children_name_map["interfaces"] = "interfaces"
-                self._children_yang_names.add("interfaces")
 
                 self.proxy = Ipv4Dhcpd.Nodes.Node.Proxy()
                 self.proxy.parent = self
                 self._children_name_map["proxy"] = "proxy"
                 self._children_yang_names.add("proxy")
 
-                self.relay = Ipv4Dhcpd.Nodes.Node.Relay()
-                self.relay.parent = self
-                self._children_name_map["relay"] = "relay"
-                self._children_yang_names.add("relay")
+                self.interfaces = Ipv4Dhcpd.Nodes.Node.Interfaces()
+                self.interfaces.parent = self
+                self._children_name_map["interfaces"] = "interfaces"
+                self._children_yang_names.add("interfaces")
+
+                self.base = Ipv4Dhcpd.Nodes.Node.Base()
+                self.base.parent = self
+                self._children_name_map["base"] = "base"
+                self._children_yang_names.add("base")
 
                 self.server = Ipv4Dhcpd.Nodes.Node.Server()
                 self.server.parent = self
                 self._children_name_map["server"] = "server"
                 self._children_yang_names.add("server")
+
+                self.relay = Ipv4Dhcpd.Nodes.Node.Relay()
+                self.relay.parent = self
+                self._children_name_map["relay"] = "relay"
+                self._children_yang_names.add("relay")
                 self._segment_path = lambda: "node" + "[nodeid='" + self.nodeid.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/%s" % self._segment_path()
 
@@ -1388,34 +1896,34 @@ class Ipv4Dhcpd(Entity):
                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node, ['nodeid'], name, value)
 
 
-            class Base(Entity):
+            class Proxy(Entity):
                 """
-                IPv4 DHCP base operational data
+                IPv4 DHCP proxy operational data
                 
-                .. attribute:: database
+                .. attribute:: statistics_info
                 
-                	IPv4 DHCP database
-                	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Database>`
-                
-                .. attribute:: issu_status
-                
-                	IPv4 DHCP ISSU status
-                	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.IssuStatus>`
-                
-                .. attribute:: profiles
-                
-                	IPv4 DHCP Base profile
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles>`
-                
-                .. attribute:: statistics
-                
-                	DHCP base statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
+                	DHCP proxy stats info
+                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo>`
                 
                 .. attribute:: vrfs
                 
-                	DHCP base list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs>`
+                	DHCP proxy list of VRF names
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs>`
+                
+                .. attribute:: profiles
+                
+                	IPv4 DHCP proxy profile
+                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles>`
+                
+                .. attribute:: statistics
+                
+                	DHCP proxy statistics
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics>`
+                
+                .. attribute:: binding
+                
+                	DHCP proxy bindings
+                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding>`
                 
                 
 
@@ -1425,156 +1933,49 @@ class Ipv4Dhcpd(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Base, self).__init__()
+                    super(Ipv4Dhcpd.Nodes.Node.Proxy, self).__init__()
 
-                    self.yang_name = "base"
+                    self.yang_name = "proxy"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"database" : ("database", Ipv4Dhcpd.Nodes.Node.Base.Database), "issu-status" : ("issu_status", Ipv4Dhcpd.Nodes.Node.Base.IssuStatus), "profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Base.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Base.Vrfs)}
+                    self._child_container_classes = {"statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs), "profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics), "binding" : ("binding", Ipv4Dhcpd.Nodes.Node.Proxy.Binding)}
                     self._child_list_classes = {}
 
-                    self.database = Ipv4Dhcpd.Nodes.Node.Base.Database()
-                    self.database.parent = self
-                    self._children_name_map["database"] = "database"
-                    self._children_yang_names.add("database")
+                    self.statistics_info = Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo()
+                    self.statistics_info.parent = self
+                    self._children_name_map["statistics_info"] = "statistics-info"
+                    self._children_yang_names.add("statistics-info")
 
-                    self.issu_status = Ipv4Dhcpd.Nodes.Node.Base.IssuStatus()
-                    self.issu_status.parent = self
-                    self._children_name_map["issu_status"] = "issu-status"
-                    self._children_yang_names.add("issu-status")
+                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs()
+                    self.vrfs.parent = self
+                    self._children_name_map["vrfs"] = "vrfs"
+                    self._children_yang_names.add("vrfs")
 
-                    self.profiles = Ipv4Dhcpd.Nodes.Node.Base.Profiles()
+                    self.profiles = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles()
                     self.profiles.parent = self
                     self._children_name_map["profiles"] = "profiles"
                     self._children_yang_names.add("profiles")
 
-                    self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Statistics()
+                    self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Statistics()
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
 
-                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Base.Vrfs()
-                    self.vrfs.parent = self
-                    self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
-                    self._segment_path = lambda: "base"
+                    self.binding = Ipv4Dhcpd.Nodes.Node.Proxy.Binding()
+                    self.binding.parent = self
+                    self._children_name_map["binding"] = "binding"
+                    self._children_yang_names.add("binding")
+                    self._segment_path = lambda: "proxy"
 
 
-                class Database(Entity):
+                class StatisticsInfo(Entity):
                     """
-                    IPv4 DHCP database
+                    DHCP proxy stats info
                     
-                    .. attribute:: configured
+                    .. attribute:: proxy_stats_timestamp
                     
-                    	Database feature configured
-                    	**type**\:  bool
-                    
-                    .. attribute:: failed_full_file_write_count
-                    
-                    	Failed full file write count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: failed_incremental_file_write_count
-                    
-                    	Failed incremental file write count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: full_file_record_count
-                    
-                    	Full file record count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: full_file_write_count
-                    
-                    	Full file write count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: full_file_write_interval
-                    
-                    	Full file write interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: incremental_file_record_count
-                    
-                    	Incremental file record count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: incremental_file_write_count
-                    
-                    	Incremental file write count
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: incremental_file_write_interval
-                    
-                    	Incremental file write interval in minutes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: minute
-                    
-                    .. attribute:: last_full_file_write_error_timestamp
-                    
-                    	Last full file write error timestamp since epoch
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_full_write_file_name
-                    
-                    	Last full write file name
-                    	**type**\:  str
-                    
-                    	**length:** 0..64
-                    
-                    .. attribute:: last_full_write_time
-                    
-                    	Last full write time since epoch
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_incremental_file_write_error_timestamp
-                    
-                    	Last incremental file write error timestamp since epoch
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: last_incremental_write_file_name
-                    
-                    	Last incremental write file name
-                    	**type**\:  str
-                    
-                    	**length:** 0..64
-                    
-                    .. attribute:: last_incremental_write_time
-                    
-                    	Last incremental write time since epoch
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: version
-                    
-                    	Current file version
+                    	Proxy Stats timestamp
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1587,125 +1988,30 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Database, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, self).__init__()
 
-                        self.yang_name = "database"
-                        self.yang_parent_name = "base"
+                        self.yang_name = "statistics-info"
+                        self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.configured = YLeaf(YType.boolean, "configured")
-
-                        self.failed_full_file_write_count = YLeaf(YType.uint32, "failed-full-file-write-count")
-
-                        self.failed_incremental_file_write_count = YLeaf(YType.uint32, "failed-incremental-file-write-count")
-
-                        self.full_file_record_count = YLeaf(YType.uint32, "full-file-record-count")
-
-                        self.full_file_write_count = YLeaf(YType.uint32, "full-file-write-count")
-
-                        self.full_file_write_interval = YLeaf(YType.uint32, "full-file-write-interval")
-
-                        self.incremental_file_record_count = YLeaf(YType.uint32, "incremental-file-record-count")
-
-                        self.incremental_file_write_count = YLeaf(YType.uint32, "incremental-file-write-count")
-
-                        self.incremental_file_write_interval = YLeaf(YType.uint32, "incremental-file-write-interval")
-
-                        self.last_full_file_write_error_timestamp = YLeaf(YType.uint32, "last-full-file-write-error-timestamp")
-
-                        self.last_full_write_file_name = YLeaf(YType.str, "last-full-write-file-name")
-
-                        self.last_full_write_time = YLeaf(YType.uint32, "last-full-write-time")
-
-                        self.last_incremental_file_write_error_timestamp = YLeaf(YType.uint32, "last-incremental-file-write-error-timestamp")
-
-                        self.last_incremental_write_file_name = YLeaf(YType.str, "last-incremental-write-file-name")
-
-                        self.last_incremental_write_time = YLeaf(YType.uint32, "last-incremental-write-time")
-
-                        self.version = YLeaf(YType.uint32, "version")
-                        self._segment_path = lambda: "database"
+                        self.proxy_stats_timestamp = YLeaf(YType.uint32, "proxy-stats-timestamp")
+                        self._segment_path = lambda: "statistics-info"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, ['configured', 'failed_full_file_write_count', 'failed_incremental_file_write_count', 'full_file_record_count', 'full_file_write_count', 'full_file_write_interval', 'incremental_file_record_count', 'incremental_file_write_count', 'incremental_file_write_interval', 'last_full_file_write_error_timestamp', 'last_full_write_file_name', 'last_full_write_time', 'last_incremental_file_write_error_timestamp', 'last_incremental_write_file_name', 'last_incremental_write_time', 'version'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
 
 
-                class IssuStatus(Entity):
+                class Vrfs(Entity):
                     """
-                    IPv4 DHCP ISSU status
+                    DHCP proxy list of VRF names
                     
-                    .. attribute:: big_bang_time
+                    .. attribute:: vrf
                     
-                    	Timestamp for the Big Bang notification time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: issu_ready_entries_replicate
-                    
-                    	Whether or not DHCP has received all replicated entries during the ISSU Load Phase
-                    	**type**\:  bool
-                    
-                    .. attribute:: issu_ready_issu_mgr_connection
-                    
-                    	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
-                    	**type**\:  bool
-                    
-                    .. attribute:: issu_ready_time
-                    
-                    	Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: issu_sync_complete_time
-                    
-                    	Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: issu_sync_start_time
-                    
-                    	Timestamp for the ISSU sync start in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC, January 1, 1970
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: phase
-                    
-                    	The current ISSU phase of the DHCP process
-                    	**type**\:   :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuPhase>`
-                    
-                    .. attribute:: primary_role_time
-                    
-                    	Timestamp for the change to Primary role notification time in nanoseconds since Epoch, i .e. since 00\:00\:00 UTC, January 1, 1970
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: nanosecond
-                    
-                    .. attribute:: role
-                    
-                    	The current role of the DHCP process
-                    	**type**\:   :py:class:`DhcpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuRole>`
-                    
-                    .. attribute:: version
-                    
-                    	The current version of the DHCP process in the context of an ISSU
-                    	**type**\:   :py:class:`DhcpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuVersion>`
+                    	IPv4 DHCP proxy VRF name
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf>`
                     
                     
 
@@ -1715,133 +2021,35 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, self).__init__()
 
-                        self.yang_name = "issu-status"
-                        self.yang_parent_name = "base"
+                        self.yang_name = "vrfs"
+                        self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {}
+                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf)}
 
-                        self.big_bang_time = YLeaf(YType.uint64, "big-bang-time")
-
-                        self.issu_ready_entries_replicate = YLeaf(YType.boolean, "issu-ready-entries-replicate")
-
-                        self.issu_ready_issu_mgr_connection = YLeaf(YType.boolean, "issu-ready-issu-mgr-connection")
-
-                        self.issu_ready_time = YLeaf(YType.uint64, "issu-ready-time")
-
-                        self.issu_sync_complete_time = YLeaf(YType.uint64, "issu-sync-complete-time")
-
-                        self.issu_sync_start_time = YLeaf(YType.uint64, "issu-sync-start-time")
-
-                        self.phase = YLeaf(YType.enumeration, "phase")
-
-                        self.primary_role_time = YLeaf(YType.uint64, "primary-role-time")
-
-                        self.role = YLeaf(YType.enumeration, "role")
-
-                        self.version = YLeaf(YType.enumeration, "version")
-                        self._segment_path = lambda: "issu-status"
+                        self.vrf = YList(self)
+                        self._segment_path = lambda: "vrfs"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, ['big_bang_time', 'issu_ready_entries_replicate', 'issu_ready_issu_mgr_connection', 'issu_ready_time', 'issu_sync_complete_time', 'issu_sync_start_time', 'phase', 'primary_role_time', 'role', 'version'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, [], name, value)
 
 
-                class Profiles(Entity):
-                    """
-                    IPv4 DHCP Base profile
-                    
-                    .. attribute:: profile
-                    
-                    	IPv4 DHCP base profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles, self).__init__()
-
-                        self.yang_name = "profiles"
-                        self.yang_parent_name = "base"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile)}
-
-                        self.profile = YList(self)
-                        self._segment_path = lambda: "profiles"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles, [], name, value)
-
-
-                    class Profile(Entity):
+                    class Vrf(Entity):
                         """
-                        IPv4 DHCP base profile
+                        IPv4 DHCP proxy VRF name
                         
-                        .. attribute:: profile_name  <key>
+                        .. attribute:: vrf_name  <key>
                         
-                        	Profile name
+                        	VRF name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        .. attribute:: statistics
                         
-                        .. attribute:: base_default_profile_name
-                        
-                        	Base Default Profile name
-                        	**type**\:  str
-                        
-                        	**length:** 0..65
-                        
-                        .. attribute:: child_profile_count
-                        
-                        	Child profile count
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: child_profile_info
-                        
-                        	child profile info
-                        	**type**\:   :py:class:`ChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo>`
-                        
-                        .. attribute:: default_profile_mode
-                        
-                        	Default Profile mode
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: interface_references
-                        
-                        	Interface references
-                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences>`
-                        
-                        .. attribute:: intf_ref_count
-                        
-                        	Interface reference count
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_authenticate
-                        
-                        	Relay authenticate
-                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
-                        
-                        .. attribute:: remote_id
-                        
-                        	DHCP configured Remote ID
-                        	**type**\:  str
-                        
-                        	**length:** 0..768
+                        	IPv4 DHCP proxy statistics
+                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
                         
                         
 
@@ -1851,52 +2059,100 @@ class Ipv4Dhcpd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, self).__init__()
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
 
-                            self.yang_name = "profile"
-                            self.yang_parent_name = "profiles"
+                            self.yang_name = "vrf"
+                            self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"child-profile-info" : ("child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo), "interface-references" : ("interface_references", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences)}
+                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics)}
                             self._child_list_classes = {}
 
-                            self.profile_name = YLeaf(YType.str, "profile-name")
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                            self.base_default_profile_name = YLeaf(YType.str, "base-default-profile-name")
-
-                            self.child_profile_count = YLeaf(YType.uint8, "child-profile-count")
-
-                            self.default_profile_mode = YLeaf(YType.uint8, "default-profile-mode")
-
-                            self.intf_ref_count = YLeaf(YType.uint8, "intf-ref-count")
-
-                            self.relay_authenticate = YLeaf(YType.enumeration, "relay-authenticate")
-
-                            self.remote_id = YLeaf(YType.str, "remote-id")
-
-                            self.child_profile_info = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo()
-                            self.child_profile_info.parent = self
-                            self._children_name_map["child_profile_info"] = "child-profile-info"
-                            self._children_yang_names.add("child-profile-info")
-
-                            self.interface_references = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences()
-                            self.interface_references.parent = self
-                            self._children_name_map["interface_references"] = "interface-references"
-                            self._children_yang_names.add("interface-references")
-                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+                            self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                            self._children_yang_names.add("statistics")
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', 'base_default_profile_name', 'child_profile_count', 'default_profile_mode', 'intf_ref_count', 'relay_authenticate', 'remote_id'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
-                        class ChildProfileInfo(Entity):
+                        class Statistics(Entity):
                             """
-                            child profile info
+                            IPv4 DHCP proxy statistics
                             
-                            .. attribute:: ipv4_dhcpd_base_child_profile_info
+                            .. attribute:: discover
                             
-                            	ipv4 dhcpd base child profile info
-                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo>`
+                            	DHCP discover packets
+                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover>`
+                            
+                            .. attribute:: offer
+                            
+                            	DHCP offer packets
+                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer>`
+                            
+                            .. attribute:: request
+                            
+                            	DHCP request packets
+                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: decline
+                            
+                            	DHCP decline packets
+                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            .. attribute:: ack
+                            
+                            	DHCP ack packets
+                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack>`
+                            
+                            .. attribute:: nak
+                            
+                            	DHCP nak packets
+                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak>`
+                            
+                            .. attribute:: release
+                            
+                            	DHCP release packets
+                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
+                            
+                            .. attribute:: inform
+                            
+                            	DHCP inform packets
+                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCP lease query packets
+                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_not_assigned
+                            
+                            	DHCP lease not assigned
+                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            .. attribute:: lease_unknown
+                            
+                            	DHCP lease unknown
+                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            
+                            .. attribute:: lease_active
+                            
+                            	DHCP lease active
+                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            .. attribute:: bootp_request
+                            
+                            	DHCP BOOTP request
+                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest>`
+                            
+                            .. attribute:: bootp_reply
+                            
+                            	DHCP BOOTP reply
+                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -1906,60 +2162,111 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
 
-                                self.yang_name = "child-profile-info"
-                                self.yang_parent_name = "profile"
+                                self.yang_name = "statistics"
+                                self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"ipv4-dhcpd-base-child-profile-info" : ("ipv4_dhcpd_base_child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo)}
+                                self._child_container_classes = {"discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline), "ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply)}
+                                self._child_list_classes = {}
 
-                                self.ipv4_dhcpd_base_child_profile_info = YList(self)
-                                self._segment_path = lambda: "child-profile-info"
+                                self.discover = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover()
+                                self.discover.parent = self
+                                self._children_name_map["discover"] = "discover"
+                                self._children_yang_names.add("discover")
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, [], name, value)
+                                self.offer = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer()
+                                self.offer.parent = self
+                                self._children_name_map["offer"] = "offer"
+                                self._children_yang_names.add("offer")
+
+                                self.request = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self._children_name_map["request"] = "request"
+                                self._children_yang_names.add("request")
+
+                                self.decline = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline()
+                                self.decline.parent = self
+                                self._children_name_map["decline"] = "decline"
+                                self._children_yang_names.add("decline")
+
+                                self.ack = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack()
+                                self.ack.parent = self
+                                self._children_name_map["ack"] = "ack"
+                                self._children_yang_names.add("ack")
+
+                                self.nak = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak()
+                                self.nak.parent = self
+                                self._children_name_map["nak"] = "nak"
+                                self._children_yang_names.add("nak")
+
+                                self.release = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release()
+                                self.release.parent = self
+                                self._children_name_map["release"] = "release"
+                                self._children_yang_names.add("release")
+
+                                self.inform = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform()
+                                self.inform.parent = self
+                                self._children_name_map["inform"] = "inform"
+                                self._children_yang_names.add("inform")
+
+                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self._children_name_map["lease_query"] = "lease-query"
+                                self._children_yang_names.add("lease-query")
+
+                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned()
+                                self.lease_not_assigned.parent = self
+                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
+                                self._children_yang_names.add("lease-not-assigned")
+
+                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown()
+                                self.lease_unknown.parent = self
+                                self._children_name_map["lease_unknown"] = "lease-unknown"
+                                self._children_yang_names.add("lease-unknown")
+
+                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive()
+                                self.lease_active.parent = self
+                                self._children_name_map["lease_active"] = "lease-active"
+                                self._children_yang_names.add("lease-active")
+
+                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest()
+                                self.bootp_request.parent = self
+                                self._children_name_map["bootp_request"] = "bootp-request"
+                                self._children_yang_names.add("bootp-request")
+
+                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply()
+                                self.bootp_reply.parent = self
+                                self._children_name_map["bootp_reply"] = "bootp-reply"
+                                self._children_yang_names.add("bootp-reply")
+                                self._segment_path = lambda: "statistics"
 
 
-                            class Ipv4DhcpdBaseChildProfileInfo(Entity):
+                            class Discover(Entity):
                                 """
-                                ipv4 dhcpd base child profile info
+                                DHCP discover packets
                                 
-                                .. attribute:: base_child_profile_name
+                                .. attribute:: received_packets
                                 
-                                	Base Child Profile name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                .. attribute:: matched_option_code
-                                
-                                	Matched option code
+                                	Received packets
                                 	**type**\:  int
                                 
-                                	**range:** 0..255
+                                	**range:** 0..18446744073709551615
                                 
-                                .. attribute:: matched_option_len
+                                .. attribute:: transmitted_packets
                                 
-                                	Matched option len
+                                	Transmitted packets
                                 	**type**\:  int
                                 
-                                	**range:** 0..255
+                                	**range:** 0..18446744073709551615
                                 
-                                .. attribute:: mode
+                                .. attribute:: dropped_packets
                                 
-                                	Profile mode
+                                	Dropped packets
                                 	**type**\:  int
                                 
-                                	**range:** 0..255
-                                
-                                .. attribute:: option_data
-                                
-                                	Matched option data
-                                	**type**\:  str
-                                
-                                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                                	**range:** 0..18446744073709551615
                                 
                                 
 
@@ -1969,38 +2276,922 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, self).__init__()
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, self).__init__()
 
-                                    self.yang_name = "ipv4-dhcpd-base-child-profile-info"
-                                    self.yang_parent_name = "child-profile-info"
+                                    self.yang_name = "discover"
+                                    self.yang_parent_name = "statistics"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.base_child_profile_name = YLeaf(YType.str, "base-child-profile-name")
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
 
-                                    self.matched_option_code = YLeaf(YType.uint8, "matched-option-code")
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
 
-                                    self.matched_option_len = YLeaf(YType.uint8, "matched-option-len")
-
-                                    self.mode = YLeaf(YType.uint8, "mode")
-
-                                    self.option_data = YLeaf(YType.str, "option-data")
-                                    self._segment_path = lambda: "ipv4-dhcpd-base-child-profile-info"
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "discover"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, ['base_child_profile_name', 'matched_option_code', 'matched_option_len', 'mode', 'option_data'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
-                        class InterfaceReferences(Entity):
+                            class Offer(Entity):
+                                """
+                                DHCP offer packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, self).__init__()
+
+                                    self.yang_name = "offer"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "offer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Request(Entity):
+                                """
+                                DHCP request packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
+
+                                    self.yang_name = "request"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Decline(Entity):
+                                """
+                                DHCP decline packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
+
+                                    self.yang_name = "decline"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "decline"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Ack(Entity):
+                                """
+                                DHCP ack packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, self).__init__()
+
+                                    self.yang_name = "ack"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "ack"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Nak(Entity):
+                                """
+                                DHCP nak packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, self).__init__()
+
+                                    self.yang_name = "nak"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "nak"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Release(Entity):
+                                """
+                                DHCP release packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
+
+                                    self.yang_name = "release"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "release"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Inform(Entity):
+                                """
+                                DHCP inform packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
+
+                                    self.yang_name = "inform"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "inform"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseQuery(Entity):
+                                """
+                                DHCP lease query packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+
+                                    self.yang_name = "lease-query"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-query"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseNotAssigned(Entity):
+                                """
+                                DHCP lease not assigned
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+
+                                    self.yang_name = "lease-not-assigned"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-not-assigned"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseUnknown(Entity):
+                                """
+                                DHCP lease unknown
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+
+                                    self.yang_name = "lease-unknown"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-unknown"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseActive(Entity):
+                                """
+                                DHCP lease active
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+
+                                    self.yang_name = "lease-active"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-active"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpRequest(Entity):
+                                """
+                                DHCP BOOTP request
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+
+                                    self.yang_name = "bootp-request"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpReply(Entity):
+                                """
+                                DHCP BOOTP reply
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+
+                                    self.yang_name = "bootp-reply"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-reply"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                class Profiles(Entity):
+                    """
+                    IPv4 DHCP proxy profile
+                    
+                    .. attribute:: profile
+                    
+                    	IPv4 DHCP proxy profile
+                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, self).__init__()
+
+                        self.yang_name = "profiles"
+                        self.yang_parent_name = "proxy"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile)}
+
+                        self.profile = YList(self)
+                        self._segment_path = lambda: "profiles"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, [], name, value)
+
+
+                    class Profile(Entity):
+                        """
+                        IPv4 DHCP proxy profile
+                        
+                        .. attribute:: profile_name  <key>
+                        
+                        	Profile name
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_references
+                        
+                        	VRF references
+                        	**type**\:   :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences>`
+                        
+                        .. attribute:: interface_references
+                        
+                        	Interface references
+                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences>`
+                        
+                        .. attribute:: is_relay_option_enabled
+                        
+                        	Is true if relay option is enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: relay_policy
+                        
+                        	Relay policy
+                        	**type**\:   :py:class:`RelayInfoPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoPolicy>`
+                        
+                        .. attribute:: relay_authenticate
+                        
+                        	Relay authenticate
+                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        
+                        .. attribute:: is_relay_allow_untrusted_enabled
+                        
+                        	Is true if relay untrusted is enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_relay_optionvpn_enabled
+                        
+                        	Is true if relay VPN enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: relay_optionvpn_enabled_mode
+                        
+                        	Relay VPN RFC/Cisco mode
+                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
+                        
+                        .. attribute:: is_relay_check
+                        
+                        	Is true if relay check enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_move_allowed
+                        
+                        	Is true if dhcp subscriber is allowed to move
+                        	**type**\:  bool
+                        
+                        .. attribute:: proxy_broadcast_flag_policy
+                        
+                        	Broadcast policy
+                        	**type**\:   :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BroadcastFlag>`
+                        
+                        .. attribute:: proxy_profile_client_lease_time
+                        
+                        	Client lease time in seconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: second
+                        
+                        .. attribute:: proxy_lease_limit_type
+                        
+                        	Lease limit type
+                        	**type**\:   :py:class:`ProxyLeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.ProxyLeaseLimit>`
+                        
+                        .. attribute:: proxy_lease_limit_count
+                        
+                        	Lease limit count
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: profile_helper_address
+                        
+                        	Helper addresses
+                        	**type**\:  list of str
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF names
+                        	**type**\:  list of str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: gi_addr
+                        
+                        	Gateway addresses
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
+
+                            self.yang_name = "profile"
+                            self.yang_parent_name = "profiles"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"vrf-references" : ("vrf_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences), "interface-references" : ("interface_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences)}
+                            self._child_list_classes = {}
+
+                            self.profile_name = YLeaf(YType.str, "profile-name")
+
+                            self.is_relay_option_enabled = YLeaf(YType.boolean, "is-relay-option-enabled")
+
+                            self.relay_policy = YLeaf(YType.enumeration, "relay-policy")
+
+                            self.relay_authenticate = YLeaf(YType.enumeration, "relay-authenticate")
+
+                            self.is_relay_allow_untrusted_enabled = YLeaf(YType.boolean, "is-relay-allow-untrusted-enabled")
+
+                            self.is_relay_optionvpn_enabled = YLeaf(YType.boolean, "is-relay-optionvpn-enabled")
+
+                            self.relay_optionvpn_enabled_mode = YLeaf(YType.enumeration, "relay-optionvpn-enabled-mode")
+
+                            self.is_relay_check = YLeaf(YType.boolean, "is-relay-check")
+
+                            self.is_move_allowed = YLeaf(YType.boolean, "is-move-allowed")
+
+                            self.proxy_broadcast_flag_policy = YLeaf(YType.enumeration, "proxy-broadcast-flag-policy")
+
+                            self.proxy_profile_client_lease_time = YLeaf(YType.uint32, "proxy-profile-client-lease-time")
+
+                            self.proxy_lease_limit_type = YLeaf(YType.enumeration, "proxy-lease-limit-type")
+
+                            self.proxy_lease_limit_count = YLeaf(YType.uint32, "proxy-lease-limit-count")
+
+                            self.profile_helper_address = YLeafList(YType.str, "profile-helper-address")
+
+                            self.vrf_name = YLeafList(YType.str, "vrf-name")
+
+                            self.gi_addr = YLeafList(YType.str, "gi-addr")
+
+                            self.vrf_references = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences()
+                            self.vrf_references.parent = self
+                            self._children_name_map["vrf_references"] = "vrf-references"
+                            self._children_yang_names.add("vrf-references")
+
+                            self.interface_references = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences()
+                            self.interface_references.parent = self
+                            self._children_name_map["interface_references"] = "interface-references"
+                            self._children_yang_names.add("interface-references")
+                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', 'is_relay_option_enabled', 'relay_policy', 'relay_authenticate', 'is_relay_allow_untrusted_enabled', 'is_relay_optionvpn_enabled', 'relay_optionvpn_enabled_mode', 'is_relay_check', 'is_move_allowed', 'proxy_broadcast_flag_policy', 'proxy_profile_client_lease_time', 'proxy_lease_limit_type', 'proxy_lease_limit_count', 'profile_helper_address', 'vrf_name', 'gi_addr'], name, value)
+
+
+                        class VrfReferences(Entity):
                             """
-                            Interface references
+                            VRF references
                             
-                            .. attribute:: ipv4_dhcpd_base_interface_reference
+                            .. attribute:: ipv4_dhcpd_proxy_vrf_reference
                             
-                            	ipv4 dhcpd base interface reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference>`
+                            	ipv4 dhcpd proxy vrf reference
+                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference>`
                             
                             
 
@@ -2010,27 +3201,95 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, self).__init__()
+
+                                self.yang_name = "vrf-references"
+                                self.yang_parent_name = "profile"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"ipv4-dhcpd-proxy-vrf-reference" : ("ipv4_dhcpd_proxy_vrf_reference", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference)}
+
+                                self.ipv4_dhcpd_proxy_vrf_reference = YList(self)
+                                self._segment_path = lambda: "vrf-references"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, [], name, value)
+
+
+                            class Ipv4DhcpdProxyVrfReference(Entity):
+                                """
+                                ipv4 dhcpd proxy vrf reference
+                                
+                                .. attribute:: proxy_reference_vrf_name
+                                
+                                	VRF name
+                                	**type**\:  str
+                                
+                                	**length:** 0..33
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, self).__init__()
+
+                                    self.yang_name = "ipv4-dhcpd-proxy-vrf-reference"
+                                    self.yang_parent_name = "vrf-references"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.proxy_reference_vrf_name = YLeaf(YType.str, "proxy-reference-vrf-name")
+                                    self._segment_path = lambda: "ipv4-dhcpd-proxy-vrf-reference"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+
+
+                        class InterfaceReferences(Entity):
+                            """
+                            Interface references
+                            
+                            .. attribute:: ipv4_dhcpd_proxy_interface_reference
+                            
+                            	ipv4 dhcpd proxy interface reference
+                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, self).__init__()
 
                                 self.yang_name = "interface-references"
                                 self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
-                                self._child_list_classes = {"ipv4-dhcpd-base-interface-reference" : ("ipv4_dhcpd_base_interface_reference", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference)}
+                                self._child_list_classes = {"ipv4-dhcpd-proxy-interface-reference" : ("ipv4_dhcpd_proxy_interface_reference", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference)}
 
-                                self.ipv4_dhcpd_base_interface_reference = YList(self)
+                                self.ipv4_dhcpd_proxy_interface_reference = YList(self)
                                 self._segment_path = lambda: "interface-references"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, [], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, [], name, value)
 
 
-                            class Ipv4DhcpdBaseInterfaceReference(Entity):
+                            class Ipv4DhcpdProxyInterfaceReference(Entity):
                                 """
-                                ipv4 dhcpd base interface reference
+                                ipv4 dhcpd proxy interface reference
                                 
-                                .. attribute:: base_reference_interface_name
+                                .. attribute:: proxy_reference_interface_name
                                 
                                 	Interface name
                                 	**type**\:  str
@@ -2045,30 +3304,30 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, self).__init__()
+                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, self).__init__()
 
-                                    self.yang_name = "ipv4-dhcpd-base-interface-reference"
+                                    self.yang_name = "ipv4-dhcpd-proxy-interface-reference"
                                     self.yang_parent_name = "interface-references"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.base_reference_interface_name = YLeaf(YType.str, "base-reference-interface-name")
-                                    self._segment_path = lambda: "ipv4-dhcpd-base-interface-reference"
+                                    self.proxy_reference_interface_name = YLeaf(YType.str, "proxy-reference-interface-name")
+                                    self._segment_path = lambda: "ipv4-dhcpd-proxy-interface-reference"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, ['base_reference_interface_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
 
 
                 class Statistics(Entity):
                     """
-                    DHCP base statistics
+                    DHCP proxy statistics
                     
                     .. attribute:: ipv4_dhcpd_proxy_stat
                     
                     	ipv4 dhcpd proxy stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat>`
+                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat>`
                     
                     
 
@@ -2078,20 +3337,20 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Statistics, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
-                        self.yang_parent_name = "base"
+                        self.yang_parent_name = "proxy"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"ipv4-dhcpd-proxy-stat" : ("ipv4_dhcpd_proxy_stat", Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat)}
+                        self._child_list_classes = {"ipv4-dhcpd-proxy-stat" : ("ipv4_dhcpd_proxy_stat", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat)}
 
                         self.ipv4_dhcpd_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics, [], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, [], name, value)
 
 
                     class Ipv4DhcpdProxyStat(Entity):
@@ -2101,7 +3360,7 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics>`
+                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
@@ -2118,37 +3377,30 @@ class Ipv4Dhcpd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, self).__init__()
+                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-proxy-stat"
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics)}
+                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics)}
                             self._child_list_classes = {}
 
                             self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                            self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics()
+                            self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
                             self._segment_path = lambda: "ipv4-dhcpd-proxy-stat"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
                         class Statistics(Entity):
                             """
                             Proxy statistics
-                            
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_packets
                             
@@ -2164,6 +3416,13 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             
 
                             """
@@ -2172,7 +3431,7 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-proxy-stat"
@@ -2181,1216 +3440,15 @@ class Ipv4Dhcpd(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                 self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                 self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                class Vrfs(Entity):
-                    """
-                    DHCP base list of VRF names
-                    
-                    .. attribute:: vrf
-                    
-                    	IPv4 DHCP base VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, self).__init__()
-
-                        self.yang_name = "vrfs"
-                        self.yang_parent_name = "base"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf)}
-
-                        self.vrf = YList(self)
-                        self._segment_path = lambda: "vrfs"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, [], name, value)
-
-
-                    class Vrf(Entity):
-                        """
-                        IPv4 DHCP base VRF name
-                        
-                        .. attribute:: vrf_name  <key>
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: statistics
-                        
-                        	IPv4 DHCP base statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, self).__init__()
-
-                            self.yang_name = "vrf"
-                            self.yang_parent_name = "vrfs"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics()
-                            self.statistics.parent = self
-                            self._children_name_map["statistics"] = "statistics"
-                            self._children_yang_names.add("statistics")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, ['vrf_name'], name, value)
-
-
-                        class Statistics(Entity):
-                            """
-                            IPv4 DHCP base statistics
-                            
-                            .. attribute:: ack
-                            
-                            	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack>`
-                            
-                            .. attribute:: bootp_reply
-                            
-                            	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply>`
-                            
-                            .. attribute:: bootp_request
-                            
-                            	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest>`
-                            
-                            .. attribute:: decline
-                            
-                            	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline>`
-                            
-                            .. attribute:: discover
-                            
-                            	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform>`
-                            
-                            .. attribute:: lease_active
-                            
-                            	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive>`
-                            
-                            .. attribute:: lease_not_assigned
-                            
-                            	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
-                            
-                            .. attribute:: lease_query
-                            
-                            	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery>`
-                            
-                            .. attribute:: lease_unknown
-                            
-                            	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown>`
-                            
-                            .. attribute:: nak
-                            
-                            	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak>`
-                            
-                            .. attribute:: offer
-                            
-                            	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer>`
-                            
-                            .. attribute:: release
-                            
-                            	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release>`
-                            
-                            .. attribute:: request
-                            
-                            	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, self).__init__()
-
-                                self.yang_name = "statistics"
-                                self.yang_parent_name = "vrf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline), "discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request)}
-                                self._child_list_classes = {}
-
-                                self.ack = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack()
-                                self.ack.parent = self
-                                self._children_name_map["ack"] = "ack"
-                                self._children_yang_names.add("ack")
-
-                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply()
-                                self.bootp_reply.parent = self
-                                self._children_name_map["bootp_reply"] = "bootp-reply"
-                                self._children_yang_names.add("bootp-reply")
-
-                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest()
-                                self.bootp_request.parent = self
-                                self._children_name_map["bootp_request"] = "bootp-request"
-                                self._children_yang_names.add("bootp-request")
-
-                                self.decline = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline()
-                                self.decline.parent = self
-                                self._children_name_map["decline"] = "decline"
-                                self._children_yang_names.add("decline")
-
-                                self.discover = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover()
-                                self.discover.parent = self
-                                self._children_name_map["discover"] = "discover"
-                                self._children_yang_names.add("discover")
-
-                                self.inform = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform()
-                                self.inform.parent = self
-                                self._children_name_map["inform"] = "inform"
-                                self._children_yang_names.add("inform")
-
-                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive()
-                                self.lease_active.parent = self
-                                self._children_name_map["lease_active"] = "lease-active"
-                                self._children_yang_names.add("lease-active")
-
-                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned()
-                                self.lease_not_assigned.parent = self
-                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
-                                self._children_yang_names.add("lease-not-assigned")
-
-                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self._children_name_map["lease_query"] = "lease-query"
-                                self._children_yang_names.add("lease-query")
-
-                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown()
-                                self.lease_unknown.parent = self
-                                self._children_name_map["lease_unknown"] = "lease-unknown"
-                                self._children_yang_names.add("lease-unknown")
-
-                                self.nak = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak()
-                                self.nak.parent = self
-                                self._children_name_map["nak"] = "nak"
-                                self._children_yang_names.add("nak")
-
-                                self.offer = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer()
-                                self.offer.parent = self
-                                self._children_name_map["offer"] = "offer"
-                                self._children_yang_names.add("offer")
-
-                                self.release = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release()
-                                self.release.parent = self
-                                self._children_name_map["release"] = "release"
-                                self._children_yang_names.add("release")
-
-                                self.request = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self._children_name_map["request"] = "request"
-                                self._children_yang_names.add("request")
-                                self._segment_path = lambda: "statistics"
-
-
-                            class Ack(Entity):
-                                """
-                                DHCP ack packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, self).__init__()
-
-                                    self.yang_name = "ack"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "ack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpReply(Entity):
-                                """
-                                DHCP BOOTP reply
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
-
-                                    self.yang_name = "bootp-reply"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-reply"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpRequest(Entity):
-                                """
-                                DHCP BOOTP request
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
-
-                                    self.yang_name = "bootp-request"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Decline(Entity):
-                                """
-                                DHCP decline packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, self).__init__()
-
-                                    self.yang_name = "decline"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "decline"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Discover(Entity):
-                                """
-                                DHCP discover packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, self).__init__()
-
-                                    self.yang_name = "discover"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "discover"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Inform(Entity):
-                                """
-                                DHCP inform packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, self).__init__()
-
-                                    self.yang_name = "inform"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "inform"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseActive(Entity):
-                                """
-                                DHCP lease active
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
-
-                                    self.yang_name = "lease-active"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-active"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseNotAssigned(Entity):
-                                """
-                                DHCP lease not assigned
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
-
-                                    self.yang_name = "lease-not-assigned"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-not-assigned"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseQuery(Entity):
-                                """
-                                DHCP lease query packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
-
-                                    self.yang_name = "lease-query"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-query"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseUnknown(Entity):
-                                """
-                                DHCP lease unknown
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
-
-                                    self.yang_name = "lease-unknown"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-unknown"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Nak(Entity):
-                                """
-                                DHCP nak packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, self).__init__()
-
-                                    self.yang_name = "nak"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "nak"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Offer(Entity):
-                                """
-                                DHCP offer packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, self).__init__()
-
-                                    self.yang_name = "offer"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "offer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Release(Entity):
-                                """
-                                DHCP release packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, self).__init__()
-
-                                    self.yang_name = "release"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "release"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Request(Entity):
-                                """
-                                DHCP request packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, self).__init__()
-
-                                    self.yang_name = "request"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-            class Interfaces(Entity):
-                """
-                IPv4 DHCP proxy/server Interface
-                
-                .. attribute:: interface
-                
-                	IPv4 DHCP proxy/server interface info
-                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces.Interface>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Interfaces, self).__init__()
-
-                    self.yang_name = "interfaces"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"interface" : ("interface", Ipv4Dhcpd.Nodes.Node.Interfaces.Interface)}
-
-                    self.interface = YList(self)
-                    self._segment_path = lambda: "interfaces"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces, [], name, value)
-
-
-                class Interface(Entity):
-                    """
-                    IPv4 DHCP proxy/server interface info
-                    
-                    .. attribute:: interface_name  <key>
-                    
-                    	Interface Name
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: intf_ifhandle
-                    
-                    	Ifhandle of the interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: intf_is_ambiguous
-                    
-                    	Is interface ambiguous
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: intf_lease_limit_count
-                    
-                    	Lease limit count on interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: intf_lease_limit_type
-                    
-                    	Lease limit type on interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: intf_mode
-                    
-                    	Mode of interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: intf_profile_name
-                    
-                    	Name of profile attached to the interface
-                    	**type**\:  str
-                    
-                    	**length:** 0..65
-                    
-                    .. attribute:: mac_throttle
-                    
-                    	Mac Throttle Status
-                    	**type**\:  bool
-                    
-                    .. attribute:: srg_role
-                    
-                    	DHCPv6 Interface SRG role
-                    	**type**\:   :py:class:`BagDhcpdIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdIntfSrgRole>`
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF name
-                    	**type**\:  str
-                    
-                    	**length:** 0..33
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, self).__init__()
-
-                        self.yang_name = "interface"
-                        self.yang_parent_name = "interfaces"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                        self.intf_ifhandle = YLeaf(YType.uint32, "intf-ifhandle")
-
-                        self.intf_is_ambiguous = YLeaf(YType.uint32, "intf-is-ambiguous")
-
-                        self.intf_lease_limit_count = YLeaf(YType.uint32, "intf-lease-limit-count")
-
-                        self.intf_lease_limit_type = YLeaf(YType.uint32, "intf-lease-limit-type")
-
-                        self.intf_mode = YLeaf(YType.uint32, "intf-mode")
-
-                        self.intf_profile_name = YLeaf(YType.str, "intf-profile-name")
-
-                        self.mac_throttle = YLeaf(YType.boolean, "mac-throttle")
-
-                        self.srg_role = YLeaf(YType.enumeration, "srg-role")
-
-                        self.vrf_name = YLeaf(YType.str, "vrf-name")
-                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', 'intf_ifhandle', 'intf_is_ambiguous', 'intf_lease_limit_count', 'intf_lease_limit_type', 'intf_mode', 'intf_profile_name', 'mac_throttle', 'srg_role', 'vrf_name'], name, value)
-
-
-            class Proxy(Entity):
-                """
-                IPv4 DHCP proxy operational data
-                
-                .. attribute:: binding
-                
-                	DHCP proxy bindings
-                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Binding>`
-                
-                .. attribute:: profiles
-                
-                	IPv4 DHCP proxy profile
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles>`
-                
-                .. attribute:: statistics
-                
-                	DHCP proxy statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics>`
-                
-                .. attribute:: statistics_info
-                
-                	DHCP proxy stats info
-                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo>`
-                
-                .. attribute:: vrfs
-                
-                	DHCP proxy list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs>`
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Proxy, self).__init__()
-
-                    self.yang_name = "proxy"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"binding" : ("binding", Ipv4Dhcpd.Nodes.Node.Proxy.Binding), "profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs)}
-                    self._child_list_classes = {}
-
-                    self.binding = Ipv4Dhcpd.Nodes.Node.Proxy.Binding()
-                    self.binding.parent = self
-                    self._children_name_map["binding"] = "binding"
-                    self._children_yang_names.add("binding")
-
-                    self.profiles = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles()
-                    self.profiles.parent = self
-                    self._children_name_map["profiles"] = "profiles"
-                    self._children_yang_names.add("profiles")
-
-                    self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Statistics()
-                    self.statistics.parent = self
-                    self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
-
-                    self.statistics_info = Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo()
-                    self.statistics_info.parent = self
-                    self._children_name_map["statistics_info"] = "statistics-info"
-                    self._children_yang_names.add("statistics-info")
-
-                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs()
-                    self.vrfs.parent = self
-                    self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
-                    self._segment_path = lambda: "proxy"
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                 class Binding(Entity):
@@ -3478,22 +3536,6 @@ class Ipv4Dhcpd(Entity):
                             	Client ID
                             	**type**\:  str
                             
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: access_vrf_name
-                            
-                            	DHCP access interface VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
-                            .. attribute:: client_gi_addr
-                            
-                            	DHCP client GIADDR
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: client_id_xr
                             
                             	DHCP client identifier
@@ -3501,41 +3543,49 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..1275
                             
-                            .. attribute:: event_history
+                            .. attribute:: mac_address
                             
-                            	event history
-                            	**type**\:  list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: interface_name
-                            
-                            	DHCP access interface to client
+                            	DHCP client MAC address
                             	**type**\:  str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            .. attribute:: vrf_name
+                            
+                            	DHCP client/subscriber VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: server_vrf_name
+                            
+                            	DHCP server VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
                             
                             .. attribute:: ip_address
                             
                             	DHCP IP address
                             	**type**\:  str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            .. attribute:: client_gi_addr
                             
-                            .. attribute:: is_auth_received
+                            	DHCP client GIADDR
+                            	**type**\:  str
                             
-                            	Is true if authentication is on received option82
-                            	**type**\:  bool
+                            .. attribute:: to_server_gi_addr
                             
-                            .. attribute:: is_mbl_subscriber
+                            	DHCP to server GIADDR
+                            	**type**\:  str
                             
-                            	Is true if DHCP subscriber is Mobile
-                            	**type**\:  bool
+                            .. attribute:: server_ip_address
                             
-                            .. attribute:: is_nak_next_renew
+                            	DHCP server IP address
+                            	**type**\:  str
                             
-                            	Is true if DHCP next renew from client will be NAK'd
-                            	**type**\:  bool
+                            .. attribute:: reply_server_ip_address
+                            
+                            	DHCP reply server IP address
+                            	**type**\:  str
                             
                             .. attribute:: lease_time
                             
@@ -3546,10 +3596,64 @@ class Ipv4Dhcpd(Entity):
                             
                             	**units**\: second
                             
-                            .. attribute:: mac_address
+                            .. attribute:: remaining_lease_time
                             
-                            	DHCP client MAC address
+                            	Remaining lease time in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: state
+                            
+                            	DHCP client state
+                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            
+                            .. attribute:: interface_name
+                            
+                            	DHCP access interface to client
                             	**type**\:  str
+                            
+                            .. attribute:: access_vrf_name
+                            
+                            	DHCP access interface VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: proxy_binding_outer_tag
+                            
+                            	DHCP VLAN outer VLAN
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: proxy_binding_inner_tag
+                            
+                            	DHCP VLAN inner VLAN
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: profile_name
+                            
+                            	DHCP profile name
+                            	**type**\:  str
+                            
+                            	**length:** 0..65
+                            
+                            .. attribute:: is_nak_next_renew
+                            
+                            	Is true if DHCP next renew from client will be NAK'd
+                            	**type**\:  bool
+                            
+                            .. attribute:: subscriber_label
+                            
+                            	DHCP subscriber label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: old_subscriber_label
                             
@@ -3557,6 +3661,63 @@ class Ipv4Dhcpd(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: subscriber_interface_name
+                            
+                            	DHCP subscriber interface
+                            	**type**\:  str
+                            
+                            .. attribute:: rx_circuit_id
+                            
+                            	DHCP received circuit ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_circuit_id
+                            
+                            	DHCP transmitted circuit ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: rx_remote_id
+                            
+                            	DHCP received Remote ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_remote_id
+                            
+                            	DHCP transmitted Remote ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: rx_vsiso
+                            
+                            	DHCP received VSISO
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_vsiso
+                            
+                            	DHCP transmitted VSISO
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: is_auth_received
+                            
+                            	Is true if authentication is on received option82
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_mbl_subscriber
+                            
+                            	Is true if DHCP subscriber is Mobile
+                            	**type**\:  bool
                             
                             .. attribute:: param_request
                             
@@ -3572,78 +3733,6 @@ class Ipv4Dhcpd(Entity):
                             
                             	**length:** 0..2051
                             
-                            .. attribute:: profile_name
-                            
-                            	DHCP profile name
-                            	**type**\:  str
-                            
-                            	**length:** 0..65
-                            
-                            .. attribute:: proxy_binding_inner_tag
-                            
-                            	DHCP VLAN inner VLAN
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: proxy_binding_outer_tag
-                            
-                            	DHCP VLAN outer VLAN
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: remaining_lease_time
-                            
-                            	Remaining lease time in seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: reply_server_ip_address
-                            
-                            	DHCP reply server IP address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: rx_circuit_id
-                            
-                            	DHCP received circuit ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: rx_remote_id
-                            
-                            	DHCP received Remote ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: rx_vsiso
-                            
-                            	DHCP received VSISO
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: server_ip_address
-                            
-                            	DHCP server IP address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: server_vrf_name
-                            
-                            	DHCP server VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
                             .. attribute:: session_start_time
                             
                             	session start time
@@ -3658,59 +3747,12 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: state
+                            .. attribute:: event_history
                             
-                            	DHCP client state
-                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
-                            
-                            .. attribute:: subscriber_interface_name
-                            
-                            	DHCP subscriber interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: subscriber_label
-                            
-                            	DHCP subscriber label
-                            	**type**\:  int
+                            	event history
+                            	**type**\:  list of int
                             
                             	**range:** 0..4294967295
-                            
-                            .. attribute:: to_server_gi_addr
-                            
-                            	DHCP to server GIADDR
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: tx_circuit_id
-                            
-                            	DHCP transmitted circuit ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: tx_remote_id
-                            
-                            	DHCP transmitted Remote ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: tx_vsiso
-                            
-                            	DHCP transmitted VSISO
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: vrf_name
-                            
-                            	DHCP client/subscriber VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
                             
                             
 
@@ -3731,82 +3773,145 @@ class Ipv4Dhcpd(Entity):
 
                                 self.client_id = YLeaf(YType.str, "client-id")
 
-                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
+                                self.client_id_xr = YLeaf(YType.str, "client-id-xr")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
+
+                                self.ip_address = YLeaf(YType.str, "ip-address")
 
                                 self.client_gi_addr = YLeaf(YType.str, "client-gi-addr")
 
-                                self.client_id_xr = YLeaf(YType.str, "client-id-xr")
+                                self.to_server_gi_addr = YLeaf(YType.str, "to-server-gi-addr")
 
-                                self.event_history = YLeafList(YType.uint32, "event-history")
+                                self.server_ip_address = YLeaf(YType.str, "server-ip-address")
+
+                                self.reply_server_ip_address = YLeaf(YType.str, "reply-server-ip-address")
+
+                                self.lease_time = YLeaf(YType.uint32, "lease-time")
+
+                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
+
+                                self.state = YLeaf(YType.enumeration, "state")
 
                                 self.interface_name = YLeaf(YType.str, "interface-name")
 
-                                self.ip_address = YLeaf(YType.str, "ip-address")
+                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
+
+                                self.proxy_binding_outer_tag = YLeaf(YType.uint32, "proxy-binding-outer-tag")
+
+                                self.proxy_binding_inner_tag = YLeaf(YType.uint32, "proxy-binding-inner-tag")
+
+                                self.profile_name = YLeaf(YType.str, "profile-name")
+
+                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
+
+                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
+
+                                self.old_subscriber_label = YLeaf(YType.uint32, "old-subscriber-label")
+
+                                self.subscriber_interface_name = YLeaf(YType.str, "subscriber-interface-name")
+
+                                self.rx_circuit_id = YLeaf(YType.str, "rx-circuit-id")
+
+                                self.tx_circuit_id = YLeaf(YType.str, "tx-circuit-id")
+
+                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
+
+                                self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
+
+                                self.rx_vsiso = YLeaf(YType.str, "rx-vsiso")
+
+                                self.tx_vsiso = YLeaf(YType.str, "tx-vsiso")
 
                                 self.is_auth_received = YLeaf(YType.boolean, "is-auth-received")
 
                                 self.is_mbl_subscriber = YLeaf(YType.boolean, "is-mbl-subscriber")
 
-                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
-
-                                self.lease_time = YLeaf(YType.uint32, "lease-time")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.old_subscriber_label = YLeaf(YType.uint32, "old-subscriber-label")
-
                                 self.param_request = YLeaf(YType.str, "param-request")
 
                                 self.param_response = YLeaf(YType.str, "param-response")
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.proxy_binding_inner_tag = YLeaf(YType.uint32, "proxy-binding-inner-tag")
-
-                                self.proxy_binding_outer_tag = YLeaf(YType.uint32, "proxy-binding-outer-tag")
-
-                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
-
-                                self.reply_server_ip_address = YLeaf(YType.str, "reply-server-ip-address")
-
-                                self.rx_circuit_id = YLeaf(YType.str, "rx-circuit-id")
-
-                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
-
-                                self.rx_vsiso = YLeaf(YType.str, "rx-vsiso")
-
-                                self.server_ip_address = YLeaf(YType.str, "server-ip-address")
-
-                                self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
 
                                 self.session_start_time = YLeaf(YType.uint64, "session-start-time")
 
                                 self.srg_state = YLeaf(YType.uint32, "srg-state")
 
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.subscriber_interface_name = YLeaf(YType.str, "subscriber-interface-name")
-
-                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
-
-                                self.to_server_gi_addr = YLeaf(YType.str, "to-server-gi-addr")
-
-                                self.tx_circuit_id = YLeaf(YType.str, "tx-circuit-id")
-
-                                self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
-
-                                self.tx_vsiso = YLeaf(YType.str, "tx-vsiso")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                self.event_history = YLeafList(YType.uint32, "event-history")
                                 self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'access_vrf_name', 'client_gi_addr', 'client_id_xr', 'event_history', 'interface_name', 'ip_address', 'is_auth_received', 'is_mbl_subscriber', 'is_nak_next_renew', 'lease_time', 'mac_address', 'old_subscriber_label', 'param_request', 'param_response', 'profile_name', 'proxy_binding_inner_tag', 'proxy_binding_outer_tag', 'remaining_lease_time', 'reply_server_ip_address', 'rx_circuit_id', 'rx_remote_id', 'rx_vsiso', 'server_ip_address', 'server_vrf_name', 'session_start_time', 'srg_state', 'state', 'subscriber_interface_name', 'subscriber_label', 'to_server_gi_addr', 'tx_circuit_id', 'tx_remote_id', 'tx_vsiso', 'vrf_name'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time', 'srg_state', 'event_history'], name, value)
 
 
                     class Summary(Entity):
                         """
                         DHCP proxy binding summary
+                        
+                        .. attribute:: clients
+                        
+                        	Total number of clients
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: initializing_clients
+                        
+                        	Number of clients in init state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_init
+                        
+                        	Number of clients in Init DPM wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_request
+                        
+                        	Number of clients in Request DPM wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_daps_init
+                        
+                        	Number of clients in Init DAPS wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: selecting_clients
+                        
+                        	Number of clients in selecting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: offer_sent_for_client
+                        
+                        	Number of clients in Offer sent state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: requesting_clients
+                        
+                        	Number of clients in requesting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: request_waiting_for_dpm
+                        
+                        	Number of clients in Waiting for DPM with Request
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: ack_waiting_for_dpm
                         
@@ -3822,9 +3927,37 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: clients
+                        .. attribute:: renewing_clients
                         
-                        	Total number of clients
+                        	Number of clients in renewing state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: informing_clients
+                        
+                        	Number of clients in informing state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reauthorizing_clients
+                        
+                        	Number of clients in reauth state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_disconnect
+                        
+                        	Number of clients in waiting for DPM disconnect state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_addr_change
+                        
+                        	Number of clients in Waiting for DPM after addr change
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -3843,100 +3976,9 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: informing_clients
-                        
-                        	Number of clients in informing state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: initializing_clients
-                        
-                        	Number of clients in init state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: offer_sent_for_client
-                        
-                        	Number of clients in Offer sent state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reauthorizing_clients
-                        
-                        	Number of clients in reauth state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: renewing_clients
-                        
-                        	Number of clients in renewing state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: request_waiting_for_dpm
-                        
-                        	Number of clients in Waiting for DPM with Request
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: requesting_clients
-                        
-                        	Number of clients in requesting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: restarting_clients
                         
                         	Number of clients in restarting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: selecting_clients
-                        
-                        	Number of clients in selecting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_daps_init
-                        
-                        	Number of clients in Init DAPS wait state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_addr_change
-                        
-                        	Number of clients in Waiting for DPM after addr change
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_disconnect
-                        
-                        	Number of clients in waiting for DPM disconnect state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_init
-                        
-                        	Number of clients in Init DPM wait state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_request
-                        
-                        	Number of clients in Request DPM wait state
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -3958,57 +4000,149 @@ class Ipv4Dhcpd(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
+                            self.clients = YLeaf(YType.uint32, "clients")
+
+                            self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
+
+                            self.waiting_for_dpm_init = YLeaf(YType.uint32, "waiting-for-dpm-init")
+
+                            self.waiting_for_dpm_request = YLeaf(YType.uint32, "waiting-for-dpm-request")
+
+                            self.waiting_for_daps_init = YLeaf(YType.uint32, "waiting-for-daps-init")
+
+                            self.selecting_clients = YLeaf(YType.uint32, "selecting-clients")
+
+                            self.offer_sent_for_client = YLeaf(YType.uint32, "offer-sent-for-client")
+
+                            self.requesting_clients = YLeaf(YType.uint32, "requesting-clients")
+
+                            self.request_waiting_for_dpm = YLeaf(YType.uint32, "request-waiting-for-dpm")
+
                             self.ack_waiting_for_dpm = YLeaf(YType.uint32, "ack-waiting-for-dpm")
 
                             self.bound_clients = YLeaf(YType.uint32, "bound-clients")
 
-                            self.clients = YLeaf(YType.uint32, "clients")
+                            self.renewing_clients = YLeaf(YType.uint32, "renewing-clients")
+
+                            self.informing_clients = YLeaf(YType.uint32, "informing-clients")
+
+                            self.reauthorizing_clients = YLeaf(YType.uint32, "reauthorizing-clients")
+
+                            self.waiting_for_dpm_disconnect = YLeaf(YType.uint32, "waiting-for-dpm-disconnect")
+
+                            self.waiting_for_dpm_addr_change = YLeaf(YType.uint32, "waiting-for-dpm-addr-change")
 
                             self.deleting_clients_d = YLeaf(YType.uint32, "deleting-clients-d")
 
                             self.disconnected_clients = YLeaf(YType.uint32, "disconnected-clients")
 
-                            self.informing_clients = YLeaf(YType.uint32, "informing-clients")
-
-                            self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                            self.offer_sent_for_client = YLeaf(YType.uint32, "offer-sent-for-client")
-
-                            self.reauthorizing_clients = YLeaf(YType.uint32, "reauthorizing-clients")
-
-                            self.renewing_clients = YLeaf(YType.uint32, "renewing-clients")
-
-                            self.request_waiting_for_dpm = YLeaf(YType.uint32, "request-waiting-for-dpm")
-
-                            self.requesting_clients = YLeaf(YType.uint32, "requesting-clients")
-
                             self.restarting_clients = YLeaf(YType.uint32, "restarting-clients")
-
-                            self.selecting_clients = YLeaf(YType.uint32, "selecting-clients")
-
-                            self.waiting_for_daps_init = YLeaf(YType.uint32, "waiting-for-daps-init")
-
-                            self.waiting_for_dpm_addr_change = YLeaf(YType.uint32, "waiting-for-dpm-addr-change")
-
-                            self.waiting_for_dpm_disconnect = YLeaf(YType.uint32, "waiting-for-dpm-disconnect")
-
-                            self.waiting_for_dpm_init = YLeaf(YType.uint32, "waiting-for-dpm-init")
-
-                            self.waiting_for_dpm_request = YLeaf(YType.uint32, "waiting-for-dpm-request")
                             self._segment_path = lambda: "summary"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, ['ack_waiting_for_dpm', 'bound_clients', 'clients', 'deleting_clients_d', 'disconnected_clients', 'informing_clients', 'initializing_clients', 'offer_sent_for_client', 'reauthorizing_clients', 'renewing_clients', 'request_waiting_for_dpm', 'requesting_clients', 'restarting_clients', 'selecting_clients', 'waiting_for_daps_init', 'waiting_for_dpm_addr_change', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_init', 'waiting_for_dpm_request'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
 
 
-                class Profiles(Entity):
+            class Interfaces(Entity):
+                """
+                IPv4 DHCP proxy/server Interface
+                
+                .. attribute:: interface
+                
+                	IPv4 DHCP proxy/server interface info
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv4Dhcpd.Nodes.Node.Interfaces, self).__init__()
+
+                    self.yang_name = "interfaces"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"interface" : ("interface", Ipv4Dhcpd.Nodes.Node.Interfaces.Interface)}
+
+                    self.interface = YList(self)
+                    self._segment_path = lambda: "interfaces"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces, [], name, value)
+
+
+                class Interface(Entity):
                     """
-                    IPv4 DHCP proxy profile
+                    IPv4 DHCP proxy/server interface info
                     
-                    .. attribute:: profile
+                    .. attribute:: interface_name  <key>
                     
-                    	IPv4 DHCP proxy profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile>`
+                    	Interface Name
+                    	**type**\:  str
+                    
+                    .. attribute:: intf_ifhandle
+                    
+                    	Ifhandle of the interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF name
+                    	**type**\:  str
+                    
+                    	**length:** 0..33
+                    
+                    .. attribute:: intf_mode
+                    
+                    	Mode of interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: intf_is_ambiguous
+                    
+                    	Is interface ambiguous
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: intf_profile_name
+                    
+                    	Name of profile attached to the interface
+                    	**type**\:  str
+                    
+                    	**length:** 0..65
+                    
+                    .. attribute:: intf_lease_limit_type
+                    
+                    	Lease limit type on interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: intf_lease_limit_count
+                    
+                    	Lease limit count on interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: srg_role
+                    
+                    	DHCPv6 Interface SRG role
+                    	**type**\:   :py:class:`BagDhcpdIntfSrgRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdIntfSrgRole>`
+                    
+                    .. attribute:: mac_throttle
+                    
+                    	Mac Throttle Status
+                    	**type**\:  bool
                     
                     
 
@@ -4018,338 +4152,121 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, self).__init__()
 
-                        self.yang_name = "profiles"
-                        self.yang_parent_name = "proxy"
+                        self.yang_name = "interface"
+                        self.yang_parent_name = "interfaces"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile)}
+                        self._child_list_classes = {}
 
-                        self.profile = YList(self)
-                        self._segment_path = lambda: "profiles"
+                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                        self.intf_ifhandle = YLeaf(YType.uint32, "intf-ifhandle")
+
+                        self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.intf_mode = YLeaf(YType.uint32, "intf-mode")
+
+                        self.intf_is_ambiguous = YLeaf(YType.uint32, "intf-is-ambiguous")
+
+                        self.intf_profile_name = YLeaf(YType.str, "intf-profile-name")
+
+                        self.intf_lease_limit_type = YLeaf(YType.uint32, "intf-lease-limit-type")
+
+                        self.intf_lease_limit_count = YLeaf(YType.uint32, "intf-lease-limit-count")
+
+                        self.srg_role = YLeaf(YType.enumeration, "srg-role")
+
+                        self.mac_throttle = YLeaf(YType.boolean, "mac-throttle")
+                        self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, [], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', 'intf_ifhandle', 'vrf_name', 'intf_mode', 'intf_is_ambiguous', 'intf_profile_name', 'intf_lease_limit_type', 'intf_lease_limit_count', 'srg_role', 'mac_throttle'], name, value)
 
 
-                    class Profile(Entity):
-                        """
-                        IPv4 DHCP proxy profile
-                        
-                        .. attribute:: profile_name  <key>
-                        
-                        	Profile name
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: gi_addr
-                        
-                        	Gateway addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: interface_references
-                        
-                        	Interface references
-                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences>`
-                        
-                        .. attribute:: is_move_allowed
-                        
-                        	Is true if dhcp subscriber is allowed to move
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_relay_allow_untrusted_enabled
-                        
-                        	Is true if relay untrusted is enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_relay_check
-                        
-                        	Is true if relay check enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_relay_option_enabled
-                        
-                        	Is true if relay option is enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: is_relay_optionvpn_enabled
-                        
-                        	Is true if relay VPN enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: profile_helper_address
-                        
-                        	Helper addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: proxy_broadcast_flag_policy
-                        
-                        	Broadcast policy
-                        	**type**\:   :py:class:`BroadcastFlag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BroadcastFlag>`
-                        
-                        .. attribute:: proxy_lease_limit_count
-                        
-                        	Lease limit count
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: proxy_lease_limit_type
-                        
-                        	Lease limit type
-                        	**type**\:   :py:class:`ProxyLeaseLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.ProxyLeaseLimit>`
-                        
-                        .. attribute:: proxy_profile_client_lease_time
-                        
-                        	Client lease time in seconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: second
-                        
-                        .. attribute:: relay_authenticate
-                        
-                        	Relay authenticate
-                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
-                        
-                        .. attribute:: relay_optionvpn_enabled_mode
-                        
-                        	Relay VPN RFC/Cisco mode
-                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
-                        
-                        .. attribute:: relay_policy
-                        
-                        	Relay policy
-                        	**type**\:   :py:class:`RelayInfoPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoPolicy>`
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF names
-                        	**type**\:  list of str
-                        
-                        	**length:** 0..33
-                        
-                        .. attribute:: vrf_references
-                        
-                        	VRF references
-                        	**type**\:   :py:class:`VrfReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences>`
-                        
-                        
+            class Base(Entity):
+                """
+                IPv4 DHCP base operational data
+                
+                .. attribute:: statistics
+                
+                	DHCP base statistics
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics>`
+                
+                .. attribute:: issu_status
+                
+                	IPv4 DHCP ISSU status
+                	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.IssuStatus>`
+                
+                .. attribute:: vrfs
+                
+                	DHCP base list of VRF names
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs>`
+                
+                .. attribute:: profiles
+                
+                	IPv4 DHCP Base profile
+                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles>`
+                
+                .. attribute:: database
+                
+                	IPv4 DHCP database
+                	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Database>`
+                
+                
 
-                        """
+                """
 
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
 
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
+                def __init__(self):
+                    super(Ipv4Dhcpd.Nodes.Node.Base, self).__init__()
 
-                            self.yang_name = "profile"
-                            self.yang_parent_name = "profiles"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"interface-references" : ("interface_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences), "vrf-references" : ("vrf_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences)}
-                            self._child_list_classes = {}
+                    self.yang_name = "base"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics), "issu-status" : ("issu_status", Ipv4Dhcpd.Nodes.Node.Base.IssuStatus), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Base.Vrfs), "profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Base.Profiles), "database" : ("database", Ipv4Dhcpd.Nodes.Node.Base.Database)}
+                    self._child_list_classes = {}
 
-                            self.profile_name = YLeaf(YType.str, "profile-name")
+                    self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Statistics()
+                    self.statistics.parent = self
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
 
-                            self.gi_addr = YLeafList(YType.str, "gi-addr")
+                    self.issu_status = Ipv4Dhcpd.Nodes.Node.Base.IssuStatus()
+                    self.issu_status.parent = self
+                    self._children_name_map["issu_status"] = "issu-status"
+                    self._children_yang_names.add("issu-status")
 
-                            self.is_move_allowed = YLeaf(YType.boolean, "is-move-allowed")
+                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Base.Vrfs()
+                    self.vrfs.parent = self
+                    self._children_name_map["vrfs"] = "vrfs"
+                    self._children_yang_names.add("vrfs")
 
-                            self.is_relay_allow_untrusted_enabled = YLeaf(YType.boolean, "is-relay-allow-untrusted-enabled")
+                    self.profiles = Ipv4Dhcpd.Nodes.Node.Base.Profiles()
+                    self.profiles.parent = self
+                    self._children_name_map["profiles"] = "profiles"
+                    self._children_yang_names.add("profiles")
 
-                            self.is_relay_check = YLeaf(YType.boolean, "is-relay-check")
-
-                            self.is_relay_option_enabled = YLeaf(YType.boolean, "is-relay-option-enabled")
-
-                            self.is_relay_optionvpn_enabled = YLeaf(YType.boolean, "is-relay-optionvpn-enabled")
-
-                            self.profile_helper_address = YLeafList(YType.str, "profile-helper-address")
-
-                            self.proxy_broadcast_flag_policy = YLeaf(YType.enumeration, "proxy-broadcast-flag-policy")
-
-                            self.proxy_lease_limit_count = YLeaf(YType.uint32, "proxy-lease-limit-count")
-
-                            self.proxy_lease_limit_type = YLeaf(YType.enumeration, "proxy-lease-limit-type")
-
-                            self.proxy_profile_client_lease_time = YLeaf(YType.uint32, "proxy-profile-client-lease-time")
-
-                            self.relay_authenticate = YLeaf(YType.enumeration, "relay-authenticate")
-
-                            self.relay_optionvpn_enabled_mode = YLeaf(YType.enumeration, "relay-optionvpn-enabled-mode")
-
-                            self.relay_policy = YLeaf(YType.enumeration, "relay-policy")
-
-                            self.vrf_name = YLeafList(YType.str, "vrf-name")
-
-                            self.interface_references = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences()
-                            self.interface_references.parent = self
-                            self._children_name_map["interface_references"] = "interface-references"
-                            self._children_yang_names.add("interface-references")
-
-                            self.vrf_references = Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences()
-                            self.vrf_references.parent = self
-                            self._children_name_map["vrf_references"] = "vrf-references"
-                            self._children_yang_names.add("vrf-references")
-                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', 'gi_addr', 'is_move_allowed', 'is_relay_allow_untrusted_enabled', 'is_relay_check', 'is_relay_option_enabled', 'is_relay_optionvpn_enabled', 'profile_helper_address', 'proxy_broadcast_flag_policy', 'proxy_lease_limit_count', 'proxy_lease_limit_type', 'proxy_profile_client_lease_time', 'relay_authenticate', 'relay_optionvpn_enabled_mode', 'relay_policy', 'vrf_name'], name, value)
-
-
-                        class InterfaceReferences(Entity):
-                            """
-                            Interface references
-                            
-                            .. attribute:: ipv4_dhcpd_proxy_interface_reference
-                            
-                            	ipv4 dhcpd proxy interface reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, self).__init__()
-
-                                self.yang_name = "interface-references"
-                                self.yang_parent_name = "profile"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"ipv4-dhcpd-proxy-interface-reference" : ("ipv4_dhcpd_proxy_interface_reference", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference)}
-
-                                self.ipv4_dhcpd_proxy_interface_reference = YList(self)
-                                self._segment_path = lambda: "interface-references"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, [], name, value)
-
-
-                            class Ipv4DhcpdProxyInterfaceReference(Entity):
-                                """
-                                ipv4 dhcpd proxy interface reference
-                                
-                                .. attribute:: proxy_reference_interface_name
-                                
-                                	Interface name
-                                	**type**\:  str
-                                
-                                	**length:** 0..65
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, self).__init__()
-
-                                    self.yang_name = "ipv4-dhcpd-proxy-interface-reference"
-                                    self.yang_parent_name = "interface-references"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.proxy_reference_interface_name = YLeaf(YType.str, "proxy-reference-interface-name")
-                                    self._segment_path = lambda: "ipv4-dhcpd-proxy-interface-reference"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
-
-
-                        class VrfReferences(Entity):
-                            """
-                            VRF references
-                            
-                            .. attribute:: ipv4_dhcpd_proxy_vrf_reference
-                            
-                            	ipv4 dhcpd proxy vrf reference
-                            	**type**\: list of    :py:class:`Ipv4DhcpdProxyVrfReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, self).__init__()
-
-                                self.yang_name = "vrf-references"
-                                self.yang_parent_name = "profile"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"ipv4-dhcpd-proxy-vrf-reference" : ("ipv4_dhcpd_proxy_vrf_reference", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference)}
-
-                                self.ipv4_dhcpd_proxy_vrf_reference = YList(self)
-                                self._segment_path = lambda: "vrf-references"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, [], name, value)
-
-
-                            class Ipv4DhcpdProxyVrfReference(Entity):
-                                """
-                                ipv4 dhcpd proxy vrf reference
-                                
-                                .. attribute:: proxy_reference_vrf_name
-                                
-                                	VRF name
-                                	**type**\:  str
-                                
-                                	**length:** 0..33
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, self).__init__()
-
-                                    self.yang_name = "ipv4-dhcpd-proxy-vrf-reference"
-                                    self.yang_parent_name = "vrf-references"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.proxy_reference_vrf_name = YLeaf(YType.str, "proxy-reference-vrf-name")
-                                    self._segment_path = lambda: "ipv4-dhcpd-proxy-vrf-reference"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+                    self.database = Ipv4Dhcpd.Nodes.Node.Base.Database()
+                    self.database.parent = self
+                    self._children_name_map["database"] = "database"
+                    self._children_yang_names.add("database")
+                    self._segment_path = lambda: "base"
 
 
                 class Statistics(Entity):
                     """
-                    DHCP proxy statistics
+                    DHCP base statistics
                     
                     .. attribute:: ipv4_dhcpd_proxy_stat
                     
                     	ipv4 dhcpd proxy stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat>`
+                    	**type**\: list of    :py:class:`Ipv4DhcpdProxyStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat>`
                     
                     
 
@@ -4359,20 +4276,20 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Base.Statistics, self).__init__()
 
                         self.yang_name = "statistics"
-                        self.yang_parent_name = "proxy"
+                        self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"ipv4-dhcpd-proxy-stat" : ("ipv4_dhcpd_proxy_stat", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat)}
+                        self._child_list_classes = {"ipv4-dhcpd-proxy-stat" : ("ipv4_dhcpd_proxy_stat", Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat)}
 
                         self.ipv4_dhcpd_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, [], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics, [], name, value)
 
 
                     class Ipv4DhcpdProxyStat(Entity):
@@ -4382,7 +4299,7 @@ class Ipv4Dhcpd(Entity):
                         .. attribute:: statistics
                         
                         	Proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics>`
+                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics>`
                         
                         .. attribute:: vrf_name
                         
@@ -4399,37 +4316,30 @@ class Ipv4Dhcpd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, self).__init__()
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, self).__init__()
 
                             self.yang_name = "ipv4-dhcpd-proxy-stat"
                             self.yang_parent_name = "statistics"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics)}
+                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics)}
                             self._child_list_classes = {}
 
                             self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                            self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics()
+                            self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
                             self._segment_path = lambda: "ipv4-dhcpd-proxy-stat"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
 
 
                         class Statistics(Entity):
                             """
                             Proxy statistics
-                            
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_packets
                             
@@ -4445,6 +4355,13 @@ class Ipv4Dhcpd(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             
 
                             """
@@ -4453,7 +4370,7 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "ipv4-dhcpd-proxy-stat"
@@ -4462,27 +4379,90 @@ class Ipv4Dhcpd(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                 self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                 self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
-                class StatisticsInfo(Entity):
+                class IssuStatus(Entity):
                     """
-                    DHCP proxy stats info
+                    IPv4 DHCP ISSU status
                     
-                    .. attribute:: proxy_stats_timestamp
+                    .. attribute:: issu_sync_complete_time
                     
-                    	Proxy Stats timestamp
+                    	Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
+                    
+                    .. attribute:: issu_sync_start_time
+                    
+                    	Timestamp for the ISSU sync start in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC, January 1, 1970
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
+                    
+                    .. attribute:: issu_ready_time
+                    
+                    	Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
+                    
+                    .. attribute:: big_bang_time
+                    
+                    	Timestamp for the Big Bang notification time in nanoseconds since Epoch, i.e. since 00\:00\:00 UTC , January 1, 1970
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
+                    
+                    .. attribute:: primary_role_time
+                    
+                    	Timestamp for the change to Primary role notification time in nanoseconds since Epoch, i .e. since 00\:00\:00 UTC, January 1, 1970
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
+                    
+                    .. attribute:: role
+                    
+                    	The current role of the DHCP process
+                    	**type**\:   :py:class:`DhcpIssuRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuRole>`
+                    
+                    .. attribute:: phase
+                    
+                    	The current ISSU phase of the DHCP process
+                    	**type**\:   :py:class:`DhcpIssuPhase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuPhase>`
+                    
+                    .. attribute:: version
+                    
+                    	The current version of the DHCP process in the context of an ISSU
+                    	**type**\:   :py:class:`DhcpIssuVersion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.DhcpIssuVersion>`
+                    
+                    .. attribute:: issu_ready_issu_mgr_connection
+                    
+                    	Whether or not DHCP is currently connected to ISSU Manager during the ISSU Load Phase
+                    	**type**\:  bool
+                    
+                    .. attribute:: issu_ready_entries_replicate
+                    
+                    	Whether or not DHCP has received all replicated entries during the ISSU Load Phase
+                    	**type**\:  bool
                     
                     
 
@@ -4492,30 +4472,48 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, self).__init__()
 
-                        self.yang_name = "statistics-info"
-                        self.yang_parent_name = "proxy"
+                        self.yang_name = "issu-status"
+                        self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.proxy_stats_timestamp = YLeaf(YType.uint32, "proxy-stats-timestamp")
-                        self._segment_path = lambda: "statistics-info"
+                        self.issu_sync_complete_time = YLeaf(YType.uint64, "issu-sync-complete-time")
+
+                        self.issu_sync_start_time = YLeaf(YType.uint64, "issu-sync-start-time")
+
+                        self.issu_ready_time = YLeaf(YType.uint64, "issu-ready-time")
+
+                        self.big_bang_time = YLeaf(YType.uint64, "big-bang-time")
+
+                        self.primary_role_time = YLeaf(YType.uint64, "primary-role-time")
+
+                        self.role = YLeaf(YType.enumeration, "role")
+
+                        self.phase = YLeaf(YType.enumeration, "phase")
+
+                        self.version = YLeaf(YType.enumeration, "version")
+
+                        self.issu_ready_issu_mgr_connection = YLeaf(YType.boolean, "issu-ready-issu-mgr-connection")
+
+                        self.issu_ready_entries_replicate = YLeaf(YType.boolean, "issu-ready-entries-replicate")
+                        self._segment_path = lambda: "issu-status"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, ['issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'issu_ready_issu_mgr_connection', 'issu_ready_entries_replicate'], name, value)
 
 
                 class Vrfs(Entity):
                     """
-                    DHCP proxy list of VRF names
+                    DHCP base list of VRF names
                     
                     .. attribute:: vrf
                     
-                    	IPv4 DHCP proxy VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf>`
+                    	IPv4 DHCP base VRF name
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf>`
                     
                     
 
@@ -4525,37 +4523,35 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, self).__init__()
 
                         self.yang_name = "vrfs"
-                        self.yang_parent_name = "proxy"
+                        self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf)}
+                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf)}
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, [], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, [], name, value)
 
 
                     class Vrf(Entity):
                         """
-                        IPv4 DHCP proxy VRF name
+                        IPv4 DHCP base VRF name
                         
                         .. attribute:: vrf_name  <key>
                         
                         	VRF name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
                         .. attribute:: statistics
                         
-                        	IPv4 DHCP proxy statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics>`
+                        	IPv4 DHCP base statistics
+                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics>`
                         
                         
 
@@ -4565,100 +4561,100 @@ class Ipv4Dhcpd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, self).__init__()
 
                             self.yang_name = "vrf"
                             self.yang_parent_name = "vrfs"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics)}
+                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics)}
                             self._child_list_classes = {}
 
                             self.vrf_name = YLeaf(YType.str, "vrf-name")
 
-                            self.statistics = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics()
+                            self.statistics = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics()
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._children_yang_names.add("statistics")
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, ['vrf_name'], name, value)
 
 
                         class Statistics(Entity):
                             """
-                            IPv4 DHCP proxy statistics
-                            
-                            .. attribute:: ack
-                            
-                            	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack>`
-                            
-                            .. attribute:: bootp_reply
-                            
-                            	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply>`
-                            
-                            .. attribute:: bootp_request
-                            
-                            	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest>`
-                            
-                            .. attribute:: decline
-                            
-                            	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline>`
+                            IPv4 DHCP base statistics
                             
                             .. attribute:: discover
                             
                             	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform>`
-                            
-                            .. attribute:: lease_active
-                            
-                            	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive>`
-                            
-                            .. attribute:: lease_not_assigned
-                            
-                            	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
-                            
-                            .. attribute:: lease_query
-                            
-                            	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery>`
-                            
-                            .. attribute:: lease_unknown
-                            
-                            	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown>`
-                            
-                            .. attribute:: nak
-                            
-                            	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak>`
+                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer>`
-                            
-                            .. attribute:: release
-                            
-                            	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release>`
+                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer>`
                             
                             .. attribute:: request
                             
                             	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request>`
+                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: decline
+                            
+                            	DHCP decline packets
+                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            .. attribute:: ack
+                            
+                            	DHCP ack packets
+                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack>`
+                            
+                            .. attribute:: nak
+                            
+                            	DHCP nak packets
+                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak>`
+                            
+                            .. attribute:: release
+                            
+                            	DHCP release packets
+                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release>`
+                            
+                            .. attribute:: inform
+                            
+                            	DHCP inform packets
+                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCP lease query packets
+                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_not_assigned
+                            
+                            	DHCP lease not assigned
+                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            .. attribute:: lease_unknown
+                            
+                            	DHCP lease unknown
+                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            
+                            .. attribute:: lease_active
+                            
+                            	DHCP lease active
+                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            .. attribute:: bootp_request
+                            
+                            	DHCP BOOTP request
+                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest>`
+                            
+                            .. attribute:: bootp_reply
+                            
+                            	DHCP BOOTP reply
+                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -4668,310 +4664,91 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, self).__init__()
 
                                 self.yang_name = "statistics"
                                 self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline), "discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request)}
+                                self._child_container_classes = {"discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline), "ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply)}
                                 self._child_list_classes = {}
 
-                                self.ack = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack()
-                                self.ack.parent = self
-                                self._children_name_map["ack"] = "ack"
-                                self._children_yang_names.add("ack")
-
-                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply()
-                                self.bootp_reply.parent = self
-                                self._children_name_map["bootp_reply"] = "bootp-reply"
-                                self._children_yang_names.add("bootp-reply")
-
-                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest()
-                                self.bootp_request.parent = self
-                                self._children_name_map["bootp_request"] = "bootp-request"
-                                self._children_yang_names.add("bootp-request")
-
-                                self.decline = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline()
-                                self.decline.parent = self
-                                self._children_name_map["decline"] = "decline"
-                                self._children_yang_names.add("decline")
-
-                                self.discover = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover()
+                                self.discover = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover()
                                 self.discover.parent = self
                                 self._children_name_map["discover"] = "discover"
                                 self._children_yang_names.add("discover")
 
-                                self.inform = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform()
-                                self.inform.parent = self
-                                self._children_name_map["inform"] = "inform"
-                                self._children_yang_names.add("inform")
-
-                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive()
-                                self.lease_active.parent = self
-                                self._children_name_map["lease_active"] = "lease-active"
-                                self._children_yang_names.add("lease-active")
-
-                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned()
-                                self.lease_not_assigned.parent = self
-                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
-                                self._children_yang_names.add("lease-not-assigned")
-
-                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self._children_name_map["lease_query"] = "lease-query"
-                                self._children_yang_names.add("lease-query")
-
-                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown()
-                                self.lease_unknown.parent = self
-                                self._children_name_map["lease_unknown"] = "lease-unknown"
-                                self._children_yang_names.add("lease-unknown")
-
-                                self.nak = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak()
-                                self.nak.parent = self
-                                self._children_name_map["nak"] = "nak"
-                                self._children_yang_names.add("nak")
-
-                                self.offer = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer()
+                                self.offer = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer()
                                 self.offer.parent = self
                                 self._children_name_map["offer"] = "offer"
                                 self._children_yang_names.add("offer")
 
-                                self.release = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release()
+                                self.request = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self._children_name_map["request"] = "request"
+                                self._children_yang_names.add("request")
+
+                                self.decline = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline()
+                                self.decline.parent = self
+                                self._children_name_map["decline"] = "decline"
+                                self._children_yang_names.add("decline")
+
+                                self.ack = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack()
+                                self.ack.parent = self
+                                self._children_name_map["ack"] = "ack"
+                                self._children_yang_names.add("ack")
+
+                                self.nak = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak()
+                                self.nak.parent = self
+                                self._children_name_map["nak"] = "nak"
+                                self._children_yang_names.add("nak")
+
+                                self.release = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release()
                                 self.release.parent = self
                                 self._children_name_map["release"] = "release"
                                 self._children_yang_names.add("release")
 
-                                self.request = Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self._children_name_map["request"] = "request"
-                                self._children_yang_names.add("request")
+                                self.inform = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform()
+                                self.inform.parent = self
+                                self._children_name_map["inform"] = "inform"
+                                self._children_yang_names.add("inform")
+
+                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self._children_name_map["lease_query"] = "lease-query"
+                                self._children_yang_names.add("lease-query")
+
+                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned()
+                                self.lease_not_assigned.parent = self
+                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
+                                self._children_yang_names.add("lease-not-assigned")
+
+                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown()
+                                self.lease_unknown.parent = self
+                                self._children_name_map["lease_unknown"] = "lease-unknown"
+                                self._children_yang_names.add("lease-unknown")
+
+                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive()
+                                self.lease_active.parent = self
+                                self._children_name_map["lease_active"] = "lease-active"
+                                self._children_yang_names.add("lease-active")
+
+                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest()
+                                self.bootp_request.parent = self
+                                self._children_name_map["bootp_request"] = "bootp-request"
+                                self._children_yang_names.add("bootp-request")
+
+                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply()
+                                self.bootp_reply.parent = self
+                                self._children_name_map["bootp_reply"] = "bootp-reply"
+                                self._children_yang_names.add("bootp-reply")
                                 self._segment_path = lambda: "statistics"
-
-
-                            class Ack(Entity):
-                                """
-                                DHCP ack packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, self).__init__()
-
-                                    self.yang_name = "ack"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "ack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpReply(Entity):
-                                """
-                                DHCP BOOTP reply
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
-
-                                    self.yang_name = "bootp-reply"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-reply"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpRequest(Entity):
-                                """
-                                DHCP BOOTP request
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
-
-                                    self.yang_name = "bootp-request"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Decline(Entity):
-                                """
-                                DHCP decline packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
-
-                                    self.yang_name = "decline"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "decline"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
 
 
                             class Discover(Entity):
                                 """
                                 DHCP discover packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -4986,6 +4763,13 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 
 
                                 """
@@ -4994,7 +4778,7 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, self).__init__()
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, self).__init__()
 
                                     self.yang_name = "discover"
                                     self.yang_parent_name = "statistics"
@@ -5003,346 +4787,21 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                     self._segment_path = lambda: "discover"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Inform(Entity):
-                                """
-                                DHCP inform packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
-
-                                    self.yang_name = "inform"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "inform"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseActive(Entity):
-                                """
-                                DHCP lease active
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
-
-                                    self.yang_name = "lease-active"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-active"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseNotAssigned(Entity):
-                                """
-                                DHCP lease not assigned
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
-
-                                    self.yang_name = "lease-not-assigned"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-not-assigned"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseQuery(Entity):
-                                """
-                                DHCP lease query packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
-
-                                    self.yang_name = "lease-query"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-query"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseUnknown(Entity):
-                                """
-                                DHCP lease unknown
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
-
-                                    self.yang_name = "lease-unknown"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-unknown"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Nak(Entity):
-                                """
-                                DHCP nak packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, self).__init__()
-
-                                    self.yang_name = "nak"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "nak"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -5357,6 +4816,13 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 
 
                                 """
@@ -5365,7 +4831,7 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, self).__init__()
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, self).__init__()
 
                                     self.yang_name = "offer"
                                     self.yang_parent_name = "statistics"
@@ -5374,81 +4840,21 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                     self._segment_path = lambda: "offer"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Release(Entity):
-                                """
-                                DHCP release packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
-
-                                    self.yang_name = "release"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "release"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                             class Request(Entity):
                                 """
                                 DHCP request packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -5463,6 +4869,13 @@ class Ipv4Dhcpd(Entity):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
                                 
 
                                 """
@@ -5471,7 +4884,7 @@ class Ipv4Dhcpd(Entity):
                                 _revision = '2015-11-09'
 
                                 def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, self).__init__()
 
                                     self.yang_name = "request"
                                     self.yang_parent_name = "statistics"
@@ -5480,88 +4893,608 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
                                     self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Decline(Entity):
+                                """
+                                DHCP decline packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, self).__init__()
+
+                                    self.yang_name = "decline"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "request"
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "decline"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
-            class Relay(Entity):
-                """
-                IPv4 DHCPD Relay operational data
-                
-                .. attribute:: profiles
-                
-                	DHCP Relay Profiles
-                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles>`
-                
-                .. attribute:: statistics
-                
-                	DHCP Relay VRF statistics
-                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics>`
-                
-                .. attribute:: statistics_info
-                
-                	DHCP relay statistics info
-                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo>`
-                
-                .. attribute:: vrfs
-                
-                	DHCP relay list of VRF names
-                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs>`
-                
-                
+                            class Ack(Entity):
+                                """
+                                DHCP ack packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
 
-                """
+                                """
 
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
 
-                def __init__(self):
-                    super(Ipv4Dhcpd.Nodes.Node.Relay, self).__init__()
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, self).__init__()
 
-                    self.yang_name = "relay"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Relay.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Relay.Statistics), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs)}
-                    self._child_list_classes = {}
+                                    self.yang_name = "ack"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
-                    self.profiles = Ipv4Dhcpd.Nodes.Node.Relay.Profiles()
-                    self.profiles.parent = self
-                    self._children_name_map["profiles"] = "profiles"
-                    self._children_yang_names.add("profiles")
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
 
-                    self.statistics = Ipv4Dhcpd.Nodes.Node.Relay.Statistics()
-                    self.statistics.parent = self
-                    self._children_name_map["statistics"] = "statistics"
-                    self._children_yang_names.add("statistics")
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
 
-                    self.statistics_info = Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo()
-                    self.statistics_info.parent = self
-                    self._children_name_map["statistics_info"] = "statistics-info"
-                    self._children_yang_names.add("statistics-info")
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "ack"
 
-                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs()
-                    self.vrfs.parent = self
-                    self._children_name_map["vrfs"] = "vrfs"
-                    self._children_yang_names.add("vrfs")
-                    self._segment_path = lambda: "relay"
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Nak(Entity):
+                                """
+                                DHCP nak packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, self).__init__()
+
+                                    self.yang_name = "nak"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "nak"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Release(Entity):
+                                """
+                                DHCP release packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, self).__init__()
+
+                                    self.yang_name = "release"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "release"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Inform(Entity):
+                                """
+                                DHCP inform packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, self).__init__()
+
+                                    self.yang_name = "inform"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "inform"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseQuery(Entity):
+                                """
+                                DHCP lease query packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+
+                                    self.yang_name = "lease-query"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-query"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseNotAssigned(Entity):
+                                """
+                                DHCP lease not assigned
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+
+                                    self.yang_name = "lease-not-assigned"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-not-assigned"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseUnknown(Entity):
+                                """
+                                DHCP lease unknown
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+
+                                    self.yang_name = "lease-unknown"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-unknown"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseActive(Entity):
+                                """
+                                DHCP lease active
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+
+                                    self.yang_name = "lease-active"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-active"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpRequest(Entity):
+                                """
+                                DHCP BOOTP request
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+
+                                    self.yang_name = "bootp-request"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpReply(Entity):
+                                """
+                                DHCP BOOTP reply
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+
+                                    self.yang_name = "bootp-reply"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-reply"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                 class Profiles(Entity):
                     """
-                    DHCP Relay Profiles
+                    IPv4 DHCP Base profile
                     
                     .. attribute:: profile
                     
-                    	DHCP Relay profile
-                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile>`
+                    	IPv4 DHCP base profile
+                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile>`
                     
                     
 
@@ -5571,135 +5504,80 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Base.Profiles, self).__init__()
 
                         self.yang_name = "profiles"
-                        self.yang_parent_name = "relay"
+                        self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
-                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile)}
+                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile)}
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, [], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles, [], name, value)
 
 
                     class Profile(Entity):
                         """
-                        DHCP Relay profile
+                        IPv4 DHCP base profile
                         
                         .. attribute:: profile_name  <key>
                         
                         	Profile name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        .. attribute:: interface_references
                         
-                        .. attribute:: relay_profile_broadcast_flag_policy
+                        	Interface references
+                        	**type**\:   :py:class:`InterfaceReferences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences>`
                         
-                        	Broadcast policy
-                        	**type**\:  int
+                        .. attribute:: child_profile_info
                         
-                        	**range:** 0..255
+                        	child profile info
+                        	**type**\:   :py:class:`ChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo>`
                         
-                        .. attribute:: relay_profile_gi_addr
+                        .. attribute:: base_default_profile_name
                         
-                        	Gateway addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: relay_profile_gi_addr_policy
-                        
-                        	GIADDR policy
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_helper_address
-                        
-                        	Helper addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: relay_profile_helper_count
-                        
-                        	Helper address count
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_helper_vrf
-                        
-                        	Helper address vrfs
-                        	**type**\:  list of str
-                        
-                        	**length:** 0..33
-                        
-                        .. attribute:: relay_profile_mac_mismatch_action
-                        
-                        	Mac Mismatch Action
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_name
-                        
-                        	Profile Name
+                        	Base Default Profile name
                         	**type**\:  str
                         
                         	**length:** 0..65
                         
-                        .. attribute:: relay_profile_relay_info_allow_untrusted
+                        .. attribute:: default_profile_mode
                         
-                        	Relay info untrusted
+                        	Default Profile mode
                         	**type**\:  int
                         
                         	**range:** 0..255
                         
-                        .. attribute:: relay_profile_relay_info_check
+                        .. attribute:: relay_authenticate
                         
-                        	Relay info check
+                        	Relay authenticate
+                        	**type**\:   :py:class:`RelayInfoAuthenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoAuthenticate>`
+                        
+                        .. attribute:: remote_id
+                        
+                        	DHCP configured Remote ID
+                        	**type**\:  str
+                        
+                        	**length:** 0..768
+                        
+                        .. attribute:: child_profile_count
+                        
+                        	Child profile count
                         	**type**\:  int
                         
                         	**range:** 0..255
                         
-                        .. attribute:: relay_profile_relay_info_option
+                        .. attribute:: intf_ref_count
                         
-                        	Relay info option
+                        	Interface reference count
                         	**type**\:  int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_relay_info_optionvpn
-                        
-                        	Relay info option vpn
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_relay_info_optionvpn_mode
-                        
-                        	Relay info option vpn\-mode
-                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
-                        
-                        .. attribute:: relay_profile_relay_info_policy
-                        
-                        	Relay info policy
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: relay_profile_uid
-                        
-                        	Profile UID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         
 
@@ -5709,154 +5587,52 @@ class Ipv4Dhcpd(Entity):
                         _revision = '2015-11-09'
 
                         def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, self).__init__()
+                            super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, self).__init__()
 
                             self.yang_name = "profile"
                             self.yang_parent_name = "profiles"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
+                            self._child_container_classes = {"interface-references" : ("interface_references", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences), "child-profile-info" : ("child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo)}
                             self._child_list_classes = {}
 
                             self.profile_name = YLeaf(YType.str, "profile-name")
 
-                            self.relay_profile_broadcast_flag_policy = YLeaf(YType.uint8, "relay-profile-broadcast-flag-policy")
+                            self.base_default_profile_name = YLeaf(YType.str, "base-default-profile-name")
 
-                            self.relay_profile_gi_addr = YLeafList(YType.str, "relay-profile-gi-addr")
+                            self.default_profile_mode = YLeaf(YType.uint8, "default-profile-mode")
 
-                            self.relay_profile_gi_addr_policy = YLeaf(YType.uint8, "relay-profile-gi-addr-policy")
+                            self.relay_authenticate = YLeaf(YType.enumeration, "relay-authenticate")
 
-                            self.relay_profile_helper_address = YLeafList(YType.str, "relay-profile-helper-address")
+                            self.remote_id = YLeaf(YType.str, "remote-id")
 
-                            self.relay_profile_helper_count = YLeaf(YType.uint8, "relay-profile-helper-count")
+                            self.child_profile_count = YLeaf(YType.uint8, "child-profile-count")
 
-                            self.relay_profile_helper_vrf = YLeafList(YType.str, "relay-profile-helper-vrf")
+                            self.intf_ref_count = YLeaf(YType.uint8, "intf-ref-count")
 
-                            self.relay_profile_mac_mismatch_action = YLeaf(YType.uint8, "relay-profile-mac-mismatch-action")
+                            self.interface_references = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences()
+                            self.interface_references.parent = self
+                            self._children_name_map["interface_references"] = "interface-references"
+                            self._children_yang_names.add("interface-references")
 
-                            self.relay_profile_name = YLeaf(YType.str, "relay-profile-name")
-
-                            self.relay_profile_relay_info_allow_untrusted = YLeaf(YType.uint8, "relay-profile-relay-info-allow-untrusted")
-
-                            self.relay_profile_relay_info_check = YLeaf(YType.uint8, "relay-profile-relay-info-check")
-
-                            self.relay_profile_relay_info_option = YLeaf(YType.uint8, "relay-profile-relay-info-option")
-
-                            self.relay_profile_relay_info_optionvpn = YLeaf(YType.uint8, "relay-profile-relay-info-optionvpn")
-
-                            self.relay_profile_relay_info_optionvpn_mode = YLeaf(YType.enumeration, "relay-profile-relay-info-optionvpn-mode")
-
-                            self.relay_profile_relay_info_policy = YLeaf(YType.uint8, "relay-profile-relay-info-policy")
-
-                            self.relay_profile_uid = YLeaf(YType.uint32, "relay-profile-uid")
+                            self.child_profile_info = Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo()
+                            self.child_profile_info.parent = self
+                            self._children_name_map["child_profile_info"] = "child-profile-info"
+                            self._children_yang_names.add("child-profile-info")
                             self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', 'relay_profile_broadcast_flag_policy', 'relay_profile_gi_addr', 'relay_profile_gi_addr_policy', 'relay_profile_helper_address', 'relay_profile_helper_count', 'relay_profile_helper_vrf', 'relay_profile_mac_mismatch_action', 'relay_profile_name', 'relay_profile_relay_info_allow_untrusted', 'relay_profile_relay_info_check', 'relay_profile_relay_info_option', 'relay_profile_relay_info_optionvpn', 'relay_profile_relay_info_optionvpn_mode', 'relay_profile_relay_info_policy', 'relay_profile_uid'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', 'base_default_profile_name', 'default_profile_mode', 'relay_authenticate', 'remote_id', 'child_profile_count', 'intf_ref_count'], name, value)
 
 
-                class Statistics(Entity):
-                    """
-                    DHCP Relay VRF statistics
-                    
-                    .. attribute:: ipv4_dhcpd_relay_stat
-                    
-                    	ipv4 dhcpd relay stat
-                    	**type**\: list of    :py:class:`Ipv4DhcpdRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, self).__init__()
-
-                        self.yang_name = "statistics"
-                        self.yang_parent_name = "relay"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"ipv4-dhcpd-relay-stat" : ("ipv4_dhcpd_relay_stat", Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat)}
-
-                        self.ipv4_dhcpd_relay_stat = YList(self)
-                        self._segment_path = lambda: "statistics"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, [], name, value)
-
-
-                    class Ipv4DhcpdRelayStat(Entity):
-                        """
-                        ipv4 dhcpd relay stat
-                        
-                        .. attribute:: relay_statistics_vrf_name
-                        
-                        	DHCP L3 VRF Name
-                        	**type**\:  str
-                        
-                        	**length:** 0..33
-                        
-                        .. attribute:: statistics
-                        
-                        	Public relay statistics
-                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, self).__init__()
-
-                            self.yang_name = "ipv4-dhcpd-relay-stat"
-                            self.yang_parent_name = "statistics"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics)}
-                            self._child_list_classes = {}
-
-                            self.relay_statistics_vrf_name = YLeaf(YType.str, "relay-statistics-vrf-name")
-
-                            self.statistics = Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics()
-                            self.statistics.parent = self
-                            self._children_name_map["statistics"] = "statistics"
-                            self._children_yang_names.add("statistics")
-                            self._segment_path = lambda: "ipv4-dhcpd-relay-stat"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, ['relay_statistics_vrf_name'], name, value)
-
-
-                        class Statistics(Entity):
+                        class InterfaceReferences(Entity):
                             """
-                            Public relay statistics
+                            Interface references
                             
-                            .. attribute:: dropped_packets
+                            .. attribute:: ipv4_dhcpd_base_interface_reference
                             
-                            	Dropped packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: received_packets
-                            
-                            	Received packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: transmitted_packets
-                            
-                            	Transmitted packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
+                            	ipv4 dhcpd base interface reference
+                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseInterfaceReference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference>`
                             
                             
 
@@ -5866,33 +5642,273 @@ class Ipv4Dhcpd(Entity):
                             _revision = '2015-11-09'
 
                             def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics, self).__init__()
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, self).__init__()
 
-                                self.yang_name = "statistics"
-                                self.yang_parent_name = "ipv4-dhcpd-relay-stat"
+                                self.yang_name = "interface-references"
+                                self.yang_parent_name = "profile"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
-                                self._child_list_classes = {}
+                                self._child_list_classes = {"ipv4-dhcpd-base-interface-reference" : ("ipv4_dhcpd_base_interface_reference", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference)}
 
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                self._segment_path = lambda: "statistics"
+                                self.ipv4_dhcpd_base_interface_reference = YList(self)
+                                self._segment_path = lambda: "interface-references"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, [], name, value)
 
 
-                class StatisticsInfo(Entity):
+                            class Ipv4DhcpdBaseInterfaceReference(Entity):
+                                """
+                                ipv4 dhcpd base interface reference
+                                
+                                .. attribute:: base_reference_interface_name
+                                
+                                	Interface name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, self).__init__()
+
+                                    self.yang_name = "ipv4-dhcpd-base-interface-reference"
+                                    self.yang_parent_name = "interface-references"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.base_reference_interface_name = YLeaf(YType.str, "base-reference-interface-name")
+                                    self._segment_path = lambda: "ipv4-dhcpd-base-interface-reference"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, ['base_reference_interface_name'], name, value)
+
+
+                        class ChildProfileInfo(Entity):
+                            """
+                            child profile info
+                            
+                            .. attribute:: ipv4_dhcpd_base_child_profile_info
+                            
+                            	ipv4 dhcpd base child profile info
+                            	**type**\: list of    :py:class:`Ipv4DhcpdBaseChildProfileInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, self).__init__()
+
+                                self.yang_name = "child-profile-info"
+                                self.yang_parent_name = "profile"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"ipv4-dhcpd-base-child-profile-info" : ("ipv4_dhcpd_base_child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo)}
+
+                                self.ipv4_dhcpd_base_child_profile_info = YList(self)
+                                self._segment_path = lambda: "child-profile-info"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, [], name, value)
+
+
+                            class Ipv4DhcpdBaseChildProfileInfo(Entity):
+                                """
+                                ipv4 dhcpd base child profile info
+                                
+                                .. attribute:: base_child_profile_name
+                                
+                                	Base Child Profile name
+                                	**type**\:  str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: mode
+                                
+                                	Profile mode
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: matched_option_code
+                                
+                                	Matched option code
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: matched_option_len
+                                
+                                	Matched option len
+                                	**type**\:  int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: option_data
+                                
+                                	Matched option data
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, self).__init__()
+
+                                    self.yang_name = "ipv4-dhcpd-base-child-profile-info"
+                                    self.yang_parent_name = "child-profile-info"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.base_child_profile_name = YLeaf(YType.str, "base-child-profile-name")
+
+                                    self.mode = YLeaf(YType.uint8, "mode")
+
+                                    self.matched_option_code = YLeaf(YType.uint8, "matched-option-code")
+
+                                    self.matched_option_len = YLeaf(YType.uint8, "matched-option-len")
+
+                                    self.option_data = YLeaf(YType.str, "option-data")
+                                    self._segment_path = lambda: "ipv4-dhcpd-base-child-profile-info"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, ['base_child_profile_name', 'mode', 'matched_option_code', 'matched_option_len', 'option_data'], name, value)
+
+
+                class Database(Entity):
                     """
-                    DHCP relay statistics info
+                    IPv4 DHCP database
                     
-                    .. attribute:: relay_stats_timestamp
+                    .. attribute:: configured
                     
-                    	Relay Stats timestamp
+                    	Database feature configured
+                    	**type**\:  bool
+                    
+                    .. attribute:: version
+                    
+                    	Current file version
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_write_interval
+                    
+                    	Full file write interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: last_full_write_file_name
+                    
+                    	Last full write file name
+                    	**type**\:  str
+                    
+                    	**length:** 0..64
+                    
+                    .. attribute:: last_full_write_time
+                    
+                    	Last full write time since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_write_count
+                    
+                    	Full file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: failed_full_file_write_count
+                    
+                    	Failed full file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: full_file_record_count
+                    
+                    	Full file record count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_full_file_write_error_timestamp
+                    
+                    	Last full file write error timestamp since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incremental_file_write_interval
+                    
+                    	Incremental file write interval in minutes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: last_incremental_write_file_name
+                    
+                    	Last incremental write file name
+                    	**type**\:  str
+                    
+                    	**length:** 0..64
+                    
+                    .. attribute:: last_incremental_write_time
+                    
+                    	Last incremental write time since epoch
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incremental_file_write_count
+                    
+                    	Incremental file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: failed_incremental_file_write_count
+                    
+                    	Failed incremental file write count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: incremental_file_record_count
+                    
+                    	Incremental file record count
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: last_incremental_file_write_error_timestamp
+                    
+                    	Last incremental file write error timestamp since epoch
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -5905,1013 +5921,55 @@ class Ipv4Dhcpd(Entity):
                     _revision = '2015-11-09'
 
                     def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, self).__init__()
+                        super(Ipv4Dhcpd.Nodes.Node.Base.Database, self).__init__()
 
-                        self.yang_name = "statistics-info"
-                        self.yang_parent_name = "relay"
+                        self.yang_name = "database"
+                        self.yang_parent_name = "base"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.relay_stats_timestamp = YLeaf(YType.uint32, "relay-stats-timestamp")
-                        self._segment_path = lambda: "statistics-info"
+                        self.configured = YLeaf(YType.boolean, "configured")
+
+                        self.version = YLeaf(YType.uint32, "version")
+
+                        self.full_file_write_interval = YLeaf(YType.uint32, "full-file-write-interval")
+
+                        self.last_full_write_file_name = YLeaf(YType.str, "last-full-write-file-name")
+
+                        self.last_full_write_time = YLeaf(YType.uint32, "last-full-write-time")
+
+                        self.full_file_write_count = YLeaf(YType.uint32, "full-file-write-count")
+
+                        self.failed_full_file_write_count = YLeaf(YType.uint32, "failed-full-file-write-count")
+
+                        self.full_file_record_count = YLeaf(YType.uint32, "full-file-record-count")
+
+                        self.last_full_file_write_error_timestamp = YLeaf(YType.uint32, "last-full-file-write-error-timestamp")
+
+                        self.incremental_file_write_interval = YLeaf(YType.uint32, "incremental-file-write-interval")
+
+                        self.last_incremental_write_file_name = YLeaf(YType.str, "last-incremental-write-file-name")
+
+                        self.last_incremental_write_time = YLeaf(YType.uint32, "last-incremental-write-time")
+
+                        self.incremental_file_write_count = YLeaf(YType.uint32, "incremental-file-write-count")
+
+                        self.failed_incremental_file_write_count = YLeaf(YType.uint32, "failed-incremental-file-write-count")
+
+                        self.incremental_file_record_count = YLeaf(YType.uint32, "incremental-file-record-count")
+
+                        self.last_incremental_file_write_error_timestamp = YLeaf(YType.uint32, "last-incremental-file-write-error-timestamp")
+                        self._segment_path = lambda: "database"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, ['relay_stats_timestamp'], name, value)
-
-
-                class Vrfs(Entity):
-                    """
-                    DHCP relay list of VRF names
-                    
-                    .. attribute:: vrf
-                    
-                    	IPv4 DHCP relay VRF name
-                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, self).__init__()
-
-                        self.yang_name = "vrfs"
-                        self.yang_parent_name = "relay"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf)}
-
-                        self.vrf = YList(self)
-                        self._segment_path = lambda: "vrfs"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, [], name, value)
-
-
-                    class Vrf(Entity):
-                        """
-                        IPv4 DHCP relay VRF name
-                        
-                        .. attribute:: vrf_name  <key>
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: vrf_statistics
-                        
-                        	IPv4 DHCP relay statistics
-                        	**type**\:   :py:class:`VrfStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
-
-                            self.yang_name = "vrf"
-                            self.yang_parent_name = "vrfs"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"vrf-statistics" : ("vrf_statistics", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics)}
-                            self._child_list_classes = {}
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                            self.vrf_statistics = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics()
-                            self.vrf_statistics.parent = self
-                            self._children_name_map["vrf_statistics"] = "vrf-statistics"
-                            self._children_yang_names.add("vrf-statistics")
-                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
-
-
-                        class VrfStatistics(Entity):
-                            """
-                            IPv4 DHCP relay statistics
-                            
-                            .. attribute:: ack
-                            
-                            	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack>`
-                            
-                            .. attribute:: bootp_reply
-                            
-                            	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply>`
-                            
-                            .. attribute:: bootp_request
-                            
-                            	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest>`
-                            
-                            .. attribute:: decline
-                            
-                            	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline>`
-                            
-                            .. attribute:: discover
-                            
-                            	DHCP discover packets
-                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform>`
-                            
-                            .. attribute:: lease_active
-                            
-                            	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive>`
-                            
-                            .. attribute:: lease_not_assigned
-                            
-                            	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned>`
-                            
-                            .. attribute:: lease_query
-                            
-                            	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery>`
-                            
-                            .. attribute:: lease_unknown
-                            
-                            	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown>`
-                            
-                            .. attribute:: nak
-                            
-                            	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak>`
-                            
-                            .. attribute:: offer
-                            
-                            	DHCP offer packets
-                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer>`
-                            
-                            .. attribute:: release
-                            
-                            	DHCP release packets
-                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release>`
-                            
-                            .. attribute:: request
-                            
-                            	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, self).__init__()
-
-                                self.yang_name = "vrf-statistics"
-                                self.yang_parent_name = "vrf"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline), "discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request)}
-                                self._child_list_classes = {}
-
-                                self.ack = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack()
-                                self.ack.parent = self
-                                self._children_name_map["ack"] = "ack"
-                                self._children_yang_names.add("ack")
-
-                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply()
-                                self.bootp_reply.parent = self
-                                self._children_name_map["bootp_reply"] = "bootp-reply"
-                                self._children_yang_names.add("bootp-reply")
-
-                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest()
-                                self.bootp_request.parent = self
-                                self._children_name_map["bootp_request"] = "bootp-request"
-                                self._children_yang_names.add("bootp-request")
-
-                                self.decline = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline()
-                                self.decline.parent = self
-                                self._children_name_map["decline"] = "decline"
-                                self._children_yang_names.add("decline")
-
-                                self.discover = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover()
-                                self.discover.parent = self
-                                self._children_name_map["discover"] = "discover"
-                                self._children_yang_names.add("discover")
-
-                                self.inform = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform()
-                                self.inform.parent = self
-                                self._children_name_map["inform"] = "inform"
-                                self._children_yang_names.add("inform")
-
-                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive()
-                                self.lease_active.parent = self
-                                self._children_name_map["lease_active"] = "lease-active"
-                                self._children_yang_names.add("lease-active")
-
-                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned()
-                                self.lease_not_assigned.parent = self
-                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
-                                self._children_yang_names.add("lease-not-assigned")
-
-                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self._children_name_map["lease_query"] = "lease-query"
-                                self._children_yang_names.add("lease-query")
-
-                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown()
-                                self.lease_unknown.parent = self
-                                self._children_name_map["lease_unknown"] = "lease-unknown"
-                                self._children_yang_names.add("lease-unknown")
-
-                                self.nak = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak()
-                                self.nak.parent = self
-                                self._children_name_map["nak"] = "nak"
-                                self._children_yang_names.add("nak")
-
-                                self.offer = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer()
-                                self.offer.parent = self
-                                self._children_name_map["offer"] = "offer"
-                                self._children_yang_names.add("offer")
-
-                                self.release = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release()
-                                self.release.parent = self
-                                self._children_name_map["release"] = "release"
-                                self._children_yang_names.add("release")
-
-                                self.request = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request()
-                                self.request.parent = self
-                                self._children_name_map["request"] = "request"
-                                self._children_yang_names.add("request")
-                                self._segment_path = lambda: "vrf-statistics"
-
-
-                            class Ack(Entity):
-                                """
-                                DHCP ack packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, self).__init__()
-
-                                    self.yang_name = "ack"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "ack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpReply(Entity):
-                                """
-                                DHCP BOOTP reply
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, self).__init__()
-
-                                    self.yang_name = "bootp-reply"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-reply"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpRequest(Entity):
-                                """
-                                DHCP BOOTP request
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, self).__init__()
-
-                                    self.yang_name = "bootp-request"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Decline(Entity):
-                                """
-                                DHCP decline packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, self).__init__()
-
-                                    self.yang_name = "decline"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "decline"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Discover(Entity):
-                                """
-                                DHCP discover packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, self).__init__()
-
-                                    self.yang_name = "discover"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "discover"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Inform(Entity):
-                                """
-                                DHCP inform packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, self).__init__()
-
-                                    self.yang_name = "inform"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "inform"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseActive(Entity):
-                                """
-                                DHCP lease active
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, self).__init__()
-
-                                    self.yang_name = "lease-active"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-active"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseNotAssigned(Entity):
-                                """
-                                DHCP lease not assigned
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, self).__init__()
-
-                                    self.yang_name = "lease-not-assigned"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-not-assigned"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseQuery(Entity):
-                                """
-                                DHCP lease query packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, self).__init__()
-
-                                    self.yang_name = "lease-query"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-query"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseUnknown(Entity):
-                                """
-                                DHCP lease unknown
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, self).__init__()
-
-                                    self.yang_name = "lease-unknown"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-unknown"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Nak(Entity):
-                                """
-                                DHCP nak packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, self).__init__()
-
-                                    self.yang_name = "nak"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "nak"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Offer(Entity):
-                                """
-                                DHCP offer packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, self).__init__()
-
-                                    self.yang_name = "offer"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "offer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Release(Entity):
-                                """
-                                DHCP release packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, self).__init__()
-
-                                    self.yang_name = "release"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "release"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Request(Entity):
-                                """
-                                DHCP request packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, self).__init__()
-
-                                    self.yang_name = "request"
-                                    self.yang_parent_name = "vrf-statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
 
 
             class Server(Entity):
                 """
                 IPv4 DHCP Server operational data
-                
-                .. attribute:: binding
-                
-                	DHCP server bindings
-                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding>`
                 
                 .. attribute:: profiles
                 
@@ -6922,6 +5980,11 @@ class Ipv4Dhcpd(Entity):
                 
                 	DHCP Server statistics
                 	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Statistics>`
+                
+                .. attribute:: binding
+                
+                	DHCP server bindings
+                	**type**\:   :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding>`
                 
                 .. attribute:: statistics_info
                 
@@ -6947,13 +6010,8 @@ class Ipv4Dhcpd(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"binding" : ("binding", Ipv4Dhcpd.Nodes.Node.Server.Binding), "profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Server.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Statistics), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Server.Vrfs)}
+                    self._child_container_classes = {"profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Server.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Statistics), "binding" : ("binding", Ipv4Dhcpd.Nodes.Node.Server.Binding), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Server.Vrfs)}
                     self._child_list_classes = {}
-
-                    self.binding = Ipv4Dhcpd.Nodes.Node.Server.Binding()
-                    self.binding.parent = self
-                    self._children_name_map["binding"] = "binding"
-                    self._children_yang_names.add("binding")
 
                     self.profiles = Ipv4Dhcpd.Nodes.Node.Server.Profiles()
                     self.profiles.parent = self
@@ -6965,6 +6023,11 @@ class Ipv4Dhcpd(Entity):
                     self._children_name_map["statistics"] = "statistics"
                     self._children_yang_names.add("statistics")
 
+                    self.binding = Ipv4Dhcpd.Nodes.Node.Server.Binding()
+                    self.binding.parent = self
+                    self._children_name_map["binding"] = "binding"
+                    self._children_yang_names.add("binding")
+
                     self.statistics_info = Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo()
                     self.statistics_info.parent = self
                     self._children_name_map["statistics_info"] = "statistics-info"
@@ -6975,614 +6038,6 @@ class Ipv4Dhcpd(Entity):
                     self._children_name_map["vrfs"] = "vrfs"
                     self._children_yang_names.add("vrfs")
                     self._segment_path = lambda: "server"
-
-
-                class Binding(Entity):
-                    """
-                    DHCP server bindings
-                    
-                    .. attribute:: clients
-                    
-                    	DHCP server client bindings
-                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients>`
-                    
-                    .. attribute:: summary
-                    
-                    	DHCP server binding summary
-                    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-dhcpd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Ipv4Dhcpd.Nodes.Node.Server.Binding, self).__init__()
-
-                        self.yang_name = "binding"
-                        self.yang_parent_name = "server"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"clients" : ("clients", Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients), "summary" : ("summary", Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary)}
-                        self._child_list_classes = {}
-
-                        self.clients = Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients()
-                        self.clients.parent = self
-                        self._children_name_map["clients"] = "clients"
-                        self._children_yang_names.add("clients")
-
-                        self.summary = Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary()
-                        self.summary.parent = self
-                        self._children_name_map["summary"] = "summary"
-                        self._children_yang_names.add("summary")
-                        self._segment_path = lambda: "binding"
-
-
-                    class Clients(Entity):
-                        """
-                        DHCP server client bindings
-                        
-                        .. attribute:: client
-                        
-                        	Single DHCP Server binding
-                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, self).__init__()
-
-                            self.yang_name = "clients"
-                            self.yang_parent_name = "binding"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"client" : ("client", Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client)}
-
-                            self.client = YList(self)
-                            self._segment_path = lambda: "clients"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, [], name, value)
-
-
-                        class Client(Entity):
-                            """
-                            Single DHCP Server binding
-                            
-                            .. attribute:: client_id  <key>
-                            
-                            	Client ID
-                            	**type**\:  str
-                            
-                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                            
-                            .. attribute:: access_vrf_name
-                            
-                            	DHCP access interface VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
-                            .. attribute:: client_gi_addr
-                            
-                            	DHCP client GIADDR
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: client_id_xr
-                            
-                            	DHCP client identifier
-                            	**type**\:  str
-                            
-                            	**length:** 0..1275
-                            
-                            .. attribute:: event_history
-                            
-                            	event history
-                            	**type**\:  list of int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: interface_name
-                            
-                            	DHCP access interface to client
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: ip_address
-                            
-                            	DHCP IP address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: is_auth_received
-                            
-                            	Is true if authentication is on received option82
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_mbl_subscriber
-                            
-                            	Is true if DHCP subscriber is Mobile
-                            	**type**\:  bool
-                            
-                            .. attribute:: is_nak_next_renew
-                            
-                            	Is true if DHCP next renew from client will be NAK'd
-                            	**type**\:  bool
-                            
-                            .. attribute:: lease_time
-                            
-                            	Lease time in seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: mac_address
-                            
-                            	DHCP client MAC address
-                            	**type**\:  str
-                            
-                            .. attribute:: old_subscriber_label
-                            
-                            	DHCP old subscriber label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: param_request
-                            
-                            	DHCP parameter request option
-                            	**type**\:  str
-                            
-                            	**length:** 0..513
-                            
-                            .. attribute:: param_response
-                            
-                            	DHCP saved options
-                            	**type**\:  str
-                            
-                            	**length:** 0..2051
-                            
-                            .. attribute:: profile_name
-                            
-                            	DHCP profile name
-                            	**type**\:  str
-                            
-                            	**length:** 0..65
-                            
-                            .. attribute:: proxy_binding_inner_tag
-                            
-                            	DHCP VLAN inner VLAN
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: proxy_binding_outer_tag
-                            
-                            	DHCP VLAN outer VLAN
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: remaining_lease_time
-                            
-                            	Remaining lease time in seconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: second
-                            
-                            .. attribute:: reply_server_ip_address
-                            
-                            	DHCP reply server IP address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: rx_circuit_id
-                            
-                            	DHCP received circuit ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: rx_remote_id
-                            
-                            	DHCP received Remote ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: rx_vsiso
-                            
-                            	DHCP received VSISO
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: server_ip_address
-                            
-                            	DHCP server IP address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: server_vrf_name
-                            
-                            	DHCP server VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
-                            .. attribute:: session_start_time
-                            
-                            	session start time
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
-                            .. attribute:: srg_state
-                            
-                            	DHCPV4 SRG state
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: state
-                            
-                            	DHCP client state
-                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
-                            
-                            .. attribute:: subscriber_interface_name
-                            
-                            	DHCP subscriber interface
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: subscriber_label
-                            
-                            	DHCP subscriber label
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: to_server_gi_addr
-                            
-                            	DHCP to server GIADDR
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: tx_circuit_id
-                            
-                            	DHCP transmitted circuit ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: tx_remote_id
-                            
-                            	DHCP transmitted Remote ID
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: tx_vsiso
-                            
-                            	DHCP transmitted VSISO
-                            	**type**\:  str
-                            
-                            	**length:** 0..768
-                            
-                            .. attribute:: vrf_name
-                            
-                            	DHCP client/subscriber VRF name
-                            	**type**\:  str
-                            
-                            	**length:** 0..33
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-dhcpd-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
-
-                                self.yang_name = "client"
-                                self.yang_parent_name = "clients"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.client_id = YLeaf(YType.str, "client-id")
-
-                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
-
-                                self.client_gi_addr = YLeaf(YType.str, "client-gi-addr")
-
-                                self.client_id_xr = YLeaf(YType.str, "client-id-xr")
-
-                                self.event_history = YLeafList(YType.uint32, "event-history")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.ip_address = YLeaf(YType.str, "ip-address")
-
-                                self.is_auth_received = YLeaf(YType.boolean, "is-auth-received")
-
-                                self.is_mbl_subscriber = YLeaf(YType.boolean, "is-mbl-subscriber")
-
-                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
-
-                                self.lease_time = YLeaf(YType.uint32, "lease-time")
-
-                                self.mac_address = YLeaf(YType.str, "mac-address")
-
-                                self.old_subscriber_label = YLeaf(YType.uint32, "old-subscriber-label")
-
-                                self.param_request = YLeaf(YType.str, "param-request")
-
-                                self.param_response = YLeaf(YType.str, "param-response")
-
-                                self.profile_name = YLeaf(YType.str, "profile-name")
-
-                                self.proxy_binding_inner_tag = YLeaf(YType.uint32, "proxy-binding-inner-tag")
-
-                                self.proxy_binding_outer_tag = YLeaf(YType.uint32, "proxy-binding-outer-tag")
-
-                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
-
-                                self.reply_server_ip_address = YLeaf(YType.str, "reply-server-ip-address")
-
-                                self.rx_circuit_id = YLeaf(YType.str, "rx-circuit-id")
-
-                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
-
-                                self.rx_vsiso = YLeaf(YType.str, "rx-vsiso")
-
-                                self.server_ip_address = YLeaf(YType.str, "server-ip-address")
-
-                                self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
-
-                                self.session_start_time = YLeaf(YType.uint64, "session-start-time")
-
-                                self.srg_state = YLeaf(YType.uint32, "srg-state")
-
-                                self.state = YLeaf(YType.enumeration, "state")
-
-                                self.subscriber_interface_name = YLeaf(YType.str, "subscriber-interface-name")
-
-                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
-
-                                self.to_server_gi_addr = YLeaf(YType.str, "to-server-gi-addr")
-
-                                self.tx_circuit_id = YLeaf(YType.str, "tx-circuit-id")
-
-                                self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
-
-                                self.tx_vsiso = YLeaf(YType.str, "tx-vsiso")
-
-                                self.vrf_name = YLeaf(YType.str, "vrf-name")
-                                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'access_vrf_name', 'client_gi_addr', 'client_id_xr', 'event_history', 'interface_name', 'ip_address', 'is_auth_received', 'is_mbl_subscriber', 'is_nak_next_renew', 'lease_time', 'mac_address', 'old_subscriber_label', 'param_request', 'param_response', 'profile_name', 'proxy_binding_inner_tag', 'proxy_binding_outer_tag', 'remaining_lease_time', 'reply_server_ip_address', 'rx_circuit_id', 'rx_remote_id', 'rx_vsiso', 'server_ip_address', 'server_vrf_name', 'session_start_time', 'srg_state', 'state', 'subscriber_interface_name', 'subscriber_label', 'to_server_gi_addr', 'tx_circuit_id', 'tx_remote_id', 'tx_vsiso', 'vrf_name'], name, value)
-
-
-                    class Summary(Entity):
-                        """
-                        DHCP server binding summary
-                        
-                        .. attribute:: ack_waiting_for_dpm
-                        
-                        	Number of clients in Waiting for DPM with ACK
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bound_clients
-                        
-                        	Number of clients in bound state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: clients
-                        
-                        	Total number of clients
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: deleting_clients_d
-                        
-                        	Number of clients in deleting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: disconnected_clients
-                        
-                        	Number of clients in disconnected state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: informing_clients
-                        
-                        	Number of clients in informing state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: initializing_clients
-                        
-                        	Number of clients in init state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: offer_sent_for_client
-                        
-                        	Number of clients in Offer sent state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: reauthorizing_clients
-                        
-                        	Number of clients in reauth state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: renewing_clients
-                        
-                        	Number of clients in renewing state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: request_waiting_for_dpm
-                        
-                        	Number of clients in Waiting for DPM with Request
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: requesting_clients
-                        
-                        	Number of clients in requesting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: restarting_clients
-                        
-                        	Number of clients in restarting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: selecting_clients
-                        
-                        	Number of clients in selecting state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_daps_init
-                        
-                        	Number of clients in Init DAPS wait state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_addr_change
-                        
-                        	Number of clients in Waiting for DPM after addr change
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_disconnect
-                        
-                        	Number of clients in waiting for DPM disconnect state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_init
-                        
-                        	Number of clients in Init DPM wait state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: waiting_for_dpm_request
-                        
-                        	Number of clients in Request DPM wait state
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-dhcpd-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, self).__init__()
-
-                            self.yang_name = "summary"
-                            self.yang_parent_name = "binding"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.ack_waiting_for_dpm = YLeaf(YType.uint32, "ack-waiting-for-dpm")
-
-                            self.bound_clients = YLeaf(YType.uint32, "bound-clients")
-
-                            self.clients = YLeaf(YType.uint32, "clients")
-
-                            self.deleting_clients_d = YLeaf(YType.uint32, "deleting-clients-d")
-
-                            self.disconnected_clients = YLeaf(YType.uint32, "disconnected-clients")
-
-                            self.informing_clients = YLeaf(YType.uint32, "informing-clients")
-
-                            self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
-
-                            self.offer_sent_for_client = YLeaf(YType.uint32, "offer-sent-for-client")
-
-                            self.reauthorizing_clients = YLeaf(YType.uint32, "reauthorizing-clients")
-
-                            self.renewing_clients = YLeaf(YType.uint32, "renewing-clients")
-
-                            self.request_waiting_for_dpm = YLeaf(YType.uint32, "request-waiting-for-dpm")
-
-                            self.requesting_clients = YLeaf(YType.uint32, "requesting-clients")
-
-                            self.restarting_clients = YLeaf(YType.uint32, "restarting-clients")
-
-                            self.selecting_clients = YLeaf(YType.uint32, "selecting-clients")
-
-                            self.waiting_for_daps_init = YLeaf(YType.uint32, "waiting-for-daps-init")
-
-                            self.waiting_for_dpm_addr_change = YLeaf(YType.uint32, "waiting-for-dpm-addr-change")
-
-                            self.waiting_for_dpm_disconnect = YLeaf(YType.uint32, "waiting-for-dpm-disconnect")
-
-                            self.waiting_for_dpm_init = YLeaf(YType.uint32, "waiting-for-dpm-init")
-
-                            self.waiting_for_dpm_request = YLeaf(YType.uint32, "waiting-for-dpm-request")
-                            self._segment_path = lambda: "summary"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, ['ack_waiting_for_dpm', 'bound_clients', 'clients', 'deleting_clients_d', 'disconnected_clients', 'informing_clients', 'initializing_clients', 'offer_sent_for_client', 'reauthorizing_clients', 'renewing_clients', 'request_waiting_for_dpm', 'requesting_clients', 'restarting_clients', 'selecting_clients', 'waiting_for_daps_init', 'waiting_for_dpm_addr_change', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_init', 'waiting_for_dpm_request'], name, value)
 
 
                 class Profiles(Entity):
@@ -7627,7 +6082,42 @@ class Ipv4Dhcpd(Entity):
                         	Profile name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        .. attribute:: server_profile_name_xr
+                        
+                        	Profile Name
+                        	**type**\:  str
+                        
+                        	**length:** 0..65
+                        
+                        .. attribute:: secure_arp
+                        
+                        	Secure ARP
+                        	**type**\:  bool
+                        
+                        .. attribute:: requested_address_check
+                        
+                        	Requested Address Check
+                        	**type**\:  bool
+                        
+                        .. attribute:: server_id_check
+                        
+                        	Server ID Check
+                        	**type**\:  bool
+                        
+                        .. attribute:: duplicate_mac_address_check
+                        
+                        	Duplicate MAC Address Check
+                        	**type**\:  bool
+                        
+                        .. attribute:: duplicate_ip_address_check
+                        
+                        	Duplicate IP Address Check
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_move_allowed
+                        
+                        	Is true if dhcp subscriber is allowed to move
+                        	**type**\:  bool
                         
                         .. attribute:: bcast_policy
                         
@@ -7636,16 +6126,6 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: duplicate_ip_address_check
-                        
-                        	Duplicate IP Address Check
-                        	**type**\:  bool
-                        
-                        .. attribute:: duplicate_mac_address_check
-                        
-                        	Duplicate MAC Address Check
-                        	**type**\:  bool
-                        
                         .. attribute:: giaddr_policy
                         
                         	Giaddr Policy
@@ -7653,34 +6133,31 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: is_move_allowed
+                        .. attribute:: subnet_mask
                         
-                        	Is true if dhcp subscriber is allowed to move
-                        	**type**\:  bool
+                        	Subnet Mask
+                        	**type**\:  str
                         
-                        .. attribute:: lease_limit_count
+                        .. attribute:: server_pool_name
                         
-                        	Lease Limit Count
+                        	Pool Name
+                        	**type**\:  str
+                        
+                        	**length:** 0..65
+                        
+                        .. attribute:: server_profile_lease
+                        
+                        	Lease
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: lease_limit_type
+                        .. attribute:: server_profile_netbios_node_type
                         
-                        	Lease Limit Type
+                        	Server netbios node type
                         	**type**\:  int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: requested_address_check
-                        
-                        	Requested Address Check
-                        	**type**\:  bool
-                        
-                        .. attribute:: secure_arp
-                        
-                        	Secure ARP
-                        	**type**\:  bool
                         
                         .. attribute:: server_bootfile_name
                         
@@ -7696,84 +6173,16 @@ class Ipv4Dhcpd(Entity):
                         
                         	**length:** 0..256
                         
-                        .. attribute:: server_id_check
+                        .. attribute:: server_profileiedge_check
                         
-                        	Server ID Check
-                        	**type**\:  bool
-                        
-                        .. attribute:: server_pool_name
-                        
-                        	Pool Name
-                        	**type**\:  str
-                        
-                        	**length:** 0..65
-                        
-                        .. attribute:: server_profile_default_router
-                        
-                        	Server default addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: server_profile_dns
-                        
-                        	Server DNS addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: server_profile_lease
-                        
-                        	Lease
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: server_profile_name_xr
-                        
-                        	Profile Name
-                        	**type**\:  str
-                        
-                        	**length:** 0..65
-                        
-                        .. attribute:: server_profile_netbios_name_svr_count
-                        
-                        	Server netbios svr count 
+                        	Server iEdge Check
                         	**type**\:  int
                         
                         	**range:** 0..255
-                        
-                        .. attribute:: server_profile_netbios_node_type
-                        
-                        	Server netbios node type
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: server_profile_netbious_name_server
-                        
-                        	Server netbios addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: server_profile_server_dns_count
                         
                         	Server DNS Count
-                        	**type**\:  int
-                        
-                        	**range:** 0..255
-                        
-                        .. attribute:: server_profile_time_server
-                        
-                        	Server Time addresses
-                        	**type**\:  list of str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: server_profile_time_svr_count
-                        
-                        	Server time svr count 
                         	**type**\:  int
                         
                         	**range:** 0..255
@@ -7785,19 +6194,53 @@ class Ipv4Dhcpd(Entity):
                         
                         	**range:** 0..255
                         
-                        .. attribute:: server_profileiedge_check
+                        .. attribute:: server_profile_netbios_name_svr_count
                         
-                        	Server iEdge Check
+                        	Server netbios svr count 
                         	**type**\:  int
                         
                         	**range:** 0..255
                         
-                        .. attribute:: subnet_mask
+                        .. attribute:: server_profile_time_svr_count
                         
-                        	Subnet Mask
-                        	**type**\:  str
+                        	Server time svr count 
+                        	**type**\:  int
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        	**range:** 0..255
+                        
+                        .. attribute:: lease_limit_type
+                        
+                        	Lease Limit Type
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: lease_limit_count
+                        
+                        	Lease Limit Count
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: server_profile_dns
+                        
+                        	Server DNS addresses
+                        	**type**\:  list of str
+                        
+                        .. attribute:: server_profile_default_router
+                        
+                        	Server default addresses
+                        	**type**\:  list of str
+                        
+                        .. attribute:: server_profile_netbious_name_server
+                        
+                        	Server netbios addresses
+                        	**type**\:  list of str
+                        
+                        .. attribute:: server_profile_time_server
+                        
+                        	Server Time addresses
+                        	**type**\:  list of str
                         
                         
 
@@ -7818,61 +6261,61 @@ class Ipv4Dhcpd(Entity):
 
                             self.server_profile_name = YLeaf(YType.str, "server-profile-name")
 
-                            self.bcast_policy = YLeaf(YType.uint8, "bcast-policy")
+                            self.server_profile_name_xr = YLeaf(YType.str, "server-profile-name-xr")
 
-                            self.duplicate_ip_address_check = YLeaf(YType.boolean, "duplicate-ip-address-check")
-
-                            self.duplicate_mac_address_check = YLeaf(YType.boolean, "duplicate-mac-address-check")
-
-                            self.giaddr_policy = YLeaf(YType.uint8, "giaddr-policy")
-
-                            self.is_move_allowed = YLeaf(YType.boolean, "is-move-allowed")
-
-                            self.lease_limit_count = YLeaf(YType.uint32, "lease-limit-count")
-
-                            self.lease_limit_type = YLeaf(YType.uint8, "lease-limit-type")
+                            self.secure_arp = YLeaf(YType.boolean, "secure-arp")
 
                             self.requested_address_check = YLeaf(YType.boolean, "requested-address-check")
 
-                            self.secure_arp = YLeaf(YType.boolean, "secure-arp")
+                            self.server_id_check = YLeaf(YType.boolean, "server-id-check")
+
+                            self.duplicate_mac_address_check = YLeaf(YType.boolean, "duplicate-mac-address-check")
+
+                            self.duplicate_ip_address_check = YLeaf(YType.boolean, "duplicate-ip-address-check")
+
+                            self.is_move_allowed = YLeaf(YType.boolean, "is-move-allowed")
+
+                            self.bcast_policy = YLeaf(YType.uint8, "bcast-policy")
+
+                            self.giaddr_policy = YLeaf(YType.uint8, "giaddr-policy")
+
+                            self.subnet_mask = YLeaf(YType.str, "subnet-mask")
+
+                            self.server_pool_name = YLeaf(YType.str, "server-pool-name")
+
+                            self.server_profile_lease = YLeaf(YType.uint32, "server-profile-lease")
+
+                            self.server_profile_netbios_node_type = YLeaf(YType.uint8, "server-profile-netbios-node-type")
 
                             self.server_bootfile_name = YLeaf(YType.str, "server-bootfile-name")
 
                             self.server_domain_name = YLeaf(YType.str, "server-domain-name")
 
-                            self.server_id_check = YLeaf(YType.boolean, "server-id-check")
-
-                            self.server_pool_name = YLeaf(YType.str, "server-pool-name")
-
-                            self.server_profile_default_router = YLeafList(YType.str, "server-profile-default-router")
-
-                            self.server_profile_dns = YLeafList(YType.str, "server-profile-dns")
-
-                            self.server_profile_lease = YLeaf(YType.uint32, "server-profile-lease")
-
-                            self.server_profile_name_xr = YLeaf(YType.str, "server-profile-name-xr")
-
-                            self.server_profile_netbios_name_svr_count = YLeaf(YType.uint8, "server-profile-netbios-name-svr-count")
-
-                            self.server_profile_netbios_node_type = YLeaf(YType.uint8, "server-profile-netbios-node-type")
-
-                            self.server_profile_netbious_name_server = YLeafList(YType.str, "server-profile-netbious-name-server")
+                            self.server_profileiedge_check = YLeaf(YType.uint8, "server-profileiedge-check")
 
                             self.server_profile_server_dns_count = YLeaf(YType.uint8, "server-profile-server-dns-count")
 
-                            self.server_profile_time_server = YLeafList(YType.str, "server-profile-time-server")
+                            self.server_profiledefault_router_count = YLeaf(YType.uint8, "server-profiledefault-router-count")
+
+                            self.server_profile_netbios_name_svr_count = YLeaf(YType.uint8, "server-profile-netbios-name-svr-count")
 
                             self.server_profile_time_svr_count = YLeaf(YType.uint8, "server-profile-time-svr-count")
 
-                            self.server_profiledefault_router_count = YLeaf(YType.uint8, "server-profiledefault-router-count")
+                            self.lease_limit_type = YLeaf(YType.uint8, "lease-limit-type")
 
-                            self.server_profileiedge_check = YLeaf(YType.uint8, "server-profileiedge-check")
+                            self.lease_limit_count = YLeaf(YType.uint32, "lease-limit-count")
 
-                            self.subnet_mask = YLeaf(YType.str, "subnet-mask")
+                            self.server_profile_dns = YLeafList(YType.str, "server-profile-dns")
+
+                            self.server_profile_default_router = YLeafList(YType.str, "server-profile-default-router")
+
+                            self.server_profile_netbious_name_server = YLeafList(YType.str, "server-profile-netbious-name-server")
+
+                            self.server_profile_time_server = YLeafList(YType.str, "server-profile-time-server")
                             self._segment_path = lambda: "profile" + "[server-profile-name='" + self.server_profile_name.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', 'bcast_policy', 'duplicate_ip_address_check', 'duplicate_mac_address_check', 'giaddr_policy', 'is_move_allowed', 'lease_limit_count', 'lease_limit_type', 'requested_address_check', 'secure_arp', 'server_bootfile_name', 'server_domain_name', 'server_id_check', 'server_pool_name', 'server_profile_default_router', 'server_profile_dns', 'server_profile_lease', 'server_profile_name_xr', 'server_profile_netbios_name_svr_count', 'server_profile_netbios_node_type', 'server_profile_netbious_name_server', 'server_profile_server_dns_count', 'server_profile_time_server', 'server_profile_time_svr_count', 'server_profiledefault_router_count', 'server_profileiedge_check', 'subnet_mask'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', 'server_profile_name_xr', 'secure_arp', 'requested_address_check', 'server_id_check', 'duplicate_mac_address_check', 'duplicate_ip_address_check', 'is_move_allowed', 'bcast_policy', 'giaddr_policy', 'subnet_mask', 'server_pool_name', 'server_profile_lease', 'server_profile_netbios_node_type', 'server_bootfile_name', 'server_domain_name', 'server_profileiedge_check', 'server_profile_server_dns_count', 'server_profiledefault_router_count', 'server_profile_netbios_name_svr_count', 'server_profile_time_svr_count', 'lease_limit_type', 'lease_limit_count', 'server_profile_dns', 'server_profile_default_router', 'server_profile_netbious_name_server', 'server_profile_time_server'], name, value)
 
 
                 class Statistics(Entity):
@@ -7957,13 +6400,6 @@ class Ipv4Dhcpd(Entity):
                             """
                             Proxy statistics
                             
-                            .. attribute:: dropped_packets
-                            
-                            	Dropped packets
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
-                            
                             .. attribute:: received_packets
                             
                             	Received packets
@@ -7974,6 +6410,13 @@ class Ipv4Dhcpd(Entity):
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
@@ -7995,15 +6438,607 @@ class Ipv4Dhcpd(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                 self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                 self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                 self._segment_path = lambda: "statistics"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                class Binding(Entity):
+                    """
+                    DHCP server bindings
+                    
+                    .. attribute:: summary
+                    
+                    	DHCP server binding summary
+                    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary>`
+                    
+                    .. attribute:: clients
+                    
+                    	DHCP server client bindings
+                    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Server.Binding, self).__init__()
+
+                        self.yang_name = "binding"
+                        self.yang_parent_name = "server"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"summary" : ("summary", Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary), "clients" : ("clients", Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients)}
+                        self._child_list_classes = {}
+
+                        self.summary = Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary()
+                        self.summary.parent = self
+                        self._children_name_map["summary"] = "summary"
+                        self._children_yang_names.add("summary")
+
+                        self.clients = Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients()
+                        self.clients.parent = self
+                        self._children_name_map["clients"] = "clients"
+                        self._children_yang_names.add("clients")
+                        self._segment_path = lambda: "binding"
+
+
+                    class Summary(Entity):
+                        """
+                        DHCP server binding summary
+                        
+                        .. attribute:: clients
+                        
+                        	Total number of clients
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: initializing_clients
+                        
+                        	Number of clients in init state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_init
+                        
+                        	Number of clients in Init DPM wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_request
+                        
+                        	Number of clients in Request DPM wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_daps_init
+                        
+                        	Number of clients in Init DAPS wait state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: selecting_clients
+                        
+                        	Number of clients in selecting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: offer_sent_for_client
+                        
+                        	Number of clients in Offer sent state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: requesting_clients
+                        
+                        	Number of clients in requesting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: request_waiting_for_dpm
+                        
+                        	Number of clients in Waiting for DPM with Request
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ack_waiting_for_dpm
+                        
+                        	Number of clients in Waiting for DPM with ACK
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bound_clients
+                        
+                        	Number of clients in bound state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: renewing_clients
+                        
+                        	Number of clients in renewing state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: informing_clients
+                        
+                        	Number of clients in informing state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: reauthorizing_clients
+                        
+                        	Number of clients in reauth state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_disconnect
+                        
+                        	Number of clients in waiting for DPM disconnect state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: waiting_for_dpm_addr_change
+                        
+                        	Number of clients in Waiting for DPM after addr change
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: deleting_clients_d
+                        
+                        	Number of clients in deleting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: disconnected_clients
+                        
+                        	Number of clients in disconnected state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: restarting_clients
+                        
+                        	Number of clients in restarting state
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, self).__init__()
+
+                            self.yang_name = "summary"
+                            self.yang_parent_name = "binding"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.clients = YLeaf(YType.uint32, "clients")
+
+                            self.initializing_clients = YLeaf(YType.uint32, "initializing-clients")
+
+                            self.waiting_for_dpm_init = YLeaf(YType.uint32, "waiting-for-dpm-init")
+
+                            self.waiting_for_dpm_request = YLeaf(YType.uint32, "waiting-for-dpm-request")
+
+                            self.waiting_for_daps_init = YLeaf(YType.uint32, "waiting-for-daps-init")
+
+                            self.selecting_clients = YLeaf(YType.uint32, "selecting-clients")
+
+                            self.offer_sent_for_client = YLeaf(YType.uint32, "offer-sent-for-client")
+
+                            self.requesting_clients = YLeaf(YType.uint32, "requesting-clients")
+
+                            self.request_waiting_for_dpm = YLeaf(YType.uint32, "request-waiting-for-dpm")
+
+                            self.ack_waiting_for_dpm = YLeaf(YType.uint32, "ack-waiting-for-dpm")
+
+                            self.bound_clients = YLeaf(YType.uint32, "bound-clients")
+
+                            self.renewing_clients = YLeaf(YType.uint32, "renewing-clients")
+
+                            self.informing_clients = YLeaf(YType.uint32, "informing-clients")
+
+                            self.reauthorizing_clients = YLeaf(YType.uint32, "reauthorizing-clients")
+
+                            self.waiting_for_dpm_disconnect = YLeaf(YType.uint32, "waiting-for-dpm-disconnect")
+
+                            self.waiting_for_dpm_addr_change = YLeaf(YType.uint32, "waiting-for-dpm-addr-change")
+
+                            self.deleting_clients_d = YLeaf(YType.uint32, "deleting-clients-d")
+
+                            self.disconnected_clients = YLeaf(YType.uint32, "disconnected-clients")
+
+                            self.restarting_clients = YLeaf(YType.uint32, "restarting-clients")
+                            self._segment_path = lambda: "summary"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
+
+
+                    class Clients(Entity):
+                        """
+                        DHCP server client bindings
+                        
+                        .. attribute:: client
+                        
+                        	Single DHCP Server binding
+                        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, self).__init__()
+
+                            self.yang_name = "clients"
+                            self.yang_parent_name = "binding"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"client" : ("client", Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client)}
+
+                            self.client = YList(self)
+                            self._segment_path = lambda: "clients"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, [], name, value)
+
+
+                        class Client(Entity):
+                            """
+                            Single DHCP Server binding
+                            
+                            .. attribute:: client_id  <key>
+                            
+                            	Client ID
+                            	**type**\:  str
+                            
+                            .. attribute:: client_id_xr
+                            
+                            	DHCP client identifier
+                            	**type**\:  str
+                            
+                            	**length:** 0..1275
+                            
+                            .. attribute:: mac_address
+                            
+                            	DHCP client MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: vrf_name
+                            
+                            	DHCP client/subscriber VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: server_vrf_name
+                            
+                            	DHCP server VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: ip_address
+                            
+                            	DHCP IP address
+                            	**type**\:  str
+                            
+                            .. attribute:: client_gi_addr
+                            
+                            	DHCP client GIADDR
+                            	**type**\:  str
+                            
+                            .. attribute:: to_server_gi_addr
+                            
+                            	DHCP to server GIADDR
+                            	**type**\:  str
+                            
+                            .. attribute:: server_ip_address
+                            
+                            	DHCP server IP address
+                            	**type**\:  str
+                            
+                            .. attribute:: reply_server_ip_address
+                            
+                            	DHCP reply server IP address
+                            	**type**\:  str
+                            
+                            .. attribute:: lease_time
+                            
+                            	Lease time in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: remaining_lease_time
+                            
+                            	Remaining lease time in seconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: second
+                            
+                            .. attribute:: state
+                            
+                            	DHCP client state
+                            	**type**\:   :py:class:`BagDhcpdProxyState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.BagDhcpdProxyState>`
+                            
+                            .. attribute:: interface_name
+                            
+                            	DHCP access interface to client
+                            	**type**\:  str
+                            
+                            .. attribute:: access_vrf_name
+                            
+                            	DHCP access interface VRF name
+                            	**type**\:  str
+                            
+                            	**length:** 0..33
+                            
+                            .. attribute:: proxy_binding_outer_tag
+                            
+                            	DHCP VLAN outer VLAN
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: proxy_binding_inner_tag
+                            
+                            	DHCP VLAN inner VLAN
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: profile_name
+                            
+                            	DHCP profile name
+                            	**type**\:  str
+                            
+                            	**length:** 0..65
+                            
+                            .. attribute:: is_nak_next_renew
+                            
+                            	Is true if DHCP next renew from client will be NAK'd
+                            	**type**\:  bool
+                            
+                            .. attribute:: subscriber_label
+                            
+                            	DHCP subscriber label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: old_subscriber_label
+                            
+                            	DHCP old subscriber label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: subscriber_interface_name
+                            
+                            	DHCP subscriber interface
+                            	**type**\:  str
+                            
+                            .. attribute:: rx_circuit_id
+                            
+                            	DHCP received circuit ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_circuit_id
+                            
+                            	DHCP transmitted circuit ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: rx_remote_id
+                            
+                            	DHCP received Remote ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_remote_id
+                            
+                            	DHCP transmitted Remote ID
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: rx_vsiso
+                            
+                            	DHCP received VSISO
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: tx_vsiso
+                            
+                            	DHCP transmitted VSISO
+                            	**type**\:  str
+                            
+                            	**length:** 0..768
+                            
+                            .. attribute:: is_auth_received
+                            
+                            	Is true if authentication is on received option82
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_mbl_subscriber
+                            
+                            	Is true if DHCP subscriber is Mobile
+                            	**type**\:  bool
+                            
+                            .. attribute:: param_request
+                            
+                            	DHCP parameter request option
+                            	**type**\:  str
+                            
+                            	**length:** 0..513
+                            
+                            .. attribute:: param_response
+                            
+                            	DHCP saved options
+                            	**type**\:  str
+                            
+                            	**length:** 0..2051
+                            
+                            .. attribute:: session_start_time
+                            
+                            	session start time
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: srg_state
+                            
+                            	DHCPV4 SRG state
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: event_history
+                            
+                            	event history
+                            	**type**\:  list of int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
+
+                                self.yang_name = "client"
+                                self.yang_parent_name = "clients"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.client_id = YLeaf(YType.str, "client-id")
+
+                                self.client_id_xr = YLeaf(YType.str, "client-id-xr")
+
+                                self.mac_address = YLeaf(YType.str, "mac-address")
+
+                                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                                self.server_vrf_name = YLeaf(YType.str, "server-vrf-name")
+
+                                self.ip_address = YLeaf(YType.str, "ip-address")
+
+                                self.client_gi_addr = YLeaf(YType.str, "client-gi-addr")
+
+                                self.to_server_gi_addr = YLeaf(YType.str, "to-server-gi-addr")
+
+                                self.server_ip_address = YLeaf(YType.str, "server-ip-address")
+
+                                self.reply_server_ip_address = YLeaf(YType.str, "reply-server-ip-address")
+
+                                self.lease_time = YLeaf(YType.uint32, "lease-time")
+
+                                self.remaining_lease_time = YLeaf(YType.uint32, "remaining-lease-time")
+
+                                self.state = YLeaf(YType.enumeration, "state")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.access_vrf_name = YLeaf(YType.str, "access-vrf-name")
+
+                                self.proxy_binding_outer_tag = YLeaf(YType.uint32, "proxy-binding-outer-tag")
+
+                                self.proxy_binding_inner_tag = YLeaf(YType.uint32, "proxy-binding-inner-tag")
+
+                                self.profile_name = YLeaf(YType.str, "profile-name")
+
+                                self.is_nak_next_renew = YLeaf(YType.boolean, "is-nak-next-renew")
+
+                                self.subscriber_label = YLeaf(YType.uint32, "subscriber-label")
+
+                                self.old_subscriber_label = YLeaf(YType.uint32, "old-subscriber-label")
+
+                                self.subscriber_interface_name = YLeaf(YType.str, "subscriber-interface-name")
+
+                                self.rx_circuit_id = YLeaf(YType.str, "rx-circuit-id")
+
+                                self.tx_circuit_id = YLeaf(YType.str, "tx-circuit-id")
+
+                                self.rx_remote_id = YLeaf(YType.str, "rx-remote-id")
+
+                                self.tx_remote_id = YLeaf(YType.str, "tx-remote-id")
+
+                                self.rx_vsiso = YLeaf(YType.str, "rx-vsiso")
+
+                                self.tx_vsiso = YLeaf(YType.str, "tx-vsiso")
+
+                                self.is_auth_received = YLeaf(YType.boolean, "is-auth-received")
+
+                                self.is_mbl_subscriber = YLeaf(YType.boolean, "is-mbl-subscriber")
+
+                                self.param_request = YLeaf(YType.str, "param-request")
+
+                                self.param_response = YLeaf(YType.str, "param-response")
+
+                                self.session_start_time = YLeaf(YType.uint64, "session-start-time")
+
+                                self.srg_state = YLeaf(YType.uint32, "srg-state")
+
+                                self.event_history = YLeafList(YType.uint32, "event-history")
+                                self._segment_path = lambda: "client" + "[client-id='" + self.client_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time', 'srg_state', 'event_history'], name, value)
 
 
                 class StatisticsInfo(Entity):
@@ -8083,8 +7118,6 @@ class Ipv4Dhcpd(Entity):
                         	VRF name
                         	**type**\:  str
                         
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
                         .. attribute:: statistics
                         
                         	IPv4 DHCP server statistics
@@ -8123,75 +7156,75 @@ class Ipv4Dhcpd(Entity):
                             """
                             IPv4 DHCP server statistics
                             
-                            .. attribute:: ack
-                            
-                            	DHCP ack packets
-                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack>`
-                            
-                            .. attribute:: bootp_reply
-                            
-                            	DHCP BOOTP reply
-                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply>`
-                            
-                            .. attribute:: bootp_request
-                            
-                            	DHCP BOOTP request
-                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest>`
-                            
-                            .. attribute:: decline
-                            
-                            	DHCP decline packets
-                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
-                            
                             .. attribute:: discover
                             
                             	DHCP discover packets
                             	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover>`
-                            
-                            .. attribute:: inform
-                            
-                            	DHCP inform packets
-                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
-                            
-                            .. attribute:: lease_active
-                            
-                            	DHCP lease active
-                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive>`
-                            
-                            .. attribute:: lease_not_assigned
-                            
-                            	DHCP lease not assigned
-                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
-                            
-                            .. attribute:: lease_query
-                            
-                            	DHCP lease query packets
-                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
-                            
-                            .. attribute:: lease_unknown
-                            
-                            	DHCP lease unknown
-                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown>`
-                            
-                            .. attribute:: nak
-                            
-                            	DHCP nak packets
-                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak>`
                             
                             .. attribute:: offer
                             
                             	DHCP offer packets
                             	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer>`
                             
+                            .. attribute:: request
+                            
+                            	DHCP request packets
+                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
+                            
+                            .. attribute:: decline
+                            
+                            	DHCP decline packets
+                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline>`
+                            
+                            .. attribute:: ack
+                            
+                            	DHCP ack packets
+                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack>`
+                            
+                            .. attribute:: nak
+                            
+                            	DHCP nak packets
+                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak>`
+                            
                             .. attribute:: release
                             
                             	DHCP release packets
                             	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release>`
                             
-                            .. attribute:: request
+                            .. attribute:: inform
                             
-                            	DHCP request packets
-                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request>`
+                            	DHCP inform packets
+                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCP lease query packets
+                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_not_assigned
+                            
+                            	DHCP lease not assigned
+                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned>`
+                            
+                            .. attribute:: lease_unknown
+                            
+                            	DHCP lease unknown
+                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown>`
+                            
+                            .. attribute:: lease_active
+                            
+                            	DHCP lease active
+                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive>`
+                            
+                            .. attribute:: bootp_request
+                            
+                            	DHCP BOOTP request
+                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest>`
+                            
+                            .. attribute:: bootp_reply
+                            
+                            	DHCP BOOTP reply
+                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply>`
                             
                             
 
@@ -8207,304 +7240,85 @@ class Ipv4Dhcpd(Entity):
                                 self.yang_parent_name = "vrf"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline), "discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request)}
+                                self._child_container_classes = {"discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline), "ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply)}
                                 self._child_list_classes = {}
-
-                                self.ack = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack()
-                                self.ack.parent = self
-                                self._children_name_map["ack"] = "ack"
-                                self._children_yang_names.add("ack")
-
-                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply()
-                                self.bootp_reply.parent = self
-                                self._children_name_map["bootp_reply"] = "bootp-reply"
-                                self._children_yang_names.add("bootp-reply")
-
-                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest()
-                                self.bootp_request.parent = self
-                                self._children_name_map["bootp_request"] = "bootp-request"
-                                self._children_yang_names.add("bootp-request")
-
-                                self.decline = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline()
-                                self.decline.parent = self
-                                self._children_name_map["decline"] = "decline"
-                                self._children_yang_names.add("decline")
 
                                 self.discover = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover()
                                 self.discover.parent = self
                                 self._children_name_map["discover"] = "discover"
                                 self._children_yang_names.add("discover")
 
-                                self.inform = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform()
-                                self.inform.parent = self
-                                self._children_name_map["inform"] = "inform"
-                                self._children_yang_names.add("inform")
+                                self.offer = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer()
+                                self.offer.parent = self
+                                self._children_name_map["offer"] = "offer"
+                                self._children_yang_names.add("offer")
 
-                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive()
-                                self.lease_active.parent = self
-                                self._children_name_map["lease_active"] = "lease-active"
-                                self._children_yang_names.add("lease-active")
+                                self.request = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request()
+                                self.request.parent = self
+                                self._children_name_map["request"] = "request"
+                                self._children_yang_names.add("request")
 
-                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned()
-                                self.lease_not_assigned.parent = self
-                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
-                                self._children_yang_names.add("lease-not-assigned")
+                                self.decline = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline()
+                                self.decline.parent = self
+                                self._children_name_map["decline"] = "decline"
+                                self._children_yang_names.add("decline")
 
-                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery()
-                                self.lease_query.parent = self
-                                self._children_name_map["lease_query"] = "lease-query"
-                                self._children_yang_names.add("lease-query")
-
-                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown()
-                                self.lease_unknown.parent = self
-                                self._children_name_map["lease_unknown"] = "lease-unknown"
-                                self._children_yang_names.add("lease-unknown")
+                                self.ack = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack()
+                                self.ack.parent = self
+                                self._children_name_map["ack"] = "ack"
+                                self._children_yang_names.add("ack")
 
                                 self.nak = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak()
                                 self.nak.parent = self
                                 self._children_name_map["nak"] = "nak"
                                 self._children_yang_names.add("nak")
 
-                                self.offer = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer()
-                                self.offer.parent = self
-                                self._children_name_map["offer"] = "offer"
-                                self._children_yang_names.add("offer")
-
                                 self.release = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release()
                                 self.release.parent = self
                                 self._children_name_map["release"] = "release"
                                 self._children_yang_names.add("release")
 
-                                self.request = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request()
-                                self.request.parent = self
-                                self._children_name_map["request"] = "request"
-                                self._children_yang_names.add("request")
+                                self.inform = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform()
+                                self.inform.parent = self
+                                self._children_name_map["inform"] = "inform"
+                                self._children_yang_names.add("inform")
+
+                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self._children_name_map["lease_query"] = "lease-query"
+                                self._children_yang_names.add("lease-query")
+
+                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned()
+                                self.lease_not_assigned.parent = self
+                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
+                                self._children_yang_names.add("lease-not-assigned")
+
+                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown()
+                                self.lease_unknown.parent = self
+                                self._children_name_map["lease_unknown"] = "lease-unknown"
+                                self._children_yang_names.add("lease-unknown")
+
+                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive()
+                                self.lease_active.parent = self
+                                self._children_name_map["lease_active"] = "lease-active"
+                                self._children_yang_names.add("lease-active")
+
+                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest()
+                                self.bootp_request.parent = self
+                                self._children_name_map["bootp_request"] = "bootp-request"
+                                self._children_yang_names.add("bootp-request")
+
+                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply()
+                                self.bootp_reply.parent = self
+                                self._children_name_map["bootp_reply"] = "bootp-reply"
+                                self._children_yang_names.add("bootp-reply")
                                 self._segment_path = lambda: "statistics"
-
-
-                            class Ack(Entity):
-                                """
-                                DHCP ack packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, self).__init__()
-
-                                    self.yang_name = "ack"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "ack"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpReply(Entity):
-                                """
-                                DHCP BOOTP reply
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
-
-                                    self.yang_name = "bootp-reply"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-reply"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class BootpRequest(Entity):
-                                """
-                                DHCP BOOTP request
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
-
-                                    self.yang_name = "bootp-request"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "bootp-request"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Decline(Entity):
-                                """
-                                DHCP decline packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
-
-                                    self.yang_name = "decline"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "decline"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
 
 
                             class Discover(Entity):
                                 """
                                 DHCP discover packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -8515,6 +7329,13 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
@@ -8536,346 +7357,21 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                     self._segment_path = lambda: "discover"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Inform(Entity):
-                                """
-                                DHCP inform packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
-
-                                    self.yang_name = "inform"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "inform"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseActive(Entity):
-                                """
-                                DHCP lease active
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
-
-                                    self.yang_name = "lease-active"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-active"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseNotAssigned(Entity):
-                                """
-                                DHCP lease not assigned
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
-
-                                    self.yang_name = "lease-not-assigned"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-not-assigned"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseQuery(Entity):
-                                """
-                                DHCP lease query packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
-
-                                    self.yang_name = "lease-query"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-query"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class LeaseUnknown(Entity):
-                                """
-                                DHCP lease unknown
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
-
-                                    self.yang_name = "lease-unknown"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "lease-unknown"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Nak(Entity):
-                                """
-                                DHCP nak packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, self).__init__()
-
-                                    self.yang_name = "nak"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "nak"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
                                 """
                                 DHCP offer packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -8886,6 +7382,13 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
@@ -8907,81 +7410,21 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                     self._segment_path = lambda: "offer"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-                            class Release(Entity):
-                                """
-                                DHCP release packets
-                                
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: received_packets
-                                
-                                	Received packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                .. attribute:: transmitted_packets
-                                
-                                	Transmitted packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-dhcpd-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
-
-                                    self.yang_name = "release"
-                                    self.yang_parent_name = "statistics"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
-
-                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
-
-                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
-                                    self._segment_path = lambda: "release"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
 
                             class Request(Entity):
                                 """
                                 DHCP request packets
                                 
-                                .. attribute:: dropped_packets
-                                
-                                	Dropped packets
-                                	**type**\:  int
-                                
-                                	**range:** 0..18446744073709551615
-                                
                                 .. attribute:: received_packets
                                 
                                 	Received packets
@@ -8992,6 +7435,13 @@ class Ipv4Dhcpd(Entity):
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
@@ -9013,551 +7463,2003 @@ class Ipv4Dhcpd(Entity):
                                     self._child_container_classes = {}
                                     self._child_list_classes = {}
 
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
                                     self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Decline(Entity):
+                                """
+                                DHCP decline packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
+
+                                    self.yang_name = "decline"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
 
                                     self.received_packets = YLeaf(YType.uint64, "received-packets")
 
                                     self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "decline"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Ack(Entity):
+                                """
+                                DHCP ack packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, self).__init__()
+
+                                    self.yang_name = "ack"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "ack"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Nak(Entity):
+                                """
+                                DHCP nak packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, self).__init__()
+
+                                    self.yang_name = "nak"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "nak"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Release(Entity):
+                                """
+                                DHCP release packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
+
+                                    self.yang_name = "release"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "release"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Inform(Entity):
+                                """
+                                DHCP inform packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
+
+                                    self.yang_name = "inform"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "inform"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseQuery(Entity):
+                                """
+                                DHCP lease query packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
+
+                                    self.yang_name = "lease-query"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-query"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseNotAssigned(Entity):
+                                """
+                                DHCP lease not assigned
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, self).__init__()
+
+                                    self.yang_name = "lease-not-assigned"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-not-assigned"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseUnknown(Entity):
+                                """
+                                DHCP lease unknown
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, self).__init__()
+
+                                    self.yang_name = "lease-unknown"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-unknown"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseActive(Entity):
+                                """
+                                DHCP lease active
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, self).__init__()
+
+                                    self.yang_name = "lease-active"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-active"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpRequest(Entity):
+                                """
+                                DHCP BOOTP request
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, self).__init__()
+
+                                    self.yang_name = "bootp-request"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpReply(Entity):
+                                """
+                                DHCP BOOTP reply
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, self).__init__()
+
+                                    self.yang_name = "bootp-reply"
+                                    self.yang_parent_name = "statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-reply"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+            class Relay(Entity):
+                """
+                IPv4 DHCPD Relay operational data
+                
+                .. attribute:: profiles
+                
+                	DHCP Relay Profiles
+                	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles>`
+                
+                .. attribute:: statistics_info
+                
+                	DHCP relay statistics info
+                	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo>`
+                
+                .. attribute:: statistics
+                
+                	DHCP Relay VRF statistics
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics>`
+                
+                .. attribute:: vrfs
+                
+                	DHCP relay list of VRF names
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-dhcpd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Ipv4Dhcpd.Nodes.Node.Relay, self).__init__()
+
+                    self.yang_name = "relay"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"profiles" : ("profiles", Ipv4Dhcpd.Nodes.Node.Relay.Profiles), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo), "statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Relay.Statistics), "vrfs" : ("vrfs", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs)}
+                    self._child_list_classes = {}
+
+                    self.profiles = Ipv4Dhcpd.Nodes.Node.Relay.Profiles()
+                    self.profiles.parent = self
+                    self._children_name_map["profiles"] = "profiles"
+                    self._children_yang_names.add("profiles")
+
+                    self.statistics_info = Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo()
+                    self.statistics_info.parent = self
+                    self._children_name_map["statistics_info"] = "statistics-info"
+                    self._children_yang_names.add("statistics-info")
+
+                    self.statistics = Ipv4Dhcpd.Nodes.Node.Relay.Statistics()
+                    self.statistics.parent = self
+                    self._children_name_map["statistics"] = "statistics"
+                    self._children_yang_names.add("statistics")
+
+                    self.vrfs = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs()
+                    self.vrfs.parent = self
+                    self._children_name_map["vrfs"] = "vrfs"
+                    self._children_yang_names.add("vrfs")
+                    self._segment_path = lambda: "relay"
+
+
+                class Profiles(Entity):
+                    """
+                    DHCP Relay Profiles
+                    
+                    .. attribute:: profile
+                    
+                    	DHCP Relay profile
+                    	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, self).__init__()
+
+                        self.yang_name = "profiles"
+                        self.yang_parent_name = "relay"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile)}
+
+                        self.profile = YList(self)
+                        self._segment_path = lambda: "profiles"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, [], name, value)
+
+
+                    class Profile(Entity):
+                        """
+                        DHCP Relay profile
+                        
+                        .. attribute:: profile_name  <key>
+                        
+                        	Profile name
+                        	**type**\:  str
+                        
+                        .. attribute:: relay_profile_name
+                        
+                        	Profile Name
+                        	**type**\:  str
+                        
+                        	**length:** 0..65
+                        
+                        .. attribute:: relay_profile_uid
+                        
+                        	Profile UID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: relay_profile_helper_count
+                        
+                        	Helper address count
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_relay_info_option
+                        
+                        	Relay info option
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_relay_info_policy
+                        
+                        	Relay info policy
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_relay_info_allow_untrusted
+                        
+                        	Relay info untrusted
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_relay_info_optionvpn
+                        
+                        	Relay info option vpn
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_relay_info_optionvpn_mode
+                        
+                        	Relay info option vpn\-mode
+                        	**type**\:   :py:class:`RelayInfoVpnMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.RelayInfoVpnMode>`
+                        
+                        .. attribute:: relay_profile_relay_info_check
+                        
+                        	Relay info check
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_gi_addr_policy
+                        
+                        	GIADDR policy
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_broadcast_flag_policy
+                        
+                        	Broadcast policy
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_mac_mismatch_action
+                        
+                        	Mac Mismatch Action
+                        	**type**\:  int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: relay_profile_helper_address
+                        
+                        	Helper addresses
+                        	**type**\:  list of str
+                        
+                        .. attribute:: relay_profile_helper_vrf
+                        
+                        	Helper address vrfs
+                        	**type**\:  list of str
+                        
+                        	**length:** 0..33
+                        
+                        .. attribute:: relay_profile_gi_addr
+                        
+                        	Gateway addresses
+                        	**type**\:  list of str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, self).__init__()
+
+                            self.yang_name = "profile"
+                            self.yang_parent_name = "profiles"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.profile_name = YLeaf(YType.str, "profile-name")
+
+                            self.relay_profile_name = YLeaf(YType.str, "relay-profile-name")
+
+                            self.relay_profile_uid = YLeaf(YType.uint32, "relay-profile-uid")
+
+                            self.relay_profile_helper_count = YLeaf(YType.uint8, "relay-profile-helper-count")
+
+                            self.relay_profile_relay_info_option = YLeaf(YType.uint8, "relay-profile-relay-info-option")
+
+                            self.relay_profile_relay_info_policy = YLeaf(YType.uint8, "relay-profile-relay-info-policy")
+
+                            self.relay_profile_relay_info_allow_untrusted = YLeaf(YType.uint8, "relay-profile-relay-info-allow-untrusted")
+
+                            self.relay_profile_relay_info_optionvpn = YLeaf(YType.uint8, "relay-profile-relay-info-optionvpn")
+
+                            self.relay_profile_relay_info_optionvpn_mode = YLeaf(YType.enumeration, "relay-profile-relay-info-optionvpn-mode")
+
+                            self.relay_profile_relay_info_check = YLeaf(YType.uint8, "relay-profile-relay-info-check")
+
+                            self.relay_profile_gi_addr_policy = YLeaf(YType.uint8, "relay-profile-gi-addr-policy")
+
+                            self.relay_profile_broadcast_flag_policy = YLeaf(YType.uint8, "relay-profile-broadcast-flag-policy")
+
+                            self.relay_profile_mac_mismatch_action = YLeaf(YType.uint8, "relay-profile-mac-mismatch-action")
+
+                            self.relay_profile_helper_address = YLeafList(YType.str, "relay-profile-helper-address")
+
+                            self.relay_profile_helper_vrf = YLeafList(YType.str, "relay-profile-helper-vrf")
+
+                            self.relay_profile_gi_addr = YLeafList(YType.str, "relay-profile-gi-addr")
+                            self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', 'relay_profile_name', 'relay_profile_uid', 'relay_profile_helper_count', 'relay_profile_relay_info_option', 'relay_profile_relay_info_policy', 'relay_profile_relay_info_allow_untrusted', 'relay_profile_relay_info_optionvpn', 'relay_profile_relay_info_optionvpn_mode', 'relay_profile_relay_info_check', 'relay_profile_gi_addr_policy', 'relay_profile_broadcast_flag_policy', 'relay_profile_mac_mismatch_action', 'relay_profile_helper_address', 'relay_profile_helper_vrf', 'relay_profile_gi_addr'], name, value)
+
+
+                class StatisticsInfo(Entity):
+                    """
+                    DHCP relay statistics info
+                    
+                    .. attribute:: relay_stats_timestamp
+                    
+                    	Relay Stats timestamp
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, self).__init__()
+
+                        self.yang_name = "statistics-info"
+                        self.yang_parent_name = "relay"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.relay_stats_timestamp = YLeaf(YType.uint32, "relay-stats-timestamp")
+                        self._segment_path = lambda: "statistics-info"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, ['relay_stats_timestamp'], name, value)
+
+
+                class Statistics(Entity):
+                    """
+                    DHCP Relay VRF statistics
+                    
+                    .. attribute:: ipv4_dhcpd_relay_stat
+                    
+                    	ipv4 dhcpd relay stat
+                    	**type**\: list of    :py:class:`Ipv4DhcpdRelayStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, self).__init__()
+
+                        self.yang_name = "statistics"
+                        self.yang_parent_name = "relay"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"ipv4-dhcpd-relay-stat" : ("ipv4_dhcpd_relay_stat", Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat)}
+
+                        self.ipv4_dhcpd_relay_stat = YList(self)
+                        self._segment_path = lambda: "statistics"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, [], name, value)
+
+
+                    class Ipv4DhcpdRelayStat(Entity):
+                        """
+                        ipv4 dhcpd relay stat
+                        
+                        .. attribute:: statistics
+                        
+                        	Public relay statistics
+                        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics>`
+                        
+                        .. attribute:: relay_statistics_vrf_name
+                        
+                        	DHCP L3 VRF Name
+                        	**type**\:  str
+                        
+                        	**length:** 0..33
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, self).__init__()
+
+                            self.yang_name = "ipv4-dhcpd-relay-stat"
+                            self.yang_parent_name = "statistics"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"statistics" : ("statistics", Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics)}
+                            self._child_list_classes = {}
+
+                            self.relay_statistics_vrf_name = YLeaf(YType.str, "relay-statistics-vrf-name")
+
+                            self.statistics = Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics()
+                            self.statistics.parent = self
+                            self._children_name_map["statistics"] = "statistics"
+                            self._children_yang_names.add("statistics")
+                            self._segment_path = lambda: "ipv4-dhcpd-relay-stat"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, ['relay_statistics_vrf_name'], name, value)
+
+
+                        class Statistics(Entity):
+                            """
+                            Public relay statistics
+                            
+                            .. attribute:: received_packets
+                            
+                            	Received packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: transmitted_packets
+                            
+                            	Transmitted packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            .. attribute:: dropped_packets
+                            
+                            	Dropped packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics, self).__init__()
+
+                                self.yang_name = "statistics"
+                                self.yang_parent_name = "ipv4-dhcpd-relay-stat"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                self._segment_path = lambda: "statistics"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                class Vrfs(Entity):
+                    """
+                    DHCP relay list of VRF names
+                    
+                    .. attribute:: vrf
+                    
+                    	IPv4 DHCP relay VRF name
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-dhcpd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, self).__init__()
+
+                        self.yang_name = "vrfs"
+                        self.yang_parent_name = "relay"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"vrf" : ("vrf", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf)}
+
+                        self.vrf = YList(self)
+                        self._segment_path = lambda: "vrfs"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, [], name, value)
+
+
+                    class Vrf(Entity):
+                        """
+                        IPv4 DHCP relay VRF name
+                        
+                        .. attribute:: vrf_name  <key>
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_statistics
+                        
+                        	IPv4 DHCP relay statistics
+                        	**type**\:   :py:class:`VrfStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-dhcpd-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
+
+                            self.yang_name = "vrf"
+                            self.yang_parent_name = "vrfs"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"vrf-statistics" : ("vrf_statistics", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics)}
+                            self._child_list_classes = {}
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.vrf_statistics = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics()
+                            self.vrf_statistics.parent = self
+                            self._children_name_map["vrf_statistics"] = "vrf-statistics"
+                            self._children_yang_names.add("vrf-statistics")
+                            self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
+
+
+                        class VrfStatistics(Entity):
+                            """
+                            IPv4 DHCP relay statistics
+                            
+                            .. attribute:: discover
+                            
+                            	DHCP discover packets
+                            	**type**\:   :py:class:`Discover <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover>`
+                            
+                            .. attribute:: offer
+                            
+                            	DHCP offer packets
+                            	**type**\:   :py:class:`Offer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer>`
+                            
+                            .. attribute:: request
+                            
+                            	DHCP request packets
+                            	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request>`
+                            
+                            .. attribute:: decline
+                            
+                            	DHCP decline packets
+                            	**type**\:   :py:class:`Decline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline>`
+                            
+                            .. attribute:: ack
+                            
+                            	DHCP ack packets
+                            	**type**\:   :py:class:`Ack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack>`
+                            
+                            .. attribute:: nak
+                            
+                            	DHCP nak packets
+                            	**type**\:   :py:class:`Nak <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak>`
+                            
+                            .. attribute:: release
+                            
+                            	DHCP release packets
+                            	**type**\:   :py:class:`Release <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release>`
+                            
+                            .. attribute:: inform
+                            
+                            	DHCP inform packets
+                            	**type**\:   :py:class:`Inform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform>`
+                            
+                            .. attribute:: lease_query
+                            
+                            	DHCP lease query packets
+                            	**type**\:   :py:class:`LeaseQuery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery>`
+                            
+                            .. attribute:: lease_not_assigned
+                            
+                            	DHCP lease not assigned
+                            	**type**\:   :py:class:`LeaseNotAssigned <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned>`
+                            
+                            .. attribute:: lease_unknown
+                            
+                            	DHCP lease unknown
+                            	**type**\:   :py:class:`LeaseUnknown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown>`
+                            
+                            .. attribute:: lease_active
+                            
+                            	DHCP lease active
+                            	**type**\:   :py:class:`LeaseActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive>`
+                            
+                            .. attribute:: bootp_request
+                            
+                            	DHCP BOOTP request
+                            	**type**\:   :py:class:`BootpRequest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest>`
+                            
+                            .. attribute:: bootp_reply
+                            
+                            	DHCP BOOTP reply
+                            	**type**\:   :py:class:`BootpReply <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-dhcpd-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, self).__init__()
+
+                                self.yang_name = "vrf-statistics"
+                                self.yang_parent_name = "vrf"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"discover" : ("discover", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover), "offer" : ("offer", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer), "request" : ("request", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request), "decline" : ("decline", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline), "ack" : ("ack", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack), "nak" : ("nak", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak), "release" : ("release", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release), "inform" : ("inform", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform), "lease-query" : ("lease_query", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery), "lease-not-assigned" : ("lease_not_assigned", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned), "lease-unknown" : ("lease_unknown", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown), "lease-active" : ("lease_active", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive), "bootp-request" : ("bootp_request", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest), "bootp-reply" : ("bootp_reply", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply)}
+                                self._child_list_classes = {}
+
+                                self.discover = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover()
+                                self.discover.parent = self
+                                self._children_name_map["discover"] = "discover"
+                                self._children_yang_names.add("discover")
+
+                                self.offer = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer()
+                                self.offer.parent = self
+                                self._children_name_map["offer"] = "offer"
+                                self._children_yang_names.add("offer")
+
+                                self.request = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request()
+                                self.request.parent = self
+                                self._children_name_map["request"] = "request"
+                                self._children_yang_names.add("request")
+
+                                self.decline = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline()
+                                self.decline.parent = self
+                                self._children_name_map["decline"] = "decline"
+                                self._children_yang_names.add("decline")
+
+                                self.ack = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack()
+                                self.ack.parent = self
+                                self._children_name_map["ack"] = "ack"
+                                self._children_yang_names.add("ack")
+
+                                self.nak = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak()
+                                self.nak.parent = self
+                                self._children_name_map["nak"] = "nak"
+                                self._children_yang_names.add("nak")
+
+                                self.release = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release()
+                                self.release.parent = self
+                                self._children_name_map["release"] = "release"
+                                self._children_yang_names.add("release")
+
+                                self.inform = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform()
+                                self.inform.parent = self
+                                self._children_name_map["inform"] = "inform"
+                                self._children_yang_names.add("inform")
+
+                                self.lease_query = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery()
+                                self.lease_query.parent = self
+                                self._children_name_map["lease_query"] = "lease-query"
+                                self._children_yang_names.add("lease-query")
+
+                                self.lease_not_assigned = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned()
+                                self.lease_not_assigned.parent = self
+                                self._children_name_map["lease_not_assigned"] = "lease-not-assigned"
+                                self._children_yang_names.add("lease-not-assigned")
+
+                                self.lease_unknown = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown()
+                                self.lease_unknown.parent = self
+                                self._children_name_map["lease_unknown"] = "lease-unknown"
+                                self._children_yang_names.add("lease-unknown")
+
+                                self.lease_active = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive()
+                                self.lease_active.parent = self
+                                self._children_name_map["lease_active"] = "lease-active"
+                                self._children_yang_names.add("lease-active")
+
+                                self.bootp_request = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest()
+                                self.bootp_request.parent = self
+                                self._children_name_map["bootp_request"] = "bootp-request"
+                                self._children_yang_names.add("bootp-request")
+
+                                self.bootp_reply = Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply()
+                                self.bootp_reply.parent = self
+                                self._children_name_map["bootp_reply"] = "bootp-reply"
+                                self._children_yang_names.add("bootp-reply")
+                                self._segment_path = lambda: "vrf-statistics"
+
+
+                            class Discover(Entity):
+                                """
+                                DHCP discover packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, self).__init__()
+
+                                    self.yang_name = "discover"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "discover"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Offer(Entity):
+                                """
+                                DHCP offer packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, self).__init__()
+
+                                    self.yang_name = "offer"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "offer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Request(Entity):
+                                """
+                                DHCP request packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, self).__init__()
+
+                                    self.yang_name = "request"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
                                     self._segment_path = lambda: "request"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['dropped_packets', 'received_packets', 'transmitted_packets'], name, value)
-
-
-    class Snoop(Entity):
-        """
-        DHCP Snoop operational data
-        
-        .. attribute:: binding_statistics
-        
-        	DHCP snoop binding statistics
-        	**type**\:   :py:class:`BindingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.BindingStatistics>`
-        
-        .. attribute:: bindings
-        
-        	DHCP Snoop Bindings
-        	**type**\:   :py:class:`Bindings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings>`
-        
-        .. attribute:: profiles
-        
-        	DHCP Snoop Profile
-        	**type**\:   :py:class:`Profiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles>`
-        
-        .. attribute:: statistics
-        
-        	DHCP Snoop Statistics
-        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics>`
-        
-        .. attribute:: statistics_info
-        
-        	DHCP snoop statistics info
-        	**type**\:   :py:class:`StatisticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.StatisticsInfo>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-dhcpd-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Ipv4Dhcpd.Snoop, self).__init__()
-
-            self.yang_name = "snoop"
-            self.yang_parent_name = "ipv4-dhcpd"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"binding-statistics" : ("binding_statistics", Ipv4Dhcpd.Snoop.BindingStatistics), "bindings" : ("bindings", Ipv4Dhcpd.Snoop.Bindings), "profiles" : ("profiles", Ipv4Dhcpd.Snoop.Profiles), "statistics" : ("statistics", Ipv4Dhcpd.Snoop.Statistics), "statistics-info" : ("statistics_info", Ipv4Dhcpd.Snoop.StatisticsInfo)}
-            self._child_list_classes = {}
-
-            self.binding_statistics = Ipv4Dhcpd.Snoop.BindingStatistics()
-            self.binding_statistics.parent = self
-            self._children_name_map["binding_statistics"] = "binding-statistics"
-            self._children_yang_names.add("binding-statistics")
-
-            self.bindings = Ipv4Dhcpd.Snoop.Bindings()
-            self.bindings.parent = self
-            self._children_name_map["bindings"] = "bindings"
-            self._children_yang_names.add("bindings")
-
-            self.profiles = Ipv4Dhcpd.Snoop.Profiles()
-            self.profiles.parent = self
-            self._children_name_map["profiles"] = "profiles"
-            self._children_yang_names.add("profiles")
-
-            self.statistics = Ipv4Dhcpd.Snoop.Statistics()
-            self.statistics.parent = self
-            self._children_name_map["statistics"] = "statistics"
-            self._children_yang_names.add("statistics")
-
-            self.statistics_info = Ipv4Dhcpd.Snoop.StatisticsInfo()
-            self.statistics_info.parent = self
-            self._children_name_map["statistics_info"] = "statistics-info"
-            self._children_yang_names.add("statistics-info")
-            self._segment_path = lambda: "snoop"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/%s" % self._segment_path()
-
-
-        class BindingStatistics(Entity):
-            """
-            DHCP snoop binding statistics
-            
-            .. attribute:: snoop_binding_timestamp
-            
-            	Snoop binding timestamp
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: snoop_binding_total
-            
-            	Total number of snoop bindings
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Ipv4Dhcpd.Snoop.BindingStatistics, self).__init__()
-
-                self.yang_name = "binding-statistics"
-                self.yang_parent_name = "snoop"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.snoop_binding_timestamp = YLeaf(YType.uint32, "snoop-binding-timestamp")
-
-                self.snoop_binding_total = YLeaf(YType.uint32, "snoop-binding-total")
-                self._segment_path = lambda: "binding-statistics"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, ['snoop_binding_timestamp', 'snoop_binding_total'], name, value)
-
-
-        class Bindings(Entity):
-            """
-            DHCP Snoop Bindings
-            
-            .. attribute:: binding
-            
-            	DHCP Snoop binding
-            	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Bindings.Binding>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Bindings, self).__init__()
-
-                self.yang_name = "bindings"
-                self.yang_parent_name = "snoop"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"binding" : ("binding", Ipv4Dhcpd.Snoop.Bindings.Binding)}
-
-                self.binding = YList(self)
-                self._segment_path = lambda: "bindings"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings, [], name, value)
-
-
-            class Binding(Entity):
-                """
-                DHCP Snoop binding
-                
-                .. attribute:: client_uid  <key>
-                
-                	Client opaque handle
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: snoop_binding_bridge_name
-                
-                	DHCP L2 bridge name
-                	**type**\:  str
-                
-                	**length:** 0..74
-                
-                .. attribute:: snoop_binding_ch_addr
-                
-                	DHCP client MAC address
-                	**type**\:  str
-                
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                
-                .. attribute:: snoop_binding_ch_addr_len
-                
-                	DHCP client MAC address length
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_binding_client_id
-                
-                	DHCP client id
-                	**type**\:  str
-                
-                	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
-                
-                .. attribute:: snoop_binding_client_id_len
-                
-                	DHCP client id len
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_binding_i_addr
-                
-                	DHCP iaddr
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: snoop_binding_lease
-                
-                	DHCP lease time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: snoop_binding_lease_start_time
-                
-                	DHCP lease start time
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: snoop_binding_profile_name
-                
-                	DHCP profile name
-                	**type**\:  str
-                
-                	**length:** 0..65
-                
-                .. attribute:: snoop_binding_state
-                
-                	DHCP sm state
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_bindng_interface_name
-                
-                	DHCP interface to client
-                	**type**\:  str
-                
-                	**length:** 0..321
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Bindings.Binding, self).__init__()
-
-                    self.yang_name = "binding"
-                    self.yang_parent_name = "bindings"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.client_uid = YLeaf(YType.str, "client-uid")
-
-                    self.snoop_binding_bridge_name = YLeaf(YType.str, "snoop-binding-bridge-name")
-
-                    self.snoop_binding_ch_addr = YLeaf(YType.str, "snoop-binding-ch-addr")
-
-                    self.snoop_binding_ch_addr_len = YLeaf(YType.uint8, "snoop-binding-ch-addr-len")
-
-                    self.snoop_binding_client_id = YLeaf(YType.str, "snoop-binding-client-id")
-
-                    self.snoop_binding_client_id_len = YLeaf(YType.uint8, "snoop-binding-client-id-len")
-
-                    self.snoop_binding_i_addr = YLeaf(YType.str, "snoop-binding-i-addr")
-
-                    self.snoop_binding_lease = YLeaf(YType.uint32, "snoop-binding-lease")
-
-                    self.snoop_binding_lease_start_time = YLeaf(YType.uint32, "snoop-binding-lease-start-time")
-
-                    self.snoop_binding_profile_name = YLeaf(YType.str, "snoop-binding-profile-name")
-
-                    self.snoop_binding_state = YLeaf(YType.uint8, "snoop-binding-state")
-
-                    self.snoop_bindng_interface_name = YLeaf(YType.str, "snoop-bindng-interface-name")
-                    self._segment_path = lambda: "binding" + "[client-uid='" + self.client_uid.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/bindings/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', 'snoop_binding_bridge_name', 'snoop_binding_ch_addr', 'snoop_binding_ch_addr_len', 'snoop_binding_client_id', 'snoop_binding_client_id_len', 'snoop_binding_i_addr', 'snoop_binding_lease', 'snoop_binding_lease_start_time', 'snoop_binding_profile_name', 'snoop_binding_state', 'snoop_bindng_interface_name'], name, value)
-
-
-        class Profiles(Entity):
-            """
-            DHCP Snoop Profile
-            
-            .. attribute:: profile
-            
-            	DHCP Snoop profile
-            	**type**\: list of    :py:class:`Profile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Profiles.Profile>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Profiles, self).__init__()
-
-                self.yang_name = "profiles"
-                self.yang_parent_name = "snoop"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"profile" : ("profile", Ipv4Dhcpd.Snoop.Profiles.Profile)}
-
-                self.profile = YList(self)
-                self._segment_path = lambda: "profiles"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles, [], name, value)
-
-
-            class Profile(Entity):
-                """
-                DHCP Snoop profile
-                
-                .. attribute:: profile_name  <key>
-                
-                	Profile name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: snoop_profile_name
-                
-                	Profile Name
-                	**type**\:  str
-                
-                	**length:** 0..65
-                
-                .. attribute:: snoop_profile_relay_info_allow_untrusted
-                
-                	Allow untrusted relay info
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_profile_relay_info_option
-                
-                	Relay info option
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_profile_relay_info_policy
-                
-                	Relay info policy
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_profile_trusted
-                
-                	Trust
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                .. attribute:: snoop_profile_uid
-                
-                	Profile unique ID
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Profiles.Profile, self).__init__()
-
-                    self.yang_name = "profile"
-                    self.yang_parent_name = "profiles"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.profile_name = YLeaf(YType.str, "profile-name")
-
-                    self.snoop_profile_name = YLeaf(YType.str, "snoop-profile-name")
-
-                    self.snoop_profile_relay_info_allow_untrusted = YLeaf(YType.uint8, "snoop-profile-relay-info-allow-untrusted")
-
-                    self.snoop_profile_relay_info_option = YLeaf(YType.uint8, "snoop-profile-relay-info-option")
-
-                    self.snoop_profile_relay_info_policy = YLeaf(YType.uint8, "snoop-profile-relay-info-policy")
-
-                    self.snoop_profile_trusted = YLeaf(YType.uint8, "snoop-profile-trusted")
-
-                    self.snoop_profile_uid = YLeaf(YType.uint32, "snoop-profile-uid")
-                    self._segment_path = lambda: "profile" + "[profile-name='" + self.profile_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/profiles/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', 'snoop_profile_name', 'snoop_profile_relay_info_allow_untrusted', 'snoop_profile_relay_info_option', 'snoop_profile_relay_info_policy', 'snoop_profile_trusted', 'snoop_profile_uid'], name, value)
-
-
-        class Statistics(Entity):
-            """
-            DHCP Snoop Statistics
-            
-            .. attribute:: statistic
-            
-            	DHCP Snoop bridge domain statistics
-            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper.Ipv4Dhcpd.Snoop.Statistics.Statistic>`
-            
-            
-
-            """
-
-            _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Ipv4Dhcpd.Snoop.Statistics, self).__init__()
-
-                self.yang_name = "statistics"
-                self.yang_parent_name = "snoop"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"statistic" : ("statistic", Ipv4Dhcpd.Snoop.Statistics.Statistic)}
-
-                self.statistic = YList(self)
-                self._segment_path = lambda: "statistics"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics, [], name, value)
-
-
-            class Statistic(Entity):
-                """
-                DHCP Snoop bridge domain statistics
-                
-                .. attribute:: bridge_name  <key>
-                
-                	Bridge domain name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: snoop_statistic
-                
-                	Public snoop statistics
-                	**type**\:  list of int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: snoop_statistics_bridge_name
-                
-                	DHCP L2 bridge name
-                	**type**\:  str
-                
-                	**length:** 0..74
-                
-                
-
-                """
-
-                _prefix = 'ipv4-dhcpd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Ipv4Dhcpd.Snoop.Statistics.Statistic, self).__init__()
-
-                    self.yang_name = "statistic"
-                    self.yang_parent_name = "statistics"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.bridge_name = YLeaf(YType.str, "bridge-name")
-
-                    self.snoop_statistic = YLeafList(YType.uint64, "snoop-statistic")
-
-                    self.snoop_statistics_bridge_name = YLeaf(YType.str, "snoop-statistics-bridge-name")
-                    self._segment_path = lambda: "statistic" + "[bridge-name='" + self.bridge_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/statistics/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', 'snoop_statistic', 'snoop_statistics_bridge_name'], name, value)
-
-
-        class StatisticsInfo(Entity):
-            """
-            DHCP snoop statistics info
-            
-            .. attribute:: snoop_stats_timestamp
-            
-            	Snoop Stats timestamp
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'ipv4-dhcpd-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Ipv4Dhcpd.Snoop.StatisticsInfo, self).__init__()
-
-                self.yang_name = "statistics-info"
-                self.yang_parent_name = "snoop"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.snoop_stats_timestamp = YLeaf(YType.uint32, "snoop-stats-timestamp")
-                self._segment_path = lambda: "statistics-info"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, ['snoop_stats_timestamp'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Decline(Entity):
+                                """
+                                DHCP decline packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, self).__init__()
+
+                                    self.yang_name = "decline"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "decline"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Ack(Entity):
+                                """
+                                DHCP ack packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, self).__init__()
+
+                                    self.yang_name = "ack"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "ack"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Nak(Entity):
+                                """
+                                DHCP nak packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, self).__init__()
+
+                                    self.yang_name = "nak"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "nak"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Release(Entity):
+                                """
+                                DHCP release packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, self).__init__()
+
+                                    self.yang_name = "release"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "release"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class Inform(Entity):
+                                """
+                                DHCP inform packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, self).__init__()
+
+                                    self.yang_name = "inform"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "inform"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseQuery(Entity):
+                                """
+                                DHCP lease query packets
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, self).__init__()
+
+                                    self.yang_name = "lease-query"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-query"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseNotAssigned(Entity):
+                                """
+                                DHCP lease not assigned
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, self).__init__()
+
+                                    self.yang_name = "lease-not-assigned"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-not-assigned"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseUnknown(Entity):
+                                """
+                                DHCP lease unknown
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, self).__init__()
+
+                                    self.yang_name = "lease-unknown"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-unknown"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class LeaseActive(Entity):
+                                """
+                                DHCP lease active
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, self).__init__()
+
+                                    self.yang_name = "lease-active"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "lease-active"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpRequest(Entity):
+                                """
+                                DHCP BOOTP request
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, self).__init__()
+
+                                    self.yang_name = "bootp-request"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-request"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+
+
+                            class BootpReply(Entity):
+                                """
+                                DHCP BOOTP reply
+                                
+                                .. attribute:: received_packets
+                                
+                                	Received packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: transmitted_packets
+                                
+                                	Transmitted packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: dropped_packets
+                                
+                                	Dropped packets
+                                	**type**\:  int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-dhcpd-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, self).__init__()
+
+                                    self.yang_name = "bootp-reply"
+                                    self.yang_parent_name = "vrf-statistics"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.received_packets = YLeaf(YType.uint64, "received-packets")
+
+                                    self.transmitted_packets = YLeaf(YType.uint64, "transmitted-packets")
+
+                                    self.dropped_packets = YLeaf(YType.uint64, "dropped-packets")
+                                    self._segment_path = lambda: "bootp-reply"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4Dhcpd()

@@ -95,11 +95,6 @@ class Statistics(Entity):
             Collection polling period for service
             accounting collectors
             
-            .. attribute:: polling_disable
-            
-            	Disable periodic statistics polling for service accounting collectors
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
             .. attribute:: polling_period
             
             	Collection polling period for service accounting collectors
@@ -108,6 +103,11 @@ class Statistics(Entity):
             	**range:** 30..3600
             
             	**default value**\: 900
+            
+            .. attribute:: polling_disable
+            
+            	Disable periodic statistics polling for service accounting collectors
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -126,14 +126,14 @@ class Statistics(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.polling_disable = YLeaf(YType.empty, "polling-disable")
-
                 self.polling_period = YLeaf(YType.uint32, "polling-period")
+
+                self.polling_disable = YLeaf(YType.empty, "polling-disable")
                 self._segment_path = lambda: "service-accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics/period/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Statistics.Period.ServiceAccounting, ['polling_disable', 'polling_period'], name, value)
+                self._perform_setattr(Statistics.Period.ServiceAccounting, ['polling_period', 'polling_disable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Statistics()

@@ -96,35 +96,12 @@ class RedundancyGroupManager(Entity):
             	Controller name
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: multi_router_aps_group_number
             
-            .. attribute:: backup_interface_handle
-            
-            	Backup interface handle
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            .. attribute:: backup_interface_name
-            
-            	Backup interface name
+            	Configured interchassis redundancy group number
             	**type**\:  str
             
             	**length:** 0..64
-            
-            .. attribute:: backup_interface_next_hop_ip_address
-            
-            	Backup interface next hop IP address
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            .. attribute:: controller_handle
-            
-            	Handle of controller being backed up
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
             
             .. attribute:: controller_name_xr
             
@@ -133,16 +110,31 @@ class RedundancyGroupManager(Entity):
             
             	**length:** 0..64
             
-            .. attribute:: inter_chassis_group_state
+            .. attribute:: controller_handle
             
-            	Configured interchassis redundancy group state
+            	Handle of controller being backed up
+            	**type**\:  str
+            
+            .. attribute:: backup_interface_name
+            
+            	Backup interface name
             	**type**\:  str
             
             	**length:** 0..64
             
-            .. attribute:: multi_router_aps_group_number
+            .. attribute:: backup_interface_handle
             
-            	Configured interchassis redundancy group number
+            	Backup interface handle
+            	**type**\:  str
+            
+            .. attribute:: backup_interface_next_hop_ip_address
+            
+            	Backup interface next hop IP address
+            	**type**\:  str
+            
+            .. attribute:: inter_chassis_group_state
+            
+            	Configured interchassis redundancy group state
             	**type**\:  str
             
             	**length:** 0..64
@@ -166,24 +158,24 @@ class RedundancyGroupManager(Entity):
 
                 self.controller_name = YLeaf(YType.str, "controller-name")
 
-                self.backup_interface_handle = YLeaf(YType.str, "backup-interface-handle")
-
-                self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
-
-                self.backup_interface_next_hop_ip_address = YLeaf(YType.str, "backup-interface-next-hop-ip-address")
-
-                self.controller_handle = YLeaf(YType.str, "controller-handle")
+                self.multi_router_aps_group_number = YLeaf(YType.str, "multi-router-aps-group-number")
 
                 self.controller_name_xr = YLeaf(YType.str, "controller-name-xr")
 
-                self.inter_chassis_group_state = YLeaf(YType.str, "inter-chassis-group-state")
+                self.controller_handle = YLeaf(YType.str, "controller-handle")
 
-                self.multi_router_aps_group_number = YLeaf(YType.str, "multi-router-aps-group-number")
+                self.backup_interface_name = YLeaf(YType.str, "backup-interface-name")
+
+                self.backup_interface_handle = YLeaf(YType.str, "backup-interface-handle")
+
+                self.backup_interface_next_hop_ip_address = YLeaf(YType.str, "backup-interface-next-hop-ip-address")
+
+                self.inter_chassis_group_state = YLeaf(YType.str, "inter-chassis-group-state")
                 self._segment_path = lambda: "controller" + "[controller-name='" + self.controller_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/controllers/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'backup_interface_handle', 'backup_interface_name', 'backup_interface_next_hop_ip_address', 'controller_handle', 'controller_name_xr', 'inter_chassis_group_state', 'multi_router_aps_group_number'], name, value)
+                self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'multi_router_aps_group_number', 'controller_name_xr', 'controller_handle', 'backup_interface_name', 'backup_interface_handle', 'backup_interface_next_hop_ip_address', 'inter_chassis_group_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RedundancyGroupManager()

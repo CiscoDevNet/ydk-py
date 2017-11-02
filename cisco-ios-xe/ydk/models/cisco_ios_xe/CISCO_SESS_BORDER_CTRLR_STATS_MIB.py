@@ -328,30 +328,20 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: csbradiusstatsacsaccpts
+            .. attribute:: csbradiusstatsclientname
             
-            	This object indicates the number of RADIUS Access\-Accept packets (valid or invalid) received from this server
-            	**type**\:  int
+            	This object indicates the client name of the RADIUS client to which that these statistics apply
+            	**type**\:  str
             
-            	**range:** 0..18446744073709551615
+            .. attribute:: csbradiusstatsclienttype
             
-            .. attribute:: csbradiusstatsacschalls
+            	This object indicates the type(authentication or accounting) of the RADIUS clients configured on SBC
+            	**type**\:   :py:class:`CiscoSbcRadiusClientType <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcRadiusClientType>`
             
-            	This object indicates the number of RADIUS Access\-Challenge packets (valid or invalid) received from this server
-            	**type**\:  int
+            .. attribute:: csbradiusstatssrvrname
             
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbradiusstatsacsrejects
-            
-            	This object indicates the number of RADIUS Access\-Reject packets (valid or invalid) received from this server
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
+            	This object indicates the server name of the RADIUS server to which that these statistics apply
+            	**type**\:  str
             
             .. attribute:: csbradiusstatsacsreqs
             
@@ -365,6 +355,31 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             .. attribute:: csbradiusstatsacsrtrns
             
             	This object indicates the number of RADIUS Access\-Request packets retransmitted to this RADIUS server
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbradiusstatsacsaccpts
+            
+            	This object indicates the number of RADIUS Access\-Accept packets (valid or invalid) received from this server
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: csbradiusstatsacsrejects
+            
+            	This object indicates the number of RADIUS Access\-Reject packets (valid or invalid) received from this server
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbradiusstatsacschalls
+            
+            	This object indicates the number of RADIUS Access\-Challenge packets (valid or invalid) received from this server
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -398,37 +413,18 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**units**\: packets
             
-            .. attribute:: csbradiusstatsbadauths
-            
-            	This object indicates the number of RADIUS response packets containing invalid authenticators or Signature attributes received from this server
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
-            .. attribute:: csbradiusstatsclientname
-            
-            	This object indicates the client name of the RADIUS client to which that these statistics apply
-            	**type**\:  str
-            
-            .. attribute:: csbradiusstatsclienttype
-            
-            	This object indicates the type(authentication or accounting) of the RADIUS clients configured on SBC
-            	**type**\:   :py:class:`CiscoSbcRadiusClientType <ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB.CiscoSbcRadiusClientType>`
-            
-            .. attribute:: csbradiusstatsdropped
-            
-            	This object indicates the number of RADIUS packets which were received from this server and dropped for some other reason
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
-            
-            	**units**\: packets
-            
             .. attribute:: csbradiusstatsmalformedrsps
             
             	This object indicates the number of malformed RADIUS response packets received from this server.  Malformed packets include packets with an invalid length. Bad authenticators, Signature attributes and unknown types are not included as malformed access responses
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbradiusstatsbadauths
+            
+            	This object indicates the number of RADIUS response packets containing invalid authenticators or Signature attributes received from this server
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -444,11 +440,6 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**units**\: packets
             
-            .. attribute:: csbradiusstatssrvrname
-            
-            	This object indicates the server name of the RADIUS server to which that these statistics apply
-            	**type**\:  str
-            
             .. attribute:: csbradiusstatstimeouts
             
             	This object indicates the number of RADIUS request timeouts to this server.  After a timeout the client may retry to a different server or give up. A retry to a different server is counted as a request as well as a timeout
@@ -461,6 +452,15 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             .. attribute:: csbradiusstatsunknowntype
             
             	This object indicates the number of RADIUS packets of unknown type which were received from this server
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            	**units**\: packets
+            
+            .. attribute:: csbradiusstatsdropped
+            
+            	This object indicates the number of RADIUS packets which were received from this server and dropped for some other reason
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
@@ -490,15 +490,21 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
 
                 self.csbradiusstatsentindex = YLeaf(YType.uint32, "csbRadiusStatsEntIndex")
 
-                self.csbradiusstatsacsaccpts = YLeaf(YType.uint64, "csbRadiusStatsAcsAccpts")
+                self.csbradiusstatsclientname = YLeaf(YType.str, "csbRadiusStatsClientName")
 
-                self.csbradiusstatsacschalls = YLeaf(YType.uint64, "csbRadiusStatsAcsChalls")
+                self.csbradiusstatsclienttype = YLeaf(YType.enumeration, "csbRadiusStatsClientType")
 
-                self.csbradiusstatsacsrejects = YLeaf(YType.uint64, "csbRadiusStatsAcsRejects")
+                self.csbradiusstatssrvrname = YLeaf(YType.str, "csbRadiusStatsSrvrName")
 
                 self.csbradiusstatsacsreqs = YLeaf(YType.uint64, "csbRadiusStatsAcsReqs")
 
                 self.csbradiusstatsacsrtrns = YLeaf(YType.uint64, "csbRadiusStatsAcsRtrns")
+
+                self.csbradiusstatsacsaccpts = YLeaf(YType.uint64, "csbRadiusStatsAcsAccpts")
+
+                self.csbradiusstatsacsrejects = YLeaf(YType.uint64, "csbRadiusStatsAcsRejects")
+
+                self.csbradiusstatsacschalls = YLeaf(YType.uint64, "csbRadiusStatsAcsChalls")
 
                 self.csbradiusstatsactreqs = YLeaf(YType.uint64, "csbRadiusStatsActReqs")
 
@@ -506,28 +512,22 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
 
                 self.csbradiusstatsactrsps = YLeaf(YType.uint64, "csbRadiusStatsActRsps")
 
-                self.csbradiusstatsbadauths = YLeaf(YType.uint64, "csbRadiusStatsBadAuths")
-
-                self.csbradiusstatsclientname = YLeaf(YType.str, "csbRadiusStatsClientName")
-
-                self.csbradiusstatsclienttype = YLeaf(YType.enumeration, "csbRadiusStatsClientType")
-
-                self.csbradiusstatsdropped = YLeaf(YType.uint64, "csbRadiusStatsDropped")
-
                 self.csbradiusstatsmalformedrsps = YLeaf(YType.uint64, "csbRadiusStatsMalformedRsps")
 
-                self.csbradiusstatspending = YLeaf(YType.uint32, "csbRadiusStatsPending")
+                self.csbradiusstatsbadauths = YLeaf(YType.uint64, "csbRadiusStatsBadAuths")
 
-                self.csbradiusstatssrvrname = YLeaf(YType.str, "csbRadiusStatsSrvrName")
+                self.csbradiusstatspending = YLeaf(YType.uint32, "csbRadiusStatsPending")
 
                 self.csbradiusstatstimeouts = YLeaf(YType.uint64, "csbRadiusStatsTimeouts")
 
                 self.csbradiusstatsunknowntype = YLeaf(YType.uint64, "csbRadiusStatsUnknownType")
+
+                self.csbradiusstatsdropped = YLeaf(YType.uint64, "csbRadiusStatsDropped")
                 self._segment_path = lambda: "csbRadiusStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbRadiusStatsEntIndex='" + self.csbradiusstatsentindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRadiusStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsacsaccpts', 'csbradiusstatsacschalls', 'csbradiusstatsacsrejects', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsbadauths', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatsdropped', 'csbradiusstatsmalformedrsps', 'csbradiusstatspending', 'csbradiusstatssrvrname', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbradiusstatstable.Csbradiusstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatssrvrname', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsacsaccpts', 'csbradiusstatsacsrejects', 'csbradiusstatsacschalls', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsmalformedrsps', 'csbradiusstatsbadauths', 'csbradiusstatspending', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype', 'csbradiusstatsdropped'], name, value)
 
 
     class Csbrfbillrealmstatstable(Entity):
@@ -622,81 +622,9 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             	This object indicates the realm for which these statistics are collected. The length of this object is zero when value is not assigned to it
             	**type**\:  str
             
-            .. attribute:: csbrfbillrealmstatsfaileventacrs
+            .. attribute:: csbrfbillrealmstatstotalstartacrs
             
-            	This object indicates the total number of failed Event ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatsfailinterimacrs
-            
-            	This object indicates the total number of failed Interim ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatsfailstartacrs
-            
-            	This object indicates the total number of failed Start ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatsfailstopacrs
-            
-            	This object indicates the total number of failed Stop ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatssucceventacrs
-            
-            	This object indicates the total number of successful Event ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatssuccinterimacrs
-            
-            	This object indicates the total number of successful Interim ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatssuccstartacrs
-            
-            	This object indicates the total number of successful Start ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatssuccstopacrs
-            
-            	This object indicates the total number of successful Stop ACRs since start of day or the last time the statistics were reset
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: ACRs
-            
-            .. attribute:: csbrfbillrealmstatstotaleventacrs
-            
-            	This object indicates the combined sum of successful and failed Event ACRs since start of day or the last time the statistics were reset
+            	This object indicates the combined sum of successful and failed Start ACRs since start of day or the last time the statistics were reset
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -712,18 +640,90 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             
             	**units**\: ACRs
             
-            .. attribute:: csbrfbillrealmstatstotalstartacrs
+            .. attribute:: csbrfbillrealmstatstotalstopacrs
             
-            	This object indicates the combined sum of successful and failed Start ACRs since start of day or the last time the statistics were reset
+            	This object indicates the combined sum of successful and failed Stop ACRs since start of day or the last time the statistics were reset
             	**type**\:  int
             
             	**range:** 0..4294967295
             
             	**units**\: ACRs
             
-            .. attribute:: csbrfbillrealmstatstotalstopacrs
+            .. attribute:: csbrfbillrealmstatstotaleventacrs
             
-            	This object indicates the combined sum of successful and failed Stop ACRs since start of day or the last time the statistics were reset
+            	This object indicates the combined sum of successful and failed Event ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatssuccstartacrs
+            
+            	This object indicates the total number of successful Start ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatssuccinterimacrs
+            
+            	This object indicates the total number of successful Interim ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatssuccstopacrs
+            
+            	This object indicates the total number of successful Stop ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatssucceventacrs
+            
+            	This object indicates the total number of successful Event ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatsfailstartacrs
+            
+            	This object indicates the total number of failed Start ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatsfailinterimacrs
+            
+            	This object indicates the total number of failed Interim ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatsfailstopacrs
+            
+            	This object indicates the total number of failed Stop ACRs since start of day or the last time the statistics were reset
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: ACRs
+            
+            .. attribute:: csbrfbillrealmstatsfaileventacrs
+            
+            	This object indicates the total number of failed Event ACRs since start of day or the last time the statistics were reset
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -755,34 +755,34 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
 
                 self.csbrfbillrealmstatsrealmname = YLeaf(YType.str, "csbRfBillRealmStatsRealmName")
 
-                self.csbrfbillrealmstatsfaileventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailEventAcrs")
-
-                self.csbrfbillrealmstatsfailinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailInterimAcrs")
-
-                self.csbrfbillrealmstatsfailstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStartAcrs")
-
-                self.csbrfbillrealmstatsfailstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStopAcrs")
-
-                self.csbrfbillrealmstatssucceventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccEventAcrs")
-
-                self.csbrfbillrealmstatssuccinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccInterimAcrs")
-
-                self.csbrfbillrealmstatssuccstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStartAcrs")
-
-                self.csbrfbillrealmstatssuccstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStopAcrs")
-
-                self.csbrfbillrealmstatstotaleventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalEventAcrs")
+                self.csbrfbillrealmstatstotalstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalStartAcrs")
 
                 self.csbrfbillrealmstatstotalinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalInterimAcrs")
 
-                self.csbrfbillrealmstatstotalstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalStartAcrs")
-
                 self.csbrfbillrealmstatstotalstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalStopAcrs")
+
+                self.csbrfbillrealmstatstotaleventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsTotalEventAcrs")
+
+                self.csbrfbillrealmstatssuccstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStartAcrs")
+
+                self.csbrfbillrealmstatssuccinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccInterimAcrs")
+
+                self.csbrfbillrealmstatssuccstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccStopAcrs")
+
+                self.csbrfbillrealmstatssucceventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsSuccEventAcrs")
+
+                self.csbrfbillrealmstatsfailstartacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStartAcrs")
+
+                self.csbrfbillrealmstatsfailinterimacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailInterimAcrs")
+
+                self.csbrfbillrealmstatsfailstopacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailStopAcrs")
+
+                self.csbrfbillrealmstatsfaileventacrs = YLeaf(YType.uint32, "csbRfBillRealmStatsFailEventAcrs")
                 self._segment_path = lambda: "csbRfBillRealmStatsEntry" + "[csbCallStatsInstanceIndex='" + self.csbcallstatsinstanceindex.get() + "']" + "[csbCallStatsServiceIndex='" + self.csbcallstatsserviceindex.get() + "']" + "[csbRfBillRealmStatsIndex='" + self.csbrfbillrealmstatsindex.get() + "']" + "[csbRfBillRealmStatsRealmName='" + self.csbrfbillrealmstatsrealmname.get() + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRfBillRealmStatsTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatsfaileventacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalstopacrs'], name, value)
+                self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.Csbrfbillrealmstatstable.Csbrfbillrealmstatsentry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatsfaileventacrs'], name, value)
 
 
     class Csbsipmthdcurrentstatstable(Entity):

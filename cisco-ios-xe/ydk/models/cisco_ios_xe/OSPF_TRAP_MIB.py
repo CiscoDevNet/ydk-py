@@ -54,29 +54,27 @@ class OSPFTRAPMIB(Entity):
         """
         
         
-        .. attribute:: ospfconfigerrortype
-        
-        	Potential types of configuration conflicts. Used by the ospfConfigError and ospfConfigVirtError traps.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
-        	**type**\:   :py:class:`Ospfconfigerrortype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfconfigerrortype>`
-        
-        .. attribute:: ospfpacketsrc
-        
-        	The IP address of an inbound packet that cannot be identified by a neighbor instance.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as 0.0.0.0
-        	**type**\:  str
-        
-        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-        
-        .. attribute:: ospfpackettype
-        
-        	OSPF packet types.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
-        	**type**\:   :py:class:`Ospfpackettype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfpackettype>`
-        
         .. attribute:: ospfsettrap
         
         	A 4\-octet string serving as a bit map for the trap events defined by the OSPF traps.  This object is used to enable and disable specific OSPF traps where a 1 in the bit field represents enabled.  The right\-most bit (least significant) represents trap 0.  This object is persistent and when written  the entity SHOULD save the change to non\-volatile storage
         	**type**\:  str
         
         	**length:** 4
+        
+        .. attribute:: ospfconfigerrortype
+        
+        	Potential types of configuration conflicts. Used by the ospfConfigError and ospfConfigVirtError traps.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as noError
+        	**type**\:   :py:class:`Ospfconfigerrortype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfconfigerrortype>`
+        
+        .. attribute:: ospfpackettype
+        
+        	OSPF packet types.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as nullPacket
+        	**type**\:   :py:class:`Ospfpackettype <ydk.models.cisco_ios_xe.OSPF_TRAP_MIB.OSPFTRAPMIB.Ospftrapcontrol.Ospfpackettype>`
+        
+        .. attribute:: ospfpacketsrc
+        
+        	The IP address of an inbound packet that cannot be identified by a neighbor instance.  When the last value of a trap using this object is needed, but no traps of that type have been sent, this value pertaining to this object should be returned as 0.0.0.0
+        	**type**\:  str
         
         
 
@@ -95,18 +93,18 @@ class OSPFTRAPMIB(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.ospfconfigerrortype = YLeaf(YType.enumeration, "ospfConfigErrorType")
+            self.ospfsettrap = YLeaf(YType.str, "ospfSetTrap")
 
-            self.ospfpacketsrc = YLeaf(YType.str, "ospfPacketSrc")
+            self.ospfconfigerrortype = YLeaf(YType.enumeration, "ospfConfigErrorType")
 
             self.ospfpackettype = YLeaf(YType.enumeration, "ospfPacketType")
 
-            self.ospfsettrap = YLeaf(YType.str, "ospfSetTrap")
+            self.ospfpacketsrc = YLeaf(YType.str, "ospfPacketSrc")
             self._segment_path = lambda: "ospfTrapControl"
             self._absolute_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(OSPFTRAPMIB.Ospftrapcontrol, ['ospfconfigerrortype', 'ospfpacketsrc', 'ospfpackettype', 'ospfsettrap'], name, value)
+            self._perform_setattr(OSPFTRAPMIB.Ospftrapcontrol, ['ospfsettrap', 'ospfconfigerrortype', 'ospfpackettype', 'ospfpacketsrc'], name, value)
 
         class Ospfconfigerrortype(Enum):
             """

@@ -147,22 +147,10 @@ class RestconfState(Entity):
             	The stream name
             	**type**\:  str
             
-            .. attribute:: access
-            
-            	The server will create an entry in this list for each encoding format that is supported for this stream. The media type 'text/event\-stream' is expected for all event streams. This list identifies the sub\-types supported for this stream
-            	**type**\: list of    :py:class:`Access <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream.Access>`
-            
             .. attribute:: description
             
             	Description of stream content
             	**type**\:  str
-            
-            .. attribute:: replay_log_creation_time
-            
-            	Indicates the time the replay log for this stream was created
-            	**type**\:  str
-            
-            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
             
             .. attribute:: replay_support
             
@@ -170,6 +158,16 @@ class RestconfState(Entity):
             	**type**\:  bool
             
             	**default value**\: false
+            
+            .. attribute:: replay_log_creation_time
+            
+            	Indicates the time the replay log for this stream was created
+            	**type**\:  str
+            
+            .. attribute:: access
+            
+            	The server will create an entry in this list for each encoding format that is supported for this stream. The media type 'text/event\-stream' is expected for all event streams. This list identifies the sub\-types supported for this stream
+            	**type**\: list of    :py:class:`Access <ydk.models.ietf.ietf_restconf_monitoring.RestconfState.Streams.Stream.Access>`
             
             
 
@@ -192,16 +190,16 @@ class RestconfState(Entity):
 
                 self.description = YLeaf(YType.str, "description")
 
-                self.replay_log_creation_time = YLeaf(YType.str, "replay-log-creation-time")
-
                 self.replay_support = YLeaf(YType.boolean, "replay-support")
+
+                self.replay_log_creation_time = YLeaf(YType.str, "replay-log-creation-time")
 
                 self.access = YList(self)
                 self._segment_path = lambda: "stream" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/streams/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RestconfState.Streams.Stream, ['name', 'description', 'replay_log_creation_time', 'replay_support'], name, value)
+                self._perform_setattr(RestconfState.Streams.Stream, ['name', 'description', 'replay_support', 'replay_log_creation_time'], name, value)
 
 
             class Access(Entity):

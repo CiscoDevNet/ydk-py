@@ -26,15 +26,15 @@ class Vrrp(Entity):
     """
     VRRP configuration
     
-    .. attribute:: interfaces
-    
-    	Interface configuration table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces>`
-    
     .. attribute:: logging
     
     	VRRP logging options
     	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Logging>`
+    
+    .. attribute:: interfaces
+    
+    	Interface configuration table
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces>`
     
     
 
@@ -51,19 +51,53 @@ class Vrrp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ipv4-vrrp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"interfaces" : ("interfaces", Vrrp.Interfaces), "logging" : ("logging", Vrrp.Logging)}
+        self._child_container_classes = {"logging" : ("logging", Vrrp.Logging), "interfaces" : ("interfaces", Vrrp.Interfaces)}
         self._child_list_classes = {}
-
-        self.interfaces = Vrrp.Interfaces()
-        self.interfaces.parent = self
-        self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
 
         self.logging = Vrrp.Logging()
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
         self._children_yang_names.add("logging")
+
+        self.interfaces = Vrrp.Interfaces()
+        self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+
+
+    class Logging(Entity):
+        """
+        VRRP logging options
+        
+        .. attribute:: state_change_disable
+        
+        	VRRP state change IOS messages disable
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-vrrp-cfg'
+        _revision = '2017-05-19'
+
+        def __init__(self):
+            super(Vrrp.Logging, self).__init__()
+
+            self.yang_name = "logging"
+            self.yang_parent_name = "vrrp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.state_change_disable = YLeaf(YType.empty, "state-change-disable")
+            self._segment_path = lambda: "logging"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vrrp.Logging, ['state_change_disable'], name, value)
 
 
     class Interfaces(Entity):
@@ -109,12 +143,10 @@ class Vrrp(Entity):
             	Interface name to configure
             	**type**\:  str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            .. attribute:: ipv6
             
-            .. attribute:: bfd
-            
-            	BFD configuration
-            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Bfd>`
+            	IPv6 VRRP configuration
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6>`
             
             .. attribute:: delay
             
@@ -128,10 +160,10 @@ class Vrrp(Entity):
             	IPv4 VRRP configuration
             	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4>`
             
-            .. attribute:: ipv6
+            .. attribute:: bfd
             
-            	IPv6 VRRP configuration
-            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6>`
+            	BFD configuration
+            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Bfd>`
             
             .. attribute:: mac_refresh
             
@@ -158,17 +190,17 @@ class Vrrp(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bfd" : ("bfd", Vrrp.Interfaces.Interface.Bfd), "delay" : ("delay", Vrrp.Interfaces.Interface.Delay), "ipv4" : ("ipv4", Vrrp.Interfaces.Interface.Ipv4), "ipv6" : ("ipv6", Vrrp.Interfaces.Interface.Ipv6)}
+                self._child_container_classes = {"ipv6" : ("ipv6", Vrrp.Interfaces.Interface.Ipv6), "delay" : ("delay", Vrrp.Interfaces.Interface.Delay), "ipv4" : ("ipv4", Vrrp.Interfaces.Interface.Ipv4), "bfd" : ("bfd", Vrrp.Interfaces.Interface.Bfd)}
                 self._child_list_classes = {}
 
                 self.interface_name = YLeaf(YType.str, "interface-name")
 
                 self.mac_refresh = YLeaf(YType.uint32, "mac-refresh")
 
-                self.bfd = Vrrp.Interfaces.Interface.Bfd()
-                self.bfd.parent = self
-                self._children_name_map["bfd"] = "bfd"
-                self._children_yang_names.add("bfd")
+                self.ipv6 = Vrrp.Interfaces.Interface.Ipv6()
+                self.ipv6.parent = self
+                self._children_name_map["ipv6"] = "ipv6"
+                self._children_yang_names.add("ipv6")
 
                 self.delay = None
                 self._children_name_map["delay"] = "delay"
@@ -179,10 +211,10 @@ class Vrrp(Entity):
                 self._children_name_map["ipv4"] = "ipv4"
                 self._children_yang_names.add("ipv4")
 
-                self.ipv6 = Vrrp.Interfaces.Interface.Ipv6()
-                self.ipv6.parent = self
-                self._children_name_map["ipv6"] = "ipv6"
-                self._children_yang_names.add("ipv6")
+                self.bfd = Vrrp.Interfaces.Interface.Bfd()
+                self.bfd.parent = self
+                self._children_name_map["bfd"] = "bfd"
+                self._children_yang_names.add("bfd")
                 self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/%s" % self._segment_path()
 
@@ -190,25 +222,19 @@ class Vrrp(Entity):
                 self._perform_setattr(Vrrp.Interfaces.Interface, ['interface_name', 'mac_refresh'], name, value)
 
 
-            class Bfd(Entity):
+            class Ipv6(Entity):
                 """
-                BFD configuration
+                IPv6 VRRP configuration
                 
-                .. attribute:: detection_multiplier
+                .. attribute:: version3
                 
-                	Detection multiplier for BFD sessions created by vrrp
-                	**type**\:  int
+                	Version 3 VRRP configuration
+                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3>`
                 
-                	**range:** 2..50
+                .. attribute:: slave_virtual_routers
                 
-                .. attribute:: interval
-                
-                	Hello interval for BFD sessions created by vrrp
-                	**type**\:  int
-                
-                	**range:** 3..30000
-                
-                	**units**\: millisecond
+                	The VRRP slave group configuration table
+                	**type**\:   :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters>`
                 
                 
 
@@ -218,22 +244,803 @@ class Vrrp(Entity):
                 _revision = '2017-05-19'
 
                 def __init__(self):
-                    super(Vrrp.Interfaces.Interface.Bfd, self).__init__()
+                    super(Vrrp.Interfaces.Interface.Ipv6, self).__init__()
 
-                    self.yang_name = "bfd"
+                    self.yang_name = "ipv6"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {}
+                    self._child_container_classes = {"version3" : ("version3", Vrrp.Interfaces.Interface.Ipv6.Version3), "slave-virtual-routers" : ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters)}
                     self._child_list_classes = {}
 
-                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                    self.version3 = Vrrp.Interfaces.Interface.Ipv6.Version3()
+                    self.version3.parent = self
+                    self._children_name_map["version3"] = "version3"
+                    self._children_yang_names.add("version3")
 
-                    self.interval = YLeaf(YType.uint32, "interval")
-                    self._segment_path = lambda: "bfd"
+                    self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters()
+                    self.slave_virtual_routers.parent = self
+                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
+                    self._children_yang_names.add("slave-virtual-routers")
+                    self._segment_path = lambda: "ipv6"
 
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval'], name, value)
+
+                class Version3(Entity):
+                    """
+                    Version 3 VRRP configuration
+                    
+                    .. attribute:: virtual_routers
+                    
+                    	The VRRP virtual router configuration table
+                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-cfg'
+                    _revision = '2017-05-19'
+
+                    def __init__(self):
+                        super(Vrrp.Interfaces.Interface.Ipv6.Version3, self).__init__()
+
+                        self.yang_name = "version3"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"virtual-routers" : ("virtual_routers", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters)}
+                        self._child_list_classes = {}
+
+                        self.virtual_routers = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters()
+                        self.virtual_routers.parent = self
+                        self._children_name_map["virtual_routers"] = "virtual-routers"
+                        self._children_yang_names.add("virtual-routers")
+                        self._segment_path = lambda: "version3"
+
+
+                    class VirtualRouters(Entity):
+                        """
+                        The VRRP virtual router configuration table
+                        
+                        .. attribute:: virtual_router
+                        
+                        	The VRRP virtual router being configured
+                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-vrrp-cfg'
+                        _revision = '2017-05-19'
+
+                        def __init__(self):
+                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__init__()
+
+                            self.yang_name = "virtual-routers"
+                            self.yang_parent_name = "version3"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter)}
+
+                            self.virtual_router = YList(self)
+                            self._segment_path = lambda: "virtual-routers"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, [], name, value)
+
+
+                        class VirtualRouter(Entity):
+                            """
+                            The VRRP virtual router being configured
+                            
+                            .. attribute:: vr_id  <key>
+                            
+                            	VRID Virtual Router Identifier
+                            	**type**\:  int
+                            
+                            	**range:** 1..255
+                            
+                            .. attribute:: global_ipv6_addresses
+                            
+                            	The table of VRRP virtual global IPv6 addresses
+                            	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses>`
+                            
+                            .. attribute:: tracks
+                            
+                            	Track an item, reducing priority if it goes down
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks>`
+                            
+                            .. attribute:: timer
+                            
+                            	Set advertisement timer
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer>`
+                            
+                            .. attribute:: tracked_objects
+                            
+                            	Track an object, reducing priority if it goes down
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
+                            
+                            .. attribute:: link_local_ipv6_address
+                            
+                            	The VRRP IPv6 virtual linklocal address
+                            	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address>`
+                            
+                            .. attribute:: bfd
+                            
+                            	Enable use of Bidirectional Forwarding Detection for this IP
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: priority
+                            
+                            	Priority value
+                            	**type**\:  int
+                            
+                            	**range:** 1..254
+                            
+                            	**default value**\: 100
+                            
+                            .. attribute:: accept_mode_disable
+                            
+                            	Disable Accept Mode for this virtual IPAddress
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: preempt
+                            
+                            	Preempt Master router if higher priority
+                            	**type**\:  int
+                            
+                            	**range:** 0..3600
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: session_name
+                            
+                            	VRRP Session Name
+                            	**type**\:  str
+                            
+                            	**length:** 1..16
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-vrrp-cfg'
+                            _revision = '2017-05-19'
+
+                            def __init__(self):
+                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__init__()
+
+                                self.yang_name = "virtual-router"
+                                self.yang_parent_name = "virtual-routers"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"global-ipv6-addresses" : ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks), "timer" : ("timer", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects), "link-local-ipv6-address" : ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address)}
+                                self._child_list_classes = {}
+
+                                self.vr_id = YLeaf(YType.uint32, "vr-id")
+
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                                self.preempt = YLeaf(YType.uint32, "preempt")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses()
+                                self.global_ipv6_addresses.parent = self
+                                self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                                self._children_yang_names.add("global-ipv6-addresses")
+
+                                self.tracks = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks()
+                                self.tracks.parent = self
+                                self._children_name_map["tracks"] = "tracks"
+                                self._children_yang_names.add("tracks")
+
+                                self.timer = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer()
+                                self.timer.parent = self
+                                self._children_name_map["timer"] = "timer"
+                                self._children_yang_names.add("timer")
+
+                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
+                                self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
+                                self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address()
+                                self.link_local_ipv6_address.parent = self
+                                self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                                self._children_yang_names.add("link-local-ipv6-address")
+                                self._segment_path = lambda: "virtual-router" + "[vr-id='" + self.vr_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'bfd', 'priority', 'accept_mode_disable', 'preempt', 'session_name'], name, value)
+
+
+                            class GlobalIpv6Addresses(Entity):
+                                """
+                                The table of VRRP virtual global IPv6
+                                addresses
+                                
+                                .. attribute:: global_ipv6_address
+                                
+                                	A VRRP virtual global IPv6 IP address
+                                	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__init__()
+
+                                    self.yang_name = "global-ipv6-addresses"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"global-ipv6-address" : ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address)}
+
+                                    self.global_ipv6_address = YList(self)
+                                    self._segment_path = lambda: "global-ipv6-addresses"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, [], name, value)
+
+
+                                class GlobalIpv6Address(Entity):
+                                    """
+                                    A VRRP virtual global IPv6 IP address
+                                    
+                                    .. attribute:: ip_address  <key>
+                                    
+                                    	VRRP virtual global IPv6 address
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    
+                                    ----
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
+
+                                        self.yang_name = "global-ipv6-address"
+                                        self.yang_parent_name = "global-ipv6-addresses"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.ip_address = YLeaf(YType.str, "ip-address")
+                                        self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
+
+
+                            class Tracks(Entity):
+                                """
+                                Track an item, reducing priority if it
+                                goes down
+                                
+                                .. attribute:: track
+                                
+                                	Object to be tracked
+                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
+
+                                    self.yang_name = "tracks"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"track" : ("track", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track)}
+
+                                    self.track = YList(self)
+                                    self._segment_path = lambda: "tracks"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
+
+
+                                class Track(Entity):
+                                    """
+                                    Object to be tracked
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Object to be tracked, interface name for interfaces
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Priority decrement
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
+
+                                        self.yang_name = "track"
+                                        self.yang_parent_name = "tracks"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                        self.priority = YLeaf(YType.uint32, "priority")
+                                        self._segment_path = lambda: "track" + "[interface-name='" + self.interface_name.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
+
+
+                            class Timer(Entity):
+                                """
+                                Set advertisement timer
+                                
+                                .. attribute:: in_msec
+                                
+                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                .. attribute:: advertisement_time_in_msec
+                                
+                                	Advertisement time in milliseconds
+                                	**type**\:  int
+                                
+                                	**range:** 100..40950
+                                
+                                	**units**\: millisecond
+                                
+                                .. attribute:: advertisement_time_in_sec
+                                
+                                	Advertisement time in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 1..40
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: forced
+                                
+                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
+
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
+
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
+
+                                    self.forced = YLeaf(YType.boolean, "forced")
+                                    self._segment_path = lambda: "timer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+
+
+                            class TrackedObjects(Entity):
+                                """
+                                Track an object, reducing priority if it
+                                goes down
+                                
+                                .. attribute:: tracked_object
+                                
+                                	Object to be tracked
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
+
+                                    self.tracked_object = YList(self)
+                                    self._segment_path = lambda: "tracked-objects"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
+
+
+                                class TrackedObject(Entity):
+                                    """
+                                    Object to be tracked
+                                    
+                                    .. attribute:: object_name  <key>
+                                    
+                                    	Object to be tracked, interface name for interfaces
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: priority_decrement
+                                    
+                                    	Priority decrement
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
+
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.object_name = YLeaf(YType.str, "object-name")
+
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
+                                        self._segment_path = lambda: "tracked-object" + "[object-name='" + self.object_name.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
+
+
+                            class LinkLocalIpv6Address(Entity):
+                                """
+                                The VRRP IPv6 virtual linklocal address
+                                
+                                .. attribute:: ip_address
+                                
+                                	VRRP IPv6 virtual linklocal address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                .. attribute:: auto_configure
+                                
+                                	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__init__()
+
+                                    self.yang_name = "link-local-ipv6-address"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ip_address = YLeaf(YType.str, "ip-address")
+
+                                    self.auto_configure = YLeaf(YType.boolean, "auto-configure")
+                                    self._segment_path = lambda: "link-local-ipv6-address"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
+
+
+                class SlaveVirtualRouters(Entity):
+                    """
+                    The VRRP slave group configuration table
+                    
+                    .. attribute:: slave_virtual_router
+                    
+                    	The VRRP slave being configured
+                    	**type**\: list of    :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-cfg'
+                    _revision = '2017-05-19'
+
+                    def __init__(self):
+                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__init__()
+
+                        self.yang_name = "slave-virtual-routers"
+                        self.yang_parent_name = "ipv6"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"slave-virtual-router" : ("slave_virtual_router", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter)}
+
+                        self.slave_virtual_router = YList(self)
+                        self._segment_path = lambda: "slave-virtual-routers"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, [], name, value)
+
+
+                    class SlaveVirtualRouter(Entity):
+                        """
+                        The VRRP slave being configured
+                        
+                        .. attribute:: slave_virtual_router_id  <key>
+                        
+                        	Virtual Router ID
+                        	**type**\:  int
+                        
+                        	**range:** 1..255
+                        
+                        .. attribute:: link_local_ipv6_address
+                        
+                        	The VRRP IPv6 virtual linklocal address
+                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address>`
+                        
+                        .. attribute:: global_ipv6_addresses
+                        
+                        	The table of VRRP virtual global IPv6 addresses
+                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses>`
+                        
+                        .. attribute:: follow
+                        
+                        	VRRP Session name for this slave to follow
+                        	**type**\:  str
+                        
+                        .. attribute:: accept_mode_disable
+                        
+                        	Disable Accept Mode for this virtual IPAddress
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-vrrp-cfg'
+                        _revision = '2017-05-19'
+
+                        def __init__(self):
+                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
+
+                            self.yang_name = "slave-virtual-router"
+                            self.yang_parent_name = "slave-virtual-routers"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"link-local-ipv6-address" : ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address), "global-ipv6-addresses" : ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses)}
+                            self._child_list_classes = {}
+
+                            self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
+
+                            self.follow = YLeaf(YType.str, "follow")
+
+                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                            self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address()
+                            self.link_local_ipv6_address.parent = self
+                            self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
+                            self._children_yang_names.add("link-local-ipv6-address")
+
+                            self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses()
+                            self.global_ipv6_addresses.parent = self
+                            self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
+                            self._children_yang_names.add("global-ipv6-addresses")
+                            self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + self.slave_virtual_router_id.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable'], name, value)
+
+
+                        class LinkLocalIpv6Address(Entity):
+                            """
+                            The VRRP IPv6 virtual linklocal address
+                            
+                            .. attribute:: ip_address
+                            
+                            	VRRP IPv6 virtual linklocal address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            
+                            ----
+                            .. attribute:: auto_configure
+                            
+                            	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-vrrp-cfg'
+                            _revision = '2017-05-19'
+
+                            def __init__(self):
+                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__init__()
+
+                                self.yang_name = "link-local-ipv6-address"
+                                self.yang_parent_name = "slave-virtual-router"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.ip_address = YLeaf(YType.str, "ip-address")
+
+                                self.auto_configure = YLeaf(YType.boolean, "auto-configure")
+                                self._segment_path = lambda: "link-local-ipv6-address"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
+
+
+                        class GlobalIpv6Addresses(Entity):
+                            """
+                            The table of VRRP virtual global IPv6
+                            addresses
+                            
+                            .. attribute:: global_ipv6_address
+                            
+                            	A VRRP virtual global IPv6 IP address
+                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-vrrp-cfg'
+                            _revision = '2017-05-19'
+
+                            def __init__(self):
+                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__init__()
+
+                                self.yang_name = "global-ipv6-addresses"
+                                self.yang_parent_name = "slave-virtual-router"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"global-ipv6-address" : ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address)}
+
+                                self.global_ipv6_address = YList(self)
+                                self._segment_path = lambda: "global-ipv6-addresses"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, [], name, value)
+
+
+                            class GlobalIpv6Address(Entity):
+                                """
+                                A VRRP virtual global IPv6 IP address
+                                
+                                .. attribute:: ip_address  <key>
+                                
+                                	VRRP virtual global IPv6 address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
+
+                                    self.yang_name = "global-ipv6-address"
+                                    self.yang_parent_name = "global-ipv6-addresses"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ip_address = YLeaf(YType.str, "ip-address")
+                                    self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
 
 
             class Delay(Entity):
@@ -295,6 +1102,11 @@ class Vrrp(Entity):
                 """
                 IPv4 VRRP configuration
                 
+                .. attribute:: version3
+                
+                	Version 3 VRRP configuration
+                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3>`
+                
                 .. attribute:: slave_virtual_routers
                 
                 	The VRRP slave group configuration table
@@ -304,11 +1116,6 @@ class Vrrp(Entity):
                 
                 	Version 2 VRRP configuration
                 	**type**\:   :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2>`
-                
-                .. attribute:: version3
-                
-                	Version 3 VRRP configuration
-                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3>`
                 
                 
 
@@ -324,8 +1131,13 @@ class Vrrp(Entity):
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"slave-virtual-routers" : ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters), "version2" : ("version2", Vrrp.Interfaces.Interface.Ipv4.Version2), "version3" : ("version3", Vrrp.Interfaces.Interface.Ipv4.Version3)}
+                    self._child_container_classes = {"version3" : ("version3", Vrrp.Interfaces.Interface.Ipv4.Version3), "slave-virtual-routers" : ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters), "version2" : ("version2", Vrrp.Interfaces.Interface.Ipv4.Version2)}
                     self._child_list_classes = {}
+
+                    self.version3 = Vrrp.Interfaces.Interface.Ipv4.Version3()
+                    self.version3.parent = self
+                    self._children_name_map["version3"] = "version3"
+                    self._children_yang_names.add("version3")
 
                     self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters()
                     self.slave_virtual_routers.parent = self
@@ -336,12 +1148,488 @@ class Vrrp(Entity):
                     self.version2.parent = self
                     self._children_name_map["version2"] = "version2"
                     self._children_yang_names.add("version2")
-
-                    self.version3 = Vrrp.Interfaces.Interface.Ipv4.Version3()
-                    self.version3.parent = self
-                    self._children_name_map["version3"] = "version3"
-                    self._children_yang_names.add("version3")
                     self._segment_path = lambda: "ipv4"
+
+
+                class Version3(Entity):
+                    """
+                    Version 3 VRRP configuration
+                    
+                    .. attribute:: virtual_routers
+                    
+                    	The VRRP virtual router configuration table
+                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-vrrp-cfg'
+                    _revision = '2017-05-19'
+
+                    def __init__(self):
+                        super(Vrrp.Interfaces.Interface.Ipv4.Version3, self).__init__()
+
+                        self.yang_name = "version3"
+                        self.yang_parent_name = "ipv4"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"virtual-routers" : ("virtual_routers", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters)}
+                        self._child_list_classes = {}
+
+                        self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters()
+                        self.virtual_routers.parent = self
+                        self._children_name_map["virtual_routers"] = "virtual-routers"
+                        self._children_yang_names.add("virtual-routers")
+                        self._segment_path = lambda: "version3"
+
+
+                    class VirtualRouters(Entity):
+                        """
+                        The VRRP virtual router configuration table
+                        
+                        .. attribute:: virtual_router
+                        
+                        	The VRRP virtual router being configured
+                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-vrrp-cfg'
+                        _revision = '2017-05-19'
+
+                        def __init__(self):
+                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__init__()
+
+                            self.yang_name = "virtual-routers"
+                            self.yang_parent_name = "version3"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter)}
+
+                            self.virtual_router = YList(self)
+                            self._segment_path = lambda: "virtual-routers"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, [], name, value)
+
+
+                        class VirtualRouter(Entity):
+                            """
+                            The VRRP virtual router being configured
+                            
+                            .. attribute:: vr_id  <key>
+                            
+                            	VRID Virtual Router Identifier
+                            	**type**\:  int
+                            
+                            	**range:** 1..255
+                            
+                            .. attribute:: timer
+                            
+                            	Set advertisement timer
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer>`
+                            
+                            .. attribute:: secondary_ipv4_addresses
+                            
+                            	The table of VRRP secondary IPv4 addresses
+                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
+                            
+                            .. attribute:: tracked_objects
+                            
+                            	Track an object, reducing priority if it goes down
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
+                            
+                            .. attribute:: tracks
+                            
+                            	Track an item, reducing priority if it goes down
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks>`
+                            
+                            .. attribute:: session_name
+                            
+                            	VRRP Session Name
+                            	**type**\:  str
+                            
+                            	**length:** 1..16
+                            
+                            .. attribute:: bfd
+                            
+                            	Enable use of Bidirectional Forwarding Detection for this IP
+                            	**type**\:  str
+                            
+                            .. attribute:: primary_ipv4_address
+                            
+                            	The Primary VRRP IPv4 address
+                            	**type**\:  str
+                            
+                            .. attribute:: preempt
+                            
+                            	Preempt Master router if higher priority
+                            	**type**\:  int
+                            
+                            	**range:** 0..3600
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: accept_mode_disable
+                            
+                            	Disable Accept Mode for this virtual IPAddress
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: priority
+                            
+                            	Priority value
+                            	**type**\:  int
+                            
+                            	**range:** 1..254
+                            
+                            	**default value**\: 100
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-vrrp-cfg'
+                            _revision = '2017-05-19'
+
+                            def __init__(self):
+                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__init__()
+
+                                self.yang_name = "virtual-router"
+                                self.yang_parent_name = "virtual-routers"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"timer" : ("timer", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer), "secondary-ipv4-addresses" : ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks)}
+                                self._child_list_classes = {}
+
+                                self.vr_id = YLeaf(YType.uint32, "vr-id")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
+
+                                self.preempt = YLeaf(YType.uint32, "preempt")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
+
+                                self.priority = YLeaf(YType.uint32, "priority")
+
+                                self.timer = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer()
+                                self.timer.parent = self
+                                self._children_name_map["timer"] = "timer"
+                                self._children_yang_names.add("timer")
+
+                                self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
+                                self.secondary_ipv4_addresses.parent = self
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
+
+                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
+                                self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
+
+                                self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks()
+                                self.tracks.parent = self
+                                self._children_name_map["tracks"] = "tracks"
+                                self._children_yang_names.add("tracks")
+                                self._segment_path = lambda: "virtual-router" + "[vr-id='" + self.vr_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'session_name', 'bfd', 'primary_ipv4_address', 'preempt', 'accept_mode_disable', 'priority'], name, value)
+
+
+                            class Timer(Entity):
+                                """
+                                Set advertisement timer
+                                
+                                .. attribute:: in_msec
+                                
+                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                .. attribute:: advertisement_time_in_msec
+                                
+                                	Advertisement time in milliseconds
+                                	**type**\:  int
+                                
+                                	**range:** 100..40950
+                                
+                                	**units**\: millisecond
+                                
+                                .. attribute:: advertisement_time_in_sec
+                                
+                                	Advertisement time in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 1..40
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: forced
+                                
+                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
+
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
+
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
+
+                                    self.forced = YLeaf(YType.boolean, "forced")
+                                    self._segment_path = lambda: "timer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+
+
+                            class SecondaryIpv4Addresses(Entity):
+                                """
+                                The table of VRRP secondary IPv4 addresses
+                                
+                                .. attribute:: secondary_ipv4_address
+                                
+                                	A VRRP secondary IPv4 address
+                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
+
+                                    self.yang_name = "secondary-ipv4-addresses"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"secondary-ipv4-address" : ("secondary_ipv4_address", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address)}
+
+                                    self.secondary_ipv4_address = YList(self)
+                                    self._segment_path = lambda: "secondary-ipv4-addresses"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, [], name, value)
+
+
+                                class SecondaryIpv4Address(Entity):
+                                    """
+                                    A VRRP secondary IPv4 address
+                                    
+                                    .. attribute:: ip_address  <key>
+                                    
+                                    	VRRP Secondary IPv4 address
+                                    	**type**\:  str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
+
+                                        self.yang_name = "secondary-ipv4-address"
+                                        self.yang_parent_name = "secondary-ipv4-addresses"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.ip_address = YLeaf(YType.str, "ip-address")
+                                        self._segment_path = lambda: "secondary-ipv4-address" + "[ip-address='" + self.ip_address.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
+
+
+                            class TrackedObjects(Entity):
+                                """
+                                Track an object, reducing priority if it
+                                goes down
+                                
+                                .. attribute:: tracked_object
+                                
+                                	Object to be tracked
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+
+                                    self.yang_name = "tracked-objects"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
+
+                                    self.tracked_object = YList(self)
+                                    self._segment_path = lambda: "tracked-objects"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
+
+
+                                class TrackedObject(Entity):
+                                    """
+                                    Object to be tracked
+                                    
+                                    .. attribute:: object_name  <key>
+                                    
+                                    	Object to be tracked, interface name for interfaces
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: priority_decrement
+                                    
+                                    	Priority decrement
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
+
+                                        self.yang_name = "tracked-object"
+                                        self.yang_parent_name = "tracked-objects"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.object_name = YLeaf(YType.str, "object-name")
+
+                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
+                                        self._segment_path = lambda: "tracked-object" + "[object-name='" + self.object_name.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
+
+
+                            class Tracks(Entity):
+                                """
+                                Track an item, reducing priority if it
+                                goes down
+                                
+                                .. attribute:: track
+                                
+                                	Object to be tracked
+                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
+
+                                    self.yang_name = "tracks"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"track" : ("track", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track)}
+
+                                    self.track = YList(self)
+                                    self._segment_path = lambda: "tracks"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
+
+
+                                class Track(Entity):
+                                    """
+                                    Object to be tracked
+                                    
+                                    .. attribute:: interface_name  <key>
+                                    
+                                    	Object to be tracked, interface name for interfaces
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: priority
+                                    
+                                    	Priority decrement
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..254
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ipv4-vrrp-cfg'
+                                    _revision = '2017-05-19'
+
+                                    def __init__(self):
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
+
+                                        self.yang_name = "track"
+                                        self.yang_parent_name = "tracks"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                        self.priority = YLeaf(YType.uint32, "priority")
+                                        self._segment_path = lambda: "track" + "[interface-name='" + self.interface_name.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
 
 
                 class SlaveVirtualRouters(Entity):
@@ -388,27 +1676,25 @@ class Vrrp(Entity):
                         
                         	**range:** 1..255
                         
-                        .. attribute:: accept_mode_disable
+                        .. attribute:: secondary_ipv4_addresses
                         
-                        	Disable Accept Mode for this virtual IPAddress
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        	The table of VRRP secondary IPv4 addresses
+                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses>`
                         
                         .. attribute:: follow
                         
                         	VRRP Session name for this slave to follow
                         	**type**\:  str
                         
+                        .. attribute:: accept_mode_disable
+                        
+                        	Disable Accept Mode for this virtual IPAddress
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                        
                         .. attribute:: primary_ipv4_address
                         
                         	The Primary VRRP IPv4 address
                         	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: secondary_ipv4_addresses
-                        
-                        	The table of VRRP secondary IPv4 addresses
-                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses>`
                         
                         
 
@@ -429,9 +1715,9 @@ class Vrrp(Entity):
 
                             self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
 
-                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
-
                             self.follow = YLeaf(YType.str, "follow")
+
+                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
 
                             self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
 
@@ -442,7 +1728,7 @@ class Vrrp(Entity):
                             self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + self.slave_virtual_router_id.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'accept_mode_disable', 'follow', 'primary_ipv4_address'], name, value)
+                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable', 'primary_ipv4_address'], name, value)
 
 
                         class SecondaryIpv4Addresses(Entity):
@@ -486,8 +1772,6 @@ class Vrrp(Entity):
                                 
                                 	VRRP Secondary IPv4 address
                                 	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                                 
                                 
 
@@ -590,33 +1874,25 @@ class Vrrp(Entity):
                             
                             	**range:** 1..255
                             
-                            .. attribute:: accept_mode_disable
+                            .. attribute:: timer
                             
-                            	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                            	Set advertisement timer
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer>`
                             
-                            .. attribute:: bfd
+                            .. attribute:: secondary_ipv4_addresses
                             
-                            	Enable use of Bidirectional Forwarding Detection for this IP
-                            	**type**\:  str
+                            	The table of VRRP secondary IPv4 addresses
+                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            .. attribute:: tracks
                             
-                            .. attribute:: preempt
+                            	Track an item, reducing priority if it goes down
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks>`
                             
-                            	Preempt Master router if higher priority
-                            	**type**\:  int
+                            .. attribute:: tracked_objects
                             
-                            	**range:** 0..3600
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: primary_ipv4_address
-                            
-                            	The Primary VRRP IPv4 address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            	Track an object, reducing priority if it goes down
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects>`
                             
                             .. attribute:: priority
                             
@@ -627,10 +1903,29 @@ class Vrrp(Entity):
                             
                             	**default value**\: 100
                             
-                            .. attribute:: secondary_ipv4_addresses
+                            .. attribute:: primary_ipv4_address
                             
-                            	The table of VRRP secondary IPv4 addresses
-                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
+                            	The Primary VRRP IPv4 address
+                            	**type**\:  str
+                            
+                            .. attribute:: preempt
+                            
+                            	Preempt Master router if higher priority
+                            	**type**\:  int
+                            
+                            	**range:** 0..3600
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: text_password
+                            
+                            	Authentication password, 8 chars max
+                            	**type**\:  str
+                            
+                            .. attribute:: bfd
+                            
+                            	Enable use of Bidirectional Forwarding Detection for this IP
+                            	**type**\:  str
                             
                             .. attribute:: session_name
                             
@@ -639,25 +1934,10 @@ class Vrrp(Entity):
                             
                             	**length:** 1..16
                             
-                            .. attribute:: text_password
+                            .. attribute:: accept_mode_disable
                             
-                            	Authentication password, 8 chars max
-                            	**type**\:  str
-                            
-                            .. attribute:: timer
-                            
-                            	Set advertisement timer
-                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer>`
-                            
-                            .. attribute:: tracked_objects
-                            
-                            	Track an object, reducing priority if it goes down
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects>`
-                            
-                            .. attribute:: tracks
-                            
-                            	Track an item, reducing priority if it goes down
-                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks>`
+                            	Disable Accept Mode for this virtual IPAddress
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -673,48 +1953,114 @@ class Vrrp(Entity):
                                 self.yang_parent_name = "virtual-routers"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {"secondary-ipv4-addresses" : ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses), "timer" : ("timer", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks)}
+                                self._child_container_classes = {"timer" : ("timer", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer), "secondary-ipv4-addresses" : ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects)}
                                 self._child_list_classes = {}
 
                                 self.vr_id = YLeaf(YType.uint32, "vr-id")
 
-                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
-
-                                self.bfd = YLeaf(YType.str, "bfd")
-
-                                self.preempt = YLeaf(YType.uint32, "preempt")
+                                self.priority = YLeaf(YType.uint32, "priority")
 
                                 self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
 
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.session_name = YLeaf(YType.str, "session-name")
+                                self.preempt = YLeaf(YType.uint32, "preempt")
 
                                 self.text_password = YLeaf(YType.str, "text-password")
 
-                                self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
-                                self.secondary_ipv4_addresses.parent = self
-                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                                self._children_yang_names.add("secondary-ipv4-addresses")
+                                self.bfd = YLeaf(YType.str, "bfd")
+
+                                self.session_name = YLeaf(YType.str, "session-name")
+
+                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
 
                                 self.timer = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer()
                                 self.timer.parent = self
                                 self._children_name_map["timer"] = "timer"
                                 self._children_yang_names.add("timer")
 
-                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects()
-                                self.tracked_objects.parent = self
-                                self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
+                                self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
+                                self.secondary_ipv4_addresses.parent = self
+                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
+                                self._children_yang_names.add("secondary-ipv4-addresses")
 
                                 self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks()
                                 self.tracks.parent = self
                                 self._children_name_map["tracks"] = "tracks"
                                 self._children_yang_names.add("tracks")
+
+                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects()
+                                self.tracked_objects.parent = self
+                                self._children_name_map["tracked_objects"] = "tracked-objects"
+                                self._children_yang_names.add("tracked-objects")
                                 self._segment_path = lambda: "virtual-router" + "[vr-id='" + self.vr_id.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, ['vr_id', 'accept_mode_disable', 'bfd', 'preempt', 'primary_ipv4_address', 'priority', 'session_name', 'text_password'], name, value)
+                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, ['vr_id', 'priority', 'primary_ipv4_address', 'preempt', 'text_password', 'bfd', 'session_name', 'accept_mode_disable'], name, value)
+
+
+                            class Timer(Entity):
+                                """
+                                Set advertisement timer
+                                
+                                .. attribute:: in_msec
+                                
+                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                .. attribute:: advertisement_time_in_msec
+                                
+                                	Advertisement time in milliseconds
+                                	**type**\:  int
+                                
+                                	**range:** 100..40950
+                                
+                                	**units**\: millisecond
+                                
+                                .. attribute:: advertisement_time_in_sec
+                                
+                                	Advertisement time in seconds
+                                	**type**\:  int
+                                
+                                	**range:** 1..255
+                                
+                                	**units**\: second
+                                
+                                .. attribute:: forced
+                                
+                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
+                                	**type**\:  bool
+                                
+                                	**default value**\: false
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv4-vrrp-cfg'
+                                _revision = '2017-05-19'
+
+                                def __init__(self):
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__init__()
+
+                                    self.yang_name = "timer"
+                                    self.yang_parent_name = "virtual-router"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
+
+                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
+
+                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
+
+                                    self.forced = YLeaf(YType.boolean, "forced")
+                                    self._segment_path = lambda: "timer"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
                             class SecondaryIpv4Addresses(Entity):
@@ -759,8 +2105,6 @@ class Vrrp(Entity):
                                     	VRRP Secondary IPv4 address
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     
 
                                     """
@@ -783,152 +2127,6 @@ class Vrrp(Entity):
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
-
-
-                            class Timer(Entity):
-                                """
-                                Set advertisement timer
-                                
-                                .. attribute:: advertisement_time_in_msec
-                                
-                                	Advertisement time in milliseconds
-                                	**type**\:  int
-                                
-                                	**range:** 100..40950
-                                
-                                	**units**\: millisecond
-                                
-                                .. attribute:: advertisement_time_in_sec
-                                
-                                	Advertisement time in seconds
-                                	**type**\:  int
-                                
-                                	**range:** 1..255
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: forced
-                                
-                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__init__()
-
-                                    self.yang_name = "timer"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
-
-                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
-
-                                    self.forced = YLeaf(YType.boolean, "forced")
-
-                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
-                                    self._segment_path = lambda: "timer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced', 'in_msec'], name, value)
-
-
-                            class TrackedObjects(Entity):
-                                """
-                                Track an object, reducing priority if it
-                                goes down
-                                
-                                .. attribute:: tracked_object
-                                
-                                	Object to be tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
-
-                                    self.yang_name = "tracked-objects"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
-
-                                    self.tracked_object = YList(self)
-                                    self._segment_path = lambda: "tracked-objects"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
-
-
-                                class TrackedObject(Entity):
-                                    """
-                                    Object to be tracked
-                                    
-                                    .. attribute:: object_name  <key>
-                                    
-                                    	Object to be tracked, interface name for interfaces
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                    
-                                    .. attribute:: priority_decrement
-                                    
-                                    	Priority decrement
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
-
-                                        self.yang_name = "tracked-object"
-                                        self.yang_parent_name = "tracked-objects"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.object_name = YLeaf(YType.str, "object-name")
-
-                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-                                        self._segment_path = lambda: "tracked-object" + "[object-name='" + self.object_name.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
                             class Tracks(Entity):
@@ -974,8 +2172,6 @@ class Vrrp(Entity):
                                     	Object to be tracked, interface name for interfaces
                                     	**type**\:  str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                    
                                     .. attribute:: priority
                                     
                                     	Priority decrement
@@ -1011,337 +2207,6 @@ class Vrrp(Entity):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
 
 
-                class Version3(Entity):
-                    """
-                    Version 3 VRRP configuration
-                    
-                    .. attribute:: virtual_routers
-                    
-                    	The VRRP virtual router configuration table
-                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-05-19'
-
-                    def __init__(self):
-                        super(Vrrp.Interfaces.Interface.Ipv4.Version3, self).__init__()
-
-                        self.yang_name = "version3"
-                        self.yang_parent_name = "ipv4"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"virtual-routers" : ("virtual_routers", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters)}
-                        self._child_list_classes = {}
-
-                        self.virtual_routers = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters()
-                        self.virtual_routers.parent = self
-                        self._children_name_map["virtual_routers"] = "virtual-routers"
-                        self._children_yang_names.add("virtual-routers")
-                        self._segment_path = lambda: "version3"
-
-
-                    class VirtualRouters(Entity):
-                        """
-                        The VRRP virtual router configuration table
-                        
-                        .. attribute:: virtual_router
-                        
-                        	The VRRP virtual router being configured
-                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-05-19'
-
-                        def __init__(self):
-                            super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__init__()
-
-                            self.yang_name = "virtual-routers"
-                            self.yang_parent_name = "version3"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter)}
-
-                            self.virtual_router = YList(self)
-                            self._segment_path = lambda: "virtual-routers"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, [], name, value)
-
-
-                        class VirtualRouter(Entity):
-                            """
-                            The VRRP virtual router being configured
-                            
-                            .. attribute:: vr_id  <key>
-                            
-                            	VRID Virtual Router Identifier
-                            	**type**\:  int
-                            
-                            	**range:** 1..255
-                            
-                            .. attribute:: accept_mode_disable
-                            
-                            	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: bfd
-                            
-                            	Enable use of Bidirectional Forwarding Detection for this IP
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: preempt
-                            
-                            	Preempt Master router if higher priority
-                            	**type**\:  int
-                            
-                            	**range:** 0..3600
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: primary_ipv4_address
-                            
-                            	The Primary VRRP IPv4 address
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: priority
-                            
-                            	Priority value
-                            	**type**\:  int
-                            
-                            	**range:** 1..254
-                            
-                            	**default value**\: 100
-                            
-                            .. attribute:: secondary_ipv4_addresses
-                            
-                            	The table of VRRP secondary IPv4 addresses
-                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
-                            
-                            .. attribute:: session_name
-                            
-                            	VRRP Session Name
-                            	**type**\:  str
-                            
-                            	**length:** 1..16
-                            
-                            .. attribute:: timer
-                            
-                            	Set advertisement timer
-                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer>`
-                            
-                            .. attribute:: tracked_objects
-                            
-                            	Track an object, reducing priority if it goes down
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
-                            
-                            .. attribute:: tracks
-                            
-                            	Track an item, reducing priority if it goes down
-                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-05-19'
-
-                            def __init__(self):
-                                super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__init__()
-
-                                self.yang_name = "virtual-router"
-                                self.yang_parent_name = "virtual-routers"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"secondary-ipv4-addresses" : ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses), "timer" : ("timer", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks)}
-                                self._child_list_classes = {}
-
-                                self.vr_id = YLeaf(YType.uint32, "vr-id")
-
-                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
-
-                                self.bfd = YLeaf(YType.str, "bfd")
-
-                                self.preempt = YLeaf(YType.uint32, "preempt")
-
-                                self.primary_ipv4_address = YLeaf(YType.str, "primary-ipv4-address")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.session_name = YLeaf(YType.str, "session-name")
-
-                                self.secondary_ipv4_addresses = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses()
-                                self.secondary_ipv4_addresses.parent = self
-                                self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
-                                self._children_yang_names.add("secondary-ipv4-addresses")
-
-                                self.timer = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer()
-                                self.timer.parent = self
-                                self._children_name_map["timer"] = "timer"
-                                self._children_yang_names.add("timer")
-
-                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
-                                self.tracked_objects.parent = self
-                                self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
-
-                                self.tracks = Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks()
-                                self.tracks.parent = self
-                                self._children_name_map["tracks"] = "tracks"
-                                self._children_yang_names.add("tracks")
-                                self._segment_path = lambda: "virtual-router" + "[vr-id='" + self.vr_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'accept_mode_disable', 'bfd', 'preempt', 'primary_ipv4_address', 'priority', 'session_name'], name, value)
-
-
-                            class SecondaryIpv4Addresses(Entity):
-                                """
-                                The table of VRRP secondary IPv4 addresses
-                                
-                                .. attribute:: secondary_ipv4_address
-                                
-                                	A VRRP secondary IPv4 address
-                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
-
-                                    self.yang_name = "secondary-ipv4-addresses"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"secondary-ipv4-address" : ("secondary_ipv4_address", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address)}
-
-                                    self.secondary_ipv4_address = YList(self)
-                                    self._segment_path = lambda: "secondary-ipv4-addresses"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, [], name, value)
-
-
-                                class SecondaryIpv4Address(Entity):
-                                    """
-                                    A VRRP secondary IPv4 address
-                                    
-                                    .. attribute:: ip_address  <key>
-                                    
-                                    	VRRP Secondary IPv4 address
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
-
-                                        self.yang_name = "secondary-ipv4-address"
-                                        self.yang_parent_name = "secondary-ipv4-addresses"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ip_address = YLeaf(YType.str, "ip-address")
-                                        self._segment_path = lambda: "secondary-ipv4-address" + "[ip-address='" + self.ip_address.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
-
-
-                            class Timer(Entity):
-                                """
-                                Set advertisement timer
-                                
-                                .. attribute:: advertisement_time_in_msec
-                                
-                                	Advertisement time in milliseconds
-                                	**type**\:  int
-                                
-                                	**range:** 100..40950
-                                
-                                	**units**\: millisecond
-                                
-                                .. attribute:: advertisement_time_in_sec
-                                
-                                	Advertisement time in seconds
-                                	**type**\:  int
-                                
-                                	**range:** 1..40
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: forced
-                                
-                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
-
-                                    self.yang_name = "timer"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
-
-                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
-
-                                    self.forced = YLeaf(YType.boolean, "forced")
-
-                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
-                                    self._segment_path = lambda: "timer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced', 'in_msec'], name, value)
-
-
                             class TrackedObjects(Entity):
                                 """
                                 Track an object, reducing priority if it
@@ -1350,7 +2215,7 @@ class Vrrp(Entity):
                                 .. attribute:: tracked_object
                                 
                                 	Object to be tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -1360,20 +2225,20 @@ class Vrrp(Entity):
                                 _revision = '2017-05-19'
 
                                 def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
+                                    super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
 
                                     self.yang_name = "tracked-objects"
                                     self.yang_parent_name = "virtual-router"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self._child_container_classes = {}
-                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
+                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
 
 
                                 class TrackedObject(Entity):
@@ -1384,8 +2249,6 @@ class Vrrp(Entity):
                                     
                                     	Object to be tracked, interface name for interfaces
                                     	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                                     
                                     .. attribute:: priority_decrement
                                     
@@ -1404,7 +2267,7 @@ class Vrrp(Entity):
                                     _revision = '2017-05-19'
 
                                     def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
+                                        super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
 
                                         self.yang_name = "tracked-object"
                                         self.yang_parent_name = "tracked-objects"
@@ -1419,102 +2282,28 @@ class Vrrp(Entity):
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + self.object_name.get() + "']"
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
+                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
 
 
-                            class Tracks(Entity):
-                                """
-                                Track an item, reducing priority if it
-                                goes down
-                                
-                                .. attribute:: track
-                                
-                                	Object to be tracked
-                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
-
-                                    self.yang_name = "tracks"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"track" : ("track", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track)}
-
-                                    self.track = YList(self)
-                                    self._segment_path = lambda: "tracks"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
-
-
-                                class Track(Entity):
-                                    """
-                                    Object to be tracked
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Object to be tracked, interface name for interfaces
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                    
-                                    .. attribute:: priority
-                                    
-                                    	Priority decrement
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
-
-                                        self.yang_name = "track"
-                                        self.yang_parent_name = "tracks"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-                                        self._segment_path = lambda: "track" + "[interface-name='" + self.interface_name.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
-
-
-            class Ipv6(Entity):
+            class Bfd(Entity):
                 """
-                IPv6 VRRP configuration
+                BFD configuration
                 
-                .. attribute:: slave_virtual_routers
+                .. attribute:: interval
                 
-                	The VRRP slave group configuration table
-                	**type**\:   :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters>`
+                	Hello interval for BFD sessions created by vrrp
+                	**type**\:  int
                 
-                .. attribute:: version3
+                	**range:** 3..30000
                 
-                	Version 3 VRRP configuration
-                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3>`
+                	**units**\: millisecond
+                
+                .. attribute:: detection_multiplier
+                
+                	Detection multiplier for BFD sessions created by vrrp
+                	**type**\:  int
+                
+                	**range:** 2..50
                 
                 
 
@@ -1524,861 +2313,22 @@ class Vrrp(Entity):
                 _revision = '2017-05-19'
 
                 def __init__(self):
-                    super(Vrrp.Interfaces.Interface.Ipv6, self).__init__()
+                    super(Vrrp.Interfaces.Interface.Bfd, self).__init__()
 
-                    self.yang_name = "ipv6"
+                    self.yang_name = "bfd"
                     self.yang_parent_name = "interface"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"slave-virtual-routers" : ("slave_virtual_routers", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters), "version3" : ("version3", Vrrp.Interfaces.Interface.Ipv6.Version3)}
+                    self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.slave_virtual_routers = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters()
-                    self.slave_virtual_routers.parent = self
-                    self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
-                    self._children_yang_names.add("slave-virtual-routers")
+                    self.interval = YLeaf(YType.uint32, "interval")
 
-                    self.version3 = Vrrp.Interfaces.Interface.Ipv6.Version3()
-                    self.version3.parent = self
-                    self._children_name_map["version3"] = "version3"
-                    self._children_yang_names.add("version3")
-                    self._segment_path = lambda: "ipv6"
+                    self.detection_multiplier = YLeaf(YType.uint32, "detection-multiplier")
+                    self._segment_path = lambda: "bfd"
 
-
-                class SlaveVirtualRouters(Entity):
-                    """
-                    The VRRP slave group configuration table
-                    
-                    .. attribute:: slave_virtual_router
-                    
-                    	The VRRP slave being configured
-                    	**type**\: list of    :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-05-19'
-
-                    def __init__(self):
-                        super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__init__()
-
-                        self.yang_name = "slave-virtual-routers"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"slave-virtual-router" : ("slave_virtual_router", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter)}
-
-                        self.slave_virtual_router = YList(self)
-                        self._segment_path = lambda: "slave-virtual-routers"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, [], name, value)
-
-
-                    class SlaveVirtualRouter(Entity):
-                        """
-                        The VRRP slave being configured
-                        
-                        .. attribute:: slave_virtual_router_id  <key>
-                        
-                        	Virtual Router ID
-                        	**type**\:  int
-                        
-                        	**range:** 1..255
-                        
-                        .. attribute:: accept_mode_disable
-                        
-                        	Disable Accept Mode for this virtual IPAddress
-                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                        
-                        .. attribute:: follow
-                        
-                        	VRRP Session name for this slave to follow
-                        	**type**\:  str
-                        
-                        .. attribute:: global_ipv6_addresses
-                        
-                        	The table of VRRP virtual global IPv6 addresses
-                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses>`
-                        
-                        .. attribute:: link_local_ipv6_address
-                        
-                        	The VRRP IPv6 virtual linklocal address
-                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-05-19'
-
-                        def __init__(self):
-                            super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
-
-                            self.yang_name = "slave-virtual-router"
-                            self.yang_parent_name = "slave-virtual-routers"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"global-ipv6-addresses" : ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses), "link-local-ipv6-address" : ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address)}
-                            self._child_list_classes = {}
-
-                            self.slave_virtual_router_id = YLeaf(YType.uint32, "slave-virtual-router-id")
-
-                            self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
-
-                            self.follow = YLeaf(YType.str, "follow")
-
-                            self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses()
-                            self.global_ipv6_addresses.parent = self
-                            self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
-                            self._children_yang_names.add("global-ipv6-addresses")
-
-                            self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address()
-                            self.link_local_ipv6_address.parent = self
-                            self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
-                            self._children_yang_names.add("link-local-ipv6-address")
-                            self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + self.slave_virtual_router_id.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'accept_mode_disable', 'follow'], name, value)
-
-
-                        class GlobalIpv6Addresses(Entity):
-                            """
-                            The table of VRRP virtual global IPv6
-                            addresses
-                            
-                            .. attribute:: global_ipv6_address
-                            
-                            	A VRRP virtual global IPv6 IP address
-                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-05-19'
-
-                            def __init__(self):
-                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__init__()
-
-                                self.yang_name = "global-ipv6-addresses"
-                                self.yang_parent_name = "slave-virtual-router"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"global-ipv6-address" : ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address)}
-
-                                self.global_ipv6_address = YList(self)
-                                self._segment_path = lambda: "global-ipv6-addresses"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, [], name, value)
-
-
-                            class GlobalIpv6Address(Entity):
-                                """
-                                A VRRP virtual global IPv6 IP address
-                                
-                                .. attribute:: ip_address  <key>
-                                
-                                	VRRP virtual global IPv6 address
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
-
-                                    self.yang_name = "global-ipv6-address"
-                                    self.yang_parent_name = "global-ipv6-addresses"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ip_address = YLeaf(YType.str, "ip-address")
-                                    self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
-
-
-                        class LinkLocalIpv6Address(Entity):
-                            """
-                            The VRRP IPv6 virtual linklocal address
-                            
-                            .. attribute:: auto_configure
-                            
-                            	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
-                            	**type**\:  bool
-                            
-                            	**default value**\: false
-                            
-                            .. attribute:: ip_address
-                            
-                            	VRRP IPv6 virtual linklocal address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            
-
-                            """
-
-                            _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-05-19'
-
-                            def __init__(self):
-                                super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__init__()
-
-                                self.yang_name = "link-local-ipv6-address"
-                                self.yang_parent_name = "slave-virtual-router"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.auto_configure = YLeaf(YType.boolean, "auto-configure")
-
-                                self.ip_address = YLeaf(YType.str, "ip-address")
-                                self._segment_path = lambda: "link-local-ipv6-address"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, ['auto_configure', 'ip_address'], name, value)
-
-
-                class Version3(Entity):
-                    """
-                    Version 3 VRRP configuration
-                    
-                    .. attribute:: virtual_routers
-                    
-                    	The VRRP virtual router configuration table
-                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-05-19'
-
-                    def __init__(self):
-                        super(Vrrp.Interfaces.Interface.Ipv6.Version3, self).__init__()
-
-                        self.yang_name = "version3"
-                        self.yang_parent_name = "ipv6"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"virtual-routers" : ("virtual_routers", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters)}
-                        self._child_list_classes = {}
-
-                        self.virtual_routers = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters()
-                        self.virtual_routers.parent = self
-                        self._children_name_map["virtual_routers"] = "virtual-routers"
-                        self._children_yang_names.add("virtual-routers")
-                        self._segment_path = lambda: "version3"
-
-
-                    class VirtualRouters(Entity):
-                        """
-                        The VRRP virtual router configuration table
-                        
-                        .. attribute:: virtual_router
-                        
-                        	The VRRP virtual router being configured
-                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-05-19'
-
-                        def __init__(self):
-                            super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__init__()
-
-                            self.yang_name = "virtual-routers"
-                            self.yang_parent_name = "version3"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"virtual-router" : ("virtual_router", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter)}
-
-                            self.virtual_router = YList(self)
-                            self._segment_path = lambda: "virtual-routers"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, [], name, value)
-
-
-                        class VirtualRouter(Entity):
-                            """
-                            The VRRP virtual router being configured
-                            
-                            .. attribute:: vr_id  <key>
-                            
-                            	VRID Virtual Router Identifier
-                            	**type**\:  int
-                            
-                            	**range:** 1..255
-                            
-                            .. attribute:: accept_mode_disable
-                            
-                            	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                            
-                            .. attribute:: bfd
-                            
-                            	Enable use of Bidirectional Forwarding Detection for this IP
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: global_ipv6_addresses
-                            
-                            	The table of VRRP virtual global IPv6 addresses
-                            	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses>`
-                            
-                            .. attribute:: link_local_ipv6_address
-                            
-                            	The VRRP IPv6 virtual linklocal address
-                            	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address>`
-                            
-                            .. attribute:: preempt
-                            
-                            	Preempt Master router if higher priority
-                            	**type**\:  int
-                            
-                            	**range:** 0..3600
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: priority
-                            
-                            	Priority value
-                            	**type**\:  int
-                            
-                            	**range:** 1..254
-                            
-                            	**default value**\: 100
-                            
-                            .. attribute:: session_name
-                            
-                            	VRRP Session Name
-                            	**type**\:  str
-                            
-                            	**length:** 1..16
-                            
-                            .. attribute:: timer
-                            
-                            	Set advertisement timer
-                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer>`
-                            
-                            .. attribute:: tracked_objects
-                            
-                            	Track an object, reducing priority if it goes down
-                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
-                            
-                            .. attribute:: tracks
-                            
-                            	Track an item, reducing priority if it goes down
-                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-05-19'
-
-                            def __init__(self):
-                                super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__init__()
-
-                                self.yang_name = "virtual-router"
-                                self.yang_parent_name = "virtual-routers"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"global-ipv6-addresses" : ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses), "link-local-ipv6-address" : ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address), "timer" : ("timer", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer), "tracked-objects" : ("tracked_objects", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects), "tracks" : ("tracks", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks)}
-                                self._child_list_classes = {}
-
-                                self.vr_id = YLeaf(YType.uint32, "vr-id")
-
-                                self.accept_mode_disable = YLeaf(YType.empty, "accept-mode-disable")
-
-                                self.bfd = YLeaf(YType.str, "bfd")
-
-                                self.preempt = YLeaf(YType.uint32, "preempt")
-
-                                self.priority = YLeaf(YType.uint32, "priority")
-
-                                self.session_name = YLeaf(YType.str, "session-name")
-
-                                self.global_ipv6_addresses = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses()
-                                self.global_ipv6_addresses.parent = self
-                                self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
-                                self._children_yang_names.add("global-ipv6-addresses")
-
-                                self.link_local_ipv6_address = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address()
-                                self.link_local_ipv6_address.parent = self
-                                self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
-                                self._children_yang_names.add("link-local-ipv6-address")
-
-                                self.timer = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer()
-                                self.timer.parent = self
-                                self._children_name_map["timer"] = "timer"
-                                self._children_yang_names.add("timer")
-
-                                self.tracked_objects = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects()
-                                self.tracked_objects.parent = self
-                                self._children_name_map["tracked_objects"] = "tracked-objects"
-                                self._children_yang_names.add("tracked-objects")
-
-                                self.tracks = Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks()
-                                self.tracks.parent = self
-                                self._children_name_map["tracks"] = "tracks"
-                                self._children_yang_names.add("tracks")
-                                self._segment_path = lambda: "virtual-router" + "[vr-id='" + self.vr_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'accept_mode_disable', 'bfd', 'preempt', 'priority', 'session_name'], name, value)
-
-
-                            class GlobalIpv6Addresses(Entity):
-                                """
-                                The table of VRRP virtual global IPv6
-                                addresses
-                                
-                                .. attribute:: global_ipv6_address
-                                
-                                	A VRRP virtual global IPv6 IP address
-                                	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__init__()
-
-                                    self.yang_name = "global-ipv6-addresses"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"global-ipv6-address" : ("global_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address)}
-
-                                    self.global_ipv6_address = YList(self)
-                                    self._segment_path = lambda: "global-ipv6-addresses"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, [], name, value)
-
-
-                                class GlobalIpv6Address(Entity):
-                                    """
-                                    A VRRP virtual global IPv6 IP address
-                                    
-                                    .. attribute:: ip_address  <key>
-                                    
-                                    	VRRP virtual global IPv6 address
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    
-                                    ----
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
-
-                                        self.yang_name = "global-ipv6-address"
-                                        self.yang_parent_name = "global-ipv6-addresses"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.ip_address = YLeaf(YType.str, "ip-address")
-                                        self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + self.ip_address.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
-
-
-                            class LinkLocalIpv6Address(Entity):
-                                """
-                                The VRRP IPv6 virtual linklocal address
-                                
-                                .. attribute:: auto_configure
-                                
-                                	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: ip_address
-                                
-                                	VRRP IPv6 virtual linklocal address
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__init__()
-
-                                    self.yang_name = "link-local-ipv6-address"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.auto_configure = YLeaf(YType.boolean, "auto-configure")
-
-                                    self.ip_address = YLeaf(YType.str, "ip-address")
-                                    self._segment_path = lambda: "link-local-ipv6-address"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, ['auto_configure', 'ip_address'], name, value)
-
-
-                            class Timer(Entity):
-                                """
-                                Set advertisement timer
-                                
-                                .. attribute:: advertisement_time_in_msec
-                                
-                                	Advertisement time in milliseconds
-                                	**type**\:  int
-                                
-                                	**range:** 100..40950
-                                
-                                	**units**\: millisecond
-                                
-                                .. attribute:: advertisement_time_in_sec
-                                
-                                	Advertisement time in seconds
-                                	**type**\:  int
-                                
-                                	**range:** 1..40
-                                
-                                	**units**\: second
-                                
-                                .. attribute:: forced
-                                
-                                	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\:  bool
-                                
-                                	**default value**\: false
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
-
-                                    self.yang_name = "timer"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.advertisement_time_in_msec = YLeaf(YType.uint32, "advertisement-time-in-msec")
-
-                                    self.advertisement_time_in_sec = YLeaf(YType.uint32, "advertisement-time-in-sec")
-
-                                    self.forced = YLeaf(YType.boolean, "forced")
-
-                                    self.in_msec = YLeaf(YType.boolean, "in-msec")
-                                    self._segment_path = lambda: "timer"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced', 'in_msec'], name, value)
-
-
-                            class TrackedObjects(Entity):
-                                """
-                                Track an object, reducing priority if it
-                                goes down
-                                
-                                .. attribute:: tracked_object
-                                
-                                	Object to be tracked
-                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
-
-                                    self.yang_name = "tracked-objects"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"tracked-object" : ("tracked_object", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject)}
-
-                                    self.tracked_object = YList(self)
-                                    self._segment_path = lambda: "tracked-objects"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
-
-
-                                class TrackedObject(Entity):
-                                    """
-                                    Object to be tracked
-                                    
-                                    .. attribute:: object_name  <key>
-                                    
-                                    	Object to be tracked, interface name for interfaces
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                                    
-                                    .. attribute:: priority_decrement
-                                    
-                                    	Priority decrement
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
-
-                                        self.yang_name = "tracked-object"
-                                        self.yang_parent_name = "tracked-objects"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.object_name = YLeaf(YType.str, "object-name")
-
-                                        self.priority_decrement = YLeaf(YType.uint32, "priority-decrement")
-                                        self._segment_path = lambda: "tracked-object" + "[object-name='" + self.object_name.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
-
-
-                            class Tracks(Entity):
-                                """
-                                Track an item, reducing priority if it
-                                goes down
-                                
-                                .. attribute:: track
-                                
-                                	Object to be tracked
-                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-05-19'
-
-                                def __init__(self):
-                                    super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
-
-                                    self.yang_name = "tracks"
-                                    self.yang_parent_name = "virtual-router"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"track" : ("track", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track)}
-
-                                    self.track = YList(self)
-                                    self._segment_path = lambda: "tracks"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
-
-
-                                class Track(Entity):
-                                    """
-                                    Object to be tracked
-                                    
-                                    .. attribute:: interface_name  <key>
-                                    
-                                    	Object to be tracked, interface name for interfaces
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                    
-                                    .. attribute:: priority
-                                    
-                                    	Priority decrement
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..254
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-05-19'
-
-                                    def __init__(self):
-                                        super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
-
-                                        self.yang_name = "track"
-                                        self.yang_parent_name = "tracks"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.priority = YLeaf(YType.uint32, "priority")
-                                        self._segment_path = lambda: "track" + "[interface-name='" + self.interface_name.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
-
-
-    class Logging(Entity):
-        """
-        VRRP logging options
-        
-        .. attribute:: state_change_disable
-        
-        	VRRP state change IOS messages disable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'ipv4-vrrp-cfg'
-        _revision = '2017-05-19'
-
-        def __init__(self):
-            super(Vrrp.Logging, self).__init__()
-
-            self.yang_name = "logging"
-            self.yang_parent_name = "vrrp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.state_change_disable = YLeaf(YType.empty, "state-change-disable")
-            self._segment_path = lambda: "logging"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vrrp.Logging, ['state_change_disable'], name, value)
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vrrp.Interfaces.Interface.Bfd, ['interval', 'detection_multiplier'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vrrp()

@@ -117,8 +117,6 @@ class Pppea(Entity):
             	The identifier for the node
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: ea_interface_names
             
             	Show interface related information from the PPP EA
@@ -197,7 +195,79 @@ class Pppea(Entity):
                     	Interface running PPPEA
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: interface
+                    
+                    	Interface
+                    	**type**\:  str
+                    
+                    .. attribute:: is_lcp_running
+                    
+                    	TRUE if LCP is running in the dataplane for the interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_ipcp_running
+                    
+                    	TRUE if IPCP is running in the dataplane for the interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_ipv6cp_running
+                    
+                    	TRUE if IPV6CP is running in the dataplane for the interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_mplscp_running
+                    
+                    	TRUE if MPLSCP is running in the dataplane for the interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: local_mtu
+                    
+                    	Local interface MTU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: local_mrru
+                    
+                    	Local MRRU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: peer_mrru
+                    
+                    	Peer MRRU
+                    	**type**\:  int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: local_magic
+                    
+                    	Local magic number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: peer_magic
+                    
+                    	Peer magic number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: local_mcmp_classes
+                    
+                    	Local number of MCMP Suspension classes
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: peer_mcmp_classes
+                    
+                    	Peer number of MCMP Suspension classes
+                    	**type**\:  int
+                    
+                    	**range:** 0..255
                     
                     .. attribute:: echo_request_interval
                     
@@ -213,17 +283,86 @@ class Pppea(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: is_multilink_bundle
+                    
+                    	TRUE if this is a Multilink bundle interface
+                    	**type**\:  bool
+                    
+                    .. attribute:: synchronized
+                    
+                    	MA synchronization
+                    	**type**\:  bool
+                    
                     .. attribute:: forwarding_enabled
                     
                     	Forwarding State
                     	**type**\:  bool
                     
-                    .. attribute:: interface
+                    .. attribute:: multilink_interface
                     
-                    	Interface
+                    	Multilink interface that this interface is a member of, if any
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: l2_tunnel_enabled
+                    
+                    	L2 Tunnel State
+                    	**type**\:  bool
+                    
+                    .. attribute:: l2_provisioned
+                    
+                    	L2 Provisioned State
+                    	**type**\:  bool
+                    
+                    .. attribute:: l2ip_interworking_enabled
+                    
+                    	L2 IP Interworking State
+                    	**type**\:  bool
+                    
+                    .. attribute:: is_vpdn_tunneled
+                    
+                    	Is VPDN tunneled
+                    	**type**\:  bool
+                    
+                    .. attribute:: xconnect_id
+                    
+                    	XConnect ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: parent_interface_handle
+                    
+                    	Parent Interface Handle
+                    	**type**\:  str
+                    
+                    .. attribute:: vrf_table_id
+                    
+                    	IPCP VRF Table ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ipv6vrf_table_id
+                    
+                    	IPv6CP VRF Table ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: l2_adjacency_state
+                    
+                    	L2 adjacency state
+                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    
+                    .. attribute:: l2ip_interworking_adjacency_state
+                    
+                    	L2 IP Interworking adjacency state
+                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
+                    
+                    .. attribute:: lac_adjacency_state
+                    
+                    	LAC adjacency state
+                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
                     .. attribute:: interface_adjacency_state
                     
@@ -240,159 +379,10 @@ class Pppea(Entity):
                     	IPv6 adjacency state
                     	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
                     
-                    .. attribute:: ipv6vrf_table_id
-                    
-                    	IPv6CP VRF Table ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: is_ipcp_running
-                    
-                    	TRUE if IPCP is running in the dataplane for the interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_ipv6cp_running
-                    
-                    	TRUE if IPV6CP is running in the dataplane for the interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_lcp_running
-                    
-                    	TRUE if LCP is running in the dataplane for the interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_mplscp_running
-                    
-                    	TRUE if MPLSCP is running in the dataplane for the interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_multilink_bundle
-                    
-                    	TRUE if this is a Multilink bundle interface
-                    	**type**\:  bool
-                    
-                    .. attribute:: is_vpdn_tunneled
-                    
-                    	Is VPDN tunneled
-                    	**type**\:  bool
-                    
-                    .. attribute:: l2_adjacency_state
-                    
-                    	L2 adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
-                    
-                    .. attribute:: l2_provisioned
-                    
-                    	L2 Provisioned State
-                    	**type**\:  bool
-                    
-                    .. attribute:: l2_tunnel_enabled
-                    
-                    	L2 Tunnel State
-                    	**type**\:  bool
-                    
-                    .. attribute:: l2ip_interworking_adjacency_state
-                    
-                    	L2 IP Interworking adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
-                    
-                    .. attribute:: l2ip_interworking_enabled
-                    
-                    	L2 IP Interworking State
-                    	**type**\:  bool
-                    
-                    .. attribute:: lac_adjacency_state
-                    
-                    	LAC adjacency state
-                    	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
-                    
-                    .. attribute:: local_magic
-                    
-                    	Local magic number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: local_mcmp_classes
-                    
-                    	Local number of MCMP Suspension classes
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: local_mrru
-                    
-                    	Local MRRU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: local_mtu
-                    
-                    	Local interface MTU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
                     .. attribute:: mpls_adjacency_state
                     
                     	MPLS adjacency state
                     	**type**\:   :py:class:`PppEaAdjState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper.PppEaAdjState>`
-                    
-                    .. attribute:: multilink_interface
-                    
-                    	Multilink interface that this interface is a member of, if any
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: parent_interface_handle
-                    
-                    	Parent Interface Handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: peer_magic
-                    
-                    	Peer magic number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: peer_mcmp_classes
-                    
-                    	Peer number of MCMP Suspension classes
-                    	**type**\:  int
-                    
-                    	**range:** 0..255
-                    
-                    .. attribute:: peer_mrru
-                    
-                    	Peer MRRU
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: synchronized
-                    
-                    	MA synchronization
-                    	**type**\:  bool
-                    
-                    .. attribute:: vrf_table_id
-                    
-                    	IPCP VRF Table ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: xconnect_id
-                    
-                    	XConnect ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -413,13 +403,63 @@ class Pppea(Entity):
 
                         self.interface_name = YLeaf(YType.str, "interface-name")
 
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.is_lcp_running = YLeaf(YType.boolean, "is-lcp-running")
+
+                        self.is_ipcp_running = YLeaf(YType.boolean, "is-ipcp-running")
+
+                        self.is_ipv6cp_running = YLeaf(YType.boolean, "is-ipv6cp-running")
+
+                        self.is_mplscp_running = YLeaf(YType.boolean, "is-mplscp-running")
+
+                        self.local_mtu = YLeaf(YType.uint16, "local-mtu")
+
+                        self.local_mrru = YLeaf(YType.uint16, "local-mrru")
+
+                        self.peer_mrru = YLeaf(YType.uint16, "peer-mrru")
+
+                        self.local_magic = YLeaf(YType.uint32, "local-magic")
+
+                        self.peer_magic = YLeaf(YType.uint32, "peer-magic")
+
+                        self.local_mcmp_classes = YLeaf(YType.uint8, "local-mcmp-classes")
+
+                        self.peer_mcmp_classes = YLeaf(YType.uint8, "peer-mcmp-classes")
+
                         self.echo_request_interval = YLeaf(YType.uint32, "echo-request-interval")
 
                         self.echo_request_retry_count = YLeaf(YType.uint32, "echo-request-retry-count")
 
+                        self.is_multilink_bundle = YLeaf(YType.boolean, "is-multilink-bundle")
+
+                        self.synchronized = YLeaf(YType.boolean, "synchronized")
+
                         self.forwarding_enabled = YLeaf(YType.boolean, "forwarding-enabled")
 
-                        self.interface = YLeaf(YType.str, "interface")
+                        self.multilink_interface = YLeaf(YType.str, "multilink-interface")
+
+                        self.l2_tunnel_enabled = YLeaf(YType.boolean, "l2-tunnel-enabled")
+
+                        self.l2_provisioned = YLeaf(YType.boolean, "l2-provisioned")
+
+                        self.l2ip_interworking_enabled = YLeaf(YType.boolean, "l2ip-interworking-enabled")
+
+                        self.is_vpdn_tunneled = YLeaf(YType.boolean, "is-vpdn-tunneled")
+
+                        self.xconnect_id = YLeaf(YType.uint32, "xconnect-id")
+
+                        self.parent_interface_handle = YLeaf(YType.str, "parent-interface-handle")
+
+                        self.vrf_table_id = YLeaf(YType.uint32, "vrf-table-id")
+
+                        self.ipv6vrf_table_id = YLeaf(YType.uint32, "ipv6vrf-table-id")
+
+                        self.l2_adjacency_state = YLeaf(YType.enumeration, "l2-adjacency-state")
+
+                        self.l2ip_interworking_adjacency_state = YLeaf(YType.enumeration, "l2ip-interworking-adjacency-state")
+
+                        self.lac_adjacency_state = YLeaf(YType.enumeration, "lac-adjacency-state")
 
                         self.interface_adjacency_state = YLeaf(YType.enumeration, "interface-adjacency-state")
 
@@ -427,61 +467,11 @@ class Pppea(Entity):
 
                         self.ipv6_adjacency_state = YLeaf(YType.enumeration, "ipv6-adjacency-state")
 
-                        self.ipv6vrf_table_id = YLeaf(YType.uint32, "ipv6vrf-table-id")
-
-                        self.is_ipcp_running = YLeaf(YType.boolean, "is-ipcp-running")
-
-                        self.is_ipv6cp_running = YLeaf(YType.boolean, "is-ipv6cp-running")
-
-                        self.is_lcp_running = YLeaf(YType.boolean, "is-lcp-running")
-
-                        self.is_mplscp_running = YLeaf(YType.boolean, "is-mplscp-running")
-
-                        self.is_multilink_bundle = YLeaf(YType.boolean, "is-multilink-bundle")
-
-                        self.is_vpdn_tunneled = YLeaf(YType.boolean, "is-vpdn-tunneled")
-
-                        self.l2_adjacency_state = YLeaf(YType.enumeration, "l2-adjacency-state")
-
-                        self.l2_provisioned = YLeaf(YType.boolean, "l2-provisioned")
-
-                        self.l2_tunnel_enabled = YLeaf(YType.boolean, "l2-tunnel-enabled")
-
-                        self.l2ip_interworking_adjacency_state = YLeaf(YType.enumeration, "l2ip-interworking-adjacency-state")
-
-                        self.l2ip_interworking_enabled = YLeaf(YType.boolean, "l2ip-interworking-enabled")
-
-                        self.lac_adjacency_state = YLeaf(YType.enumeration, "lac-adjacency-state")
-
-                        self.local_magic = YLeaf(YType.uint32, "local-magic")
-
-                        self.local_mcmp_classes = YLeaf(YType.uint8, "local-mcmp-classes")
-
-                        self.local_mrru = YLeaf(YType.uint16, "local-mrru")
-
-                        self.local_mtu = YLeaf(YType.uint16, "local-mtu")
-
                         self.mpls_adjacency_state = YLeaf(YType.enumeration, "mpls-adjacency-state")
-
-                        self.multilink_interface = YLeaf(YType.str, "multilink-interface")
-
-                        self.parent_interface_handle = YLeaf(YType.str, "parent-interface-handle")
-
-                        self.peer_magic = YLeaf(YType.uint32, "peer-magic")
-
-                        self.peer_mcmp_classes = YLeaf(YType.uint8, "peer-mcmp-classes")
-
-                        self.peer_mrru = YLeaf(YType.uint16, "peer-mrru")
-
-                        self.synchronized = YLeaf(YType.boolean, "synchronized")
-
-                        self.vrf_table_id = YLeaf(YType.uint32, "vrf-table-id")
-
-                        self.xconnect_id = YLeaf(YType.uint32, "xconnect-id")
                         self._segment_path = lambda: "ea-interface-name" + "[interface-name='" + self.interface_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', 'echo_request_interval', 'echo_request_retry_count', 'forwarding_enabled', 'interface', 'interface_adjacency_state', 'ipv4_adjacency_state', 'ipv6_adjacency_state', 'ipv6vrf_table_id', 'is_ipcp_running', 'is_ipv6cp_running', 'is_lcp_running', 'is_mplscp_running', 'is_multilink_bundle', 'is_vpdn_tunneled', 'l2_adjacency_state', 'l2_provisioned', 'l2_tunnel_enabled', 'l2ip_interworking_adjacency_state', 'l2ip_interworking_enabled', 'lac_adjacency_state', 'local_magic', 'local_mcmp_classes', 'local_mrru', 'local_mtu', 'mpls_adjacency_state', 'multilink_interface', 'parent_interface_handle', 'peer_magic', 'peer_mcmp_classes', 'peer_mrru', 'synchronized', 'vrf_table_id', 'xconnect_id'], name, value)
+                        self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', 'interface', 'is_lcp_running', 'is_ipcp_running', 'is_ipv6cp_running', 'is_mplscp_running', 'local_mtu', 'local_mrru', 'peer_mrru', 'local_magic', 'peer_magic', 'local_mcmp_classes', 'peer_mcmp_classes', 'echo_request_interval', 'echo_request_retry_count', 'is_multilink_bundle', 'synchronized', 'forwarding_enabled', 'multilink_interface', 'l2_tunnel_enabled', 'l2_provisioned', 'l2ip_interworking_enabled', 'is_vpdn_tunneled', 'xconnect_id', 'parent_interface_handle', 'vrf_table_id', 'ipv6vrf_table_id', 'l2_adjacency_state', 'l2ip_interworking_adjacency_state', 'lac_adjacency_state', 'interface_adjacency_state', 'ipv4_adjacency_state', 'ipv6_adjacency_state', 'mpls_adjacency_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pppea()

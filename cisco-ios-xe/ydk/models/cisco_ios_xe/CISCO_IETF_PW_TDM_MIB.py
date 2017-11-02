@@ -22,20 +22,20 @@ class CISCOIETFPWTDMMIB(Entity):
     """
     
     
-    .. attribute:: cpwctdmcfgtable
-    
-    	This table contains a set of parameters that may be referenced by one or more TDM PWs in cpwCTDMTable
-    	**type**\:   :py:class:`Cpwctdmcfgtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable>`
-    
     .. attribute:: cpwctdmobjects
     
     	
     	**type**\:   :py:class:`Cpwctdmobjects <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmobjects>`
     
-    .. attribute:: cpwctdmperf1dayintervaltable
+    .. attribute:: cpwctdmtable
     
-    	This table provides performance information per TDM PW similar to the cpwCTDMPerfIntervalTable above. However, these counters represent historical 1 day intervals up to one full month. The table consists of real time data, as such it is not persistence across re\-boot
-    	**type**\:   :py:class:`Cpwctdmperf1Dayintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable>`
+    	This table contains basic information including ifIndex, and pointers to entries in the relevant TDM config tables for this TDM PW
+    	**type**\:   :py:class:`Cpwctdmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable>`
+    
+    .. attribute:: cpwctdmcfgtable
+    
+    	This table contains a set of parameters that may be referenced by one or more TDM PWs in cpwCTDMTable
+    	**type**\:   :py:class:`Cpwctdmcfgtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable>`
     
     .. attribute:: cpwctdmperfcurrenttable
     
@@ -47,10 +47,10 @@ class CISCOIETFPWTDMMIB(Entity):
     	This table provides performance information per TDM PW similar to the cpwCTDMPerfCurrentTable above. However, these counts represent historical 15 minute intervals. Typically, this table will have a maximum of 96 entries for a 24 hour period, but is not limited to this
     	**type**\:   :py:class:`Cpwctdmperfintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable>`
     
-    .. attribute:: cpwctdmtable
+    .. attribute:: cpwctdmperf1dayintervaltable
     
-    	This table contains basic information including ifIndex, and pointers to entries in the relevant TDM config tables for this TDM PW
-    	**type**\:   :py:class:`Cpwctdmtable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable>`
+    	This table provides performance information per TDM PW similar to the cpwCTDMPerfIntervalTable above. However, these counters represent historical 1 day intervals up to one full month. The table consists of real time data, as such it is not persistence across re\-boot
+    	**type**\:   :py:class:`Cpwctdmperf1Dayintervaltable <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable>`
     
     
 
@@ -67,23 +67,23 @@ class CISCOIETFPWTDMMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cpwCTDMCfgTable" : ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.Cpwctdmcfgtable), "cpwCTDMObjects" : ("cpwctdmobjects", CISCOIETFPWTDMMIB.Cpwctdmobjects), "cpwCTDMPerf1DayIntervalTable" : ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable), "cpwCTDMPerfCurrentTable" : ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable), "cpwCTDMPerfIntervalTable" : ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable), "cpwCTDMTable" : ("cpwctdmtable", CISCOIETFPWTDMMIB.Cpwctdmtable)}
+        self._child_container_classes = {"cpwCTDMObjects" : ("cpwctdmobjects", CISCOIETFPWTDMMIB.Cpwctdmobjects), "cpwCTDMTable" : ("cpwctdmtable", CISCOIETFPWTDMMIB.Cpwctdmtable), "cpwCTDMCfgTable" : ("cpwctdmcfgtable", CISCOIETFPWTDMMIB.Cpwctdmcfgtable), "cpwCTDMPerfCurrentTable" : ("cpwctdmperfcurrenttable", CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable), "cpwCTDMPerfIntervalTable" : ("cpwctdmperfintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable), "cpwCTDMPerf1DayIntervalTable" : ("cpwctdmperf1dayintervaltable", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable)}
         self._child_list_classes = {}
-
-        self.cpwctdmcfgtable = CISCOIETFPWTDMMIB.Cpwctdmcfgtable()
-        self.cpwctdmcfgtable.parent = self
-        self._children_name_map["cpwctdmcfgtable"] = "cpwCTDMCfgTable"
-        self._children_yang_names.add("cpwCTDMCfgTable")
 
         self.cpwctdmobjects = CISCOIETFPWTDMMIB.Cpwctdmobjects()
         self.cpwctdmobjects.parent = self
         self._children_name_map["cpwctdmobjects"] = "cpwCTDMObjects"
         self._children_yang_names.add("cpwCTDMObjects")
 
-        self.cpwctdmperf1dayintervaltable = CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable()
-        self.cpwctdmperf1dayintervaltable.parent = self
-        self._children_name_map["cpwctdmperf1dayintervaltable"] = "cpwCTDMPerf1DayIntervalTable"
-        self._children_yang_names.add("cpwCTDMPerf1DayIntervalTable")
+        self.cpwctdmtable = CISCOIETFPWTDMMIB.Cpwctdmtable()
+        self.cpwctdmtable.parent = self
+        self._children_name_map["cpwctdmtable"] = "cpwCTDMTable"
+        self._children_yang_names.add("cpwCTDMTable")
+
+        self.cpwctdmcfgtable = CISCOIETFPWTDMMIB.Cpwctdmcfgtable()
+        self.cpwctdmcfgtable.parent = self
+        self._children_name_map["cpwctdmcfgtable"] = "cpwCTDMCfgTable"
+        self._children_yang_names.add("cpwCTDMCfgTable")
 
         self.cpwctdmperfcurrenttable = CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable()
         self.cpwctdmperfcurrenttable.parent = self
@@ -95,11 +95,231 @@ class CISCOIETFPWTDMMIB(Entity):
         self._children_name_map["cpwctdmperfintervaltable"] = "cpwCTDMPerfIntervalTable"
         self._children_yang_names.add("cpwCTDMPerfIntervalTable")
 
-        self.cpwctdmtable = CISCOIETFPWTDMMIB.Cpwctdmtable()
-        self.cpwctdmtable.parent = self
-        self._children_name_map["cpwctdmtable"] = "cpwCTDMTable"
-        self._children_yang_names.add("cpwCTDMTable")
+        self.cpwctdmperf1dayintervaltable = CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable()
+        self.cpwctdmperf1dayintervaltable.parent = self
+        self._children_name_map["cpwctdmperf1dayintervaltable"] = "cpwCTDMPerf1DayIntervalTable"
+        self._children_yang_names.add("cpwCTDMPerf1DayIntervalTable")
         self._segment_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB"
+
+
+    class Cpwctdmobjects(Entity):
+        """
+        
+        
+        .. attribute:: cpwctdmcfgindexnext
+        
+        	This object contains the value to be used for cpwCTDMCfgIndex when creating entries in the cpwCTDMCfgTable. The value 0 indicates that no unassigned entries are available.  To obtain the value of cpwCTDMCfgIndexNext for a new entry in the cpwCTDMCfgTable, the manager issues a management protocol retrieval operation. The agent will determine through its local policy when this index value will be made available for reuse
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-PW-TDM-MIB'
+        _revision = '2006-07-21'
+
+        def __init__(self):
+            super(CISCOIETFPWTDMMIB.Cpwctdmobjects, self).__init__()
+
+            self.yang_name = "cpwCTDMObjects"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cpwctdmcfgindexnext = YLeaf(YType.uint32, "cpwCTDMCfgIndexNext")
+            self._segment_path = lambda: "cpwCTDMObjects"
+            self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmobjects, ['cpwctdmcfgindexnext'], name, value)
+
+
+    class Cpwctdmtable(Entity):
+        """
+        This table contains basic information including ifIndex,
+        and pointers to entries in the relevant TDM config
+        tables for this TDM PW.
+        
+        .. attribute:: cpwctdmentry
+        
+        	This table is indexed by the same index that was created for the associated entry in the VC Table (in the CISCO\-IETF\-PW\-MIB).    \- The CpwVcIndex.  An entry is created in this table by the agent for every entry in the cpwVcTable with a cpwVcType equal to one of the following\: e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15), basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18), tdmCasTdmIp(19)
+        	**type**\: list of    :py:class:`Cpwctdmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-PW-TDM-MIB'
+        _revision = '2006-07-21'
+
+        def __init__(self):
+            super(CISCOIETFPWTDMMIB.Cpwctdmtable, self).__init__()
+
+            self.yang_name = "cpwCTDMTable"
+            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cpwCTDMEntry" : ("cpwctdmentry", CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry)}
+
+            self.cpwctdmentry = YList(self)
+            self._segment_path = lambda: "cpwCTDMTable"
+            self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable, [], name, value)
+
+
+        class Cpwctdmentry(Entity):
+            """
+            This table is indexed by the same index that was
+            created for the associated entry in the VC Table
+            (in the CISCO\-IETF\-PW\-MIB).
+            
+              \- The CpwVcIndex.
+            
+            An entry is created in this table by the agent for every
+            entry in the cpwVcTable with a cpwVcType equal to one of the
+            following\:
+            e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15),
+            basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18),
+            tdmCasTdmIp(19).
+            
+            .. attribute:: cpwvcindex  <key>
+            
+            	
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
+            
+            .. attribute:: cpwctdmrate
+            
+            	The parameter represents the bit\-rate of the TDM service in multiples of the 'basic' 64 Kbit/s rate. It complements the definition of cpwVcType used in CISCO\-IETF\-PW\-MIB. For structure\-agnostic the following should be used\: a) Satop E1 \- 32 b) Satop T1 emulation\:    i)   MUST be set to 24 in the basic emulation mode    ii)  MUST be set to 25 for the 'Octet\-aligned T1'         emulation mode c) Satop E3 \- 535 d) Satop T3 \- 699 For all kinds of structure\-aware emulation, this parameter MUST be set to N where N is the number of DS0 channels in the corresponding attachment circuit
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: cpwctdmifindex
+            
+            	This is a unique index within the ifTable. It represents the interface index of the full link or the interface index for the bundle holding the group of time slots to be transmitted via this PW connection.  A value of zero indicates an interface index that has yet to be determined. Once set, if the TDM ifIndex is (for some reason) later removed, the agent SHOULD delete the associated PW rows (e.g., this cpwCTDMTable entry). If the agent does not delete the rows,  the agent MUST set this object to zero
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: cpwcgentdmcfgindex
+            
+            	Index to the generic parameters in the TDM configuration table that appears in this MIB module. It is likely that multiple TDM PWs of the same characteristic will share a single TDM Cfg entry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwcreltdmcfgindex
+            
+            	Index to the relevant TDM configuration table entry that appears in one of the related MIB modules such as TDMoIP or CESoPSN. It is likely that multiple TDM PWs of the same characteristic will share a single configuration entry of the relevant type. The value 0 implies no entry in other related MIB
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwctdmconfigerror
+            
+            	Any of the bits are set if the local configuration is not compatible with the peer configuration as available from the various parameters options.  \-tdmTypeIncompatible bit is set if the local configuration is not carrying the same TDM type as the peer configuration.  \-peerRtpIncompatible bit is set if the local configuration is configured to send RTP packets for this PW, and the remote is not capable of accepting RTP packets.  \-peerPayloadSizeIncompatible bit is set if the local configuration is not carrying the same Payload Size as the peer configuration
+            	**type**\:   :py:class:`Cpwctdmconfigerror <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmconfigerror>`
+            
+            .. attribute:: cpwctdmtimeelapsed
+            
+            	The number of seconds, including partial seconds, that have elapsed since the beginning of the current measurement period. If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
+            	**type**\:  int
+            
+            	**range:** 1..900
+            
+            	**units**\: seconds
+            
+            .. attribute:: cpwctdmvalidintervals
+            
+            	The number of previous 15\-minute intervals for which data was collected. An agent with TDM capability must be capable of supporting at least n intervals. The minimum value of n is 4, The default of n is 32 and the maximum value of n is 96. The value will be <n> unless the measurement was (re\-) started within the last (<n>\*15) minutes, in which case the value will be the number of complete 15 minute intervals for which the agent has at least some data. In certain cases(e.g., in the case where the agent is a proxy) it is possible that some intervals are unavailable. In this case, this interval is the maximum interval number for which data is available
+            	**type**\:  int
+            
+            	**range:** 0..96
+            
+            	**units**\: minutes
+            
+            .. attribute:: cpwctdmvaliddayintervals
+            
+            	The number of previous days for which data was collected. An agent with TDM capability must be capable of supporting at least n intervals. The minimum value of n is 1, The default of n is 1 and the maximum value of n is 30
+            	**type**\:  int
+            
+            	**range:** 0..30
+            
+            	**units**\: days
+            
+            .. attribute:: cpwctdmcurrentindications
+            
+            	The following defects should be detected and reported upon request\:  \-Stray packets MAY be detected by the PSN and multiplexing layers. Stray packets MUST be discarded by the CE\-bound IWF and their detection MUST NOT affect mechanisms for detection of packet loss.  \-Malformed packets are detected by mismatch between the expected packet size (taking the value of the L bit into account) and the actual packet size inferred from the PSN and multiplexing layers. Malformed in\-order packets MUST be discarded by the CE\-bound IWF and replacement data generated as for lost packets.  \-Excessive packet loss rate is detected by computing the average packet loss rate over the value of cpwCTDMAvePktLossTimeWindow and comparing it with a preconfigured threshold [SATOP].  \-Buffer overrun is detected in the normal operation state when the CE bound IWF's jitter buffer cannot accommodate newly arrived packets.  \-Remote packet loss is indicated by reception of packets  with their R bit set.  \-Packet misorder is detected by looking at the Sequence number provided by the control word.  \-TDM Fault, if L bit in the control word is set, it indicates that TDM data carried in the payload is invalid due an attachment circuit fault.  When the L bit is set the payload MAY be omitted in order to conserve bandwidth.  Note\: the algorithm used to capture these indications is implementation specific
+            	**type**\:   :py:class:`Cpwctdmcurrentindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmcurrentindications>`
+            
+            .. attribute:: cpwctdmlatchedindications
+            
+            	The state of TDM indicators when the TDM PW last declared an error second (either as ES, SES or a second with errors inside a UAS) condition. At this time, only LOPS can create a failure. Since indicators other than LOPS are useful, all are latched here. For bit definitions, see cpwCTDMCurrentIndications above.  Note\: the algorithm used to latch these indications when entering a defect state is implementation specific
+            	**type**\:   :py:class:`Cpwctdmlatchedindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmlatchedindications>`
+            
+            .. attribute:: cpwctdmlastestimestamp
+            
+            	The value of sysUpTime at the most recent occasion at which the TDM PW entered the ES or SES state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IETF-PW-TDM-MIB'
+            _revision = '2006-07-21'
+
+            def __init__(self):
+                super(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, self).__init__()
+
+                self.yang_name = "cpwCTDMEntry"
+                self.yang_parent_name = "cpwCTDMTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
+
+                self.cpwctdmrate = YLeaf(YType.int32, "cpwCTDMRate")
+
+                self.cpwctdmifindex = YLeaf(YType.int32, "cpwCTDMIfIndex")
+
+                self.cpwcgentdmcfgindex = YLeaf(YType.uint32, "cpwCGenTDMCfgIndex")
+
+                self.cpwcreltdmcfgindex = YLeaf(YType.uint32, "cpwCRelTDMCfgIndex")
+
+                self.cpwctdmconfigerror = YLeaf(YType.bits, "cpwCTDMConfigError")
+
+                self.cpwctdmtimeelapsed = YLeaf(YType.int32, "cpwCTDMTimeElapsed")
+
+                self.cpwctdmvalidintervals = YLeaf(YType.int32, "cpwCTDMValidIntervals")
+
+                self.cpwctdmvaliddayintervals = YLeaf(YType.int32, "cpwCTDMValidDayIntervals")
+
+                self.cpwctdmcurrentindications = YLeaf(YType.bits, "cpwCTDMCurrentIndications")
+
+                self.cpwctdmlatchedindications = YLeaf(YType.bits, "cpwCTDMLatchedIndications")
+
+                self.cpwctdmlastestimestamp = YLeaf(YType.uint32, "cpwCTDMLastEsTimeStamp")
+                self._segment_path = lambda: "cpwCTDMEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, ['cpwvcindex', 'cpwctdmrate', 'cpwctdmifindex', 'cpwcgentdmcfgindex', 'cpwcreltdmcfgindex', 'cpwctdmconfigerror', 'cpwctdmtimeelapsed', 'cpwctdmvalidintervals', 'cpwctdmvaliddayintervals', 'cpwctdmcurrentindications', 'cpwctdmlatchedindications', 'cpwctdmlastestimestamp'], name, value)
 
 
     class Cpwctdmcfgtable(Entity):
@@ -151,80 +371,10 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwctdmcfgalarmthreshold
-            
-            	Alarms are only reported when the defect state persists for the length of time specified by this object. The object's unit is millisec
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
-            .. attribute:: cpwctdmcfgavepktlosstimewindow
-            
-            	The length of time over which the average packet loss rate should be computed to detect Excessive packet loss rate
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            	**units**\: millisecond
-            
-            .. attribute:: cpwctdmcfgclearalarmthreshold
-            
-            	Alarm MUST be cleared after the corresponding defect is undetected for the amount of time specified by this object. The object's unit is millisec
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: milliseconds
-            
             .. attribute:: cpwctdmcfgconferr
             
             	This object indicates the various configuration errors, illegal settings within the cpwCTDMCfg table. The errors can be due to several reasons, like Payload size mismatch or Jitter Buffer depth value mistmatch.   payloadSize \- This bit is set if there is Payload size               mismatch between the local and peer               configurations.  jtrBfrDepth \- This bit is set if there is Jitter Buffer               depth value mistmatch. other       \- This bit is set if the error is not due to               payloadSize and jtrBfrDepth mismatch
             	**type**\:   :py:class:`Cpwctdmcfgconferr <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgconferr>`
-            
-            .. attribute:: cpwctdmcfgconsecmisspktsoutsynch
-            
-            	The number of consecutive missing packets that are required to enter the LOPS state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmcfgconsecpktsinsynch
-            
-            	The number of consecutive packets with sequential sequence numbers that are required to exit the Loss of Packets (LOPS) state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmcfgexcessivepktlossthreshold
-            
-            	Excessive packet loss rate is detected by computing the average packetloss rate over a  cpwCTDMCfgAvePktLossTimeWindow amount of time and comparing it with this threshold value
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmcfgjtrbfrdepth
-            
-            	The size of this buffer SHOULD be locally configured to allow accommodation to the PSN\-specific packet delay variation.  If configured to a value not supported by the implementation, the agent MUST return an error code 'jtrBfrDepth' in 'cpwCTDMConfigError '. Jitter buffers are a limited resource to be managed. The actual size should be at least twice as big as the value of cpwCTDMCfgJtrBfrDepth
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: microsecond
-            
-            .. attribute:: cpwctdmcfgmissingpktstoses
-            
-            	Number of missing packets detected (consecutive or not) within a 1 second window to cause a Severely Error Second (SES) to be counted
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
             
             .. attribute:: cpwctdmcfgpayloadsize
             
@@ -235,30 +385,47 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**units**\: bytes
             
-            .. attribute:: cpwctdmcfgpayloadsuppression
-            
-            	This object indicates whether the Payload suppression is eanbled or disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  \- Payload suppression is allowed. disable \- No Payload suppresion under any condition
-            	**type**\:   :py:class:`Cpwctdmcfgpayloadsuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpayloadsuppression>`
-            
             .. attribute:: cpwctdmcfgpktreorder
             
             	If set to true, CE bound packets are queued in the jitter buffer, out of order packets are re\-ordered. The maximum sequence number differential (i.e., the range in which re\-sequencing can occur) is dependant on the depth of the jitter buffer. See cpwCTDMCfgJtrBfrDepth
             	**type**\:  bool
             
-            .. attribute:: cpwctdmcfgpktreplacepolicy
-            
-            	This parameter determines the value to be played when CE bound packets have over/underflow the jitter buffer, or are missing for any reason. This AIS (Alarm Indication Signal) pattern is sent (played) on the TDM line.  ais                    \- AIS (Alarm Indication Signal)                          pattern is sent (played) on                          the TDM line.  implementationSpecific \- Implementation specific pattern is                          sent on the TDM line
-            	**type**\:   :py:class:`Cpwctdmcfgpktreplacepolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpktreplacepolicy>`
-            
-            .. attribute:: cpwctdmcfgrowstatus
-            
-            	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  All of the columnar objects have to be set to valid values before the row can be activated. Default value will be automatically provisioned if for those objects not specified during row creation.  No objects in cascading tables have to be populated with related data before the row can be activated.  The following objects cannot be modified if the RowStatus is active\: cpwCTDMCfgPayloadSize, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, and cpwCTDMCfgPayloadSuppression.  If the RowStatus is active, the following parameters can be modified\:  cpwCTDMCfgConfErr, cpwCTDMCfgPktReorder,  cpwCTDMCfgConsecPktsInSynch, cpwCTDMCfgConsecMissPktsOutSynch, cpwCTDMCfgSetUp2SynchTimeOut, cpwCTDMCfgPktReplacePolicy, cpwCTDMCfgAvePktLossTimeWindow,  cpwCTDMCfgExcessivePktLossThreshold, cpwCTDMCfgAlarmThreshold, cpwCTDMCfgClearAlarmThreshold, cpwCTDMCfgMissingPktsToSes, cpwCTDMCfgTimestampMode, cpwCTDMCfgStorageType.  A row may be deleted by setting the RowStatus to 'destroy'
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: cpwctdmcfgrtphdrused
             
             	If the value of this object is set to false, then a RTP header is not pre\-pended to the TDM packet
             	**type**\:  bool
+            
+            .. attribute:: cpwctdmcfgjtrbfrdepth
+            
+            	The size of this buffer SHOULD be locally configured to allow accommodation to the PSN\-specific packet delay variation.  If configured to a value not supported by the implementation, the agent MUST return an error code 'jtrBfrDepth' in 'cpwCTDMConfigError '. Jitter buffers are a limited resource to be managed. The actual size should be at least twice as big as the value of cpwCTDMCfgJtrBfrDepth
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: microsecond
+            
+            .. attribute:: cpwctdmcfgpayloadsuppression
+            
+            	This object indicates whether the Payload suppression is eanbled or disabled. Payload MAY be omitted in order to conserve bandwidth.  enable  \- Payload suppression is allowed. disable \- No Payload suppresion under any condition
+            	**type**\:   :py:class:`Cpwctdmcfgpayloadsuppression <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpayloadsuppression>`
+            
+            .. attribute:: cpwctdmcfgconsecpktsinsynch
+            
+            	The number of consecutive packets with sequential sequence numbers that are required to exit the Loss of Packets (LOPS) state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmcfgconsecmisspktsoutsynch
+            
+            	The number of consecutive missing packets that are required to enter the LOPS state
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
             
             .. attribute:: cpwctdmcfgsetup2synchtimeout
             
@@ -269,15 +436,68 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**units**\: millisecond
             
-            .. attribute:: cpwctdmcfgstoragetype
+            .. attribute:: cpwctdmcfgpktreplacepolicy
             
-            	This variable indicates the storage type for this row. The following are the read\-write objects in permanent(4) rows, that an agent must allow to be writable\: cpwCTDMCfgPayloadSize, cpwCTDMCfgPktReorder, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, cpwCTDMCfgPayloadSuppression, cpwCTDMCfgConfErr
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            	This parameter determines the value to be played when CE bound packets have over/underflow the jitter buffer, or are missing for any reason. This AIS (Alarm Indication Signal) pattern is sent (played) on the TDM line.  ais                    \- AIS (Alarm Indication Signal)                          pattern is sent (played) on                          the TDM line.  implementationSpecific \- Implementation specific pattern is                          sent on the TDM line
+            	**type**\:   :py:class:`Cpwctdmcfgpktreplacepolicy <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgpktreplacepolicy>`
+            
+            .. attribute:: cpwctdmcfgavepktlosstimewindow
+            
+            	The length of time over which the average packet loss rate should be computed to detect Excessive packet loss rate
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            	**units**\: millisecond
+            
+            .. attribute:: cpwctdmcfgexcessivepktlossthreshold
+            
+            	Excessive packet loss rate is detected by computing the average packetloss rate over a  cpwCTDMCfgAvePktLossTimeWindow amount of time and comparing it with this threshold value
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwctdmcfgalarmthreshold
+            
+            	Alarms are only reported when the defect state persists for the length of time specified by this object. The object's unit is millisec
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: cpwctdmcfgclearalarmthreshold
+            
+            	Alarm MUST be cleared after the corresponding defect is undetected for the amount of time specified by this object. The object's unit is millisec
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: milliseconds
+            
+            .. attribute:: cpwctdmcfgmissingpktstoses
+            
+            	Number of missing packets detected (consecutive or not) within a 1 second window to cause a Severely Error Second (SES) to be counted
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
             
             .. attribute:: cpwctdmcfgtimestampmode
             
             	Timestamp generation MAY be used in one of the following modes\: 1. Absolute mode\: the PSN\-bound IWF sets timestamps  using the clock recovered from the incoming TDM attachment  circuit. As a consequence, the timestamps are closely  correlated with the sequence numbers. All TDM   implementations that support usage of the RTP header MUST  support this mode. 2. Differential mode\: Both IWFs have access to a common  high\-quality timing source, and this source is used for  timestamp generation. Support of this mode is OPTIONAL
             	**type**\:   :py:class:`Cpwctdmcfgtimestampmode <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry.Cpwctdmcfgtimestampmode>`
+            
+            .. attribute:: cpwctdmcfgstoragetype
+            
+            	This variable indicates the storage type for this row. The following are the read\-write objects in permanent(4) rows, that an agent must allow to be writable\: cpwCTDMCfgPayloadSize, cpwCTDMCfgPktReorder, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, cpwCTDMCfgPayloadSuppression, cpwCTDMCfgConfErr
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: cpwctdmcfgrowstatus
+            
+            	The status of this conceptual row.  To create a row in this table, a manager must set this object to either createAndGo(4) or createAndWait(5).  All of the columnar objects have to be set to valid values before the row can be activated. Default value will be automatically provisioned if for those objects not specified during row creation.  No objects in cascading tables have to be populated with related data before the row can be activated.  The following objects cannot be modified if the RowStatus is active\: cpwCTDMCfgPayloadSize, cpwCTDMCfgRtpHdrUsed, cpwCTDMCfgJtrBfrDepth, and cpwCTDMCfgPayloadSuppression.  If the RowStatus is active, the following parameters can be modified\:  cpwCTDMCfgConfErr, cpwCTDMCfgPktReorder,  cpwCTDMCfgConsecPktsInSynch, cpwCTDMCfgConsecMissPktsOutSynch, cpwCTDMCfgSetUp2SynchTimeOut, cpwCTDMCfgPktReplacePolicy, cpwCTDMCfgAvePktLossTimeWindow,  cpwCTDMCfgExcessivePktLossThreshold, cpwCTDMCfgAlarmThreshold, cpwCTDMCfgClearAlarmThreshold, cpwCTDMCfgMissingPktsToSes, cpwCTDMCfgTimestampMode, cpwCTDMCfgStorageType.  A row may be deleted by setting the RowStatus to 'destroy'
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -298,46 +518,46 @@ class CISCOIETFPWTDMMIB(Entity):
 
                 self.cpwctdmcfgindex = YLeaf(YType.uint32, "cpwCTDMCfgIndex")
 
-                self.cpwctdmcfgalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgAlarmThreshold")
-
-                self.cpwctdmcfgavepktlosstimewindow = YLeaf(YType.int32, "cpwCTDMCfgAvePktLossTimeWindow")
-
-                self.cpwctdmcfgclearalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgClearAlarmThreshold")
-
                 self.cpwctdmcfgconferr = YLeaf(YType.bits, "cpwCTDMCfgConfErr")
-
-                self.cpwctdmcfgconsecmisspktsoutsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecMissPktsOutSynch")
-
-                self.cpwctdmcfgconsecpktsinsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecPktsInSynch")
-
-                self.cpwctdmcfgexcessivepktlossthreshold = YLeaf(YType.uint32, "cpwCTDMCfgExcessivePktLossThreshold")
-
-                self.cpwctdmcfgjtrbfrdepth = YLeaf(YType.uint32, "cpwCTDMCfgJtrBfrDepth")
-
-                self.cpwctdmcfgmissingpktstoses = YLeaf(YType.uint32, "cpwCTDMCfgMissingPktsToSes")
 
                 self.cpwctdmcfgpayloadsize = YLeaf(YType.uint32, "cpwCTDMCfgPayloadSize")
 
-                self.cpwctdmcfgpayloadsuppression = YLeaf(YType.enumeration, "cpwCTDMCfgPayloadSuppression")
-
                 self.cpwctdmcfgpktreorder = YLeaf(YType.boolean, "cpwCTDMCfgPktReorder")
-
-                self.cpwctdmcfgpktreplacepolicy = YLeaf(YType.enumeration, "cpwCTDMCfgPktReplacePolicy")
-
-                self.cpwctdmcfgrowstatus = YLeaf(YType.enumeration, "cpwCTDMCfgRowStatus")
 
                 self.cpwctdmcfgrtphdrused = YLeaf(YType.boolean, "cpwCTDMCfgRtpHdrUsed")
 
+                self.cpwctdmcfgjtrbfrdepth = YLeaf(YType.uint32, "cpwCTDMCfgJtrBfrDepth")
+
+                self.cpwctdmcfgpayloadsuppression = YLeaf(YType.enumeration, "cpwCTDMCfgPayloadSuppression")
+
+                self.cpwctdmcfgconsecpktsinsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecPktsInSynch")
+
+                self.cpwctdmcfgconsecmisspktsoutsynch = YLeaf(YType.uint32, "cpwCTDMCfgConsecMissPktsOutSynch")
+
                 self.cpwctdmcfgsetup2synchtimeout = YLeaf(YType.uint32, "cpwCTDMCfgSetUp2SynchTimeOut")
+
+                self.cpwctdmcfgpktreplacepolicy = YLeaf(YType.enumeration, "cpwCTDMCfgPktReplacePolicy")
+
+                self.cpwctdmcfgavepktlosstimewindow = YLeaf(YType.int32, "cpwCTDMCfgAvePktLossTimeWindow")
+
+                self.cpwctdmcfgexcessivepktlossthreshold = YLeaf(YType.uint32, "cpwCTDMCfgExcessivePktLossThreshold")
+
+                self.cpwctdmcfgalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgAlarmThreshold")
+
+                self.cpwctdmcfgclearalarmthreshold = YLeaf(YType.uint32, "cpwCTDMCfgClearAlarmThreshold")
+
+                self.cpwctdmcfgmissingpktstoses = YLeaf(YType.uint32, "cpwCTDMCfgMissingPktsToSes")
+
+                self.cpwctdmcfgtimestampmode = YLeaf(YType.enumeration, "cpwCTDMCfgTimestampMode")
 
                 self.cpwctdmcfgstoragetype = YLeaf(YType.enumeration, "cpwCTDMCfgStorageType")
 
-                self.cpwctdmcfgtimestampmode = YLeaf(YType.enumeration, "cpwCTDMCfgTimestampMode")
+                self.cpwctdmcfgrowstatus = YLeaf(YType.enumeration, "cpwCTDMCfgRowStatus")
                 self._segment_path = lambda: "cpwCTDMCfgEntry" + "[cpwCTDMCfgIndex='" + self.cpwctdmcfgindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMCfgTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry, ['cpwctdmcfgindex', 'cpwctdmcfgalarmthreshold', 'cpwctdmcfgavepktlosstimewindow', 'cpwctdmcfgclearalarmthreshold', 'cpwctdmcfgconferr', 'cpwctdmcfgconsecmisspktsoutsynch', 'cpwctdmcfgconsecpktsinsynch', 'cpwctdmcfgexcessivepktlossthreshold', 'cpwctdmcfgjtrbfrdepth', 'cpwctdmcfgmissingpktstoses', 'cpwctdmcfgpayloadsize', 'cpwctdmcfgpayloadsuppression', 'cpwctdmcfgpktreorder', 'cpwctdmcfgpktreplacepolicy', 'cpwctdmcfgrowstatus', 'cpwctdmcfgrtphdrused', 'cpwctdmcfgsetup2synchtimeout', 'cpwctdmcfgstoragetype', 'cpwctdmcfgtimestampmode'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmcfgtable.Cpwctdmcfgentry, ['cpwctdmcfgindex', 'cpwctdmcfgconferr', 'cpwctdmcfgpayloadsize', 'cpwctdmcfgpktreorder', 'cpwctdmcfgrtphdrused', 'cpwctdmcfgjtrbfrdepth', 'cpwctdmcfgpayloadsuppression', 'cpwctdmcfgconsecpktsinsynch', 'cpwctdmcfgconsecmisspktsoutsynch', 'cpwctdmcfgsetup2synchtimeout', 'cpwctdmcfgpktreplacepolicy', 'cpwctdmcfgavepktlosstimewindow', 'cpwctdmcfgexcessivepktlossthreshold', 'cpwctdmcfgalarmthreshold', 'cpwctdmcfgclearalarmthreshold', 'cpwctdmcfgmissingpktstoses', 'cpwctdmcfgtimestampmode', 'cpwctdmcfgstoragetype', 'cpwctdmcfgrowstatus'], name, value)
 
             class Cpwctdmcfgpayloadsuppression(Enum):
                 """
@@ -439,241 +659,6 @@ class CISCOIETFPWTDMMIB(Entity):
 
 
 
-    class Cpwctdmobjects(Entity):
-        """
-        
-        
-        .. attribute:: cpwctdmcfgindexnext
-        
-        	This object contains the value to be used for cpwCTDMCfgIndex when creating entries in the cpwCTDMCfgTable. The value 0 indicates that no unassigned entries are available.  To obtain the value of cpwCTDMCfgIndexNext for a new entry in the cpwCTDMCfgTable, the manager issues a management protocol retrieval operation. The agent will determine through its local policy when this index value will be made available for reuse
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-PW-TDM-MIB'
-        _revision = '2006-07-21'
-
-        def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmobjects, self).__init__()
-
-            self.yang_name = "cpwCTDMObjects"
-            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cpwctdmcfgindexnext = YLeaf(YType.uint32, "cpwCTDMCfgIndexNext")
-            self._segment_path = lambda: "cpwCTDMObjects"
-            self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmobjects, ['cpwctdmcfgindexnext'], name, value)
-
-
-    class Cpwctdmperf1Dayintervaltable(Entity):
-        """
-        This table provides performance information per TDM PW
-        similar to the cpwCTDMPerfIntervalTable above. However,
-        these counters represent historical 1 day intervals up to
-        one full month. The table consists of real time data, as
-        such it is not persistence across re\-boot.
-        
-        .. attribute:: cpwctdmperf1dayintervalentry
-        
-        	An entry is created in this table by the agent for every entry in the cpwCTDMTable table
-        	**type**\: list of    :py:class:`Cpwctdmperf1Dayintervalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-PW-TDM-MIB'
-        _revision = '2006-07-21'
-
-        def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, self).__init__()
-
-            self.yang_name = "cpwCTDMPerf1DayIntervalTable"
-            self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMPerf1DayIntervalEntry" : ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry)}
-
-            self.cpwctdmperf1dayintervalentry = YList(self)
-            self._segment_path = lambda: "cpwCTDMPerf1DayIntervalTable"
-            self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, [], name, value)
-
-
-        class Cpwctdmperf1Dayintervalentry(Entity):
-            """
-            An entry is created in this table by the agent
-            for every entry in the cpwCTDMTable table.
-            
-            .. attribute:: cpwvcindex  <key>
-            
-            	
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
-            
-            .. attribute:: cpwctdmperf1dayintervalnumber  <key>
-            
-            	The number of interval, where 1 indicates current day measured period and 2 and above indicate previous days respectively
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperf1dayintervalduration
-            
-            	The duration of a particular interval in seconds, Adjustments in the system's time\-of\-day clock, may cause the interval to be greater or less than, the normal value. Therefore this actual interval value is provided
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperf1dayintervaless
-            
-            	The counter associated with the number of Error Seconds encountered
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperf1dayintervalfc
-            
-            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperf1dayintervaljtrbfrunderruns
-            
-            	Number of times a packet needed to be played out and the jitter buffer was empty
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperf1dayintervalmalformedpkt
-            
-            	Number of packets detected with unexpected size, or bad headers' stack
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperf1dayintervalmisorderdropped
-            
-            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperf1dayintervalmissingpkts
-            
-            	Number of missing packets (as detected via control word sequence number gaps)
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperf1dayintervalpktsreorder
-            
-            	Number of packets detected out of sequence (via control word sequence number), but successfully re\-ordered
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperf1dayintervalsess
-            
-            	The counter associated with the number of Severely Error Seconds
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperf1dayintervaluass
-            
-            	The counter associated with the number of UnAvailable Seconds. When first entering the UAS state, the number of SES To UAS is added to this object, then as each additional UAS occurs, this object increments by one
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperf1dayintervalvaliddata
-            
-            	This variable indicates if the data for this interval is valid
-            	**type**\:  bool
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IETF-PW-TDM-MIB'
-            _revision = '2006-07-21'
-
-            def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__init__()
-
-                self.yang_name = "cpwCTDMPerf1DayIntervalEntry"
-                self.yang_parent_name = "cpwCTDMPerf1DayIntervalTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
-
-                self.cpwctdmperf1dayintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalNumber")
-
-                self.cpwctdmperf1dayintervalduration = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalDuration")
-
-                self.cpwctdmperf1dayintervaless = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalESs")
-
-                self.cpwctdmperf1dayintervalfc = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalFC")
-
-                self.cpwctdmperf1dayintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalJtrBfrUnderruns")
-
-                self.cpwctdmperf1dayintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMalformedPkt")
-
-                self.cpwctdmperf1dayintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMisOrderDropped")
-
-                self.cpwctdmperf1dayintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMissingPkts")
-
-                self.cpwctdmperf1dayintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalPktsReOrder")
-
-                self.cpwctdmperf1dayintervalsess = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalSESs")
-
-                self.cpwctdmperf1dayintervaluass = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalUASs")
-
-                self.cpwctdmperf1dayintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerf1DayIntervalValidData")
-                self._segment_path = lambda: "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + self.cpwctdmperf1dayintervalnumber.get() + "']"
-                self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, ['cpwvcindex', 'cpwctdmperf1dayintervalnumber', 'cpwctdmperf1dayintervalduration', 'cpwctdmperf1dayintervaless', 'cpwctdmperf1dayintervalfc', 'cpwctdmperf1dayintervaljtrbfrunderruns', 'cpwctdmperf1dayintervalmalformedpkt', 'cpwctdmperf1dayintervalmisorderdropped', 'cpwctdmperf1dayintervalmissingpkts', 'cpwctdmperf1dayintervalpktsreorder', 'cpwctdmperf1dayintervalsess', 'cpwctdmperf1dayintervaluass', 'cpwctdmperf1dayintervalvaliddata'], name, value)
-
-
     class Cpwctdmperfcurrenttable(Entity):
         """
         This table provides TDM PW performance information.
@@ -735,47 +720,6 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwctdmperfcurrentess
-            
-            	The counter associated with the number of Error Seconds encountered. Any malformed packet, sequence error and similar are considered as error second
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperfcurrentfc
-            
-            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared. A failure event that begins in one period and ends in another period is counted only in the period in which it begins
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperfcurrentjtrbfrunderruns
-            
-            	Number of times a packet needed to be played out and the jitter buffer was empty
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperfcurrentmalformedpkt
-            
-            	Number of packets detected with unexpected size, or bad headers' stack
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperfcurrentmisorderdropped
-            
-            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
             .. attribute:: cpwctdmperfcurrentmissingpkts
             
             	Number of missing packets (as detected via control word sequence number gaps)
@@ -794,6 +738,40 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**units**\: packets
             
+            .. attribute:: cpwctdmperfcurrentjtrbfrunderruns
+            
+            	Number of times a packet needed to be played out and the jitter buffer was empty
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwctdmperfcurrentmisorderdropped
+            
+            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperfcurrentmalformedpkt
+            
+            	Number of packets detected with unexpected size, or bad headers' stack
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperfcurrentess
+            
+            	The counter associated with the number of Error Seconds encountered. Any malformed packet, sequence error and similar are considered as error second
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
             .. attribute:: cpwctdmperfcurrentsess
             
             	The counter associated with the number of Severely Error Seconds encountered
@@ -811,6 +789,13 @@ class CISCOIETFPWTDMMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: seconds
+            
+            .. attribute:: cpwctdmperfcurrentfc
+            
+            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared. A failure event that begins in one period and ends in another period is counted only in the period in which it begins
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -831,28 +816,28 @@ class CISCOIETFPWTDMMIB(Entity):
 
                 self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-                self.cpwctdmperfcurrentess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentESs")
-
-                self.cpwctdmperfcurrentfc = YLeaf(YType.uint32, "cpwCTDMPerfCurrentFC")
-
-                self.cpwctdmperfcurrentjtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfCurrentJtrBfrUnderruns")
-
-                self.cpwctdmperfcurrentmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMalformedPkt")
-
-                self.cpwctdmperfcurrentmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMisOrderDropped")
-
                 self.cpwctdmperfcurrentmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMissingPkts")
 
                 self.cpwctdmperfcurrentpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfCurrentPktsReOrder")
 
+                self.cpwctdmperfcurrentjtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfCurrentJtrBfrUnderruns")
+
+                self.cpwctdmperfcurrentmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMisOrderDropped")
+
+                self.cpwctdmperfcurrentmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfCurrentMalformedPkt")
+
+                self.cpwctdmperfcurrentess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentESs")
+
                 self.cpwctdmperfcurrentsess = YLeaf(YType.uint32, "cpwCTDMPerfCurrentSESs")
 
                 self.cpwctdmperfcurrentuass = YLeaf(YType.uint32, "cpwCTDMPerfCurrentUASs")
+
+                self.cpwctdmperfcurrentfc = YLeaf(YType.uint32, "cpwCTDMPerfCurrentFC")
                 self._segment_path = lambda: "cpwCTDMPerfCurrentEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfCurrentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, ['cpwvcindex', 'cpwctdmperfcurrentess', 'cpwctdmperfcurrentfc', 'cpwctdmperfcurrentjtrbfrunderruns', 'cpwctdmperfcurrentmalformedpkt', 'cpwctdmperfcurrentmisorderdropped', 'cpwctdmperfcurrentmissingpkts', 'cpwctdmperfcurrentpktsreorder', 'cpwctdmperfcurrentsess', 'cpwctdmperfcurrentuass'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfcurrenttable.Cpwctdmperfcurrententry, ['cpwvcindex', 'cpwctdmperfcurrentmissingpkts', 'cpwctdmperfcurrentpktsreorder', 'cpwctdmperfcurrentjtrbfrunderruns', 'cpwctdmperfcurrentmisorderdropped', 'cpwctdmperfcurrentmalformedpkt', 'cpwctdmperfcurrentess', 'cpwctdmperfcurrentsess', 'cpwctdmperfcurrentuass', 'cpwctdmperfcurrentfc'], name, value)
 
 
     class Cpwctdmperfintervaltable(Entity):
@@ -917,6 +902,11 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: cpwctdmperfintervalvaliddata
+            
+            	This variable indicates if the data for this interval is valid
+            	**type**\:  bool
+            
             .. attribute:: cpwctdmperfintervalduration
             
             	The duration of a particular interval in seconds. Adjustments in the system's time\-of\-day clock, may cause the interval to be greater or less than, the normal value. Therefore this actual interval value is provided
@@ -925,47 +915,6 @@ class CISCOIETFPWTDMMIB(Entity):
             	**range:** 0..4294967295
             
             	**units**\: seconds
-            
-            .. attribute:: cpwctdmperfintervaless
-            
-            	The counter associated with the number of Error Seconds encountered
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: seconds
-            
-            .. attribute:: cpwctdmperfintervalfc
-            
-            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared. A failure event that begins in one period and ends in another period is counted only in the period in which it begins
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperfintervaljtrbfrunderruns
-            
-            	Number of times a packet needed to be played out and the jitter buffer was empty
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmperfintervalmalformedpkt
-            
-            	Number of packets detected with unexpected size, or bad headers' stack
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
-            
-            .. attribute:: cpwctdmperfintervalmisorderdropped
-            
-            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: packets
             
             .. attribute:: cpwctdmperfintervalmissingpkts
             
@@ -985,6 +934,40 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**units**\: packets
             
+            .. attribute:: cpwctdmperfintervaljtrbfrunderruns
+            
+            	Number of times a packet needed to be played out and the jitter buffer was empty
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwctdmperfintervalmisorderdropped
+            
+            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperfintervalmalformedpkt
+            
+            	Number of packets detected with unexpected size, or bad headers' stack
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperfintervaless
+            
+            	The counter associated with the number of Error Seconds encountered
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
             .. attribute:: cpwctdmperfintervalsess
             
             	The counter associated with the number of Severely Error Seconds encountered
@@ -1001,10 +984,12 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**units**\: seconds
             
-            .. attribute:: cpwctdmperfintervalvaliddata
+            .. attribute:: cpwctdmperfintervalfc
             
-            	This variable indicates if the data for this interval is valid
-            	**type**\:  bool
+            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared. A failure event that begins in one period and ends in another period is counted only in the period in which it begins
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -1027,44 +1012,46 @@ class CISCOIETFPWTDMMIB(Entity):
 
                 self.cpwctdmperfintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerfIntervalNumber")
 
+                self.cpwctdmperfintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerfIntervalValidData")
+
                 self.cpwctdmperfintervalduration = YLeaf(YType.uint32, "cpwCTDMPerfIntervalDuration")
-
-                self.cpwctdmperfintervaless = YLeaf(YType.uint32, "cpwCTDMPerfIntervalESs")
-
-                self.cpwctdmperfintervalfc = YLeaf(YType.uint32, "cpwCTDMPerfIntervalFC")
-
-                self.cpwctdmperfintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfIntervalJtrBfrUnderruns")
-
-                self.cpwctdmperfintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMalformedPkt")
-
-                self.cpwctdmperfintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMisOrderDropped")
 
                 self.cpwctdmperfintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMissingPkts")
 
                 self.cpwctdmperfintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerfIntervalPktsReOrder")
 
+                self.cpwctdmperfintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerfIntervalJtrBfrUnderruns")
+
+                self.cpwctdmperfintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMisOrderDropped")
+
+                self.cpwctdmperfintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerfIntervalMalformedPkt")
+
+                self.cpwctdmperfintervaless = YLeaf(YType.uint32, "cpwCTDMPerfIntervalESs")
+
                 self.cpwctdmperfintervalsess = YLeaf(YType.uint32, "cpwCTDMPerfIntervalSESs")
 
                 self.cpwctdmperfintervaluass = YLeaf(YType.uint32, "cpwCTDMPerfIntervalUASs")
 
-                self.cpwctdmperfintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerfIntervalValidData")
+                self.cpwctdmperfintervalfc = YLeaf(YType.uint32, "cpwCTDMPerfIntervalFC")
                 self._segment_path = lambda: "cpwCTDMPerfIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerfIntervalNumber='" + self.cpwctdmperfintervalnumber.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerfIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, ['cpwvcindex', 'cpwctdmperfintervalnumber', 'cpwctdmperfintervalduration', 'cpwctdmperfintervaless', 'cpwctdmperfintervalfc', 'cpwctdmperfintervaljtrbfrunderruns', 'cpwctdmperfintervalmalformedpkt', 'cpwctdmperfintervalmisorderdropped', 'cpwctdmperfintervalmissingpkts', 'cpwctdmperfintervalpktsreorder', 'cpwctdmperfintervalsess', 'cpwctdmperfintervaluass', 'cpwctdmperfintervalvaliddata'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperfintervaltable.Cpwctdmperfintervalentry, ['cpwvcindex', 'cpwctdmperfintervalnumber', 'cpwctdmperfintervalvaliddata', 'cpwctdmperfintervalduration', 'cpwctdmperfintervalmissingpkts', 'cpwctdmperfintervalpktsreorder', 'cpwctdmperfintervaljtrbfrunderruns', 'cpwctdmperfintervalmisorderdropped', 'cpwctdmperfintervalmalformedpkt', 'cpwctdmperfintervaless', 'cpwctdmperfintervalsess', 'cpwctdmperfintervaluass', 'cpwctdmperfintervalfc'], name, value)
 
 
-    class Cpwctdmtable(Entity):
+    class Cpwctdmperf1Dayintervaltable(Entity):
         """
-        This table contains basic information including ifIndex,
-        and pointers to entries in the relevant TDM config
-        tables for this TDM PW.
+        This table provides performance information per TDM PW
+        similar to the cpwCTDMPerfIntervalTable above. However,
+        these counters represent historical 1 day intervals up to
+        one full month. The table consists of real time data, as
+        such it is not persistence across re\-boot.
         
-        .. attribute:: cpwctdmentry
+        .. attribute:: cpwctdmperf1dayintervalentry
         
-        	This table is indexed by the same index that was created for the associated entry in the VC Table (in the CISCO\-IETF\-PW\-MIB).    \- The CpwVcIndex.  An entry is created in this table by the agent for every entry in the cpwVcTable with a cpwVcType equal to one of the following\: e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15), basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18), tdmCasTdmIp(19)
-        	**type**\: list of    :py:class:`Cpwctdmentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry>`
+        	An entry is created in this table by the agent for every entry in the cpwCTDMTable table
+        	**type**\: list of    :py:class:`Cpwctdmperf1Dayintervalentry <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry>`
         
         
 
@@ -1074,37 +1061,27 @@ class CISCOIETFPWTDMMIB(Entity):
         _revision = '2006-07-21'
 
         def __init__(self):
-            super(CISCOIETFPWTDMMIB.Cpwctdmtable, self).__init__()
+            super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, self).__init__()
 
-            self.yang_name = "cpwCTDMTable"
+            self.yang_name = "cpwCTDMPerf1DayIntervalTable"
             self.yang_parent_name = "CISCO-IETF-PW-TDM-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"cpwCTDMEntry" : ("cpwctdmentry", CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry)}
+            self._child_list_classes = {"cpwCTDMPerf1DayIntervalEntry" : ("cpwctdmperf1dayintervalentry", CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry)}
 
-            self.cpwctdmentry = YList(self)
-            self._segment_path = lambda: "cpwCTDMTable"
+            self.cpwctdmperf1dayintervalentry = YList(self)
+            self._segment_path = lambda: "cpwCTDMPerf1DayIntervalTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable, [], name, value)
+            self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable, [], name, value)
 
 
-        class Cpwctdmentry(Entity):
+        class Cpwctdmperf1Dayintervalentry(Entity):
             """
-            This table is indexed by the same index that was
-            created for the associated entry in the VC Table
-            (in the CISCO\-IETF\-PW\-MIB).
-            
-              \- The CpwVcIndex.
-            
-            An entry is created in this table by the agent for every
-            entry in the cpwVcTable with a cpwVcType equal to one of the
-            following\:
-            e1Satop(12), t1Satop(13), e3Satop(14), t3Satop(15),
-            basicCesPsn(16), basicTdmIp(17),  tdmCasCesPsn(18),
-            tdmCasTdmIp(19).
+            An entry is created in this table by the agent
+            for every entry in the cpwCTDMTable table.
             
             .. attribute:: cpwvcindex  <key>
             
@@ -1115,82 +1092,103 @@ class CISCOIETFPWTDMMIB(Entity):
             
             	**refers to**\:  :py:class:`cpwvcindex <ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB.CISCOIETFPWMIB.Cpwvctable.Cpwvcentry>`
             
-            .. attribute:: cpwcgentdmcfgindex
+            .. attribute:: cpwctdmperf1dayintervalnumber  <key>
             
-            	Index to the generic parameters in the TDM configuration table that appears in this MIB module. It is likely that multiple TDM PWs of the same characteristic will share a single TDM Cfg entry
+            	The number of interval, where 1 indicates current day measured period and 2 and above indicate previous days respectively
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cpwcreltdmcfgindex
+            .. attribute:: cpwctdmperf1dayintervalvaliddata
             
-            	Index to the relevant TDM configuration table entry that appears in one of the related MIB modules such as TDMoIP or CESoPSN. It is likely that multiple TDM PWs of the same characteristic will share a single configuration entry of the relevant type. The value 0 implies no entry in other related MIB
+            	This variable indicates if the data for this interval is valid
+            	**type**\:  bool
+            
+            .. attribute:: cpwctdmperf1dayintervalduration
+            
+            	The duration of a particular interval in seconds, Adjustments in the system's time\-of\-day clock, may cause the interval to be greater or less than, the normal value. Therefore this actual interval value is provided
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmconfigerror
-            
-            	Any of the bits are set if the local configuration is not compatible with the peer configuration as available from the various parameters options.  \-tdmTypeIncompatible bit is set if the local configuration is not carrying the same TDM type as the peer configuration.  \-peerRtpIncompatible bit is set if the local configuration is configured to send RTP packets for this PW, and the remote is not capable of accepting RTP packets.  \-peerPayloadSizeIncompatible bit is set if the local configuration is not carrying the same Payload Size as the peer configuration
-            	**type**\:   :py:class:`Cpwctdmconfigerror <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmconfigerror>`
-            
-            .. attribute:: cpwctdmcurrentindications
-            
-            	The following defects should be detected and reported upon request\:  \-Stray packets MAY be detected by the PSN and multiplexing layers. Stray packets MUST be discarded by the CE\-bound IWF and their detection MUST NOT affect mechanisms for detection of packet loss.  \-Malformed packets are detected by mismatch between the expected packet size (taking the value of the L bit into account) and the actual packet size inferred from the PSN and multiplexing layers. Malformed in\-order packets MUST be discarded by the CE\-bound IWF and replacement data generated as for lost packets.  \-Excessive packet loss rate is detected by computing the average packet loss rate over the value of cpwCTDMAvePktLossTimeWindow and comparing it with a preconfigured threshold [SATOP].  \-Buffer overrun is detected in the normal operation state when the CE bound IWF's jitter buffer cannot accommodate newly arrived packets.  \-Remote packet loss is indicated by reception of packets  with their R bit set.  \-Packet misorder is detected by looking at the Sequence number provided by the control word.  \-TDM Fault, if L bit in the control word is set, it indicates that TDM data carried in the payload is invalid due an attachment circuit fault.  When the L bit is set the payload MAY be omitted in order to conserve bandwidth.  Note\: the algorithm used to capture these indications is implementation specific
-            	**type**\:   :py:class:`Cpwctdmcurrentindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmcurrentindications>`
-            
-            .. attribute:: cpwctdmifindex
-            
-            	This is a unique index within the ifTable. It represents the interface index of the full link or the interface index for the bundle holding the group of time slots to be transmitted via this PW connection.  A value of zero indicates an interface index that has yet to be determined. Once set, if the TDM ifIndex is (for some reason) later removed, the agent SHOULD delete the associated PW rows (e.g., this cpwCTDMTable entry). If the agent does not delete the rows,  the agent MUST set this object to zero
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: cpwctdmlastestimestamp
-            
-            	The value of sysUpTime at the most recent occasion at which the TDM PW entered the ES or SES state
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cpwctdmlatchedindications
-            
-            	The state of TDM indicators when the TDM PW last declared an error second (either as ES, SES or a second with errors inside a UAS) condition. At this time, only LOPS can create a failure. Since indicators other than LOPS are useful, all are latched here. For bit definitions, see cpwCTDMCurrentIndications above.  Note\: the algorithm used to latch these indications when entering a defect state is implementation specific
-            	**type**\:   :py:class:`Cpwctdmlatchedindications <ydk.models.cisco_ios_xe.CISCO_IETF_PW_TDM_MIB.CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry.Cpwctdmlatchedindications>`
-            
-            .. attribute:: cpwctdmrate
-            
-            	The parameter represents the bit\-rate of the TDM service in multiples of the 'basic' 64 Kbit/s rate. It complements the definition of cpwVcType used in CISCO\-IETF\-PW\-MIB. For structure\-agnostic the following should be used\: a) Satop E1 \- 32 b) Satop T1 emulation\:    i)   MUST be set to 24 in the basic emulation mode    ii)  MUST be set to 25 for the 'Octet\-aligned T1'         emulation mode c) Satop E3 \- 535 d) Satop T3 \- 699 For all kinds of structure\-aware emulation, this parameter MUST be set to N where N is the number of DS0 channels in the corresponding attachment circuit
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: cpwctdmtimeelapsed
-            
-            	The number of seconds, including partial seconds, that have elapsed since the beginning of the current measurement period. If, for some reason, such as an adjustment in the system's time\-of\-day clock, the current interval exceeds the maximum value, the agent will return the maximum value
-            	**type**\:  int
-            
-            	**range:** 1..900
             
             	**units**\: seconds
             
-            .. attribute:: cpwctdmvaliddayintervals
+            .. attribute:: cpwctdmperf1dayintervalmissingpkts
             
-            	The number of previous days for which data was collected. An agent with TDM capability must be capable of supporting at least n intervals. The minimum value of n is 1, The default of n is 1 and the maximum value of n is 30
+            	Number of missing packets (as detected via control word sequence number gaps)
             	**type**\:  int
             
-            	**range:** 0..30
+            	**range:** 0..4294967295
             
-            	**units**\: days
+            	**units**\: packets
             
-            .. attribute:: cpwctdmvalidintervals
+            .. attribute:: cpwctdmperf1dayintervalpktsreorder
             
-            	The number of previous 15\-minute intervals for which data was collected. An agent with TDM capability must be capable of supporting at least n intervals. The minimum value of n is 4, The default of n is 32 and the maximum value of n is 96. The value will be <n> unless the measurement was (re\-) started within the last (<n>\*15) minutes, in which case the value will be the number of complete 15 minute intervals for which the agent has at least some data. In certain cases(e.g., in the case where the agent is a proxy) it is possible that some intervals are unavailable. In this case, this interval is the maximum interval number for which data is available
+            	Number of packets detected out of sequence (via control word sequence number), but successfully re\-ordered
             	**type**\:  int
             
-            	**range:** 0..96
+            	**range:** 0..4294967295
             
-            	**units**\: minutes
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperf1dayintervaljtrbfrunderruns
+            
+            	Number of times a packet needed to be played out and the jitter buffer was empty
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cpwctdmperf1dayintervalmisorderdropped
+            
+            	Number of packets detected out of order(via control word sequence numbers), and could not be re\-ordered, or could not fit in the jitter buffer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperf1dayintervalmalformedpkt
+            
+            	Number of packets detected with unexpected size, or bad headers' stack
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: packets
+            
+            .. attribute:: cpwctdmperf1dayintervaless
+            
+            	The counter associated with the number of Error Seconds encountered
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: cpwctdmperf1dayintervalsess
+            
+            	The counter associated with the number of Severely Error Seconds
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: cpwctdmperf1dayintervaluass
+            
+            	The counter associated with the number of UnAvailable Seconds. When first entering the UAS state, the number of SES To UAS is added to this object, then as each additional UAS occurs, this object increments by one
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: seconds
+            
+            .. attribute:: cpwctdmperf1dayintervalfc
+            
+            	This object represents the number of TDM failure events. A failure event begins when the LOPS failure is declared, and ends when the failure is cleared
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -1200,10 +1198,10 @@ class CISCOIETFPWTDMMIB(Entity):
             _revision = '2006-07-21'
 
             def __init__(self):
-                super(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, self).__init__()
+                super(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, self).__init__()
 
-                self.yang_name = "cpwCTDMEntry"
-                self.yang_parent_name = "cpwCTDMTable"
+                self.yang_name = "cpwCTDMPerf1DayIntervalEntry"
+                self.yang_parent_name = "cpwCTDMPerf1DayIntervalTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
@@ -1211,32 +1209,34 @@ class CISCOIETFPWTDMMIB(Entity):
 
                 self.cpwvcindex = YLeaf(YType.str, "cpwVcIndex")
 
-                self.cpwcgentdmcfgindex = YLeaf(YType.uint32, "cpwCGenTDMCfgIndex")
+                self.cpwctdmperf1dayintervalnumber = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalNumber")
 
-                self.cpwcreltdmcfgindex = YLeaf(YType.uint32, "cpwCRelTDMCfgIndex")
+                self.cpwctdmperf1dayintervalvaliddata = YLeaf(YType.boolean, "cpwCTDMPerf1DayIntervalValidData")
 
-                self.cpwctdmconfigerror = YLeaf(YType.bits, "cpwCTDMConfigError")
+                self.cpwctdmperf1dayintervalduration = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalDuration")
 
-                self.cpwctdmcurrentindications = YLeaf(YType.bits, "cpwCTDMCurrentIndications")
+                self.cpwctdmperf1dayintervalmissingpkts = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMissingPkts")
 
-                self.cpwctdmifindex = YLeaf(YType.int32, "cpwCTDMIfIndex")
+                self.cpwctdmperf1dayintervalpktsreorder = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalPktsReOrder")
 
-                self.cpwctdmlastestimestamp = YLeaf(YType.uint32, "cpwCTDMLastEsTimeStamp")
+                self.cpwctdmperf1dayintervaljtrbfrunderruns = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalJtrBfrUnderruns")
 
-                self.cpwctdmlatchedindications = YLeaf(YType.bits, "cpwCTDMLatchedIndications")
+                self.cpwctdmperf1dayintervalmisorderdropped = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMisOrderDropped")
 
-                self.cpwctdmrate = YLeaf(YType.int32, "cpwCTDMRate")
+                self.cpwctdmperf1dayintervalmalformedpkt = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalMalformedPkt")
 
-                self.cpwctdmtimeelapsed = YLeaf(YType.int32, "cpwCTDMTimeElapsed")
+                self.cpwctdmperf1dayintervaless = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalESs")
 
-                self.cpwctdmvaliddayintervals = YLeaf(YType.int32, "cpwCTDMValidDayIntervals")
+                self.cpwctdmperf1dayintervalsess = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalSESs")
 
-                self.cpwctdmvalidintervals = YLeaf(YType.int32, "cpwCTDMValidIntervals")
-                self._segment_path = lambda: "cpwCTDMEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMTable/%s" % self._segment_path()
+                self.cpwctdmperf1dayintervaluass = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalUASs")
+
+                self.cpwctdmperf1dayintervalfc = YLeaf(YType.uint32, "cpwCTDMPerf1DayIntervalFC")
+                self._segment_path = lambda: "cpwCTDMPerf1DayIntervalEntry" + "[cpwVcIndex='" + self.cpwvcindex.get() + "']" + "[cpwCTDMPerf1DayIntervalNumber='" + self.cpwctdmperf1dayintervalnumber.get() + "']"
+                self._absolute_path = lambda: "CISCO-IETF-PW-TDM-MIB:CISCO-IETF-PW-TDM-MIB/cpwCTDMPerf1DayIntervalTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmtable.Cpwctdmentry, ['cpwvcindex', 'cpwcgentdmcfgindex', 'cpwcreltdmcfgindex', 'cpwctdmconfigerror', 'cpwctdmcurrentindications', 'cpwctdmifindex', 'cpwctdmlastestimestamp', 'cpwctdmlatchedindications', 'cpwctdmrate', 'cpwctdmtimeelapsed', 'cpwctdmvaliddayintervals', 'cpwctdmvalidintervals'], name, value)
+                self._perform_setattr(CISCOIETFPWTDMMIB.Cpwctdmperf1Dayintervaltable.Cpwctdmperf1Dayintervalentry, ['cpwvcindex', 'cpwctdmperf1dayintervalnumber', 'cpwctdmperf1dayintervalvaliddata', 'cpwctdmperf1dayintervalduration', 'cpwctdmperf1dayintervalmissingpkts', 'cpwctdmperf1dayintervalpktsreorder', 'cpwctdmperf1dayintervaljtrbfrunderruns', 'cpwctdmperf1dayintervalmisorderdropped', 'cpwctdmperf1dayintervalmalformedpkt', 'cpwctdmperf1dayintervaless', 'cpwctdmperf1dayintervalsess', 'cpwctdmperf1dayintervaluass', 'cpwctdmperf1dayintervalfc'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIETFPWTDMMIB()

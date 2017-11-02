@@ -37,25 +37,25 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
     """
     
     
-    .. attribute:: cipslaautogroupdesttable
-    
-    	A table contains the list of destination IP addresses and ports associated to the auto measure group destination name
-    	**type**\:   :py:class:`Cipslaautogroupdesttable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable>`
-    
-    .. attribute:: cipslaautogroupschedtable
-    
-    	A table of group scheduling definitions
-    	**type**\:   :py:class:`Cipslaautogroupschedtable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable>`
-    
     .. attribute:: cipslaautogrouptable
     
     	A table that contains IP SLA auto measure group definitions
     	**type**\:   :py:class:`Cipslaautogrouptable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable>`
     
+    .. attribute:: cipslaautogroupdesttable
+    
+    	A table contains the list of destination IP addresses and ports associated to the auto measure group destination name
+    	**type**\:   :py:class:`Cipslaautogroupdesttable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable>`
+    
     .. attribute:: cipslareacttable
     
     	A table that contains reaction configurations for templates. Each conceptual row in cipslaReactTable corresponds  to a reaction configured for one template.  Each template can have multiple reactions and hence there can be  multiple rows for a particular template. Different template types can have different reactions. The reaction type is  specified as cipslaReactVar based upon template type as some  reaction types are applicable just for specific template types
     	**type**\:   :py:class:`Cipslareacttable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable>`
+    
+    .. attribute:: cipslaautogroupschedtable
+    
+    	A table of group scheduling definitions
+    	**type**\:   :py:class:`Cipslaautogroupschedtable <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable>`
     
     
 
@@ -72,29 +72,200 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipslaAutoGroupDestTable" : ("cipslaautogroupdesttable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable), "cipslaAutoGroupSchedTable" : ("cipslaautogroupschedtable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable), "cipslaAutoGroupTable" : ("cipslaautogrouptable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable), "cipslaReactTable" : ("cipslareacttable", CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable)}
+        self._child_container_classes = {"cipslaAutoGroupTable" : ("cipslaautogrouptable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable), "cipslaAutoGroupDestTable" : ("cipslaautogroupdesttable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable), "cipslaReactTable" : ("cipslareacttable", CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable), "cipslaAutoGroupSchedTable" : ("cipslaautogroupschedtable", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable)}
         self._child_list_classes = {}
-
-        self.cipslaautogroupdesttable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable()
-        self.cipslaautogroupdesttable.parent = self
-        self._children_name_map["cipslaautogroupdesttable"] = "cipslaAutoGroupDestTable"
-        self._children_yang_names.add("cipslaAutoGroupDestTable")
-
-        self.cipslaautogroupschedtable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable()
-        self.cipslaautogroupschedtable.parent = self
-        self._children_name_map["cipslaautogroupschedtable"] = "cipslaAutoGroupSchedTable"
-        self._children_yang_names.add("cipslaAutoGroupSchedTable")
 
         self.cipslaautogrouptable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable()
         self.cipslaautogrouptable.parent = self
         self._children_name_map["cipslaautogrouptable"] = "cipslaAutoGroupTable"
         self._children_yang_names.add("cipslaAutoGroupTable")
 
+        self.cipslaautogroupdesttable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable()
+        self.cipslaautogroupdesttable.parent = self
+        self._children_name_map["cipslaautogroupdesttable"] = "cipslaAutoGroupDestTable"
+        self._children_yang_names.add("cipslaAutoGroupDestTable")
+
         self.cipslareacttable = CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable()
         self.cipslareacttable.parent = self
         self._children_name_map["cipslareacttable"] = "cipslaReactTable"
         self._children_yang_names.add("cipslaReactTable")
+
+        self.cipslaautogroupschedtable = CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable()
+        self.cipslaautogroupschedtable.parent = self
+        self._children_name_map["cipslaautogroupschedtable"] = "cipslaAutoGroupSchedTable"
+        self._children_yang_names.add("cipslaAutoGroupSchedTable")
         self._segment_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
+
+
+    class Cipslaautogrouptable(Entity):
+        """
+        A table that contains IP SLA auto measure group definitions.
+        
+        .. attribute:: cipslaautogroupentry
+        
+        	An entry containing the configurations for a particular auto measure group
+        	**type**\: list of    :py:class:`Cipslaautogroupentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
+        _revision = '2007-06-13'
+
+        def __init__(self):
+            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, self).__init__()
+
+            self.yang_name = "cipslaAutoGroupTable"
+            self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipslaAutoGroupEntry" : ("cipslaautogroupentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry)}
+
+            self.cipslaautogroupentry = YList(self)
+            self._segment_path = lambda: "cipslaAutoGroupTable"
+            self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, [], name, value)
+
+
+        class Cipslaautogroupentry(Entity):
+            """
+            An entry containing the configurations for a particular
+            auto measure group.
+            
+            .. attribute:: cipslaautogroupname  <key>
+            
+            	A group name which is used by a management application to identify the group
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: cipslaautogroupdescription
+            
+            	This field is used to provide description for the group
+            	**type**\:  str
+            
+            	**length:** 0..128
+            
+            .. attribute:: cipslaautogroupdestinationname
+            
+            	This object refers to the cipslaAutoGroupDestName in cipslaAutoGroupDestTable. If the name entered  is not present in cipslaAutoGroupDestTable, then when  group is scheduled, no ip sla operations will be created
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: cipslaautogroupaddestport
+            
+            	This object represents the destination port number for auto discovery use
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cipslaautogroupopertemplatename
+            
+            	A string which is used by a management application to identify the template which is associated with the group. Depends on cipslaAutoGroupOperType, this object refers to cipslaIcmpEchoTmplName in cipslaIcmpEchoTmplTable, or cipslaUdpEchoTmplName in cipslaUdpEchoTmplTable, or cipslaTcpConnTmplName in cipslaTcpConnTmplTable, or cipslaIcmpJitterTmplName in cipslaIcmpJitterTmplTable, or ciscoIpSlaUdpJitterTmplName in ciscoIpSlaUdpJitterTmplTable
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: cipslaautogroupschedulerid
+            
+            	This object refers to the cipslaAutoGroupSchedId in cipslaAutoGroupSchedTable, and is used to schedule  this group
+            	**type**\:  str
+            
+            	**length:** 0..64
+            
+            .. attribute:: cipslaautogroupqosenable
+            
+            	When this object is set to true, QoS is enabled for this group and this group is linked to policy map. The  restriction is that after QoS is enabled, it can not be  disabled for this group
+            	**type**\:  bool
+            
+            .. attribute:: cipslaautogroupopertype
+            
+            	This object specifies the type of IP SLA operation. When operation type is not ICMP jitter, then  cipslaAutoGroupOperTemplateName must be specified
+            	**type**\:   :py:class:`IpSlaOperType <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpSlaOperType>`
+            
+            .. attribute:: cipslaautogroupdestipadenable
+            
+            	When this object is set to true, destination IP address is populated through auto\-discovery
+            	**type**\:  bool
+            
+            .. attribute:: cipslaautogroupadmeasureretry
+            
+            	This object specifies number of measurement retries to be attempted for the discovered end point after the  connection to the end point is broken. If there is no  re\-registration message received, the end point will be  in inactive state.  When the value of cipslaAutoGroupDestIPADEnable is  'false', the value of this object has no effect
+            	**type**\:  int
+            
+            	**range:** 1..65536
+            
+            .. attribute:: cipslaautogroupaddestipageout
+            
+            	This object represents the ageout time for the discovered end point.  If the end point becomes inactive for the period  of ageout time, the end point will be removed from the  discovered end point list.  When the value of cipslaAutoGroupDestIPADEnable is  'false', the value of this object has no effect
+            	**type**\:  int
+            
+            	**range:** 0..65536
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupstoragetype
+            
+            	The storage type of this conceptual row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: cipslaautogrouprowstatus
+            
+            	The status of the conceptual group control row.  When the status is active, the other writable objects may be modified unless the scheduler with name  specified by cipslaAutoGroupSchedulerId is scheduled
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
+            _revision = '2007-06-13'
+
+            def __init__(self):
+                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, self).__init__()
+
+                self.yang_name = "cipslaAutoGroupEntry"
+                self.yang_parent_name = "cipslaAutoGroupTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipslaautogroupname = YLeaf(YType.str, "cipslaAutoGroupName")
+
+                self.cipslaautogroupdescription = YLeaf(YType.str, "cipslaAutoGroupDescription")
+
+                self.cipslaautogroupdestinationname = YLeaf(YType.str, "cipslaAutoGroupDestinationName")
+
+                self.cipslaautogroupaddestport = YLeaf(YType.uint16, "cipslaAutoGroupADDestPort")
+
+                self.cipslaautogroupopertemplatename = YLeaf(YType.str, "cipslaAutoGroupOperTemplateName")
+
+                self.cipslaautogroupschedulerid = YLeaf(YType.str, "cipslaAutoGroupSchedulerId")
+
+                self.cipslaautogroupqosenable = YLeaf(YType.boolean, "cipslaAutoGroupQoSEnable")
+
+                self.cipslaautogroupopertype = YLeaf(YType.enumeration, "cipslaAutoGroupOperType")
+
+                self.cipslaautogroupdestipadenable = YLeaf(YType.boolean, "cipslaAutoGroupDestIPADEnable")
+
+                self.cipslaautogroupadmeasureretry = YLeaf(YType.uint32, "cipslaAutoGroupADMeasureRetry")
+
+                self.cipslaautogroupaddestipageout = YLeaf(YType.uint32, "cipslaAutoGroupADDestIPAgeout")
+
+                self.cipslaautogroupstoragetype = YLeaf(YType.enumeration, "cipslaAutoGroupStorageType")
+
+                self.cipslaautogrouprowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupRowStatus")
+                self._segment_path = lambda: "cipslaAutoGroupEntry" + "[cipslaAutoGroupName='" + self.cipslaautogroupname.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, ['cipslaautogroupname', 'cipslaautogroupdescription', 'cipslaautogroupdestinationname', 'cipslaautogroupaddestport', 'cipslaautogroupopertemplatename', 'cipslaautogroupschedulerid', 'cipslaautogroupqosenable', 'cipslaautogroupopertype', 'cipslaautogroupdestipadenable', 'cipslaautogroupadmeasureretry', 'cipslaautogroupaddestipageout', 'cipslaautogroupstoragetype', 'cipslaautogrouprowstatus'], name, value)
 
 
     class Cipslaautogroupdesttable(Entity):
@@ -165,15 +336,15 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             
             	**range:** 0..65535
             
-            .. attribute:: cipslaautogroupdestrowstatus
-            
-            	The status of the conceptual destination table control row. No other objects in this row need to be set before this object can become active.  During 'destroy', when cipslaAutoGroupDestIpAddr is specified  as '0.0.0.0' and cipslaAutoGroupDestPort is specified as '0',  then all the rows with same cipslaAutoGroupDestName will be  deleted
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
             .. attribute:: cipslaautogroupdeststoragetype
             
             	The storage type of this conceptual row.  By default the entry will be saved into non\-volatile memory
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: cipslaautogroupdestrowstatus
+            
+            	The status of the conceptual destination table control row. No other objects in this row need to be set before this object can become active.  During 'destroy', when cipslaAutoGroupDestIpAddr is specified  as '0.0.0.0' and cipslaAutoGroupDestPort is specified as '0',  then all the rows with same cipslaAutoGroupDestName will be  deleted
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -200,347 +371,14 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
 
                 self.cipslaautogroupdestport = YLeaf(YType.uint16, "cipslaAutoGroupDestPort")
 
-                self.cipslaautogroupdestrowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupDestRowStatus")
-
                 self.cipslaautogroupdeststoragetype = YLeaf(YType.enumeration, "cipslaAutoGroupDestStorageType")
+
+                self.cipslaautogroupdestrowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupDestRowStatus")
                 self._segment_path = lambda: "cipslaAutoGroupDestEntry" + "[cipslaAutoGroupDestName='" + self.cipslaautogroupdestname.get() + "']" + "[cipslaAutoGroupDestIpAddrType='" + self.cipslaautogroupdestipaddrtype.get() + "']" + "[cipslaAutoGroupDestIpAddr='" + self.cipslaautogroupdestipaddr.get() + "']" + "[cipslaAutoGroupDestPort='" + self.cipslaautogroupdestport.get() + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupDestTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry, ['cipslaautogroupdestname', 'cipslaautogroupdestipaddrtype', 'cipslaautogroupdestipaddr', 'cipslaautogroupdestport', 'cipslaautogroupdestrowstatus', 'cipslaautogroupdeststoragetype'], name, value)
-
-
-    class Cipslaautogroupschedtable(Entity):
-        """
-        A table of group scheduling definitions.
-        
-        .. attribute:: cipslaautogroupschedentry
-        
-        	A list of objects that define specific configuration for group scheduling
-        	**type**\: list of    :py:class:`Cipslaautogroupschedentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
-        _revision = '2007-06-13'
-
-        def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, self).__init__()
-
-            self.yang_name = "cipslaAutoGroupSchedTable"
-            self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipslaAutoGroupSchedEntry" : ("cipslaautogroupschedentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry)}
-
-            self.cipslaautogroupschedentry = YList(self)
-            self._segment_path = lambda: "cipslaAutoGroupSchedTable"
-            self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, [], name, value)
-
-
-        class Cipslaautogroupschedentry(Entity):
-            """
-            A list of objects that define specific configuration for
-            group scheduling.
-            
-            .. attribute:: cipslaautogroupschedid  <key>
-            
-            	This string uniquely identifies a row in the cipslaAutoGroupSchedTable
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: cipslaautogroupschedageout
-            
-            	This object specifies the ageout value of the operations that are getting group scheduled. This value will be placed into rttMonSchedAdminConceptRowAgeout object for each of the operations in the group when this conceptual control row becomes  'active'.  When this value is set to zero, the operations will never ageout
-            	**type**\:  int
-            
-            	**range:** 0..2073600
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedinterval
-            
-            	Specifies the duration between initiating each RTT operation for one IP SLA operation generated via the auto  measure group.  The value of this object is only effective when both cipslaAutoGroupSchedMaxInterval and  cipslaAutoGroupSchedMinInterval have zero values
-            	**type**\:  int
-            
-            	**range:** 1..604800
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedlife
-            
-            	This object specifies the life of all the operations that are getting group scheduled. This value will be placed into cipslaAutoGroupSchedRttLife object when this conceptual control row becomes 'active'.  The value 2147483647 has a special meaning. When this object is set to 2147483647, the rttMonCtrlOperRttLife object for all the operations will not decrement, and thus the life time of the  operation will never end
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedmaxinterval
-            
-            	Specifies the max duration between initiating each RTT operation for one IP SLA operation in the group
-            	**type**\:  int
-            
-            	**range:** 0..604800
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedmininterval
-            
-            	Specifies the min duration between initiating each RTT operation for one IP SLA operation in the group.  The value of this object should be lower than the value of cipslaAutoGroupSchedMaxInterval
-            	**type**\:  int
-            
-            	**range:** 0..604800
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedperiod
-            
-            	Specifies the time duration between initiating two IP SLA operations generated via the auto measure group
-            	**type**\:  int
-            
-            	**range:** 100..99000
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedrowstatus
-            
-            	The status of the conceptual group schedule control row.  When the status is active and the value of  cipslaAutoGroupSchedStartTime is '1', the other writable  objects may be modified.  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' it will stop all the  operations which had been group scheduled by it earlier,  before destroying the group schedule control row
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cipslaautogroupschedstarttime
-            
-            	This is the time in seconds after which the operations of the associated groups  will take transition to active state. When set to the value other than '1' (pending), then all  objects in this row cannot be modified
-            	**type**\:  int
-            
-            	**range:** 0..604800
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupschedstoragetype
-            
-            	The storage type of this conceptual row.  By default the entry will be saved into non\-volatile memory
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
-            _revision = '2007-06-13'
-
-            def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, self).__init__()
-
-                self.yang_name = "cipslaAutoGroupSchedEntry"
-                self.yang_parent_name = "cipslaAutoGroupSchedTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipslaautogroupschedid = YLeaf(YType.str, "cipslaAutoGroupSchedId")
-
-                self.cipslaautogroupschedageout = YLeaf(YType.uint32, "cipslaAutoGroupSchedAgeout")
-
-                self.cipslaautogroupschedinterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedInterval")
-
-                self.cipslaautogroupschedlife = YLeaf(YType.uint32, "cipslaAutoGroupSchedLife")
-
-                self.cipslaautogroupschedmaxinterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedMaxInterval")
-
-                self.cipslaautogroupschedmininterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedMinInterval")
-
-                self.cipslaautogroupschedperiod = YLeaf(YType.uint32, "cipslaAutoGroupSchedPeriod")
-
-                self.cipslaautogroupschedrowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupSchedRowStatus")
-
-                self.cipslaautogroupschedstarttime = YLeaf(YType.uint32, "cipslaAutoGroupSchedStartTime")
-
-                self.cipslaautogroupschedstoragetype = YLeaf(YType.enumeration, "cipslaAutoGroupSchedStorageType")
-                self._segment_path = lambda: "cipslaAutoGroupSchedEntry" + "[cipslaAutoGroupSchedId='" + self.cipslaautogroupschedid.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupSchedTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, ['cipslaautogroupschedid', 'cipslaautogroupschedageout', 'cipslaautogroupschedinterval', 'cipslaautogroupschedlife', 'cipslaautogroupschedmaxinterval', 'cipslaautogroupschedmininterval', 'cipslaautogroupschedperiod', 'cipslaautogroupschedrowstatus', 'cipslaautogroupschedstarttime', 'cipslaautogroupschedstoragetype'], name, value)
-
-
-    class Cipslaautogrouptable(Entity):
-        """
-        A table that contains IP SLA auto measure group definitions.
-        
-        .. attribute:: cipslaautogroupentry
-        
-        	An entry containing the configurations for a particular auto measure group
-        	**type**\: list of    :py:class:`Cipslaautogroupentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
-        _revision = '2007-06-13'
-
-        def __init__(self):
-            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, self).__init__()
-
-            self.yang_name = "cipslaAutoGroupTable"
-            self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipslaAutoGroupEntry" : ("cipslaautogroupentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry)}
-
-            self.cipslaautogroupentry = YList(self)
-            self._segment_path = lambda: "cipslaAutoGroupTable"
-            self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable, [], name, value)
-
-
-        class Cipslaautogroupentry(Entity):
-            """
-            An entry containing the configurations for a particular
-            auto measure group.
-            
-            .. attribute:: cipslaautogroupname  <key>
-            
-            	A group name which is used by a management application to identify the group
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: cipslaautogroupaddestipageout
-            
-            	This object represents the ageout time for the discovered end point.  If the end point becomes inactive for the period  of ageout time, the end point will be removed from the  discovered end point list.  When the value of cipslaAutoGroupDestIPADEnable is  'false', the value of this object has no effect
-            	**type**\:  int
-            
-            	**range:** 0..65536
-            
-            	**units**\: seconds
-            
-            .. attribute:: cipslaautogroupaddestport
-            
-            	This object represents the destination port number for auto discovery use
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cipslaautogroupadmeasureretry
-            
-            	This object specifies number of measurement retries to be attempted for the discovered end point after the  connection to the end point is broken. If there is no  re\-registration message received, the end point will be  in inactive state.  When the value of cipslaAutoGroupDestIPADEnable is  'false', the value of this object has no effect
-            	**type**\:  int
-            
-            	**range:** 1..65536
-            
-            .. attribute:: cipslaautogroupdescription
-            
-            	This field is used to provide description for the group
-            	**type**\:  str
-            
-            	**length:** 0..128
-            
-            .. attribute:: cipslaautogroupdestinationname
-            
-            	This object refers to the cipslaAutoGroupDestName in cipslaAutoGroupDestTable. If the name entered  is not present in cipslaAutoGroupDestTable, then when  group is scheduled, no ip sla operations will be created
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: cipslaautogroupdestipadenable
-            
-            	When this object is set to true, destination IP address is populated through auto\-discovery
-            	**type**\:  bool
-            
-            .. attribute:: cipslaautogroupopertemplatename
-            
-            	A string which is used by a management application to identify the template which is associated with the group. Depends on cipslaAutoGroupOperType, this object refers to cipslaIcmpEchoTmplName in cipslaIcmpEchoTmplTable, or cipslaUdpEchoTmplName in cipslaUdpEchoTmplTable, or cipslaTcpConnTmplName in cipslaTcpConnTmplTable, or cipslaIcmpJitterTmplName in cipslaIcmpJitterTmplTable, or ciscoIpSlaUdpJitterTmplName in ciscoIpSlaUdpJitterTmplTable
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: cipslaautogroupopertype
-            
-            	This object specifies the type of IP SLA operation. When operation type is not ICMP jitter, then  cipslaAutoGroupOperTemplateName must be specified
-            	**type**\:   :py:class:`IpSlaOperType <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpSlaOperType>`
-            
-            .. attribute:: cipslaautogroupqosenable
-            
-            	When this object is set to true, QoS is enabled for this group and this group is linked to policy map. The  restriction is that after QoS is enabled, it can not be  disabled for this group
-            	**type**\:  bool
-            
-            .. attribute:: cipslaautogrouprowstatus
-            
-            	The status of the conceptual group control row.  When the status is active, the other writable objects may be modified unless the scheduler with name  specified by cipslaAutoGroupSchedulerId is scheduled
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cipslaautogroupschedulerid
-            
-            	This object refers to the cipslaAutoGroupSchedId in cipslaAutoGroupSchedTable, and is used to schedule  this group
-            	**type**\:  str
-            
-            	**length:** 0..64
-            
-            .. attribute:: cipslaautogroupstoragetype
-            
-            	The storage type of this conceptual row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
-            _revision = '2007-06-13'
-
-            def __init__(self):
-                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, self).__init__()
-
-                self.yang_name = "cipslaAutoGroupEntry"
-                self.yang_parent_name = "cipslaAutoGroupTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipslaautogroupname = YLeaf(YType.str, "cipslaAutoGroupName")
-
-                self.cipslaautogroupaddestipageout = YLeaf(YType.uint32, "cipslaAutoGroupADDestIPAgeout")
-
-                self.cipslaautogroupaddestport = YLeaf(YType.uint16, "cipslaAutoGroupADDestPort")
-
-                self.cipslaautogroupadmeasureretry = YLeaf(YType.uint32, "cipslaAutoGroupADMeasureRetry")
-
-                self.cipslaautogroupdescription = YLeaf(YType.str, "cipslaAutoGroupDescription")
-
-                self.cipslaautogroupdestinationname = YLeaf(YType.str, "cipslaAutoGroupDestinationName")
-
-                self.cipslaautogroupdestipadenable = YLeaf(YType.boolean, "cipslaAutoGroupDestIPADEnable")
-
-                self.cipslaautogroupopertemplatename = YLeaf(YType.str, "cipslaAutoGroupOperTemplateName")
-
-                self.cipslaautogroupopertype = YLeaf(YType.enumeration, "cipslaAutoGroupOperType")
-
-                self.cipslaautogroupqosenable = YLeaf(YType.boolean, "cipslaAutoGroupQoSEnable")
-
-                self.cipslaautogrouprowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupRowStatus")
-
-                self.cipslaautogroupschedulerid = YLeaf(YType.str, "cipslaAutoGroupSchedulerId")
-
-                self.cipslaautogroupstoragetype = YLeaf(YType.enumeration, "cipslaAutoGroupStorageType")
-                self._segment_path = lambda: "cipslaAutoGroupEntry" + "[cipslaAutoGroupName='" + self.cipslaautogroupname.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry, ['cipslaautogroupname', 'cipslaautogroupaddestipageout', 'cipslaautogroupaddestport', 'cipslaautogroupadmeasureretry', 'cipslaautogroupdescription', 'cipslaautogroupdestinationname', 'cipslaautogroupdestipadenable', 'cipslaautogroupopertemplatename', 'cipslaautogroupopertype', 'cipslaautogroupqosenable', 'cipslaautogrouprowstatus', 'cipslaautogroupschedulerid', 'cipslaautogroupstoragetype'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable.Cipslaautogroupdestentry, ['cipslaautogroupdestname', 'cipslaautogroupdestipaddrtype', 'cipslaautogroupdestipaddr', 'cipslaautogroupdestport', 'cipslaautogroupdeststoragetype', 'cipslaautogroupdestrowstatus'], name, value)
 
 
     class Cipslareacttable(Entity):
@@ -611,20 +449,34 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             
             	**refers to**\:  :py:class:`cipslaautogroupopertemplatename <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable.Cipslaautogroupentry>`
             
+            .. attribute:: cipslareactvar
+            
+            	This object specifies the type of reaction configured for an IP SLA template. Default value is 'rtt' for ICMP echo, UDP echo and TCP connect. Default value is 'jitterAvg' for UDP jitter and  ICMP jitter.  The reaction types 'rtt', 'timeout', 'connectionLoss' and 'verifyError' can be configured for all template types.  The reaction types 'jitterSDAvg', 'jitterDSAvg', 'jitterAvg',  'packetLateArrival', 'packetOutOfSequence',  'maxOfPositiveSD', 'maxOfNegativeSD', 'maxOfPositiveDS' 'maxOfNegativeDS', 'mos' and 'icpif' can be configured for  UDP jitter and ICMP jitter types only.  The reaction types 'packetLossDS', 'packetLossSD' and  'packetMIA' can be configured for UDP jitter type only.  The reaction types 'successivePacketLoss', 'maxOfLatencyDS',  'maxOfLatencySD', 'latencyDSAvg', 'latencySDAvg' and  'packetLoss' can be configured for ICMP jitter type only
+            	**type**\:   :py:class:`IpSlaReactVar <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpSlaReactVar>`
+            
+            .. attribute:: cipslareactthresholdtype
+            
+            	This object specifies the conditions under which a notification ( trap ) is sent. The rttMonReactOccurred object defined in rttMonReactTable in CISCO\-RTTMON\-MIB will change accordingly\:  never(1)       \- rttMonReactOccurred is never set  immediate(2)   \- rttMonReactOccurred is set to 'true' when the                  value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                  mos etc ) violates the threshold.                  Conversely, rttMonReactOccurred is set to 'false'                  when the parameter ( e.g rtt, jitterAvg,                  packetLossSD, mos etc ) is below the threshold                  limits.  consecutive(3) \- rttMonReactOccurred is set to true when the value                  of parameter for which reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold for configured consecutive                  times.                  Conversely, rttMonReactOccurred is set to false                  when the value of parameter ( e.g rtt, jitterAvg                  packetLossSD, mos etc ) is below the threshold                  limits for the same number of consecutive                  operations.  xOfy(4)        \- rttMonReactOccurred is set to true when x                  ( as specified by cipslaReactThresholdCountX )                  out of the last y ( as specified by                  cipslaReacthresholdCountY ) times the value of                  parameter for which the reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold.                  Conversely, it is set to false when x, out of the                  last y times the value of parameter                  ( e.g rtt, jitterAvg, packetLossSD, mos ) is                  below the threshold limits.                  NOTE\: If x > y, this will never                       generate a reaction.  average(5)    \- rttMonReactOccurred is set to true when the                 average ( cipslaReactThresholdCountX times )                 value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                 mos etc ) violates the threshold condition.                 Conversely, it is set to false when the                 average value of parameter ( e.g rtt, jitterAvg,                 packetLossSD, mos etc ) is below the threshold                 limits.  If this value is changed by a management station, rttMonReactOccurred is set to false, but no reaction is generated if the prior value of rttMonReactOccurred was true
+            	**type**\:   :py:class:`Cipslareactthresholdtype <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry.Cipslareactthresholdtype>`
+            
             .. attribute:: cipslareactactiontype
             
             	Specifies what type, if any, of reaction to generate if one of the watched (reaction\-configuration ) conditions is satisfied\:  none(1)                \- no reaction is generated notificationOnly(2)    \- a notification is generated
             	**type**\:   :py:class:`Cipslareactactiontype <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry.Cipslareactactiontype>`
             
-            .. attribute:: cipslareactrowstatus
+            .. attribute:: cipslareactthresholdrising
             
-            	This objects indicates the status of the conceptual Reaction Control Row.   When this object moves to active state, the conceptual row  is monitored and notifications are generated when threshold  violation takes place.  In order for this object to become active cipslaReactVar must be defined. All other objects assume default values.  When the  status is active, the following objects in that row can be  modified.  cipslaReactThresholdType,  cipslaReactActionType,  cipslaReactThresholdRising,  cipslaReactThresholdFalling,  cipslaReactThresholdCountX,  cipslaReactThresholdCountY,  cipslaReactStorageType  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' no reaction configuration would exist. The reaction configuration for the template is  removed
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	This object defines the higher threshold limit. If the value ( e.g rtt, jitterAvg, packetLossSD etc ) rises above this limit and if the condition specified in cipslaReactThresholdType is satisfied, a notification is  generated.  Default value of cipslaReactThresholdRising for    'rtt' is 5000    'jitterAvg' is 100.    'jitterSDAvg' is 100.    'jitterDSAvg' 100.    'packetLossSD' is 10000.    'packetLossDS' is 10000.    'mos' is 500.    'icpif' is 93.    'packetMIA' is 10000.    'packetLateArrival' is 10000.    'packetOutOfSequence' is 10000.    'maxOfPositiveSD' is 10000.    'maxOfNegativeSD' is 10000.    'maxOfPositiveDS' is 10000.    'maxOfNegativeDS' is 10000.    'successivePacketLoss' is 1000.    'maxOfLatencyDS' is 5000.    'maxOfLatencySD' is 5000.    'latencyDSAvg' is 5000.    'latencySDAvg' is 5000.    'packetLoss' is 10000.  This object is not applicable if the cipslaReactVar is 'timeout', 'connectionLoss' or 'verifyError'. For 'timeout', 'connectionLoss' and 'verifyError' default value of  cipslaReactThresholdRising will be 0
+            	**type**\:  int
             
-            .. attribute:: cipslareactstoragetype
+            	**range:** 0..4294967295
             
-            	The storage type of this conceptual row.  By default the entry will be saved into non\-volatile memory
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            .. attribute:: cipslareactthresholdfalling
+            
+            	This object defines a lower threshold limit. If the value ( e.g rtt, jitterAvg, packetLossSD etc ) falls below this limit and if the condition specified in cipslaReactThresholdType is satisfied, a notification  is generated. This object value can not bigger than cipslaReactThresholdRising value.  Default value of cipslaReactThresholdFalling    'rtt' is 3000    'jitterAvg' is 100.    'jitterSDAvg' is 100.    'jitterDSAvg' 100.    'packetLossSD' is 10000.    'packetLossDS' is 10000.    'mos' is 500.    'icpif' is 93.    'packetMIA' is 10000.    'packetLateArrival' is 10000.    'packetOutOfSequence' is 10000.    'maxOfPositiveSD' is 10000.    'maxOfNegativeSD' is 10000.    'maxOfPositiveDS' is 10000.    'maxOfNegativeDS' is 10000.    'successivePacketLoss' is 1000.    'maxOfLatencyDS' is 3000.    'maxOfLatencySD' is 3000.    'latencyDSAvg' is 3000.    'latencySDAvg' is 3000.    'packetLoss' is 10000.  This object is not applicable if the cipslaReactVar is 'timeout', 'connectionLoss' or 'verifyError'. For 'timeout', 'connectionLoss' and 'verifyError', default value of cipslaReactThresholdFalling will be 0
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: cipslareactthresholdcountx
             
@@ -640,29 +492,15 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             
             	**range:** 1..16
             
-            .. attribute:: cipslareactthresholdfalling
+            .. attribute:: cipslareactstoragetype
             
-            	This object defines a lower threshold limit. If the value ( e.g rtt, jitterAvg, packetLossSD etc ) falls below this limit and if the condition specified in cipslaReactThresholdType is satisfied, a notification  is generated. This object value can not bigger than cipslaReactThresholdRising value.  Default value of cipslaReactThresholdFalling    'rtt' is 3000    'jitterAvg' is 100.    'jitterSDAvg' is 100.    'jitterDSAvg' 100.    'packetLossSD' is 10000.    'packetLossDS' is 10000.    'mos' is 500.    'icpif' is 93.    'packetMIA' is 10000.    'packetLateArrival' is 10000.    'packetOutOfSequence' is 10000.    'maxOfPositiveSD' is 10000.    'maxOfNegativeSD' is 10000.    'maxOfPositiveDS' is 10000.    'maxOfNegativeDS' is 10000.    'successivePacketLoss' is 1000.    'maxOfLatencyDS' is 3000.    'maxOfLatencySD' is 3000.    'latencyDSAvg' is 3000.    'latencySDAvg' is 3000.    'packetLoss' is 10000.  This object is not applicable if the cipslaReactVar is 'timeout', 'connectionLoss' or 'verifyError'. For 'timeout', 'connectionLoss' and 'verifyError', default value of cipslaReactThresholdFalling will be 0
-            	**type**\:  int
+            	The storage type of this conceptual row.  By default the entry will be saved into non\-volatile memory
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
-            	**range:** 0..4294967295
+            .. attribute:: cipslareactrowstatus
             
-            .. attribute:: cipslareactthresholdrising
-            
-            	This object defines the higher threshold limit. If the value ( e.g rtt, jitterAvg, packetLossSD etc ) rises above this limit and if the condition specified in cipslaReactThresholdType is satisfied, a notification is  generated.  Default value of cipslaReactThresholdRising for    'rtt' is 5000    'jitterAvg' is 100.    'jitterSDAvg' is 100.    'jitterDSAvg' 100.    'packetLossSD' is 10000.    'packetLossDS' is 10000.    'mos' is 500.    'icpif' is 93.    'packetMIA' is 10000.    'packetLateArrival' is 10000.    'packetOutOfSequence' is 10000.    'maxOfPositiveSD' is 10000.    'maxOfNegativeSD' is 10000.    'maxOfPositiveDS' is 10000.    'maxOfNegativeDS' is 10000.    'successivePacketLoss' is 1000.    'maxOfLatencyDS' is 5000.    'maxOfLatencySD' is 5000.    'latencyDSAvg' is 5000.    'latencySDAvg' is 5000.    'packetLoss' is 10000.  This object is not applicable if the cipslaReactVar is 'timeout', 'connectionLoss' or 'verifyError'. For 'timeout', 'connectionLoss' and 'verifyError' default value of  cipslaReactThresholdRising will be 0
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipslareactthresholdtype
-            
-            	This object specifies the conditions under which a notification ( trap ) is sent. The rttMonReactOccurred object defined in rttMonReactTable in CISCO\-RTTMON\-MIB will change accordingly\:  never(1)       \- rttMonReactOccurred is never set  immediate(2)   \- rttMonReactOccurred is set to 'true' when the                  value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                  mos etc ) violates the threshold.                  Conversely, rttMonReactOccurred is set to 'false'                  when the parameter ( e.g rtt, jitterAvg,                  packetLossSD, mos etc ) is below the threshold                  limits.  consecutive(3) \- rttMonReactOccurred is set to true when the value                  of parameter for which reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold for configured consecutive                  times.                  Conversely, rttMonReactOccurred is set to false                  when the value of parameter ( e.g rtt, jitterAvg                  packetLossSD, mos etc ) is below the threshold                  limits for the same number of consecutive                  operations.  xOfy(4)        \- rttMonReactOccurred is set to true when x                  ( as specified by cipslaReactThresholdCountX )                  out of the last y ( as specified by                  cipslaReacthresholdCountY ) times the value of                  parameter for which the reaction is configured                  ( e.g rtt, jitterAvg, packetLossSD, mos etc )                  violates the threshold.                  Conversely, it is set to false when x, out of the                  last y times the value of parameter                  ( e.g rtt, jitterAvg, packetLossSD, mos ) is                  below the threshold limits.                  NOTE\: If x > y, this will never                       generate a reaction.  average(5)    \- rttMonReactOccurred is set to true when the                 average ( cipslaReactThresholdCountX times )                 value of parameter for which reaction is                  configured ( e.g rtt, jitterAvg, packetLossSD,                 mos etc ) violates the threshold condition.                 Conversely, it is set to false when the                 average value of parameter ( e.g rtt, jitterAvg,                 packetLossSD, mos etc ) is below the threshold                 limits.  If this value is changed by a management station, rttMonReactOccurred is set to false, but no reaction is generated if the prior value of rttMonReactOccurred was true
-            	**type**\:   :py:class:`Cipslareactthresholdtype <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry.Cipslareactthresholdtype>`
-            
-            .. attribute:: cipslareactvar
-            
-            	This object specifies the type of reaction configured for an IP SLA template. Default value is 'rtt' for ICMP echo, UDP echo and TCP connect. Default value is 'jitterAvg' for UDP jitter and  ICMP jitter.  The reaction types 'rtt', 'timeout', 'connectionLoss' and 'verifyError' can be configured for all template types.  The reaction types 'jitterSDAvg', 'jitterDSAvg', 'jitterAvg',  'packetLateArrival', 'packetOutOfSequence',  'maxOfPositiveSD', 'maxOfNegativeSD', 'maxOfPositiveDS' 'maxOfNegativeDS', 'mos' and 'icpif' can be configured for  UDP jitter and ICMP jitter types only.  The reaction types 'packetLossDS', 'packetLossSD' and  'packetMIA' can be configured for UDP jitter type only.  The reaction types 'successivePacketLoss', 'maxOfLatencyDS',  'maxOfLatencySD', 'latencyDSAvg', 'latencySDAvg' and  'packetLoss' can be configured for ICMP jitter type only
-            	**type**\:   :py:class:`IpSlaReactVar <ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB.IpSlaReactVar>`
+            	This objects indicates the status of the conceptual Reaction Control Row.   When this object moves to active state, the conceptual row  is monitored and notifications are generated when threshold  violation takes place.  In order for this object to become active cipslaReactVar must be defined. All other objects assume default values.  When the  status is active, the following objects in that row can be  modified.  cipslaReactThresholdType,  cipslaReactActionType,  cipslaReactThresholdRising,  cipslaReactThresholdFalling,  cipslaReactThresholdCountX,  cipslaReactThresholdCountY,  cipslaReactStorageType  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' no reaction configuration would exist. The reaction configuration for the template is  removed
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
             
 
@@ -687,28 +525,28 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
 
                 self.cipslaautogroupopertemplatename = YLeaf(YType.str, "cipslaAutoGroupOperTemplateName")
 
+                self.cipslareactvar = YLeaf(YType.enumeration, "cipslaReactVar")
+
+                self.cipslareactthresholdtype = YLeaf(YType.enumeration, "cipslaReactThresholdType")
+
                 self.cipslareactactiontype = YLeaf(YType.enumeration, "cipslaReactActionType")
 
-                self.cipslareactrowstatus = YLeaf(YType.enumeration, "cipslaReactRowStatus")
+                self.cipslareactthresholdrising = YLeaf(YType.uint32, "cipslaReactThresholdRising")
 
-                self.cipslareactstoragetype = YLeaf(YType.enumeration, "cipslaReactStorageType")
+                self.cipslareactthresholdfalling = YLeaf(YType.uint32, "cipslaReactThresholdFalling")
 
                 self.cipslareactthresholdcountx = YLeaf(YType.uint32, "cipslaReactThresholdCountX")
 
                 self.cipslareactthresholdcounty = YLeaf(YType.uint32, "cipslaReactThresholdCountY")
 
-                self.cipslareactthresholdfalling = YLeaf(YType.uint32, "cipslaReactThresholdFalling")
+                self.cipslareactstoragetype = YLeaf(YType.enumeration, "cipslaReactStorageType")
 
-                self.cipslareactthresholdrising = YLeaf(YType.uint32, "cipslaReactThresholdRising")
-
-                self.cipslareactthresholdtype = YLeaf(YType.enumeration, "cipslaReactThresholdType")
-
-                self.cipslareactvar = YLeaf(YType.enumeration, "cipslaReactVar")
+                self.cipslareactrowstatus = YLeaf(YType.enumeration, "cipslaReactRowStatus")
                 self._segment_path = lambda: "cipslaReactEntry" + "[cipslaAutoGroupOperType='" + self.cipslaautogroupopertype.get() + "']" + "[cipslaReactConfigIndex='" + self.cipslareactconfigindex.get() + "']" + "[cipslaAutoGroupOperTemplateName='" + self.cipslaautogroupopertemplatename.get() + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaReactTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry, ['cipslaautogroupopertype', 'cipslareactconfigindex', 'cipslaautogroupopertemplatename', 'cipslareactactiontype', 'cipslareactrowstatus', 'cipslareactstoragetype', 'cipslareactthresholdcountx', 'cipslareactthresholdcounty', 'cipslareactthresholdfalling', 'cipslareactthresholdrising', 'cipslareactthresholdtype', 'cipslareactvar'], name, value)
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslareacttable.Cipslareactentry, ['cipslaautogroupopertype', 'cipslareactconfigindex', 'cipslaautogroupopertemplatename', 'cipslareactvar', 'cipslareactthresholdtype', 'cipslareactactiontype', 'cipslareactthresholdrising', 'cipslareactthresholdfalling', 'cipslareactthresholdcountx', 'cipslareactthresholdcounty', 'cipslareactstoragetype', 'cipslareactrowstatus'], name, value)
 
             class Cipslareactactiontype(Enum):
                 """
@@ -859,6 +697,168 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
 
                 average = Enum.YLeaf(5, "average")
 
+
+
+    class Cipslaautogroupschedtable(Entity):
+        """
+        A table of group scheduling definitions.
+        
+        .. attribute:: cipslaautogroupschedentry
+        
+        	A list of objects that define specific configuration for group scheduling
+        	**type**\: list of    :py:class:`Cipslaautogroupschedentry <ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB.CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
+        _revision = '2007-06-13'
+
+        def __init__(self):
+            super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, self).__init__()
+
+            self.yang_name = "cipslaAutoGroupSchedTable"
+            self.yang_parent_name = "CISCO-IPSLA-AUTOMEASURE-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipslaAutoGroupSchedEntry" : ("cipslaautogroupschedentry", CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry)}
+
+            self.cipslaautogroupschedentry = YList(self)
+            self._segment_path = lambda: "cipslaAutoGroupSchedTable"
+            self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable, [], name, value)
+
+
+        class Cipslaautogroupschedentry(Entity):
+            """
+            A list of objects that define specific configuration for
+            group scheduling.
+            
+            .. attribute:: cipslaautogroupschedid  <key>
+            
+            	This string uniquely identifies a row in the cipslaAutoGroupSchedTable
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: cipslaautogroupschedperiod
+            
+            	Specifies the time duration between initiating two IP SLA operations generated via the auto measure group
+            	**type**\:  int
+            
+            	**range:** 100..99000
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedinterval
+            
+            	Specifies the duration between initiating each RTT operation for one IP SLA operation generated via the auto  measure group.  The value of this object is only effective when both cipslaAutoGroupSchedMaxInterval and  cipslaAutoGroupSchedMinInterval have zero values
+            	**type**\:  int
+            
+            	**range:** 1..604800
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedlife
+            
+            	This object specifies the life of all the operations that are getting group scheduled. This value will be placed into cipslaAutoGroupSchedRttLife object when this conceptual control row becomes 'active'.  The value 2147483647 has a special meaning. When this object is set to 2147483647, the rttMonCtrlOperRttLife object for all the operations will not decrement, and thus the life time of the  operation will never end
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedageout
+            
+            	This object specifies the ageout value of the operations that are getting group scheduled. This value will be placed into rttMonSchedAdminConceptRowAgeout object for each of the operations in the group when this conceptual control row becomes  'active'.  When this value is set to zero, the operations will never ageout
+            	**type**\:  int
+            
+            	**range:** 0..2073600
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedmaxinterval
+            
+            	Specifies the max duration between initiating each RTT operation for one IP SLA operation in the group
+            	**type**\:  int
+            
+            	**range:** 0..604800
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedmininterval
+            
+            	Specifies the min duration between initiating each RTT operation for one IP SLA operation in the group.  The value of this object should be lower than the value of cipslaAutoGroupSchedMaxInterval
+            	**type**\:  int
+            
+            	**range:** 0..604800
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedstarttime
+            
+            	This is the time in seconds after which the operations of the associated groups  will take transition to active state. When set to the value other than '1' (pending), then all  objects in this row cannot be modified
+            	**type**\:  int
+            
+            	**range:** 0..604800
+            
+            	**units**\: seconds
+            
+            .. attribute:: cipslaautogroupschedstoragetype
+            
+            	The storage type of this conceptual row.  By default the entry will be saved into non\-volatile memory
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: cipslaautogroupschedrowstatus
+            
+            	The status of the conceptual group schedule control row.  When the status is active and the value of  cipslaAutoGroupSchedStartTime is '1', the other writable  objects may be modified.  This object can be set to 'destroy' from any value at any time. When this object is set to 'destroy' it will stop all the  operations which had been group scheduled by it earlier,  before destroying the group schedule control row
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSLA-AUTOMEASURE-MIB'
+            _revision = '2007-06-13'
+
+            def __init__(self):
+                super(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, self).__init__()
+
+                self.yang_name = "cipslaAutoGroupSchedEntry"
+                self.yang_parent_name = "cipslaAutoGroupSchedTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipslaautogroupschedid = YLeaf(YType.str, "cipslaAutoGroupSchedId")
+
+                self.cipslaautogroupschedperiod = YLeaf(YType.uint32, "cipslaAutoGroupSchedPeriod")
+
+                self.cipslaautogroupschedinterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedInterval")
+
+                self.cipslaautogroupschedlife = YLeaf(YType.uint32, "cipslaAutoGroupSchedLife")
+
+                self.cipslaautogroupschedageout = YLeaf(YType.uint32, "cipslaAutoGroupSchedAgeout")
+
+                self.cipslaautogroupschedmaxinterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedMaxInterval")
+
+                self.cipslaautogroupschedmininterval = YLeaf(YType.uint32, "cipslaAutoGroupSchedMinInterval")
+
+                self.cipslaautogroupschedstarttime = YLeaf(YType.uint32, "cipslaAutoGroupSchedStartTime")
+
+                self.cipslaautogroupschedstoragetype = YLeaf(YType.enumeration, "cipslaAutoGroupSchedStorageType")
+
+                self.cipslaautogroupschedrowstatus = YLeaf(YType.enumeration, "cipslaAutoGroupSchedRowStatus")
+                self._segment_path = lambda: "cipslaAutoGroupSchedEntry" + "[cipslaAutoGroupSchedId='" + self.cipslaautogroupschedid.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupSchedTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable.Cipslaautogroupschedentry, ['cipslaautogroupschedid', 'cipslaautogroupschedperiod', 'cipslaautogroupschedinterval', 'cipslaautogroupschedlife', 'cipslaautogroupschedageout', 'cipslaautogroupschedmaxinterval', 'cipslaautogroupschedmininterval', 'cipslaautogroupschedstarttime', 'cipslaautogroupschedstoragetype', 'cipslaautogroupschedrowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSLAAUTOMEASUREMIB()

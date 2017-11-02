@@ -254,15 +254,10 @@ class CISCOIPSECMIB(Entity):
     """
     
     
-    .. attribute:: cipscryptomapsetiftable
+    .. attribute:: cipsisakmpgroup
     
-    	The table lists the binding of cryptomap sets to the interfaces of the managed entity
-    	**type**\:   :py:class:`Cipscryptomapsetiftable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipscryptomapsetiftable>`
-    
-    .. attribute:: cipsdynamiccryptomapsettable
-    
-    	The table containing the list of all dynamic cryptomaps that use IKE, defined on   the managed entity
-    	**type**\:   :py:class:`Cipsdynamiccryptomapsettable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsdynamiccryptomapsettable>`
+    	
+    	**type**\:   :py:class:`Cipsisakmpgroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsisakmpgroup>`
     
     .. attribute:: cipsipsecglobals
     
@@ -274,10 +269,15 @@ class CISCOIPSECMIB(Entity):
     	
     	**type**\:   :py:class:`Cipsipsecstatistics <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsipsecstatistics>`
     
-    .. attribute:: cipsisakmpgroup
+    .. attribute:: cipssyscapacitygroup
     
     	
-    	**type**\:   :py:class:`Cipsisakmpgroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsisakmpgroup>`
+    	**type**\:   :py:class:`Cipssyscapacitygroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipssyscapacitygroup>`
+    
+    .. attribute:: cipstrapcntlgroup
+    
+    	
+    	**type**\:   :py:class:`Cipstrapcntlgroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipstrapcntlgroup>`
     
     .. attribute:: cipsisakmppolicytable
     
@@ -289,20 +289,20 @@ class CISCOIPSECMIB(Entity):
     	The table containing the list of all cryptomap sets that are fully specified and are not wild\-carded.  The operator may include different types of cryptomaps in such a set \- manual, CET, ISAKMP or dynamic
     	**type**\:   :py:class:`Cipsstaticcryptomapsettable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable>`
     
+    .. attribute:: cipsdynamiccryptomapsettable
+    
+    	The table containing the list of all dynamic cryptomaps that use IKE, defined on   the managed entity
+    	**type**\:   :py:class:`Cipsdynamiccryptomapsettable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsdynamiccryptomapsettable>`
+    
     .. attribute:: cipsstaticcryptomaptable
     
     	The table ilisting the member cryptomaps of the cryptomap sets that are configured on the managed entity
     	**type**\:   :py:class:`Cipsstaticcryptomaptable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomaptable>`
     
-    .. attribute:: cipssyscapacitygroup
+    .. attribute:: cipscryptomapsetiftable
     
-    	
-    	**type**\:   :py:class:`Cipssyscapacitygroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipssyscapacitygroup>`
-    
-    .. attribute:: cipstrapcntlgroup
-    
-    	
-    	**type**\:   :py:class:`Cipstrapcntlgroup <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipstrapcntlgroup>`
+    	The table lists the binding of cryptomap sets to the interfaces of the managed entity
+    	**type**\:   :py:class:`Cipscryptomapsetiftable <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipscryptomapsetiftable>`
     
     
 
@@ -319,18 +319,13 @@ class CISCOIPSECMIB(Entity):
         self.yang_parent_name = "CISCO-IPSEC-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cipsCryptomapSetIfTable" : ("cipscryptomapsetiftable", CISCOIPSECMIB.Cipscryptomapsetiftable), "cipsDynamicCryptomapSetTable" : ("cipsdynamiccryptomapsettable", CISCOIPSECMIB.Cipsdynamiccryptomapsettable), "cipsIPsecGlobals" : ("cipsipsecglobals", CISCOIPSECMIB.Cipsipsecglobals), "cipsIPsecStatistics" : ("cipsipsecstatistics", CISCOIPSECMIB.Cipsipsecstatistics), "cipsIsakmpGroup" : ("cipsisakmpgroup", CISCOIPSECMIB.Cipsisakmpgroup), "cipsIsakmpPolicyTable" : ("cipsisakmppolicytable", CISCOIPSECMIB.Cipsisakmppolicytable), "cipsStaticCryptomapSetTable" : ("cipsstaticcryptomapsettable", CISCOIPSECMIB.Cipsstaticcryptomapsettable), "cipsStaticCryptomapTable" : ("cipsstaticcryptomaptable", CISCOIPSECMIB.Cipsstaticcryptomaptable), "cipsSysCapacityGroup" : ("cipssyscapacitygroup", CISCOIPSECMIB.Cipssyscapacitygroup), "cipsTrapCntlGroup" : ("cipstrapcntlgroup", CISCOIPSECMIB.Cipstrapcntlgroup)}
+        self._child_container_classes = {"cipsIsakmpGroup" : ("cipsisakmpgroup", CISCOIPSECMIB.Cipsisakmpgroup), "cipsIPsecGlobals" : ("cipsipsecglobals", CISCOIPSECMIB.Cipsipsecglobals), "cipsIPsecStatistics" : ("cipsipsecstatistics", CISCOIPSECMIB.Cipsipsecstatistics), "cipsSysCapacityGroup" : ("cipssyscapacitygroup", CISCOIPSECMIB.Cipssyscapacitygroup), "cipsTrapCntlGroup" : ("cipstrapcntlgroup", CISCOIPSECMIB.Cipstrapcntlgroup), "cipsIsakmpPolicyTable" : ("cipsisakmppolicytable", CISCOIPSECMIB.Cipsisakmppolicytable), "cipsStaticCryptomapSetTable" : ("cipsstaticcryptomapsettable", CISCOIPSECMIB.Cipsstaticcryptomapsettable), "cipsDynamicCryptomapSetTable" : ("cipsdynamiccryptomapsettable", CISCOIPSECMIB.Cipsdynamiccryptomapsettable), "cipsStaticCryptomapTable" : ("cipsstaticcryptomaptable", CISCOIPSECMIB.Cipsstaticcryptomaptable), "cipsCryptomapSetIfTable" : ("cipscryptomapsetiftable", CISCOIPSECMIB.Cipscryptomapsetiftable)}
         self._child_list_classes = {}
 
-        self.cipscryptomapsetiftable = CISCOIPSECMIB.Cipscryptomapsetiftable()
-        self.cipscryptomapsetiftable.parent = self
-        self._children_name_map["cipscryptomapsetiftable"] = "cipsCryptomapSetIfTable"
-        self._children_yang_names.add("cipsCryptomapSetIfTable")
-
-        self.cipsdynamiccryptomapsettable = CISCOIPSECMIB.Cipsdynamiccryptomapsettable()
-        self.cipsdynamiccryptomapsettable.parent = self
-        self._children_name_map["cipsdynamiccryptomapsettable"] = "cipsDynamicCryptomapSetTable"
-        self._children_yang_names.add("cipsDynamicCryptomapSetTable")
+        self.cipsisakmpgroup = CISCOIPSECMIB.Cipsisakmpgroup()
+        self.cipsisakmpgroup.parent = self
+        self._children_name_map["cipsisakmpgroup"] = "cipsIsakmpGroup"
+        self._children_yang_names.add("cipsIsakmpGroup")
 
         self.cipsipsecglobals = CISCOIPSECMIB.Cipsipsecglobals()
         self.cipsipsecglobals.parent = self
@@ -342,10 +337,15 @@ class CISCOIPSECMIB(Entity):
         self._children_name_map["cipsipsecstatistics"] = "cipsIPsecStatistics"
         self._children_yang_names.add("cipsIPsecStatistics")
 
-        self.cipsisakmpgroup = CISCOIPSECMIB.Cipsisakmpgroup()
-        self.cipsisakmpgroup.parent = self
-        self._children_name_map["cipsisakmpgroup"] = "cipsIsakmpGroup"
-        self._children_yang_names.add("cipsIsakmpGroup")
+        self.cipssyscapacitygroup = CISCOIPSECMIB.Cipssyscapacitygroup()
+        self.cipssyscapacitygroup.parent = self
+        self._children_name_map["cipssyscapacitygroup"] = "cipsSysCapacityGroup"
+        self._children_yang_names.add("cipsSysCapacityGroup")
+
+        self.cipstrapcntlgroup = CISCOIPSECMIB.Cipstrapcntlgroup()
+        self.cipstrapcntlgroup.parent = self
+        self._children_name_map["cipstrapcntlgroup"] = "cipsTrapCntlGroup"
+        self._children_yang_names.add("cipsTrapCntlGroup")
 
         self.cipsisakmppolicytable = CISCOIPSECMIB.Cipsisakmppolicytable()
         self.cipsisakmppolicytable.parent = self
@@ -357,21 +357,846 @@ class CISCOIPSECMIB(Entity):
         self._children_name_map["cipsstaticcryptomapsettable"] = "cipsStaticCryptomapSetTable"
         self._children_yang_names.add("cipsStaticCryptomapSetTable")
 
+        self.cipsdynamiccryptomapsettable = CISCOIPSECMIB.Cipsdynamiccryptomapsettable()
+        self.cipsdynamiccryptomapsettable.parent = self
+        self._children_name_map["cipsdynamiccryptomapsettable"] = "cipsDynamicCryptomapSetTable"
+        self._children_yang_names.add("cipsDynamicCryptomapSetTable")
+
         self.cipsstaticcryptomaptable = CISCOIPSECMIB.Cipsstaticcryptomaptable()
         self.cipsstaticcryptomaptable.parent = self
         self._children_name_map["cipsstaticcryptomaptable"] = "cipsStaticCryptomapTable"
         self._children_yang_names.add("cipsStaticCryptomapTable")
 
-        self.cipssyscapacitygroup = CISCOIPSECMIB.Cipssyscapacitygroup()
-        self.cipssyscapacitygroup.parent = self
-        self._children_name_map["cipssyscapacitygroup"] = "cipsSysCapacityGroup"
-        self._children_yang_names.add("cipsSysCapacityGroup")
-
-        self.cipstrapcntlgroup = CISCOIPSECMIB.Cipstrapcntlgroup()
-        self.cipstrapcntlgroup.parent = self
-        self._children_name_map["cipstrapcntlgroup"] = "cipsTrapCntlGroup"
-        self._children_yang_names.add("cipsTrapCntlGroup")
+        self.cipscryptomapsetiftable = CISCOIPSECMIB.Cipscryptomapsetiftable()
+        self.cipscryptomapsetiftable.parent = self
+        self._children_name_map["cipscryptomapsetiftable"] = "cipsCryptomapSetIfTable"
+        self._children_yang_names.add("cipsCryptomapSetIfTable")
         self._segment_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB"
+
+
+    class Cipsisakmpgroup(Entity):
+        """
+        
+        
+        .. attribute:: cipsisakmpenabled
+        
+        	The value of this object is TRUE if ISAKMP has been enabled on the managed entity. Otherise the value of this object is FALSE
+        	**type**\:  bool
+        
+        .. attribute:: cipsisakmpidentity
+        
+        	The value of this object is shows the type of identity used by the managed entity in ISAKMP negotiations with another peer
+        	**type**\:   :py:class:`IkeIdentityType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeIdentityType>`
+        
+        .. attribute:: cipsisakmpkeepaliveinterval
+        
+        	The value of this object is time interval in seconds between successive ISAKMP keepalive heartbeats issued to the peers to which IKE tunnels have been setup
+        	**type**\:  int
+        
+        	**range:** 10..3600
+        
+        	**units**\: seconds
+        
+        .. attribute:: cipsnumisakmppolicies
+        
+        	The value of this object is the number of ISAKMP policies that have been configured on the  managed entity
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsisakmpgroup, self).__init__()
+
+            self.yang_name = "cipsIsakmpGroup"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipsisakmpenabled = YLeaf(YType.boolean, "cipsIsakmpEnabled")
+
+            self.cipsisakmpidentity = YLeaf(YType.enumeration, "cipsIsakmpIdentity")
+
+            self.cipsisakmpkeepaliveinterval = YLeaf(YType.int32, "cipsIsakmpKeepaliveInterval")
+
+            self.cipsnumisakmppolicies = YLeaf(YType.int32, "cipsNumIsakmpPolicies")
+            self._segment_path = lambda: "cipsIsakmpGroup"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsisakmpgroup, ['cipsisakmpenabled', 'cipsisakmpidentity', 'cipsisakmpkeepaliveinterval', 'cipsnumisakmppolicies'], name, value)
+
+
+    class Cipsipsecglobals(Entity):
+        """
+        
+        
+        .. attribute:: cipssalifetime
+        
+        	The default lifetime (in seconds) assigned  to an SA as a global policy (maybe overridden  in specific cryptomap definitions)
+        	**type**\:  int
+        
+        	**range:** 120..86400
+        
+        	**units**\: Seconds
+        
+        .. attribute:: cipssalifesize
+        
+        	The default lifesize in KBytes assigned to an SA  as a global policy (unless overridden in cryptomap  definition)
+        	**type**\:  int
+        
+        	**range:** 2560..536870912
+        
+        	**units**\: KBytes
+        
+        .. attribute:: cipsnumstaticcryptomapsets
+        
+        	The number of Cryptomap Sets that are are fully configured. Statically defined cryptomap sets  are ones where the operator has fully specified all the parameters required set up IPSec  Virtual Private Networks (VPNs)
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cipsnumcetcryptomapsets
+        
+        	The number of static Cryptomap Sets that have  at least one CET cryptomap element as a member of the set
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cipsnumdynamiccryptomapsets
+        
+        	The number of dynamic IPSec Policy templates (called 'dynamic cryptomap templates') configured on the managed entity
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cipsnumtedcryptomapsets
+        
+        	The number of static Cryptomap Sets that have  at least one dynamic cryptomap template  bound to them which has the Tunnel Endpoint Discovery (TED) enabled
+        	**type**\:  int
+        
+        	**range:** 0..2147483647
+        
+        	**units**\: Integral Units
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsipsecglobals, self).__init__()
+
+            self.yang_name = "cipsIPsecGlobals"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipssalifetime = YLeaf(YType.uint32, "cipsSALifetime")
+
+            self.cipssalifesize = YLeaf(YType.uint32, "cipsSALifesize")
+
+            self.cipsnumstaticcryptomapsets = YLeaf(YType.uint32, "cipsNumStaticCryptomapSets")
+
+            self.cipsnumcetcryptomapsets = YLeaf(YType.uint32, "cipsNumCETCryptomapSets")
+
+            self.cipsnumdynamiccryptomapsets = YLeaf(YType.uint32, "cipsNumDynamicCryptomapSets")
+
+            self.cipsnumtedcryptomapsets = YLeaf(YType.uint32, "cipsNumTEDCryptomapSets")
+            self._segment_path = lambda: "cipsIPsecGlobals"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsipsecglobals, ['cipssalifetime', 'cipssalifesize', 'cipsnumstaticcryptomapsets', 'cipsnumcetcryptomapsets', 'cipsnumdynamiccryptomapsets', 'cipsnumtedcryptomapsets'], name, value)
+
+
+    class Cipsipsecstatistics(Entity):
+        """
+        
+        
+        .. attribute:: cipsnumtedprobesreceived
+        
+        	The number of TED probes that were received by this  managed entity since bootup. Not affected by any  CLI operation
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cipsnumtedprobessent
+        
+        	The number of TED probes that were dispatched by all the dynamic cryptomaps in this managed entity since  bootup. Not affected by any CLI operation
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cipsnumtedfailures
+        
+        	The number of TED probes that were dispatched by  the local entity and that failed to locate crypto  endpoint.  Not affected by any CLI operation
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: Integral Units
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsipsecstatistics, self).__init__()
+
+            self.yang_name = "cipsIPsecStatistics"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipsnumtedprobesreceived = YLeaf(YType.uint32, "cipsNumTEDProbesReceived")
+
+            self.cipsnumtedprobessent = YLeaf(YType.uint32, "cipsNumTEDProbesSent")
+
+            self.cipsnumtedfailures = YLeaf(YType.uint32, "cipsNumTEDFailures")
+            self._segment_path = lambda: "cipsIPsecStatistics"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsipsecstatistics, ['cipsnumtedprobesreceived', 'cipsnumtedprobessent', 'cipsnumtedfailures'], name, value)
+
+
+    class Cipssyscapacitygroup(Entity):
+        """
+        
+        
+        .. attribute:: cipsmaxsas
+        
+        	The maximum number of IPsec Security Associations that can be established on this managed entity. If no theoretical limit exists, this returns value 0.  Not affected by any CLI operation
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        	**units**\: Integral Units
+        
+        .. attribute:: cips3descapable
+        
+        	The value of this object is TRUE if the  managed entity has the hardware nad software  features to support 3DES encryption algorithm.  Not affected by any CLI operation
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipssyscapacitygroup, self).__init__()
+
+            self.yang_name = "cipsSysCapacityGroup"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipsmaxsas = YLeaf(YType.int32, "cipsMaxSAs")
+
+            self.cips3descapable = YLeaf(YType.boolean, "cips3DesCapable")
+            self._segment_path = lambda: "cipsSysCapacityGroup"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipssyscapacitygroup, ['cipsmaxsas', 'cips3descapable'], name, value)
+
+
+    class Cipstrapcntlgroup(Entity):
+        """
+        
+        
+        .. attribute:: cipscntlisakmppolicyadded
+        
+        	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Add trap
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntlisakmppolicydeleted
+        
+        	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Delete trap
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntlcryptomapadded
+        
+        	This object defines the administrative state of  sending the IOS IPsec Cryptomap Add trap
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntlcryptomapdeleted
+        
+        	This object defines the administrative state of  sending the IOS IPsec Cryptomap Delete trap
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntlcryptomapsetattached
+        
+        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is attached to an interface
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntlcryptomapsetdetached
+        
+        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is detached from an interface. to which it was earlier bound
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        .. attribute:: cipscntltoomanysas
+        
+        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when the number of SAs crosses the maximum number of SAs that may be supported on the managed entity
+        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipstrapcntlgroup, self).__init__()
+
+            self.yang_name = "cipsTrapCntlGroup"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cipscntlisakmppolicyadded = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyAdded")
+
+            self.cipscntlisakmppolicydeleted = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyDeleted")
+
+            self.cipscntlcryptomapadded = YLeaf(YType.enumeration, "cipsCntlCryptomapAdded")
+
+            self.cipscntlcryptomapdeleted = YLeaf(YType.enumeration, "cipsCntlCryptomapDeleted")
+
+            self.cipscntlcryptomapsetattached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetAttached")
+
+            self.cipscntlcryptomapsetdetached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetDetached")
+
+            self.cipscntltoomanysas = YLeaf(YType.enumeration, "cipsCntlTooManySAs")
+            self._segment_path = lambda: "cipsTrapCntlGroup"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipstrapcntlgroup, ['cipscntlisakmppolicyadded', 'cipscntlisakmppolicydeleted', 'cipscntlcryptomapadded', 'cipscntlcryptomapdeleted', 'cipscntlcryptomapsetattached', 'cipscntlcryptomapsetdetached', 'cipscntltoomanysas'], name, value)
+
+
+    class Cipsisakmppolicytable(Entity):
+        """
+        The table containing the list of all
+        ISAKMP policy entries configured by the operator.
+        
+        .. attribute:: cipsisakmppolicyentry
+        
+        	Each entry contains the attributes  associated with a single ISAKMP Policy entry
+        	**type**\: list of    :py:class:`Cipsisakmppolicyentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsisakmppolicytable, self).__init__()
+
+            self.yang_name = "cipsIsakmpPolicyTable"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipsIsakmpPolicyEntry" : ("cipsisakmppolicyentry", CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry)}
+
+            self.cipsisakmppolicyentry = YList(self)
+            self._segment_path = lambda: "cipsIsakmpPolicyTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsisakmppolicytable, [], name, value)
+
+
+        class Cipsisakmppolicyentry(Entity):
+            """
+            Each entry contains the attributes 
+            associated with a single ISAKMP
+            Policy entry.
+            
+            .. attribute:: cipsisakmppolpriority  <key>
+            
+            	The priotity of this ISAKMP Policy entry. This is also the index of this table
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cipsisakmppolencr
+            
+            	The encryption transform specified by this  ISAKMP policy specification. The Internet Key Exchange (IKE) tunnels setup using this policy item would use the specified encryption transform to protect the ISAKMP PDUs
+            	**type**\:   :py:class:`EncryptAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.EncryptAlgo>`
+            
+            .. attribute:: cipsisakmppolhash
+            
+            	The hash transform specified by this  ISAKMP policy specification. The IKE tunnels setup using this policy item would use the  specified hash transform to protect the ISAKMP PDUs
+            	**type**\:   :py:class:`IkeHashAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeHashAlgo>`
+            
+            .. attribute:: cipsisakmppolauth
+            
+            	The peer authentication mthod specified by this ISAKMP policy specification. If this policy entity is selected for negotiation with a peer, the local entity would authenticate the peer using  the method specified by this object
+            	**type**\:   :py:class:`IkeAuthMethod <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeAuthMethod>`
+            
+            .. attribute:: cipsisakmppolgroup
+            
+            	This object specifies the Oakley group used  for Diffie Hellman exchange in the Main Mode.  If this policy item is selected to negotiate Main Mode with an IKE peer, the local entity  chooses the group specified by this object to perform Diffie Hellman exchange with the peer
+            	**type**\:   :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
+            
+            .. attribute:: cipsisakmppollifetime
+            
+            	This object specifies the lifetime in seconds of the IKE tunnels generated using this  policy specification
+            	**type**\:  int
+            
+            	**range:** 60..86400
+            
+            	**units**\: seconds
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSEC-MIB'
+            _revision = '2000-08-07'
+
+            def __init__(self):
+                super(CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry, self).__init__()
+
+                self.yang_name = "cipsIsakmpPolicyEntry"
+                self.yang_parent_name = "cipsIsakmpPolicyTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipsisakmppolpriority = YLeaf(YType.int32, "cipsIsakmpPolPriority")
+
+                self.cipsisakmppolencr = YLeaf(YType.enumeration, "cipsIsakmpPolEncr")
+
+                self.cipsisakmppolhash = YLeaf(YType.enumeration, "cipsIsakmpPolHash")
+
+                self.cipsisakmppolauth = YLeaf(YType.enumeration, "cipsIsakmpPolAuth")
+
+                self.cipsisakmppolgroup = YLeaf(YType.enumeration, "cipsIsakmpPolGroup")
+
+                self.cipsisakmppollifetime = YLeaf(YType.int32, "cipsIsakmpPolLifetime")
+                self._segment_path = lambda: "cipsIsakmpPolicyEntry" + "[cipsIsakmpPolPriority='" + self.cipsisakmppolpriority.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsIsakmpPolicyTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry, ['cipsisakmppolpriority', 'cipsisakmppolencr', 'cipsisakmppolhash', 'cipsisakmppolauth', 'cipsisakmppolgroup', 'cipsisakmppollifetime'], name, value)
+
+
+    class Cipsstaticcryptomapsettable(Entity):
+        """
+        The table containing the list of all
+        cryptomap sets that are fully specified
+        and are not wild\-carded.
+        
+        The operator may include different types of
+        cryptomaps in such a set \- manual, CET,
+        ISAKMP or dynamic.
+        
+        .. attribute:: cipsstaticcryptomapsetentry
+        
+        	Each entry contains the attributes  associated with a single static  cryptomap set
+        	**type**\: list of    :py:class:`Cipsstaticcryptomapsetentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsstaticcryptomapsettable, self).__init__()
+
+            self.yang_name = "cipsStaticCryptomapSetTable"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipsStaticCryptomapSetEntry" : ("cipsstaticcryptomapsetentry", CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry)}
+
+            self.cipsstaticcryptomapsetentry = YList(self)
+            self._segment_path = lambda: "cipsStaticCryptomapSetTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomapsettable, [], name, value)
+
+
+        class Cipsstaticcryptomapsetentry(Entity):
+            """
+            Each entry contains the attributes 
+            associated with a single static 
+            cryptomap set.
+            
+            .. attribute:: cipsstaticcryptomapsetname  <key>
+            
+            	The index of the static cryptomap table. The value  of the string is the name string assigned by the  operator in defining the cryptomap set
+            	**type**\:  str
+            
+            .. attribute:: cipsstaticcryptomapsetsize
+            
+            	The total number of cryptomap entries contained in this cryptomap set. 
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnumisakmp
+            
+            	The number of cryptomaps associated with this  cryptomap set that use ISAKMP protocol to do key exchange
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnummanual
+            
+            	The number of cryptomaps associated with this  cryptomap set that require the operator to manually setup the keys and SPIs
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnumcet
+            
+            	The number of cryptomaps of type 'ipsec\-cisco'  associated with this cryptomap set. Such cryptomap elements implement Cisco Encryption Technology based Virtual Private Networks
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnumdynamic
+            
+            	The number of dynamic cryptomap templates linked to this cryptomap set
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnumdisc
+            
+            	The number of dynamic cryptomap templates linked to this cryptomap set that have Tunnel Endpoint Discovery (TED) enabled
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsstaticcryptomapsetnumsas
+            
+            	The number of and IPsec Security Associations that are active and were setup using this cryptomap.  
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSEC-MIB'
+            _revision = '2000-08-07'
+
+            def __init__(self):
+                super(CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry, self).__init__()
+
+                self.yang_name = "cipsStaticCryptomapSetEntry"
+                self.yang_parent_name = "cipsStaticCryptomapSetTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
+
+                self.cipsstaticcryptomapsetsize = YLeaf(YType.uint32, "cipsStaticCryptomapSetSize")
+
+                self.cipsstaticcryptomapsetnumisakmp = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumIsakmp")
+
+                self.cipsstaticcryptomapsetnummanual = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumManual")
+
+                self.cipsstaticcryptomapsetnumcet = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumCET")
+
+                self.cipsstaticcryptomapsetnumdynamic = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDynamic")
+
+                self.cipsstaticcryptomapsetnumdisc = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDisc")
+
+                self.cipsstaticcryptomapsetnumsas = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumSAs")
+                self._segment_path = lambda: "cipsStaticCryptomapSetEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapSetTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomapsetsize', 'cipsstaticcryptomapsetnumisakmp', 'cipsstaticcryptomapsetnummanual', 'cipsstaticcryptomapsetnumcet', 'cipsstaticcryptomapsetnumdynamic', 'cipsstaticcryptomapsetnumdisc', 'cipsstaticcryptomapsetnumsas'], name, value)
+
+
+    class Cipsdynamiccryptomapsettable(Entity):
+        """
+        The table containing the list of all dynamic
+        cryptomaps that use IKE, defined on 
+         the managed entity.
+        
+        .. attribute:: cipsdynamiccryptomapsetentry
+        
+        	Each entry contains the attributes associated with a single dynamic cryptomap template
+        	**type**\: list of    :py:class:`Cipsdynamiccryptomapsetentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsdynamiccryptomapsettable, self).__init__()
+
+            self.yang_name = "cipsDynamicCryptomapSetTable"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipsDynamicCryptomapSetEntry" : ("cipsdynamiccryptomapsetentry", CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry)}
+
+            self.cipsdynamiccryptomapsetentry = YList(self)
+            self._segment_path = lambda: "cipsDynamicCryptomapSetTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsdynamiccryptomapsettable, [], name, value)
+
+
+        class Cipsdynamiccryptomapsetentry(Entity):
+            """
+            Each entry contains the attributes associated
+            with a single dynamic cryptomap template.
+            
+            .. attribute:: cipsdynamiccryptomapsetname  <key>
+            
+            	The index of the dynamic cryptomap table.  The value of the string is the one assigned  by the operator in defining the cryptomap set
+            	**type**\:  str
+            
+            .. attribute:: cipsdynamiccryptomapsetsize
+            
+            	The number of cryptomap entries in this cryptomap
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cipsdynamiccryptomapsetnumassoc
+            
+            	The number of static cryptomap sets with which this dynamic cryptomap is associated.  
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSEC-MIB'
+            _revision = '2000-08-07'
+
+            def __init__(self):
+                super(CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry, self).__init__()
+
+                self.yang_name = "cipsDynamicCryptomapSetEntry"
+                self.yang_parent_name = "cipsDynamicCryptomapSetTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipsdynamiccryptomapsetname = YLeaf(YType.str, "cipsDynamicCryptomapSetName")
+
+                self.cipsdynamiccryptomapsetsize = YLeaf(YType.uint32, "cipsDynamicCryptomapSetSize")
+
+                self.cipsdynamiccryptomapsetnumassoc = YLeaf(YType.uint32, "cipsDynamicCryptomapSetNumAssoc")
+                self._segment_path = lambda: "cipsDynamicCryptomapSetEntry" + "[cipsDynamicCryptomapSetName='" + self.cipsdynamiccryptomapsetname.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsDynamicCryptomapSetTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry, ['cipsdynamiccryptomapsetname', 'cipsdynamiccryptomapsetsize', 'cipsdynamiccryptomapsetnumassoc'], name, value)
+
+
+    class Cipsstaticcryptomaptable(Entity):
+        """
+        The table ilisting the member cryptomaps
+        of the cryptomap sets that are configured
+        on the managed entity.
+        
+        .. attribute:: cipsstaticcryptomapentry
+        
+        	Each entry contains the attributes  associated with a single static  (fully specified) cryptomap entry. This table does not include the members  of dynamic cryptomap sets that may be linked with the parent static cryptomap set
+        	**type**\: list of    :py:class:`Cipsstaticcryptomapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IPSEC-MIB'
+        _revision = '2000-08-07'
+
+        def __init__(self):
+            super(CISCOIPSECMIB.Cipsstaticcryptomaptable, self).__init__()
+
+            self.yang_name = "cipsStaticCryptomapTable"
+            self.yang_parent_name = "CISCO-IPSEC-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cipsStaticCryptomapEntry" : ("cipsstaticcryptomapentry", CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry)}
+
+            self.cipsstaticcryptomapentry = YList(self)
+            self._segment_path = lambda: "cipsStaticCryptomapTable"
+            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomaptable, [], name, value)
+
+
+        class Cipsstaticcryptomapentry(Entity):
+            """
+            Each entry contains the attributes 
+            associated with a single static 
+            (fully specified) cryptomap entry.
+            This table does not include the members 
+            of dynamic cryptomap sets that may be
+            linked with the parent static cryptomap set.
+            
+            .. attribute:: cipsstaticcryptomapsetname  <key>
+            
+            	
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
+            
+            .. attribute:: cipsstaticcryptomappriority  <key>
+            
+            	The priority of the cryptomap entry in the  cryptomap set. This is the second index component of this table
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: cipsstaticcryptomaptype
+            
+            	The type of the cryptomap entry. This can be an ISAKMP cryptomap, CET or manual. Dynamic cryptomaps are not counted in this table
+            	**type**\:   :py:class:`CryptomapType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapType>`
+            
+            .. attribute:: cipsstaticcryptomapdescr
+            
+            	The description string entered by the operatoir while creating this cryptomap. The string generally identifies a description and the purpose of this policy
+            	**type**\:  str
+            
+            .. attribute:: cipsstaticcryptomappeer
+            
+            	The IP address of the current peer associated with  this IPSec policy item. Traffic that is protected by this cryptomap is protected by a tunnel that terminates at the device whose IP address is specified by this object
+            	**type**\:  str
+            
+            	**length:** 4 \| 16
+            
+            .. attribute:: cipsstaticcryptomapnumpeers
+            
+            	The number of peers associated with this cryptomap  entry. The peers other than the one identified by  'cipsStaticCryptomapPeer' are backup peers.   Manual cryptomaps may have only one peer
+            	**type**\:  int
+            
+            	**range:** 0..40
+            
+            .. attribute:: cipsstaticcryptomappfs
+            
+            	This object identifies if the tunnels instantiated due to this policy item should use Perfect Forward Secrecy  (PFS) and if so, what group of Oakley they should use
+            	**type**\:   :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
+            
+            .. attribute:: cipsstaticcryptomaplifetime
+            
+            	This object identifies the lifetime of the IPSec Security Associations (SA) created using this IPSec policy entry. If this value is zero, the lifetime assumes the  value specified by the global lifetime parameter
+            	**type**\:  int
+            
+            	**range:** 0..None \| 120..86400
+            
+            .. attribute:: cipsstaticcryptomaplifesize
+            
+            	This object identifies the lifesize (maximum traffic in bytes that may be carried) of the IPSec SAs created using this IPSec policy entry.  If this value is zero, the lifetime assumes the  value specified by the global lifesize parameter
+            	**type**\:  int
+            
+            	**range:** 0..None \| 2560..536870912
+            
+            .. attribute:: cipsstaticcryptomaplevelhost
+            
+            	This object identifies the granularity of the IPSec SAs created using this IPSec policy entry.  If this value is TRUE, distinct SA bundles are created for distinct hosts at the end of the application traffic
+            	**type**\:  bool
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IPSEC-MIB'
+            _revision = '2000-08-07'
+
+            def __init__(self):
+                super(CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry, self).__init__()
+
+                self.yang_name = "cipsStaticCryptomapEntry"
+                self.yang_parent_name = "cipsStaticCryptomapTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
+
+                self.cipsstaticcryptomappriority = YLeaf(YType.int32, "cipsStaticCryptomapPriority")
+
+                self.cipsstaticcryptomaptype = YLeaf(YType.enumeration, "cipsStaticCryptomapType")
+
+                self.cipsstaticcryptomapdescr = YLeaf(YType.str, "cipsStaticCryptomapDescr")
+
+                self.cipsstaticcryptomappeer = YLeaf(YType.str, "cipsStaticCryptomapPeer")
+
+                self.cipsstaticcryptomapnumpeers = YLeaf(YType.int32, "cipsStaticCryptomapNumPeers")
+
+                self.cipsstaticcryptomappfs = YLeaf(YType.enumeration, "cipsStaticCryptomapPfs")
+
+                self.cipsstaticcryptomaplifetime = YLeaf(YType.int32, "cipsStaticCryptomapLifetime")
+
+                self.cipsstaticcryptomaplifesize = YLeaf(YType.int32, "cipsStaticCryptomapLifesize")
+
+                self.cipsstaticcryptomaplevelhost = YLeaf(YType.boolean, "cipsStaticCryptomapLevelHost")
+                self._segment_path = lambda: "cipsStaticCryptomapEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']" + "[cipsStaticCryptomapPriority='" + self.cipsstaticcryptomappriority.get() + "']"
+                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomappriority', 'cipsstaticcryptomaptype', 'cipsstaticcryptomapdescr', 'cipsstaticcryptomappeer', 'cipsstaticcryptomapnumpeers', 'cipsstaticcryptomappfs', 'cipsstaticcryptomaplifetime', 'cipsstaticcryptomaplifesize', 'cipsstaticcryptomaplevelhost'], name, value)
 
 
     class Cipscryptomapsetiftable(Entity):
@@ -436,15 +1261,15 @@ class CISCOIPSECMIB(Entity):
             
             	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
             
-            .. attribute:: cipscryptomapsetifstatus
-            
-            	This object identifies the status of the binding  of the specified cryptomap set with the specified interface. The value when queried is always 'attached'.  When set to 'detached', the cryptomap set if detached  from the specified interface. The effect of this is same  as the CLI command  	config\-if# no crypto map cryptomapSetName  Setting the value to 'attached' will result in  SNMP General Error
-            	**type**\:   :py:class:`CryptomapSetBindStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapSetBindStatus>`
-            
             .. attribute:: cipscryptomapsetifvirtual
             
             	The value of this object identifies if the interface to which the cryptomap set is attached is a tunnel (such as a GRE or PPTP tunnel)
             	**type**\:  bool
+            
+            .. attribute:: cipscryptomapsetifstatus
+            
+            	This object identifies the status of the binding  of the specified cryptomap set with the specified interface. The value when queried is always 'attached'.  When set to 'detached', the cryptomap set if detached  from the specified interface. The effect of this is same  as the CLI command  	config\-if# no crypto map cryptomapSetName  Setting the value to 'attached' will result in  SNMP General Error
+            	**type**\:   :py:class:`CryptomapSetBindStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapSetBindStatus>`
             
             
 
@@ -467,839 +1292,14 @@ class CISCOIPSECMIB(Entity):
 
                 self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
 
-                self.cipscryptomapsetifstatus = YLeaf(YType.enumeration, "cipsCryptomapSetIfStatus")
-
                 self.cipscryptomapsetifvirtual = YLeaf(YType.boolean, "cipsCryptomapSetIfVirtual")
+
+                self.cipscryptomapsetifstatus = YLeaf(YType.enumeration, "cipsCryptomapSetIfStatus")
                 self._segment_path = lambda: "cipsCryptomapSetIfEntry" + "[ifIndex='" + self.ifindex.get() + "']" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsCryptomapSetIfTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECMIB.Cipscryptomapsetiftable.Cipscryptomapsetifentry, ['ifindex', 'cipsstaticcryptomapsetname', 'cipscryptomapsetifstatus', 'cipscryptomapsetifvirtual'], name, value)
-
-
-    class Cipsdynamiccryptomapsettable(Entity):
-        """
-        The table containing the list of all dynamic
-        cryptomaps that use IKE, defined on 
-         the managed entity.
-        
-        .. attribute:: cipsdynamiccryptomapsetentry
-        
-        	Each entry contains the attributes associated with a single dynamic cryptomap template
-        	**type**\: list of    :py:class:`Cipsdynamiccryptomapsetentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsdynamiccryptomapsettable, self).__init__()
-
-            self.yang_name = "cipsDynamicCryptomapSetTable"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsDynamicCryptomapSetEntry" : ("cipsdynamiccryptomapsetentry", CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry)}
-
-            self.cipsdynamiccryptomapsetentry = YList(self)
-            self._segment_path = lambda: "cipsDynamicCryptomapSetTable"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsdynamiccryptomapsettable, [], name, value)
-
-
-        class Cipsdynamiccryptomapsetentry(Entity):
-            """
-            Each entry contains the attributes associated
-            with a single dynamic cryptomap template.
-            
-            .. attribute:: cipsdynamiccryptomapsetname  <key>
-            
-            	The index of the dynamic cryptomap table.  The value of the string is the one assigned  by the operator in defining the cryptomap set
-            	**type**\:  str
-            
-            .. attribute:: cipsdynamiccryptomapsetnumassoc
-            
-            	The number of static cryptomap sets with which this dynamic cryptomap is associated.  
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsdynamiccryptomapsetsize
-            
-            	The number of cryptomap entries in this cryptomap
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSEC-MIB'
-            _revision = '2000-08-07'
-
-            def __init__(self):
-                super(CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry, self).__init__()
-
-                self.yang_name = "cipsDynamicCryptomapSetEntry"
-                self.yang_parent_name = "cipsDynamicCryptomapSetTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsdynamiccryptomapsetname = YLeaf(YType.str, "cipsDynamicCryptomapSetName")
-
-                self.cipsdynamiccryptomapsetnumassoc = YLeaf(YType.uint32, "cipsDynamicCryptomapSetNumAssoc")
-
-                self.cipsdynamiccryptomapsetsize = YLeaf(YType.uint32, "cipsDynamicCryptomapSetSize")
-                self._segment_path = lambda: "cipsDynamicCryptomapSetEntry" + "[cipsDynamicCryptomapSetName='" + self.cipsdynamiccryptomapsetname.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsDynamicCryptomapSetTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECMIB.Cipsdynamiccryptomapsettable.Cipsdynamiccryptomapsetentry, ['cipsdynamiccryptomapsetname', 'cipsdynamiccryptomapsetnumassoc', 'cipsdynamiccryptomapsetsize'], name, value)
-
-
-    class Cipsipsecglobals(Entity):
-        """
-        
-        
-        .. attribute:: cipsnumcetcryptomapsets
-        
-        	The number of static Cryptomap Sets that have  at least one CET cryptomap element as a member of the set
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipsnumdynamiccryptomapsets
-        
-        	The number of dynamic IPSec Policy templates (called 'dynamic cryptomap templates') configured on the managed entity
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipsnumstaticcryptomapsets
-        
-        	The number of Cryptomap Sets that are are fully configured. Statically defined cryptomap sets  are ones where the operator has fully specified all the parameters required set up IPSec  Virtual Private Networks (VPNs)
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipsnumtedcryptomapsets
-        
-        	The number of static Cryptomap Sets that have  at least one dynamic cryptomap template  bound to them which has the Tunnel Endpoint Discovery (TED) enabled
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipssalifesize
-        
-        	The default lifesize in KBytes assigned to an SA  as a global policy (unless overridden in cryptomap  definition)
-        	**type**\:  int
-        
-        	**range:** 2560..536870912
-        
-        	**units**\: KBytes
-        
-        .. attribute:: cipssalifetime
-        
-        	The default lifetime (in seconds) assigned  to an SA as a global policy (maybe overridden  in specific cryptomap definitions)
-        	**type**\:  int
-        
-        	**range:** 120..86400
-        
-        	**units**\: Seconds
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsipsecglobals, self).__init__()
-
-            self.yang_name = "cipsIPsecGlobals"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsnumcetcryptomapsets = YLeaf(YType.uint32, "cipsNumCETCryptomapSets")
-
-            self.cipsnumdynamiccryptomapsets = YLeaf(YType.uint32, "cipsNumDynamicCryptomapSets")
-
-            self.cipsnumstaticcryptomapsets = YLeaf(YType.uint32, "cipsNumStaticCryptomapSets")
-
-            self.cipsnumtedcryptomapsets = YLeaf(YType.uint32, "cipsNumTEDCryptomapSets")
-
-            self.cipssalifesize = YLeaf(YType.uint32, "cipsSALifesize")
-
-            self.cipssalifetime = YLeaf(YType.uint32, "cipsSALifetime")
-            self._segment_path = lambda: "cipsIPsecGlobals"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsipsecglobals, ['cipsnumcetcryptomapsets', 'cipsnumdynamiccryptomapsets', 'cipsnumstaticcryptomapsets', 'cipsnumtedcryptomapsets', 'cipssalifesize', 'cipssalifetime'], name, value)
-
-
-    class Cipsipsecstatistics(Entity):
-        """
-        
-        
-        .. attribute:: cipsnumtedfailures
-        
-        	The number of TED probes that were dispatched by  the local entity and that failed to locate crypto  endpoint.  Not affected by any CLI operation
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipsnumtedprobesreceived
-        
-        	The number of TED probes that were received by this  managed entity since bootup. Not affected by any  CLI operation
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: Integral Units
-        
-        .. attribute:: cipsnumtedprobessent
-        
-        	The number of TED probes that were dispatched by all the dynamic cryptomaps in this managed entity since  bootup. Not affected by any CLI operation
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: Integral Units
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsipsecstatistics, self).__init__()
-
-            self.yang_name = "cipsIPsecStatistics"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsnumtedfailures = YLeaf(YType.uint32, "cipsNumTEDFailures")
-
-            self.cipsnumtedprobesreceived = YLeaf(YType.uint32, "cipsNumTEDProbesReceived")
-
-            self.cipsnumtedprobessent = YLeaf(YType.uint32, "cipsNumTEDProbesSent")
-            self._segment_path = lambda: "cipsIPsecStatistics"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsipsecstatistics, ['cipsnumtedfailures', 'cipsnumtedprobesreceived', 'cipsnumtedprobessent'], name, value)
-
-
-    class Cipsisakmpgroup(Entity):
-        """
-        
-        
-        .. attribute:: cipsisakmpenabled
-        
-        	The value of this object is TRUE if ISAKMP has been enabled on the managed entity. Otherise the value of this object is FALSE
-        	**type**\:  bool
-        
-        .. attribute:: cipsisakmpidentity
-        
-        	The value of this object is shows the type of identity used by the managed entity in ISAKMP negotiations with another peer
-        	**type**\:   :py:class:`IkeIdentityType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeIdentityType>`
-        
-        .. attribute:: cipsisakmpkeepaliveinterval
-        
-        	The value of this object is time interval in seconds between successive ISAKMP keepalive heartbeats issued to the peers to which IKE tunnels have been setup
-        	**type**\:  int
-        
-        	**range:** 10..3600
-        
-        	**units**\: seconds
-        
-        .. attribute:: cipsnumisakmppolicies
-        
-        	The value of this object is the number of ISAKMP policies that have been configured on the  managed entity
-        	**type**\:  int
-        
-        	**range:** 0..2147483647
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsisakmpgroup, self).__init__()
-
-            self.yang_name = "cipsIsakmpGroup"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipsisakmpenabled = YLeaf(YType.boolean, "cipsIsakmpEnabled")
-
-            self.cipsisakmpidentity = YLeaf(YType.enumeration, "cipsIsakmpIdentity")
-
-            self.cipsisakmpkeepaliveinterval = YLeaf(YType.int32, "cipsIsakmpKeepaliveInterval")
-
-            self.cipsnumisakmppolicies = YLeaf(YType.int32, "cipsNumIsakmpPolicies")
-            self._segment_path = lambda: "cipsIsakmpGroup"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsisakmpgroup, ['cipsisakmpenabled', 'cipsisakmpidentity', 'cipsisakmpkeepaliveinterval', 'cipsnumisakmppolicies'], name, value)
-
-
-    class Cipsisakmppolicytable(Entity):
-        """
-        The table containing the list of all
-        ISAKMP policy entries configured by the operator.
-        
-        .. attribute:: cipsisakmppolicyentry
-        
-        	Each entry contains the attributes  associated with a single ISAKMP Policy entry
-        	**type**\: list of    :py:class:`Cipsisakmppolicyentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsisakmppolicytable, self).__init__()
-
-            self.yang_name = "cipsIsakmpPolicyTable"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsIsakmpPolicyEntry" : ("cipsisakmppolicyentry", CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry)}
-
-            self.cipsisakmppolicyentry = YList(self)
-            self._segment_path = lambda: "cipsIsakmpPolicyTable"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsisakmppolicytable, [], name, value)
-
-
-        class Cipsisakmppolicyentry(Entity):
-            """
-            Each entry contains the attributes 
-            associated with a single ISAKMP
-            Policy entry.
-            
-            .. attribute:: cipsisakmppolpriority  <key>
-            
-            	The priotity of this ISAKMP Policy entry. This is also the index of this table
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cipsisakmppolauth
-            
-            	The peer authentication mthod specified by this ISAKMP policy specification. If this policy entity is selected for negotiation with a peer, the local entity would authenticate the peer using  the method specified by this object
-            	**type**\:   :py:class:`IkeAuthMethod <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeAuthMethod>`
-            
-            .. attribute:: cipsisakmppolencr
-            
-            	The encryption transform specified by this  ISAKMP policy specification. The Internet Key Exchange (IKE) tunnels setup using this policy item would use the specified encryption transform to protect the ISAKMP PDUs
-            	**type**\:   :py:class:`EncryptAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.EncryptAlgo>`
-            
-            .. attribute:: cipsisakmppolgroup
-            
-            	This object specifies the Oakley group used  for Diffie Hellman exchange in the Main Mode.  If this policy item is selected to negotiate Main Mode with an IKE peer, the local entity  chooses the group specified by this object to perform Diffie Hellman exchange with the peer
-            	**type**\:   :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
-            
-            .. attribute:: cipsisakmppolhash
-            
-            	The hash transform specified by this  ISAKMP policy specification. The IKE tunnels setup using this policy item would use the  specified hash transform to protect the ISAKMP PDUs
-            	**type**\:   :py:class:`IkeHashAlgo <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.IkeHashAlgo>`
-            
-            .. attribute:: cipsisakmppollifetime
-            
-            	This object specifies the lifetime in seconds of the IKE tunnels generated using this  policy specification
-            	**type**\:  int
-            
-            	**range:** 60..86400
-            
-            	**units**\: seconds
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSEC-MIB'
-            _revision = '2000-08-07'
-
-            def __init__(self):
-                super(CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry, self).__init__()
-
-                self.yang_name = "cipsIsakmpPolicyEntry"
-                self.yang_parent_name = "cipsIsakmpPolicyTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsisakmppolpriority = YLeaf(YType.int32, "cipsIsakmpPolPriority")
-
-                self.cipsisakmppolauth = YLeaf(YType.enumeration, "cipsIsakmpPolAuth")
-
-                self.cipsisakmppolencr = YLeaf(YType.enumeration, "cipsIsakmpPolEncr")
-
-                self.cipsisakmppolgroup = YLeaf(YType.enumeration, "cipsIsakmpPolGroup")
-
-                self.cipsisakmppolhash = YLeaf(YType.enumeration, "cipsIsakmpPolHash")
-
-                self.cipsisakmppollifetime = YLeaf(YType.int32, "cipsIsakmpPolLifetime")
-                self._segment_path = lambda: "cipsIsakmpPolicyEntry" + "[cipsIsakmpPolPriority='" + self.cipsisakmppolpriority.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsIsakmpPolicyTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECMIB.Cipsisakmppolicytable.Cipsisakmppolicyentry, ['cipsisakmppolpriority', 'cipsisakmppolauth', 'cipsisakmppolencr', 'cipsisakmppolgroup', 'cipsisakmppolhash', 'cipsisakmppollifetime'], name, value)
-
-
-    class Cipsstaticcryptomapsettable(Entity):
-        """
-        The table containing the list of all
-        cryptomap sets that are fully specified
-        and are not wild\-carded.
-        
-        The operator may include different types of
-        cryptomaps in such a set \- manual, CET,
-        ISAKMP or dynamic.
-        
-        .. attribute:: cipsstaticcryptomapsetentry
-        
-        	Each entry contains the attributes  associated with a single static  cryptomap set
-        	**type**\: list of    :py:class:`Cipsstaticcryptomapsetentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsstaticcryptomapsettable, self).__init__()
-
-            self.yang_name = "cipsStaticCryptomapSetTable"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsStaticCryptomapSetEntry" : ("cipsstaticcryptomapsetentry", CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry)}
-
-            self.cipsstaticcryptomapsetentry = YList(self)
-            self._segment_path = lambda: "cipsStaticCryptomapSetTable"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomapsettable, [], name, value)
-
-
-        class Cipsstaticcryptomapsetentry(Entity):
-            """
-            Each entry contains the attributes 
-            associated with a single static 
-            cryptomap set.
-            
-            .. attribute:: cipsstaticcryptomapsetname  <key>
-            
-            	The index of the static cryptomap table. The value  of the string is the name string assigned by the  operator in defining the cryptomap set
-            	**type**\:  str
-            
-            .. attribute:: cipsstaticcryptomapsetnumcet
-            
-            	The number of cryptomaps of type 'ipsec\-cisco'  associated with this cryptomap set. Such cryptomap elements implement Cisco Encryption Technology based Virtual Private Networks
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetnumdisc
-            
-            	The number of dynamic cryptomap templates linked to this cryptomap set that have Tunnel Endpoint Discovery (TED) enabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetnumdynamic
-            
-            	The number of dynamic cryptomap templates linked to this cryptomap set
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetnumisakmp
-            
-            	The number of cryptomaps associated with this  cryptomap set that use ISAKMP protocol to do key exchange
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetnummanual
-            
-            	The number of cryptomaps associated with this  cryptomap set that require the operator to manually setup the keys and SPIs
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetnumsas
-            
-            	The number of and IPsec Security Associations that are active and were setup using this cryptomap.  
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cipsstaticcryptomapsetsize
-            
-            	The total number of cryptomap entries contained in this cryptomap set. 
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSEC-MIB'
-            _revision = '2000-08-07'
-
-            def __init__(self):
-                super(CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry, self).__init__()
-
-                self.yang_name = "cipsStaticCryptomapSetEntry"
-                self.yang_parent_name = "cipsStaticCryptomapSetTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
-
-                self.cipsstaticcryptomapsetnumcet = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumCET")
-
-                self.cipsstaticcryptomapsetnumdisc = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDisc")
-
-                self.cipsstaticcryptomapsetnumdynamic = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumDynamic")
-
-                self.cipsstaticcryptomapsetnumisakmp = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumIsakmp")
-
-                self.cipsstaticcryptomapsetnummanual = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumManual")
-
-                self.cipsstaticcryptomapsetnumsas = YLeaf(YType.uint32, "cipsStaticCryptomapSetNumSAs")
-
-                self.cipsstaticcryptomapsetsize = YLeaf(YType.uint32, "cipsStaticCryptomapSetSize")
-                self._segment_path = lambda: "cipsStaticCryptomapSetEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapSetTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomapsetnumcet', 'cipsstaticcryptomapsetnumdisc', 'cipsstaticcryptomapsetnumdynamic', 'cipsstaticcryptomapsetnumisakmp', 'cipsstaticcryptomapsetnummanual', 'cipsstaticcryptomapsetnumsas', 'cipsstaticcryptomapsetsize'], name, value)
-
-
-    class Cipsstaticcryptomaptable(Entity):
-        """
-        The table ilisting the member cryptomaps
-        of the cryptomap sets that are configured
-        on the managed entity.
-        
-        .. attribute:: cipsstaticcryptomapentry
-        
-        	Each entry contains the attributes  associated with a single static  (fully specified) cryptomap entry. This table does not include the members  of dynamic cryptomap sets that may be linked with the parent static cryptomap set
-        	**type**\: list of    :py:class:`Cipsstaticcryptomapentry <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipsstaticcryptomaptable, self).__init__()
-
-            self.yang_name = "cipsStaticCryptomapTable"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cipsStaticCryptomapEntry" : ("cipsstaticcryptomapentry", CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry)}
-
-            self.cipsstaticcryptomapentry = YList(self)
-            self._segment_path = lambda: "cipsStaticCryptomapTable"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomaptable, [], name, value)
-
-
-        class Cipsstaticcryptomapentry(Entity):
-            """
-            Each entry contains the attributes 
-            associated with a single static 
-            (fully specified) cryptomap entry.
-            This table does not include the members 
-            of dynamic cryptomap sets that may be
-            linked with the parent static cryptomap set.
-            
-            .. attribute:: cipsstaticcryptomapsetname  <key>
-            
-            	
-            	**type**\:  str
-            
-            	**refers to**\:  :py:class:`cipsstaticcryptomapsetname <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CISCOIPSECMIB.Cipsstaticcryptomapsettable.Cipsstaticcryptomapsetentry>`
-            
-            .. attribute:: cipsstaticcryptomappriority  <key>
-            
-            	The priority of the cryptomap entry in the  cryptomap set. This is the second index component of this table
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: cipsstaticcryptomapdescr
-            
-            	The description string entered by the operatoir while creating this cryptomap. The string generally identifies a description and the purpose of this policy
-            	**type**\:  str
-            
-            .. attribute:: cipsstaticcryptomaplevelhost
-            
-            	This object identifies the granularity of the IPSec SAs created using this IPSec policy entry.  If this value is TRUE, distinct SA bundles are created for distinct hosts at the end of the application traffic
-            	**type**\:  bool
-            
-            .. attribute:: cipsstaticcryptomaplifesize
-            
-            	This object identifies the lifesize (maximum traffic in bytes that may be carried) of the IPSec SAs created using this IPSec policy entry.  If this value is zero, the lifetime assumes the  value specified by the global lifesize parameter
-            	**type**\:  int
-            
-            	**range:** 0..None \| 2560..536870912
-            
-            .. attribute:: cipsstaticcryptomaplifetime
-            
-            	This object identifies the lifetime of the IPSec Security Associations (SA) created using this IPSec policy entry. If this value is zero, the lifetime assumes the  value specified by the global lifetime parameter
-            	**type**\:  int
-            
-            	**range:** 0..None \| 120..86400
-            
-            .. attribute:: cipsstaticcryptomapnumpeers
-            
-            	The number of peers associated with this cryptomap  entry. The peers other than the one identified by  'cipsStaticCryptomapPeer' are backup peers.   Manual cryptomaps may have only one peer
-            	**type**\:  int
-            
-            	**range:** 0..40
-            
-            .. attribute:: cipsstaticcryptomappeer
-            
-            	The IP address of the current peer associated with  this IPSec policy item. Traffic that is protected by this cryptomap is protected by a tunnel that terminates at the device whose IP address is specified by this object
-            	**type**\:  str
-            
-            	**length:** 4 \| 16
-            
-            .. attribute:: cipsstaticcryptomappfs
-            
-            	This object identifies if the tunnels instantiated due to this policy item should use Perfect Forward Secrecy  (PFS) and if so, what group of Oakley they should use
-            	**type**\:   :py:class:`DiffHellmanGrp <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.DiffHellmanGrp>`
-            
-            .. attribute:: cipsstaticcryptomaptype
-            
-            	The type of the cryptomap entry. This can be an ISAKMP cryptomap, CET or manual. Dynamic cryptomaps are not counted in this table
-            	**type**\:   :py:class:`CryptomapType <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.CryptomapType>`
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IPSEC-MIB'
-            _revision = '2000-08-07'
-
-            def __init__(self):
-                super(CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry, self).__init__()
-
-                self.yang_name = "cipsStaticCryptomapEntry"
-                self.yang_parent_name = "cipsStaticCryptomapTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cipsstaticcryptomapsetname = YLeaf(YType.str, "cipsStaticCryptomapSetName")
-
-                self.cipsstaticcryptomappriority = YLeaf(YType.int32, "cipsStaticCryptomapPriority")
-
-                self.cipsstaticcryptomapdescr = YLeaf(YType.str, "cipsStaticCryptomapDescr")
-
-                self.cipsstaticcryptomaplevelhost = YLeaf(YType.boolean, "cipsStaticCryptomapLevelHost")
-
-                self.cipsstaticcryptomaplifesize = YLeaf(YType.int32, "cipsStaticCryptomapLifesize")
-
-                self.cipsstaticcryptomaplifetime = YLeaf(YType.int32, "cipsStaticCryptomapLifetime")
-
-                self.cipsstaticcryptomapnumpeers = YLeaf(YType.int32, "cipsStaticCryptomapNumPeers")
-
-                self.cipsstaticcryptomappeer = YLeaf(YType.str, "cipsStaticCryptomapPeer")
-
-                self.cipsstaticcryptomappfs = YLeaf(YType.enumeration, "cipsStaticCryptomapPfs")
-
-                self.cipsstaticcryptomaptype = YLeaf(YType.enumeration, "cipsStaticCryptomapType")
-                self._segment_path = lambda: "cipsStaticCryptomapEntry" + "[cipsStaticCryptomapSetName='" + self.cipsstaticcryptomapsetname.get() + "']" + "[cipsStaticCryptomapPriority='" + self.cipsstaticcryptomappriority.get() + "']"
-                self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/cipsStaticCryptomapTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPSECMIB.Cipsstaticcryptomaptable.Cipsstaticcryptomapentry, ['cipsstaticcryptomapsetname', 'cipsstaticcryptomappriority', 'cipsstaticcryptomapdescr', 'cipsstaticcryptomaplevelhost', 'cipsstaticcryptomaplifesize', 'cipsstaticcryptomaplifetime', 'cipsstaticcryptomapnumpeers', 'cipsstaticcryptomappeer', 'cipsstaticcryptomappfs', 'cipsstaticcryptomaptype'], name, value)
-
-
-    class Cipssyscapacitygroup(Entity):
-        """
-        
-        
-        .. attribute:: cips3descapable
-        
-        	The value of this object is TRUE if the  managed entity has the hardware nad software  features to support 3DES encryption algorithm.  Not affected by any CLI operation
-        	**type**\:  bool
-        
-        .. attribute:: cipsmaxsas
-        
-        	The maximum number of IPsec Security Associations that can be established on this managed entity. If no theoretical limit exists, this returns value 0.  Not affected by any CLI operation
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        	**units**\: Integral Units
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipssyscapacitygroup, self).__init__()
-
-            self.yang_name = "cipsSysCapacityGroup"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cips3descapable = YLeaf(YType.boolean, "cips3DesCapable")
-
-            self.cipsmaxsas = YLeaf(YType.int32, "cipsMaxSAs")
-            self._segment_path = lambda: "cipsSysCapacityGroup"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipssyscapacitygroup, ['cips3descapable', 'cipsmaxsas'], name, value)
-
-
-    class Cipstrapcntlgroup(Entity):
-        """
-        
-        
-        .. attribute:: cipscntlcryptomapadded
-        
-        	This object defines the administrative state of  sending the IOS IPsec Cryptomap Add trap
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntlcryptomapdeleted
-        
-        	This object defines the administrative state of  sending the IOS IPsec Cryptomap Delete trap
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntlcryptomapsetattached
-        
-        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is attached to an interface
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntlcryptomapsetdetached
-        
-        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when a cryptomap set is detached from an interface. to which it was earlier bound
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntlisakmppolicyadded
-        
-        	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Add trap
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntlisakmppolicydeleted
-        
-        	This object defines the administrative state of  sending the IOS IPsec ISAKMP Policy Delete trap
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        .. attribute:: cipscntltoomanysas
-        
-        	This object defines the administrative state of  sending the IOS IPsec trap that is issued when the number of SAs crosses the maximum number of SAs that may be supported on the managed entity
-        	**type**\:   :py:class:`TrapStatus <ydk.models.cisco_ios_xe.CISCO_IPSEC_MIB.TrapStatus>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IPSEC-MIB'
-        _revision = '2000-08-07'
-
-        def __init__(self):
-            super(CISCOIPSECMIB.Cipstrapcntlgroup, self).__init__()
-
-            self.yang_name = "cipsTrapCntlGroup"
-            self.yang_parent_name = "CISCO-IPSEC-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cipscntlcryptomapadded = YLeaf(YType.enumeration, "cipsCntlCryptomapAdded")
-
-            self.cipscntlcryptomapdeleted = YLeaf(YType.enumeration, "cipsCntlCryptomapDeleted")
-
-            self.cipscntlcryptomapsetattached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetAttached")
-
-            self.cipscntlcryptomapsetdetached = YLeaf(YType.enumeration, "cipsCntlCryptomapSetDetached")
-
-            self.cipscntlisakmppolicyadded = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyAdded")
-
-            self.cipscntlisakmppolicydeleted = YLeaf(YType.enumeration, "cipsCntlIsakmpPolicyDeleted")
-
-            self.cipscntltoomanysas = YLeaf(YType.enumeration, "cipsCntlTooManySAs")
-            self._segment_path = lambda: "cipsTrapCntlGroup"
-            self._absolute_path = lambda: "CISCO-IPSEC-MIB:CISCO-IPSEC-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIPSECMIB.Cipstrapcntlgroup, ['cipscntlcryptomapadded', 'cipscntlcryptomapdeleted', 'cipscntlcryptomapsetattached', 'cipscntlcryptomapsetdetached', 'cipscntlisakmppolicyadded', 'cipscntlisakmppolicydeleted', 'cipscntltoomanysas'], name, value)
+                self._perform_setattr(CISCOIPSECMIB.Cipscryptomapsetiftable.Cipscryptomapsetifentry, ['ifindex', 'cipsstaticcryptomapsetname', 'cipscryptomapsetifvirtual', 'cipscryptomapsetifstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPSECMIB()

@@ -26,17 +26,17 @@ class IpUdp(Entity):
     """
     Global IP UDP configuration
     
-    .. attribute:: directory
-    
-    	UDP directory details
-    	**type**\:   :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
-    
-    	**presence node**\: True
-    
     .. attribute:: num_thread
     
     	UDP InQueue and OutQueue threads
     	**type**\:   :py:class:`NumThread <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
+    
+    	**presence node**\: True
+    
+    .. attribute:: directory
+    
+    	UDP directory details
+    	**type**\:   :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
     
     	**presence node**\: True
     
@@ -62,85 +62,22 @@ class IpUdp(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ip-udp-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"directory" : ("directory", IpUdp.Directory), "num-thread" : ("num_thread", IpUdp.NumThread)}
+        self._child_container_classes = {"num-thread" : ("num_thread", IpUdp.NumThread), "directory" : ("directory", IpUdp.Directory)}
         self._child_list_classes = {}
 
         self.receive_q = YLeaf(YType.uint32, "receive-q")
 
-        self.directory = None
-        self._children_name_map["directory"] = "directory"
-        self._children_yang_names.add("directory")
-
         self.num_thread = None
         self._children_name_map["num_thread"] = "num-thread"
         self._children_yang_names.add("num-thread")
+
+        self.directory = None
+        self._children_name_map["directory"] = "directory"
+        self._children_yang_names.add("directory")
         self._segment_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpUdp, ['receive_q'], name, value)
-
-
-    class Directory(Entity):
-        """
-        UDP directory details
-        
-        .. attribute:: directoryname
-        
-        	Directory name
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        .. attribute:: max_file_size_files
-        
-        	Set size of debug files in bytes
-        	**type**\:  int
-        
-        	**range:** 1024..4294967295
-        
-        	**mandatory**\: True
-        
-        	**units**\: byte
-        
-        .. attribute:: max_udp_debug_files
-        
-        	Set number of Debug files
-        	**type**\:  int
-        
-        	**range:** 1..5000
-        
-        	**mandatory**\: True
-        
-        
-
-        This class is a :ref:`presence class<presence-class>`
-
-        """
-
-        _prefix = 'ip-udp-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(IpUdp.Directory, self).__init__()
-
-            self.yang_name = "directory"
-            self.yang_parent_name = "ip-udp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-            self.is_presence_container = True
-
-            self.directoryname = YLeaf(YType.str, "directoryname")
-
-            self.max_file_size_files = YLeaf(YType.uint32, "max-file-size-files")
-
-            self.max_udp_debug_files = YLeaf(YType.uint32, "max-udp-debug-files")
-            self._segment_path = lambda: "directory"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(IpUdp.Directory, ['directoryname', 'max_file_size_files', 'max_udp_debug_files'], name, value)
 
 
     class NumThread(Entity):
@@ -193,6 +130,69 @@ class IpUdp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpUdp.NumThread, ['udp_in_q_threads', 'udp_out_q_threads'], name, value)
+
+
+    class Directory(Entity):
+        """
+        UDP directory details
+        
+        .. attribute:: directoryname
+        
+        	Directory name
+        	**type**\:  str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: max_udp_debug_files
+        
+        	Set number of Debug files
+        	**type**\:  int
+        
+        	**range:** 1..5000
+        
+        	**mandatory**\: True
+        
+        .. attribute:: max_file_size_files
+        
+        	Set size of debug files in bytes
+        	**type**\:  int
+        
+        	**range:** 1024..4294967295
+        
+        	**mandatory**\: True
+        
+        	**units**\: byte
+        
+        
+
+        This class is a :ref:`presence class<presence-class>`
+
+        """
+
+        _prefix = 'ip-udp-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(IpUdp.Directory, self).__init__()
+
+            self.yang_name = "directory"
+            self.yang_parent_name = "ip-udp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+            self.is_presence_container = True
+
+            self.directoryname = YLeaf(YType.str, "directoryname")
+
+            self.max_udp_debug_files = YLeaf(YType.uint32, "max-udp-debug-files")
+
+            self.max_file_size_files = YLeaf(YType.uint32, "max-file-size-files")
+            self._segment_path = lambda: "directory"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(IpUdp.Directory, ['directoryname', 'max_udp_debug_files', 'max_file_size_files'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpUdp()

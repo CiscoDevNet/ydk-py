@@ -112,15 +112,15 @@ class AlarmLogger(Entity):
     """
     Alarm Logger operational data
     
-    .. attribute:: alarms
-    
-    	Table that contains the database of logged alarms
-    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
-    
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
     	**type**\:   :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
+    
+    .. attribute:: alarms
+    
+    	Table that contains the database of logged alarms
+    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
     
     
 
@@ -137,19 +137,96 @@ class AlarmLogger(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-infra-alarm-logger-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"alarms" : ("alarms", AlarmLogger.Alarms), "buffer-status" : ("buffer_status", AlarmLogger.BufferStatus)}
+        self._child_container_classes = {"buffer-status" : ("buffer_status", AlarmLogger.BufferStatus), "alarms" : ("alarms", AlarmLogger.Alarms)}
         self._child_list_classes = {}
-
-        self.alarms = AlarmLogger.Alarms()
-        self.alarms.parent = self
-        self._children_name_map["alarms"] = "alarms"
-        self._children_yang_names.add("alarms")
 
         self.buffer_status = AlarmLogger.BufferStatus()
         self.buffer_status.parent = self
         self._children_name_map["buffer_status"] = "buffer-status"
         self._children_yang_names.add("buffer-status")
+
+        self.alarms = AlarmLogger.Alarms()
+        self.alarms.parent = self
+        self._children_name_map["alarms"] = "alarms"
+        self._children_yang_names.add("alarms")
         self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger"
+
+
+    class BufferStatus(Entity):
+        """
+        Describes buffer utilization and parameters
+        configured
+        
+        .. attribute:: log_buffer_size
+        
+        	Current Logging Buffer Size (Bytes)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: byte
+        
+        .. attribute:: max_log_buffer_size
+        
+        	Maximum Logging Buffer Size (Bytes) 
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: byte
+        
+        .. attribute:: record_count
+        
+        	Number of Records in the Buffer
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: capacity_threshold
+        
+        	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        	**units**\: percentage
+        
+        .. attribute:: severity_filter
+        
+        	Severity Filter
+        	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
+        
+        
+
+        """
+
+        _prefix = 'infra-alarm-logger-oper'
+        _revision = '2015-01-07'
+
+        def __init__(self):
+            super(AlarmLogger.BufferStatus, self).__init__()
+
+            self.yang_name = "buffer-status"
+            self.yang_parent_name = "alarm-logger"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.log_buffer_size = YLeaf(YType.uint32, "log-buffer-size")
+
+            self.max_log_buffer_size = YLeaf(YType.uint32, "max-log-buffer-size")
+
+            self.record_count = YLeaf(YType.uint32, "record-count")
+
+            self.capacity_threshold = YLeaf(YType.uint32, "capacity-threshold")
+
+            self.severity_filter = YLeaf(YType.enumeration, "severity-filter")
+            self._segment_path = lambda: "buffer-status"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AlarmLogger.BufferStatus, ['log_buffer_size', 'max_log_buffer_size', 'record_count', 'capacity_threshold', 'severity_filter'], name, value)
 
 
     class Alarms(Entity):
@@ -198,52 +275,10 @@ class AlarmLogger(Entity):
             
             	**range:** \-2147483648..2147483647
             
-            .. attribute:: additional_text
-            
-            	Full text of the Alarm
-            	**type**\:  str
-            
-            .. attribute:: category
-            
-            	Category of the alarm
-            	**type**\:  str
-            
-            .. attribute:: code
-            
-            	Alarm code which further qualifies the alarm within a message group
-            	**type**\:  str
-            
-            .. attribute:: correlation_id
-            
-            	Correlation Identifier
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: group
-            
-            	Group of messages to which this alarm belongs to
-            	**type**\:  str
-            
-            .. attribute:: is_admin
-            
-            	Indicates the event id admin\-level
-            	**type**\:  bool
-            
-            .. attribute:: severity
-            
-            	Severity of the alarm
-            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
-            
             .. attribute:: source_id
             
             	Source Identifier(Location).Indicates the node in which the alarm was generated
             	**type**\:  str
-            
-            .. attribute:: state
-            
-            	State of the alarm (bistate alarms only)
-            	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
             
             .. attribute:: timestamp
             
@@ -253,6 +288,48 @@ class AlarmLogger(Entity):
             	**range:** 0..18446744073709551615
             
             	**units**\: millisecond
+            
+            .. attribute:: category
+            
+            	Category of the alarm
+            	**type**\:  str
+            
+            .. attribute:: group
+            
+            	Group of messages to which this alarm belongs to
+            	**type**\:  str
+            
+            .. attribute:: code
+            
+            	Alarm code which further qualifies the alarm within a message group
+            	**type**\:  str
+            
+            .. attribute:: severity
+            
+            	Severity of the alarm
+            	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
+            
+            .. attribute:: state
+            
+            	State of the alarm (bistate alarms only)
+            	**type**\:   :py:class:`AlAlarmBistate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistate>`
+            
+            .. attribute:: correlation_id
+            
+            	Correlation Identifier
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: is_admin
+            
+            	Indicates the event id admin\-level
+            	**type**\:  bool
+            
+            .. attribute:: additional_text
+            
+            	Full text of the Alarm
+            	**type**\:  str
             
             
 
@@ -273,107 +350,30 @@ class AlarmLogger(Entity):
 
                 self.event_id = YLeaf(YType.int32, "event-id")
 
-                self.additional_text = YLeaf(YType.str, "additional-text")
+                self.source_id = YLeaf(YType.str, "source-id")
+
+                self.timestamp = YLeaf(YType.uint64, "timestamp")
 
                 self.category = YLeaf(YType.str, "category")
 
-                self.code = YLeaf(YType.str, "code")
-
-                self.correlation_id = YLeaf(YType.uint32, "correlation-id")
-
                 self.group = YLeaf(YType.str, "group")
 
-                self.is_admin = YLeaf(YType.boolean, "is-admin")
+                self.code = YLeaf(YType.str, "code")
 
                 self.severity = YLeaf(YType.enumeration, "severity")
 
-                self.source_id = YLeaf(YType.str, "source-id")
-
                 self.state = YLeaf(YType.enumeration, "state")
 
-                self.timestamp = YLeaf(YType.uint64, "timestamp")
+                self.correlation_id = YLeaf(YType.uint32, "correlation-id")
+
+                self.is_admin = YLeaf(YType.boolean, "is-admin")
+
+                self.additional_text = YLeaf(YType.str, "additional-text")
                 self._segment_path = lambda: "alarm" + "[event-id='" + self.event_id.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/alarms/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'additional_text', 'category', 'code', 'correlation_id', 'group', 'is_admin', 'severity', 'source_id', 'state', 'timestamp'], name, value)
-
-
-    class BufferStatus(Entity):
-        """
-        Describes buffer utilization and parameters
-        configured
-        
-        .. attribute:: capacity_threshold
-        
-        	Percentage of the buffer utilization which, when exceeded, triggers the  generation of a notification for the clients of the XML agent
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: percentage
-        
-        .. attribute:: log_buffer_size
-        
-        	Current Logging Buffer Size (Bytes)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: byte
-        
-        .. attribute:: max_log_buffer_size
-        
-        	Maximum Logging Buffer Size (Bytes) 
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        	**units**\: byte
-        
-        .. attribute:: record_count
-        
-        	Number of Records in the Buffer
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: severity_filter
-        
-        	Severity Filter
-        	**type**\:   :py:class:`AlAlarmSeverity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverity>`
-        
-        
-
-        """
-
-        _prefix = 'infra-alarm-logger-oper'
-        _revision = '2015-01-07'
-
-        def __init__(self):
-            super(AlarmLogger.BufferStatus, self).__init__()
-
-            self.yang_name = "buffer-status"
-            self.yang_parent_name = "alarm-logger"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.capacity_threshold = YLeaf(YType.uint32, "capacity-threshold")
-
-            self.log_buffer_size = YLeaf(YType.uint32, "log-buffer-size")
-
-            self.max_log_buffer_size = YLeaf(YType.uint32, "max-log-buffer-size")
-
-            self.record_count = YLeaf(YType.uint32, "record-count")
-
-            self.severity_filter = YLeaf(YType.enumeration, "severity-filter")
-            self._segment_path = lambda: "buffer-status"
-            self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(AlarmLogger.BufferStatus, ['capacity_threshold', 'log_buffer_size', 'max_log_buffer_size', 'record_count', 'severity_filter'], name, value)
+                self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AlarmLogger()

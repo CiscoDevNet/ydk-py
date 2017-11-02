@@ -138,21 +138,10 @@ class CISCOIPMROUTEMIB(Entity):
             	Multicast group address used to receive heartbeat packets
             	**type**\:  str
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            .. attribute:: ciscoipmrouteheartbeatsourceaddr
             
-            .. attribute:: ciscoipmrouteheartbeatalerttime
-            
-            	The value of sysUpTime on the most recent occasion at which a missing IP multicast heartbeat condition occured for the group address specified in this entry.  If no such condition have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ciscoipmrouteheartbeatcount
-            
-            	Number of time intervals where multicast packets were received in the last ciscoIpMRouteHeartBeatWindowSize intervals
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
+            	Source address of the last multicast heartbeat packet received
+            	**type**\:  str
             
             .. attribute:: ciscoipmrouteheartbeatinterval
             
@@ -163,6 +152,20 @@ class CISCOIPMROUTEMIB(Entity):
             
             	**units**\: seconds
             
+            .. attribute:: ciscoipmrouteheartbeatwindowsize
+            
+            	Number of ciscoIpMRouteHeartBeatInterval intervals a Cisco multicast router waits before checking if expected number of heartbeat packets are received or not
+            	**type**\:  int
+            
+            	**range:** 1..100
+            
+            .. attribute:: ciscoipmrouteheartbeatcount
+            
+            	Number of time intervals where multicast packets were received in the last ciscoIpMRouteHeartBeatWindowSize intervals
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
             .. attribute:: ciscoipmrouteheartbeatminimum
             
             	The minimal number of heartbeat packets expected in the last ciscoIpMRouteHeartBeatWindowSize intervals. If ciscoIpMRouteHeartBeatCount falls below this value, an SNMP trap/notification, if configured, will be sent to the NMS
@@ -170,24 +173,17 @@ class CISCOIPMROUTEMIB(Entity):
             
             	**range:** 1..100
             
-            .. attribute:: ciscoipmrouteheartbeatsourceaddr
+            .. attribute:: ciscoipmrouteheartbeatalerttime
             
-            	Source address of the last multicast heartbeat packet received
-            	**type**\:  str
+            	The value of sysUpTime on the most recent occasion at which a missing IP multicast heartbeat condition occured for the group address specified in this entry.  If no such condition have occurred since the last re\-initialization of the local management subsystem, then this object contains a zero value
+            	**type**\:  int
             
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+            	**range:** 0..4294967295
             
             .. attribute:: ciscoipmrouteheartbeatstatus
             
             	This object is used to create a new row or delete an existing row in this table
             	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: ciscoipmrouteheartbeatwindowsize
-            
-            	Number of ciscoIpMRouteHeartBeatInterval intervals a Cisco multicast router waits before checking if expected number of heartbeat packets are received or not
-            	**type**\:  int
-            
-            	**range:** 1..100
             
             
 
@@ -208,24 +204,24 @@ class CISCOIPMROUTEMIB(Entity):
 
                 self.ciscoipmrouteheartbeatgroupaddr = YLeaf(YType.str, "ciscoIpMRouteHeartBeatGroupAddr")
 
-                self.ciscoipmrouteheartbeatalerttime = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatAlertTime")
-
-                self.ciscoipmrouteheartbeatcount = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatCount")
+                self.ciscoipmrouteheartbeatsourceaddr = YLeaf(YType.str, "ciscoIpMRouteHeartBeatSourceAddr")
 
                 self.ciscoipmrouteheartbeatinterval = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatInterval")
 
+                self.ciscoipmrouteheartbeatwindowsize = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatWindowSize")
+
+                self.ciscoipmrouteheartbeatcount = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatCount")
+
                 self.ciscoipmrouteheartbeatminimum = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatMinimum")
 
-                self.ciscoipmrouteheartbeatsourceaddr = YLeaf(YType.str, "ciscoIpMRouteHeartBeatSourceAddr")
+                self.ciscoipmrouteheartbeatalerttime = YLeaf(YType.uint32, "ciscoIpMRouteHeartBeatAlertTime")
 
                 self.ciscoipmrouteheartbeatstatus = YLeaf(YType.enumeration, "ciscoIpMRouteHeartBeatStatus")
-
-                self.ciscoipmrouteheartbeatwindowsize = YLeaf(YType.int32, "ciscoIpMRouteHeartBeatWindowSize")
                 self._segment_path = lambda: "ciscoIpMRouteHeartBeatEntry" + "[ciscoIpMRouteHeartBeatGroupAddr='" + self.ciscoipmrouteheartbeatgroupaddr.get() + "']"
                 self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/ciscoIpMRouteHeartBeatTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, ['ciscoipmrouteheartbeatgroupaddr', 'ciscoipmrouteheartbeatalerttime', 'ciscoipmrouteheartbeatcount', 'ciscoipmrouteheartbeatinterval', 'ciscoipmrouteheartbeatminimum', 'ciscoipmrouteheartbeatsourceaddr', 'ciscoipmrouteheartbeatstatus', 'ciscoipmrouteheartbeatwindowsize'], name, value)
+                self._perform_setattr(CISCOIPMROUTEMIB.Ciscoipmrouteheartbeattable.Ciscoipmrouteheartbeatentry, ['ciscoipmrouteheartbeatgroupaddr', 'ciscoipmrouteheartbeatsourceaddr', 'ciscoipmrouteheartbeatinterval', 'ciscoipmrouteheartbeatwindowsize', 'ciscoipmrouteheartbeatcount', 'ciscoipmrouteheartbeatminimum', 'ciscoipmrouteheartbeatalerttime', 'ciscoipmrouteheartbeatstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOIPMROUTEMIB()

@@ -57,11 +57,6 @@ class ChannelMonitors(Entity):
         
         	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Config>`
         
-        .. attribute:: channels
-        
-        	Enclosing container for the list of values describing the power spectral density distribution
-        	**type**\:   :py:class:`Channels <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels>`
-        
         .. attribute:: config
         
         	Configuration data 
@@ -71,6 +66,11 @@ class ChannelMonitors(Entity):
         
         	Operational state data 
         	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.State>`
+        
+        .. attribute:: channels
+        
+        	Enclosing container for the list of values describing the power spectral density distribution
+        	**type**\:   :py:class:`Channels <ydk.models.openconfig.openconfig_channel_monitor.ChannelMonitors.ChannelMonitor.Channels>`
         
         
 
@@ -86,15 +86,10 @@ class ChannelMonitors(Entity):
             self.yang_parent_name = "channel-monitors"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"channels" : ("channels", ChannelMonitors.ChannelMonitor.Channels), "config" : ("config", ChannelMonitors.ChannelMonitor.Config), "state" : ("state", ChannelMonitors.ChannelMonitor.State)}
+            self._child_container_classes = {"config" : ("config", ChannelMonitors.ChannelMonitor.Config), "state" : ("state", ChannelMonitors.ChannelMonitor.State), "channels" : ("channels", ChannelMonitors.ChannelMonitor.Channels)}
             self._child_list_classes = {}
 
             self.name = YLeaf(YType.str, "name")
-
-            self.channels = ChannelMonitors.ChannelMonitor.Channels()
-            self.channels.parent = self
-            self._children_name_map["channels"] = "channels"
-            self._children_yang_names.add("channels")
 
             self.config = ChannelMonitors.ChannelMonitor.Config()
             self.config.parent = self
@@ -105,11 +100,104 @@ class ChannelMonitors(Entity):
             self.state.parent = self
             self._children_name_map["state"] = "state"
             self._children_yang_names.add("state")
+
+            self.channels = ChannelMonitors.ChannelMonitor.Channels()
+            self.channels.parent = self
+            self._children_name_map["channels"] = "channels"
+            self._children_yang_names.add("channels")
             self._segment_path = lambda: "channel-monitor" + "[name='" + self.name.get() + "']"
             self._absolute_path = lambda: "openconfig-channel-monitor:channel-monitors/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(ChannelMonitors.ChannelMonitor, ['name'], name, value)
+
+
+        class Config(Entity):
+            """
+            Configuration data 
+            
+            .. attribute:: name
+            
+            	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            .. attribute:: monitor_port
+            
+            	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            
+
+            """
+
+            _prefix = 'oc-chan-monitor'
+            _revision = '2017-07-08'
+
+            def __init__(self):
+                super(ChannelMonitors.ChannelMonitor.Config, self).__init__()
+
+                self.yang_name = "config"
+                self.yang_parent_name = "channel-monitor"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.monitor_port = YLeaf(YType.str, "monitor-port")
+                self._segment_path = lambda: "config"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ChannelMonitors.ChannelMonitor.Config, ['name', 'monitor_port'], name, value)
+
+
+        class State(Entity):
+            """
+            Operational state data 
+            
+            .. attribute:: name
+            
+            	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            .. attribute:: monitor_port
+            
+            	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
+            	**type**\:  str
+            
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            
+            
+
+            """
+
+            _prefix = 'oc-chan-monitor'
+            _revision = '2017-07-08'
+
+            def __init__(self):
+                super(ChannelMonitors.ChannelMonitor.State, self).__init__()
+
+                self.yang_name = "state"
+                self.yang_parent_name = "channel-monitor"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.monitor_port = YLeaf(YType.str, "monitor-port")
+                self._segment_path = lambda: "state"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(ChannelMonitors.ChannelMonitor.State, ['name', 'monitor_port'], name, value)
 
 
         class Channels(Entity):
@@ -215,6 +303,13 @@ class ChannelMonitors(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
+                    .. attribute:: upper_frequency
+                    
+                    	Upper frequency of the specified PSD
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
                     .. attribute:: psd
                     
                     	Power spectral density expressed in nanowatts per megahertz, nW/MHz.  These units allow the value to often be greater than 1.0.  It also avoids dealing with zero values for 0dBm.  For example, a 40GHz wide channel with 0dBm power would be\:  0dBm = 1mW = 10^6nW  40GHz = 40,000MHz  0dBm/40GHz = 10^6nW/40,000MHz = 1000/40 = 25
@@ -223,13 +318,6 @@ class ChannelMonitors(Entity):
                     	**length:** 32
                     
                     	**units**\: nW/MHz
-                    
-                    .. attribute:: upper_frequency
-                    
-                    	Upper frequency of the specified PSD
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -250,101 +338,13 @@ class ChannelMonitors(Entity):
 
                         self.lower_frequency = YLeaf(YType.uint64, "lower-frequency")
 
-                        self.psd = YLeaf(YType.str, "psd")
-
                         self.upper_frequency = YLeaf(YType.uint64, "upper-frequency")
+
+                        self.psd = YLeaf(YType.str, "psd")
                         self._segment_path = lambda: "state"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel.State, ['lower_frequency', 'psd', 'upper_frequency'], name, value)
-
-
-        class Config(Entity):
-            """
-            Configuration data 
-            
-            .. attribute:: monitor_port
-            
-            	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
-            
-            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
-            
-            .. attribute:: name
-            
-            	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
-            
-            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
-            
-            
-
-            """
-
-            _prefix = 'oc-chan-monitor'
-            _revision = '2017-07-08'
-
-            def __init__(self):
-                super(ChannelMonitors.ChannelMonitor.Config, self).__init__()
-
-                self.yang_name = "config"
-                self.yang_parent_name = "channel-monitor"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.monitor_port = YLeaf(YType.str, "monitor-port")
-
-                self.name = YLeaf(YType.str, "name")
-                self._segment_path = lambda: "config"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ChannelMonitors.ChannelMonitor.Config, ['monitor_port', 'name'], name, value)
-
-
-        class State(Entity):
-            """
-            Operational state data 
-            
-            .. attribute:: monitor_port
-            
-            	Reference to system\-supplied name of the port that the channel monitor is physically connected to. This port will be of type MONITOR. This port is a tap off of the monitored\-port and would be in the same card as the monitored port. If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the monitor port if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
-            
-            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
-            
-            .. attribute:: name
-            
-            	Reference to system\-supplied name of the port on the optical channel monitor (OCM). If this port is embedded in another card (i.e. an amplifier card) the device should still define a port representing the OCM even if it is internal and not physically present on the faceplate of the card
-            	**type**\:  str
-            
-            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
-            
-            
-
-            """
-
-            _prefix = 'oc-chan-monitor'
-            _revision = '2017-07-08'
-
-            def __init__(self):
-                super(ChannelMonitors.ChannelMonitor.State, self).__init__()
-
-                self.yang_name = "state"
-                self.yang_parent_name = "channel-monitor"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.monitor_port = YLeaf(YType.str, "monitor-port")
-
-                self.name = YLeaf(YType.str, "name")
-                self._segment_path = lambda: "state"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(ChannelMonitors.ChannelMonitor.State, ['monitor_port', 'name'], name, value)
+                        self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel.State, ['lower_frequency', 'upper_frequency', 'psd'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ChannelMonitors()

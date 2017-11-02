@@ -95,8 +95,6 @@ class Telnet(Entity):
             	VRF name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: ipv4
             
             	IPv4 configuration

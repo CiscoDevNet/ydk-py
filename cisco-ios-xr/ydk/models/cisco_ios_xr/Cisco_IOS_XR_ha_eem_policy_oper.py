@@ -22,11 +22,6 @@ class Eem(Entity):
     """
     EEM operational data
     
-    .. attribute:: avl_policies
-    
-    	list the available policies
-    	**type**\:   :py:class:`AvlPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies>`
-    
     .. attribute:: dir_user
     
     	directory user
@@ -47,6 +42,11 @@ class Eem(Entity):
     	list the registered policies
     	**type**\:   :py:class:`RegPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.RegPolicies>`
     
+    .. attribute:: avl_policies
+    
+    	list the available policies
+    	**type**\:   :py:class:`AvlPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies>`
+    
     
 
     """
@@ -62,13 +62,8 @@ class Eem(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ha-eem-policy-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"avl-policies" : ("avl_policies", Eem.AvlPolicies), "dir-user" : ("dir_user", Eem.DirUser), "env-variables" : ("env_variables", Eem.EnvVariables), "refresh-time" : ("refresh_time", Eem.RefreshTime), "reg-policies" : ("reg_policies", Eem.RegPolicies)}
+        self._child_container_classes = {"dir-user" : ("dir_user", Eem.DirUser), "env-variables" : ("env_variables", Eem.EnvVariables), "refresh-time" : ("refresh_time", Eem.RefreshTime), "reg-policies" : ("reg_policies", Eem.RegPolicies), "avl-policies" : ("avl_policies", Eem.AvlPolicies)}
         self._child_list_classes = {}
-
-        self.avl_policies = Eem.AvlPolicies()
-        self.avl_policies.parent = self
-        self._children_name_map["avl_policies"] = "avl-policies"
-        self._children_yang_names.add("avl-policies")
 
         self.dir_user = Eem.DirUser()
         self.dir_user.parent = self
@@ -89,98 +84,12 @@ class Eem(Entity):
         self.reg_policies.parent = self
         self._children_name_map["reg_policies"] = "reg-policies"
         self._children_yang_names.add("reg-policies")
+
+        self.avl_policies = Eem.AvlPolicies()
+        self.avl_policies.parent = self
+        self._children_name_map["avl_policies"] = "avl-policies"
+        self._children_yang_names.add("avl-policies")
         self._segment_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem"
-
-
-    class AvlPolicies(Entity):
-        """
-        list the available policies
-        
-        .. attribute:: avl_policy
-        
-        	policy name and create time 
-        	**type**\: list of    :py:class:`AvlPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies.AvlPolicy>`
-        
-        
-
-        """
-
-        _prefix = 'ha-eem-policy-oper'
-        _revision = '2016-02-05'
-
-        def __init__(self):
-            super(Eem.AvlPolicies, self).__init__()
-
-            self.yang_name = "avl-policies"
-            self.yang_parent_name = "eem"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"avl-policy" : ("avl_policy", Eem.AvlPolicies.AvlPolicy)}
-
-            self.avl_policy = YList(self)
-            self._segment_path = lambda: "avl-policies"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Eem.AvlPolicies, [], name, value)
-
-
-        class AvlPolicy(Entity):
-            """
-            policy name and create time 
-            
-            .. attribute:: name  <key>
-            
-            	System policy name
-            	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
-            .. attribute:: policy_name
-            
-            	policy name
-            	**type**\:  str
-            
-            .. attribute:: time_created
-            
-            	time created
-            	**type**\:  str
-            
-            .. attribute:: type
-            
-            	policy type
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'ha-eem-policy-oper'
-            _revision = '2016-02-05'
-
-            def __init__(self):
-                super(Eem.AvlPolicies.AvlPolicy, self).__init__()
-
-                self.yang_name = "avl-policy"
-                self.yang_parent_name = "avl-policies"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.name = YLeaf(YType.str, "name")
-
-                self.policy_name = YLeaf(YType.str, "policy-name")
-
-                self.time_created = YLeaf(YType.str, "time-created")
-
-                self.type = YLeaf(YType.str, "type")
-                self._segment_path = lambda: "avl-policy" + "[name='" + self.name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/avl-policies/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Eem.AvlPolicies.AvlPolicy, ['name', 'policy_name', 'time_created', 'type'], name, value)
 
 
     class DirUser(Entity):
@@ -231,14 +140,14 @@ class Eem(Entity):
             """
             directory user library
             
-            .. attribute:: library
-            
-            	library
-            	**type**\:  str
-            
             .. attribute:: policy
             
             	policy
+            	**type**\:  str
+            
+            .. attribute:: library
+            
+            	library
             	**type**\:  str
             
             
@@ -258,28 +167,28 @@ class Eem(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.library = YLeaf(YType.str, "library")
-
                 self.policy = YLeaf(YType.str, "policy")
+
+                self.library = YLeaf(YType.str, "library")
                 self._segment_path = lambda: "library"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/dir-user/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Eem.DirUser.Library, ['library', 'policy'], name, value)
+                self._perform_setattr(Eem.DirUser.Library, ['policy', 'library'], name, value)
 
 
         class Policy(Entity):
             """
             directory user policy
             
-            .. attribute:: library
-            
-            	library
-            	**type**\:  str
-            
             .. attribute:: policy
             
             	policy
+            	**type**\:  str
+            
+            .. attribute:: library
+            
+            	library
             	**type**\:  str
             
             
@@ -299,14 +208,14 @@ class Eem(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.library = YLeaf(YType.str, "library")
-
                 self.policy = YLeaf(YType.str, "policy")
+
+                self.library = YLeaf(YType.str, "library")
                 self._segment_path = lambda: "policy"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/dir-user/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Eem.DirUser.Policy, ['library', 'policy'], name, value)
+                self._perform_setattr(Eem.DirUser.Policy, ['policy', 'library'], name, value)
 
 
     class EnvVariables(Entity):
@@ -351,8 +260,6 @@ class Eem(Entity):
             
             	Environmental variable name
             	**type**\:  str
-            
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
             .. attribute:: name_xr
             
@@ -472,21 +379,34 @@ class Eem(Entity):
             	policy name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: type
+            
+            	policy type
+            	**type**\:  str
+            
+            .. attribute:: time_created
+            
+            	time created
+            	**type**\:  str
+            
+            .. attribute:: policy_name
+            
+            	policy name
+            	**type**\:  str
             
             .. attribute:: class_
             
             	class
             	**type**\:  str
             
-            .. attribute:: description
-            
-            	description
-            	**type**\:  str
-            
             .. attribute:: event_type
             
             	event type
+            	**type**\:  str
+            
+            .. attribute:: trap
+            
+            	trap
             	**type**\:  str
             
             .. attribute:: persist_time
@@ -496,29 +416,14 @@ class Eem(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: policy_name
-            
-            	policy name
-            	**type**\:  str
-            
-            .. attribute:: time_created
-            
-            	time created
-            	**type**\:  str
-            
-            .. attribute:: trap
-            
-            	trap
-            	**type**\:  str
-            
-            .. attribute:: type
-            
-            	policy type
-            	**type**\:  str
-            
             .. attribute:: username
             
             	username
+            	**type**\:  str
+            
+            .. attribute:: description
+            
+            	description
             	**type**\:  str
             
             
@@ -540,28 +445,117 @@ class Eem(Entity):
 
                 self.name = YLeaf(YType.str, "name")
 
-                self.class_ = YLeaf(YType.str, "class")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.event_type = YLeaf(YType.str, "event-type")
-
-                self.persist_time = YLeaf(YType.uint32, "persist-time")
-
-                self.policy_name = YLeaf(YType.str, "policy-name")
+                self.type = YLeaf(YType.str, "type")
 
                 self.time_created = YLeaf(YType.str, "time-created")
 
+                self.policy_name = YLeaf(YType.str, "policy-name")
+
+                self.class_ = YLeaf(YType.str, "class")
+
+                self.event_type = YLeaf(YType.str, "event-type")
+
                 self.trap = YLeaf(YType.str, "trap")
 
-                self.type = YLeaf(YType.str, "type")
+                self.persist_time = YLeaf(YType.uint32, "persist-time")
 
                 self.username = YLeaf(YType.str, "username")
+
+                self.description = YLeaf(YType.str, "description")
                 self._segment_path = lambda: "reg-policy" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/reg-policies/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Eem.RegPolicies.RegPolicy, ['name', 'class_', 'description', 'event_type', 'persist_time', 'policy_name', 'time_created', 'trap', 'type', 'username'], name, value)
+                self._perform_setattr(Eem.RegPolicies.RegPolicy, ['name', 'type', 'time_created', 'policy_name', 'class_', 'event_type', 'trap', 'persist_time', 'username', 'description'], name, value)
+
+
+    class AvlPolicies(Entity):
+        """
+        list the available policies
+        
+        .. attribute:: avl_policy
+        
+        	policy name and create time 
+        	**type**\: list of    :py:class:`AvlPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper.Eem.AvlPolicies.AvlPolicy>`
+        
+        
+
+        """
+
+        _prefix = 'ha-eem-policy-oper'
+        _revision = '2016-02-05'
+
+        def __init__(self):
+            super(Eem.AvlPolicies, self).__init__()
+
+            self.yang_name = "avl-policies"
+            self.yang_parent_name = "eem"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"avl-policy" : ("avl_policy", Eem.AvlPolicies.AvlPolicy)}
+
+            self.avl_policy = YList(self)
+            self._segment_path = lambda: "avl-policies"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Eem.AvlPolicies, [], name, value)
+
+
+        class AvlPolicy(Entity):
+            """
+            policy name and create time 
+            
+            .. attribute:: name  <key>
+            
+            	System policy name
+            	**type**\:  str
+            
+            .. attribute:: type
+            
+            	policy type
+            	**type**\:  str
+            
+            .. attribute:: time_created
+            
+            	time created
+            	**type**\:  str
+            
+            .. attribute:: policy_name
+            
+            	policy name
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'ha-eem-policy-oper'
+            _revision = '2016-02-05'
+
+            def __init__(self):
+                super(Eem.AvlPolicies.AvlPolicy, self).__init__()
+
+                self.yang_name = "avl-policy"
+                self.yang_parent_name = "avl-policies"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.name = YLeaf(YType.str, "name")
+
+                self.type = YLeaf(YType.str, "type")
+
+                self.time_created = YLeaf(YType.str, "time-created")
+
+                self.policy_name = YLeaf(YType.str, "policy-name")
+                self._segment_path = lambda: "avl-policy" + "[name='" + self.name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-policy-oper:eem/avl-policies/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Eem.AvlPolicies.AvlPolicy, ['name', 'type', 'time_created', 'policy_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Eem()

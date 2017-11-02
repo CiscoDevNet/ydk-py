@@ -56,12 +56,12 @@ class Exception(Entity):
         """
         Container for the order of preference
         
-        .. attribute:: choice1
+        .. attribute:: choice2
         
         	Preference of the dump location
         	**type**\:  str
         
-        .. attribute:: choice2
+        .. attribute:: choice1
         
         	Preference of the dump location
         	**type**\:  str
@@ -88,16 +88,16 @@ class Exception(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.choice1 = YLeaf(YType.str, "choice1")
-
             self.choice2 = YLeaf(YType.str, "choice2")
+
+            self.choice1 = YLeaf(YType.str, "choice1")
 
             self.choice3 = YLeaf(YType.str, "choice3")
             self._segment_path = lambda: "file"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-corehelper-cfg:exception/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Exception.File, ['choice1', 'choice2', 'choice3'], name, value)
+            self._perform_setattr(Exception.File, ['choice2', 'choice1', 'choice3'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Exception()

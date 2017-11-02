@@ -52,17 +52,17 @@ class SysmgrProcessRestart(Entity):
         """
         
         
-        .. attribute:: location
-        
-        	XR node identifier e.g. 0/RP0/CPU0, 0/0/CPU0
-        	**type**\:  str
-        
         .. attribute:: process_name
         
         	XR process name or Job Id e.g. bgp, ospf
         	**type**\:  str
         
         	**mandatory**\: True
+        
+        .. attribute:: location
+        
+        	XR node identifier e.g. 0/RP0/CPU0, 0/0/CPU0
+        	**type**\:  str
         
         
 
@@ -81,14 +81,14 @@ class SysmgrProcessRestart(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.location = YLeaf(YType.str, "location")
-
             self.process_name = YLeaf(YType.str, "process-name")
+
+            self.location = YLeaf(YType.str, "location")
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SysmgrProcessRestart.Input, ['location', 'process_name'], name, value)
+            self._perform_setattr(SysmgrProcessRestart.Input, ['process_name', 'location'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SysmgrProcessRestart()

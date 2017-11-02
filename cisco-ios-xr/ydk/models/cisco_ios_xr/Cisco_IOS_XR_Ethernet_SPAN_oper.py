@@ -357,15 +357,15 @@ class SpanMonitorSession(Entity):
         """
         Global operational data
         
-        .. attribute:: global_sessions
-        
-        	Global Monitor Sessions table
-        	**type**\:   :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions>`
-        
         .. attribute:: statistics
         
         	Table of statistics for source interfaces
         	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics>`
+        
+        .. attribute:: global_sessions
+        
+        	Global Monitor Sessions table
+        	**type**\:   :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions>`
         
         
 
@@ -381,20 +381,151 @@ class SpanMonitorSession(Entity):
             self.yang_parent_name = "span-monitor-session"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"global-sessions" : ("global_sessions", SpanMonitorSession.Global_.GlobalSessions), "statistics" : ("statistics", SpanMonitorSession.Global_.Statistics)}
+            self._child_container_classes = {"statistics" : ("statistics", SpanMonitorSession.Global_.Statistics), "global-sessions" : ("global_sessions", SpanMonitorSession.Global_.GlobalSessions)}
             self._child_list_classes = {}
-
-            self.global_sessions = SpanMonitorSession.Global_.GlobalSessions()
-            self.global_sessions.parent = self
-            self._children_name_map["global_sessions"] = "global-sessions"
-            self._children_yang_names.add("global-sessions")
 
             self.statistics = SpanMonitorSession.Global_.Statistics()
             self.statistics.parent = self
             self._children_name_map["statistics"] = "statistics"
             self._children_yang_names.add("statistics")
+
+            self.global_sessions = SpanMonitorSession.Global_.GlobalSessions()
+            self.global_sessions.parent = self
+            self._children_name_map["global_sessions"] = "global-sessions"
+            self._children_yang_names.add("global-sessions")
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/%s" % self._segment_path()
+
+
+        class Statistics(Entity):
+            """
+            Table of statistics for source interfaces
+            
+            .. attribute:: statistic
+            
+            	Statistics for a particular source interface
+            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics.Statistic>`
+            
+            
+
+            """
+
+            _prefix = 'ethernet-span-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(SpanMonitorSession.Global_.Statistics, self).__init__()
+
+                self.yang_name = "statistics"
+                self.yang_parent_name = "global"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"statistic" : ("statistic", SpanMonitorSession.Global_.Statistics.Statistic)}
+
+                self.statistic = YList(self)
+                self._segment_path = lambda: "statistics"
+                self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SpanMonitorSession.Global_.Statistics, [], name, value)
+
+
+            class Statistic(Entity):
+                """
+                Statistics for a particular source interface
+                
+                .. attribute:: session  <key>
+                
+                	Session Name
+                	**type**\:  str
+                
+                	**length:** 1..79
+                
+                .. attribute:: interface  <key>
+                
+                	Interface
+                	**type**\:  str
+                
+                .. attribute:: rx_packets_mirrored
+                
+                	RX Packets Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_octets_mirrored
+                
+                	RX Octets Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_packets_mirrored
+                
+                	TX Packets Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_octets_mirrored
+                
+                	TX Octets Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: packets_not_mirrored
+                
+                	Packets Not Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: octets_not_mirrored
+                
+                	Octets Not Mirrored
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ethernet-span-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(SpanMonitorSession.Global_.Statistics.Statistic, self).__init__()
+
+                    self.yang_name = "statistic"
+                    self.yang_parent_name = "statistics"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.session = YLeaf(YType.str, "session")
+
+                    self.interface = YLeaf(YType.str, "interface")
+
+                    self.rx_packets_mirrored = YLeaf(YType.uint64, "rx-packets-mirrored")
+
+                    self.rx_octets_mirrored = YLeaf(YType.uint64, "rx-octets-mirrored")
+
+                    self.tx_packets_mirrored = YLeaf(YType.uint64, "tx-packets-mirrored")
+
+                    self.tx_octets_mirrored = YLeaf(YType.uint64, "tx-octets-mirrored")
+
+                    self.packets_not_mirrored = YLeaf(YType.uint64, "packets-not-mirrored")
+
+                    self.octets_not_mirrored = YLeaf(YType.uint64, "octets-not-mirrored")
+                    self._segment_path = lambda: "statistic" + "[session='" + self.session.get() + "']" + "[interface='" + self.interface.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/statistics/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(SpanMonitorSession.Global_.Statistics.Statistic, ['session', 'interface', 'rx_packets_mirrored', 'rx_octets_mirrored', 'tx_packets_mirrored', 'tx_octets_mirrored', 'packets_not_mirrored', 'octets_not_mirrored'], name, value)
 
 
         class GlobalSessions(Entity):
@@ -448,43 +579,10 @@ class SpanMonitorSession(Entity):
                 	Destination data
                 	**type**\:   :py:class:`DestinationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData>`
                 
-                .. attribute:: destination_error
-                
-                	Last error observed for the destination 
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
                 .. attribute:: destination_id
                 
                 	Destination ID
                 	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId>`
-                
-                .. attribute:: destination_interface_handle
-                
-                	Destination interface handle (deprecated by DestinationID, invalid for pseudowires)
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: destination_interface_name
-                
-                	Destination interface name (deprecated by DestinationData, invalid for pseudowires)
-                	**type**\:  str
-                
-                .. attribute:: id
-                
-                	Numerical ID assigned to session
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: interface_error
-                
-                	Last error observed for the destination interface (deprecated by DestinationError)
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
                 
                 .. attribute:: name
                 
@@ -495,6 +593,37 @@ class SpanMonitorSession(Entity):
                 
                 	Session class
                 	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                
+                .. attribute:: id
+                
+                	Numerical ID assigned to session
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: destination_error
+                
+                	Last error observed for the destination 
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: destination_interface_name
+                
+                	Destination interface name (deprecated by DestinationData, invalid for pseudowires)
+                	**type**\:  str
+                
+                .. attribute:: destination_interface_handle
+                
+                	Destination interface handle (deprecated by DestinationID, invalid for pseudowires)
+                	**type**\:  str
+                
+                .. attribute:: interface_error
+                
+                	Last error observed for the destination interface (deprecated by DestinationError)
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 
 
@@ -515,19 +644,19 @@ class SpanMonitorSession(Entity):
 
                     self.session = YLeaf(YType.str, "session")
 
-                    self.destination_error = YLeaf(YType.uint32, "destination-error")
-
-                    self.destination_interface_handle = YLeaf(YType.str, "destination-interface-handle")
-
-                    self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
-
-                    self.id = YLeaf(YType.uint32, "id")
-
-                    self.interface_error = YLeaf(YType.uint32, "interface-error")
-
                     self.name = YLeaf(YType.str, "name")
 
                     self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                    self.id = YLeaf(YType.uint32, "id")
+
+                    self.destination_error = YLeaf(YType.uint32, "destination-error")
+
+                    self.destination_interface_name = YLeaf(YType.str, "destination-interface-name")
+
+                    self.destination_interface_handle = YLeaf(YType.str, "destination-interface-handle")
+
+                    self.interface_error = YLeaf(YType.uint32, "interface-error")
 
                     self.destination_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData()
                     self.destination_data.parent = self
@@ -542,29 +671,22 @@ class SpanMonitorSession(Entity):
                     self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession, ['session', 'destination_error', 'destination_interface_handle', 'destination_interface_name', 'id', 'interface_error', 'name', 'session_class'], name, value)
+                    self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession, ['session', 'name', 'session_class', 'id', 'destination_error', 'destination_interface_name', 'destination_interface_handle', 'interface_error'], name, value)
 
 
                 class DestinationData(Entity):
                     """
                     Destination data
                     
-                    .. attribute:: destination_class
-                    
-                    	DestinationClass
-                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                    
                     .. attribute:: interface_data
                     
                     	Interface data
                     	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData>`
                     
-                    .. attribute:: invalid_value
+                    .. attribute:: pseudowire_data
                     
-                    	Invalid Parameter
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Pseudowire data
+                    	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
                     
                     .. attribute:: next_hop_ipv4_data
                     
@@ -576,10 +698,17 @@ class SpanMonitorSession(Entity):
                     	Next\-hop IPv6 data
                     	**type**\:   :py:class:`NextHopIpv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data>`
                     
-                    .. attribute:: pseudowire_data
+                    .. attribute:: destination_class
                     
-                    	Pseudowire data
-                    	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
+                    	DestinationClass
+                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                    
+                    .. attribute:: invalid_value
+                    
+                    	Invalid Parameter
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     
 
@@ -595,7 +724,7 @@ class SpanMonitorSession(Entity):
                         self.yang_parent_name = "global-session"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"interface-data" : ("interface_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData), "next-hop-ipv4-data" : ("next_hop_ipv4_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data), "next-hop-ipv6-data" : ("next_hop_ipv6_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data), "pseudowire-data" : ("pseudowire_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData)}
+                        self._child_container_classes = {"interface-data" : ("interface_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData), "pseudowire-data" : ("pseudowire_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData), "next-hop-ipv4-data" : ("next_hop_ipv4_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data), "next-hop-ipv6-data" : ("next_hop_ipv6_data", SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data)}
                         self._child_list_classes = {}
 
                         self.destination_class = YLeaf(YType.enumeration, "destination-class")
@@ -607,6 +736,11 @@ class SpanMonitorSession(Entity):
                         self._children_name_map["interface_data"] = "interface-data"
                         self._children_yang_names.add("interface-data")
 
+                        self.pseudowire_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
+                        self.pseudowire_data.parent = self
+                        self._children_name_map["pseudowire_data"] = "pseudowire-data"
+                        self._children_yang_names.add("pseudowire-data")
+
                         self.next_hop_ipv4_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data()
                         self.next_hop_ipv4_data.parent = self
                         self._children_name_map["next_hop_ipv4_data"] = "next-hop-ipv4-data"
@@ -616,11 +750,6 @@ class SpanMonitorSession(Entity):
                         self.next_hop_ipv6_data.parent = self
                         self._children_name_map["next_hop_ipv6_data"] = "next-hop-ipv6-data"
                         self._children_yang_names.add("next-hop-ipv6-data")
-
-                        self.pseudowire_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
-                        self.pseudowire_data.parent = self
-                        self._children_name_map["pseudowire_data"] = "pseudowire-data"
-                        self._children_yang_names.add("pseudowire-data")
                         self._segment_path = lambda: "destination-data"
 
                     def __setattr__(self, name, value):
@@ -667,117 +796,19 @@ class SpanMonitorSession(Entity):
                             self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData, ['interface_name', 'interface_state'], name, value)
 
 
-                    class NextHopIpv4Data(Entity):
-                        """
-                        Next\-hop IPv4 data
-                        
-                        .. attribute:: address_is_reachable
-                        
-                        	Address is reachable
-                        	**type**\:  bool
-                        
-                        .. attribute:: ipv4_address
-                        
-                        	IPv4 address
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-span-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, self).__init__()
-
-                            self.yang_name = "next-hop-ipv4-data"
-                            self.yang_parent_name = "destination-data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
-
-                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-                            self._segment_path = lambda: "next-hop-ipv4-data"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, ['address_is_reachable', 'ipv4_address', 'vrf_name'], name, value)
-
-
-                    class NextHopIpv6Data(Entity):
-                        """
-                        Next\-hop IPv6 data
-                        
-                        .. attribute:: address_is_reachable
-                        
-                        	Address is reachable
-                        	**type**\:  bool
-                        
-                        .. attribute:: ipv6_address
-                        
-                        	IPv6 address
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        .. attribute:: vrf_name
-                        
-                        	VRF name
-                        	**type**\:  str
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-span-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, self).__init__()
-
-                            self.yang_name = "next-hop-ipv6-data"
-                            self.yang_parent_name = "destination-data"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
-
-                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-                            self.vrf_name = YLeaf(YType.str, "vrf-name")
-                            self._segment_path = lambda: "next-hop-ipv6-data"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, ['address_is_reachable', 'ipv6_address', 'vrf_name'], name, value)
-
-
                     class PseudowireData(Entity):
                         """
                         Pseudowire data
-                        
-                        .. attribute:: pseudowire_is_up
-                        
-                        	Pseudowire State
-                        	**type**\:  bool
                         
                         .. attribute:: pseudowire_name
                         
                         	Pseudowire Name
                         	**type**\:  str
+                        
+                        .. attribute:: pseudowire_is_up
+                        
+                        	Pseudowire State
+                        	**type**\:  bool
                         
                         
 
@@ -796,37 +827,112 @@ class SpanMonitorSession(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.pseudowire_is_up = YLeaf(YType.boolean, "pseudowire-is-up")
-
                             self.pseudowire_name = YLeaf(YType.str, "pseudowire-name")
+
+                            self.pseudowire_is_up = YLeaf(YType.boolean, "pseudowire-is-up")
                             self._segment_path = lambda: "pseudowire-data"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData, ['pseudowire_is_up', 'pseudowire_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData, ['pseudowire_name', 'pseudowire_is_up'], name, value)
+
+
+                    class NextHopIpv4Data(Entity):
+                        """
+                        Next\-hop IPv4 data
+                        
+                        .. attribute:: ipv4_address
+                        
+                        	IPv4 address
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        .. attribute:: address_is_reachable
+                        
+                        	Address is reachable
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-span-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, self).__init__()
+
+                            self.yang_name = "next-hop-ipv4-data"
+                            self.yang_parent_name = "destination-data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
+                            self._segment_path = lambda: "next-hop-ipv4-data"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, ['ipv4_address', 'vrf_name', 'address_is_reachable'], name, value)
+
+
+                    class NextHopIpv6Data(Entity):
+                        """
+                        Next\-hop IPv6 data
+                        
+                        .. attribute:: ipv6_address
+                        
+                        	IPv6 address
+                        	**type**\:  str
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        .. attribute:: address_is_reachable
+                        
+                        	Address is reachable
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-span-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, self).__init__()
+
+                            self.yang_name = "next-hop-ipv6-data"
+                            self.yang_parent_name = "destination-data"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                            self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                            self.address_is_reachable = YLeaf(YType.boolean, "address-is-reachable")
+                            self._segment_path = lambda: "next-hop-ipv6-data"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, ['ipv6_address', 'vrf_name', 'address_is_reachable'], name, value)
 
 
                 class DestinationId(Entity):
                     """
                     Destination ID
-                    
-                    .. attribute:: destination_class
-                    
-                    	DestinationClass
-                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                    
-                    .. attribute:: interface
-                    
-                    	Interface Handle
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: invalid_value
-                    
-                    	Invalid Parameter
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: ipv4_address_and_vrf
                     
@@ -838,9 +944,26 @@ class SpanMonitorSession(Entity):
                     	IPv6 address
                     	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf>`
                     
+                    .. attribute:: destination_class
+                    
+                    	DestinationClass
+                    	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                    
+                    .. attribute:: interface
+                    
+                    	Interface Handle
+                    	**type**\:  str
+                    
                     .. attribute:: pseudowire_id
                     
                     	Pseudowire XCID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: invalid_value
+                    
+                    	Invalid Parameter
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -866,9 +989,9 @@ class SpanMonitorSession(Entity):
 
                         self.interface = YLeaf(YType.str, "interface")
 
-                        self.invalid_value = YLeaf(YType.uint32, "invalid-value")
-
                         self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
+                        self.invalid_value = YLeaf(YType.uint32, "invalid-value")
 
                         self.ipv4_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf()
                         self.ipv4_address_and_vrf.parent = self
@@ -882,7 +1005,7 @@ class SpanMonitorSession(Entity):
                         self._segment_path = lambda: "destination-id"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId, ['destination_class', 'interface', 'invalid_value', 'pseudowire_id'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                     class Ipv4AddressAndVrf(Entity):
@@ -893,8 +1016,6 @@ class SpanMonitorSession(Entity):
                         
                         	IPv4 address
                         	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
                         .. attribute:: vrf_name
                         
@@ -936,8 +1057,6 @@ class SpanMonitorSession(Entity):
                         	IPv6 address
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         .. attribute:: vrf_name
                         
                         	VRF
@@ -967,139 +1086,6 @@ class SpanMonitorSession(Entity):
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
-
-
-        class Statistics(Entity):
-            """
-            Table of statistics for source interfaces
-            
-            .. attribute:: statistic
-            
-            	Statistics for a particular source interface
-            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics.Statistic>`
-            
-            
-
-            """
-
-            _prefix = 'ethernet-span-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(SpanMonitorSession.Global_.Statistics, self).__init__()
-
-                self.yang_name = "statistics"
-                self.yang_parent_name = "global"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"statistic" : ("statistic", SpanMonitorSession.Global_.Statistics.Statistic)}
-
-                self.statistic = YList(self)
-                self._segment_path = lambda: "statistics"
-                self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(SpanMonitorSession.Global_.Statistics, [], name, value)
-
-
-            class Statistic(Entity):
-                """
-                Statistics for a particular source interface
-                
-                .. attribute:: session  <key>
-                
-                	Session Name
-                	**type**\:  str
-                
-                	**length:** 1..79
-                
-                .. attribute:: interface  <key>
-                
-                	Interface
-                	**type**\:  str
-                
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                
-                .. attribute:: octets_not_mirrored
-                
-                	Octets Not Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: packets_not_mirrored
-                
-                	Packets Not Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_octets_mirrored
-                
-                	RX Octets Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rx_packets_mirrored
-                
-                	RX Packets Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_octets_mirrored
-                
-                	TX Octets Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: tx_packets_mirrored
-                
-                	TX Packets Mirrored
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                
-
-                """
-
-                _prefix = 'ethernet-span-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(SpanMonitorSession.Global_.Statistics.Statistic, self).__init__()
-
-                    self.yang_name = "statistic"
-                    self.yang_parent_name = "statistics"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.session = YLeaf(YType.str, "session")
-
-                    self.interface = YLeaf(YType.str, "interface")
-
-                    self.octets_not_mirrored = YLeaf(YType.uint64, "octets-not-mirrored")
-
-                    self.packets_not_mirrored = YLeaf(YType.uint64, "packets-not-mirrored")
-
-                    self.rx_octets_mirrored = YLeaf(YType.uint64, "rx-octets-mirrored")
-
-                    self.rx_packets_mirrored = YLeaf(YType.uint64, "rx-packets-mirrored")
-
-                    self.tx_octets_mirrored = YLeaf(YType.uint64, "tx-octets-mirrored")
-
-                    self.tx_packets_mirrored = YLeaf(YType.uint64, "tx-packets-mirrored")
-                    self._segment_path = lambda: "statistic" + "[session='" + self.session.get() + "']" + "[interface='" + self.interface.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/statistics/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(SpanMonitorSession.Global_.Statistics.Statistic, ['session', 'interface', 'octets_not_mirrored', 'packets_not_mirrored', 'rx_octets_mirrored', 'rx_packets_mirrored', 'tx_octets_mirrored', 'tx_packets_mirrored'], name, value)
 
 
     class Nodes(Entity):
@@ -1144,8 +1130,6 @@ class SpanMonitorSession(Entity):
             
             	Node
             	**type**\:  str
-            
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
             
             .. attribute:: attachments
             
@@ -1254,28 +1238,24 @@ class SpanMonitorSession(Entity):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: traffic_parameters
                     
-                    .. attribute:: dest_pw_type_not_supported
-                    
-                    	The destination PW type is not supported
-                    	**type**\:  bool
+                    	Traffic mirroring parameters
+                    	**type**\:   :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
                     
                     .. attribute:: destination_id
                     
                     	Destination ID
                     	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId>`
                     
-                    .. attribute:: destination_interface
+                    .. attribute:: name
                     
-                    	Destination interface (deprecated by DestinationID, invalid for pseudowires)
+                    	Session Name
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: local_class
                     
-                    .. attribute:: global_class
-                    
-                    	Global session class
+                    	Local attachment class
                     	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
                     
                     .. attribute:: id
@@ -1285,22 +1265,10 @@ class SpanMonitorSession(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: local_class
+                    .. attribute:: global_class
                     
-                    	Local attachment class
+                    	Global session class
                     	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
-                    
-                    .. attribute:: name
-                    
-                    	Session Name
-                    	**type**\:  str
-                    
-                    .. attribute:: pfi_error
-                    
-                    	Last error returned from PFI for this interface
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
                     
                     .. attribute:: session_is_configured
                     
@@ -1312,27 +1280,37 @@ class SpanMonitorSession(Entity):
                     	Source interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    .. attribute:: source_interface_state
+                    
+                    	Source interface state
+                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
+                    
+                    .. attribute:: pfi_error
+                    
+                    	Last error returned from PFI for this interface
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: dest_pw_type_not_supported
+                    
+                    	The destination PW type is not supported
+                    	**type**\:  bool
                     
                     .. attribute:: source_interface_is_a_destination
                     
                     	This source interface is a destination for another monitor\-session
                     	**type**\:  bool
                     
-                    .. attribute:: source_interface_state
+                    .. attribute:: destination_interface
                     
-                    	Source interface state
-                    	**type**\:   :py:class:`ImStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnum>`
+                    	Destination interface (deprecated by DestinationID, invalid for pseudowires)
+                    	**type**\:  str
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by TrafficParameters)
                     	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
-                    
-                    .. attribute:: traffic_parameters
-                    
-                    	Traffic mirroring parameters
-                    	**type**\:   :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
                     
                     
 
@@ -1348,74 +1326,127 @@ class SpanMonitorSession(Entity):
                         self.yang_parent_name = "attachments"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"destination-id" : ("destination_id", SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId), "traffic-parameters" : ("traffic_parameters", SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters)}
+                        self._child_container_classes = {"traffic-parameters" : ("traffic_parameters", SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters), "destination-id" : ("destination_id", SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId)}
                         self._child_list_classes = {}
 
                         self.session = YLeaf(YType.str, "session")
 
                         self.interface = YLeaf(YType.str, "interface")
 
-                        self.dest_pw_type_not_supported = YLeaf(YType.boolean, "dest-pw-type-not-supported")
-
-                        self.destination_interface = YLeaf(YType.str, "destination-interface")
-
-                        self.global_class = YLeaf(YType.enumeration, "global-class")
-
-                        self.id = YLeaf(YType.uint32, "id")
+                        self.name = YLeaf(YType.str, "name")
 
                         self.local_class = YLeaf(YType.enumeration, "local-class")
 
-                        self.name = YLeaf(YType.str, "name")
+                        self.id = YLeaf(YType.uint32, "id")
 
-                        self.pfi_error = YLeaf(YType.uint32, "pfi-error")
+                        self.global_class = YLeaf(YType.enumeration, "global-class")
 
                         self.session_is_configured = YLeaf(YType.boolean, "session-is-configured")
 
                         self.source_interface = YLeaf(YType.str, "source-interface")
 
-                        self.source_interface_is_a_destination = YLeaf(YType.boolean, "source-interface-is-a-destination")
-
                         self.source_interface_state = YLeaf(YType.enumeration, "source-interface-state")
 
-                        self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+                        self.pfi_error = YLeaf(YType.uint32, "pfi-error")
 
-                        self.destination_id = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId()
-                        self.destination_id.parent = self
-                        self._children_name_map["destination_id"] = "destination-id"
-                        self._children_yang_names.add("destination-id")
+                        self.dest_pw_type_not_supported = YLeaf(YType.boolean, "dest-pw-type-not-supported")
+
+                        self.source_interface_is_a_destination = YLeaf(YType.boolean, "source-interface-is-a-destination")
+
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+
+                        self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
 
                         self.traffic_parameters = SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters()
                         self.traffic_parameters.parent = self
                         self._children_name_map["traffic_parameters"] = "traffic-parameters"
                         self._children_yang_names.add("traffic-parameters")
+
+                        self.destination_id = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId()
+                        self.destination_id.parent = self
+                        self._children_name_map["destination_id"] = "destination-id"
+                        self._children_yang_names.add("destination-id")
                         self._segment_path = lambda: "attachment" + "[session='" + self.session.get() + "']" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment, ['session', 'interface', 'dest_pw_type_not_supported', 'destination_interface', 'global_class', 'id', 'local_class', 'name', 'pfi_error', 'session_is_configured', 'source_interface', 'source_interface_is_a_destination', 'source_interface_state', 'traffic_direction'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment, ['session', 'interface', 'name', 'local_class', 'id', 'global_class', 'session_is_configured', 'source_interface', 'source_interface_state', 'pfi_error', 'dest_pw_type_not_supported', 'source_interface_is_a_destination', 'destination_interface', 'traffic_direction'], name, value)
+
+
+                    class TrafficParameters(Entity):
+                        """
+                        Traffic mirroring parameters
+                        
+                        .. attribute:: traffic_direction
+                        
+                        	Direction
+                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                        
+                        .. attribute:: port_level
+                        
+                        	Port level mirroring
+                        	**type**\:  bool
+                        
+                        .. attribute:: is_acl_enabled
+                        
+                        	ACL enabled
+                        	**type**\:  bool
+                        
+                        .. attribute:: mirror_bytes
+                        
+                        	Number of bytes to mirror
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: mirror_interval
+                        
+                        	Interval between mirrored packets
+                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
+                        
+                        .. attribute:: acl_name
+                        
+                        	ACL name
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-span-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, self).__init__()
+
+                            self.yang_name = "traffic-parameters"
+                            self.yang_parent_name = "attachment"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                            self.port_level = YLeaf(YType.boolean, "port-level")
+
+                            self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
+
+                            self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
+
+                            self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
+                            self.acl_name = YLeaf(YType.str, "acl-name")
+                            self._segment_path = lambda: "traffic-parameters"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
 
 
                     class DestinationId(Entity):
                         """
                         Destination ID
-                        
-                        .. attribute:: destination_class
-                        
-                        	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                        
-                        .. attribute:: interface
-                        
-                        	Interface Handle
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: invalid_value
-                        
-                        	Invalid Parameter
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_address_and_vrf
                         
@@ -1427,9 +1458,26 @@ class SpanMonitorSession(Entity):
                         	IPv6 address
                         	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf>`
                         
+                        .. attribute:: destination_class
+                        
+                        	DestinationClass
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        
+                        .. attribute:: interface
+                        
+                        	Interface Handle
+                        	**type**\:  str
+                        
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: invalid_value
+                        
+                        	Invalid Parameter
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -1455,9 +1503,9 @@ class SpanMonitorSession(Entity):
 
                             self.interface = YLeaf(YType.str, "interface")
 
-                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
-
                             self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
 
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
@@ -1471,7 +1519,7 @@ class SpanMonitorSession(Entity):
                             self._segment_path = lambda: "destination-id"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, ['destination_class', 'interface', 'invalid_value', 'pseudowire_id'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -1482,8 +1530,6 @@ class SpanMonitorSession(Entity):
                             
                             	IPv4 address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
@@ -1525,8 +1571,6 @@ class SpanMonitorSession(Entity):
                             	IPv6 address
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: vrf_name
                             
                             	VRF
@@ -1556,78 +1600,6 @@ class SpanMonitorSession(Entity):
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
-
-
-                    class TrafficParameters(Entity):
-                        """
-                        Traffic mirroring parameters
-                        
-                        .. attribute:: acl_name
-                        
-                        	ACL name
-                        	**type**\:  str
-                        
-                        .. attribute:: is_acl_enabled
-                        
-                        	ACL enabled
-                        	**type**\:  bool
-                        
-                        .. attribute:: mirror_bytes
-                        
-                        	Number of bytes to mirror
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: byte
-                        
-                        .. attribute:: mirror_interval
-                        
-                        	Interval between mirrored packets
-                        	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
-                        
-                        .. attribute:: port_level
-                        
-                        	Port level mirroring
-                        	**type**\:  bool
-                        
-                        .. attribute:: traffic_direction
-                        
-                        	Direction
-                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-span-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, self).__init__()
-
-                            self.yang_name = "traffic-parameters"
-                            self.yang_parent_name = "attachment"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.acl_name = YLeaf(YType.str, "acl-name")
-
-                            self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
-
-                            self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
-
-                            self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
-
-                            self.port_level = YLeaf(YType.boolean, "port-level")
-
-                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
-                            self._segment_path = lambda: "traffic-parameters"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, ['acl_name', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'port_level', 'traffic_direction'], name, value)
 
 
             class HardwareSessions(Entity):
@@ -1672,17 +1644,22 @@ class SpanMonitorSession(Entity):
                     Information about a particular session that
                     is set up in the hardware
                     
+                    .. attribute:: session_class
+                    
+                    	Sesssion class
+                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
                     .. attribute:: destination_id
                     
                     	Destination ID
                     	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId>`
-                    
-                    .. attribute:: destination_interface
-                    
-                    	Destination interface (deprecated by DestinationID, invalid for pseudowires)
-                    	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: id
                     
@@ -1696,29 +1673,22 @@ class SpanMonitorSession(Entity):
                     	Configured Session Name
                     	**type**\:  str
                     
+                    .. attribute:: session_class_xr
+                    
+                    	Session class
+                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                    
+                    .. attribute:: destination_interface
+                    
+                    	Destination interface (deprecated by DestinationID, invalid for pseudowires)
+                    	**type**\:  str
+                    
                     .. attribute:: platform_error
                     
                     	Last error observed for this session while programming the hardware
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: session_class
-                    
-                    	Sesssion class
-                    	**type**\:   :py:class:`SpanSessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClass>`
-                    
-                    .. attribute:: session_class_xr
-                    
-                    	Session class
-                    	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
-                    
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
                     
                     
 
@@ -1737,19 +1707,19 @@ class SpanMonitorSession(Entity):
                         self._child_container_classes = {"destination-id" : ("destination_id", SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId)}
                         self._child_list_classes = {}
 
-                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+                        self.session_class = YLeaf(YType.enumeration, "session-class")
+
+                        self.session_id = YLeaf(YType.int32, "session-id")
 
                         self.id = YLeaf(YType.uint32, "id")
 
                         self.name = YLeaf(YType.str, "name")
 
-                        self.platform_error = YLeaf(YType.uint32, "platform-error")
-
-                        self.session_class = YLeaf(YType.enumeration, "session-class")
-
                         self.session_class_xr = YLeaf(YType.enumeration, "session-class-xr")
 
-                        self.session_id = YLeaf(YType.int32, "session-id")
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+
+                        self.platform_error = YLeaf(YType.uint32, "platform-error")
 
                         self.destination_id = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId()
                         self.destination_id.parent = self
@@ -1758,31 +1728,12 @@ class SpanMonitorSession(Entity):
                         self._segment_path = lambda: "hardware-session"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['destination_interface', 'id', 'name', 'platform_error', 'session_class', 'session_class_xr', 'session_id'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['session_class', 'session_id', 'id', 'name', 'session_class_xr', 'destination_interface', 'platform_error'], name, value)
 
 
                     class DestinationId(Entity):
                         """
                         Destination ID
-                        
-                        .. attribute:: destination_class
-                        
-                        	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                        
-                        .. attribute:: interface
-                        
-                        	Interface Handle
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: invalid_value
-                        
-                        	Invalid Parameter
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_address_and_vrf
                         
@@ -1794,9 +1745,26 @@ class SpanMonitorSession(Entity):
                         	IPv6 address
                         	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf>`
                         
+                        .. attribute:: destination_class
+                        
+                        	DestinationClass
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        
+                        .. attribute:: interface
+                        
+                        	Interface Handle
+                        	**type**\:  str
+                        
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: invalid_value
+                        
+                        	Invalid Parameter
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -1822,9 +1790,9 @@ class SpanMonitorSession(Entity):
 
                             self.interface = YLeaf(YType.str, "interface")
 
-                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
-
                             self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
 
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
@@ -1838,7 +1806,7 @@ class SpanMonitorSession(Entity):
                             self._segment_path = lambda: "destination-id"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, ['destination_class', 'interface', 'invalid_value', 'pseudowire_id'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -1849,8 +1817,6 @@ class SpanMonitorSession(Entity):
                             
                             	IPv4 address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
@@ -1891,8 +1857,6 @@ class SpanMonitorSession(Entity):
                             
                             	IPv6 address
                             	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
@@ -1971,24 +1935,20 @@ class SpanMonitorSession(Entity):
                     	Interface
                     	**type**\:  str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                    
-                    .. attribute:: attachment
-                    
-                    	Attachment information
-                    	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
-                    
                     .. attribute:: destination_id
                     
                     	Destination ID (deprecated by Attachment)
                     	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId>`
                     
-                    .. attribute:: destination_interface
+                    .. attribute:: traffic_mirroring_parameters
                     
-                    	Destination interface (deprecated by Attachment)
+                    	Traffic mirroring parameters (deprecated by Attachment)
+                    	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
+                    
+                    .. attribute:: source_interface
+                    
+                    	Source interface
                     	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: platform_error
                     
@@ -1997,22 +1957,20 @@ class SpanMonitorSession(Entity):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: source_interface
+                    .. attribute:: destination_interface
                     
-                    	Source interface
+                    	Destination interface (deprecated by Attachment)
                     	**type**\:  str
-                    
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by Attachment)
                     	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
                     
-                    .. attribute:: traffic_mirroring_parameters
+                    .. attribute:: attachment
                     
-                    	Traffic mirroring parameters (deprecated by Attachment)
-                    	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
+                    	Attachment information
+                    	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
                     
                     
 
@@ -2033,11 +1991,11 @@ class SpanMonitorSession(Entity):
 
                         self.interface = YLeaf(YType.str, "interface")
 
-                        self.destination_interface = YLeaf(YType.str, "destination-interface")
+                        self.source_interface = YLeaf(YType.str, "source-interface")
 
                         self.platform_error = YLeaf(YType.uint32, "platform-error")
 
-                        self.source_interface = YLeaf(YType.str, "source-interface")
+                        self.destination_interface = YLeaf(YType.str, "destination-interface")
 
                         self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
 
@@ -2055,320 +2013,12 @@ class SpanMonitorSession(Entity):
                         self._segment_path = lambda: "interface" + "[interface='" + self.interface.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', 'destination_interface', 'platform_error', 'source_interface', 'traffic_direction'], name, value)
-
-
-                    class Attachment(Entity):
-                        """
-                        Attachment information
-                        
-                        .. attribute:: class_
-                        
-                        	Attachment class
-                        	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
-                        
-                        .. attribute:: destination_id
-                        
-                        	Destination ID
-                        	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
-                        
-                        .. attribute:: traffic_mirroring_parameters
-                        
-                        	Traffic mirroring parameters
-                        	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'ethernet-span-oper'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, self).__init__()
-
-                            self.yang_name = "attachment"
-                            self.yang_parent_name = "interface"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"destination-id" : ("destination_id", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId), "traffic-mirroring-parameters" : ("traffic_mirroring_parameters", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters)}
-                            self._child_list_classes = {}
-
-                            self.class_ = YLeaf(YType.enumeration, "class")
-
-                            self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId()
-                            self.destination_id.parent = self
-                            self._children_name_map["destination_id"] = "destination-id"
-                            self._children_yang_names.add("destination-id")
-
-                            self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters()
-                            self.traffic_mirroring_parameters.parent = self
-                            self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
-                            self._children_yang_names.add("traffic-mirroring-parameters")
-                            self._segment_path = lambda: "attachment"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, ['class_'], name, value)
-
-
-                        class DestinationId(Entity):
-                            """
-                            Destination ID
-                            
-                            .. attribute:: destination_class
-                            
-                            	DestinationClass
-                            	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                            
-                            .. attribute:: interface
-                            
-                            	Interface Handle
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: invalid_value
-                            
-                            	Invalid Parameter
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: ipv4_address_and_vrf
-                            
-                            	IPv4 address
-                            	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
-                            
-                            .. attribute:: ipv6_address_and_vrf
-                            
-                            	IPv6 address
-                            	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
-                            
-                            .. attribute:: pseudowire_id
-                            
-                            	Pseudowire XCID
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-span-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, self).__init__()
-
-                                self.yang_name = "destination-id"
-                                self.yang_parent_name = "attachment"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"ipv4-address-and-vrf" : ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf), "ipv6-address-and-vrf" : ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf)}
-                                self._child_list_classes = {}
-
-                                self.destination_class = YLeaf(YType.enumeration, "destination-class")
-
-                                self.interface = YLeaf(YType.str, "interface")
-
-                                self.invalid_value = YLeaf(YType.uint32, "invalid-value")
-
-                                self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
-
-                                self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf()
-                                self.ipv4_address_and_vrf.parent = self
-                                self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
-                                self._children_yang_names.add("ipv4-address-and-vrf")
-
-                                self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf()
-                                self.ipv6_address_and_vrf.parent = self
-                                self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
-                                self._children_yang_names.add("ipv6-address-and-vrf")
-                                self._segment_path = lambda: "destination-id"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, ['destination_class', 'interface', 'invalid_value', 'pseudowire_id'], name, value)
-
-
-                            class Ipv4AddressAndVrf(Entity):
-                                """
-                                IPv4 address
-                                
-                                .. attribute:: ipv4_address
-                                
-                                	IPv4 address
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: vrf_name
-                                
-                                	VRF
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-span-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, self).__init__()
-
-                                    self.yang_name = "ipv4-address-and-vrf"
-                                    self.yang_parent_name = "destination-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-                                    self._segment_path = lambda: "ipv4-address-and-vrf"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
-
-
-                            class Ipv6AddressAndVrf(Entity):
-                                """
-                                IPv6 address
-                                
-                                .. attribute:: ipv6_address
-                                
-                                	IPv6 address
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: vrf_name
-                                
-                                	VRF
-                                	**type**\:  str
-                                
-                                
-
-                                """
-
-                                _prefix = 'ethernet-span-oper'
-                                _revision = '2015-11-09'
-
-                                def __init__(self):
-                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, self).__init__()
-
-                                    self.yang_name = "ipv6-address-and-vrf"
-                                    self.yang_parent_name = "destination-id"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
-
-                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
-                                    self._segment_path = lambda: "ipv6-address-and-vrf"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
-
-
-                        class TrafficMirroringParameters(Entity):
-                            """
-                            Traffic mirroring parameters
-                            
-                            .. attribute:: acl_name
-                            
-                            	ACL name
-                            	**type**\:  str
-                            
-                            .. attribute:: is_acl_enabled
-                            
-                            	ACL enabled
-                            	**type**\:  bool
-                            
-                            .. attribute:: mirror_bytes
-                            
-                            	Number of bytes to mirror
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: byte
-                            
-                            .. attribute:: mirror_interval
-                            
-                            	Interval between mirrored packets
-                            	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
-                            
-                            .. attribute:: port_level
-                            
-                            	Port level mirroring
-                            	**type**\:  bool
-                            
-                            .. attribute:: traffic_direction
-                            
-                            	Direction
-                            	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'ethernet-span-oper'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, self).__init__()
-
-                                self.yang_name = "traffic-mirroring-parameters"
-                                self.yang_parent_name = "attachment"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.acl_name = YLeaf(YType.str, "acl-name")
-
-                                self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
-
-                                self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
-
-                                self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
-
-                                self.port_level = YLeaf(YType.boolean, "port-level")
-
-                                self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
-                                self._segment_path = lambda: "traffic-mirroring-parameters"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, ['acl_name', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'port_level', 'traffic_direction'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', 'source_interface', 'platform_error', 'destination_interface', 'traffic_direction'], name, value)
 
 
                     class DestinationId(Entity):
                         """
                         Destination ID (deprecated by Attachment)
-                        
-                        .. attribute:: destination_class
-                        
-                        	DestinationClass
-                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
-                        
-                        .. attribute:: interface
-                        
-                        	Interface Handle
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: invalid_value
-                        
-                        	Invalid Parameter
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
                         
                         .. attribute:: ipv4_address_and_vrf
                         
@@ -2380,9 +2030,26 @@ class SpanMonitorSession(Entity):
                         	IPv6 address
                         	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf>`
                         
+                        .. attribute:: destination_class
+                        
+                        	DestinationClass
+                        	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                        
+                        .. attribute:: interface
+                        
+                        	Interface Handle
+                        	**type**\:  str
+                        
                         .. attribute:: pseudowire_id
                         
                         	Pseudowire XCID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: invalid_value
+                        
+                        	Invalid Parameter
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
@@ -2408,9 +2075,9 @@ class SpanMonitorSession(Entity):
 
                             self.interface = YLeaf(YType.str, "interface")
 
-                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
-
                             self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
+                            self.invalid_value = YLeaf(YType.uint32, "invalid-value")
 
                             self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf()
                             self.ipv4_address_and_vrf.parent = self
@@ -2424,7 +2091,7 @@ class SpanMonitorSession(Entity):
                             self._segment_path = lambda: "destination-id"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, ['destination_class', 'interface', 'invalid_value', 'pseudowire_id'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -2435,8 +2102,6 @@ class SpanMonitorSession(Entity):
                             
                             	IPv4 address
                             	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: vrf_name
                             
@@ -2478,8 +2143,6 @@ class SpanMonitorSession(Entity):
                             	IPv6 address
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
                             .. attribute:: vrf_name
                             
                             	VRF
@@ -2516,10 +2179,15 @@ class SpanMonitorSession(Entity):
                         Traffic mirroring parameters (deprecated by
                         Attachment)
                         
-                        .. attribute:: acl_name
+                        .. attribute:: traffic_direction
                         
-                        	ACL name
-                        	**type**\:  str
+                        	Direction
+                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                        
+                        .. attribute:: port_level
+                        
+                        	Port level mirroring
+                        	**type**\:  bool
                         
                         .. attribute:: is_acl_enabled
                         
@@ -2540,15 +2208,10 @@ class SpanMonitorSession(Entity):
                         	Interval between mirrored packets
                         	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
                         
-                        .. attribute:: port_level
+                        .. attribute:: acl_name
                         
-                        	Port level mirroring
-                        	**type**\:  bool
-                        
-                        .. attribute:: traffic_direction
-                        
-                        	Direction
-                        	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                        	ACL name
+                        	**type**\:  str
                         
                         
 
@@ -2567,7 +2230,9 @@ class SpanMonitorSession(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.acl_name = YLeaf(YType.str, "acl-name")
+                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                            self.port_level = YLeaf(YType.boolean, "port-level")
 
                             self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
 
@@ -2575,13 +2240,294 @@ class SpanMonitorSession(Entity):
 
                             self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
 
-                            self.port_level = YLeaf(YType.boolean, "port-level")
-
-                            self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+                            self.acl_name = YLeaf(YType.str, "acl-name")
                             self._segment_path = lambda: "traffic-mirroring-parameters"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, ['acl_name', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'port_level', 'traffic_direction'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
+
+
+                    class Attachment(Entity):
+                        """
+                        Attachment information
+                        
+                        .. attribute:: destination_id
+                        
+                        	Destination ID
+                        	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
+                        
+                        .. attribute:: traffic_mirroring_parameters
+                        
+                        	Traffic mirroring parameters
+                        	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
+                        
+                        .. attribute:: class_
+                        
+                        	Attachment class
+                        	**type**\:   :py:class:`SessionClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClass>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ethernet-span-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, self).__init__()
+
+                            self.yang_name = "attachment"
+                            self.yang_parent_name = "interface"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {"destination-id" : ("destination_id", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId), "traffic-mirroring-parameters" : ("traffic_mirroring_parameters", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters)}
+                            self._child_list_classes = {}
+
+                            self.class_ = YLeaf(YType.enumeration, "class")
+
+                            self.destination_id = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId()
+                            self.destination_id.parent = self
+                            self._children_name_map["destination_id"] = "destination-id"
+                            self._children_yang_names.add("destination-id")
+
+                            self.traffic_mirroring_parameters = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters()
+                            self.traffic_mirroring_parameters.parent = self
+                            self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
+                            self._children_yang_names.add("traffic-mirroring-parameters")
+                            self._segment_path = lambda: "attachment"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, ['class_'], name, value)
+
+
+                        class DestinationId(Entity):
+                            """
+                            Destination ID
+                            
+                            .. attribute:: ipv4_address_and_vrf
+                            
+                            	IPv4 address
+                            	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
+                            
+                            .. attribute:: ipv6_address_and_vrf
+                            
+                            	IPv6 address
+                            	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
+                            
+                            .. attribute:: destination_class
+                            
+                            	DestinationClass
+                            	**type**\:   :py:class:`DestinationClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClass>`
+                            
+                            .. attribute:: interface
+                            
+                            	Interface Handle
+                            	**type**\:  str
+                            
+                            .. attribute:: pseudowire_id
+                            
+                            	Pseudowire XCID
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: invalid_value
+                            
+                            	Invalid Parameter
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-span-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, self).__init__()
+
+                                self.yang_name = "destination-id"
+                                self.yang_parent_name = "attachment"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"ipv4-address-and-vrf" : ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf), "ipv6-address-and-vrf" : ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf)}
+                                self._child_list_classes = {}
+
+                                self.destination_class = YLeaf(YType.enumeration, "destination-class")
+
+                                self.interface = YLeaf(YType.str, "interface")
+
+                                self.pseudowire_id = YLeaf(YType.uint32, "pseudowire-id")
+
+                                self.invalid_value = YLeaf(YType.uint32, "invalid-value")
+
+                                self.ipv4_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf()
+                                self.ipv4_address_and_vrf.parent = self
+                                self._children_name_map["ipv4_address_and_vrf"] = "ipv4-address-and-vrf"
+                                self._children_yang_names.add("ipv4-address-and-vrf")
+
+                                self.ipv6_address_and_vrf = SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf()
+                                self.ipv6_address_and_vrf.parent = self
+                                self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
+                                self._children_yang_names.add("ipv6-address-and-vrf")
+                                self._segment_path = lambda: "destination-id"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+
+
+                            class Ipv4AddressAndVrf(Entity):
+                                """
+                                IPv4 address
+                                
+                                .. attribute:: ipv4_address
+                                
+                                	IPv4 address
+                                	**type**\:  str
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-span-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, self).__init__()
+
+                                    self.yang_name = "ipv4-address-and-vrf"
+                                    self.yang_parent_name = "destination-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv4_address = YLeaf(YType.str, "ipv4-address")
+
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                    self._segment_path = lambda: "ipv4-address-and-vrf"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+
+
+                            class Ipv6AddressAndVrf(Entity):
+                                """
+                                IPv6 address
+                                
+                                .. attribute:: ipv6_address
+                                
+                                	IPv6 address
+                                	**type**\:  str
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF
+                                	**type**\:  str
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-span-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, self).__init__()
+
+                                    self.yang_name = "ipv6-address-and-vrf"
+                                    self.yang_parent_name = "destination-id"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.ipv6_address = YLeaf(YType.str, "ipv6-address")
+
+                                    self.vrf_name = YLeaf(YType.str, "vrf-name")
+                                    self._segment_path = lambda: "ipv6-address-and-vrf"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+
+
+                        class TrafficMirroringParameters(Entity):
+                            """
+                            Traffic mirroring parameters
+                            
+                            .. attribute:: traffic_direction
+                            
+                            	Direction
+                            	**type**\:   :py:class:`TrafficDirection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirection>`
+                            
+                            .. attribute:: port_level
+                            
+                            	Port level mirroring
+                            	**type**\:  bool
+                            
+                            .. attribute:: is_acl_enabled
+                            
+                            	ACL enabled
+                            	**type**\:  bool
+                            
+                            .. attribute:: mirror_bytes
+                            
+                            	Number of bytes to mirror
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: byte
+                            
+                            .. attribute:: mirror_interval
+                            
+                            	Interval between mirrored packets
+                            	**type**\:   :py:class:`MirrorInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorInterval>`
+                            
+                            .. attribute:: acl_name
+                            
+                            	ACL name
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ethernet-span-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, self).__init__()
+
+                                self.yang_name = "traffic-mirroring-parameters"
+                                self.yang_parent_name = "attachment"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.traffic_direction = YLeaf(YType.enumeration, "traffic-direction")
+
+                                self.port_level = YLeaf(YType.boolean, "port-level")
+
+                                self.is_acl_enabled = YLeaf(YType.boolean, "is-acl-enabled")
+
+                                self.mirror_bytes = YLeaf(YType.uint32, "mirror-bytes")
+
+                                self.mirror_interval = YLeaf(YType.enumeration, "mirror-interval")
+
+                                self.acl_name = YLeaf(YType.str, "acl-name")
+                                self._segment_path = lambda: "traffic-mirroring-parameters"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()

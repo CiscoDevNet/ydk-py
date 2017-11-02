@@ -133,15 +133,15 @@ class HwModule(Entity):
     """
     mxp hw\-module command chain
     
-    .. attribute:: slice_all
-    
-    	Information for all slices
-    	**type**\:   :py:class:`SliceAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
-    
     .. attribute:: slice_ids
     
     	Slice information
     	**type**\:   :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
+    
+    .. attribute:: slice_all
+    
+    	Information for all slices
+    	**type**\:   :py:class:`SliceAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
     
     
 
@@ -158,264 +158,19 @@ class HwModule(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-ncs1k-mxp-oper"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"slice-all" : ("slice_all", HwModule.SliceAll), "slice-ids" : ("slice_ids", HwModule.SliceIds)}
+        self._child_container_classes = {"slice-ids" : ("slice_ids", HwModule.SliceIds), "slice-all" : ("slice_all", HwModule.SliceAll)}
         self._child_list_classes = {}
-
-        self.slice_all = HwModule.SliceAll()
-        self.slice_all.parent = self
-        self._children_name_map["slice_all"] = "slice-all"
-        self._children_yang_names.add("slice-all")
 
         self.slice_ids = HwModule.SliceIds()
         self.slice_ids.parent = self
         self._children_name_map["slice_ids"] = "slice-ids"
         self._children_yang_names.add("slice-ids")
+
+        self.slice_all = HwModule.SliceAll()
+        self.slice_all.parent = self
+        self._children_name_map["slice_all"] = "slice-all"
+        self._children_yang_names.add("slice-all")
         self._segment_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module"
-
-
-    class SliceAll(Entity):
-        """
-        Information for all slices
-        
-        .. attribute:: slice_info
-        
-        	slice info
-        	**type**\: list of    :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo>`
-        
-        
-
-        """
-
-        _prefix = 'ncs1k-mxp-oper'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(HwModule.SliceAll, self).__init__()
-
-            self.yang_name = "slice-all"
-            self.yang_parent_name = "hw-module"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"slice-info" : ("slice_info", HwModule.SliceAll.SliceInfo)}
-
-            self.slice_info = YList(self)
-            self._segment_path = lambda: "slice-all"
-            self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(HwModule.SliceAll, [], name, value)
-
-
-        class SliceInfo(Entity):
-            """
-            slice info
-            
-            .. attribute:: client_port
-            
-            	client port
-            	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
-            
-            .. attribute:: client_rate
-            
-            	ClientRate
-            	**type**\:   :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
-            
-            .. attribute:: dp_fpga_fw_type
-            
-            	DpFpgaFwType
-            	**type**\:  str
-            
-            	**length:** 0..10
-            
-            .. attribute:: dp_fpga_fw_ver
-            
-            	DpFpgaFwVer
-            	**type**\:  str
-            
-            	**length:** 0..10
-            
-            .. attribute:: encryption_supported
-            
-            	EncryptionSupported
-            	**type**\:  bool
-            
-            .. attribute:: hardware_status
-            
-            	HardwareStatus
-            	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
-            
-            .. attribute:: lldp_drop_status
-            
-            	LldpDropStatus
-            	**type**\:  bool
-            
-            .. attribute:: need_upg
-            
-            	NeedUpg
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: slice_id
-            
-            	SliceId
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: trunk_rate
-            
-            	TrunkRate
-            	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
-            
-            
-
-            """
-
-            _prefix = 'ncs1k-mxp-oper'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(HwModule.SliceAll.SliceInfo, self).__init__()
-
-                self.yang_name = "slice-info"
-                self.yang_parent_name = "slice-all"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"client-port" : ("client_port", HwModule.SliceAll.SliceInfo.ClientPort)}
-
-                self.client_rate = YLeaf(YType.enumeration, "client-rate")
-
-                self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
-
-                self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
-
-                self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
-
-                self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
-
-                self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
-
-                self.need_upg = YLeaf(YType.uint32, "need-upg")
-
-                self.slice_id = YLeaf(YType.uint32, "slice-id")
-
-                self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
-
-                self.client_port = YList(self)
-                self._segment_path = lambda: "slice-info"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.SliceAll.SliceInfo, ['client_rate', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'encryption_supported', 'hardware_status', 'lldp_drop_status', 'need_upg', 'slice_id', 'trunk_rate'], name, value)
-
-
-            class ClientPort(Entity):
-                """
-                client port
-                
-                .. attribute:: client_name
-                
-                	ClientName
-                	**type**\:  str
-                
-                	**length:** 0..64
-                
-                .. attribute:: if_index
-                
-                	IfIndex
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: trunk_port
-                
-                	trunk port
-                	**type**\: list of    :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort>`
-                
-                
-
-                """
-
-                _prefix = 'ncs1k-mxp-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(HwModule.SliceAll.SliceInfo.ClientPort, self).__init__()
-
-                    self.yang_name = "client-port"
-                    self.yang_parent_name = "slice-info"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"trunk-port" : ("trunk_port", HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort)}
-
-                    self.client_name = YLeaf(YType.str, "client-name")
-
-                    self.if_index = YLeaf(YType.uint32, "if-index")
-
-                    self.trunk_port = YList(self)
-                    self._segment_path = lambda: "client-port"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.SliceAll.SliceInfo.ClientPort, ['client_name', 'if_index'], name, value)
-
-
-                class TrunkPort(Entity):
-                    """
-                    trunk port
-                    
-                    .. attribute:: if_index
-                    
-                    	IfIndex
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: percentage
-                    
-                    	Percentage
-                    	**type**\:  str
-                    
-                    	**length:** 0..8
-                    
-                    .. attribute:: trunk_name
-                    
-                    	TrunkName
-                    	**type**\:  str
-                    
-                    	**length:** 0..64
-                    
-                    
-
-                    """
-
-                    _prefix = 'ncs1k-mxp-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__init__()
-
-                        self.yang_name = "trunk-port"
-                        self.yang_parent_name = "client-port"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.if_index = YLeaf(YType.uint32, "if-index")
-
-                        self.percentage = YLeaf(YType.str, "percentage")
-
-                        self.trunk_name = YLeaf(YType.str, "trunk-name")
-                        self._segment_path = lambda: "trunk-port"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/client-port/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, ['if_index', 'percentage', 'trunk_name'], name, value)
 
 
     class SliceIds(Entity):
@@ -499,15 +254,27 @@ class HwModule(Entity):
                 """
                 slice info
                 
-                .. attribute:: client_port
+                .. attribute:: slice_id
                 
-                	client port
-                	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
+                	SliceId
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: client_rate
                 
                 	ClientRate
                 	**type**\:   :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
+                
+                .. attribute:: trunk_rate
+                
+                	TrunkRate
+                	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
+                
+                .. attribute:: hardware_status
+                
+                	HardwareStatus
+                	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
                 
                 .. attribute:: dp_fpga_fw_type
                 
@@ -523,21 +290,6 @@ class HwModule(Entity):
                 
                 	**length:** 0..10
                 
-                .. attribute:: encryption_supported
-                
-                	EncryptionSupported
-                	**type**\:  bool
-                
-                .. attribute:: hardware_status
-                
-                	HardwareStatus
-                	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
-                
-                .. attribute:: lldp_drop_status
-                
-                	LldpDropStatus
-                	**type**\:  bool
-                
                 .. attribute:: need_upg
                 
                 	NeedUpg
@@ -545,17 +297,20 @@ class HwModule(Entity):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: slice_id
+                .. attribute:: encryption_supported
                 
-                	SliceId
-                	**type**\:  int
+                	EncryptionSupported
+                	**type**\:  bool
                 
-                	**range:** 0..4294967295
+                .. attribute:: lldp_drop_status
                 
-                .. attribute:: trunk_rate
+                	LldpDropStatus
+                	**type**\:  bool
                 
-                	TrunkRate
-                	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
+                .. attribute:: client_port
+                
+                	client port
+                	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
                 
                 
 
@@ -574,29 +329,29 @@ class HwModule(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {"client-port" : ("client_port", HwModule.SliceIds.SliceId.SliceInfo.ClientPort)}
 
+                    self.slice_id = YLeaf(YType.uint32, "slice-id")
+
                     self.client_rate = YLeaf(YType.enumeration, "client-rate")
+
+                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
+
+                    self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
 
                     self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
 
                     self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
 
-                    self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
-
-                    self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
-
-                    self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
-
                     self.need_upg = YLeaf(YType.uint32, "need-upg")
 
-                    self.slice_id = YLeaf(YType.uint32, "slice-id")
+                    self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
 
-                    self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
+                    self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
 
                     self.client_port = YList(self)
                     self._segment_path = lambda: "slice-info"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo, ['client_rate', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'encryption_supported', 'hardware_status', 'lldp_drop_status', 'need_upg', 'slice_id', 'trunk_rate'], name, value)
+                    self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo, ['slice_id', 'client_rate', 'trunk_rate', 'hardware_status', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'need_upg', 'encryption_supported', 'lldp_drop_status'], name, value)
 
 
                 class ClientPort(Entity):
@@ -654,6 +409,13 @@ class HwModule(Entity):
                         """
                         trunk port
                         
+                        .. attribute:: trunk_name
+                        
+                        	TrunkName
+                        	**type**\:  str
+                        
+                        	**length:** 0..64
+                        
                         .. attribute:: if_index
                         
                         	IfIndex
@@ -667,13 +429,6 @@ class HwModule(Entity):
                         	**type**\:  str
                         
                         	**length:** 0..8
-                        
-                        .. attribute:: trunk_name
-                        
-                        	TrunkName
-                        	**type**\:  str
-                        
-                        	**length:** 0..64
                         
                         
 
@@ -692,15 +447,260 @@ class HwModule(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
+                            self.trunk_name = YLeaf(YType.str, "trunk-name")
+
                             self.if_index = YLeaf(YType.uint32, "if-index")
 
                             self.percentage = YLeaf(YType.str, "percentage")
-
-                            self.trunk_name = YLeaf(YType.str, "trunk-name")
                             self._segment_path = lambda: "trunk-port"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, ['if_index', 'percentage', 'trunk_name'], name, value)
+                            self._perform_setattr(HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort, ['trunk_name', 'if_index', 'percentage'], name, value)
+
+
+    class SliceAll(Entity):
+        """
+        Information for all slices
+        
+        .. attribute:: slice_info
+        
+        	slice info
+        	**type**\: list of    :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo>`
+        
+        
+
+        """
+
+        _prefix = 'ncs1k-mxp-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(HwModule.SliceAll, self).__init__()
+
+            self.yang_name = "slice-all"
+            self.yang_parent_name = "hw-module"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"slice-info" : ("slice_info", HwModule.SliceAll.SliceInfo)}
+
+            self.slice_info = YList(self)
+            self._segment_path = lambda: "slice-all"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(HwModule.SliceAll, [], name, value)
+
+
+        class SliceInfo(Entity):
+            """
+            slice info
+            
+            .. attribute:: slice_id
+            
+            	SliceId
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: client_rate
+            
+            	ClientRate
+            	**type**\:   :py:class:`ClientDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.ClientDataRate>`
+            
+            .. attribute:: trunk_rate
+            
+            	TrunkRate
+            	**type**\:   :py:class:`TrunkDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.TrunkDataRate>`
+            
+            .. attribute:: hardware_status
+            
+            	HardwareStatus
+            	**type**\:   :py:class:`HwModuleSliceStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatus>`
+            
+            .. attribute:: dp_fpga_fw_type
+            
+            	DpFpgaFwType
+            	**type**\:  str
+            
+            	**length:** 0..10
+            
+            .. attribute:: dp_fpga_fw_ver
+            
+            	DpFpgaFwVer
+            	**type**\:  str
+            
+            	**length:** 0..10
+            
+            .. attribute:: need_upg
+            
+            	NeedUpg
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: encryption_supported
+            
+            	EncryptionSupported
+            	**type**\:  bool
+            
+            .. attribute:: lldp_drop_status
+            
+            	LldpDropStatus
+            	**type**\:  bool
+            
+            .. attribute:: client_port
+            
+            	client port
+            	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
+            
+            
+
+            """
+
+            _prefix = 'ncs1k-mxp-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(HwModule.SliceAll.SliceInfo, self).__init__()
+
+                self.yang_name = "slice-info"
+                self.yang_parent_name = "slice-all"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"client-port" : ("client_port", HwModule.SliceAll.SliceInfo.ClientPort)}
+
+                self.slice_id = YLeaf(YType.uint32, "slice-id")
+
+                self.client_rate = YLeaf(YType.enumeration, "client-rate")
+
+                self.trunk_rate = YLeaf(YType.enumeration, "trunk-rate")
+
+                self.hardware_status = YLeaf(YType.enumeration, "hardware-status")
+
+                self.dp_fpga_fw_type = YLeaf(YType.str, "dp-fpga-fw-type")
+
+                self.dp_fpga_fw_ver = YLeaf(YType.str, "dp-fpga-fw-ver")
+
+                self.need_upg = YLeaf(YType.uint32, "need-upg")
+
+                self.encryption_supported = YLeaf(YType.boolean, "encryption-supported")
+
+                self.lldp_drop_status = YLeaf(YType.boolean, "lldp-drop-status")
+
+                self.client_port = YList(self)
+                self._segment_path = lambda: "slice-info"
+                self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(HwModule.SliceAll.SliceInfo, ['slice_id', 'client_rate', 'trunk_rate', 'hardware_status', 'dp_fpga_fw_type', 'dp_fpga_fw_ver', 'need_upg', 'encryption_supported', 'lldp_drop_status'], name, value)
+
+
+            class ClientPort(Entity):
+                """
+                client port
+                
+                .. attribute:: client_name
+                
+                	ClientName
+                	**type**\:  str
+                
+                	**length:** 0..64
+                
+                .. attribute:: if_index
+                
+                	IfIndex
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: trunk_port
+                
+                	trunk port
+                	**type**\: list of    :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort>`
+                
+                
+
+                """
+
+                _prefix = 'ncs1k-mxp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(HwModule.SliceAll.SliceInfo.ClientPort, self).__init__()
+
+                    self.yang_name = "client-port"
+                    self.yang_parent_name = "slice-info"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"trunk-port" : ("trunk_port", HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort)}
+
+                    self.client_name = YLeaf(YType.str, "client-name")
+
+                    self.if_index = YLeaf(YType.uint32, "if-index")
+
+                    self.trunk_port = YList(self)
+                    self._segment_path = lambda: "client-port"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(HwModule.SliceAll.SliceInfo.ClientPort, ['client_name', 'if_index'], name, value)
+
+
+                class TrunkPort(Entity):
+                    """
+                    trunk port
+                    
+                    .. attribute:: trunk_name
+                    
+                    	TrunkName
+                    	**type**\:  str
+                    
+                    	**length:** 0..64
+                    
+                    .. attribute:: if_index
+                    
+                    	IfIndex
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: percentage
+                    
+                    	Percentage
+                    	**type**\:  str
+                    
+                    	**length:** 0..8
+                    
+                    
+
+                    """
+
+                    _prefix = 'ncs1k-mxp-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, self).__init__()
+
+                        self.yang_name = "trunk-port"
+                        self.yang_parent_name = "client-port"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.trunk_name = YLeaf(YType.str, "trunk-name")
+
+                        self.if_index = YLeaf(YType.uint32, "if-index")
+
+                        self.percentage = YLeaf(YType.str, "percentage")
+                        self._segment_path = lambda: "trunk-port"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/client-port/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort, ['trunk_name', 'if_index', 'percentage'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HwModule()

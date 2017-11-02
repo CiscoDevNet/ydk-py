@@ -18,25 +18,25 @@ class CISCOIETFFRRMIB(Entity):
     """
     
     
+    .. attribute:: cmplsfrrscalars
+    
+    	
+    	**type**\:   :py:class:`Cmplsfrrscalars <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrscalars>`
+    
     .. attribute:: cmplsfrrconsttable
     
     	This table shows detour setup constraints
     	**type**\:   :py:class:`Cmplsfrrconsttable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrconsttable>`
-    
-    .. attribute:: cmplsfrrfacroutedbtable
-    
-    	The mplsFrrFacRouteDBTable provides information about the  fast reroute database.  Each entry belongs to an interface, protecting backup tunnel and protected tunnel. MPLS  interfaces defined on this node are protected by backup tunnels and are indexed by mplsFrrFacRouteProtectedIndex. Backup tunnels defined to protect the tunnels traversing an interface, and are indexed by  mplsFrrFacRouteProtectingTunIndex.  Note that the tunnel  instance index is not required, since it is implied to be 0,  which indicates the tunnel head interface for the protecting  tunnel. The protecting tunnel is defined to exist on the PLR  in the FRR specification.  Protected tunnels are the LSPs that  traverse the protected link.  These LSPs are uniquely  identified by mplsFrrFacRouteProtectedTunIndex, mplsFrrFacRouteProtectedTunInstance,  mplsFrrFacRouteProtectedTunIngressLSRId, and  mplsFrrFacRouteProtectedTunEgressLSRId
-    	**type**\:   :py:class:`Cmplsfrrfacroutedbtable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable>`
     
     .. attribute:: cmplsfrrlogtable
     
     	The fast reroute log table records fast reroute events such as protected links going up or down or the FRR feature kicking in
     	**type**\:   :py:class:`Cmplsfrrlogtable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrlogtable>`
     
-    .. attribute:: cmplsfrrscalars
+    .. attribute:: cmplsfrrfacroutedbtable
     
-    	
-    	**type**\:   :py:class:`Cmplsfrrscalars <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrscalars>`
+    	The mplsFrrFacRouteDBTable provides information about the  fast reroute database.  Each entry belongs to an interface, protecting backup tunnel and protected tunnel. MPLS  interfaces defined on this node are protected by backup tunnels and are indexed by mplsFrrFacRouteProtectedIndex. Backup tunnels defined to protect the tunnels traversing an interface, and are indexed by  mplsFrrFacRouteProtectingTunIndex.  Note that the tunnel  instance index is not required, since it is implied to be 0,  which indicates the tunnel head interface for the protecting  tunnel. The protecting tunnel is defined to exist on the PLR  in the FRR specification.  Protected tunnels are the LSPs that  traverse the protected link.  These LSPs are uniquely  identified by mplsFrrFacRouteProtectedTunIndex, mplsFrrFacRouteProtectedTunInstance,  mplsFrrFacRouteProtectedTunIngressLSRId, and  mplsFrrFacRouteProtectedTunEgressLSRId
+    	**type**\:   :py:class:`Cmplsfrrfacroutedbtable <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable>`
     
     
 
@@ -53,29 +53,207 @@ class CISCOIETFFRRMIB(Entity):
         self.yang_parent_name = "CISCO-IETF-FRR-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"cmplsFrrConstTable" : ("cmplsfrrconsttable", CISCOIETFFRRMIB.Cmplsfrrconsttable), "cmplsFrrFacRouteDBTable" : ("cmplsfrrfacroutedbtable", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable), "cmplsFrrLogTable" : ("cmplsfrrlogtable", CISCOIETFFRRMIB.Cmplsfrrlogtable), "cmplsFrrScalars" : ("cmplsfrrscalars", CISCOIETFFRRMIB.Cmplsfrrscalars)}
+        self._child_container_classes = {"cmplsFrrScalars" : ("cmplsfrrscalars", CISCOIETFFRRMIB.Cmplsfrrscalars), "cmplsFrrConstTable" : ("cmplsfrrconsttable", CISCOIETFFRRMIB.Cmplsfrrconsttable), "cmplsFrrLogTable" : ("cmplsfrrlogtable", CISCOIETFFRRMIB.Cmplsfrrlogtable), "cmplsFrrFacRouteDBTable" : ("cmplsfrrfacroutedbtable", CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable)}
         self._child_list_classes = {}
+
+        self.cmplsfrrscalars = CISCOIETFFRRMIB.Cmplsfrrscalars()
+        self.cmplsfrrscalars.parent = self
+        self._children_name_map["cmplsfrrscalars"] = "cmplsFrrScalars"
+        self._children_yang_names.add("cmplsFrrScalars")
 
         self.cmplsfrrconsttable = CISCOIETFFRRMIB.Cmplsfrrconsttable()
         self.cmplsfrrconsttable.parent = self
         self._children_name_map["cmplsfrrconsttable"] = "cmplsFrrConstTable"
         self._children_yang_names.add("cmplsFrrConstTable")
 
-        self.cmplsfrrfacroutedbtable = CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable()
-        self.cmplsfrrfacroutedbtable.parent = self
-        self._children_name_map["cmplsfrrfacroutedbtable"] = "cmplsFrrFacRouteDBTable"
-        self._children_yang_names.add("cmplsFrrFacRouteDBTable")
-
         self.cmplsfrrlogtable = CISCOIETFFRRMIB.Cmplsfrrlogtable()
         self.cmplsfrrlogtable.parent = self
         self._children_name_map["cmplsfrrlogtable"] = "cmplsFrrLogTable"
         self._children_yang_names.add("cmplsFrrLogTable")
 
-        self.cmplsfrrscalars = CISCOIETFFRRMIB.Cmplsfrrscalars()
-        self.cmplsfrrscalars.parent = self
-        self._children_name_map["cmplsfrrscalars"] = "cmplsFrrScalars"
-        self._children_yang_names.add("cmplsFrrScalars")
+        self.cmplsfrrfacroutedbtable = CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable()
+        self.cmplsfrrfacroutedbtable.parent = self
+        self._children_name_map["cmplsfrrfacroutedbtable"] = "cmplsFrrFacRouteDBTable"
+        self._children_yang_names.add("cmplsFrrFacRouteDBTable")
         self._segment_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB"
+
+
+    class Cmplsfrrscalars(Entity):
+        """
+        
+        
+        .. attribute:: cmplsfrrdetourincoming
+        
+        	The number of detour LSPs entering the device if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or or 0 if mplsFrrConstProtectionMethod is set to facilityBackup(1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrdetouroutgoing
+        
+        	The number of detour LSPs leaving the device if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or 0 if mplsFrrConstProtectionMethod is set to  to facilityBackup(1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrdetouroriginating
+        
+        	The number of detour LSPs originating at this PLR if mplsFrrConstProtectionMethod is set to oneToOneBackup(0). This object MUST return 0 if the mplsFrrConstProtectionMethod  is set to facilityBackup(1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrswitchover
+        
+        	The number of tunnel instances that are switched over to their corresponding detour LSP if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or tunnels being switched over if mplsFrrConstProtectionMethod is set to facilityBackup(1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrnumofconfifs
+        
+        	Indicates the number of MPLS interfaces configured for  protection by the FRR feature, otherwise this value MUST return 0 to indicate that LSPs traversing any  interface may be protected
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrractprotectedifs
+        
+        	Indicates the number of interfaces currently being protected  by the FRR feature if mplsFrrConstProtectionMethod is set to facilityBackup(1), otherwise this value should return 0 to indicate that LSPs traversing any interface may be protected. This value MUST be less than or equal to mplsFrrConfIfs
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrconfprotectingtuns
+        
+        	Indicates the number of bypass tunnels configured to  protect facilities on this LSR using the FRR feature  if mplsFrrConstProtectionMethod is set to  facilityBackup(1), otherwise this value MUST return  0
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrractprotectedtuns
+        
+        	Indicates the number of bypass tunnels indicated in mplsFrrConfProtectingTuns whose operStatus is up(1) indicating that they are currently protecting facilities on this LSR using the FRR feature. This object MUST return 0 if mplsFrrConstProtectionMethod  is set to facilityBackup(1)
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrractprotectedlsps
+        
+        	Indicates the number of LSPs currently protected by  the FRR feature. If mplsFrrConstProtectionMethod is set  to facilityBackup(1)this object MUST return 0
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrconstprotectionmethod
+        
+        	Indicates which protection method is to be used for fast reroute. Some devices may require a reboot of their routing processors if this variable is changed. An agent which does not wish to reboot or modify its FRR mode  MUST return an inconsistentValue error. Please  consult the device's agent capability statement  for more details
+        	**type**\:   :py:class:`Cmplsfrrconstprotectionmethod <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrscalars.Cmplsfrrconstprotectionmethod>`
+        
+        .. attribute:: cmplsfrrnotifsenabled
+        
+        	Enables or disables FRR notifications defined in this MIB module. Notifications are disabled by default
+        	**type**\:  bool
+        
+        .. attribute:: cmplsfrrlogtablemaxentries
+        
+        	Indicates the maximum number of entries allowed in the FRR Log table. Agents receiving SETs for values that cannot be used must return an inconsistent value error. If a manager sets this value to 0, this indicates that no logging should take place by the agent.    If this value is returned as 0, this indicates that no additional log entries will be added to the current table either because the table has been completely filled or logging has been disabled. However, agents may wish to not delete existing entries in the log table so that managers may review them in the future.   It is implied that when mplsFrrLogTableCurrEntries  has reached the value of this variable, that logging  entries may not continue to be added to the table,  although existing ones may remain.  Furthermore, an agent may begin to delete existing (perhaps the oldest entries) entries to make room for new ones
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrlogtablecurrentries
+        
+        	Indicates the current number of entries in the FRR log table
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: cmplsfrrnotifmaxrate
+        
+        	This variable indicates the number of milliseconds that must elapse between notification emissions. If events occur more rapidly, the implementation may simply fail to emit these notifications during that period, or may queue them until an appropriate time in the future. A value of 0 means no minimum  elapsed period is specified
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-FRR-MIB'
+        _revision = '2008-04-29'
+
+        def __init__(self):
+            super(CISCOIETFFRRMIB.Cmplsfrrscalars, self).__init__()
+
+            self.yang_name = "cmplsFrrScalars"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.cmplsfrrdetourincoming = YLeaf(YType.uint32, "cmplsFrrDetourIncoming")
+
+            self.cmplsfrrdetouroutgoing = YLeaf(YType.uint32, "cmplsFrrDetourOutgoing")
+
+            self.cmplsfrrdetouroriginating = YLeaf(YType.uint32, "cmplsFrrDetourOriginating")
+
+            self.cmplsfrrswitchover = YLeaf(YType.uint32, "cmplsFrrSwitchover")
+
+            self.cmplsfrrnumofconfifs = YLeaf(YType.uint32, "cmplsFrrNumOfConfIfs")
+
+            self.cmplsfrractprotectedifs = YLeaf(YType.uint32, "cmplsFrrActProtectedIfs")
+
+            self.cmplsfrrconfprotectingtuns = YLeaf(YType.uint32, "cmplsFrrConfProtectingTuns")
+
+            self.cmplsfrractprotectedtuns = YLeaf(YType.uint32, "cmplsFrrActProtectedTuns")
+
+            self.cmplsfrractprotectedlsps = YLeaf(YType.uint32, "cmplsFrrActProtectedLSPs")
+
+            self.cmplsfrrconstprotectionmethod = YLeaf(YType.enumeration, "cmplsFrrConstProtectionMethod")
+
+            self.cmplsfrrnotifsenabled = YLeaf(YType.boolean, "cmplsFrrNotifsEnabled")
+
+            self.cmplsfrrlogtablemaxentries = YLeaf(YType.uint32, "cmplsFrrLogTableMaxEntries")
+
+            self.cmplsfrrlogtablecurrentries = YLeaf(YType.uint32, "cmplsFrrLogTableCurrEntries")
+
+            self.cmplsfrrnotifmaxrate = YLeaf(YType.uint32, "cmplsFrrNotifMaxRate")
+            self._segment_path = lambda: "cmplsFrrScalars"
+            self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrscalars, ['cmplsfrrdetourincoming', 'cmplsfrrdetouroutgoing', 'cmplsfrrdetouroriginating', 'cmplsfrrswitchover', 'cmplsfrrnumofconfifs', 'cmplsfrractprotectedifs', 'cmplsfrrconfprotectingtuns', 'cmplsfrractprotectedtuns', 'cmplsfrractprotectedlsps', 'cmplsfrrconstprotectionmethod', 'cmplsfrrnotifsenabled', 'cmplsfrrlogtablemaxentries', 'cmplsfrrlogtablecurrentries', 'cmplsfrrnotifmaxrate'], name, value)
+
+        class Cmplsfrrconstprotectionmethod(Enum):
+            """
+            Cmplsfrrconstprotectionmethod
+
+            Indicates which protection method is to be used for fast
+
+            reroute. Some devices may require a reboot of their routing
+
+            processors if this variable is changed. An agent which
+
+            does not wish to reboot or modify its FRR mode 
+
+            MUST return an inconsistentValue error. Please 
+
+            consult the device's agent capability statement 
+
+            for more details.
+
+            .. data:: oneToOneBackup = 0
+
+            .. data:: facilityBackup = 1
+
+            """
+
+            oneToOneBackup = Enum.YLeaf(0, "oneToOneBackup")
+
+            facilityBackup = Enum.YLeaf(1, "facilityBackup")
+
 
 
     class Cmplsfrrconsttable(Entity):
@@ -143,9 +321,30 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cmplsfrrconstbandwidth
+            .. attribute:: cmplsfrrconstsetupprio
             
-            	This variable represents the bandwidth for detour LSPs of this tunnel, in units of thousands of bits per second (Kbps)
+            	Indicates the setup priority of detour LSP
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            .. attribute:: cmplsfrrconstholdingprio
+            
+            	Indicates the holding priority for detour LSP
+            	**type**\:  int
+            
+            	**range:** 0..7
+            
+            .. attribute:: cmplsfrrconstinclanyaffinity
+            
+            	A link satisfies the include\-any constraint if and only if the constraint is zero, or the link and the constraint have a resource class in common
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cmplsfrrconstinclallaffinity
+            
+            	A link satisfies the include\-all constraint if and only if the link contains all of the administrative groups specified in the constraint
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -157,13 +356,6 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: cmplsfrrconstholdingprio
-            
-            	Indicates the holding priority for detour LSP
-            	**type**\:  int
-            
-            	**range:** 0..7
-            
             .. attribute:: cmplsfrrconsthoplimit
             
             	The maximum number of hops that the detour LSP may traverse
@@ -171,16 +363,21 @@ class CISCOIETFFRRMIB(Entity):
             
             	**range:** 1..65535
             
-            .. attribute:: cmplsfrrconstinclallaffinity
+            .. attribute:: cmplsfrrconstbandwidth
             
-            	A link satisfies the include\-all constraint if and only if the link contains all of the administrative groups specified in the constraint
+            	This variable represents the bandwidth for detour LSPs of this tunnel, in units of thousands of bits per second (Kbps)
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: cmplsfrrconstinclanyaffinity
+            .. attribute:: cmplsfrrconstrowstatus
             
-            	A link satisfies the include\-any constraint if and only if the constraint is zero, or the link and the constraint have a resource class in common
+            	This object is used to create, modify, and/or delete a row in this table
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: cmplsfrrconstnumprotectingtunonif
+            
+            	The number of backup tunnels protecting the specified interface
             	**type**\:  int
             
             	**range:** 0..4294967295
@@ -191,25 +388,6 @@ class CISCOIETFFRRMIB(Entity):
             	**type**\:  int
             
             	**range:** 0..4294967295
-            
-            .. attribute:: cmplsfrrconstnumprotectingtunonif
-            
-            	The number of backup tunnels protecting the specified interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cmplsfrrconstrowstatus
-            
-            	This object is used to create, modify, and/or delete a row in this table
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: cmplsfrrconstsetupprio
-            
-            	Indicates the setup priority of detour LSP
-            	**type**\:  int
-            
-            	**range:** 0..7
             
             
 
@@ -234,30 +412,167 @@ class CISCOIETFFRRMIB(Entity):
 
                 self.cmplsfrrconsttunnelinstance = YLeaf(YType.uint32, "cmplsFrrConstTunnelInstance")
 
-                self.cmplsfrrconstbandwidth = YLeaf(YType.uint32, "cmplsFrrConstBandwidth")
-
-                self.cmplsfrrconstexclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstExclAllAffinity")
+                self.cmplsfrrconstsetupprio = YLeaf(YType.uint32, "cmplsFrrConstSetupPrio")
 
                 self.cmplsfrrconstholdingprio = YLeaf(YType.uint32, "cmplsFrrConstHoldingPrio")
 
-                self.cmplsfrrconsthoplimit = YLeaf(YType.uint32, "cmplsFrrConstHopLimit")
+                self.cmplsfrrconstinclanyaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAnyAffinity")
 
                 self.cmplsfrrconstinclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAllAffinity")
 
-                self.cmplsfrrconstinclanyaffinity = YLeaf(YType.uint32, "cmplsFrrConstInclAnyAffinity")
+                self.cmplsfrrconstexclallaffinity = YLeaf(YType.uint32, "cmplsFrrConstExclAllAffinity")
 
-                self.cmplsfrrconstnumprotectedtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectedTunOnIf")
+                self.cmplsfrrconsthoplimit = YLeaf(YType.uint32, "cmplsFrrConstHopLimit")
 
-                self.cmplsfrrconstnumprotectingtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectingTunOnIf")
+                self.cmplsfrrconstbandwidth = YLeaf(YType.uint32, "cmplsFrrConstBandwidth")
 
                 self.cmplsfrrconstrowstatus = YLeaf(YType.enumeration, "cmplsFrrConstRowStatus")
 
-                self.cmplsfrrconstsetupprio = YLeaf(YType.uint32, "cmplsFrrConstSetupPrio")
+                self.cmplsfrrconstnumprotectingtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectingTunOnIf")
+
+                self.cmplsfrrconstnumprotectedtunonif = YLeaf(YType.uint32, "cmplsFrrConstNumProtectedTunOnIf")
                 self._segment_path = lambda: "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + self.cmplsfrrconstifindex.get() + "']" + "[cmplsFrrConstTunnelIndex='" + self.cmplsfrrconsttunnelindex.get() + "']" + "[cmplsFrrConstTunnelInstance='" + self.cmplsfrrconsttunnelinstance.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrConstTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrconsttable.Cmplsfrrconstentry, ['cmplsfrrconstifindex', 'cmplsfrrconsttunnelindex', 'cmplsfrrconsttunnelinstance', 'cmplsfrrconstbandwidth', 'cmplsfrrconstexclallaffinity', 'cmplsfrrconstholdingprio', 'cmplsfrrconsthoplimit', 'cmplsfrrconstinclallaffinity', 'cmplsfrrconstinclanyaffinity', 'cmplsfrrconstnumprotectedtunonif', 'cmplsfrrconstnumprotectingtunonif', 'cmplsfrrconstrowstatus', 'cmplsfrrconstsetupprio'], name, value)
+                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrconsttable.Cmplsfrrconstentry, ['cmplsfrrconstifindex', 'cmplsfrrconsttunnelindex', 'cmplsfrrconsttunnelinstance', 'cmplsfrrconstsetupprio', 'cmplsfrrconstholdingprio', 'cmplsfrrconstinclanyaffinity', 'cmplsfrrconstinclallaffinity', 'cmplsfrrconstexclallaffinity', 'cmplsfrrconsthoplimit', 'cmplsfrrconstbandwidth', 'cmplsfrrconstrowstatus', 'cmplsfrrconstnumprotectingtunonif', 'cmplsfrrconstnumprotectedtunonif'], name, value)
+
+
+    class Cmplsfrrlogtable(Entity):
+        """
+        The fast reroute log table records fast reroute events such
+        as protected links going up or down or the FRR feature
+        kicking in.
+        
+        .. attribute:: cmplsfrrlogentry
+        
+        	An entry in this table is created to describe one fast reroute event.  Entries in this table are only created and destroyed by the agent implementation. The maximum number  of entries in this log is governed by the scalar
+        	**type**\: list of    :py:class:`Cmplsfrrlogentry <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry>`
+        
+        
+
+        """
+
+        _prefix = 'CISCO-IETF-FRR-MIB'
+        _revision = '2008-04-29'
+
+        def __init__(self):
+            super(CISCOIETFFRRMIB.Cmplsfrrlogtable, self).__init__()
+
+            self.yang_name = "cmplsFrrLogTable"
+            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"cmplsFrrLogEntry" : ("cmplsfrrlogentry", CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry)}
+
+            self.cmplsfrrlogentry = YList(self)
+            self._segment_path = lambda: "cmplsFrrLogTable"
+            self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrlogtable, [], name, value)
+
+
+        class Cmplsfrrlogentry(Entity):
+            """
+            An entry in this table is created to describe one fast
+            reroute event.  Entries in this table are only created and
+            destroyed by the agent implementation. The maximum number 
+            of entries in this log is governed by the scalar.
+            
+            .. attribute:: cmplsfrrlogindex  <key>
+            
+            	Uniquely identifies a fast reroute event entry
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cmplsfrrlogeventtime
+            
+            	This object provides the amount of time ticks since this event occured
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cmplsfrrloginterface
+            
+            	This object indicates which interface was affected by this FRR event. This value may be set to 0 if mplsFrrConstProtectionMethod is set to oneToOneBackup(0)
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: cmplsfrrlogeventtype
+            
+            	This object describes what type of fast reroute event occured
+            	**type**\:   :py:class:`Cmplsfrrlogeventtype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry.Cmplsfrrlogeventtype>`
+            
+            .. attribute:: cmplsfrrlogeventduration
+            
+            	This object describes the duration of this event
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: cmplsfrrlogeventreasonstring
+            
+            	This object contains an implementation\-specific explanation of the event
+            	**type**\:  str
+            
+            	**length:** 128
+            
+            
+
+            """
+
+            _prefix = 'CISCO-IETF-FRR-MIB'
+            _revision = '2008-04-29'
+
+            def __init__(self):
+                super(CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry, self).__init__()
+
+                self.yang_name = "cmplsFrrLogEntry"
+                self.yang_parent_name = "cmplsFrrLogTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.cmplsfrrlogindex = YLeaf(YType.uint32, "cmplsFrrLogIndex")
+
+                self.cmplsfrrlogeventtime = YLeaf(YType.uint32, "cmplsFrrLogEventTime")
+
+                self.cmplsfrrloginterface = YLeaf(YType.int32, "cmplsFrrLogInterface")
+
+                self.cmplsfrrlogeventtype = YLeaf(YType.enumeration, "cmplsFrrLogEventType")
+
+                self.cmplsfrrlogeventduration = YLeaf(YType.uint32, "cmplsFrrLogEventDuration")
+
+                self.cmplsfrrlogeventreasonstring = YLeaf(YType.str, "cmplsFrrLogEventReasonString")
+                self._segment_path = lambda: "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + self.cmplsfrrlogindex.get() + "']"
+                self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry, ['cmplsfrrlogindex', 'cmplsfrrlogeventtime', 'cmplsfrrloginterface', 'cmplsfrrlogeventtype', 'cmplsfrrlogeventduration', 'cmplsfrrlogeventreasonstring'], name, value)
+
+            class Cmplsfrrlogeventtype(Enum):
+                """
+                Cmplsfrrlogeventtype
+
+                This object describes what type of fast reroute event
+
+                occured.
+
+                .. data:: other = 1
+
+                .. data:: protected = 2
+
+                """
+
+                other = Enum.YLeaf(1, "other")
+
+                protected = Enum.YLeaf(2, "protected")
+
 
 
     class Cmplsfrrfacroutedbtable(Entity):
@@ -367,17 +682,17 @@ class CISCOIETFFRRMIB(Entity):
             	Specifies the state of the protected tunnel.  active  This tunnel's label has been placed in the          LFIB and is ready to be applied to incoming          packets.           ready \-  This tunnel's label entry has been created but is          not yet in the LFIB.           partial \- This tunnel's label entry as not been fully           created
             	**type**\:   :py:class:`Cmplsfrrfacrouteprotectedtunstatus <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectedtunstatus>`
             
-            .. attribute:: cmplsfrrfacrouteprotectingtunprotectiontype
-            
-            	Indicates type of the resource protection
-            	**type**\:   :py:class:`Cmplsfrrfacrouteprotectingtunprotectiontype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunprotectiontype>`
-            
             .. attribute:: cmplsfrrfacrouteprotectingtunresvbw
             
             	Specifies the amount of bandwidth in megabytes per second that is actually reserved by the backup tunnel for facility backup. This value is repeated here from the MPLS\- TE MIB because the tunnel entry will reveal the bandwidth reserved by the signaling protocol, which is typically 0 for backup tunnels so as to not over\-book bandwidth. However, internal reservations are typically made on the PLR, thus this value should be revealed here
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            .. attribute:: cmplsfrrfacrouteprotectingtunprotectiontype
+            
+            	Indicates type of the resource protection
+            	**type**\:   :py:class:`Cmplsfrrfacrouteprotectingtunprotectiontype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry.Cmplsfrrfacrouteprotectingtunprotectiontype>`
             
             
 
@@ -410,14 +725,14 @@ class CISCOIETFFRRMIB(Entity):
 
                 self.cmplsfrrfacrouteprotectedtunstatus = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectedTunStatus")
 
-                self.cmplsfrrfacrouteprotectingtunprotectiontype = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectingTunProtectionType")
-
                 self.cmplsfrrfacrouteprotectingtunresvbw = YLeaf(YType.uint32, "cmplsFrrFacRouteProtectingTunResvBw")
+
+                self.cmplsfrrfacrouteprotectingtunprotectiontype = YLeaf(YType.enumeration, "cmplsFrrFacRouteProtectingTunProtectionType")
                 self._segment_path = lambda: "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + self.cmplsfrrfacrouteprotectedifindex.get() + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + self.cmplsfrrfacrouteprotectingtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + self.cmplsfrrfacrouteprotectedtunindex.get() + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + self.cmplsfrrfacrouteprotectedtuninstance.get() + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + self.cmplsfrrfacrouteprotectedtuningresslsrid.get() + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + self.cmplsfrrfacrouteprotectedtunegresslsrid.get() + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrFacRouteDBTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry, ['cmplsfrrfacrouteprotectedifindex', 'cmplsfrrfacrouteprotectingtunindex', 'cmplsfrrfacrouteprotectedtunindex', 'cmplsfrrfacrouteprotectedtuninstance', 'cmplsfrrfacrouteprotectedtuningresslsrid', 'cmplsfrrfacrouteprotectedtunegresslsrid', 'cmplsfrrfacrouteprotectedtunstatus', 'cmplsfrrfacrouteprotectingtunprotectiontype', 'cmplsfrrfacrouteprotectingtunresvbw'], name, value)
+                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrfacroutedbtable.Cmplsfrrfacroutedbentry, ['cmplsfrrfacrouteprotectedifindex', 'cmplsfrrfacrouteprotectingtunindex', 'cmplsfrrfacrouteprotectedtunindex', 'cmplsfrrfacrouteprotectedtuninstance', 'cmplsfrrfacrouteprotectedtuningresslsrid', 'cmplsfrrfacrouteprotectedtunegresslsrid', 'cmplsfrrfacrouteprotectedtunstatus', 'cmplsfrrfacrouteprotectingtunresvbw', 'cmplsfrrfacrouteprotectingtunprotectiontype'], name, value)
 
             class Cmplsfrrfacrouteprotectedtunstatus(Enum):
                 """
@@ -469,321 +784,6 @@ class CISCOIETFFRRMIB(Entity):
                 linkProtection = Enum.YLeaf(0, "linkProtection")
 
                 nodeProtection = Enum.YLeaf(1, "nodeProtection")
-
-
-
-    class Cmplsfrrlogtable(Entity):
-        """
-        The fast reroute log table records fast reroute events such
-        as protected links going up or down or the FRR feature
-        kicking in.
-        
-        .. attribute:: cmplsfrrlogentry
-        
-        	An entry in this table is created to describe one fast reroute event.  Entries in this table are only created and destroyed by the agent implementation. The maximum number  of entries in this log is governed by the scalar
-        	**type**\: list of    :py:class:`Cmplsfrrlogentry <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry>`
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-FRR-MIB'
-        _revision = '2008-04-29'
-
-        def __init__(self):
-            super(CISCOIETFFRRMIB.Cmplsfrrlogtable, self).__init__()
-
-            self.yang_name = "cmplsFrrLogTable"
-            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"cmplsFrrLogEntry" : ("cmplsfrrlogentry", CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry)}
-
-            self.cmplsfrrlogentry = YList(self)
-            self._segment_path = lambda: "cmplsFrrLogTable"
-            self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrlogtable, [], name, value)
-
-
-        class Cmplsfrrlogentry(Entity):
-            """
-            An entry in this table is created to describe one fast
-            reroute event.  Entries in this table are only created and
-            destroyed by the agent implementation. The maximum number 
-            of entries in this log is governed by the scalar.
-            
-            .. attribute:: cmplsfrrlogindex  <key>
-            
-            	Uniquely identifies a fast reroute event entry
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cmplsfrrlogeventduration
-            
-            	This object describes the duration of this event
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cmplsfrrlogeventreasonstring
-            
-            	This object contains an implementation\-specific explanation of the event
-            	**type**\:  str
-            
-            	**length:** 128
-            
-            .. attribute:: cmplsfrrlogeventtime
-            
-            	This object provides the amount of time ticks since this event occured
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: cmplsfrrlogeventtype
-            
-            	This object describes what type of fast reroute event occured
-            	**type**\:   :py:class:`Cmplsfrrlogeventtype <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry.Cmplsfrrlogeventtype>`
-            
-            .. attribute:: cmplsfrrloginterface
-            
-            	This object indicates which interface was affected by this FRR event. This value may be set to 0 if mplsFrrConstProtectionMethod is set to oneToOneBackup(0)
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            
-
-            """
-
-            _prefix = 'CISCO-IETF-FRR-MIB'
-            _revision = '2008-04-29'
-
-            def __init__(self):
-                super(CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry, self).__init__()
-
-                self.yang_name = "cmplsFrrLogEntry"
-                self.yang_parent_name = "cmplsFrrLogTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.cmplsfrrlogindex = YLeaf(YType.uint32, "cmplsFrrLogIndex")
-
-                self.cmplsfrrlogeventduration = YLeaf(YType.uint32, "cmplsFrrLogEventDuration")
-
-                self.cmplsfrrlogeventreasonstring = YLeaf(YType.str, "cmplsFrrLogEventReasonString")
-
-                self.cmplsfrrlogeventtime = YLeaf(YType.uint32, "cmplsFrrLogEventTime")
-
-                self.cmplsfrrlogeventtype = YLeaf(YType.enumeration, "cmplsFrrLogEventType")
-
-                self.cmplsfrrloginterface = YLeaf(YType.int32, "cmplsFrrLogInterface")
-                self._segment_path = lambda: "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + self.cmplsfrrlogindex.get() + "']"
-                self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrlogtable.Cmplsfrrlogentry, ['cmplsfrrlogindex', 'cmplsfrrlogeventduration', 'cmplsfrrlogeventreasonstring', 'cmplsfrrlogeventtime', 'cmplsfrrlogeventtype', 'cmplsfrrloginterface'], name, value)
-
-            class Cmplsfrrlogeventtype(Enum):
-                """
-                Cmplsfrrlogeventtype
-
-                This object describes what type of fast reroute event
-
-                occured.
-
-                .. data:: other = 1
-
-                .. data:: protected = 2
-
-                """
-
-                other = Enum.YLeaf(1, "other")
-
-                protected = Enum.YLeaf(2, "protected")
-
-
-
-    class Cmplsfrrscalars(Entity):
-        """
-        
-        
-        .. attribute:: cmplsfrractprotectedifs
-        
-        	Indicates the number of interfaces currently being protected  by the FRR feature if mplsFrrConstProtectionMethod is set to facilityBackup(1), otherwise this value should return 0 to indicate that LSPs traversing any interface may be protected. This value MUST be less than or equal to mplsFrrConfIfs
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrractprotectedlsps
-        
-        	Indicates the number of LSPs currently protected by  the FRR feature. If mplsFrrConstProtectionMethod is set  to facilityBackup(1)this object MUST return 0
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrractprotectedtuns
-        
-        	Indicates the number of bypass tunnels indicated in mplsFrrConfProtectingTuns whose operStatus is up(1) indicating that they are currently protecting facilities on this LSR using the FRR feature. This object MUST return 0 if mplsFrrConstProtectionMethod  is set to facilityBackup(1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrconfprotectingtuns
-        
-        	Indicates the number of bypass tunnels configured to  protect facilities on this LSR using the FRR feature  if mplsFrrConstProtectionMethod is set to  facilityBackup(1), otherwise this value MUST return  0
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrconstprotectionmethod
-        
-        	Indicates which protection method is to be used for fast reroute. Some devices may require a reboot of their routing processors if this variable is changed. An agent which does not wish to reboot or modify its FRR mode  MUST return an inconsistentValue error. Please  consult the device's agent capability statement  for more details
-        	**type**\:   :py:class:`Cmplsfrrconstprotectionmethod <ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB.CISCOIETFFRRMIB.Cmplsfrrscalars.Cmplsfrrconstprotectionmethod>`
-        
-        .. attribute:: cmplsfrrdetourincoming
-        
-        	The number of detour LSPs entering the device if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or or 0 if mplsFrrConstProtectionMethod is set to facilityBackup(1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrdetouroriginating
-        
-        	The number of detour LSPs originating at this PLR if mplsFrrConstProtectionMethod is set to oneToOneBackup(0). This object MUST return 0 if the mplsFrrConstProtectionMethod  is set to facilityBackup(1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrdetouroutgoing
-        
-        	The number of detour LSPs leaving the device if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or 0 if mplsFrrConstProtectionMethod is set to  to facilityBackup(1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrlogtablecurrentries
-        
-        	Indicates the current number of entries in the FRR log table
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrlogtablemaxentries
-        
-        	Indicates the maximum number of entries allowed in the FRR Log table. Agents receiving SETs for values that cannot be used must return an inconsistent value error. If a manager sets this value to 0, this indicates that no logging should take place by the agent.    If this value is returned as 0, this indicates that no additional log entries will be added to the current table either because the table has been completely filled or logging has been disabled. However, agents may wish to not delete existing entries in the log table so that managers may review them in the future.   It is implied that when mplsFrrLogTableCurrEntries  has reached the value of this variable, that logging  entries may not continue to be added to the table,  although existing ones may remain.  Furthermore, an agent may begin to delete existing (perhaps the oldest entries) entries to make room for new ones
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrnotifmaxrate
-        
-        	This variable indicates the number of milliseconds that must elapse between notification emissions. If events occur more rapidly, the implementation may simply fail to emit these notifications during that period, or may queue them until an appropriate time in the future. A value of 0 means no minimum  elapsed period is specified
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrnotifsenabled
-        
-        	Enables or disables FRR notifications defined in this MIB module. Notifications are disabled by default
-        	**type**\:  bool
-        
-        .. attribute:: cmplsfrrnumofconfifs
-        
-        	Indicates the number of MPLS interfaces configured for  protection by the FRR feature, otherwise this value MUST return 0 to indicate that LSPs traversing any  interface may be protected
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: cmplsfrrswitchover
-        
-        	The number of tunnel instances that are switched over to their corresponding detour LSP if mplsFrrConstProtectionMethod is set to oneToOneBackup(0), or tunnels being switched over if mplsFrrConstProtectionMethod is set to facilityBackup(1)
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        
-
-        """
-
-        _prefix = 'CISCO-IETF-FRR-MIB'
-        _revision = '2008-04-29'
-
-        def __init__(self):
-            super(CISCOIETFFRRMIB.Cmplsfrrscalars, self).__init__()
-
-            self.yang_name = "cmplsFrrScalars"
-            self.yang_parent_name = "CISCO-IETF-FRR-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.cmplsfrractprotectedifs = YLeaf(YType.uint32, "cmplsFrrActProtectedIfs")
-
-            self.cmplsfrractprotectedlsps = YLeaf(YType.uint32, "cmplsFrrActProtectedLSPs")
-
-            self.cmplsfrractprotectedtuns = YLeaf(YType.uint32, "cmplsFrrActProtectedTuns")
-
-            self.cmplsfrrconfprotectingtuns = YLeaf(YType.uint32, "cmplsFrrConfProtectingTuns")
-
-            self.cmplsfrrconstprotectionmethod = YLeaf(YType.enumeration, "cmplsFrrConstProtectionMethod")
-
-            self.cmplsfrrdetourincoming = YLeaf(YType.uint32, "cmplsFrrDetourIncoming")
-
-            self.cmplsfrrdetouroriginating = YLeaf(YType.uint32, "cmplsFrrDetourOriginating")
-
-            self.cmplsfrrdetouroutgoing = YLeaf(YType.uint32, "cmplsFrrDetourOutgoing")
-
-            self.cmplsfrrlogtablecurrentries = YLeaf(YType.uint32, "cmplsFrrLogTableCurrEntries")
-
-            self.cmplsfrrlogtablemaxentries = YLeaf(YType.uint32, "cmplsFrrLogTableMaxEntries")
-
-            self.cmplsfrrnotifmaxrate = YLeaf(YType.uint32, "cmplsFrrNotifMaxRate")
-
-            self.cmplsfrrnotifsenabled = YLeaf(YType.boolean, "cmplsFrrNotifsEnabled")
-
-            self.cmplsfrrnumofconfifs = YLeaf(YType.uint32, "cmplsFrrNumOfConfIfs")
-
-            self.cmplsfrrswitchover = YLeaf(YType.uint32, "cmplsFrrSwitchover")
-            self._segment_path = lambda: "cmplsFrrScalars"
-            self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CISCOIETFFRRMIB.Cmplsfrrscalars, ['cmplsfrractprotectedifs', 'cmplsfrractprotectedlsps', 'cmplsfrractprotectedtuns', 'cmplsfrrconfprotectingtuns', 'cmplsfrrconstprotectionmethod', 'cmplsfrrdetourincoming', 'cmplsfrrdetouroriginating', 'cmplsfrrdetouroutgoing', 'cmplsfrrlogtablecurrentries', 'cmplsfrrlogtablemaxentries', 'cmplsfrrnotifmaxrate', 'cmplsfrrnotifsenabled', 'cmplsfrrnumofconfifs', 'cmplsfrrswitchover'], name, value)
-
-        class Cmplsfrrconstprotectionmethod(Enum):
-            """
-            Cmplsfrrconstprotectionmethod
-
-            Indicates which protection method is to be used for fast
-
-            reroute. Some devices may require a reboot of their routing
-
-            processors if this variable is changed. An agent which
-
-            does not wish to reboot or modify its FRR mode 
-
-            MUST return an inconsistentValue error. Please 
-
-            consult the device's agent capability statement 
-
-            for more details.
-
-            .. data:: oneToOneBackup = 0
-
-            .. data:: facilityBackup = 1
-
-            """
-
-            oneToOneBackup = Enum.YLeaf(0, "oneToOneBackup")
-
-            facilityBackup = Enum.YLeaf(1, "facilityBackup")
 
 
     def clone_ptr(self):

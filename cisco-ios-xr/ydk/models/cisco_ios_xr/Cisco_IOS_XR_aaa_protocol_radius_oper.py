@@ -99,18 +99,6 @@ class Radius(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
-            .. attribute:: accounting
-            
-            	RADIUS accounting data
-            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
-            
-            .. attribute:: authentication
-            
-            	RADIUS authentication data
-            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
-            
             .. attribute:: client
             
             	RADIUS client data
@@ -121,15 +109,25 @@ class Radius(Entity):
             	RADIUS dead criteria information
             	**type**\:   :py:class:`DeadCriteria <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DeadCriteria>`
             
-            .. attribute:: dynamic_authorization
+            .. attribute:: authentication
             
-            	Dynamic authorization data
-            	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
+            	RADIUS authentication data
+            	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication>`
+            
+            .. attribute:: accounting
+            
+            	RADIUS accounting data
+            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
             
             .. attribute:: server_groups
             
             	RADIUS server group table
             	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups>`
+            
+            .. attribute:: dynamic_authorization
+            
+            	Dynamic authorization data
+            	**type**\:   :py:class:`DynamicAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorization>`
             
             
 
@@ -145,20 +143,10 @@ class Radius(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"accounting" : ("accounting", Radius.Nodes.Node.Accounting), "authentication" : ("authentication", Radius.Nodes.Node.Authentication), "client" : ("client", Radius.Nodes.Node.Client), "dead-criteria" : ("dead_criteria", Radius.Nodes.Node.DeadCriteria), "dynamic-authorization" : ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization), "server-groups" : ("server_groups", Radius.Nodes.Node.ServerGroups)}
+                self._child_container_classes = {"client" : ("client", Radius.Nodes.Node.Client), "dead-criteria" : ("dead_criteria", Radius.Nodes.Node.DeadCriteria), "authentication" : ("authentication", Radius.Nodes.Node.Authentication), "accounting" : ("accounting", Radius.Nodes.Node.Accounting), "server-groups" : ("server_groups", Radius.Nodes.Node.ServerGroups), "dynamic-authorization" : ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
-
-                self.accounting = Radius.Nodes.Node.Accounting()
-                self.accounting.parent = self
-                self._children_name_map["accounting"] = "accounting"
-                self._children_yang_names.add("accounting")
-
-                self.authentication = Radius.Nodes.Node.Authentication()
-                self.authentication.parent = self
-                self._children_name_map["authentication"] = "authentication"
-                self._children_yang_names.add("authentication")
 
                 self.client = Radius.Nodes.Node.Client()
                 self.client.parent = self
@@ -170,15 +158,25 @@ class Radius(Entity):
                 self._children_name_map["dead_criteria"] = "dead-criteria"
                 self._children_yang_names.add("dead-criteria")
 
-                self.dynamic_authorization = Radius.Nodes.Node.DynamicAuthorization()
-                self.dynamic_authorization.parent = self
-                self._children_name_map["dynamic_authorization"] = "dynamic-authorization"
-                self._children_yang_names.add("dynamic-authorization")
+                self.authentication = Radius.Nodes.Node.Authentication()
+                self.authentication.parent = self
+                self._children_name_map["authentication"] = "authentication"
+                self._children_yang_names.add("authentication")
+
+                self.accounting = Radius.Nodes.Node.Accounting()
+                self.accounting.parent = self
+                self._children_name_map["accounting"] = "accounting"
+                self._children_yang_names.add("accounting")
 
                 self.server_groups = Radius.Nodes.Node.ServerGroups()
                 self.server_groups.parent = self
                 self._children_name_map["server_groups"] = "server-groups"
                 self._children_yang_names.add("server-groups")
+
+                self.dynamic_authorization = Radius.Nodes.Node.DynamicAuthorization()
+                self.dynamic_authorization.parent = self
+                self._children_name_map["dynamic_authorization"] = "dynamic-authorization"
+                self._children_yang_names.add("dynamic-authorization")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/%s" % self._segment_path()
 
@@ -186,573 +184,16 @@ class Radius(Entity):
                 self._perform_setattr(Radius.Nodes.Node, ['node_name'], name, value)
 
 
-            class Accounting(Entity):
-                """
-                RADIUS accounting data
-                
-                .. attribute:: accounting_group
-                
-                	List of accounting groups
-                	**type**\: list of    :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Radius.Nodes.Node.Accounting, self).__init__()
-
-                    self.yang_name = "accounting"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"accounting-group" : ("accounting_group", Radius.Nodes.Node.Accounting.AccountingGroup)}
-
-                    self.accounting_group = YList(self)
-                    self._segment_path = lambda: "accounting"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.Accounting, [], name, value)
-
-
-                class AccountingGroup(Entity):
-                    """
-                    List of accounting groups
-                    
-                    .. attribute:: accounting
-                    
-                    	Accounting data
-                    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting>`
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\:  str
-                    
-                    .. attribute:: ip_address
-                    
-                    	IP address buffer
-                    	**type**\:  str
-                    
-                    .. attribute:: port
-                    
-                    	Accounting port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: server_address
-                    
-                    	IP address of RADIUS server
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Radius.Nodes.Node.Accounting.AccountingGroup, self).__init__()
-
-                        self.yang_name = "accounting-group"
-                        self.yang_parent_name = "accounting"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"accounting" : ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting)}
-                        self._child_list_classes = {}
-
-                        self.family = YLeaf(YType.str, "family")
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.port = YLeaf(YType.uint32, "port")
-
-                        self.server_address = YLeaf(YType.str, "server-address")
-
-                        self.accounting = Radius.Nodes.Node.Accounting.AccountingGroup.Accounting()
-                        self.accounting.parent = self
-                        self._children_name_map["accounting"] = "accounting"
-                        self._children_yang_names.add("accounting")
-                        self._segment_path = lambda: "accounting-group"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, ['family', 'ip_address', 'port', 'server_address'], name, value)
-
-
-                    class Accounting(Entity):
-                        """
-                        Accounting data
-                        
-                        .. attribute:: acct_incorrect_responses
-                        
-                        	Number of incorrect accounting responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: acct_response_time
-                        
-                        	Average response time for authentication requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: acct_server_error_responses
-                        
-                        	Number of server error accounting responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: acct_transaction_failure
-                        
-                        	Number of failed authentication transactions
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: acct_transaction_successess
-                        
-                        	Number of succeeded authentication transactions
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: acct_unexpected_responses
-                        
-                        	Number of unexpected accounting responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bad_authenticators
-                        
-                        	Number of bad accounting authenticators
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bad_responses
-                        
-                        	Number of bad accounting responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: dropped_responses
-                        
-                        	Number of accounting responses dropped
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pending_requests
-                        
-                        	Number of pending accounting requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: requests
-                        
-                        	Number of accounting requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: responses
-                        
-                        	Number of accounting responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: retransmits
-                        
-                        	Number of retransmitted accounting requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rtt
-                        
-                        	Round trip time for accounting in milliseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: millisecond
-                        
-                        .. attribute:: timeouts
-                        
-                        	Number of accounting packets timed\-out
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: unknown_packet_types
-                        
-                        	Number of packets received with unknown type from accounting server
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting, self).__init__()
-
-                            self.yang_name = "accounting"
-                            self.yang_parent_name = "accounting-group"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.acct_incorrect_responses = YLeaf(YType.uint32, "acct-incorrect-responses")
-
-                            self.acct_response_time = YLeaf(YType.uint32, "acct-response-time")
-
-                            self.acct_server_error_responses = YLeaf(YType.uint32, "acct-server-error-responses")
-
-                            self.acct_transaction_failure = YLeaf(YType.uint32, "acct-transaction-failure")
-
-                            self.acct_transaction_successess = YLeaf(YType.uint32, "acct-transaction-successess")
-
-                            self.acct_unexpected_responses = YLeaf(YType.uint32, "acct-unexpected-responses")
-
-                            self.bad_authenticators = YLeaf(YType.uint32, "bad-authenticators")
-
-                            self.bad_responses = YLeaf(YType.uint32, "bad-responses")
-
-                            self.dropped_responses = YLeaf(YType.uint32, "dropped-responses")
-
-                            self.pending_requests = YLeaf(YType.uint32, "pending-requests")
-
-                            self.requests = YLeaf(YType.uint32, "requests")
-
-                            self.responses = YLeaf(YType.uint32, "responses")
-
-                            self.retransmits = YLeaf(YType.uint32, "retransmits")
-
-                            self.rtt = YLeaf(YType.uint32, "rtt")
-
-                            self.timeouts = YLeaf(YType.uint32, "timeouts")
-
-                            self.unknown_packet_types = YLeaf(YType.uint32, "unknown-packet-types")
-                            self._segment_path = lambda: "accounting"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting, ['acct_incorrect_responses', 'acct_response_time', 'acct_server_error_responses', 'acct_transaction_failure', 'acct_transaction_successess', 'acct_unexpected_responses', 'bad_authenticators', 'bad_responses', 'dropped_responses', 'pending_requests', 'requests', 'responses', 'retransmits', 'rtt', 'timeouts', 'unknown_packet_types'], name, value)
-
-
-            class Authentication(Entity):
-                """
-                RADIUS authentication data
-                
-                .. attribute:: authentication_group
-                
-                	List of authentication groups
-                	**type**\: list of    :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
-                
-                
-
-                """
-
-                _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Radius.Nodes.Node.Authentication, self).__init__()
-
-                    self.yang_name = "authentication"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"authentication-group" : ("authentication_group", Radius.Nodes.Node.Authentication.AuthenticationGroup)}
-
-                    self.authentication_group = YList(self)
-                    self._segment_path = lambda: "authentication"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.Authentication, [], name, value)
-
-
-                class AuthenticationGroup(Entity):
-                    """
-                    List of authentication groups
-                    
-                    .. attribute:: authentication
-                    
-                    	Authentication data
-                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication>`
-                    
-                    .. attribute:: family
-                    
-                    	IP address Family
-                    	**type**\:  str
-                    
-                    .. attribute:: ip_address
-                    
-                    	IP address buffer
-                    	**type**\:  str
-                    
-                    .. attribute:: port
-                    
-                    	Authentication port number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: server_address
-                    
-                    	IP address of RADIUS server
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Radius.Nodes.Node.Authentication.AuthenticationGroup, self).__init__()
-
-                        self.yang_name = "authentication-group"
-                        self.yang_parent_name = "authentication"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"authentication" : ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication)}
-                        self._child_list_classes = {}
-
-                        self.family = YLeaf(YType.str, "family")
-
-                        self.ip_address = YLeaf(YType.str, "ip-address")
-
-                        self.port = YLeaf(YType.uint32, "port")
-
-                        self.server_address = YLeaf(YType.str, "server-address")
-
-                        self.authentication = Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication()
-                        self.authentication.parent = self
-                        self._children_name_map["authentication"] = "authentication"
-                        self._children_yang_names.add("authentication")
-                        self._segment_path = lambda: "authentication-group"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, ['family', 'ip_address', 'port', 'server_address'], name, value)
-
-
-                    class Authentication(Entity):
-                        """
-                        Authentication data
-                        
-                        .. attribute:: access_accepts
-                        
-                        	Number of access accepts
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: access_challenges
-                        
-                        	Number of access challenges
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: access_rejects
-                        
-                        	Number of access rejects
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: access_request_retransmits
-                        
-                        	Number of retransmitted access requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: access_requests
-                        
-                        	Number of access requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: access_timeouts
-                        
-                        	Number of access packets timed out
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_incorrect_responses
-                        
-                        	Number of incorrect authentication responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_response_time
-                        
-                        	Average response time for authentication requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_server_error_responses
-                        
-                        	Number of server error authentication responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_transaction_failure
-                        
-                        	Number of failed authentication transactions
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_transaction_successess
-                        
-                        	Number of succeeded authentication transactions
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: authen_unexpected_responses
-                        
-                        	Number of unexpected authentication responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bad_access_authenticators
-                        
-                        	Number of bad access authenticators
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: bad_access_responses
-                        
-                        	Number of bad access responses
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: dropped_access_responses
-                        
-                        	Number of access responses dropped
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: pending_access_requests
-                        
-                        	Number of pending access requests
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        .. attribute:: rtt
-                        
-                        	Round trip time for authentication in milliseconds
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: millisecond
-                        
-                        .. attribute:: unknown_access_types
-                        
-                        	Number of packets received with unknown type from authentication server
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication, self).__init__()
-
-                            self.yang_name = "authentication"
-                            self.yang_parent_name = "authentication-group"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.access_accepts = YLeaf(YType.uint32, "access-accepts")
-
-                            self.access_challenges = YLeaf(YType.uint32, "access-challenges")
-
-                            self.access_rejects = YLeaf(YType.uint32, "access-rejects")
-
-                            self.access_request_retransmits = YLeaf(YType.uint32, "access-request-retransmits")
-
-                            self.access_requests = YLeaf(YType.uint32, "access-requests")
-
-                            self.access_timeouts = YLeaf(YType.uint32, "access-timeouts")
-
-                            self.authen_incorrect_responses = YLeaf(YType.uint32, "authen-incorrect-responses")
-
-                            self.authen_response_time = YLeaf(YType.uint32, "authen-response-time")
-
-                            self.authen_server_error_responses = YLeaf(YType.uint32, "authen-server-error-responses")
-
-                            self.authen_transaction_failure = YLeaf(YType.uint32, "authen-transaction-failure")
-
-                            self.authen_transaction_successess = YLeaf(YType.uint32, "authen-transaction-successess")
-
-                            self.authen_unexpected_responses = YLeaf(YType.uint32, "authen-unexpected-responses")
-
-                            self.bad_access_authenticators = YLeaf(YType.uint32, "bad-access-authenticators")
-
-                            self.bad_access_responses = YLeaf(YType.uint32, "bad-access-responses")
-
-                            self.dropped_access_responses = YLeaf(YType.uint32, "dropped-access-responses")
-
-                            self.pending_access_requests = YLeaf(YType.uint32, "pending-access-requests")
-
-                            self.rtt = YLeaf(YType.uint32, "rtt")
-
-                            self.unknown_access_types = YLeaf(YType.uint32, "unknown-access-types")
-                            self._segment_path = lambda: "authentication"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication, ['access_accepts', 'access_challenges', 'access_rejects', 'access_request_retransmits', 'access_requests', 'access_timeouts', 'authen_incorrect_responses', 'authen_response_time', 'authen_server_error_responses', 'authen_transaction_failure', 'authen_transaction_successess', 'authen_unexpected_responses', 'bad_access_authenticators', 'bad_access_responses', 'dropped_access_responses', 'pending_access_requests', 'rtt', 'unknown_access_types'], name, value)
-
-
             class Client(Entity):
                 """
                 RADIUS client data
+                
+                .. attribute:: unknown_authentication_responses
+                
+                	Number of RADIUS access responses packets received from unknown addresses
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: authentication_nas_id
                 
@@ -762,13 +203,6 @@ class Radius(Entity):
                 .. attribute:: unknown_accounting_responses
                 
                 	Number of RADIUS accounting responses packets received from unknown addresses
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: unknown_authentication_responses
-                
-                	Number of RADIUS access responses packets received from unknown addresses
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
@@ -790,15 +224,15 @@ class Radius(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.unknown_authentication_responses = YLeaf(YType.uint32, "unknown-authentication-responses")
+
                     self.authentication_nas_id = YLeaf(YType.str, "authentication-nas-id")
 
                     self.unknown_accounting_responses = YLeaf(YType.uint32, "unknown-accounting-responses")
-
-                    self.unknown_authentication_responses = YLeaf(YType.uint32, "unknown-authentication-responses")
                     self._segment_path = lambda: "client"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.Client, ['authentication_nas_id', 'unknown_accounting_responses', 'unknown_authentication_responses'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.Client, ['unknown_authentication_responses', 'authentication_nas_id', 'unknown_accounting_responses'], name, value)
 
 
             class DeadCriteria(Entity):
@@ -871,20 +305,6 @@ class Radius(Entity):
                         """
                         RADIUS Server
                         
-                        .. attribute:: acct_port_number
-                        
-                        	Accounting Port number (standard port 1646)
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: auth_port_number
-                        
-                        	Authentication Port number (standard port 1645)
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
                         .. attribute:: ip_address
                         
                         	IP address of RADIUS server
@@ -892,16 +312,26 @@ class Radius(Entity):
                         
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
                         	**type**\:  str
                         
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
                         
                         ----
+                        .. attribute:: auth_port_number
+                        
+                        	Authentication Port number (standard port 1645)
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
+                        .. attribute:: acct_port_number
+                        
+                        	Accounting Port number (standard port 1646)
+                        	**type**\:  int
+                        
+                        	**range:** 1..65535
+                        
                         .. attribute:: time
                         
                         	Time in seconds
@@ -929,11 +359,11 @@ class Radius(Entity):
                             self._child_container_classes = {"time" : ("time", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time), "tries" : ("tries", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries)}
                             self._child_list_classes = {}
 
-                            self.acct_port_number = YLeaf(YType.uint32, "acct-port-number")
+                            self.ip_address = YLeaf(YType.str, "ip-address")
 
                             self.auth_port_number = YLeaf(YType.uint32, "auth-port-number")
 
-                            self.ip_address = YLeaf(YType.str, "ip-address")
+                            self.acct_port_number = YLeaf(YType.uint32, "acct-port-number")
 
                             self.time = Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time()
                             self.time.parent = self
@@ -947,17 +377,12 @@ class Radius(Entity):
                             self._segment_path = lambda: "host"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host, ['acct_port_number', 'auth_port_number', 'ip_address'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host, ['ip_address', 'auth_port_number', 'acct_port_number'], name, value)
 
 
                         class Time(Entity):
                             """
                             Time in seconds
-                            
-                            .. attribute:: is_computed
-                            
-                            	True if computed; false if not
-                            	**type**\:  bool
                             
                             .. attribute:: value
                             
@@ -965,6 +390,11 @@ class Radius(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: is_computed
+                            
+                            	True if computed; false if not
+                            	**type**\:  bool
                             
                             
 
@@ -983,23 +413,18 @@ class Radius(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.is_computed = YLeaf(YType.boolean, "is-computed")
-
                                 self.value = YLeaf(YType.uint32, "value")
+
+                                self.is_computed = YLeaf(YType.boolean, "is-computed")
                                 self._segment_path = lambda: "time"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, ['is_computed', 'value'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, ['value', 'is_computed'], name, value)
 
 
                         class Tries(Entity):
                             """
                             Number of tries
-                            
-                            .. attribute:: is_computed
-                            
-                            	True if computed; false if not
-                            	**type**\:  bool
                             
                             .. attribute:: value
                             
@@ -1007,6 +432,11 @@ class Radius(Entity):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            .. attribute:: is_computed
+                            
+                            	True if computed; false if not
+                            	**type**\:  bool
                             
                             
 
@@ -1025,32 +455,23 @@ class Radius(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.is_computed = YLeaf(YType.boolean, "is-computed")
-
                                 self.value = YLeaf(YType.uint32, "value")
+
+                                self.is_computed = YLeaf(YType.boolean, "is-computed")
                                 self._segment_path = lambda: "tries"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, ['is_computed', 'value'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, ['value', 'is_computed'], name, value)
 
 
-            class DynamicAuthorization(Entity):
+            class Authentication(Entity):
                 """
-                Dynamic authorization data
+                RADIUS authentication data
                 
-                .. attribute:: disconnected_invalid_requests
+                .. attribute:: authentication_group
                 
-                	Invalid disconnected requests
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: invalid_coa_requests
-                
-                	Invalid change of authorization requests
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
+                	List of authentication groups
+                	**type**\: list of    :py:class:`AuthenticationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup>`
                 
                 
 
@@ -1060,22 +481,547 @@ class Radius(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Radius.Nodes.Node.DynamicAuthorization, self).__init__()
+                    super(Radius.Nodes.Node.Authentication, self).__init__()
 
-                    self.yang_name = "dynamic-authorization"
+                    self.yang_name = "authentication"
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self._child_container_classes = {}
-                    self._child_list_classes = {}
+                    self._child_list_classes = {"authentication-group" : ("authentication_group", Radius.Nodes.Node.Authentication.AuthenticationGroup)}
 
-                    self.disconnected_invalid_requests = YLeaf(YType.uint32, "disconnected-invalid-requests")
-
-                    self.invalid_coa_requests = YLeaf(YType.uint32, "invalid-coa-requests")
-                    self._segment_path = lambda: "dynamic-authorization"
+                    self.authentication_group = YList(self)
+                    self._segment_path = lambda: "authentication"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, ['disconnected_invalid_requests', 'invalid_coa_requests'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.Authentication, [], name, value)
+
+
+                class AuthenticationGroup(Entity):
+                    """
+                    List of authentication groups
+                    
+                    .. attribute:: authentication
+                    
+                    	Authentication data
+                    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication>`
+                    
+                    .. attribute:: server_address
+                    
+                    	IP address of RADIUS server
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Authentication port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ip_address
+                    
+                    	IP address buffer
+                    	**type**\:  str
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-protocol-radius-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Radius.Nodes.Node.Authentication.AuthenticationGroup, self).__init__()
+
+                        self.yang_name = "authentication-group"
+                        self.yang_parent_name = "authentication"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"authentication" : ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication)}
+                        self._child_list_classes = {}
+
+                        self.server_address = YLeaf(YType.str, "server-address")
+
+                        self.port = YLeaf(YType.uint32, "port")
+
+                        self.ip_address = YLeaf(YType.str, "ip-address")
+
+                        self.family = YLeaf(YType.str, "family")
+
+                        self.authentication = Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication()
+                        self.authentication.parent = self
+                        self._children_name_map["authentication"] = "authentication"
+                        self._children_yang_names.add("authentication")
+                        self._segment_path = lambda: "authentication-group"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
+
+
+                    class Authentication(Entity):
+                        """
+                        Authentication data
+                        
+                        .. attribute:: access_requests
+                        
+                        	Number of access requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pending_access_requests
+                        
+                        	Number of pending access requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: access_request_retransmits
+                        
+                        	Number of retransmitted access requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: access_accepts
+                        
+                        	Number of access accepts
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: access_rejects
+                        
+                        	Number of access rejects
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: access_challenges
+                        
+                        	Number of access challenges
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: access_timeouts
+                        
+                        	Number of access packets timed out
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bad_access_responses
+                        
+                        	Number of bad access responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bad_access_authenticators
+                        
+                        	Number of bad access authenticators
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: unknown_access_types
+                        
+                        	Number of packets received with unknown type from authentication server
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: dropped_access_responses
+                        
+                        	Number of access responses dropped
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: rtt
+                        
+                        	Round trip time for authentication in milliseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: authen_response_time
+                        
+                        	Average response time for authentication requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: authen_transaction_successess
+                        
+                        	Number of succeeded authentication transactions
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: authen_transaction_failure
+                        
+                        	Number of failed authentication transactions
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: authen_unexpected_responses
+                        
+                        	Number of unexpected authentication responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: authen_server_error_responses
+                        
+                        	Number of server error authentication responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: authen_incorrect_responses
+                        
+                        	Number of incorrect authentication responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'aaa-protocol-radius-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication, self).__init__()
+
+                            self.yang_name = "authentication"
+                            self.yang_parent_name = "authentication-group"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.access_requests = YLeaf(YType.uint32, "access-requests")
+
+                            self.pending_access_requests = YLeaf(YType.uint32, "pending-access-requests")
+
+                            self.access_request_retransmits = YLeaf(YType.uint32, "access-request-retransmits")
+
+                            self.access_accepts = YLeaf(YType.uint32, "access-accepts")
+
+                            self.access_rejects = YLeaf(YType.uint32, "access-rejects")
+
+                            self.access_challenges = YLeaf(YType.uint32, "access-challenges")
+
+                            self.access_timeouts = YLeaf(YType.uint32, "access-timeouts")
+
+                            self.bad_access_responses = YLeaf(YType.uint32, "bad-access-responses")
+
+                            self.bad_access_authenticators = YLeaf(YType.uint32, "bad-access-authenticators")
+
+                            self.unknown_access_types = YLeaf(YType.uint32, "unknown-access-types")
+
+                            self.dropped_access_responses = YLeaf(YType.uint32, "dropped-access-responses")
+
+                            self.rtt = YLeaf(YType.uint32, "rtt")
+
+                            self.authen_response_time = YLeaf(YType.uint32, "authen-response-time")
+
+                            self.authen_transaction_successess = YLeaf(YType.uint32, "authen-transaction-successess")
+
+                            self.authen_transaction_failure = YLeaf(YType.uint32, "authen-transaction-failure")
+
+                            self.authen_unexpected_responses = YLeaf(YType.uint32, "authen-unexpected-responses")
+
+                            self.authen_server_error_responses = YLeaf(YType.uint32, "authen-server-error-responses")
+
+                            self.authen_incorrect_responses = YLeaf(YType.uint32, "authen-incorrect-responses")
+                            self._segment_path = lambda: "authentication"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
+
+
+            class Accounting(Entity):
+                """
+                RADIUS accounting data
+                
+                .. attribute:: accounting_group
+                
+                	List of accounting groups
+                	**type**\: list of    :py:class:`AccountingGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Radius.Nodes.Node.Accounting, self).__init__()
+
+                    self.yang_name = "accounting"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"accounting-group" : ("accounting_group", Radius.Nodes.Node.Accounting.AccountingGroup)}
+
+                    self.accounting_group = YList(self)
+                    self._segment_path = lambda: "accounting"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Radius.Nodes.Node.Accounting, [], name, value)
+
+
+                class AccountingGroup(Entity):
+                    """
+                    List of accounting groups
+                    
+                    .. attribute:: accounting
+                    
+                    	Accounting data
+                    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting.AccountingGroup.Accounting>`
+                    
+                    .. attribute:: server_address
+                    
+                    	IP address of RADIUS server
+                    	**type**\:  str
+                    
+                    .. attribute:: port
+                    
+                    	Accounting port number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ip_address
+                    
+                    	IP address buffer
+                    	**type**\:  str
+                    
+                    .. attribute:: family
+                    
+                    	IP address Family
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-protocol-radius-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Radius.Nodes.Node.Accounting.AccountingGroup, self).__init__()
+
+                        self.yang_name = "accounting-group"
+                        self.yang_parent_name = "accounting"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"accounting" : ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting)}
+                        self._child_list_classes = {}
+
+                        self.server_address = YLeaf(YType.str, "server-address")
+
+                        self.port = YLeaf(YType.uint32, "port")
+
+                        self.ip_address = YLeaf(YType.str, "ip-address")
+
+                        self.family = YLeaf(YType.str, "family")
+
+                        self.accounting = Radius.Nodes.Node.Accounting.AccountingGroup.Accounting()
+                        self.accounting.parent = self
+                        self._children_name_map["accounting"] = "accounting"
+                        self._children_yang_names.add("accounting")
+                        self._segment_path = lambda: "accounting-group"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
+
+
+                    class Accounting(Entity):
+                        """
+                        Accounting data
+                        
+                        .. attribute:: requests
+                        
+                        	Number of accounting requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: pending_requests
+                        
+                        	Number of pending accounting requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: retransmits
+                        
+                        	Number of retransmitted accounting requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: responses
+                        
+                        	Number of accounting responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: timeouts
+                        
+                        	Number of accounting packets timed\-out
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bad_responses
+                        
+                        	Number of bad accounting responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: bad_authenticators
+                        
+                        	Number of bad accounting authenticators
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: unknown_packet_types
+                        
+                        	Number of packets received with unknown type from accounting server
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: dropped_responses
+                        
+                        	Number of accounting responses dropped
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: rtt
+                        
+                        	Round trip time for accounting in milliseconds
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
+                        
+                        .. attribute:: acct_unexpected_responses
+                        
+                        	Number of unexpected accounting responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: acct_server_error_responses
+                        
+                        	Number of server error accounting responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: acct_incorrect_responses
+                        
+                        	Number of incorrect accounting responses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: acct_response_time
+                        
+                        	Average response time for authentication requests
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: acct_transaction_successess
+                        
+                        	Number of succeeded authentication transactions
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: acct_transaction_failure
+                        
+                        	Number of failed authentication transactions
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'aaa-protocol-radius-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting, self).__init__()
+
+                            self.yang_name = "accounting"
+                            self.yang_parent_name = "accounting-group"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.requests = YLeaf(YType.uint32, "requests")
+
+                            self.pending_requests = YLeaf(YType.uint32, "pending-requests")
+
+                            self.retransmits = YLeaf(YType.uint32, "retransmits")
+
+                            self.responses = YLeaf(YType.uint32, "responses")
+
+                            self.timeouts = YLeaf(YType.uint32, "timeouts")
+
+                            self.bad_responses = YLeaf(YType.uint32, "bad-responses")
+
+                            self.bad_authenticators = YLeaf(YType.uint32, "bad-authenticators")
+
+                            self.unknown_packet_types = YLeaf(YType.uint32, "unknown-packet-types")
+
+                            self.dropped_responses = YLeaf(YType.uint32, "dropped-responses")
+
+                            self.rtt = YLeaf(YType.uint32, "rtt")
+
+                            self.acct_unexpected_responses = YLeaf(YType.uint32, "acct-unexpected-responses")
+
+                            self.acct_server_error_responses = YLeaf(YType.uint32, "acct-server-error-responses")
+
+                            self.acct_incorrect_responses = YLeaf(YType.uint32, "acct-incorrect-responses")
+
+                            self.acct_response_time = YLeaf(YType.uint32, "acct-response-time")
+
+                            self.acct_transaction_successess = YLeaf(YType.uint32, "acct-transaction-successess")
+
+                            self.acct_transaction_failure = YLeaf(YType.uint32, "acct-transaction-failure")
+                            self._segment_path = lambda: "accounting"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
 
 
             class ServerGroups(Entity):
@@ -1120,7 +1066,17 @@ class Radius(Entity):
                     	Group name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    .. attribute:: groups
+                    
+                    	Number of groups
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF name
+                    	**type**\:  str
                     
                     .. attribute:: dead_time
                     
@@ -1131,9 +1087,9 @@ class Radius(Entity):
                     
                     	**units**\: minute
                     
-                    .. attribute:: groups
+                    .. attribute:: servers
                     
-                    	Number of groups
+                    	Number of servers
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -1142,18 +1098,6 @@ class Radius(Entity):
                     
                     	Server groups
                     	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup>`
-                    
-                    .. attribute:: servers
-                    
-                    	Number of servers
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: vrf_name
-                    
-                    	VRF name
-                    	**type**\:  str
                     
                     
 
@@ -1174,19 +1118,19 @@ class Radius(Entity):
 
                         self.server_group_name = YLeaf(YType.str, "server-group-name")
 
-                        self.dead_time = YLeaf(YType.uint32, "dead-time")
-
                         self.groups = YLeaf(YType.uint32, "groups")
 
-                        self.servers = YLeaf(YType.uint32, "servers")
-
                         self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                        self.dead_time = YLeaf(YType.uint32, "dead-time")
+
+                        self.servers = YLeaf(YType.uint32, "servers")
 
                         self.server_group = YList(self)
                         self._segment_path = lambda: "server-group" + "[server-group-name='" + self.server_group_name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', 'dead_time', 'groups', 'servers', 'vrf_name'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', 'groups', 'vrf_name', 'dead_time', 'servers'], name, value)
 
 
                     class ServerGroup(Entity):
@@ -1198,17 +1142,20 @@ class Radius(Entity):
                         	Accounting data
                         	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting>`
                         
-                        .. attribute:: accounting_port
-                        
-                        	Accounting port
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
                         .. attribute:: authentication
                         
                         	Authentication data
                         	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication>`
+                        
+                        .. attribute:: authorization
+                        
+                        	Authorization data
+                        	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization>`
+                        
+                        .. attribute:: server_address
+                        
+                        	Server address
+                        	**type**\:  str
                         
                         .. attribute:: authentication_port
                         
@@ -1217,32 +1164,27 @@ class Radius(Entity):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: authorization
+                        .. attribute:: accounting_port
                         
-                        	Authorization data
-                        	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization>`
+                        	Accounting port
+                        	**type**\:  int
                         
-                        .. attribute:: family
-                        
-                        	IP address Family
-                        	**type**\:  str
-                        
-                        .. attribute:: ip_address
-                        
-                        	IP address buffer
-                        	**type**\:  str
+                        	**range:** 0..4294967295
                         
                         .. attribute:: is_private
                         
                         	True if private
                         	**type**\:  bool
                         
-                        .. attribute:: server_address
+                        .. attribute:: ip_address
                         
-                        	Server address
+                        	IP address buffer
                         	**type**\:  str
                         
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        .. attribute:: family
+                        
+                        	IP address Family
+                        	**type**\:  str
                         
                         
 
@@ -1261,17 +1203,17 @@ class Radius(Entity):
                             self._child_container_classes = {"accounting" : ("accounting", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting), "authentication" : ("authentication", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication), "authorization" : ("authorization", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization)}
                             self._child_list_classes = {}
 
-                            self.accounting_port = YLeaf(YType.uint32, "accounting-port")
+                            self.server_address = YLeaf(YType.str, "server-address")
 
                             self.authentication_port = YLeaf(YType.uint32, "authentication-port")
 
-                            self.family = YLeaf(YType.str, "family")
-
-                            self.ip_address = YLeaf(YType.str, "ip-address")
+                            self.accounting_port = YLeaf(YType.uint32, "accounting-port")
 
                             self.is_private = YLeaf(YType.boolean, "is-private")
 
-                            self.server_address = YLeaf(YType.str, "server-address")
+                            self.ip_address = YLeaf(YType.str, "ip-address")
+
+                            self.family = YLeaf(YType.str, "family")
 
                             self.accounting = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting()
                             self.accounting.parent = self
@@ -1290,12 +1232,98 @@ class Radius(Entity):
                             self._segment_path = lambda: "server-group"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup, ['accounting_port', 'authentication_port', 'family', 'ip_address', 'is_private', 'server_address'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup, ['server_address', 'authentication_port', 'accounting_port', 'is_private', 'ip_address', 'family'], name, value)
 
 
                         class Accounting(Entity):
                             """
                             Accounting data
+                            
+                            .. attribute:: requests
+                            
+                            	Number of accounting requests
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: pending_requests
+                            
+                            	Number of pending accounting requests
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: retransmits
+                            
+                            	Number of retransmitted accounting requests
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: responses
+                            
+                            	Number of accounting responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: timeouts
+                            
+                            	Number of accounting packets timed\-out
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: bad_responses
+                            
+                            	Number of bad accounting responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: bad_authenticators
+                            
+                            	Number of bad accounting authenticators
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: unknown_packet_types
+                            
+                            	Number of packets received with unknown type from accounting server
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dropped_responses
+                            
+                            	Number of accounting responses dropped
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: rtt
+                            
+                            	Round trip time for accounting in milliseconds
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: millisecond
+                            
+                            .. attribute:: acct_unexpected_responses
+                            
+                            	Number of unexpected accounting responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: acct_server_error_responses
+                            
+                            	Number of server error accounting responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
                             
                             .. attribute:: acct_incorrect_responses
                             
@@ -1311,20 +1339,6 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: acct_server_error_responses
-                            
-                            	Number of server error accounting responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: acct_transaction_failure
-                            
-                            	Number of failed authentication transactions
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
                             .. attribute:: acct_transaction_successess
                             
                             	Number of succeeded authentication transactions
@@ -1332,81 +1346,9 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: acct_unexpected_responses
+                            .. attribute:: acct_transaction_failure
                             
-                            	Number of unexpected accounting responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: bad_authenticators
-                            
-                            	Number of bad accounting authenticators
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: bad_responses
-                            
-                            	Number of bad accounting responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: dropped_responses
-                            
-                            	Number of accounting responses dropped
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pending_requests
-                            
-                            	Number of pending accounting requests
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: requests
-                            
-                            	Number of accounting requests
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: responses
-                            
-                            	Number of accounting responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: retransmits
-                            
-                            	Number of retransmitted accounting requests
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: rtt
-                            
-                            	Round trip time for accounting in milliseconds
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            	**units**\: millisecond
-                            
-                            .. attribute:: timeouts
-                            
-                            	Number of accounting packets timed\-out
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: unknown_packet_types
-                            
-                            	Number of packets received with unknown type from accounting server
+                            	Number of failed authentication transactions
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1428,64 +1370,57 @@ class Radius(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
+                                self.requests = YLeaf(YType.uint32, "requests")
+
+                                self.pending_requests = YLeaf(YType.uint32, "pending-requests")
+
+                                self.retransmits = YLeaf(YType.uint32, "retransmits")
+
+                                self.responses = YLeaf(YType.uint32, "responses")
+
+                                self.timeouts = YLeaf(YType.uint32, "timeouts")
+
+                                self.bad_responses = YLeaf(YType.uint32, "bad-responses")
+
+                                self.bad_authenticators = YLeaf(YType.uint32, "bad-authenticators")
+
+                                self.unknown_packet_types = YLeaf(YType.uint32, "unknown-packet-types")
+
+                                self.dropped_responses = YLeaf(YType.uint32, "dropped-responses")
+
+                                self.rtt = YLeaf(YType.uint32, "rtt")
+
+                                self.acct_unexpected_responses = YLeaf(YType.uint32, "acct-unexpected-responses")
+
+                                self.acct_server_error_responses = YLeaf(YType.uint32, "acct-server-error-responses")
+
                                 self.acct_incorrect_responses = YLeaf(YType.uint32, "acct-incorrect-responses")
 
                                 self.acct_response_time = YLeaf(YType.uint32, "acct-response-time")
 
-                                self.acct_server_error_responses = YLeaf(YType.uint32, "acct-server-error-responses")
-
-                                self.acct_transaction_failure = YLeaf(YType.uint32, "acct-transaction-failure")
-
                                 self.acct_transaction_successess = YLeaf(YType.uint32, "acct-transaction-successess")
 
-                                self.acct_unexpected_responses = YLeaf(YType.uint32, "acct-unexpected-responses")
-
-                                self.bad_authenticators = YLeaf(YType.uint32, "bad-authenticators")
-
-                                self.bad_responses = YLeaf(YType.uint32, "bad-responses")
-
-                                self.dropped_responses = YLeaf(YType.uint32, "dropped-responses")
-
-                                self.pending_requests = YLeaf(YType.uint32, "pending-requests")
-
-                                self.requests = YLeaf(YType.uint32, "requests")
-
-                                self.responses = YLeaf(YType.uint32, "responses")
-
-                                self.retransmits = YLeaf(YType.uint32, "retransmits")
-
-                                self.rtt = YLeaf(YType.uint32, "rtt")
-
-                                self.timeouts = YLeaf(YType.uint32, "timeouts")
-
-                                self.unknown_packet_types = YLeaf(YType.uint32, "unknown-packet-types")
+                                self.acct_transaction_failure = YLeaf(YType.uint32, "acct-transaction-failure")
                                 self._segment_path = lambda: "accounting"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting, ['acct_incorrect_responses', 'acct_response_time', 'acct_server_error_responses', 'acct_transaction_failure', 'acct_transaction_successess', 'acct_unexpected_responses', 'bad_authenticators', 'bad_responses', 'dropped_responses', 'pending_requests', 'requests', 'responses', 'retransmits', 'rtt', 'timeouts', 'unknown_packet_types'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Accounting, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
 
 
                         class Authentication(Entity):
                             """
                             Authentication data
                             
-                            .. attribute:: access_accepts
+                            .. attribute:: access_requests
                             
-                            	Number of access accepts
+                            	Number of access requests
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: access_challenges
+                            .. attribute:: pending_access_requests
                             
-                            	Number of access challenges
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: access_rejects
-                            
-                            	Number of access rejects
+                            	Number of pending access requests
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1497,9 +1432,23 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: access_requests
+                            .. attribute:: access_accepts
                             
-                            	Number of access requests
+                            	Number of access accepts
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: access_rejects
+                            
+                            	Number of access rejects
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: access_challenges
+                            
+                            	Number of access challenges
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1511,44 +1460,9 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: authen_incorrect_responses
+                            .. attribute:: bad_access_responses
                             
-                            	Number of incorrect authentication responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: authen_response_time
-                            
-                            	Average response time for authentication requests
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: authen_server_error_responses
-                            
-                            	Number of server error authentication responses
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: authen_transaction_failure
-                            
-                            	Number of failed authentication transactions
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: authen_transaction_successess
-                            
-                            	Number of succeeded authentication transactions
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: authen_unexpected_responses
-                            
-                            	Number of unexpected authentication responses
+                            	Number of bad access responses
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1560,9 +1474,9 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: bad_access_responses
+                            .. attribute:: unknown_access_types
                             
-                            	Number of bad access responses
+                            	Number of packets received with unknown type from authentication server
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1570,13 +1484,6 @@ class Radius(Entity):
                             .. attribute:: dropped_access_responses
                             
                             	Number of access responses dropped
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: pending_access_requests
-                            
-                            	Number of pending access requests
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1590,9 +1497,44 @@ class Radius(Entity):
                             
                             	**units**\: millisecond
                             
-                            .. attribute:: unknown_access_types
+                            .. attribute:: authen_response_time
                             
-                            	Number of packets received with unknown type from authentication server
+                            	Average response time for authentication requests
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: authen_transaction_successess
+                            
+                            	Number of succeeded authentication transactions
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: authen_transaction_failure
+                            
+                            	Number of failed authentication transactions
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: authen_unexpected_responses
+                            
+                            	Number of unexpected authentication responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: authen_server_error_responses
+                            
+                            	Number of server error authentication responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: authen_incorrect_responses
+                            
+                            	Number of incorrect authentication responses
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1614,54 +1556,54 @@ class Radius(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.access_accepts = YLeaf(YType.uint32, "access-accepts")
-
-                                self.access_challenges = YLeaf(YType.uint32, "access-challenges")
-
-                                self.access_rejects = YLeaf(YType.uint32, "access-rejects")
-
-                                self.access_request_retransmits = YLeaf(YType.uint32, "access-request-retransmits")
-
                                 self.access_requests = YLeaf(YType.uint32, "access-requests")
-
-                                self.access_timeouts = YLeaf(YType.uint32, "access-timeouts")
-
-                                self.authen_incorrect_responses = YLeaf(YType.uint32, "authen-incorrect-responses")
-
-                                self.authen_response_time = YLeaf(YType.uint32, "authen-response-time")
-
-                                self.authen_server_error_responses = YLeaf(YType.uint32, "authen-server-error-responses")
-
-                                self.authen_transaction_failure = YLeaf(YType.uint32, "authen-transaction-failure")
-
-                                self.authen_transaction_successess = YLeaf(YType.uint32, "authen-transaction-successess")
-
-                                self.authen_unexpected_responses = YLeaf(YType.uint32, "authen-unexpected-responses")
-
-                                self.bad_access_authenticators = YLeaf(YType.uint32, "bad-access-authenticators")
-
-                                self.bad_access_responses = YLeaf(YType.uint32, "bad-access-responses")
-
-                                self.dropped_access_responses = YLeaf(YType.uint32, "dropped-access-responses")
 
                                 self.pending_access_requests = YLeaf(YType.uint32, "pending-access-requests")
 
-                                self.rtt = YLeaf(YType.uint32, "rtt")
+                                self.access_request_retransmits = YLeaf(YType.uint32, "access-request-retransmits")
+
+                                self.access_accepts = YLeaf(YType.uint32, "access-accepts")
+
+                                self.access_rejects = YLeaf(YType.uint32, "access-rejects")
+
+                                self.access_challenges = YLeaf(YType.uint32, "access-challenges")
+
+                                self.access_timeouts = YLeaf(YType.uint32, "access-timeouts")
+
+                                self.bad_access_responses = YLeaf(YType.uint32, "bad-access-responses")
+
+                                self.bad_access_authenticators = YLeaf(YType.uint32, "bad-access-authenticators")
 
                                 self.unknown_access_types = YLeaf(YType.uint32, "unknown-access-types")
+
+                                self.dropped_access_responses = YLeaf(YType.uint32, "dropped-access-responses")
+
+                                self.rtt = YLeaf(YType.uint32, "rtt")
+
+                                self.authen_response_time = YLeaf(YType.uint32, "authen-response-time")
+
+                                self.authen_transaction_successess = YLeaf(YType.uint32, "authen-transaction-successess")
+
+                                self.authen_transaction_failure = YLeaf(YType.uint32, "authen-transaction-failure")
+
+                                self.authen_unexpected_responses = YLeaf(YType.uint32, "authen-unexpected-responses")
+
+                                self.authen_server_error_responses = YLeaf(YType.uint32, "authen-server-error-responses")
+
+                                self.authen_incorrect_responses = YLeaf(YType.uint32, "authen-incorrect-responses")
                                 self._segment_path = lambda: "authentication"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication, ['access_accepts', 'access_challenges', 'access_rejects', 'access_request_retransmits', 'access_requests', 'access_timeouts', 'authen_incorrect_responses', 'authen_response_time', 'authen_server_error_responses', 'authen_transaction_failure', 'authen_transaction_successess', 'authen_unexpected_responses', 'bad_access_authenticators', 'bad_access_responses', 'dropped_access_responses', 'pending_access_requests', 'rtt', 'unknown_access_types'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authentication, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
 
 
                         class Authorization(Entity):
                             """
                             Authorization data
                             
-                            .. attribute:: author_incorrect_responses
+                            .. attribute:: author_requests
                             
-                            	Number of incorrect authorization responses
+                            	Number of access requests
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1673,16 +1615,9 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: author_requests
+                            .. attribute:: author_unexpected_responses
                             
-                            	Number of access requests
-                            	**type**\:  int
-                            
-                            	**range:** 0..4294967295
-                            
-                            .. attribute:: author_response_time
-                            
-                            	Average response time for authorization requests
+                            	Number of unexpected authorization responses
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1694,9 +1629,16 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: author_transaction_failure
+                            .. attribute:: author_incorrect_responses
                             
-                            	Number of failed authorization transactions
+                            	Number of incorrect authorization responses
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: author_response_time
+                            
+                            	Average response time for authorization requests
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1708,9 +1650,9 @@ class Radius(Entity):
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: author_unexpected_responses
+                            .. attribute:: author_transaction_failure
                             
-                            	Number of unexpected authorization responses
+                            	Number of failed authorization transactions
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -1732,25 +1674,69 @@ class Radius(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.author_incorrect_responses = YLeaf(YType.uint32, "author-incorrect-responses")
+                                self.author_requests = YLeaf(YType.uint32, "author-requests")
 
                                 self.author_request_timeouts = YLeaf(YType.uint32, "author-request-timeouts")
 
-                                self.author_requests = YLeaf(YType.uint32, "author-requests")
-
-                                self.author_response_time = YLeaf(YType.uint32, "author-response-time")
+                                self.author_unexpected_responses = YLeaf(YType.uint32, "author-unexpected-responses")
 
                                 self.author_server_error_responses = YLeaf(YType.uint32, "author-server-error-responses")
 
-                                self.author_transaction_failure = YLeaf(YType.uint32, "author-transaction-failure")
+                                self.author_incorrect_responses = YLeaf(YType.uint32, "author-incorrect-responses")
+
+                                self.author_response_time = YLeaf(YType.uint32, "author-response-time")
 
                                 self.author_transaction_successess = YLeaf(YType.uint32, "author-transaction-successess")
 
-                                self.author_unexpected_responses = YLeaf(YType.uint32, "author-unexpected-responses")
+                                self.author_transaction_failure = YLeaf(YType.uint32, "author-transaction-failure")
                                 self._segment_path = lambda: "authorization"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization, ['author_incorrect_responses', 'author_request_timeouts', 'author_requests', 'author_response_time', 'author_server_error_responses', 'author_transaction_failure', 'author_transaction_successess', 'author_unexpected_responses'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup.Authorization, ['author_requests', 'author_request_timeouts', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure'], name, value)
+
+
+            class DynamicAuthorization(Entity):
+                """
+                Dynamic authorization data
+                
+                .. attribute:: disconnected_invalid_requests
+                
+                	Invalid disconnected requests
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: invalid_coa_requests
+                
+                	Invalid change of authorization requests
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Radius.Nodes.Node.DynamicAuthorization, self).__init__()
+
+                    self.yang_name = "dynamic-authorization"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.disconnected_invalid_requests = YLeaf(YType.uint32, "disconnected-invalid-requests")
+
+                    self.invalid_coa_requests = YLeaf(YType.uint32, "invalid-coa-requests")
+                    self._segment_path = lambda: "dynamic-authorization"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, ['disconnected_invalid_requests', 'invalid_coa_requests'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Radius()

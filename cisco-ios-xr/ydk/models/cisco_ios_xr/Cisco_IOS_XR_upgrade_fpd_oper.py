@@ -585,8 +585,6 @@ class Fpd_(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-            
             .. attribute:: devices
             
             	FPD information table
@@ -659,20 +657,10 @@ class Fpd_(Entity):
                     """
                     FPD information for a particular fpd type
                     
-                    .. attribute:: card_type
-                    
-                    	Card type containing FPD
-                    	**type**\:  str
-                    
                     .. attribute:: fpd_type
                     
                     	FPD type
                     	**type**\:   :py:class:`Fpd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd>`
-                    
-                    .. attribute:: hardware_version
-                    
-                    	FPD hardware version inX.Y format. X\-Major version, Y\-Minor version
-                    	**type**\:  str
                     
                     .. attribute:: instance
                     
@@ -681,20 +669,30 @@ class Fpd_(Entity):
                     
                     	**range:** \-2147483648..2147483647
                     
-                    .. attribute:: is_upgrade_downgrade
+                    .. attribute:: sub_type
                     
-                    	If true, upgrade or downgrade
-                    	**type**\:  bool
+                    	FPD sub type
+                    	**type**\:   :py:class:`FpdSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub>`
+                    
+                    .. attribute:: card_type
+                    
+                    	Card type containing FPD
+                    	**type**\:  str
+                    
+                    .. attribute:: hardware_version
+                    
+                    	FPD hardware version inX.Y format. X\-Major version, Y\-Minor version
+                    	**type**\:  str
                     
                     .. attribute:: software_version
                     
                     	FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
                     	**type**\:  str
                     
-                    .. attribute:: sub_type
+                    .. attribute:: is_upgrade_downgrade
                     
-                    	FPD sub type
-                    	**type**\:   :py:class:`FpdSub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub>`
+                    	If true, upgrade or downgrade
+                    	**type**\:  bool
                     
                     
 
@@ -713,23 +711,23 @@ class Fpd_(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.card_type = YLeaf(YType.str, "card-type")
-
                         self.fpd_type = YLeaf(YType.enumeration, "fpd-type")
-
-                        self.hardware_version = YLeaf(YType.str, "hardware-version")
 
                         self.instance = YLeaf(YType.int32, "instance")
 
-                        self.is_upgrade_downgrade = YLeaf(YType.boolean, "is-upgrade-downgrade")
+                        self.sub_type = YLeaf(YType.enumeration, "sub-type")
+
+                        self.card_type = YLeaf(YType.str, "card-type")
+
+                        self.hardware_version = YLeaf(YType.str, "hardware-version")
 
                         self.software_version = YLeaf(YType.str, "software-version")
 
-                        self.sub_type = YLeaf(YType.enumeration, "sub-type")
+                        self.is_upgrade_downgrade = YLeaf(YType.boolean, "is-upgrade-downgrade")
                         self._segment_path = lambda: "device"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fpd_.Nodes.Node.Devices.Device, ['card_type', 'fpd_type', 'hardware_version', 'instance', 'is_upgrade_downgrade', 'software_version', 'sub_type'], name, value)
+                        self._perform_setattr(Fpd_.Nodes.Node.Devices.Device, ['fpd_type', 'instance', 'sub_type', 'card_type', 'hardware_version', 'software_version', 'is_upgrade_downgrade'], name, value)
 
 
     class Packages(Entity):
@@ -770,29 +768,29 @@ class Fpd_(Entity):
             """
             List of packages
             
-            .. attribute:: card_description
-            
-            	Card description
-            	**type**\:  str
-            
             .. attribute:: card_type
             
             	Card type containing FPD
             	**type**\:  str
             
-            .. attribute:: fpd_sub_type
+            .. attribute:: card_description
             
-            	FPD sub type
-            	**type**\:   :py:class:`FpdSub1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1>`
+            	Card description
+            	**type**\:  str
             
             .. attribute:: fpd_type
             
             	FPD type
             	**type**\:   :py:class:`Fpd1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd1>`
             
-            .. attribute:: minimum_required_hardware_version
+            .. attribute:: fpd_sub_type
             
-            	Minimum required FPD hardware version in X.Y format X\-Major version, Y\-Minor version 
+            	FPD sub type
+            	**type**\:   :py:class:`FpdSub1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1>`
+            
+            .. attribute:: software_version
+            
+            	FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
             	**type**\:  str
             
             .. attribute:: minimum_required_software_version
@@ -800,9 +798,9 @@ class Fpd_(Entity):
             	Minimum required FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
             	**type**\:  str
             
-            .. attribute:: software_version
+            .. attribute:: minimum_required_hardware_version
             
-            	FPD software version in X.Y format X\-Major version, Y\-Minor version Note\: 'Unknown' is returned in case the software version of the FPD cannot be determined
+            	Minimum required FPD hardware version in X.Y format X\-Major version, Y\-Minor version 
             	**type**\:  str
             
             
@@ -822,24 +820,24 @@ class Fpd_(Entity):
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.card_description = YLeaf(YType.str, "card-description")
-
                 self.card_type = YLeaf(YType.str, "card-type")
 
-                self.fpd_sub_type = YLeaf(YType.enumeration, "fpd-sub-type")
+                self.card_description = YLeaf(YType.str, "card-description")
 
                 self.fpd_type = YLeaf(YType.enumeration, "fpd-type")
 
-                self.minimum_required_hardware_version = YLeaf(YType.str, "minimum-required-hardware-version")
+                self.fpd_sub_type = YLeaf(YType.enumeration, "fpd-sub-type")
+
+                self.software_version = YLeaf(YType.str, "software-version")
 
                 self.minimum_required_software_version = YLeaf(YType.str, "minimum-required-software-version")
 
-                self.software_version = YLeaf(YType.str, "software-version")
+                self.minimum_required_hardware_version = YLeaf(YType.str, "minimum-required-hardware-version")
                 self._segment_path = lambda: "all-package"
                 self._absolute_path = lambda: "Cisco-IOS-XR-upgrade-fpd-oper:fpd/packages/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Fpd_.Packages.AllPackage, ['card_description', 'card_type', 'fpd_sub_type', 'fpd_type', 'minimum_required_hardware_version', 'minimum_required_software_version', 'software_version'], name, value)
+                self._perform_setattr(Fpd_.Packages.AllPackage, ['card_type', 'card_description', 'fpd_type', 'fpd_sub_type', 'software_version', 'minimum_required_software_version', 'minimum_required_hardware_version'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Fpd_()

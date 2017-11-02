@@ -195,6 +195,16 @@ class MplsStatic(Entity):
     """
     MPLS Static Configuration Data
     
+    .. attribute:: vrfs
+    
+    	VRF table
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
+    
+    .. attribute:: interfaces
+    
+    	MPLS Static Interface Table
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
+    
     .. attribute:: default_vrf
     
     	Default VRF
@@ -204,16 +214,6 @@ class MplsStatic(Entity):
     
     	MPLS Static Apply Enable
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: interfaces
-    
-    	MPLS Static Interface Table
-    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces>`
-    
-    .. attribute:: vrfs
-    
-    	VRF table
-    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs>`
     
     
 
@@ -230,1475 +230,29 @@ class MplsStatic(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-mpls-static-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"default-vrf" : ("default_vrf", MplsStatic.DefaultVrf), "interfaces" : ("interfaces", MplsStatic.Interfaces), "vrfs" : ("vrfs", MplsStatic.Vrfs)}
+        self._child_container_classes = {"vrfs" : ("vrfs", MplsStatic.Vrfs), "interfaces" : ("interfaces", MplsStatic.Interfaces), "default-vrf" : ("default_vrf", MplsStatic.DefaultVrf)}
         self._child_list_classes = {}
 
         self.enable = YLeaf(YType.empty, "enable")
 
-        self.default_vrf = MplsStatic.DefaultVrf()
-        self.default_vrf.parent = self
-        self._children_name_map["default_vrf"] = "default-vrf"
-        self._children_yang_names.add("default-vrf")
+        self.vrfs = MplsStatic.Vrfs()
+        self.vrfs.parent = self
+        self._children_name_map["vrfs"] = "vrfs"
+        self._children_yang_names.add("vrfs")
 
         self.interfaces = MplsStatic.Interfaces()
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._children_yang_names.add("interfaces")
 
-        self.vrfs = MplsStatic.Vrfs()
-        self.vrfs.parent = self
-        self._children_name_map["vrfs"] = "vrfs"
-        self._children_yang_names.add("vrfs")
+        self.default_vrf = MplsStatic.DefaultVrf()
+        self.default_vrf.parent = self
+        self._children_name_map["default_vrf"] = "default-vrf"
+        self._children_yang_names.add("default-vrf")
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static"
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsStatic, ['enable'], name, value)
-
-
-    class DefaultVrf(Entity):
-        """
-        Default VRF
-        
-        .. attribute:: afs
-        
-        	Address Family Table
-        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs>`
-        
-        .. attribute:: enable
-        
-        	MPLS Static Apply Enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: label_switched_paths
-        
-        	Table of the Label Switched Paths
-        	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths>`
-        
-        
-
-        """
-
-        _prefix = 'mpls-static-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(MplsStatic.DefaultVrf, self).__init__()
-
-            self.yang_name = "default-vrf"
-            self.yang_parent_name = "mpls-static"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"afs" : ("afs", MplsStatic.DefaultVrf.Afs), "label-switched-paths" : ("label_switched_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths)}
-            self._child_list_classes = {}
-
-            self.enable = YLeaf(YType.empty, "enable")
-
-            self.afs = MplsStatic.DefaultVrf.Afs()
-            self.afs.parent = self
-            self._children_name_map["afs"] = "afs"
-            self._children_yang_names.add("afs")
-
-            self.label_switched_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths()
-            self.label_switched_paths.parent = self
-            self._children_name_map["label_switched_paths"] = "label-switched-paths"
-            self._children_yang_names.add("label-switched-paths")
-            self._segment_path = lambda: "default-vrf"
-            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MplsStatic.DefaultVrf, ['enable'], name, value)
-
-
-        class Afs(Entity):
-            """
-            Address Family Table
-            
-            .. attribute:: af
-            
-            	Address Family
-            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-static-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(MplsStatic.DefaultVrf.Afs, self).__init__()
-
-                self.yang_name = "afs"
-                self.yang_parent_name = "default-vrf"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"af" : ("af", MplsStatic.DefaultVrf.Afs.Af)}
-
-                self.af = YList(self)
-                self._segment_path = lambda: "afs"
-                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.DefaultVrf.Afs, [], name, value)
-
-
-            class Af(Entity):
-                """
-                Address Family
-                
-                .. attribute:: afi  <key>
-                
-                	Address Family
-                	**type**\:   :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
-                
-                .. attribute:: enable
-                
-                	MPLS Static Apply Enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: local_labels
-                
-                	Local Label
-                	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
-                
-                .. attribute:: top_label_hash
-                
-                	Top Label Hash
-                	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
-                
-                
-
-                """
-
-                _prefix = 'mpls-static-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(MplsStatic.DefaultVrf.Afs.Af, self).__init__()
-
-                    self.yang_name = "af"
-                    self.yang_parent_name = "afs"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"local-labels" : ("local_labels", MplsStatic.DefaultVrf.Afs.Af.LocalLabels), "top-label-hash" : ("top_label_hash", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash)}
-                    self._child_list_classes = {}
-
-                    self.afi = YLeaf(YType.enumeration, "afi")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.local_labels = MplsStatic.DefaultVrf.Afs.Af.LocalLabels()
-                    self.local_labels.parent = self
-                    self._children_name_map["local_labels"] = "local-labels"
-                    self._children_yang_names.add("local-labels")
-
-                    self.top_label_hash = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash()
-                    self.top_label_hash.parent = self
-                    self._children_name_map["top_label_hash"] = "top-label-hash"
-                    self._children_yang_names.add("top-label-hash")
-                    self._segment_path = lambda: "af" + "[afi='" + self.afi.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/afs/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi', 'enable'], name, value)
-
-
-                class LocalLabels(Entity):
-                    """
-                    Local Label
-                    
-                    .. attribute:: local_label
-                    
-                    	Specify Local Label
-                    	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-static-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, self).__init__()
-
-                        self.yang_name = "local-labels"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"local-label" : ("local_label", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel)}
-
-                        self.local_label = YList(self)
-                        self._segment_path = lambda: "local-labels"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, [], name, value)
-
-
-                    class LocalLabel(Entity):
-                        """
-                        Specify Local Label
-                        
-                        .. attribute:: local_label_id  <key>
-                        
-                        	Local Label
-                        	**type**\:  int
-                        
-                        	**range:** 16..1048575
-                        
-                        .. attribute:: label_type
-                        
-                        	MPLS Static Local Label Value
-                        	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
-                        
-                        .. attribute:: paths
-                        
-                        	Forward Path Parameters
-                        	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
-
-                            self.yang_name = "local-label"
-                            self.yang_parent_name = "local-labels"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {"label-type" : ("label_type", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths)}
-                            self._child_list_classes = {}
-
-                            self.local_label_id = YLeaf(YType.uint32, "local-label-id")
-
-                            self.label_type = MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType()
-                            self.label_type.parent = self
-                            self._children_name_map["label_type"] = "label-type"
-                            self._children_yang_names.add("label-type")
-
-                            self.paths = MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths()
-                            self.paths.parent = self
-                            self._children_name_map["paths"] = "paths"
-                            self._children_yang_names.add("paths")
-                            self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
-
-
-                        class LabelType(Entity):
-                            """
-                            MPLS Static Local Label Value
-                            
-                            .. attribute:: label_mode
-                            
-                            	Label Mode (PerVRF, PerPrefix or LSP)
-                            	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
-                            
-                            .. attribute:: prefix
-                            
-                            	Address (IPv4/6 depending on AFI)
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            
-                            ----
-                            .. attribute:: prefix_length
-                            
-                            	Prefix length
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls-static-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
-
-                                self.yang_name = "label-type"
-                                self.yang_parent_name = "local-label"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {}
-
-                                self.label_mode = YLeaf(YType.enumeration, "label-mode")
-
-                                self.prefix = YLeaf(YType.str, "prefix")
-
-                                self.prefix_length = YLeaf(YType.int32, "prefix-length")
-                                self._segment_path = lambda: "label-type"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
-
-
-                        class Paths(Entity):
-                            """
-                            Forward Path Parameters
-                            
-                            .. attribute:: path
-                            
-                            	Path Information
-                            	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls-static-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
-
-                                self.yang_name = "paths"
-                                self.yang_parent_name = "local-label"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {}
-                                self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path)}
-
-                                self.path = YList(self)
-                                self._segment_path = lambda: "paths"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
-
-
-                            class Path(Entity):
-                                """
-                                Path Information
-                                
-                                .. attribute:: path_id  <key>
-                                
-                                	Number of paths
-                                	**type**\:  int
-                                
-                                	**range:** 1..16
-                                
-                                .. attribute:: afi
-                                
-                                	Next hop Address Family
-                                	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                                
-                                	**default value**\: ipv4
-                                
-                                .. attribute:: backup_id
-                                
-                                	Backup ID
-                                	**type**\:  int
-                                
-                                	**range:** 0..16
-                                
-                                	**default value**\: 0
-                                
-                                .. attribute:: interface_name
-                                
-                                	Next hop Interface with form <Interface>R/S/I/P
-                                	**type**\:  str
-                                
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                
-                                .. attribute:: label_type
-                                
-                                	Type of label (Outlabel, ExpNull or Pop)
-                                	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                                
-                                	**default value**\: none
-                                
-                                .. attribute:: metric
-                                
-                                	NH Path Metric
-                                	**type**\:  int
-                                
-                                	**range:** 0..254
-                                
-                                	**default value**\: 0
-                                
-                                .. attribute:: next_hop_address
-                                
-                                	Next Hop IP Address
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                	**default value**\: 0.0.0.0
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                	**default value**\: 0.0.0.0
-                                
-                                
-                                ----
-                                .. attribute:: next_hop_label
-                                
-                                	Outgoing/NH Label
-                                	**type**\:  int
-                                
-                                	**range:** 16..1048575
-                                
-                                	**default value**\: 16
-                                
-                                .. attribute:: nh_mode
-                                
-                                	Next hop mode
-                                	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                                
-                                	**default value**\: configured
-                                
-                                .. attribute:: path_role
-                                
-                                	Path Role
-                                	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                                
-                                	**default value**\: primary
-                                
-                                .. attribute:: path_type
-                                
-                                	Type of Path (PopAndLookup, CrossConnect)
-                                	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                                
-                                	**default value**\: cross-connect
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls-static-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
-
-                                    self.yang_name = "path"
-                                    self.yang_parent_name = "paths"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.path_id = YLeaf(YType.uint32, "path-id")
-
-                                    self.afi = YLeaf(YType.enumeration, "afi")
-
-                                    self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                    self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                    self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                                    self.metric = YLeaf(YType.uint32, "metric")
-
-                                    self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                    self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                                    self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                                    self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                                    self.path_type = YLeaf(YType.enumeration, "path-type")
-                                    self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
-
-
-                class TopLabelHash(Entity):
-                    """
-                    Top Label Hash
-                    
-                    .. attribute:: local_labels
-                    
-                    	Local Label
-                    	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-static-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, self).__init__()
-
-                        self.yang_name = "top-label-hash"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {"local-labels" : ("local_labels", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels)}
-                        self._child_list_classes = {}
-
-                        self.local_labels = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels()
-                        self.local_labels.parent = self
-                        self._children_name_map["local_labels"] = "local-labels"
-                        self._children_yang_names.add("local-labels")
-                        self._segment_path = lambda: "top-label-hash"
-
-
-                    class LocalLabels(Entity):
-                        """
-                        Local Label
-                        
-                        .. attribute:: local_label
-                        
-                        	Specify Local Label
-                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
-
-                            self.yang_name = "local-labels"
-                            self.yang_parent_name = "top-label-hash"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-label" : ("local_label", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel)}
-
-                            self.local_label = YList(self)
-                            self._segment_path = lambda: "local-labels"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
-
-
-                        class LocalLabel(Entity):
-                            """
-                            Specify Local Label
-                            
-                            .. attribute:: local_label_id  <key>
-                            
-                            	Local Label
-                            	**type**\:  int
-                            
-                            	**range:** 16..1048575
-                            
-                            .. attribute:: label_type
-                            
-                            	MPLS Static Local Label Value
-                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
-                            
-                            .. attribute:: paths
-                            
-                            	Forward Path Parameters
-                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls-static-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
-
-                                self.yang_name = "local-label"
-                                self.yang_parent_name = "local-labels"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"label-type" : ("label_type", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths)}
-                                self._child_list_classes = {}
-
-                                self.local_label_id = YLeaf(YType.uint32, "local-label-id")
-
-                                self.label_type = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType()
-                                self.label_type.parent = self
-                                self._children_name_map["label_type"] = "label-type"
-                                self._children_yang_names.add("label-type")
-
-                                self.paths = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths()
-                                self.paths.parent = self
-                                self._children_name_map["paths"] = "paths"
-                                self._children_yang_names.add("paths")
-                                self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
-
-
-                            class LabelType(Entity):
-                                """
-                                MPLS Static Local Label Value
-                                
-                                .. attribute:: label_mode
-                                
-                                	Label Mode (PerVRF, PerPrefix or LSP)
-                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
-                                
-                                .. attribute:: prefix
-                                
-                                	Address (IPv4/6 depending on AFI)
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: prefix_length
-                                
-                                	Prefix length
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls-static-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
-
-                                    self.yang_name = "label-type"
-                                    self.yang_parent_name = "local-label"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.label_mode = YLeaf(YType.enumeration, "label-mode")
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.prefix_length = YLeaf(YType.int32, "prefix-length")
-                                    self._segment_path = lambda: "label-type"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
-
-
-                            class Paths(Entity):
-                                """
-                                Forward Path Parameters
-                                
-                                .. attribute:: path
-                                
-                                	Path Information
-                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls-static-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
-
-                                    self.yang_name = "paths"
-                                    self.yang_parent_name = "local-label"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path)}
-
-                                    self.path = YList(self)
-                                    self._segment_path = lambda: "paths"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
-
-
-                                class Path(Entity):
-                                    """
-                                    Path Information
-                                    
-                                    .. attribute:: path_id  <key>
-                                    
-                                    	Number of paths
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..16
-                                    
-                                    .. attribute:: afi
-                                    
-                                    	Next hop Address Family
-                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                                    
-                                    	**default value**\: ipv4
-                                    
-                                    .. attribute:: backup_id
-                                    
-                                    	Backup ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..16
-                                    
-                                    	**default value**\: 0
-                                    
-                                    .. attribute:: interface_name
-                                    
-                                    	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                    
-                                    .. attribute:: label_type
-                                    
-                                    	Type of label (Outlabel, ExpNull or Pop)
-                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                                    
-                                    	**default value**\: none
-                                    
-                                    .. attribute:: metric
-                                    
-                                    	NH Path Metric
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..254
-                                    
-                                    	**default value**\: 0
-                                    
-                                    .. attribute:: next_hop_address
-                                    
-                                    	Next Hop IP Address
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
-                                    .. attribute:: next_hop_label
-                                    
-                                    	Outgoing/NH Label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 16..1048575
-                                    
-                                    	**default value**\: 16
-                                    
-                                    .. attribute:: nh_mode
-                                    
-                                    	Next hop mode
-                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                                    
-                                    	**default value**\: configured
-                                    
-                                    .. attribute:: path_role
-                                    
-                                    	Path Role
-                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                                    
-                                    	**default value**\: primary
-                                    
-                                    .. attribute:: path_type
-                                    
-                                    	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                                    
-                                    	**default value**\: cross-connect
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'mpls-static-cfg'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
-
-                                        self.yang_name = "path"
-                                        self.yang_parent_name = "paths"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.path_id = YLeaf(YType.uint32, "path-id")
-
-                                        self.afi = YLeaf(YType.enumeration, "afi")
-
-                                        self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                        self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                                        self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                                        self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                                        self.path_type = YLeaf(YType.enumeration, "path-type")
-                                        self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
-
-
-        class LabelSwitchedPaths(Entity):
-            """
-            Table of the Label Switched Paths
-            
-            .. attribute:: label_switched_path
-            
-            	Label Switched Path
-            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath>`
-            
-            
-
-            """
-
-            _prefix = 'mpls-static-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(MplsStatic.DefaultVrf.LabelSwitchedPaths, self).__init__()
-
-                self.yang_name = "label-switched-paths"
-                self.yang_parent_name = "default-vrf"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"label-switched-path" : ("label_switched_path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath)}
-
-                self.label_switched_path = YList(self)
-                self._segment_path = lambda: "label-switched-paths"
-                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths, [], name, value)
-
-
-            class LabelSwitchedPath(Entity):
-                """
-                Label Switched Path
-                
-                .. attribute:: lsp_name  <key>
-                
-                	LSP Name
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: backup_paths
-                
-                	Backup Path Parameters
-                	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
-                
-                .. attribute:: enable
-                
-                	MPLS Static Apply Enable
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                
-                .. attribute:: in_label
-                
-                	MPLS Static Local Label Value
-                	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
-                
-                .. attribute:: paths
-                
-                	Forward Path Parameters
-                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
-                
-                
-
-                """
-
-                _prefix = 'mpls-static-cfg'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
-
-                    self.yang_name = "label-switched-path"
-                    self.yang_parent_name = "label-switched-paths"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {"backup-paths" : ("backup_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths), "in-label" : ("in_label", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel), "paths" : ("paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths)}
-                    self._child_list_classes = {}
-
-                    self.lsp_name = YLeaf(YType.str, "lsp-name")
-
-                    self.enable = YLeaf(YType.empty, "enable")
-
-                    self.backup_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
-                    self.backup_paths.parent = self
-                    self._children_name_map["backup_paths"] = "backup-paths"
-                    self._children_yang_names.add("backup-paths")
-
-                    self.in_label = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
-                    self.in_label.parent = self
-                    self._children_name_map["in_label"] = "in-label"
-                    self._children_yang_names.add("in-label")
-
-                    self.paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
-                    self.paths.parent = self
-                    self._children_name_map["paths"] = "paths"
-                    self._children_yang_names.add("paths")
-                    self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + self.lsp_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/label-switched-paths/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
-
-
-                class BackupPaths(Entity):
-                    """
-                    Backup Path Parameters
-                    
-                    .. attribute:: path
-                    
-                    	Path Information
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-static-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
-
-                        self.yang_name = "backup-paths"
-                        self.yang_parent_name = "label-switched-path"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path)}
-
-                        self.path = YList(self)
-                        self._segment_path = lambda: "backup-paths"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
-
-
-                    class Path(Entity):
-                        """
-                        Path Information
-                        
-                        .. attribute:: path_id  <key>
-                        
-                        	Number of paths
-                        	**type**\:  int
-                        
-                        	**range:** 1..16
-                        
-                        .. attribute:: afi
-                        
-                        	Next hop Address Family
-                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                        
-                        	**default value**\: ipv4
-                        
-                        .. attribute:: backup_id
-                        
-                        	Backup ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..16
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: interface_name
-                        
-                        	Next hop Interface with form <Interface>R/S/I/P
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: label_type
-                        
-                        	Type of label (Outlabel, ExpNull or Pop)
-                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                        
-                        	**default value**\: none
-                        
-                        .. attribute:: metric
-                        
-                        	NH Path Metric
-                        	**type**\:  int
-                        
-                        	**range:** 0..254
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: next_hop_address
-                        
-                        	Next Hop IP Address
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
-                        .. attribute:: next_hop_label
-                        
-                        	Outgoing/NH Label
-                        	**type**\:  int
-                        
-                        	**range:** 16..1048575
-                        
-                        	**default value**\: 16
-                        
-                        .. attribute:: nh_mode
-                        
-                        	Next hop mode
-                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                        
-                        	**default value**\: configured
-                        
-                        .. attribute:: path_role
-                        
-                        	Path Role
-                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                        
-                        	**default value**\: primary
-                        
-                        .. attribute:: path_type
-                        
-                        	Type of Path (PopAndLookup, CrossConnect)
-                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                        
-                        	**default value**\: cross-connect
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
-
-                            self.yang_name = "path"
-                            self.yang_parent_name = "backup-paths"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.path_id = YLeaf(YType.uint32, "path-id")
-
-                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                            self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                            self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                            self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                            self.path_type = YLeaf(YType.enumeration, "path-type")
-                            self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
-
-
-                class InLabel(Entity):
-                    """
-                    MPLS Static Local Label Value
-                    
-                    .. attribute:: in_label_value
-                    
-                    	Local Label
-                    	**type**\:  int
-                    
-                    	**range:** 16..1048575
-                    
-                    .. attribute:: label_mode
-                    
-                    	Label Mode (PerVRF, PerPrefix or LSP)
-                    	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
-                    
-                    .. attribute:: prefix
-                    
-                    	Address (IPv4/6 depending on AFI)
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: prefix_length
-                    
-                    	Prefix length
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: tlh_mode
-                    
-                    	Top Label Hashing Mode
-                    	**type**\:  bool
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-static-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
-
-                        self.yang_name = "in-label"
-                        self.yang_parent_name = "label-switched-path"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.in_label_value = YLeaf(YType.uint32, "in-label-value")
-
-                        self.label_mode = YLeaf(YType.enumeration, "label-mode")
-
-                        self.prefix = YLeaf(YType.str, "prefix")
-
-                        self.prefix_length = YLeaf(YType.int32, "prefix-length")
-
-                        self.tlh_mode = YLeaf(YType.boolean, "tlh-mode")
-                        self._segment_path = lambda: "in-label"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
-
-
-                class Paths(Entity):
-                    """
-                    Forward Path Parameters
-                    
-                    .. attribute:: path
-                    
-                    	Path Information
-                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'mpls-static-cfg'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
-
-                        self.yang_name = "paths"
-                        self.yang_parent_name = "label-switched-path"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path)}
-
-                        self.path = YList(self)
-                        self._segment_path = lambda: "paths"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
-
-
-                    class Path(Entity):
-                        """
-                        Path Information
-                        
-                        .. attribute:: path_id  <key>
-                        
-                        	Number of paths
-                        	**type**\:  int
-                        
-                        	**range:** 1..16
-                        
-                        .. attribute:: afi
-                        
-                        	Next hop Address Family
-                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                        
-                        	**default value**\: ipv4
-                        
-                        .. attribute:: backup_id
-                        
-                        	Backup ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..16
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: interface_name
-                        
-                        	Next hop Interface with form <Interface>R/S/I/P
-                        	**type**\:  str
-                        
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
-                        
-                        .. attribute:: label_type
-                        
-                        	Type of label (Outlabel, ExpNull or Pop)
-                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                        
-                        	**default value**\: none
-                        
-                        .. attribute:: metric
-                        
-                        	NH Path Metric
-                        	**type**\:  int
-                        
-                        	**range:** 0..254
-                        
-                        	**default value**\: 0
-                        
-                        .. attribute:: next_hop_address
-                        
-                        	Next Hop IP Address
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        	**default value**\: 0.0.0.0
-                        
-                        
-                        ----
-                        .. attribute:: next_hop_label
-                        
-                        	Outgoing/NH Label
-                        	**type**\:  int
-                        
-                        	**range:** 16..1048575
-                        
-                        	**default value**\: 16
-                        
-                        .. attribute:: nh_mode
-                        
-                        	Next hop mode
-                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                        
-                        	**default value**\: configured
-                        
-                        .. attribute:: path_role
-                        
-                        	Path Role
-                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                        
-                        	**default value**\: primary
-                        
-                        .. attribute:: path_type
-                        
-                        	Type of Path (PopAndLookup, CrossConnect)
-                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                        
-                        	**default value**\: cross-connect
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
-
-                            self.yang_name = "path"
-                            self.yang_parent_name = "paths"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.path_id = YLeaf(YType.uint32, "path-id")
-
-                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                            self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                            self.interface_name = YLeaf(YType.str, "interface-name")
-
-                            self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                            self.metric = YLeaf(YType.uint32, "metric")
-
-                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                            self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                            self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                            self.path_type = YLeaf(YType.enumeration, "path-type")
-                            self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
-
-
-    class Interfaces(Entity):
-        """
-        MPLS Static Interface Table
-        
-        .. attribute:: interface
-        
-        	MPLS Static Interface Enable
-        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces.Interface>`
-        
-        
-
-        """
-
-        _prefix = 'mpls-static-cfg'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(MplsStatic.Interfaces, self).__init__()
-
-            self.yang_name = "interfaces"
-            self.yang_parent_name = "mpls-static"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"interface" : ("interface", MplsStatic.Interfaces.Interface)}
-
-            self.interface = YList(self)
-            self._segment_path = lambda: "interfaces"
-            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MplsStatic.Interfaces, [], name, value)
-
-
-        class Interface(Entity):
-            """
-            MPLS Static Interface Enable
-            
-            .. attribute:: interface_name  <key>
-            
-            	Name of Interface
-            	**type**\:  str
-            
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
-            
-            
-
-            """
-
-            _prefix = 'mpls-static-cfg'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(MplsStatic.Interfaces.Interface, self).__init__()
-
-                self.yang_name = "interface"
-                self.yang_parent_name = "interfaces"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.interface_name = YLeaf(YType.str, "interface-name")
-                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/interfaces/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MplsStatic.Interfaces.Interface, ['interface_name'], name, value)
 
 
     class Vrfs(Entity):
@@ -1744,7 +298,10 @@ class MplsStatic(Entity):
             	VRF Name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            .. attribute:: label_switched_paths
+            
+            	Table of the Label Switched Paths
+            	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths>`
             
             .. attribute:: afs
             
@@ -1755,11 +312,6 @@ class MplsStatic(Entity):
             
             	MPLS Static Apply Enable
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: label_switched_paths
-            
-            	Table of the Label Switched Paths
-            	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths>`
             
             
 
@@ -1775,27 +327,547 @@ class MplsStatic(Entity):
                 self.yang_parent_name = "vrfs"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"afs" : ("afs", MplsStatic.Vrfs.Vrf.Afs), "label-switched-paths" : ("label_switched_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths)}
+                self._child_container_classes = {"label-switched-paths" : ("label_switched_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths), "afs" : ("afs", MplsStatic.Vrfs.Vrf.Afs)}
                 self._child_list_classes = {}
 
                 self.vrf_name = YLeaf(YType.str, "vrf-name")
 
                 self.enable = YLeaf(YType.empty, "enable")
 
-                self.afs = MplsStatic.Vrfs.Vrf.Afs()
-                self.afs.parent = self
-                self._children_name_map["afs"] = "afs"
-                self._children_yang_names.add("afs")
-
                 self.label_switched_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths()
                 self.label_switched_paths.parent = self
                 self._children_name_map["label_switched_paths"] = "label-switched-paths"
                 self._children_yang_names.add("label-switched-paths")
+
+                self.afs = MplsStatic.Vrfs.Vrf.Afs()
+                self.afs.parent = self
+                self._children_name_map["afs"] = "afs"
+                self._children_yang_names.add("afs")
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + self.vrf_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/vrfs/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
+
+
+            class LabelSwitchedPaths(Entity):
+                """
+                Table of the Label Switched Paths
+                
+                .. attribute:: label_switched_path
+                
+                	Label Switched Path
+                	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-static-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, self).__init__()
+
+                    self.yang_name = "label-switched-paths"
+                    self.yang_parent_name = "vrf"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"label-switched-path" : ("label_switched_path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath)}
+
+                    self.label_switched_path = YList(self)
+                    self._segment_path = lambda: "label-switched-paths"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, [], name, value)
+
+
+                class LabelSwitchedPath(Entity):
+                    """
+                    Label Switched Path
+                    
+                    .. attribute:: lsp_name  <key>
+                    
+                    	LSP Name
+                    	**type**\:  str
+                    
+                    .. attribute:: backup_paths
+                    
+                    	Backup Path Parameters
+                    	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                    
+                    .. attribute:: in_label
+                    
+                    	MPLS Static Local Label Value
+                    	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
+                    
+                    .. attribute:: enable
+                    
+                    	MPLS Static Apply Enable
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: paths
+                    
+                    	Forward Path Parameters
+                    	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
+
+                        self.yang_name = "label-switched-path"
+                        self.yang_parent_name = "label-switched-paths"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"backup-paths" : ("backup_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths), "in-label" : ("in_label", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel), "paths" : ("paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths)}
+                        self._child_list_classes = {}
+
+                        self.lsp_name = YLeaf(YType.str, "lsp-name")
+
+                        self.enable = YLeaf(YType.empty, "enable")
+
+                        self.backup_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
+                        self.backup_paths.parent = self
+                        self._children_name_map["backup_paths"] = "backup-paths"
+                        self._children_yang_names.add("backup-paths")
+
+                        self.in_label = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
+                        self.in_label.parent = self
+                        self._children_name_map["in_label"] = "in-label"
+                        self._children_yang_names.add("in-label")
+
+                        self.paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
+                        self.paths.parent = self
+                        self._children_name_map["paths"] = "paths"
+                        self._children_yang_names.add("paths")
+                        self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + self.lsp_name.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
+
+
+                    class BackupPaths(Entity):
+                        """
+                        Backup Path Parameters
+                        
+                        .. attribute:: path
+                        
+                        	Path Information
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
+
+                            self.yang_name = "backup-paths"
+                            self.yang_parent_name = "label-switched-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path)}
+
+                            self.path = YList(self)
+                            self._segment_path = lambda: "backup-paths"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
+
+
+                        class Path(Entity):
+                            """
+                            Path Information
+                            
+                            .. attribute:: path_id  <key>
+                            
+                            	Number of paths
+                            	**type**\:  int
+                            
+                            	**range:** 1..16
+                            
+                            .. attribute:: path_type
+                            
+                            	Type of Path (PopAndLookup, CrossConnect)
+                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                            
+                            	**default value**\: cross-connect
+                            
+                            .. attribute:: label_type
+                            
+                            	Type of label (Outlabel, ExpNull or Pop)
+                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: next_hop_label
+                            
+                            	Outgoing/NH Label
+                            	**type**\:  int
+                            
+                            	**range:** 16..1048575
+                            
+                            	**default value**\: 16
+                            
+                            .. attribute:: next_hop_address
+                            
+                            	Next Hop IP Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            .. attribute:: interface_name
+                            
+                            	Next hop Interface with form <Interface>R/S/I/P
+                            	**type**\:  str
+                            
+                            .. attribute:: afi
+                            
+                            	Next hop Address Family
+                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                            
+                            	**default value**\: ipv4
+                            
+                            .. attribute:: metric
+                            
+                            	NH Path Metric
+                            	**type**\:  int
+                            
+                            	**range:** 0..254
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: nh_mode
+                            
+                            	Next hop mode
+                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                            
+                            	**default value**\: configured
+                            
+                            .. attribute:: path_role
+                            
+                            	Path Role
+                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                            
+                            	**default value**\: primary
+                            
+                            .. attribute:: backup_id
+                            
+                            	Backup ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..16
+                            
+                            	**default value**\: 0
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
+
+                                self.yang_name = "path"
+                                self.yang_parent_name = "backup-paths"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                                self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                                self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                                self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.afi = YLeaf(YType.enumeration, "afi")
+
+                                self.metric = YLeaf(YType.uint32, "metric")
+
+                                self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                                self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                                self.backup_id = YLeaf(YType.uint32, "backup-id")
+                                self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+                    class InLabel(Entity):
+                        """
+                        MPLS Static Local Label Value
+                        
+                        .. attribute:: in_label_value
+                        
+                        	Local Label
+                        	**type**\:  int
+                        
+                        	**range:** 16..1048575
+                        
+                        .. attribute:: label_mode
+                        
+                        	Label Mode (PerVRF, PerPrefix or LSP)
+                        	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                        
+                        .. attribute:: prefix
+                        
+                        	Address (IPv4/6 depending on AFI)
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        
+                        ----
+                        .. attribute:: prefix_length
+                        
+                        	Prefix length
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: tlh_mode
+                        
+                        	Top Label Hashing Mode
+                        	**type**\:  bool
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
+
+                            self.yang_name = "in-label"
+                            self.yang_parent_name = "label-switched-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.in_label_value = YLeaf(YType.uint32, "in-label-value")
+
+                            self.label_mode = YLeaf(YType.enumeration, "label-mode")
+
+                            self.prefix = YLeaf(YType.str, "prefix")
+
+                            self.prefix_length = YLeaf(YType.int32, "prefix-length")
+
+                            self.tlh_mode = YLeaf(YType.boolean, "tlh-mode")
+                            self._segment_path = lambda: "in-label"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
+
+
+                    class Paths(Entity):
+                        """
+                        Forward Path Parameters
+                        
+                        .. attribute:: path
+                        
+                        	Path Information
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
+
+                            self.yang_name = "paths"
+                            self.yang_parent_name = "label-switched-path"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path)}
+
+                            self.path = YList(self)
+                            self._segment_path = lambda: "paths"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
+
+
+                        class Path(Entity):
+                            """
+                            Path Information
+                            
+                            .. attribute:: path_id  <key>
+                            
+                            	Number of paths
+                            	**type**\:  int
+                            
+                            	**range:** 1..16
+                            
+                            .. attribute:: path_type
+                            
+                            	Type of Path (PopAndLookup, CrossConnect)
+                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                            
+                            	**default value**\: cross-connect
+                            
+                            .. attribute:: label_type
+                            
+                            	Type of label (Outlabel, ExpNull or Pop)
+                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                            
+                            	**default value**\: none
+                            
+                            .. attribute:: next_hop_label
+                            
+                            	Outgoing/NH Label
+                            	**type**\:  int
+                            
+                            	**range:** 16..1048575
+                            
+                            	**default value**\: 16
+                            
+                            .. attribute:: next_hop_address
+                            
+                            	Next Hop IP Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**default value**\: 0.0.0.0
+                            
+                            
+                            ----
+                            .. attribute:: interface_name
+                            
+                            	Next hop Interface with form <Interface>R/S/I/P
+                            	**type**\:  str
+                            
+                            .. attribute:: afi
+                            
+                            	Next hop Address Family
+                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                            
+                            	**default value**\: ipv4
+                            
+                            .. attribute:: metric
+                            
+                            	NH Path Metric
+                            	**type**\:  int
+                            
+                            	**range:** 0..254
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: nh_mode
+                            
+                            	Next hop mode
+                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                            
+                            	**default value**\: configured
+                            
+                            .. attribute:: path_role
+                            
+                            	Path Role
+                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                            
+                            	**default value**\: primary
+                            
+                            .. attribute:: backup_id
+                            
+                            	Backup ID
+                            	**type**\:  int
+                            
+                            	**range:** 0..16
+                            
+                            	**default value**\: 0
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
+
+                                self.yang_name = "path"
+                                self.yang_parent_name = "paths"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {}
+
+                                self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                                self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                                self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                                self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                                self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                self.afi = YLeaf(YType.enumeration, "afi")
+
+                                self.metric = YLeaf(YType.uint32, "metric")
+
+                                self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                                self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                                self.backup_id = YLeaf(YType.uint32, "backup-id")
+                                self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
             class Afs(Entity):
@@ -1840,20 +912,20 @@ class MplsStatic(Entity):
                     	Address Family
                     	**type**\:   :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
                     
-                    .. attribute:: enable
+                    .. attribute:: top_label_hash
                     
-                    	MPLS Static Apply Enable
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    	Top Label Hash
+                    	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
                     
                     .. attribute:: local_labels
                     
                     	Local Label
                     	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels>`
                     
-                    .. attribute:: top_label_hash
+                    .. attribute:: enable
                     
-                    	Top Label Hash
-                    	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash>`
+                    	MPLS Static Apply Enable
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1869,353 +941,26 @@ class MplsStatic(Entity):
                         self.yang_parent_name = "afs"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"local-labels" : ("local_labels", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels), "top-label-hash" : ("top_label_hash", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash)}
+                        self._child_container_classes = {"top-label-hash" : ("top_label_hash", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash), "local-labels" : ("local_labels", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels)}
                         self._child_list_classes = {}
 
                         self.afi = YLeaf(YType.enumeration, "afi")
 
                         self.enable = YLeaf(YType.empty, "enable")
 
-                        self.local_labels = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels()
-                        self.local_labels.parent = self
-                        self._children_name_map["local_labels"] = "local-labels"
-                        self._children_yang_names.add("local-labels")
-
                         self.top_label_hash = MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash()
                         self.top_label_hash.parent = self
                         self._children_name_map["top_label_hash"] = "top-label-hash"
                         self._children_yang_names.add("top-label-hash")
+
+                        self.local_labels = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels()
+                        self.local_labels.parent = self
+                        self._children_name_map["local_labels"] = "local-labels"
+                        self._children_yang_names.add("local-labels")
                         self._segment_path = lambda: "af" + "[afi='" + self.afi.get() + "']"
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af, ['afi', 'enable'], name, value)
-
-
-                    class LocalLabels(Entity):
-                        """
-                        Local Label
-                        
-                        .. attribute:: local_label
-                        
-                        	Specify Local Label
-                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, self).__init__()
-
-                            self.yang_name = "local-labels"
-                            self.yang_parent_name = "af"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"local-label" : ("local_label", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel)}
-
-                            self.local_label = YList(self)
-                            self._segment_path = lambda: "local-labels"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, [], name, value)
-
-
-                        class LocalLabel(Entity):
-                            """
-                            Specify Local Label
-                            
-                            .. attribute:: local_label_id  <key>
-                            
-                            	Local Label
-                            	**type**\:  int
-                            
-                            	**range:** 16..1048575
-                            
-                            .. attribute:: label_type
-                            
-                            	MPLS Static Local Label Value
-                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
-                            
-                            .. attribute:: paths
-                            
-                            	Forward Path Parameters
-                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
-                            
-                            
-
-                            """
-
-                            _prefix = 'mpls-static-cfg'
-                            _revision = '2017-05-01'
-
-                            def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
-
-                                self.yang_name = "local-label"
-                                self.yang_parent_name = "local-labels"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self._child_container_classes = {"label-type" : ("label_type", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths)}
-                                self._child_list_classes = {}
-
-                                self.local_label_id = YLeaf(YType.uint32, "local-label-id")
-
-                                self.label_type = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType()
-                                self.label_type.parent = self
-                                self._children_name_map["label_type"] = "label-type"
-                                self._children_yang_names.add("label-type")
-
-                                self.paths = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths()
-                                self.paths.parent = self
-                                self._children_name_map["paths"] = "paths"
-                                self._children_yang_names.add("paths")
-                                self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
-
-
-                            class LabelType(Entity):
-                                """
-                                MPLS Static Local Label Value
-                                
-                                .. attribute:: label_mode
-                                
-                                	Label Mode (PerVRF, PerPrefix or LSP)
-                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
-                                
-                                .. attribute:: prefix
-                                
-                                	Address (IPv4/6 depending on AFI)
-                                	**type**\: one of the below types:
-                                
-                                	**type**\:  str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                	**type**\:  str
-                                
-                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                
-                                
-                                ----
-                                .. attribute:: prefix_length
-                                
-                                	Prefix length
-                                	**type**\:  int
-                                
-                                	**range:** \-2147483648..2147483647
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls-static-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
-
-                                    self.yang_name = "label-type"
-                                    self.yang_parent_name = "local-label"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {}
-
-                                    self.label_mode = YLeaf(YType.enumeration, "label-mode")
-
-                                    self.prefix = YLeaf(YType.str, "prefix")
-
-                                    self.prefix_length = YLeaf(YType.int32, "prefix-length")
-                                    self._segment_path = lambda: "label-type"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
-
-
-                            class Paths(Entity):
-                                """
-                                Forward Path Parameters
-                                
-                                .. attribute:: path
-                                
-                                	Path Information
-                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
-                                
-                                
-
-                                """
-
-                                _prefix = 'mpls-static-cfg'
-                                _revision = '2017-05-01'
-
-                                def __init__(self):
-                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
-
-                                    self.yang_name = "paths"
-                                    self.yang_parent_name = "local-label"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self._child_container_classes = {}
-                                    self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path)}
-
-                                    self.path = YList(self)
-                                    self._segment_path = lambda: "paths"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
-
-
-                                class Path(Entity):
-                                    """
-                                    Path Information
-                                    
-                                    .. attribute:: path_id  <key>
-                                    
-                                    	Number of paths
-                                    	**type**\:  int
-                                    
-                                    	**range:** 1..16
-                                    
-                                    .. attribute:: afi
-                                    
-                                    	Next hop Address Family
-                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                                    
-                                    	**default value**\: ipv4
-                                    
-                                    .. attribute:: backup_id
-                                    
-                                    	Backup ID
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..16
-                                    
-                                    	**default value**\: 0
-                                    
-                                    .. attribute:: interface_name
-                                    
-                                    	Next hop Interface with form <Interface>R/S/I/P
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
-                                    
-                                    .. attribute:: label_type
-                                    
-                                    	Type of label (Outlabel, ExpNull or Pop)
-                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                                    
-                                    	**default value**\: none
-                                    
-                                    .. attribute:: metric
-                                    
-                                    	NH Path Metric
-                                    	**type**\:  int
-                                    
-                                    	**range:** 0..254
-                                    
-                                    	**default value**\: 0
-                                    
-                                    .. attribute:: next_hop_address
-                                    
-                                    	Next Hop IP Address
-                                    	**type**\: one of the below types:
-                                    
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
-                                    	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                    
-                                    	**default value**\: 0.0.0.0
-                                    
-                                    
-                                    ----
-                                    .. attribute:: next_hop_label
-                                    
-                                    	Outgoing/NH Label
-                                    	**type**\:  int
-                                    
-                                    	**range:** 16..1048575
-                                    
-                                    	**default value**\: 16
-                                    
-                                    .. attribute:: nh_mode
-                                    
-                                    	Next hop mode
-                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                                    
-                                    	**default value**\: configured
-                                    
-                                    .. attribute:: path_role
-                                    
-                                    	Path Role
-                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                                    
-                                    	**default value**\: primary
-                                    
-                                    .. attribute:: path_type
-                                    
-                                    	Type of Path (PopAndLookup, CrossConnect)
-                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                                    
-                                    	**default value**\: cross-connect
-                                    
-                                    
-
-                                    """
-
-                                    _prefix = 'mpls-static-cfg'
-                                    _revision = '2017-05-01'
-
-                                    def __init__(self):
-                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
-
-                                        self.yang_name = "path"
-                                        self.yang_parent_name = "paths"
-                                        self.is_top_level_class = False
-                                        self.has_list_ancestor = True
-                                        self._child_container_classes = {}
-                                        self._child_list_classes = {}
-
-                                        self.path_id = YLeaf(YType.uint32, "path-id")
-
-                                        self.afi = YLeaf(YType.enumeration, "afi")
-
-                                        self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                        self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                        self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                                        self.metric = YLeaf(YType.uint32, "metric")
-
-                                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                        self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                                        self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                                        self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                                        self.path_type = YLeaf(YType.enumeration, "path-type")
-                                        self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
-
-                                    def __setattr__(self, name, value):
-                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
 
 
                     class TopLabelHash(Entity):
@@ -2355,13 +1100,9 @@ class MplsStatic(Entity):
                                     
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                    
                                     
                                     ----
                                     	**type**\:  str
-                                    
-                                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                                     
                                     
                                     ----
@@ -2444,28 +1185,12 @@ class MplsStatic(Entity):
                                         
                                         	**range:** 1..16
                                         
-                                        .. attribute:: afi
+                                        .. attribute:: path_type
                                         
-                                        	Next hop Address Family
-                                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                        	Type of Path (PopAndLookup, CrossConnect)
+                                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
                                         
-                                        	**default value**\: ipv4
-                                        
-                                        .. attribute:: backup_id
-                                        
-                                        	Backup ID
-                                        	**type**\:  int
-                                        
-                                        	**range:** 0..16
-                                        
-                                        	**default value**\: 0
-                                        
-                                        .. attribute:: interface_name
-                                        
-                                        	Next hop Interface with form <Interface>R/S/I/P
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**default value**\: cross-connect
                                         
                                         .. attribute:: label_type
                                         
@@ -2473,6 +1198,44 @@ class MplsStatic(Entity):
                                         	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
                                         
                                         	**default value**\: none
+                                        
+                                        .. attribute:: next_hop_label
+                                        
+                                        	Outgoing/NH Label
+                                        	**type**\:  int
+                                        
+                                        	**range:** 16..1048575
+                                        
+                                        	**default value**\: 16
+                                        
+                                        .. attribute:: next_hop_address
+                                        
+                                        	Next Hop IP Address
+                                        	**type**\: one of the below types:
+                                        
+                                        	**type**\:  str
+                                        
+                                        	**default value**\: 0.0.0.0
+                                        
+                                        
+                                        ----
+                                        	**type**\:  str
+                                        
+                                        	**default value**\: 0.0.0.0
+                                        
+                                        
+                                        ----
+                                        .. attribute:: interface_name
+                                        
+                                        	Next hop Interface with form <Interface>R/S/I/P
+                                        	**type**\:  str
+                                        
+                                        .. attribute:: afi
+                                        
+                                        	Next hop Address Family
+                                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                        
+                                        	**default value**\: ipv4
                                         
                                         .. attribute:: metric
                                         
@@ -2482,36 +1245,6 @@ class MplsStatic(Entity):
                                         	**range:** 0..254
                                         
                                         	**default value**\: 0
-                                        
-                                        .. attribute:: next_hop_address
-                                        
-                                        	Next Hop IP Address
-                                        	**type**\: one of the below types:
-                                        
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                        
-                                        	**default value**\: 0.0.0.0
-                                        
-                                        
-                                        ----
-                                        	**type**\:  str
-                                        
-                                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                                        
-                                        	**default value**\: 0.0.0.0
-                                        
-                                        
-                                        ----
-                                        .. attribute:: next_hop_label
-                                        
-                                        	Outgoing/NH Label
-                                        	**type**\:  int
-                                        
-                                        	**range:** 16..1048575
-                                        
-                                        	**default value**\: 16
                                         
                                         .. attribute:: nh_mode
                                         
@@ -2527,12 +1260,14 @@ class MplsStatic(Entity):
                                         
                                         	**default value**\: primary
                                         
-                                        .. attribute:: path_type
+                                        .. attribute:: backup_id
                                         
-                                        	Type of Path (PopAndLookup, CrossConnect)
-                                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                        	Backup ID
+                                        	**type**\:  int
                                         
-                                        	**default value**\: cross-connect
+                                        	**range:** 0..16
+                                        
+                                        	**default value**\: 0
                                         
                                         
 
@@ -2553,39 +1288,532 @@ class MplsStatic(Entity):
 
                                             self.path_id = YLeaf(YType.uint32, "path-id")
 
-                                            self.afi = YLeaf(YType.enumeration, "afi")
-
-                                            self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                            self.interface_name = YLeaf(YType.str, "interface-name")
+                                            self.path_type = YLeaf(YType.enumeration, "path-type")
 
                                             self.label_type = YLeaf(YType.enumeration, "label-type")
 
-                                            self.metric = YLeaf(YType.uint32, "metric")
+                                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
 
                                             self.next_hop_address = YLeaf(YType.str, "next-hop-address")
 
-                                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+                                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                            self.afi = YLeaf(YType.enumeration, "afi")
+
+                                            self.metric = YLeaf(YType.uint32, "metric")
 
                                             self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
 
                                             self.path_role = YLeaf(YType.enumeration, "path-role")
 
-                                            self.path_type = YLeaf(YType.enumeration, "path-type")
+                                            self.backup_id = YLeaf(YType.uint32, "backup-id")
                                             self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
+                                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
-            class LabelSwitchedPaths(Entity):
+                    class LocalLabels(Entity):
+                        """
+                        Local Label
+                        
+                        .. attribute:: local_label
+                        
+                        	Specify Local Label
+                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, self).__init__()
+
+                            self.yang_name = "local-labels"
+                            self.yang_parent_name = "af"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"local-label" : ("local_label", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel)}
+
+                            self.local_label = YList(self)
+                            self._segment_path = lambda: "local-labels"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, [], name, value)
+
+
+                        class LocalLabel(Entity):
+                            """
+                            Specify Local Label
+                            
+                            .. attribute:: local_label_id  <key>
+                            
+                            	Local Label
+                            	**type**\:  int
+                            
+                            	**range:** 16..1048575
+                            
+                            .. attribute:: label_type
+                            
+                            	MPLS Static Local Label Value
+                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
+                            
+                            .. attribute:: paths
+                            
+                            	Forward Path Parameters
+                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
+
+                                self.yang_name = "local-label"
+                                self.yang_parent_name = "local-labels"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {"label-type" : ("label_type", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths)}
+                                self._child_list_classes = {}
+
+                                self.local_label_id = YLeaf(YType.uint32, "local-label-id")
+
+                                self.label_type = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType()
+                                self.label_type.parent = self
+                                self._children_name_map["label_type"] = "label-type"
+                                self._children_yang_names.add("label-type")
+
+                                self.paths = MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths()
+                                self.paths.parent = self
+                                self._children_name_map["paths"] = "paths"
+                                self._children_yang_names.add("paths")
+                                self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
+
+
+                            class LabelType(Entity):
+                                """
+                                MPLS Static Local Label Value
+                                
+                                .. attribute:: label_mode
+                                
+                                	Label Mode (PerVRF, PerPrefix or LSP)
+                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                                
+                                .. attribute:: prefix
+                                
+                                	Address (IPv4/6 depending on AFI)
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                .. attribute:: prefix_length
+                                
+                                	Prefix length
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
+
+                                    self.yang_name = "label-type"
+                                    self.yang_parent_name = "local-label"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.label_mode = YLeaf(YType.enumeration, "label-mode")
+
+                                    self.prefix = YLeaf(YType.str, "prefix")
+
+                                    self.prefix_length = YLeaf(YType.int32, "prefix-length")
+                                    self._segment_path = lambda: "label-type"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
+
+
+                            class Paths(Entity):
+                                """
+                                Forward Path Parameters
+                                
+                                .. attribute:: path
+                                
+                                	Path Information
+                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
+
+                                    self.yang_name = "paths"
+                                    self.yang_parent_name = "local-label"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path)}
+
+                                    self.path = YList(self)
+                                    self._segment_path = lambda: "paths"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
+
+
+                                class Path(Entity):
+                                    """
+                                    Path Information
+                                    
+                                    .. attribute:: path_id  <key>
+                                    
+                                    	Number of paths
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..16
+                                    
+                                    .. attribute:: path_type
+                                    
+                                    	Type of Path (PopAndLookup, CrossConnect)
+                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                    
+                                    	**default value**\: cross-connect
+                                    
+                                    .. attribute:: label_type
+                                    
+                                    	Type of label (Outlabel, ExpNull or Pop)
+                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                    
+                                    	**default value**\: none
+                                    
+                                    .. attribute:: next_hop_label
+                                    
+                                    	Outgoing/NH Label
+                                    	**type**\:  int
+                                    
+                                    	**range:** 16..1048575
+                                    
+                                    	**default value**\: 16
+                                    
+                                    .. attribute:: next_hop_address
+                                    
+                                    	Next Hop IP Address
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    	**default value**\: 0.0.0.0
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    	**default value**\: 0.0.0.0
+                                    
+                                    
+                                    ----
+                                    .. attribute:: interface_name
+                                    
+                                    	Next hop Interface with form <Interface>R/S/I/P
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: afi
+                                    
+                                    	Next hop Address Family
+                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                    
+                                    	**default value**\: ipv4
+                                    
+                                    .. attribute:: metric
+                                    
+                                    	NH Path Metric
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..254
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: nh_mode
+                                    
+                                    	Next hop mode
+                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                    
+                                    	**default value**\: configured
+                                    
+                                    .. attribute:: path_role
+                                    
+                                    	Path Role
+                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                    
+                                    	**default value**\: primary
+                                    
+                                    .. attribute:: backup_id
+                                    
+                                    	Backup ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..16
+                                    
+                                    	**default value**\: 0
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'mpls-static-cfg'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+
+                                        self.yang_name = "path"
+                                        self.yang_parent_name = "paths"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                        self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                                        self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                                        self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                        self.afi = YLeaf(YType.enumeration, "afi")
+
+                                        self.metric = YLeaf(YType.uint32, "metric")
+
+                                        self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                                        self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                                        self.backup_id = YLeaf(YType.uint32, "backup-id")
+                                        self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+    class Interfaces(Entity):
+        """
+        MPLS Static Interface Table
+        
+        .. attribute:: interface
+        
+        	MPLS Static Interface Enable
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Interfaces.Interface>`
+        
+        
+
+        """
+
+        _prefix = 'mpls-static-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(MplsStatic.Interfaces, self).__init__()
+
+            self.yang_name = "interfaces"
+            self.yang_parent_name = "mpls-static"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"interface" : ("interface", MplsStatic.Interfaces.Interface)}
+
+            self.interface = YList(self)
+            self._segment_path = lambda: "interfaces"
+            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsStatic.Interfaces, [], name, value)
+
+
+        class Interface(Entity):
+            """
+            MPLS Static Interface Enable
+            
+            .. attribute:: interface_name  <key>
+            
+            	Name of Interface
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'mpls-static-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(MplsStatic.Interfaces.Interface, self).__init__()
+
+                self.yang_name = "interface"
+                self.yang_parent_name = "interfaces"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.interface_name = YLeaf(YType.str, "interface-name")
+                self._segment_path = lambda: "interface" + "[interface-name='" + self.interface_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/interfaces/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsStatic.Interfaces.Interface, ['interface_name'], name, value)
+
+
+    class DefaultVrf(Entity):
+        """
+        Default VRF
+        
+        .. attribute:: label_switched_paths
+        
+        	Table of the Label Switched Paths
+        	**type**\:   :py:class:`LabelSwitchedPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths>`
+        
+        .. attribute:: afs
+        
+        	Address Family Table
+        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs>`
+        
+        .. attribute:: enable
+        
+        	MPLS Static Apply Enable
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'mpls-static-cfg'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(MplsStatic.DefaultVrf, self).__init__()
+
+            self.yang_name = "default-vrf"
+            self.yang_parent_name = "mpls-static"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"label-switched-paths" : ("label_switched_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths), "afs" : ("afs", MplsStatic.DefaultVrf.Afs)}
+            self._child_list_classes = {}
+
+            self.enable = YLeaf(YType.empty, "enable")
+
+            self.label_switched_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths()
+            self.label_switched_paths.parent = self
+            self._children_name_map["label_switched_paths"] = "label-switched-paths"
+            self._children_yang_names.add("label-switched-paths")
+
+            self.afs = MplsStatic.DefaultVrf.Afs()
+            self.afs.parent = self
+            self._children_name_map["afs"] = "afs"
+            self._children_yang_names.add("afs")
+            self._segment_path = lambda: "default-vrf"
+            self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MplsStatic.DefaultVrf, ['enable'], name, value)
+
+
+        class LabelSwitchedPaths(Entity):
+            """
+            Table of the Label Switched Paths
+            
+            .. attribute:: label_switched_path
+            
+            	Label Switched Path
+            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-static-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(MplsStatic.DefaultVrf.LabelSwitchedPaths, self).__init__()
+
+                self.yang_name = "label-switched-paths"
+                self.yang_parent_name = "default-vrf"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"label-switched-path" : ("label_switched_path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath)}
+
+                self.label_switched_path = YList(self)
+                self._segment_path = lambda: "label-switched-paths"
+                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths, [], name, value)
+
+
+            class LabelSwitchedPath(Entity):
                 """
-                Table of the Label Switched Paths
+                Label Switched Path
                 
-                .. attribute:: label_switched_path
+                .. attribute:: lsp_name  <key>
                 
-                	Label Switched Path
-                	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath>`
+                	LSP Name
+                	**type**\:  str
+                
+                .. attribute:: backup_paths
+                
+                	Backup Path Parameters
+                	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
+                
+                .. attribute:: in_label
+                
+                	MPLS Static Local Label Value
+                	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
+                
+                .. attribute:: enable
+                
+                	MPLS Static Apply Enable
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: paths
+                
+                	Forward Path Parameters
+                	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
                 
                 
 
@@ -2595,52 +1823,48 @@ class MplsStatic(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, self).__init__()
+                    super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
 
-                    self.yang_name = "label-switched-paths"
-                    self.yang_parent_name = "vrf"
+                    self.yang_name = "label-switched-path"
+                    self.yang_parent_name = "label-switched-paths"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"label-switched-path" : ("label_switched_path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath)}
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"backup-paths" : ("backup_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths), "in-label" : ("in_label", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel), "paths" : ("paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths)}
+                    self._child_list_classes = {}
 
-                    self.label_switched_path = YList(self)
-                    self._segment_path = lambda: "label-switched-paths"
+                    self.lsp_name = YLeaf(YType.str, "lsp-name")
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.backup_paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
+                    self.backup_paths.parent = self
+                    self._children_name_map["backup_paths"] = "backup-paths"
+                    self._children_yang_names.add("backup-paths")
+
+                    self.in_label = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
+                    self.in_label.parent = self
+                    self._children_name_map["in_label"] = "in-label"
+                    self._children_yang_names.add("in-label")
+
+                    self.paths = MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
+                    self.paths.parent = self
+                    self._children_name_map["paths"] = "paths"
+                    self._children_yang_names.add("paths")
+                    self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + self.lsp_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/label-switched-paths/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, [], name, value)
+                    self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
 
 
-                class LabelSwitchedPath(Entity):
+                class BackupPaths(Entity):
                     """
-                    Label Switched Path
+                    Backup Path Parameters
                     
-                    .. attribute:: lsp_name  <key>
+                    .. attribute:: path
                     
-                    	LSP Name
-                    	**type**\:  str
-                    
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                    
-                    .. attribute:: backup_paths
-                    
-                    	Backup Path Parameters
-                    	**type**\:   :py:class:`BackupPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths>`
-                    
-                    .. attribute:: enable
-                    
-                    	MPLS Static Apply Enable
-                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-                    
-                    .. attribute:: in_label
-                    
-                    	MPLS Static Local Label Value
-                    	**type**\:   :py:class:`InLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel>`
-                    
-                    .. attribute:: paths
-                    
-                    	Forward Path Parameters
-                    	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths>`
+                    	Path Information
+                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
                     
                     
 
@@ -2650,47 +1874,116 @@ class MplsStatic(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, self).__init__()
+                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
 
-                        self.yang_name = "label-switched-path"
-                        self.yang_parent_name = "label-switched-paths"
+                        self.yang_name = "backup-paths"
+                        self.yang_parent_name = "label-switched-path"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
-                        self._child_container_classes = {"backup-paths" : ("backup_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths), "in-label" : ("in_label", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel), "paths" : ("paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths)}
-                        self._child_list_classes = {}
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path)}
 
-                        self.lsp_name = YLeaf(YType.str, "lsp-name")
-
-                        self.enable = YLeaf(YType.empty, "enable")
-
-                        self.backup_paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths()
-                        self.backup_paths.parent = self
-                        self._children_name_map["backup_paths"] = "backup-paths"
-                        self._children_yang_names.add("backup-paths")
-
-                        self.in_label = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel()
-                        self.in_label.parent = self
-                        self._children_name_map["in_label"] = "in-label"
-                        self._children_yang_names.add("in-label")
-
-                        self.paths = MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths()
-                        self.paths.parent = self
-                        self._children_name_map["paths"] = "paths"
-                        self._children_yang_names.add("paths")
-                        self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + self.lsp_name.get() + "']"
+                        self.path = YList(self)
+                        self._segment_path = lambda: "backup-paths"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
+                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
 
 
-                    class BackupPaths(Entity):
+                    class Path(Entity):
                         """
-                        Backup Path Parameters
+                        Path Information
                         
-                        .. attribute:: path
+                        .. attribute:: path_id  <key>
                         
-                        	Path Information
-                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path>`
+                        	Number of paths
+                        	**type**\:  int
+                        
+                        	**range:** 1..16
+                        
+                        .. attribute:: path_type
+                        
+                        	Type of Path (PopAndLookup, CrossConnect)
+                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                        
+                        	**default value**\: cross-connect
+                        
+                        .. attribute:: label_type
+                        
+                        	Type of label (Outlabel, ExpNull or Pop)
+                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                        
+                        	**default value**\: none
+                        
+                        .. attribute:: next_hop_label
+                        
+                        	Outgoing/NH Label
+                        	**type**\:  int
+                        
+                        	**range:** 16..1048575
+                        
+                        	**default value**\: 16
+                        
+                        .. attribute:: next_hop_address
+                        
+                        	Next Hop IP Address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        .. attribute:: interface_name
+                        
+                        	Next hop Interface with form <Interface>R/S/I/P
+                        	**type**\:  str
+                        
+                        .. attribute:: afi
+                        
+                        	Next hop Address Family
+                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                        
+                        	**default value**\: ipv4
+                        
+                        .. attribute:: metric
+                        
+                        	NH Path Metric
+                        	**type**\:  int
+                        
+                        	**range:** 0..254
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: nh_mode
+                        
+                        	Next hop mode
+                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                        
+                        	**default value**\: configured
+                        
+                        .. attribute:: path_role
+                        
+                        	Path Role
+                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                        
+                        	**default value**\: primary
+                        
+                        .. attribute:: backup_id
+                        
+                        	Backup ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..16
+                        
+                        	**default value**\: 0
                         
                         
 
@@ -2700,122 +1993,468 @@ class MplsStatic(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, self).__init__()
+                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
 
-                            self.yang_name = "backup-paths"
-                            self.yang_parent_name = "label-switched-path"
+                            self.yang_name = "path"
+                            self.yang_parent_name = "backup-paths"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self._child_container_classes = {}
-                            self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path)}
+                            self._child_list_classes = {}
 
-                            self.path = YList(self)
-                            self._segment_path = lambda: "backup-paths"
+                            self.path_id = YLeaf(YType.uint32, "path-id")
+
+                            self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                            self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.afi = YLeaf(YType.enumeration, "afi")
+
+                            self.metric = YLeaf(YType.uint32, "metric")
+
+                            self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                            self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                            self.backup_id = YLeaf(YType.uint32, "backup-id")
+                            self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
+                            self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
 
-                        class Path(Entity):
+                class InLabel(Entity):
+                    """
+                    MPLS Static Local Label Value
+                    
+                    .. attribute:: in_label_value
+                    
+                    	Local Label
+                    	**type**\:  int
+                    
+                    	**range:** 16..1048575
+                    
+                    .. attribute:: label_mode
+                    
+                    	Label Mode (PerVRF, PerPrefix or LSP)
+                    	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                    
+                    .. attribute:: prefix
+                    
+                    	Address (IPv4/6 depending on AFI)
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: prefix_length
+                    
+                    	Prefix length
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: tlh_mode
+                    
+                    	Top Label Hashing Mode
+                    	**type**\:  bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
+
+                        self.yang_name = "in-label"
+                        self.yang_parent_name = "label-switched-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.in_label_value = YLeaf(YType.uint32, "in-label-value")
+
+                        self.label_mode = YLeaf(YType.enumeration, "label-mode")
+
+                        self.prefix = YLeaf(YType.str, "prefix")
+
+                        self.prefix_length = YLeaf(YType.int32, "prefix-length")
+
+                        self.tlh_mode = YLeaf(YType.boolean, "tlh-mode")
+                        self._segment_path = lambda: "in-label"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
+
+
+                class Paths(Entity):
+                    """
+                    Forward Path Parameters
+                    
+                    .. attribute:: path
+                    
+                    	Path Information
+                    	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
+
+                        self.yang_name = "paths"
+                        self.yang_parent_name = "label-switched-path"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path)}
+
+                        self.path = YList(self)
+                        self._segment_path = lambda: "paths"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
+
+
+                    class Path(Entity):
+                        """
+                        Path Information
+                        
+                        .. attribute:: path_id  <key>
+                        
+                        	Number of paths
+                        	**type**\:  int
+                        
+                        	**range:** 1..16
+                        
+                        .. attribute:: path_type
+                        
+                        	Type of Path (PopAndLookup, CrossConnect)
+                        	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                        
+                        	**default value**\: cross-connect
+                        
+                        .. attribute:: label_type
+                        
+                        	Type of label (Outlabel, ExpNull or Pop)
+                        	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                        
+                        	**default value**\: none
+                        
+                        .. attribute:: next_hop_label
+                        
+                        	Outgoing/NH Label
+                        	**type**\:  int
+                        
+                        	**range:** 16..1048575
+                        
+                        	**default value**\: 16
+                        
+                        .. attribute:: next_hop_address
+                        
+                        	Next Hop IP Address
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**default value**\: 0.0.0.0
+                        
+                        
+                        ----
+                        .. attribute:: interface_name
+                        
+                        	Next hop Interface with form <Interface>R/S/I/P
+                        	**type**\:  str
+                        
+                        .. attribute:: afi
+                        
+                        	Next hop Address Family
+                        	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                        
+                        	**default value**\: ipv4
+                        
+                        .. attribute:: metric
+                        
+                        	NH Path Metric
+                        	**type**\:  int
+                        
+                        	**range:** 0..254
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: nh_mode
+                        
+                        	Next hop mode
+                        	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                        
+                        	**default value**\: configured
+                        
+                        .. attribute:: path_role
+                        
+                        	Path Role
+                        	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                        
+                        	**default value**\: primary
+                        
+                        .. attribute:: backup_id
+                        
+                        	Backup ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..16
+                        
+                        	**default value**\: 0
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
+
+                            self.yang_name = "path"
+                            self.yang_parent_name = "paths"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.path_id = YLeaf(YType.uint32, "path-id")
+
+                            self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                            self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                            self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                            self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                            self.interface_name = YLeaf(YType.str, "interface-name")
+
+                            self.afi = YLeaf(YType.enumeration, "afi")
+
+                            self.metric = YLeaf(YType.uint32, "metric")
+
+                            self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                            self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                            self.backup_id = YLeaf(YType.uint32, "backup-id")
+                            self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+        class Afs(Entity):
+            """
+            Address Family Table
+            
+            .. attribute:: af
+            
+            	Address Family
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af>`
+            
+            
+
+            """
+
+            _prefix = 'mpls-static-cfg'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(MplsStatic.DefaultVrf.Afs, self).__init__()
+
+                self.yang_name = "afs"
+                self.yang_parent_name = "default-vrf"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"af" : ("af", MplsStatic.DefaultVrf.Afs.Af)}
+
+                self.af = YList(self)
+                self._segment_path = lambda: "afs"
+                self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MplsStatic.DefaultVrf.Afs, [], name, value)
+
+
+            class Af(Entity):
+                """
+                Address Family
+                
+                .. attribute:: afi  <key>
+                
+                	Address Family
+                	**type**\:   :py:class:`MplsStaticAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticAddressFamily>`
+                
+                .. attribute:: top_label_hash
+                
+                	Top Label Hash
+                	**type**\:   :py:class:`TopLabelHash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash>`
+                
+                .. attribute:: local_labels
+                
+                	Local Label
+                	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels>`
+                
+                .. attribute:: enable
+                
+                	MPLS Static Apply Enable
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-static-cfg'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(MplsStatic.DefaultVrf.Afs.Af, self).__init__()
+
+                    self.yang_name = "af"
+                    self.yang_parent_name = "afs"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"top-label-hash" : ("top_label_hash", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash), "local-labels" : ("local_labels", MplsStatic.DefaultVrf.Afs.Af.LocalLabels)}
+                    self._child_list_classes = {}
+
+                    self.afi = YLeaf(YType.enumeration, "afi")
+
+                    self.enable = YLeaf(YType.empty, "enable")
+
+                    self.top_label_hash = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash()
+                    self.top_label_hash.parent = self
+                    self._children_name_map["top_label_hash"] = "top-label-hash"
+                    self._children_yang_names.add("top-label-hash")
+
+                    self.local_labels = MplsStatic.DefaultVrf.Afs.Af.LocalLabels()
+                    self.local_labels.parent = self
+                    self._children_name_map["local_labels"] = "local-labels"
+                    self._children_yang_names.add("local-labels")
+                    self._segment_path = lambda: "af" + "[afi='" + self.afi.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/afs/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi', 'enable'], name, value)
+
+
+                class TopLabelHash(Entity):
+                    """
+                    Top Label Hash
+                    
+                    .. attribute:: local_labels
+                    
+                    	Local Label
+                    	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, self).__init__()
+
+                        self.yang_name = "top-label-hash"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {"local-labels" : ("local_labels", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels)}
+                        self._child_list_classes = {}
+
+                        self.local_labels = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels()
+                        self.local_labels.parent = self
+                        self._children_name_map["local_labels"] = "local-labels"
+                        self._children_yang_names.add("local-labels")
+                        self._segment_path = lambda: "top-label-hash"
+
+
+                    class LocalLabels(Entity):
+                        """
+                        Local Label
+                        
+                        .. attribute:: local_label
+                        
+                        	Specify Local Label
+                        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-cfg'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, self).__init__()
+
+                            self.yang_name = "local-labels"
+                            self.yang_parent_name = "top-label-hash"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {"local-label" : ("local_label", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel)}
+
+                            self.local_label = YList(self)
+                            self._segment_path = lambda: "local-labels"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
+
+
+                        class LocalLabel(Entity):
                             """
-                            Path Information
+                            Specify Local Label
                             
-                            .. attribute:: path_id  <key>
+                            .. attribute:: local_label_id  <key>
                             
-                            	Number of paths
-                            	**type**\:  int
-                            
-                            	**range:** 1..16
-                            
-                            .. attribute:: afi
-                            
-                            	Next hop Address Family
-                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                            
-                            	**default value**\: ipv4
-                            
-                            .. attribute:: backup_id
-                            
-                            	Backup ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..16
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: interface_name
-                            
-                            	Next hop Interface with form <Interface>R/S/I/P
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: label_type
-                            
-                            	Type of label (Outlabel, ExpNull or Pop)
-                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                            
-                            	**default value**\: none
-                            
-                            .. attribute:: metric
-                            
-                            	NH Path Metric
-                            	**type**\:  int
-                            
-                            	**range:** 0..254
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: next_hop_address
-                            
-                            	Next Hop IP Address
-                            	**type**\: one of the below types:
-                            
-                            	**type**\:  str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**default value**\: 0.0.0.0
-                            
-                            
-                            ----
-                            	**type**\:  str
-                            
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            	**default value**\: 0.0.0.0
-                            
-                            
-                            ----
-                            .. attribute:: next_hop_label
-                            
-                            	Outgoing/NH Label
+                            	Local Label
                             	**type**\:  int
                             
                             	**range:** 16..1048575
                             
-                            	**default value**\: 16
+                            .. attribute:: label_type
                             
-                            .. attribute:: nh_mode
+                            	MPLS Static Local Label Value
+                            	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType>`
                             
-                            	Next hop mode
-                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                            .. attribute:: paths
                             
-                            	**default value**\: configured
-                            
-                            .. attribute:: path_role
-                            
-                            	Path Role
-                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                            
-                            	**default value**\: primary
-                            
-                            .. attribute:: path_type
-                            
-                            	Type of Path (PopAndLookup, CrossConnect)
-                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                            
-                            	**default value**\: cross-connect
+                            	Forward Path Parameters
+                            	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths>`
                             
                             
 
@@ -2825,86 +2464,314 @@ class MplsStatic(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, self).__init__()
+                                super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, self).__init__()
 
-                                self.yang_name = "path"
-                                self.yang_parent_name = "backup-paths"
+                                self.yang_name = "local-label"
+                                self.yang_parent_name = "local-labels"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
-                                self._child_container_classes = {}
+                                self._child_container_classes = {"label-type" : ("label_type", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths)}
                                 self._child_list_classes = {}
 
-                                self.path_id = YLeaf(YType.uint32, "path-id")
+                                self.local_label_id = YLeaf(YType.uint32, "local-label-id")
 
-                                self.afi = YLeaf(YType.enumeration, "afi")
+                                self.label_type = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType()
+                                self.label_type.parent = self
+                                self._children_name_map["label_type"] = "label-type"
+                                self._children_yang_names.add("label-type")
 
-                                self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                                self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                                self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                                self.path_type = YLeaf(YType.enumeration, "path-type")
-                                self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+                                self.paths = MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths()
+                                self.paths.parent = self
+                                self._children_name_map["paths"] = "paths"
+                                self._children_yang_names.add("paths")
+                                self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
+                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                    class InLabel(Entity):
+                            class LabelType(Entity):
+                                """
+                                MPLS Static Local Label Value
+                                
+                                .. attribute:: label_mode
+                                
+                                	Label Mode (PerVRF, PerPrefix or LSP)
+                                	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                                
+                                .. attribute:: prefix
+                                
+                                	Address (IPv4/6 depending on AFI)
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                
+                                ----
+                                .. attribute:: prefix_length
+                                
+                                	Prefix length
+                                	**type**\:  int
+                                
+                                	**range:** \-2147483648..2147483647
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, self).__init__()
+
+                                    self.yang_name = "label-type"
+                                    self.yang_parent_name = "local-label"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.label_mode = YLeaf(YType.enumeration, "label-mode")
+
+                                    self.prefix = YLeaf(YType.str, "prefix")
+
+                                    self.prefix_length = YLeaf(YType.int32, "prefix-length")
+                                    self._segment_path = lambda: "label-type"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
+
+
+                            class Paths(Entity):
+                                """
+                                Forward Path Parameters
+                                
+                                .. attribute:: path
+                                
+                                	Path Information
+                                	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, self).__init__()
+
+                                    self.yang_name = "paths"
+                                    self.yang_parent_name = "local-label"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path)}
+
+                                    self.path = YList(self)
+                                    self._segment_path = lambda: "paths"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
+
+
+                                class Path(Entity):
+                                    """
+                                    Path Information
+                                    
+                                    .. attribute:: path_id  <key>
+                                    
+                                    	Number of paths
+                                    	**type**\:  int
+                                    
+                                    	**range:** 1..16
+                                    
+                                    .. attribute:: path_type
+                                    
+                                    	Type of Path (PopAndLookup, CrossConnect)
+                                    	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                    
+                                    	**default value**\: cross-connect
+                                    
+                                    .. attribute:: label_type
+                                    
+                                    	Type of label (Outlabel, ExpNull or Pop)
+                                    	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                    
+                                    	**default value**\: none
+                                    
+                                    .. attribute:: next_hop_label
+                                    
+                                    	Outgoing/NH Label
+                                    	**type**\:  int
+                                    
+                                    	**range:** 16..1048575
+                                    
+                                    	**default value**\: 16
+                                    
+                                    .. attribute:: next_hop_address
+                                    
+                                    	Next Hop IP Address
+                                    	**type**\: one of the below types:
+                                    
+                                    	**type**\:  str
+                                    
+                                    	**default value**\: 0.0.0.0
+                                    
+                                    
+                                    ----
+                                    	**type**\:  str
+                                    
+                                    	**default value**\: 0.0.0.0
+                                    
+                                    
+                                    ----
+                                    .. attribute:: interface_name
+                                    
+                                    	Next hop Interface with form <Interface>R/S/I/P
+                                    	**type**\:  str
+                                    
+                                    .. attribute:: afi
+                                    
+                                    	Next hop Address Family
+                                    	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                    
+                                    	**default value**\: ipv4
+                                    
+                                    .. attribute:: metric
+                                    
+                                    	NH Path Metric
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..254
+                                    
+                                    	**default value**\: 0
+                                    
+                                    .. attribute:: nh_mode
+                                    
+                                    	Next hop mode
+                                    	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                    
+                                    	**default value**\: configured
+                                    
+                                    .. attribute:: path_role
+                                    
+                                    	Path Role
+                                    	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                    
+                                    	**default value**\: primary
+                                    
+                                    .. attribute:: backup_id
+                                    
+                                    	Backup ID
+                                    	**type**\:  int
+                                    
+                                    	**range:** 0..16
+                                    
+                                    	**default value**\: 0
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'mpls-static-cfg'
+                                    _revision = '2017-05-01'
+
+                                    def __init__(self):
+                                        super(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+
+                                        self.yang_name = "path"
+                                        self.yang_parent_name = "paths"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self._child_container_classes = {}
+                                        self._child_list_classes = {}
+
+                                        self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                        self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                                        self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                                        self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                                        self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                                        self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                        self.afi = YLeaf(YType.enumeration, "afi")
+
+                                        self.metric = YLeaf(YType.uint32, "metric")
+
+                                        self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                                        self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                                        self.backup_id = YLeaf(YType.uint32, "backup-id")
+                                        self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
+
+
+                class LocalLabels(Entity):
+                    """
+                    Local Label
+                    
+                    .. attribute:: local_label
+                    
+                    	Specify Local Label
+                    	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-cfg'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, self).__init__()
+
+                        self.yang_name = "local-labels"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"local-label" : ("local_label", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel)}
+
+                        self.local_label = YList(self)
+                        self._segment_path = lambda: "local-labels"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, [], name, value)
+
+
+                    class LocalLabel(Entity):
                         """
-                        MPLS Static Local Label Value
+                        Specify Local Label
                         
-                        .. attribute:: in_label_value
+                        .. attribute:: local_label_id  <key>
                         
                         	Local Label
                         	**type**\:  int
                         
                         	**range:** 16..1048575
                         
-                        .. attribute:: label_mode
+                        .. attribute:: label_type
                         
-                        	Label Mode (PerVRF, PerPrefix or LSP)
-                        	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
+                        	MPLS Static Local Label Value
+                        	**type**\:   :py:class:`LabelType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType>`
                         
-                        .. attribute:: prefix
+                        .. attribute:: paths
                         
-                        	Address (IPv4/6 depending on AFI)
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: prefix_length
-                        
-                        	Prefix length
-                        	**type**\:  int
-                        
-                        	**range:** \-2147483648..2147483647
-                        
-                        .. attribute:: tlh_mode
-                        
-                        	Top Label Hashing Mode
-                        	**type**\:  bool
+                        	Forward Path Parameters
+                        	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths>`
                         
                         
 
@@ -2914,163 +2781,60 @@ class MplsStatic(Entity):
                         _revision = '2017-05-01'
 
                         def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, self).__init__()
+                            super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, self).__init__()
 
-                            self.yang_name = "in-label"
-                            self.yang_parent_name = "label-switched-path"
+                            self.yang_name = "local-label"
+                            self.yang_parent_name = "local-labels"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
-                            self._child_container_classes = {}
+                            self._child_container_classes = {"label-type" : ("label_type", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType), "paths" : ("paths", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths)}
                             self._child_list_classes = {}
 
-                            self.in_label_value = YLeaf(YType.uint32, "in-label-value")
+                            self.local_label_id = YLeaf(YType.uint32, "local-label-id")
 
-                            self.label_mode = YLeaf(YType.enumeration, "label-mode")
+                            self.label_type = MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType()
+                            self.label_type.parent = self
+                            self._children_name_map["label_type"] = "label-type"
+                            self._children_yang_names.add("label-type")
 
-                            self.prefix = YLeaf(YType.str, "prefix")
-
-                            self.prefix_length = YLeaf(YType.int32, "prefix-length")
-
-                            self.tlh_mode = YLeaf(YType.boolean, "tlh-mode")
-                            self._segment_path = lambda: "in-label"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
-
-
-                    class Paths(Entity):
-                        """
-                        Forward Path Parameters
-                        
-                        .. attribute:: path
-                        
-                        	Path Information
-                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'mpls-static-cfg'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, self).__init__()
-
-                            self.yang_name = "paths"
-                            self.yang_parent_name = "label-switched-path"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {"path" : ("path", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path)}
-
-                            self.path = YList(self)
-                            self._segment_path = lambda: "paths"
+                            self.paths = MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths()
+                            self.paths.parent = self
+                            self._children_name_map["paths"] = "paths"
+                            self._children_yang_names.add("paths")
+                            self._segment_path = lambda: "local-label" + "[local-label-id='" + self.local_label_id.get() + "']"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
+                            self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
 
 
-                        class Path(Entity):
+                        class LabelType(Entity):
                             """
-                            Path Information
+                            MPLS Static Local Label Value
                             
-                            .. attribute:: path_id  <key>
+                            .. attribute:: label_mode
                             
-                            	Number of paths
-                            	**type**\:  int
+                            	Label Mode (PerVRF, PerPrefix or LSP)
+                            	**type**\:   :py:class:`MplsStaticLabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticLabelMode>`
                             
-                            	**range:** 1..16
+                            .. attribute:: prefix
                             
-                            .. attribute:: afi
-                            
-                            	Next hop Address Family
-                            	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
-                            
-                            	**default value**\: ipv4
-                            
-                            .. attribute:: backup_id
-                            
-                            	Backup ID
-                            	**type**\:  int
-                            
-                            	**range:** 0..16
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: interface_name
-                            
-                            	Next hop Interface with form <Interface>R/S/I/P
-                            	**type**\:  str
-                            
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
-                            
-                            .. attribute:: label_type
-                            
-                            	Type of label (Outlabel, ExpNull or Pop)
-                            	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
-                            
-                            	**default value**\: none
-                            
-                            .. attribute:: metric
-                            
-                            	NH Path Metric
-                            	**type**\:  int
-                            
-                            	**range:** 0..254
-                            
-                            	**default value**\: 0
-                            
-                            .. attribute:: next_hop_address
-                            
-                            	Next Hop IP Address
+                            	Address (IPv4/6 depending on AFI)
                             	**type**\: one of the below types:
                             
                             	**type**\:  str
                             
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            	**default value**\: 0.0.0.0
-                            
                             
                             ----
                             	**type**\:  str
                             
-                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                            
-                            	**default value**\: 0.0.0.0
-                            
                             
                             ----
-                            .. attribute:: next_hop_label
+                            .. attribute:: prefix_length
                             
-                            	Outgoing/NH Label
+                            	Prefix length
                             	**type**\:  int
                             
-                            	**range:** 16..1048575
-                            
-                            	**default value**\: 16
-                            
-                            .. attribute:: nh_mode
-                            
-                            	Next hop mode
-                            	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
-                            
-                            	**default value**\: configured
-                            
-                            .. attribute:: path_role
-                            
-                            	Path Role
-                            	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
-                            
-                            	**default value**\: primary
-                            
-                            .. attribute:: path_type
-                            
-                            	Type of Path (PopAndLookup, CrossConnect)
-                            	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
-                            
-                            	**default value**\: cross-connect
+                            	**range:** \-2147483648..2147483647
                             
                             
 
@@ -3080,40 +2844,196 @@ class MplsStatic(Entity):
                             _revision = '2017-05-01'
 
                             def __init__(self):
-                                super(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, self).__init__()
+                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, self).__init__()
 
-                                self.yang_name = "path"
-                                self.yang_parent_name = "paths"
+                                self.yang_name = "label-type"
+                                self.yang_parent_name = "local-label"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.path_id = YLeaf(YType.uint32, "path-id")
+                                self.label_mode = YLeaf(YType.enumeration, "label-mode")
 
-                                self.afi = YLeaf(YType.enumeration, "afi")
+                                self.prefix = YLeaf(YType.str, "prefix")
 
-                                self.backup_id = YLeaf(YType.uint32, "backup-id")
-
-                                self.interface_name = YLeaf(YType.str, "interface-name")
-
-                                self.label_type = YLeaf(YType.enumeration, "label-type")
-
-                                self.metric = YLeaf(YType.uint32, "metric")
-
-                                self.next_hop_address = YLeaf(YType.str, "next-hop-address")
-
-                                self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
-
-                                self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
-
-                                self.path_role = YLeaf(YType.enumeration, "path-role")
-
-                                self.path_type = YLeaf(YType.enumeration, "path-type")
-                                self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+                                self.prefix_length = YLeaf(YType.int32, "prefix-length")
+                                self._segment_path = lambda: "label-type"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'afi', 'backup_id', 'interface_name', 'label_type', 'metric', 'next_hop_address', 'next_hop_label', 'nh_mode', 'path_role', 'path_type'], name, value)
+                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
+
+
+                        class Paths(Entity):
+                            """
+                            Forward Path Parameters
+                            
+                            .. attribute:: path
+                            
+                            	Path Information
+                            	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-cfg'
+                            _revision = '2017-05-01'
+
+                            def __init__(self):
+                                super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, self).__init__()
+
+                                self.yang_name = "paths"
+                                self.yang_parent_name = "local-label"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self._child_container_classes = {}
+                                self._child_list_classes = {"path" : ("path", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path)}
+
+                                self.path = YList(self)
+                                self._segment_path = lambda: "paths"
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
+
+
+                            class Path(Entity):
+                                """
+                                Path Information
+                                
+                                .. attribute:: path_id  <key>
+                                
+                                	Number of paths
+                                	**type**\:  int
+                                
+                                	**range:** 1..16
+                                
+                                .. attribute:: path_type
+                                
+                                	Type of Path (PopAndLookup, CrossConnect)
+                                	**type**\:   :py:class:`MplsStaticPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPath>`
+                                
+                                	**default value**\: cross-connect
+                                
+                                .. attribute:: label_type
+                                
+                                	Type of label (Outlabel, ExpNull or Pop)
+                                	**type**\:   :py:class:`MplsStaticOutLabelTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticOutLabelTypes>`
+                                
+                                	**default value**\: none
+                                
+                                .. attribute:: next_hop_label
+                                
+                                	Outgoing/NH Label
+                                	**type**\:  int
+                                
+                                	**range:** 16..1048575
+                                
+                                	**default value**\: 16
+                                
+                                .. attribute:: next_hop_address
+                                
+                                	Next Hop IP Address
+                                	**type**\: one of the below types:
+                                
+                                	**type**\:  str
+                                
+                                	**default value**\: 0.0.0.0
+                                
+                                
+                                ----
+                                	**type**\:  str
+                                
+                                	**default value**\: 0.0.0.0
+                                
+                                
+                                ----
+                                .. attribute:: interface_name
+                                
+                                	Next hop Interface with form <Interface>R/S/I/P
+                                	**type**\:  str
+                                
+                                .. attribute:: afi
+                                
+                                	Next hop Address Family
+                                	**type**\:   :py:class:`MplsStaticNhAddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhAddressFamily>`
+                                
+                                	**default value**\: ipv4
+                                
+                                .. attribute:: metric
+                                
+                                	NH Path Metric
+                                	**type**\:  int
+                                
+                                	**range:** 0..254
+                                
+                                	**default value**\: 0
+                                
+                                .. attribute:: nh_mode
+                                
+                                	Next hop mode
+                                	**type**\:   :py:class:`MplsStaticNhMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticNhMode>`
+                                
+                                	**default value**\: configured
+                                
+                                .. attribute:: path_role
+                                
+                                	Path Role
+                                	**type**\:   :py:class:`MplsStaticPathRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg.MplsStaticPathRole>`
+                                
+                                	**default value**\: primary
+                                
+                                .. attribute:: backup_id
+                                
+                                	Backup ID
+                                	**type**\:  int
+                                
+                                	**range:** 0..16
+                                
+                                	**default value**\: 0
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-cfg'
+                                _revision = '2017-05-01'
+
+                                def __init__(self):
+                                    super(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, self).__init__()
+
+                                    self.yang_name = "path"
+                                    self.yang_parent_name = "paths"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self._child_container_classes = {}
+                                    self._child_list_classes = {}
+
+                                    self.path_id = YLeaf(YType.uint32, "path-id")
+
+                                    self.path_type = YLeaf(YType.enumeration, "path-type")
+
+                                    self.label_type = YLeaf(YType.enumeration, "label-type")
+
+                                    self.next_hop_label = YLeaf(YType.uint32, "next-hop-label")
+
+                                    self.next_hop_address = YLeaf(YType.str, "next-hop-address")
+
+                                    self.interface_name = YLeaf(YType.str, "interface-name")
+
+                                    self.afi = YLeaf(YType.enumeration, "afi")
+
+                                    self.metric = YLeaf(YType.uint32, "metric")
+
+                                    self.nh_mode = YLeaf(YType.enumeration, "nh-mode")
+
+                                    self.path_role = YLeaf(YType.enumeration, "path-role")
+
+                                    self.backup_id = YLeaf(YType.uint32, "backup-id")
+                                    self._segment_path = lambda: "path" + "[path-id='" + self.path_id.get() + "']"
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsStatic()

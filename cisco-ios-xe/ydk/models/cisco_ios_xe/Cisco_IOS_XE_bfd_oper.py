@@ -204,10 +204,20 @@ class BfdState(Entity):
             	Session type
             	**type**\:   :py:class:`BfdOperSessionType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdOperSessionType>`
             
+            .. attribute:: bfd_tunnel_paths
+            
+            	
+            	**type**\:   :py:class:`BfdTunnelPaths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths>`
+            
             .. attribute:: bfd_circuits
             
             	
             	**type**\:   :py:class:`BfdCircuits <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdCircuits>`
+            
+            .. attribute:: bfd_nbrs
+            
+            	
+            	**type**\:   :py:class:`BfdNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs>`
             
             .. attribute:: bfd_mhop_nbrs
             
@@ -218,16 +228,6 @@ class BfdState(Entity):
             
             	
             	**type**\:   :py:class:`BfdMhopVrfNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdMhopVrfNbrs>`
-            
-            .. attribute:: bfd_nbrs
-            
-            	
-            	**type**\:   :py:class:`BfdNbrs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs>`
-            
-            .. attribute:: bfd_tunnel_paths
-            
-            	
-            	**type**\:   :py:class:`BfdTunnelPaths <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths>`
             
             
 
@@ -243,15 +243,25 @@ class BfdState(Entity):
                 self.yang_parent_name = "sessions"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"bfd-circuits" : ("bfd_circuits", BfdState.Sessions.Session.BfdCircuits), "bfd-mhop-nbrs" : ("bfd_mhop_nbrs", BfdState.Sessions.Session.BfdMhopNbrs), "bfd-mhop-vrf-nbrs" : ("bfd_mhop_vrf_nbrs", BfdState.Sessions.Session.BfdMhopVrfNbrs), "bfd-nbrs" : ("bfd_nbrs", BfdState.Sessions.Session.BfdNbrs), "bfd-tunnel-paths" : ("bfd_tunnel_paths", BfdState.Sessions.Session.BfdTunnelPaths)}
+                self._child_container_classes = {"bfd-tunnel-paths" : ("bfd_tunnel_paths", BfdState.Sessions.Session.BfdTunnelPaths), "bfd-circuits" : ("bfd_circuits", BfdState.Sessions.Session.BfdCircuits), "bfd-nbrs" : ("bfd_nbrs", BfdState.Sessions.Session.BfdNbrs), "bfd-mhop-nbrs" : ("bfd_mhop_nbrs", BfdState.Sessions.Session.BfdMhopNbrs), "bfd-mhop-vrf-nbrs" : ("bfd_mhop_vrf_nbrs", BfdState.Sessions.Session.BfdMhopVrfNbrs)}
                 self._child_list_classes = {}
 
                 self.type = YLeaf(YType.enumeration, "type")
+
+                self.bfd_tunnel_paths = BfdState.Sessions.Session.BfdTunnelPaths()
+                self.bfd_tunnel_paths.parent = self
+                self._children_name_map["bfd_tunnel_paths"] = "bfd-tunnel-paths"
+                self._children_yang_names.add("bfd-tunnel-paths")
 
                 self.bfd_circuits = BfdState.Sessions.Session.BfdCircuits()
                 self.bfd_circuits.parent = self
                 self._children_name_map["bfd_circuits"] = "bfd-circuits"
                 self._children_yang_names.add("bfd-circuits")
+
+                self.bfd_nbrs = BfdState.Sessions.Session.BfdNbrs()
+                self.bfd_nbrs.parent = self
+                self._children_name_map["bfd_nbrs"] = "bfd-nbrs"
+                self._children_yang_names.add("bfd-nbrs")
 
                 self.bfd_mhop_nbrs = BfdState.Sessions.Session.BfdMhopNbrs()
                 self.bfd_mhop_nbrs.parent = self
@@ -262,21 +272,116 @@ class BfdState(Entity):
                 self.bfd_mhop_vrf_nbrs.parent = self
                 self._children_name_map["bfd_mhop_vrf_nbrs"] = "bfd-mhop-vrf-nbrs"
                 self._children_yang_names.add("bfd-mhop-vrf-nbrs")
-
-                self.bfd_nbrs = BfdState.Sessions.Session.BfdNbrs()
-                self.bfd_nbrs.parent = self
-                self._children_name_map["bfd_nbrs"] = "bfd-nbrs"
-                self._children_yang_names.add("bfd-nbrs")
-
-                self.bfd_tunnel_paths = BfdState.Sessions.Session.BfdTunnelPaths()
-                self.bfd_tunnel_paths.parent = self
-                self._children_name_map["bfd_tunnel_paths"] = "bfd-tunnel-paths"
-                self._children_yang_names.add("bfd-tunnel-paths")
                 self._segment_path = lambda: "session" + "[type='" + self.type.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BfdState.Sessions.Session, ['type'], name, value)
+
+
+            class BfdTunnelPaths(Entity):
+                """
+                
+                
+                .. attribute:: bfd_tunnel_path
+                
+                	Tunnel Path
+                	**type**\: list of    :py:class:`BfdTunnelPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath>`
+                
+                
+
+                """
+
+                _prefix = 'bfd-ios-xe-oper'
+                _revision = '2017-02-07'
+
+                def __init__(self):
+                    super(BfdState.Sessions.Session.BfdTunnelPaths, self).__init__()
+
+                    self.yang_name = "bfd-tunnel-paths"
+                    self.yang_parent_name = "session"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bfd-tunnel-path" : ("bfd_tunnel_path", BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath)}
+
+                    self.bfd_tunnel_path = YList(self)
+                    self._segment_path = lambda: "bfd-tunnel-paths"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths, [], name, value)
+
+
+                class BfdTunnelPath(Entity):
+                    """
+                    Tunnel Path
+                    
+                    .. attribute:: interface  <key>
+                    
+                    	
+                    	**type**\:  str
+                    
+                    .. attribute:: lsp_type  <key>
+                    
+                    	
+                    	**type**\:   :py:class:`BfdLspType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspType>`
+                    
+                    .. attribute:: ld
+                    
+                    	local\-discriminator
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rd
+                    
+                    	remote\-discriminator
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: remote_state
+                    
+                    	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    
+                    .. attribute:: state
+                    
+                    	BFD state
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'bfd-ios-xe-oper'
+                    _revision = '2017-02-07'
+
+                    def __init__(self):
+                        super(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, self).__init__()
+
+                        self.yang_name = "bfd-tunnel-path"
+                        self.yang_parent_name = "bfd-tunnel-paths"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.lsp_type = YLeaf(YType.enumeration, "lsp-type")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+                        self._segment_path = lambda: "bfd-tunnel-path" + "[interface='" + self.interface.get() + "']" + "[lsp-type='" + self.lsp_type.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, ['interface', 'lsp_type', 'ld', 'rd', 'remote_state', 'state'], name, value)
 
 
             class BfdCircuits(Entity):
@@ -386,6 +491,119 @@ class BfdState(Entity):
                         self._perform_setattr(BfdState.Sessions.Session.BfdCircuits.BfdCircuit, ['interface', 'vcid', 'ld', 'rd', 'remote_state', 'state'], name, value)
 
 
+            class BfdNbrs(Entity):
+                """
+                
+                
+                .. attribute:: bfd_nbr
+                
+                	This is for directly connected neighbor case
+                	**type**\: list of    :py:class:`BfdNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs.BfdNbr>`
+                
+                
+
+                """
+
+                _prefix = 'bfd-ios-xe-oper'
+                _revision = '2017-02-07'
+
+                def __init__(self):
+                    super(BfdState.Sessions.Session.BfdNbrs, self).__init__()
+
+                    self.yang_name = "bfd-nbrs"
+                    self.yang_parent_name = "session"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"bfd-nbr" : ("bfd_nbr", BfdState.Sessions.Session.BfdNbrs.BfdNbr)}
+
+                    self.bfd_nbr = YList(self)
+                    self._segment_path = lambda: "bfd-nbrs"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(BfdState.Sessions.Session.BfdNbrs, [], name, value)
+
+
+                class BfdNbr(Entity):
+                    """
+                    This is for directly connected neighbor case
+                    
+                    .. attribute:: ip  <key>
+                    
+                    	
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    
+                    ----
+                    .. attribute:: interface  <key>
+                    
+                    	
+                    	**type**\:  str
+                    
+                    .. attribute:: ld
+                    
+                    	local\-discriminator
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rd
+                    
+                    	remote\-discriminator
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: remote_state
+                    
+                    	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
+                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
+                    
+                    .. attribute:: state
+                    
+                    	BFD state
+                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'bfd-ios-xe-oper'
+                    _revision = '2017-02-07'
+
+                    def __init__(self):
+                        super(BfdState.Sessions.Session.BfdNbrs.BfdNbr, self).__init__()
+
+                        self.yang_name = "bfd-nbr"
+                        self.yang_parent_name = "bfd-nbrs"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.ip = YLeaf(YType.str, "ip")
+
+                        self.interface = YLeaf(YType.str, "interface")
+
+                        self.ld = YLeaf(YType.uint32, "ld")
+
+                        self.rd = YLeaf(YType.uint32, "rd")
+
+                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
+
+                        self.state = YLeaf(YType.enumeration, "state")
+                        self._segment_path = lambda: "bfd-nbr" + "[ip='" + self.ip.get() + "']" + "[interface='" + self.interface.get() + "']"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(BfdState.Sessions.Session.BfdNbrs.BfdNbr, ['ip', 'interface', 'ld', 'rd', 'remote_state', 'state'], name, value)
+
+
             class BfdMhopNbrs(Entity):
                 """
                 
@@ -431,13 +649,9 @@ class BfdState(Entity):
                     
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
                     ----
@@ -542,13 +756,9 @@ class BfdState(Entity):
                     
                     	**type**\:  str
                     
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
                     
                     ----
                     	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
                     
                     ----
@@ -613,228 +823,6 @@ class BfdState(Entity):
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr, ['ip', 'vrf', 'ld', 'rd', 'remote_state', 'state'], name, value)
-
-
-            class BfdNbrs(Entity):
-                """
-                
-                
-                .. attribute:: bfd_nbr
-                
-                	This is for directly connected neighbor case
-                	**type**\: list of    :py:class:`BfdNbr <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdNbrs.BfdNbr>`
-                
-                
-
-                """
-
-                _prefix = 'bfd-ios-xe-oper'
-                _revision = '2017-02-07'
-
-                def __init__(self):
-                    super(BfdState.Sessions.Session.BfdNbrs, self).__init__()
-
-                    self.yang_name = "bfd-nbrs"
-                    self.yang_parent_name = "session"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bfd-nbr" : ("bfd_nbr", BfdState.Sessions.Session.BfdNbrs.BfdNbr)}
-
-                    self.bfd_nbr = YList(self)
-                    self._segment_path = lambda: "bfd-nbrs"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(BfdState.Sessions.Session.BfdNbrs, [], name, value)
-
-
-                class BfdNbr(Entity):
-                    """
-                    This is for directly connected neighbor case
-                    
-                    .. attribute:: ip  <key>
-                    
-                    	
-                    	**type**\: one of the below types:
-                    
-                    	**type**\:  str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    	**type**\:  str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-                    ----
-                    .. attribute:: interface  <key>
-                    
-                    	
-                    	**type**\:  str
-                    
-                    .. attribute:: ld
-                    
-                    	local\-discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rd
-                    
-                    	remote\-discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: remote_state
-                    
-                    	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
-                    
-                    .. attribute:: state
-                    
-                    	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'bfd-ios-xe-oper'
-                    _revision = '2017-02-07'
-
-                    def __init__(self):
-                        super(BfdState.Sessions.Session.BfdNbrs.BfdNbr, self).__init__()
-
-                        self.yang_name = "bfd-nbr"
-                        self.yang_parent_name = "bfd-nbrs"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.ip = YLeaf(YType.str, "ip")
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.ld = YLeaf(YType.uint32, "ld")
-
-                        self.rd = YLeaf(YType.uint32, "rd")
-
-                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-                        self._segment_path = lambda: "bfd-nbr" + "[ip='" + self.ip.get() + "']" + "[interface='" + self.interface.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(BfdState.Sessions.Session.BfdNbrs.BfdNbr, ['ip', 'interface', 'ld', 'rd', 'remote_state', 'state'], name, value)
-
-
-            class BfdTunnelPaths(Entity):
-                """
-                
-                
-                .. attribute:: bfd_tunnel_path
-                
-                	Tunnel Path
-                	**type**\: list of    :py:class:`BfdTunnelPath <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath>`
-                
-                
-
-                """
-
-                _prefix = 'bfd-ios-xe-oper'
-                _revision = '2017-02-07'
-
-                def __init__(self):
-                    super(BfdState.Sessions.Session.BfdTunnelPaths, self).__init__()
-
-                    self.yang_name = "bfd-tunnel-paths"
-                    self.yang_parent_name = "session"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"bfd-tunnel-path" : ("bfd_tunnel_path", BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath)}
-
-                    self.bfd_tunnel_path = YList(self)
-                    self._segment_path = lambda: "bfd-tunnel-paths"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths, [], name, value)
-
-
-                class BfdTunnelPath(Entity):
-                    """
-                    Tunnel Path
-                    
-                    .. attribute:: interface  <key>
-                    
-                    	
-                    	**type**\:  str
-                    
-                    .. attribute:: lsp_type  <key>
-                    
-                    	
-                    	**type**\:   :py:class:`BfdLspType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdLspType>`
-                    
-                    .. attribute:: ld
-                    
-                    	local\-discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: rd
-                    
-                    	remote\-discriminator
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: remote_state
-                    
-                    	 Remote Heard. RH state of BFD version '0'   is also mapped to up/down. 
-                    	**type**\:   :py:class:`BfdRemoteStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdRemoteStateType>`
-                    
-                    .. attribute:: state
-                    
-                    	BFD state
-                    	**type**\:   :py:class:`BfdStateType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper.BfdStateType>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'bfd-ios-xe-oper'
-                    _revision = '2017-02-07'
-
-                    def __init__(self):
-                        super(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, self).__init__()
-
-                        self.yang_name = "bfd-tunnel-path"
-                        self.yang_parent_name = "bfd-tunnel-paths"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.interface = YLeaf(YType.str, "interface")
-
-                        self.lsp_type = YLeaf(YType.enumeration, "lsp-type")
-
-                        self.ld = YLeaf(YType.uint32, "ld")
-
-                        self.rd = YLeaf(YType.uint32, "rd")
-
-                        self.remote_state = YLeaf(YType.enumeration, "remote-state")
-
-                        self.state = YLeaf(YType.enumeration, "state")
-                        self._segment_path = lambda: "bfd-tunnel-path" + "[interface='" + self.interface.get() + "']" + "[lsp-type='" + self.lsp_type.get() + "']"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, ['interface', 'lsp_type', 'ld', 'rd', 'remote_state', 'state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = BfdState()

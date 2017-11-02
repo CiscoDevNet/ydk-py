@@ -24,30 +24,20 @@ class MPLSLSRSTDMIB(Entity):
     """
     
     
-    .. attribute:: mplsinsegmentmaptable
+    .. attribute:: mplslsrobjects
     
-    	This table specifies the mapping from the mplsInSegmentIndex to the corresponding mplsInSegmentInterface and mplsInSegmentLabel objects. The purpose of this table is to provide the manager with an alternative means by which to locate in\-segments
-    	**type**\:   :py:class:`Mplsinsegmentmaptable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable>`
-    
-    .. attribute:: mplsinsegmenttable
-    
-    	This table contains a description of the incoming MPLS segments (labels) to an LSR and their associated parameters. The index for this table is mplsInSegmentIndex. The index structure of this table is specifically designed to handle many different MPLS implementations that manage their labels both in a distributed and centralized manner. The table is also designed to handle existing MPLS labels as defined in RFC3031 as well as longer ones that may be necessary in the future.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row. In this case an additional table MUST be provided and MUST be indexed by at least the indexes used by this table. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be set to 0.0. Due to the fact that MPLS labels may not exceed 24 bits, the mplsInSegmentLabelPtr object is only a provision for future\-proofing the MIB module. Thus, the definition of any extension tables is beyond the scope of this MIB module
-    	**type**\:   :py:class:`Mplsinsegmenttable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmenttable>`
+    	
+    	**type**\:   :py:class:`Mplslsrobjects <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslsrobjects>`
     
     .. attribute:: mplsinterfacetable
     
     	This table specifies per\-interface MPLS capability and associated information
     	**type**\:   :py:class:`Mplsinterfacetable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable>`
     
-    .. attribute:: mplslabelstacktable
+    .. attribute:: mplsinsegmenttable
     
-    	This table specifies the label stack to be pushed onto a packet, beneath the top label.  Entries into this table are referred to from mplsXCTable
-    	**type**\:   :py:class:`Mplslabelstacktable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable>`
-    
-    .. attribute:: mplslsrobjects
-    
-    	
-    	**type**\:   :py:class:`Mplslsrobjects <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslsrobjects>`
+    	This table contains a description of the incoming MPLS segments (labels) to an LSR and their associated parameters. The index for this table is mplsInSegmentIndex. The index structure of this table is specifically designed to handle many different MPLS implementations that manage their labels both in a distributed and centralized manner. The table is also designed to handle existing MPLS labels as defined in RFC3031 as well as longer ones that may be necessary in the future.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row. In this case an additional table MUST be provided and MUST be indexed by at least the indexes used by this table. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be set to 0.0. Due to the fact that MPLS labels may not exceed 24 bits, the mplsInSegmentLabelPtr object is only a provision for future\-proofing the MIB module. Thus, the definition of any extension tables is beyond the scope of this MIB module
+    	**type**\:   :py:class:`Mplsinsegmenttable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmenttable>`
     
     .. attribute:: mplsoutsegmenttable
     
@@ -58,6 +48,16 @@ class MPLSLSRSTDMIB(Entity):
     
     	This table specifies information for switching between LSP segments.  It supports point\-to\-point, point\-to\-multipoint and multipoint\-to\-point connections.  mplsLabelStackTable specifies the label stack information for a cross\-connect LSR and is referred to from mplsXCTable
     	**type**\:   :py:class:`Mplsxctable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable>`
+    
+    .. attribute:: mplslabelstacktable
+    
+    	This table specifies the label stack to be pushed onto a packet, beneath the top label.  Entries into this table are referred to from mplsXCTable
+    	**type**\:   :py:class:`Mplslabelstacktable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable>`
+    
+    .. attribute:: mplsinsegmentmaptable
+    
+    	This table specifies the mapping from the mplsInSegmentIndex to the corresponding mplsInSegmentInterface and mplsInSegmentLabel objects. The purpose of this table is to provide the manager with an alternative means by which to locate in\-segments
+    	**type**\:   :py:class:`Mplsinsegmentmaptable <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable>`
     
     
 
@@ -74,33 +74,23 @@ class MPLSLSRSTDMIB(Entity):
         self.yang_parent_name = "MPLS-LSR-STD-MIB"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"mplsInSegmentMapTable" : ("mplsinsegmentmaptable", MPLSLSRSTDMIB.Mplsinsegmentmaptable), "mplsInSegmentTable" : ("mplsinsegmenttable", MPLSLSRSTDMIB.Mplsinsegmenttable), "mplsInterfaceTable" : ("mplsinterfacetable", MPLSLSRSTDMIB.Mplsinterfacetable), "mplsLabelStackTable" : ("mplslabelstacktable", MPLSLSRSTDMIB.Mplslabelstacktable), "mplsLsrObjects" : ("mplslsrobjects", MPLSLSRSTDMIB.Mplslsrobjects), "mplsOutSegmentTable" : ("mplsoutsegmenttable", MPLSLSRSTDMIB.Mplsoutsegmenttable), "mplsXCTable" : ("mplsxctable", MPLSLSRSTDMIB.Mplsxctable)}
+        self._child_container_classes = {"mplsLsrObjects" : ("mplslsrobjects", MPLSLSRSTDMIB.Mplslsrobjects), "mplsInterfaceTable" : ("mplsinterfacetable", MPLSLSRSTDMIB.Mplsinterfacetable), "mplsInSegmentTable" : ("mplsinsegmenttable", MPLSLSRSTDMIB.Mplsinsegmenttable), "mplsOutSegmentTable" : ("mplsoutsegmenttable", MPLSLSRSTDMIB.Mplsoutsegmenttable), "mplsXCTable" : ("mplsxctable", MPLSLSRSTDMIB.Mplsxctable), "mplsLabelStackTable" : ("mplslabelstacktable", MPLSLSRSTDMIB.Mplslabelstacktable), "mplsInSegmentMapTable" : ("mplsinsegmentmaptable", MPLSLSRSTDMIB.Mplsinsegmentmaptable)}
         self._child_list_classes = {}
 
-        self.mplsinsegmentmaptable = MPLSLSRSTDMIB.Mplsinsegmentmaptable()
-        self.mplsinsegmentmaptable.parent = self
-        self._children_name_map["mplsinsegmentmaptable"] = "mplsInSegmentMapTable"
-        self._children_yang_names.add("mplsInSegmentMapTable")
-
-        self.mplsinsegmenttable = MPLSLSRSTDMIB.Mplsinsegmenttable()
-        self.mplsinsegmenttable.parent = self
-        self._children_name_map["mplsinsegmenttable"] = "mplsInSegmentTable"
-        self._children_yang_names.add("mplsInSegmentTable")
+        self.mplslsrobjects = MPLSLSRSTDMIB.Mplslsrobjects()
+        self.mplslsrobjects.parent = self
+        self._children_name_map["mplslsrobjects"] = "mplsLsrObjects"
+        self._children_yang_names.add("mplsLsrObjects")
 
         self.mplsinterfacetable = MPLSLSRSTDMIB.Mplsinterfacetable()
         self.mplsinterfacetable.parent = self
         self._children_name_map["mplsinterfacetable"] = "mplsInterfaceTable"
         self._children_yang_names.add("mplsInterfaceTable")
 
-        self.mplslabelstacktable = MPLSLSRSTDMIB.Mplslabelstacktable()
-        self.mplslabelstacktable.parent = self
-        self._children_name_map["mplslabelstacktable"] = "mplsLabelStackTable"
-        self._children_yang_names.add("mplsLabelStackTable")
-
-        self.mplslsrobjects = MPLSLSRSTDMIB.Mplslsrobjects()
-        self.mplslsrobjects.parent = self
-        self._children_name_map["mplslsrobjects"] = "mplsLsrObjects"
-        self._children_yang_names.add("mplsLsrObjects")
+        self.mplsinsegmenttable = MPLSLSRSTDMIB.Mplsinsegmenttable()
+        self.mplsinsegmenttable.parent = self
+        self._children_name_map["mplsinsegmenttable"] = "mplsInSegmentTable"
+        self._children_yang_names.add("mplsInSegmentTable")
 
         self.mplsoutsegmenttable = MPLSLSRSTDMIB.Mplsoutsegmenttable()
         self.mplsoutsegmenttable.parent = self
@@ -111,22 +101,62 @@ class MPLSLSRSTDMIB(Entity):
         self.mplsxctable.parent = self
         self._children_name_map["mplsxctable"] = "mplsXCTable"
         self._children_yang_names.add("mplsXCTable")
+
+        self.mplslabelstacktable = MPLSLSRSTDMIB.Mplslabelstacktable()
+        self.mplslabelstacktable.parent = self
+        self._children_name_map["mplslabelstacktable"] = "mplsLabelStackTable"
+        self._children_yang_names.add("mplsLabelStackTable")
+
+        self.mplsinsegmentmaptable = MPLSLSRSTDMIB.Mplsinsegmentmaptable()
+        self.mplsinsegmentmaptable.parent = self
+        self._children_name_map["mplsinsegmentmaptable"] = "mplsInSegmentMapTable"
+        self._children_yang_names.add("mplsInSegmentMapTable")
         self._segment_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB"
 
 
-    class Mplsinsegmentmaptable(Entity):
+    class Mplslsrobjects(Entity):
         """
-        This table specifies the mapping from the
-        mplsInSegmentIndex to the corresponding
-        mplsInSegmentInterface and mplsInSegmentLabel
-        objects. The purpose of this table is to
-        provide the manager with an alternative
-        means by which to locate in\-segments.
         
-        .. attribute:: mplsinsegmentmapentry
         
-        	An entry in this table represents one interface and incoming label pair.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row, and the mplsInSegmentLabel SHOULD be set to 0. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be 0.0.  Implementors need to be aware that if the value of the mplsInSegmentMapLabelPtrIndex (an OID) has more that 111 sub\-identifiers, then OIDs of column instances in this table will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
-        	**type**\: list of    :py:class:`Mplsinsegmentmapentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry>`
+        .. attribute:: mplsinsegmentindexnext
+        
+        	This object contains the next available value to be used for mplsInSegmentIndex when creating entries in the mplsInSegmentTable. The special value of a string containing the single octet 0x00 indicates that no new entries can be created in this table. Agents not allowing managers to create entries in this table MUST set this object to this special value
+        	**type**\:  str
+        
+        	**length:** 1..24
+        
+        .. attribute:: mplsoutsegmentindexnext
+        
+        	This object contains the next available value to be used for mplsOutSegmentIndex when creating entries in the mplsOutSegmentTable. The special value of a string containing the single octet 0x00 indicates that no new entries can be created in this table. Agents not allowing managers to create entries in this table MUST set this object to this special value
+        	**type**\:  str
+        
+        	**length:** 1..24
+        
+        .. attribute:: mplsxcindexnext
+        
+        	This object contains the next available value to be used for mplsXCIndex when creating entries in the mplsXCTable. A special value of the zero length string indicates that no more new entries can be created in the relevant table.  Agents not allowing managers to create entries in this table MUST set this value to the zero length string
+        	**type**\:  str
+        
+        	**length:** 1..24
+        
+        .. attribute:: mplsmaxlabelstackdepth
+        
+        	The maximum stack depth supported by this LSR
+        	**type**\:  int
+        
+        	**range:** 1..2147483647
+        
+        .. attribute:: mplslabelstackindexnext
+        
+        	This object contains the next available value to be used for mplsLabelStackIndex when creating entries in the mplsLabelStackTable. The special string containing the single octet 0x00 indicates that no more new entries can be created in the relevant table.  Agents not allowing managers to create entries in this table MUST set this value to the string containing the single octet 0x00
+        	**type**\:  str
+        
+        	**length:** 1..24
+        
+        .. attribute:: mplsxcnotificationsenable
+        
+        	If this object is set to true(1), then it enables the emission of mplsXCUp and mplsXCDown notifications; otherwise these notifications are not emitted
+        	**type**\:  bool
         
         
 
@@ -136,71 +166,179 @@ class MPLSLSRSTDMIB(Entity):
         _revision = '2004-06-03'
 
         def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsinsegmentmaptable, self).__init__()
+            super(MPLSLSRSTDMIB.Mplslsrobjects, self).__init__()
 
-            self.yang_name = "mplsInSegmentMapTable"
+            self.yang_name = "mplsLsrObjects"
             self.yang_parent_name = "MPLS-LSR-STD-MIB"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {"mplsInSegmentMapEntry" : ("mplsinsegmentmapentry", MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry)}
+            self._child_list_classes = {}
 
-            self.mplsinsegmentmapentry = YList(self)
-            self._segment_path = lambda: "mplsInSegmentMapTable"
+            self.mplsinsegmentindexnext = YLeaf(YType.str, "mplsInSegmentIndexNext")
+
+            self.mplsoutsegmentindexnext = YLeaf(YType.str, "mplsOutSegmentIndexNext")
+
+            self.mplsxcindexnext = YLeaf(YType.str, "mplsXCIndexNext")
+
+            self.mplsmaxlabelstackdepth = YLeaf(YType.uint32, "mplsMaxLabelStackDepth")
+
+            self.mplslabelstackindexnext = YLeaf(YType.str, "mplsLabelStackIndexNext")
+
+            self.mplsxcnotificationsenable = YLeaf(YType.boolean, "mplsXCNotificationsEnable")
+            self._segment_path = lambda: "mplsLsrObjects"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable, [], name, value)
+            self._perform_setattr(MPLSLSRSTDMIB.Mplslsrobjects, ['mplsinsegmentindexnext', 'mplsoutsegmentindexnext', 'mplsxcindexnext', 'mplsmaxlabelstackdepth', 'mplslabelstackindexnext', 'mplsxcnotificationsenable'], name, value)
 
 
-        class Mplsinsegmentmapentry(Entity):
+    class Mplsinterfacetable(Entity):
+        """
+        This table specifies per\-interface MPLS capability
+        and associated information.
+        
+        .. attribute:: mplsinterfaceentry
+        
+        	A conceptual row in this table is created automatically by an LSR for every interface capable of supporting MPLS and which is configured to do so. A conceptual row in this table will exist if and only if a corresponding entry in ifTable exists with ifType = mpls(166). If this associated entry in ifTable is operationally disabled (thus removing MPLS capabilities on that interface), the corresponding entry in this table MUST be deleted shortly thereafter. An conceptual row with index 0 is created if the LSR supports per\-platform labels. This conceptual row represents the per\-platform label space and contains parameters that apply to all interfaces that participate in the per\-platform label space. Other conceptual rows in this table represent MPLS interfaces that may participate in either the per\-platform or per\- interface label spaces, or both.  Implementations that either only support per\-platform labels, or have only them configured, may choose to return just the mplsInterfaceEntry of 0 and not return the other rows. This will greatly reduce the number of objects returned. Further information about label space participation of an interface is provided in the DESCRIPTION clause of mplsInterfaceLabelParticipationType
+        	**type**\: list of    :py:class:`Mplsinterfaceentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry>`
+        
+        
+
+        """
+
+        _prefix = 'MPLS-LSR-STD-MIB'
+        _revision = '2004-06-03'
+
+        def __init__(self):
+            super(MPLSLSRSTDMIB.Mplsinterfacetable, self).__init__()
+
+            self.yang_name = "mplsInterfaceTable"
+            self.yang_parent_name = "MPLS-LSR-STD-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mplsInterfaceEntry" : ("mplsinterfaceentry", MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry)}
+
+            self.mplsinterfaceentry = YList(self)
+            self._segment_path = lambda: "mplsInterfaceTable"
+            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable, [], name, value)
+
+
+        class Mplsinterfaceentry(Entity):
             """
-            An entry in this table represents one interface
-            and incoming label pair.
+            A conceptual row in this table is created
+            automatically by an LSR for every interface capable
+            of supporting MPLS and which is configured to do so.
+            A conceptual row in this table will exist if and only if
+            a corresponding entry in ifTable exists with ifType =
+            mpls(166). If this associated entry in ifTable is
+            operationally disabled (thus removing MPLS
+            capabilities on that interface), the corresponding
+            entry in this table MUST be deleted shortly thereafter.
+            An conceptual row with index 0 is created if the LSR
+            supports per\-platform labels. This conceptual row
+            represents the per\-platform label space and contains
+            parameters that apply to all interfaces that participate
+            in the per\-platform label space. Other conceptual rows
+            in this table represent MPLS interfaces that may
+            participate in either the per\-platform or per\-
+            interface label spaces, or both.  Implementations
+            that either only support per\-platform labels,
+            or have only them configured, may choose to return
+            just the mplsInterfaceEntry of 0 and not return
+            the other rows. This will greatly reduce the number
+            of objects returned. Further information about label
+            space participation of an interface is provided in
+            the DESCRIPTION clause of
+            mplsInterfaceLabelParticipationType.
             
-            In cases where the label cannot fit into the
-            mplsInSegmentLabel object, the mplsInSegmentLabelPtr
-            will indicate this by being set to the first accessible
-            column in the appropriate extension table's row,
-            and the mplsInSegmentLabel SHOULD be set to 0.
-            In all other cases when the label is
-            represented within the mplsInSegmentLabel object, the
-            mplsInSegmentLabelPtr MUST be 0.0.
+            .. attribute:: mplsinterfaceindex  <key>
             
-            Implementors need to be aware that if the value of
-            the mplsInSegmentMapLabelPtrIndex (an OID) has more
-            that 111 sub\-identifiers, then OIDs of column
-            instances in this table will have more than 128
-            sub\-identifiers and cannot be accessed using SNMPv1,
-            SNMPv2c, or SNMPv3.
-            
-            .. attribute:: mplsinsegmentmapinterface  <key>
-            
-            	This index contains the same value as the mplsInSegmentIndex in the mplsInSegmentTable
+            	This is a unique index for an entry in the MplsInterfaceTable.  A non\-zero index for an entry indicates the ifIndex for the corresponding interface entry of the MPLS\-layer in the ifTable. The entry with index 0 represents the per\-platform label space and contains parameters that apply to all interfaces that participate in the per\-platform label space. Other entries defined in this table represent additional MPLS interfaces that may participate in either the per\-platform or per\-interface label spaces, or both
             	**type**\:  int
             
             	**range:** 0..2147483647
             
-            .. attribute:: mplsinsegmentmaplabel  <key>
+            .. attribute:: mplsinterfacelabelminin
             
-            	This index contains the same value as the mplsInSegmentLabel in the mplsInSegmentTable
+            	This is the minimum value of an MPLS label that this LSR is willing to receive on this interface
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: mplsinsegmentmaplabelptrindex  <key>
+            .. attribute:: mplsinterfacelabelmaxin
             
-            	This index contains the same value as the mplsInSegmentLabelPtr.  If the label for the InSegment cannot be represented fully within the mplsInSegmentLabel object, this index MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsInSegmentTopLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
-            	**type**\:  str
+            	This is the maximum value of an MPLS label that this LSR is willing to receive on this interface
+            	**type**\:  int
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            	**range:** 0..4294967295
             
-            .. attribute:: mplsinsegmentmapindex
+            .. attribute:: mplsinterfacelabelminout
             
-            	The mplsInSegmentIndex that corresponds to the mplsInSegmentInterface and mplsInSegmentLabel, or the mplsInSegmentInterface and mplsInSegmentLabelPtr, if applicable. The string containing the single octet 0x00 MUST not be returned
-            	**type**\:  str
+            	This is the minimum value of an MPLS label that this LSR is willing to send on this interface
+            	**type**\:  int
             
-            	**length:** 1..24
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfacelabelmaxout
+            
+            	This is the maximum value of an MPLS label that this LSR is willing to send on this interface
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfacetotalbandwidth
+            
+            	This value indicates the total amount of usable bandwidth on this interface and is specified in kilobits per second (Kbps).  This variable is not applicable when applied to the interface with index 0. When this value cannot be measured, this value should contain the nominal bandwidth
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            	**units**\: kilobits per second
+            
+            .. attribute:: mplsinterfaceavailablebandwidth
+            
+            	This value indicates the total amount of available bandwidth available on this interface and is specified in kilobits per second (Kbps).  This value is calculated as the difference between the amount of bandwidth currently in use and that specified in mplsInterfaceTotalBandwidth.  This variable is not applicable when applied to the interface with index 0. When this value cannot be measured, this value should contain the nominal bandwidth
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfacelabelparticipationtype
+            
+            	If the value of the mplsInterfaceIndex for this entry is zero, then this entry corresponds to the per\-platform label space for all interfaces configured to use that label space. In this case the perPlatform(0) bit MUST be set; the perInterface(1) bit is meaningless and MUST be ignored.  The remainder of this description applies to entries with a non\-zero value of mplsInterfaceIndex.  If the perInterface(1) bit is set then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry reflect the label ranges for this interface.  If only the perPlatform(0) bit is set, then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry MUST be identical to the instance of these objects with index 0.  These objects may only vary from the entry with index 0 if both the perPlatform(0) and perInterface(1) bits are set.  In all cases, at a minimum one of the perPlatform(0) or perInterface(1) bits MUST be set to indicate that at least one label space is in use by this interface. In all cases, agents MUST ensure that label ranges are specified consistently and MUST return an inconsistentValue error when they do not
+            	**type**\:   :py:class:`Mplsinterfacelabelparticipationtype <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry.Mplsinterfacelabelparticipationtype>`
+            
+            .. attribute:: mplsinterfaceperfinlabelsinuse
+            
+            	This object counts the number of labels that are in use at this point in time on this interface in the incoming direction. If the interface participates in only the per\-platform label space, then the value of the instance of this object MUST be identical to the value of the instance with index 0. If the interface participates in the per\-interface label space, then the instance of this object MUST represent the number of per\-interface labels that are in use on this interface
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfaceperfinlabellookupfailures
+            
+            	This object counts the number of labeled packets that have been received on this interface and which were discarded because there was no matching cross\- connect entry. This object MUST count on a per\- interface basis regardless of which label space the interface participates in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfaceperfoutlabelsinuse
+            
+            	This object counts the number of top\-most labels in the outgoing label stacks that are in use at this point in time on this interface. This object MUST count on a per\-interface basis regardless of which label space the interface participates in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinterfaceperfoutfragmentedpkts
+            
+            	This object counts the number of outgoing MPLS packets that required fragmentation before transmission on this interface. This object MUST count on a per\-interface basis regardless of which label space the interface participates in
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -210,27 +348,43 @@ class MPLSLSRSTDMIB(Entity):
             _revision = '2004-06-03'
 
             def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, self).__init__()
+                super(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, self).__init__()
 
-                self.yang_name = "mplsInSegmentMapEntry"
-                self.yang_parent_name = "mplsInSegmentMapTable"
+                self.yang_name = "mplsInterfaceEntry"
+                self.yang_parent_name = "mplsInterfaceTable"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self._child_container_classes = {}
                 self._child_list_classes = {}
 
-                self.mplsinsegmentmapinterface = YLeaf(YType.int32, "mplsInSegmentMapInterface")
+                self.mplsinterfaceindex = YLeaf(YType.int32, "mplsInterfaceIndex")
 
-                self.mplsinsegmentmaplabel = YLeaf(YType.uint32, "mplsInSegmentMapLabel")
+                self.mplsinterfacelabelminin = YLeaf(YType.uint32, "mplsInterfaceLabelMinIn")
 
-                self.mplsinsegmentmaplabelptrindex = YLeaf(YType.str, "mplsInSegmentMapLabelPtrIndex")
+                self.mplsinterfacelabelmaxin = YLeaf(YType.uint32, "mplsInterfaceLabelMaxIn")
 
-                self.mplsinsegmentmapindex = YLeaf(YType.str, "mplsInSegmentMapIndex")
-                self._segment_path = lambda: "mplsInSegmentMapEntry" + "[mplsInSegmentMapInterface='" + self.mplsinsegmentmapinterface.get() + "']" + "[mplsInSegmentMapLabel='" + self.mplsinsegmentmaplabel.get() + "']" + "[mplsInSegmentMapLabelPtrIndex='" + self.mplsinsegmentmaplabelptrindex.get() + "']"
-                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentMapTable/%s" % self._segment_path()
+                self.mplsinterfacelabelminout = YLeaf(YType.uint32, "mplsInterfaceLabelMinOut")
+
+                self.mplsinterfacelabelmaxout = YLeaf(YType.uint32, "mplsInterfaceLabelMaxOut")
+
+                self.mplsinterfacetotalbandwidth = YLeaf(YType.uint32, "mplsInterfaceTotalBandwidth")
+
+                self.mplsinterfaceavailablebandwidth = YLeaf(YType.uint32, "mplsInterfaceAvailableBandwidth")
+
+                self.mplsinterfacelabelparticipationtype = YLeaf(YType.bits, "mplsInterfaceLabelParticipationType")
+
+                self.mplsinterfaceperfinlabelsinuse = YLeaf(YType.uint32, "mplsInterfacePerfInLabelsInUse")
+
+                self.mplsinterfaceperfinlabellookupfailures = YLeaf(YType.uint32, "mplsInterfacePerfInLabelLookupFailures")
+
+                self.mplsinterfaceperfoutlabelsinuse = YLeaf(YType.uint32, "mplsInterfacePerfOutLabelsInUse")
+
+                self.mplsinterfaceperfoutfragmentedpkts = YLeaf(YType.uint32, "mplsInterfacePerfOutFragmentedPkts")
+                self._segment_path = lambda: "mplsInterfaceEntry" + "[mplsInterfaceIndex='" + self.mplsinterfaceindex.get() + "']"
+                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInterfaceTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, ['mplsinsegmentmapinterface', 'mplsinsegmentmaplabel', 'mplsinsegmentmaplabelptrindex', 'mplsinsegmentmapindex'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, ['mplsinterfaceindex', 'mplsinterfacelabelminin', 'mplsinterfacelabelmaxin', 'mplsinterfacelabelminout', 'mplsinterfacelabelmaxout', 'mplsinterfacetotalbandwidth', 'mplsinterfaceavailablebandwidth', 'mplsinterfacelabelparticipationtype', 'mplsinterfaceperfinlabelsinuse', 'mplsinterfaceperfinlabellookupfailures', 'mplsinterfaceperfoutlabelsinuse', 'mplsinterfaceperfoutfragmentedpkts'], name, value)
 
 
     class Mplsinsegmenttable(Entity):
@@ -312,11 +466,6 @@ class MPLSLSRSTDMIB(Entity):
             
             	**length:** 1..24
             
-            .. attribute:: mplsinsegmentaddrfamily
-            
-            	The IANA address family [IANAFamily] of packets received on this segment, which is used at an egress LSR to deliver them to the appropriate layer 3 entity. A value of other(0) indicates that the family type is either unknown or undefined; this SHOULD NOT be used at an egress LSR. This object cannot be modified if mplsInSegmentRowStatus is active(1)
-            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
-            
             .. attribute:: mplsinsegmentinterface
             
             	This object represents the interface index for the incoming MPLS interface.  A value of zero represents all interfaces participating in the per\-platform label space.  This may only be used in cases where the incoming interface and label are associated with the same mplsXCEntry. Specifically, given a label and any incoming interface pair from the per\-platform label space, the outgoing label/interface mapping remains the same. If this is not the case, then individual entries MUST exist that can then be mapped to unique mplsXCEntries
@@ -336,8 +485,6 @@ class MPLSLSRSTDMIB(Entity):
             	If the label for this segment cannot be represented fully within the mplsInSegmentLabel object, this object MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsInSegmentTopLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
             	**type**\:  str
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
             .. attribute:: mplsinsegmentnpop
             
             	The number of labels to pop from the incoming packet.  Normally only the top label is popped from the packet and used for all switching decisions for that packet.  This is indicated by setting this object to the default value of 1. If an LSR supports popping of more than one label, this object MUST be set to that number. This object cannot be modified if mplsInSegmentRowStatus is active(1)
@@ -345,38 +492,37 @@ class MPLSLSRSTDMIB(Entity):
             
             	**range:** 1..2147483647
             
+            .. attribute:: mplsinsegmentaddrfamily
+            
+            	The IANA address family [IANAFamily] of packets received on this segment, which is used at an egress LSR to deliver them to the appropriate layer 3 entity. A value of other(0) indicates that the family type is either unknown or undefined; this SHOULD NOT be used at an egress LSR. This object cannot be modified if mplsInSegmentRowStatus is active(1)
+            	**type**\:   :py:class:`AddressFamilyNumbers <ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB.AddressFamilyNumbers>`
+            
+            .. attribute:: mplsinsegmentxcindex
+            
+            	Index into mplsXCTable which identifies which cross\- connect entry this segment is part of.  The string containing the single octet 0x00 indicates that this entry is not referred to by any cross\-connect entry. When a cross\-connect entry is created which this in\-segment is a part of, this object is automatically updated to reflect the value of mplsXCIndex of that cross\-connect entry
+            	**type**\:  str
+            
+            	**length:** 1..24
+            
             .. attribute:: mplsinsegmentowner
             
             	Denotes the entity that created and is responsible for managing this segment
             	**type**\:   :py:class:`MplsOwner <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsOwner>`
             
-            .. attribute:: mplsinsegmentperfdiscards
+            .. attribute:: mplsinsegmenttrafficparamptr
             
-            	The number of labeled packets received on this in\- segment, which were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a labeled packet could be to free up buffer space
-            	**type**\:  int
+            	This variable represents a pointer to the traffic parameter specification for this in\-segment.  This value may point at an entry in the mplsTunnelResourceTable in the MPLS\-TE\-STD\-MIB (RFC3812) to indicate which traffic parameter settings for this segment if it represents an LSP used for a TE tunnel.  This value may optionally point at an externally defined traffic parameter specification table.  A value of zeroDotZero indicates best\-effort treatment.  By having the same value of this object, two or more segments can indicate resource sharing of such things as LSP queue space, etc.  This object cannot be modified if mplsInSegmentRowStatus is active(1).  For entries in this table that are preserved after a re\-boot, the agent MUST ensure that their integrity be preserved, or this object should be set to 0.0 if it cannot
+            	**type**\:  str
             
-            	**range:** 0..4294967295
+            .. attribute:: mplsinsegmentrowstatus
             
-            .. attribute:: mplsinsegmentperfdiscontinuitytime
+            	This variable is used to create, modify, and/or delete a row in this table. When a row in this table has a row in the active(1) state, no objects in this row can be modified except the mplsInSegmentRowStatus and mplsInSegmentStorageType
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
-            	The value of sysUpTime on the most recent occasion at which any one or more of this segment's Counter32 or Counter64 suffered a discontinuity. If no such discontinuities have occurred since the last re\- initialization of the local management subsystem, then this object contains a zero value
-            	**type**\:  int
+            .. attribute:: mplsinsegmentstoragetype
             
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinsegmentperferrors
-            
-            	The number of errored packets received on this segment
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinsegmentperfhcoctets
-            
-            	The total number of octets received.  This is the 64 bit version of mplsInSegmentPerfOctets, if mplsInSegmentPerfHCOctets is supported according to the rules spelled out in RFC2863
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
+            	This variable indicates the storage type for this object. The agent MUST ensure that this object's value remains consistent with the associated mplsXCEntry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: mplsinsegmentperfoctets
             
@@ -392,29 +538,33 @@ class MPLSLSRSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: mplsinsegmentrowstatus
+            .. attribute:: mplsinsegmentperferrors
             
-            	This variable is used to create, modify, and/or delete a row in this table. When a row in this table has a row in the active(1) state, no objects in this row can be modified except the mplsInSegmentRowStatus and mplsInSegmentStorageType
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            	The number of errored packets received on this segment
+            	**type**\:  int
             
-            .. attribute:: mplsinsegmentstoragetype
+            	**range:** 0..4294967295
             
-            	This variable indicates the storage type for this object. The agent MUST ensure that this object's value remains consistent with the associated mplsXCEntry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            .. attribute:: mplsinsegmentperfdiscards
             
-            .. attribute:: mplsinsegmenttrafficparamptr
+            	The number of labeled packets received on this in\- segment, which were chosen to be discarded even though no errors had been detected to prevent their being transmitted.  One possible reason for discarding such a labeled packet could be to free up buffer space
+            	**type**\:  int
             
-            	This variable represents a pointer to the traffic parameter specification for this in\-segment.  This value may point at an entry in the mplsTunnelResourceTable in the MPLS\-TE\-STD\-MIB (RFC3812) to indicate which traffic parameter settings for this segment if it represents an LSP used for a TE tunnel.  This value may optionally point at an externally defined traffic parameter specification table.  A value of zeroDotZero indicates best\-effort treatment.  By having the same value of this object, two or more segments can indicate resource sharing of such things as LSP queue space, etc.  This object cannot be modified if mplsInSegmentRowStatus is active(1).  For entries in this table that are preserved after a re\-boot, the agent MUST ensure that their integrity be preserved, or this object should be set to 0.0 if it cannot
-            	**type**\:  str
+            	**range:** 0..4294967295
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            .. attribute:: mplsinsegmentperfhcoctets
             
-            .. attribute:: mplsinsegmentxcindex
+            	The total number of octets received.  This is the 64 bit version of mplsInSegmentPerfOctets, if mplsInSegmentPerfHCOctets is supported according to the rules spelled out in RFC2863
+            	**type**\:  int
             
-            	Index into mplsXCTable which identifies which cross\- connect entry this segment is part of.  The string containing the single octet 0x00 indicates that this entry is not referred to by any cross\-connect entry. When a cross\-connect entry is created which this in\-segment is a part of, this object is automatically updated to reflect the value of mplsXCIndex of that cross\-connect entry
-            	**type**\:  str
+            	**range:** 0..18446744073709551615
             
-            	**length:** 1..24
+            .. attribute:: mplsinsegmentperfdiscontinuitytime
+            
+            	The value of sysUpTime on the most recent occasion at which any one or more of this segment's Counter32 or Counter64 suffered a discontinuity. If no such discontinuities have occurred since the last re\- initialization of the local management subsystem, then this object contains a zero value
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -435,8 +585,6 @@ class MPLSLSRSTDMIB(Entity):
 
                 self.mplsinsegmentindex = YLeaf(YType.str, "mplsInSegmentIndex")
 
-                self.mplsinsegmentaddrfamily = YLeaf(YType.enumeration, "mplsInSegmentAddrFamily")
-
                 self.mplsinsegmentinterface = YLeaf(YType.int32, "mplsInSegmentInterface")
 
                 self.mplsinsegmentlabel = YLeaf(YType.uint32, "mplsInSegmentLabel")
@@ -445,422 +593,34 @@ class MPLSLSRSTDMIB(Entity):
 
                 self.mplsinsegmentnpop = YLeaf(YType.int32, "mplsInSegmentNPop")
 
+                self.mplsinsegmentaddrfamily = YLeaf(YType.enumeration, "mplsInSegmentAddrFamily")
+
+                self.mplsinsegmentxcindex = YLeaf(YType.str, "mplsInSegmentXCIndex")
+
                 self.mplsinsegmentowner = YLeaf(YType.enumeration, "mplsInSegmentOwner")
 
-                self.mplsinsegmentperfdiscards = YLeaf(YType.uint32, "mplsInSegmentPerfDiscards")
-
-                self.mplsinsegmentperfdiscontinuitytime = YLeaf(YType.uint32, "mplsInSegmentPerfDiscontinuityTime")
-
-                self.mplsinsegmentperferrors = YLeaf(YType.uint32, "mplsInSegmentPerfErrors")
-
-                self.mplsinsegmentperfhcoctets = YLeaf(YType.uint64, "mplsInSegmentPerfHCOctets")
-
-                self.mplsinsegmentperfoctets = YLeaf(YType.uint32, "mplsInSegmentPerfOctets")
-
-                self.mplsinsegmentperfpackets = YLeaf(YType.uint32, "mplsInSegmentPerfPackets")
+                self.mplsinsegmenttrafficparamptr = YLeaf(YType.str, "mplsInSegmentTrafficParamPtr")
 
                 self.mplsinsegmentrowstatus = YLeaf(YType.enumeration, "mplsInSegmentRowStatus")
 
                 self.mplsinsegmentstoragetype = YLeaf(YType.enumeration, "mplsInSegmentStorageType")
 
-                self.mplsinsegmenttrafficparamptr = YLeaf(YType.str, "mplsInSegmentTrafficParamPtr")
+                self.mplsinsegmentperfoctets = YLeaf(YType.uint32, "mplsInSegmentPerfOctets")
 
-                self.mplsinsegmentxcindex = YLeaf(YType.str, "mplsInSegmentXCIndex")
+                self.mplsinsegmentperfpackets = YLeaf(YType.uint32, "mplsInSegmentPerfPackets")
+
+                self.mplsinsegmentperferrors = YLeaf(YType.uint32, "mplsInSegmentPerfErrors")
+
+                self.mplsinsegmentperfdiscards = YLeaf(YType.uint32, "mplsInSegmentPerfDiscards")
+
+                self.mplsinsegmentperfhcoctets = YLeaf(YType.uint64, "mplsInSegmentPerfHCOctets")
+
+                self.mplsinsegmentperfdiscontinuitytime = YLeaf(YType.uint32, "mplsInSegmentPerfDiscontinuityTime")
                 self._segment_path = lambda: "mplsInSegmentEntry" + "[mplsInSegmentIndex='" + self.mplsinsegmentindex.get() + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry, ['mplsinsegmentindex', 'mplsinsegmentaddrfamily', 'mplsinsegmentinterface', 'mplsinsegmentlabel', 'mplsinsegmentlabelptr', 'mplsinsegmentnpop', 'mplsinsegmentowner', 'mplsinsegmentperfdiscards', 'mplsinsegmentperfdiscontinuitytime', 'mplsinsegmentperferrors', 'mplsinsegmentperfhcoctets', 'mplsinsegmentperfoctets', 'mplsinsegmentperfpackets', 'mplsinsegmentrowstatus', 'mplsinsegmentstoragetype', 'mplsinsegmenttrafficparamptr', 'mplsinsegmentxcindex'], name, value)
-
-
-    class Mplsinterfacetable(Entity):
-        """
-        This table specifies per\-interface MPLS capability
-        and associated information.
-        
-        .. attribute:: mplsinterfaceentry
-        
-        	A conceptual row in this table is created automatically by an LSR for every interface capable of supporting MPLS and which is configured to do so. A conceptual row in this table will exist if and only if a corresponding entry in ifTable exists with ifType = mpls(166). If this associated entry in ifTable is operationally disabled (thus removing MPLS capabilities on that interface), the corresponding entry in this table MUST be deleted shortly thereafter. An conceptual row with index 0 is created if the LSR supports per\-platform labels. This conceptual row represents the per\-platform label space and contains parameters that apply to all interfaces that participate in the per\-platform label space. Other conceptual rows in this table represent MPLS interfaces that may participate in either the per\-platform or per\- interface label spaces, or both.  Implementations that either only support per\-platform labels, or have only them configured, may choose to return just the mplsInterfaceEntry of 0 and not return the other rows. This will greatly reduce the number of objects returned. Further information about label space participation of an interface is provided in the DESCRIPTION clause of mplsInterfaceLabelParticipationType
-        	**type**\: list of    :py:class:`Mplsinterfaceentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry>`
-        
-        
-
-        """
-
-        _prefix = 'MPLS-LSR-STD-MIB'
-        _revision = '2004-06-03'
-
-        def __init__(self):
-            super(MPLSLSRSTDMIB.Mplsinterfacetable, self).__init__()
-
-            self.yang_name = "mplsInterfaceTable"
-            self.yang_parent_name = "MPLS-LSR-STD-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsInterfaceEntry" : ("mplsinterfaceentry", MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry)}
-
-            self.mplsinterfaceentry = YList(self)
-            self._segment_path = lambda: "mplsInterfaceTable"
-            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable, [], name, value)
-
-
-        class Mplsinterfaceentry(Entity):
-            """
-            A conceptual row in this table is created
-            automatically by an LSR for every interface capable
-            of supporting MPLS and which is configured to do so.
-            A conceptual row in this table will exist if and only if
-            a corresponding entry in ifTable exists with ifType =
-            mpls(166). If this associated entry in ifTable is
-            operationally disabled (thus removing MPLS
-            capabilities on that interface), the corresponding
-            entry in this table MUST be deleted shortly thereafter.
-            An conceptual row with index 0 is created if the LSR
-            supports per\-platform labels. This conceptual row
-            represents the per\-platform label space and contains
-            parameters that apply to all interfaces that participate
-            in the per\-platform label space. Other conceptual rows
-            in this table represent MPLS interfaces that may
-            participate in either the per\-platform or per\-
-            interface label spaces, or both.  Implementations
-            that either only support per\-platform labels,
-            or have only them configured, may choose to return
-            just the mplsInterfaceEntry of 0 and not return
-            the other rows. This will greatly reduce the number
-            of objects returned. Further information about label
-            space participation of an interface is provided in
-            the DESCRIPTION clause of
-            mplsInterfaceLabelParticipationType.
-            
-            .. attribute:: mplsinterfaceindex  <key>
-            
-            	This is a unique index for an entry in the MplsInterfaceTable.  A non\-zero index for an entry indicates the ifIndex for the corresponding interface entry of the MPLS\-layer in the ifTable. The entry with index 0 represents the per\-platform label space and contains parameters that apply to all interfaces that participate in the per\-platform label space. Other entries defined in this table represent additional MPLS interfaces that may participate in either the per\-platform or per\-interface label spaces, or both
-            	**type**\:  int
-            
-            	**range:** 0..2147483647
-            
-            .. attribute:: mplsinterfaceavailablebandwidth
-            
-            	This value indicates the total amount of available bandwidth available on this interface and is specified in kilobits per second (Kbps).  This value is calculated as the difference between the amount of bandwidth currently in use and that specified in mplsInterfaceTotalBandwidth.  This variable is not applicable when applied to the interface with index 0. When this value cannot be measured, this value should contain the nominal bandwidth
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacelabelmaxin
-            
-            	This is the maximum value of an MPLS label that this LSR is willing to receive on this interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacelabelmaxout
-            
-            	This is the maximum value of an MPLS label that this LSR is willing to send on this interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacelabelminin
-            
-            	This is the minimum value of an MPLS label that this LSR is willing to receive on this interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacelabelminout
-            
-            	This is the minimum value of an MPLS label that this LSR is willing to send on this interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacelabelparticipationtype
-            
-            	If the value of the mplsInterfaceIndex for this entry is zero, then this entry corresponds to the per\-platform label space for all interfaces configured to use that label space. In this case the perPlatform(0) bit MUST be set; the perInterface(1) bit is meaningless and MUST be ignored.  The remainder of this description applies to entries with a non\-zero value of mplsInterfaceIndex.  If the perInterface(1) bit is set then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry reflect the label ranges for this interface.  If only the perPlatform(0) bit is set, then the value of mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn, mplsInterfaceLabelMinOut, and mplsInterfaceLabelMaxOut for this entry MUST be identical to the instance of these objects with index 0.  These objects may only vary from the entry with index 0 if both the perPlatform(0) and perInterface(1) bits are set.  In all cases, at a minimum one of the perPlatform(0) or perInterface(1) bits MUST be set to indicate that at least one label space is in use by this interface. In all cases, agents MUST ensure that label ranges are specified consistently and MUST return an inconsistentValue error when they do not
-            	**type**\:   :py:class:`Mplsinterfacelabelparticipationtype <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry.Mplsinterfacelabelparticipationtype>`
-            
-            .. attribute:: mplsinterfaceperfinlabellookupfailures
-            
-            	This object counts the number of labeled packets that have been received on this interface and which were discarded because there was no matching cross\- connect entry. This object MUST count on a per\- interface basis regardless of which label space the interface participates in
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfaceperfinlabelsinuse
-            
-            	This object counts the number of labels that are in use at this point in time on this interface in the incoming direction. If the interface participates in only the per\-platform label space, then the value of the instance of this object MUST be identical to the value of the instance with index 0. If the interface participates in the per\-interface label space, then the instance of this object MUST represent the number of per\-interface labels that are in use on this interface
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfaceperfoutfragmentedpkts
-            
-            	This object counts the number of outgoing MPLS packets that required fragmentation before transmission on this interface. This object MUST count on a per\-interface basis regardless of which label space the interface participates in
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfaceperfoutlabelsinuse
-            
-            	This object counts the number of top\-most labels in the outgoing label stacks that are in use at this point in time on this interface. This object MUST count on a per\-interface basis regardless of which label space the interface participates in
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsinterfacetotalbandwidth
-            
-            	This value indicates the total amount of usable bandwidth on this interface and is specified in kilobits per second (Kbps).  This variable is not applicable when applied to the interface with index 0. When this value cannot be measured, this value should contain the nominal bandwidth
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            	**units**\: kilobits per second
-            
-            
-
-            """
-
-            _prefix = 'MPLS-LSR-STD-MIB'
-            _revision = '2004-06-03'
-
-            def __init__(self):
-                super(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, self).__init__()
-
-                self.yang_name = "mplsInterfaceEntry"
-                self.yang_parent_name = "mplsInterfaceTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplsinterfaceindex = YLeaf(YType.int32, "mplsInterfaceIndex")
-
-                self.mplsinterfaceavailablebandwidth = YLeaf(YType.uint32, "mplsInterfaceAvailableBandwidth")
-
-                self.mplsinterfacelabelmaxin = YLeaf(YType.uint32, "mplsInterfaceLabelMaxIn")
-
-                self.mplsinterfacelabelmaxout = YLeaf(YType.uint32, "mplsInterfaceLabelMaxOut")
-
-                self.mplsinterfacelabelminin = YLeaf(YType.uint32, "mplsInterfaceLabelMinIn")
-
-                self.mplsinterfacelabelminout = YLeaf(YType.uint32, "mplsInterfaceLabelMinOut")
-
-                self.mplsinterfacelabelparticipationtype = YLeaf(YType.bits, "mplsInterfaceLabelParticipationType")
-
-                self.mplsinterfaceperfinlabellookupfailures = YLeaf(YType.uint32, "mplsInterfacePerfInLabelLookupFailures")
-
-                self.mplsinterfaceperfinlabelsinuse = YLeaf(YType.uint32, "mplsInterfacePerfInLabelsInUse")
-
-                self.mplsinterfaceperfoutfragmentedpkts = YLeaf(YType.uint32, "mplsInterfacePerfOutFragmentedPkts")
-
-                self.mplsinterfaceperfoutlabelsinuse = YLeaf(YType.uint32, "mplsInterfacePerfOutLabelsInUse")
-
-                self.mplsinterfacetotalbandwidth = YLeaf(YType.uint32, "mplsInterfaceTotalBandwidth")
-                self._segment_path = lambda: "mplsInterfaceEntry" + "[mplsInterfaceIndex='" + self.mplsinterfaceindex.get() + "']"
-                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInterfaceTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsinterfacetable.Mplsinterfaceentry, ['mplsinterfaceindex', 'mplsinterfaceavailablebandwidth', 'mplsinterfacelabelmaxin', 'mplsinterfacelabelmaxout', 'mplsinterfacelabelminin', 'mplsinterfacelabelminout', 'mplsinterfacelabelparticipationtype', 'mplsinterfaceperfinlabellookupfailures', 'mplsinterfaceperfinlabelsinuse', 'mplsinterfaceperfoutfragmentedpkts', 'mplsinterfaceperfoutlabelsinuse', 'mplsinterfacetotalbandwidth'], name, value)
-
-
-    class Mplslabelstacktable(Entity):
-        """
-        This table specifies the label stack to be pushed
-        onto a packet, beneath the top label.  Entries into
-        this table are referred to from mplsXCTable.
-        
-        .. attribute:: mplslabelstackentry
-        
-        	An entry in this table represents one label which is to be pushed onto an outgoing packet, beneath the top label.  An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signaling protocol
-        	**type**\: list of    :py:class:`Mplslabelstackentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry>`
-        
-        
-
-        """
-
-        _prefix = 'MPLS-LSR-STD-MIB'
-        _revision = '2004-06-03'
-
-        def __init__(self):
-            super(MPLSLSRSTDMIB.Mplslabelstacktable, self).__init__()
-
-            self.yang_name = "mplsLabelStackTable"
-            self.yang_parent_name = "MPLS-LSR-STD-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"mplsLabelStackEntry" : ("mplslabelstackentry", MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry)}
-
-            self.mplslabelstackentry = YList(self)
-            self._segment_path = lambda: "mplsLabelStackTable"
-            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable, [], name, value)
-
-
-        class Mplslabelstackentry(Entity):
-            """
-            An entry in this table represents one label which is
-            to be pushed onto an outgoing packet, beneath the
-            top label.  An entry can be created by a network
-            administrator or by an SNMP agent as instructed by
-            an MPLS signaling protocol.
-            
-            .. attribute:: mplslabelstackindex  <key>
-            
-            	Primary index for this row identifying a stack of labels to be pushed on an outgoing packet, beneath the top label. An index containing the string with a single octet 0x00 MUST not be used
-            	**type**\:  str
-            
-            	**length:** 1..24
-            
-            .. attribute:: mplslabelstacklabelindex  <key>
-            
-            	Secondary index for this row identifying one label of the stack.  Note that an entry with a smaller mplsLabelStackLabelIndex would refer to a label higher up the label stack and would be popped at a downstream LSR before a label represented by a higher mplsLabelStackLabelIndex at a downstream LSR
-            	**type**\:  int
-            
-            	**range:** 1..2147483647
-            
-            .. attribute:: mplslabelstacklabel
-            
-            	The label to pushed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplslabelstacklabelptr
-            
-            	If the label for this segment cannot be represented fully within the mplsLabelStackLabel object, this object MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsLabelStackLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: mplslabelstackrowstatus
-            
-            	For creating, modifying, and deleting this row. When a row in this table has a row in the active(1) state, no objects in this row except this object and the mplsLabelStackStorageType can be modified
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mplslabelstackstoragetype
-            
-            	This variable indicates the storage type for this object. This object cannot be modified if mplsLabelStackRowStatus is active(1). No objects are required to be writable for rows in this table with this object set to permanent(4).  The agent MUST ensure that all related entries in this table retain the same value for this object.  Agents MUST ensure that the storage type for all entries related to a particular mplsXCEntry retain the same value for this object as the mplsXCEntry's StorageType
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            
-
-            """
-
-            _prefix = 'MPLS-LSR-STD-MIB'
-            _revision = '2004-06-03'
-
-            def __init__(self):
-                super(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, self).__init__()
-
-                self.yang_name = "mplsLabelStackEntry"
-                self.yang_parent_name = "mplsLabelStackTable"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.mplslabelstackindex = YLeaf(YType.str, "mplsLabelStackIndex")
-
-                self.mplslabelstacklabelindex = YLeaf(YType.uint32, "mplsLabelStackLabelIndex")
-
-                self.mplslabelstacklabel = YLeaf(YType.uint32, "mplsLabelStackLabel")
-
-                self.mplslabelstacklabelptr = YLeaf(YType.str, "mplsLabelStackLabelPtr")
-
-                self.mplslabelstackrowstatus = YLeaf(YType.enumeration, "mplsLabelStackRowStatus")
-
-                self.mplslabelstackstoragetype = YLeaf(YType.enumeration, "mplsLabelStackStorageType")
-                self._segment_path = lambda: "mplsLabelStackEntry" + "[mplsLabelStackIndex='" + self.mplslabelstackindex.get() + "']" + "[mplsLabelStackLabelIndex='" + self.mplslabelstacklabelindex.get() + "']"
-                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsLabelStackTable/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, ['mplslabelstackindex', 'mplslabelstacklabelindex', 'mplslabelstacklabel', 'mplslabelstacklabelptr', 'mplslabelstackrowstatus', 'mplslabelstackstoragetype'], name, value)
-
-
-    class Mplslsrobjects(Entity):
-        """
-        
-        
-        .. attribute:: mplsinsegmentindexnext
-        
-        	This object contains the next available value to be used for mplsInSegmentIndex when creating entries in the mplsInSegmentTable. The special value of a string containing the single octet 0x00 indicates that no new entries can be created in this table. Agents not allowing managers to create entries in this table MUST set this object to this special value
-        	**type**\:  str
-        
-        	**length:** 1..24
-        
-        .. attribute:: mplslabelstackindexnext
-        
-        	This object contains the next available value to be used for mplsLabelStackIndex when creating entries in the mplsLabelStackTable. The special string containing the single octet 0x00 indicates that no more new entries can be created in the relevant table.  Agents not allowing managers to create entries in this table MUST set this value to the string containing the single octet 0x00
-        	**type**\:  str
-        
-        	**length:** 1..24
-        
-        .. attribute:: mplsmaxlabelstackdepth
-        
-        	The maximum stack depth supported by this LSR
-        	**type**\:  int
-        
-        	**range:** 1..2147483647
-        
-        .. attribute:: mplsoutsegmentindexnext
-        
-        	This object contains the next available value to be used for mplsOutSegmentIndex when creating entries in the mplsOutSegmentTable. The special value of a string containing the single octet 0x00 indicates that no new entries can be created in this table. Agents not allowing managers to create entries in this table MUST set this object to this special value
-        	**type**\:  str
-        
-        	**length:** 1..24
-        
-        .. attribute:: mplsxcindexnext
-        
-        	This object contains the next available value to be used for mplsXCIndex when creating entries in the mplsXCTable. A special value of the zero length string indicates that no more new entries can be created in the relevant table.  Agents not allowing managers to create entries in this table MUST set this value to the zero length string
-        	**type**\:  str
-        
-        	**length:** 1..24
-        
-        .. attribute:: mplsxcnotificationsenable
-        
-        	If this object is set to true(1), then it enables the emission of mplsXCUp and mplsXCDown notifications; otherwise these notifications are not emitted
-        	**type**\:  bool
-        
-        
-
-        """
-
-        _prefix = 'MPLS-LSR-STD-MIB'
-        _revision = '2004-06-03'
-
-        def __init__(self):
-            super(MPLSLSRSTDMIB.Mplslsrobjects, self).__init__()
-
-            self.yang_name = "mplsLsrObjects"
-            self.yang_parent_name = "MPLS-LSR-STD-MIB"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.mplsinsegmentindexnext = YLeaf(YType.str, "mplsInSegmentIndexNext")
-
-            self.mplslabelstackindexnext = YLeaf(YType.str, "mplsLabelStackIndexNext")
-
-            self.mplsmaxlabelstackdepth = YLeaf(YType.uint32, "mplsMaxLabelStackDepth")
-
-            self.mplsoutsegmentindexnext = YLeaf(YType.str, "mplsOutSegmentIndexNext")
-
-            self.mplsxcindexnext = YLeaf(YType.str, "mplsXCIndexNext")
-
-            self.mplsxcnotificationsenable = YLeaf(YType.boolean, "mplsXCNotificationsEnable")
-            self._segment_path = lambda: "mplsLsrObjects"
-            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(MPLSLSRSTDMIB.Mplslsrobjects, ['mplsinsegmentindexnext', 'mplslabelstackindexnext', 'mplsmaxlabelstackdepth', 'mplsoutsegmentindexnext', 'mplsxcindexnext', 'mplsxcnotificationsenable'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmenttable.Mplsinsegmententry, ['mplsinsegmentindex', 'mplsinsegmentinterface', 'mplsinsegmentlabel', 'mplsinsegmentlabelptr', 'mplsinsegmentnpop', 'mplsinsegmentaddrfamily', 'mplsinsegmentxcindex', 'mplsinsegmentowner', 'mplsinsegmenttrafficparamptr', 'mplsinsegmentrowstatus', 'mplsinsegmentstoragetype', 'mplsinsegmentperfoctets', 'mplsinsegmentperfpackets', 'mplsinsegmentperferrors', 'mplsinsegmentperfdiscards', 'mplsinsegmentperfhcoctets', 'mplsinsegmentperfdiscontinuitytime'], name, value)
 
 
     class Mplsoutsegmenttable(Entity):
@@ -936,6 +696,28 @@ class MPLSLSRSTDMIB(Entity):
             
             	**range:** 0..2147483647
             
+            .. attribute:: mplsoutsegmentpushtoplabel
+            
+            	This value indicates whether or not a top label should be pushed onto the outgoing packet's label stack.  The value of this variable MUST be set to true(1) if the outgoing interface does not support pop\-and\-go (and no label stack remains). For example, on ATM interface, or if the segment represents a tunnel origination.  Note that it is considered an error in the case that mplsOutSegmentPushTopLabel is set to false, but the cross\-connect entry which refers to this out\-segment has a non\-zero mplsLabelStackIndex.  The LSR MUST ensure that this situation does not happen. This object cannot be modified if mplsOutSegmentRowStatus is active(1)
+            	**type**\:  bool
+            
+            .. attribute:: mplsoutsegmenttoplabel
+            
+            	If mplsOutSegmentPushTopLabel is true then this represents the label that should be pushed onto the top of the outgoing packet's label stack. Otherwise this value SHOULD be set to 0 by the management station and MUST be ignored by the agent. This object cannot be modified if mplsOutSegmentRowStatus is active(1)
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsoutsegmenttoplabelptr
+            
+            	If the label for this segment cannot be represented fully within the mplsOutSegmentLabel object, this object MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsOutSegmentTopLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
+            	**type**\:  str
+            
+            .. attribute:: mplsoutsegmentnexthopaddrtype
+            
+            	Indicates the next hop Internet address type. Only values unknown(0), ipv4(1) or ipv6(2) have to be supported.  A value of unknown(0) is allowed only when the outgoing interface is of type point\-to\-point. If any other unsupported values are attempted in a set operation, the agent MUST return an inconsistentValue error
+            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            
             .. attribute:: mplsoutsegmentnexthopaddr
             
             	The internet address of the next hop. The type of this address is determined by the value of the mplslOutSegmentNextHopAddrType object.  This object cannot be modified if mplsOutSegmentRowStatus is active(1)
@@ -943,43 +725,32 @@ class MPLSLSRSTDMIB(Entity):
             
             	**length:** 0..255
             
-            .. attribute:: mplsoutsegmentnexthopaddrtype
+            .. attribute:: mplsoutsegmentxcindex
             
-            	Indicates the next hop Internet address type. Only values unknown(0), ipv4(1) or ipv6(2) have to be supported.  A value of unknown(0) is allowed only when the outgoing interface is of type point\-to\-point. If any other unsupported values are attempted in a set operation, the agent MUST return an inconsistentValue error
-            	**type**\:   :py:class:`InetAddressType <ydk.models.cisco_ios_xe.INET_ADDRESS_MIB.InetAddressType>`
+            	Index into mplsXCTable which identifies which cross\- connect entry this segment is part of.  A value of the string containing the single octet 0x00 indicates that this entry is not referred to by any cross\-connect entry.  When a cross\-connect entry is created which this out\-segment is a part of, this object MUST be updated by the agent to reflect the value of mplsXCIndex of that cross\-connect entry
+            	**type**\:  str
+            
+            	**length:** 1..24
             
             .. attribute:: mplsoutsegmentowner
             
             	Denotes the entity which created and is responsible for managing this segment
             	**type**\:   :py:class:`MplsOwner <ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB.MplsOwner>`
             
-            .. attribute:: mplsoutsegmentperfdiscards
+            .. attribute:: mplsoutsegmenttrafficparamptr
             
-            	The number of labeled packets attempted to be transmitted on this out\-segment, which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a labeled packet could be to free up buffer space
-            	**type**\:  int
+            	This variable represents a pointer to the traffic parameter specification for this out\-segment.  This value may point at an entry in the MplsTunnelResourceEntry in the MPLS\-TE\-STD\-MIB (RFC3812)  RFC Editor\: Please fill in RFC number.  to indicate which traffic parameter settings for this segment if it represents an LSP used for a TE tunnel.  This value may optionally point at an externally defined traffic parameter specification table.  A value of zeroDotZero indicates best\-effort treatment.  By having the same value of this object, two or more segments can indicate resource sharing of such things as LSP queue space, etc.  This object cannot be modified if mplsOutSegmentRowStatus is active(1). For entries in this table that are preserved after a re\-boot, the agent MUST ensure that their integrity be preserved, or this object should be set to 0.0 if it cannot
+            	**type**\:  str
             
-            	**range:** 0..4294967295
+            .. attribute:: mplsoutsegmentrowstatus
             
-            .. attribute:: mplsoutsegmentperfdiscontinuitytime
+            	For creating, modifying, and deleting this row. When a row in this table has a row in the active(1) state, no objects in this row can be modified except the mplsOutSegmentRowStatus or mplsOutSegmentStorageType
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
             
-            	The value of sysUpTime on the most recent occasion at which any one or more of this segment's Counter32 or Counter64 suffered a discontinuity. If no such discontinuities have occurred since the last re\- initialization of the local management subsystem, then this object contains a zero value
-            	**type**\:  int
+            .. attribute:: mplsoutsegmentstoragetype
             
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsoutsegmentperferrors
-            
-            	Number of packets that could not be sent due to errors on this segment
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: mplsoutsegmentperfhcoctets
-            
-            	Total number of octets sent.  This is the 64 bit version of mplsOutSegmentPerfOctets, if mplsOutSegmentPerfHCOctets is supported according to the rules spelled out in RFC2863
-            	**type**\:  int
-            
-            	**range:** 0..18446744073709551615
+            	This variable indicates the storage type for this object. The agent MUST ensure that this object's value remains consistent with the associated mplsXCEntry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
             
             .. attribute:: mplsoutsegmentperfoctets
             
@@ -995,48 +766,33 @@ class MPLSLSRSTDMIB(Entity):
             
             	**range:** 0..4294967295
             
-            .. attribute:: mplsoutsegmentpushtoplabel
+            .. attribute:: mplsoutsegmentperferrors
             
-            	This value indicates whether or not a top label should be pushed onto the outgoing packet's label stack.  The value of this variable MUST be set to true(1) if the outgoing interface does not support pop\-and\-go (and no label stack remains). For example, on ATM interface, or if the segment represents a tunnel origination.  Note that it is considered an error in the case that mplsOutSegmentPushTopLabel is set to false, but the cross\-connect entry which refers to this out\-segment has a non\-zero mplsLabelStackIndex.  The LSR MUST ensure that this situation does not happen. This object cannot be modified if mplsOutSegmentRowStatus is active(1)
-            	**type**\:  bool
-            
-            .. attribute:: mplsoutsegmentrowstatus
-            
-            	For creating, modifying, and deleting this row. When a row in this table has a row in the active(1) state, no objects in this row can be modified except the mplsOutSegmentRowStatus or mplsOutSegmentStorageType
-            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
-            
-            .. attribute:: mplsoutsegmentstoragetype
-            
-            	This variable indicates the storage type for this object. The agent MUST ensure that this object's value remains consistent with the associated mplsXCEntry. Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
-            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
-            
-            .. attribute:: mplsoutsegmenttoplabel
-            
-            	If mplsOutSegmentPushTopLabel is true then this represents the label that should be pushed onto the top of the outgoing packet's label stack. Otherwise this value SHOULD be set to 0 by the management station and MUST be ignored by the agent. This object cannot be modified if mplsOutSegmentRowStatus is active(1)
+            	Number of packets that could not be sent due to errors on this segment
             	**type**\:  int
             
             	**range:** 0..4294967295
             
-            .. attribute:: mplsoutsegmenttoplabelptr
+            .. attribute:: mplsoutsegmentperfdiscards
             
-            	If the label for this segment cannot be represented fully within the mplsOutSegmentLabel object, this object MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsOutSegmentTopLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
-            	**type**\:  str
+            	The number of labeled packets attempted to be transmitted on this out\-segment, which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a labeled packet could be to free up buffer space
+            	**type**\:  int
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            	**range:** 0..4294967295
             
-            .. attribute:: mplsoutsegmenttrafficparamptr
+            .. attribute:: mplsoutsegmentperfhcoctets
             
-            	This variable represents a pointer to the traffic parameter specification for this out\-segment.  This value may point at an entry in the MplsTunnelResourceEntry in the MPLS\-TE\-STD\-MIB (RFC3812)  RFC Editor\: Please fill in RFC number.  to indicate which traffic parameter settings for this segment if it represents an LSP used for a TE tunnel.  This value may optionally point at an externally defined traffic parameter specification table.  A value of zeroDotZero indicates best\-effort treatment.  By having the same value of this object, two or more segments can indicate resource sharing of such things as LSP queue space, etc.  This object cannot be modified if mplsOutSegmentRowStatus is active(1). For entries in this table that are preserved after a re\-boot, the agent MUST ensure that their integrity be preserved, or this object should be set to 0.0 if it cannot
-            	**type**\:  str
+            	Total number of octets sent.  This is the 64 bit version of mplsOutSegmentPerfOctets, if mplsOutSegmentPerfHCOctets is supported according to the rules spelled out in RFC2863
+            	**type**\:  int
             
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
+            	**range:** 0..18446744073709551615
             
-            .. attribute:: mplsoutsegmentxcindex
+            .. attribute:: mplsoutsegmentperfdiscontinuitytime
             
-            	Index into mplsXCTable which identifies which cross\- connect entry this segment is part of.  A value of the string containing the single octet 0x00 indicates that this entry is not referred to by any cross\-connect entry.  When a cross\-connect entry is created which this out\-segment is a part of, this object MUST be updated by the agent to reflect the value of mplsXCIndex of that cross\-connect entry
-            	**type**\:  str
+            	The value of sysUpTime on the most recent occasion at which any one or more of this segment's Counter32 or Counter64 suffered a discontinuity. If no such discontinuities have occurred since the last re\- initialization of the local management subsystem, then this object contains a zero value
+            	**type**\:  int
             
-            	**length:** 1..24
+            	**range:** 0..4294967295
             
             
 
@@ -1059,42 +815,42 @@ class MPLSLSRSTDMIB(Entity):
 
                 self.mplsoutsegmentinterface = YLeaf(YType.int32, "mplsOutSegmentInterface")
 
-                self.mplsoutsegmentnexthopaddr = YLeaf(YType.str, "mplsOutSegmentNextHopAddr")
-
-                self.mplsoutsegmentnexthopaddrtype = YLeaf(YType.enumeration, "mplsOutSegmentNextHopAddrType")
-
-                self.mplsoutsegmentowner = YLeaf(YType.enumeration, "mplsOutSegmentOwner")
-
-                self.mplsoutsegmentperfdiscards = YLeaf(YType.uint32, "mplsOutSegmentPerfDiscards")
-
-                self.mplsoutsegmentperfdiscontinuitytime = YLeaf(YType.uint32, "mplsOutSegmentPerfDiscontinuityTime")
-
-                self.mplsoutsegmentperferrors = YLeaf(YType.uint32, "mplsOutSegmentPerfErrors")
-
-                self.mplsoutsegmentperfhcoctets = YLeaf(YType.uint64, "mplsOutSegmentPerfHCOctets")
-
-                self.mplsoutsegmentperfoctets = YLeaf(YType.uint32, "mplsOutSegmentPerfOctets")
-
-                self.mplsoutsegmentperfpackets = YLeaf(YType.uint32, "mplsOutSegmentPerfPackets")
-
                 self.mplsoutsegmentpushtoplabel = YLeaf(YType.boolean, "mplsOutSegmentPushTopLabel")
-
-                self.mplsoutsegmentrowstatus = YLeaf(YType.enumeration, "mplsOutSegmentRowStatus")
-
-                self.mplsoutsegmentstoragetype = YLeaf(YType.enumeration, "mplsOutSegmentStorageType")
 
                 self.mplsoutsegmenttoplabel = YLeaf(YType.uint32, "mplsOutSegmentTopLabel")
 
                 self.mplsoutsegmenttoplabelptr = YLeaf(YType.str, "mplsOutSegmentTopLabelPtr")
 
-                self.mplsoutsegmenttrafficparamptr = YLeaf(YType.str, "mplsOutSegmentTrafficParamPtr")
+                self.mplsoutsegmentnexthopaddrtype = YLeaf(YType.enumeration, "mplsOutSegmentNextHopAddrType")
+
+                self.mplsoutsegmentnexthopaddr = YLeaf(YType.str, "mplsOutSegmentNextHopAddr")
 
                 self.mplsoutsegmentxcindex = YLeaf(YType.str, "mplsOutSegmentXCIndex")
+
+                self.mplsoutsegmentowner = YLeaf(YType.enumeration, "mplsOutSegmentOwner")
+
+                self.mplsoutsegmenttrafficparamptr = YLeaf(YType.str, "mplsOutSegmentTrafficParamPtr")
+
+                self.mplsoutsegmentrowstatus = YLeaf(YType.enumeration, "mplsOutSegmentRowStatus")
+
+                self.mplsoutsegmentstoragetype = YLeaf(YType.enumeration, "mplsOutSegmentStorageType")
+
+                self.mplsoutsegmentperfoctets = YLeaf(YType.uint32, "mplsOutSegmentPerfOctets")
+
+                self.mplsoutsegmentperfpackets = YLeaf(YType.uint32, "mplsOutSegmentPerfPackets")
+
+                self.mplsoutsegmentperferrors = YLeaf(YType.uint32, "mplsOutSegmentPerfErrors")
+
+                self.mplsoutsegmentperfdiscards = YLeaf(YType.uint32, "mplsOutSegmentPerfDiscards")
+
+                self.mplsoutsegmentperfhcoctets = YLeaf(YType.uint64, "mplsOutSegmentPerfHCOctets")
+
+                self.mplsoutsegmentperfdiscontinuitytime = YLeaf(YType.uint32, "mplsOutSegmentPerfDiscontinuityTime")
                 self._segment_path = lambda: "mplsOutSegmentEntry" + "[mplsOutSegmentIndex='" + self.mplsoutsegmentindex.get() + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsOutSegmentTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry, ['mplsoutsegmentindex', 'mplsoutsegmentinterface', 'mplsoutsegmentnexthopaddr', 'mplsoutsegmentnexthopaddrtype', 'mplsoutsegmentowner', 'mplsoutsegmentperfdiscards', 'mplsoutsegmentperfdiscontinuitytime', 'mplsoutsegmentperferrors', 'mplsoutsegmentperfhcoctets', 'mplsoutsegmentperfoctets', 'mplsoutsegmentperfpackets', 'mplsoutsegmentpushtoplabel', 'mplsoutsegmentrowstatus', 'mplsoutsegmentstoragetype', 'mplsoutsegmenttoplabel', 'mplsoutsegmenttoplabelptr', 'mplsoutsegmenttrafficparamptr', 'mplsoutsegmentxcindex'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.Mplsoutsegmenttable.Mplsoutsegmententry, ['mplsoutsegmentindex', 'mplsoutsegmentinterface', 'mplsoutsegmentpushtoplabel', 'mplsoutsegmenttoplabel', 'mplsoutsegmenttoplabelptr', 'mplsoutsegmentnexthopaddrtype', 'mplsoutsegmentnexthopaddr', 'mplsoutsegmentxcindex', 'mplsoutsegmentowner', 'mplsoutsegmenttrafficparamptr', 'mplsoutsegmentrowstatus', 'mplsoutsegmentstoragetype', 'mplsoutsegmentperfoctets', 'mplsoutsegmentperfpackets', 'mplsoutsegmentperferrors', 'mplsoutsegmentperfdiscards', 'mplsoutsegmentperfhcoctets', 'mplsoutsegmentperfdiscontinuitytime'], name, value)
 
 
     class Mplsxctable(Entity):
@@ -1197,18 +953,6 @@ class MPLSLSRSTDMIB(Entity):
             
             	**length:** 1..24
             
-            .. attribute:: mplsxcadminstatus
-            
-            	The desired operational status of this segment
-            	**type**\:   :py:class:`Mplsxcadminstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcadminstatus>`
-            
-            .. attribute:: mplsxclabelstackindex
-            
-            	Primary index into mplsLabelStackTable identifying a stack of labels to be pushed beneath the top label. Note that the top label identified by the out\- segment ensures that all the components of a multipoint\-to\-point connection have the same outgoing label. A value of the string containing the single octet 0x00 indicates that no labels are to be stacked beneath the top label. This object cannot be modified if mplsXCRowStatus is active(1)
-            	**type**\:  str
-            
-            	**length:** 1..24
-            
             .. attribute:: mplsxclspid
             
             	This value identifies the label switched path that this cross\-connect entry belongs to. This object cannot be modified if mplsXCRowStatus is active(1) except for this object
@@ -1216,10 +960,12 @@ class MPLSLSRSTDMIB(Entity):
             
             	**length:** 2 \| 6
             
-            .. attribute:: mplsxcoperstatus
+            .. attribute:: mplsxclabelstackindex
             
-            	The actual operational status of this cross\- connect
-            	**type**\:   :py:class:`Mplsxcoperstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcoperstatus>`
+            	Primary index into mplsLabelStackTable identifying a stack of labels to be pushed beneath the top label. Note that the top label identified by the out\- segment ensures that all the components of a multipoint\-to\-point connection have the same outgoing label. A value of the string containing the single octet 0x00 indicates that no labels are to be stacked beneath the top label. This object cannot be modified if mplsXCRowStatus is active(1)
+            	**type**\:  str
+            
+            	**length:** 1..24
             
             .. attribute:: mplsxcowner
             
@@ -1235,6 +981,16 @@ class MPLSLSRSTDMIB(Entity):
             
             	This variable indicates the storage type for this object. The agent MUST ensure that the associated in and out segments also have the same StorageType value and are restored consistently upon system restart. This value SHOULD be set to permanent(4) if created as a result of a static LSP configuration.  Conceptual rows having the value 'permanent' need not allow write\-access to any columnar objects in the row
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: mplsxcadminstatus
+            
+            	The desired operational status of this segment
+            	**type**\:   :py:class:`Mplsxcadminstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcadminstatus>`
+            
+            .. attribute:: mplsxcoperstatus
+            
+            	The actual operational status of this cross\- connect
+            	**type**\:   :py:class:`Mplsxcoperstatus <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry.Mplsxcoperstatus>`
             
             
 
@@ -1259,24 +1015,24 @@ class MPLSLSRSTDMIB(Entity):
 
                 self.mplsxcoutsegmentindex = YLeaf(YType.str, "mplsXCOutSegmentIndex")
 
-                self.mplsxcadminstatus = YLeaf(YType.enumeration, "mplsXCAdminStatus")
-
-                self.mplsxclabelstackindex = YLeaf(YType.str, "mplsXCLabelStackIndex")
-
                 self.mplsxclspid = YLeaf(YType.str, "mplsXCLspId")
 
-                self.mplsxcoperstatus = YLeaf(YType.enumeration, "mplsXCOperStatus")
+                self.mplsxclabelstackindex = YLeaf(YType.str, "mplsXCLabelStackIndex")
 
                 self.mplsxcowner = YLeaf(YType.enumeration, "mplsXCOwner")
 
                 self.mplsxcrowstatus = YLeaf(YType.enumeration, "mplsXCRowStatus")
 
                 self.mplsxcstoragetype = YLeaf(YType.enumeration, "mplsXCStorageType")
+
+                self.mplsxcadminstatus = YLeaf(YType.enumeration, "mplsXCAdminStatus")
+
+                self.mplsxcoperstatus = YLeaf(YType.enumeration, "mplsXCOperStatus")
                 self._segment_path = lambda: "mplsXCEntry" + "[mplsXCIndex='" + self.mplsxcindex.get() + "']" + "[mplsXCInSegmentIndex='" + self.mplsxcinsegmentindex.get() + "']" + "[mplsXCOutSegmentIndex='" + self.mplsxcoutsegmentindex.get() + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsXCTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'mplsxcadminstatus', 'mplsxclabelstackindex', 'mplsxclspid', 'mplsxcoperstatus', 'mplsxcowner', 'mplsxcrowstatus', 'mplsxcstoragetype'], name, value)
+                self._perform_setattr(MPLSLSRSTDMIB.Mplsxctable.Mplsxcentry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'mplsxclspid', 'mplsxclabelstackindex', 'mplsxcowner', 'mplsxcrowstatus', 'mplsxcstoragetype', 'mplsxcadminstatus', 'mplsxcoperstatus'], name, value)
 
             class Mplsxcadminstatus(Enum):
                 """
@@ -1337,6 +1093,238 @@ class MPLSLSRSTDMIB(Entity):
 
                 lowerLayerDown = Enum.YLeaf(7, "lowerLayerDown")
 
+
+
+    class Mplslabelstacktable(Entity):
+        """
+        This table specifies the label stack to be pushed
+        onto a packet, beneath the top label.  Entries into
+        this table are referred to from mplsXCTable.
+        
+        .. attribute:: mplslabelstackentry
+        
+        	An entry in this table represents one label which is to be pushed onto an outgoing packet, beneath the top label.  An entry can be created by a network administrator or by an SNMP agent as instructed by an MPLS signaling protocol
+        	**type**\: list of    :py:class:`Mplslabelstackentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry>`
+        
+        
+
+        """
+
+        _prefix = 'MPLS-LSR-STD-MIB'
+        _revision = '2004-06-03'
+
+        def __init__(self):
+            super(MPLSLSRSTDMIB.Mplslabelstacktable, self).__init__()
+
+            self.yang_name = "mplsLabelStackTable"
+            self.yang_parent_name = "MPLS-LSR-STD-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mplsLabelStackEntry" : ("mplslabelstackentry", MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry)}
+
+            self.mplslabelstackentry = YList(self)
+            self._segment_path = lambda: "mplsLabelStackTable"
+            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable, [], name, value)
+
+
+        class Mplslabelstackentry(Entity):
+            """
+            An entry in this table represents one label which is
+            to be pushed onto an outgoing packet, beneath the
+            top label.  An entry can be created by a network
+            administrator or by an SNMP agent as instructed by
+            an MPLS signaling protocol.
+            
+            .. attribute:: mplslabelstackindex  <key>
+            
+            	Primary index for this row identifying a stack of labels to be pushed on an outgoing packet, beneath the top label. An index containing the string with a single octet 0x00 MUST not be used
+            	**type**\:  str
+            
+            	**length:** 1..24
+            
+            .. attribute:: mplslabelstacklabelindex  <key>
+            
+            	Secondary index for this row identifying one label of the stack.  Note that an entry with a smaller mplsLabelStackLabelIndex would refer to a label higher up the label stack and would be popped at a downstream LSR before a label represented by a higher mplsLabelStackLabelIndex at a downstream LSR
+            	**type**\:  int
+            
+            	**range:** 1..2147483647
+            
+            .. attribute:: mplslabelstacklabel
+            
+            	The label to pushed
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplslabelstacklabelptr
+            
+            	If the label for this segment cannot be represented fully within the mplsLabelStackLabel object, this object MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsLabelStackLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
+            	**type**\:  str
+            
+            .. attribute:: mplslabelstackrowstatus
+            
+            	For creating, modifying, and deleting this row. When a row in this table has a row in the active(1) state, no objects in this row except this object and the mplsLabelStackStorageType can be modified
+            	**type**\:   :py:class:`RowStatus <ydk.models.cisco_ios_xe.SNMPv2_TC.RowStatus>`
+            
+            .. attribute:: mplslabelstackstoragetype
+            
+            	This variable indicates the storage type for this object. This object cannot be modified if mplsLabelStackRowStatus is active(1). No objects are required to be writable for rows in this table with this object set to permanent(4).  The agent MUST ensure that all related entries in this table retain the same value for this object.  Agents MUST ensure that the storage type for all entries related to a particular mplsXCEntry retain the same value for this object as the mplsXCEntry's StorageType
+            	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            
+
+            """
+
+            _prefix = 'MPLS-LSR-STD-MIB'
+            _revision = '2004-06-03'
+
+            def __init__(self):
+                super(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, self).__init__()
+
+                self.yang_name = "mplsLabelStackEntry"
+                self.yang_parent_name = "mplsLabelStackTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mplslabelstackindex = YLeaf(YType.str, "mplsLabelStackIndex")
+
+                self.mplslabelstacklabelindex = YLeaf(YType.uint32, "mplsLabelStackLabelIndex")
+
+                self.mplslabelstacklabel = YLeaf(YType.uint32, "mplsLabelStackLabel")
+
+                self.mplslabelstacklabelptr = YLeaf(YType.str, "mplsLabelStackLabelPtr")
+
+                self.mplslabelstackrowstatus = YLeaf(YType.enumeration, "mplsLabelStackRowStatus")
+
+                self.mplslabelstackstoragetype = YLeaf(YType.enumeration, "mplsLabelStackStorageType")
+                self._segment_path = lambda: "mplsLabelStackEntry" + "[mplsLabelStackIndex='" + self.mplslabelstackindex.get() + "']" + "[mplsLabelStackLabelIndex='" + self.mplslabelstacklabelindex.get() + "']"
+                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsLabelStackTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MPLSLSRSTDMIB.Mplslabelstacktable.Mplslabelstackentry, ['mplslabelstackindex', 'mplslabelstacklabelindex', 'mplslabelstacklabel', 'mplslabelstacklabelptr', 'mplslabelstackrowstatus', 'mplslabelstackstoragetype'], name, value)
+
+
+    class Mplsinsegmentmaptable(Entity):
+        """
+        This table specifies the mapping from the
+        mplsInSegmentIndex to the corresponding
+        mplsInSegmentInterface and mplsInSegmentLabel
+        objects. The purpose of this table is to
+        provide the manager with an alternative
+        means by which to locate in\-segments.
+        
+        .. attribute:: mplsinsegmentmapentry
+        
+        	An entry in this table represents one interface and incoming label pair.  In cases where the label cannot fit into the mplsInSegmentLabel object, the mplsInSegmentLabelPtr will indicate this by being set to the first accessible column in the appropriate extension table's row, and the mplsInSegmentLabel SHOULD be set to 0. In all other cases when the label is represented within the mplsInSegmentLabel object, the mplsInSegmentLabelPtr MUST be 0.0.  Implementors need to be aware that if the value of the mplsInSegmentMapLabelPtrIndex (an OID) has more that 111 sub\-identifiers, then OIDs of column instances in this table will have more than 128 sub\-identifiers and cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3
+        	**type**\: list of    :py:class:`Mplsinsegmentmapentry <ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB.MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry>`
+        
+        
+
+        """
+
+        _prefix = 'MPLS-LSR-STD-MIB'
+        _revision = '2004-06-03'
+
+        def __init__(self):
+            super(MPLSLSRSTDMIB.Mplsinsegmentmaptable, self).__init__()
+
+            self.yang_name = "mplsInSegmentMapTable"
+            self.yang_parent_name = "MPLS-LSR-STD-MIB"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"mplsInSegmentMapEntry" : ("mplsinsegmentmapentry", MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry)}
+
+            self.mplsinsegmentmapentry = YList(self)
+            self._segment_path = lambda: "mplsInSegmentMapTable"
+            self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable, [], name, value)
+
+
+        class Mplsinsegmentmapentry(Entity):
+            """
+            An entry in this table represents one interface
+            and incoming label pair.
+            
+            In cases where the label cannot fit into the
+            mplsInSegmentLabel object, the mplsInSegmentLabelPtr
+            will indicate this by being set to the first accessible
+            column in the appropriate extension table's row,
+            and the mplsInSegmentLabel SHOULD be set to 0.
+            In all other cases when the label is
+            represented within the mplsInSegmentLabel object, the
+            mplsInSegmentLabelPtr MUST be 0.0.
+            
+            Implementors need to be aware that if the value of
+            the mplsInSegmentMapLabelPtrIndex (an OID) has more
+            that 111 sub\-identifiers, then OIDs of column
+            instances in this table will have more than 128
+            sub\-identifiers and cannot be accessed using SNMPv1,
+            SNMPv2c, or SNMPv3.
+            
+            .. attribute:: mplsinsegmentmapinterface  <key>
+            
+            	This index contains the same value as the mplsInSegmentIndex in the mplsInSegmentTable
+            	**type**\:  int
+            
+            	**range:** 0..2147483647
+            
+            .. attribute:: mplsinsegmentmaplabel  <key>
+            
+            	This index contains the same value as the mplsInSegmentLabel in the mplsInSegmentTable
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: mplsinsegmentmaplabelptrindex  <key>
+            
+            	This index contains the same value as the mplsInSegmentLabelPtr.  If the label for the InSegment cannot be represented fully within the mplsInSegmentLabel object, this index MUST point to the first accessible column of a conceptual row in an external table containing the label.  In this case, the mplsInSegmentTopLabel object SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero otherwise
+            	**type**\:  str
+            
+            .. attribute:: mplsinsegmentmapindex
+            
+            	The mplsInSegmentIndex that corresponds to the mplsInSegmentInterface and mplsInSegmentLabel, or the mplsInSegmentInterface and mplsInSegmentLabelPtr, if applicable. The string containing the single octet 0x00 MUST not be returned
+            	**type**\:  str
+            
+            	**length:** 1..24
+            
+            
+
+            """
+
+            _prefix = 'MPLS-LSR-STD-MIB'
+            _revision = '2004-06-03'
+
+            def __init__(self):
+                super(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, self).__init__()
+
+                self.yang_name = "mplsInSegmentMapEntry"
+                self.yang_parent_name = "mplsInSegmentMapTable"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.mplsinsegmentmapinterface = YLeaf(YType.int32, "mplsInSegmentMapInterface")
+
+                self.mplsinsegmentmaplabel = YLeaf(YType.uint32, "mplsInSegmentMapLabel")
+
+                self.mplsinsegmentmaplabelptrindex = YLeaf(YType.str, "mplsInSegmentMapLabelPtrIndex")
+
+                self.mplsinsegmentmapindex = YLeaf(YType.str, "mplsInSegmentMapIndex")
+                self._segment_path = lambda: "mplsInSegmentMapEntry" + "[mplsInSegmentMapInterface='" + self.mplsinsegmentmapinterface.get() + "']" + "[mplsInSegmentMapLabel='" + self.mplsinsegmentmaplabel.get() + "']" + "[mplsInSegmentMapLabelPtrIndex='" + self.mplsinsegmentmaplabelptrindex.get() + "']"
+                self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentMapTable/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(MPLSLSRSTDMIB.Mplsinsegmentmaptable.Mplsinsegmentmapentry, ['mplsinsegmentmapinterface', 'mplsinsegmentmaplabel', 'mplsinsegmentmaplabelptrindex', 'mplsinsegmentmapindex'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MPLSLSRSTDMIB()

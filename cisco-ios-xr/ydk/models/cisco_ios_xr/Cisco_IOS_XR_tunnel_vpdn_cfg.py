@@ -82,40 +82,45 @@ class Vpdn(Entity):
     """
     VPDN configuration
     
-    .. attribute:: caller_id
-    
-    	Options to apply on calling station ID
-    	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.CallerId>`
-    
-    .. attribute:: enable
-    
-    	Enable VPDN configuration. Deletion of this object also causes deletion of all associated objects under VPDN
-    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
     .. attribute:: history
     
     	VPDN history logging
     	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.History>`
     
-    .. attribute:: l2tp
+    .. attribute:: redundancy
     
-    	L2TPv2 protocol commands
-    	**type**\:   :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp>`
+    	Enable VPDN redundancy
+    	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy>`
     
     .. attribute:: local
     
     	VPDN Local radius process configuration
     	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Local>`
     
+    .. attribute:: templates
+    
+    	Table of Template
+    	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates>`
+    
+    .. attribute:: caller_id
+    
+    	Options to apply on calling station ID
+    	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.CallerId>`
+    
+    .. attribute:: vpd_ngroups
+    
+    	Table of VPDNgroup
+    	**type**\:   :py:class:`VpdNgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups>`
+    
     .. attribute:: loggings
     
     	Table of Logging
     	**type**\:   :py:class:`Loggings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Loggings>`
     
-    .. attribute:: redundancy
+    .. attribute:: l2tp
     
-    	Enable VPDN redundancy
-    	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy>`
+    	L2TPv2 protocol commands
+    	**type**\:   :py:class:`L2Tp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp>`
     
     .. attribute:: session_limit
     
@@ -124,20 +129,15 @@ class Vpdn(Entity):
     
     	**range:** 1..131072
     
+    .. attribute:: enable
+    
+    	Enable VPDN configuration. Deletion of this object also causes deletion of all associated objects under VPDN
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+    
     .. attribute:: soft_shut
     
     	New session no longer allowed
     	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-    
-    .. attribute:: templates
-    
-    	Table of Template
-    	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates>`
-    
-    .. attribute:: vpd_ngroups
-    
-    	Table of VPDNgroup
-    	**type**\:   :py:class:`VpdNgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups>`
     
     
 
@@ -154,58 +154,615 @@ class Vpdn(Entity):
         self.yang_parent_name = "Cisco-IOS-XR-tunnel-vpdn-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"caller-id" : ("caller_id", Vpdn.CallerId), "history" : ("history", Vpdn.History), "l2tp" : ("l2tp", Vpdn.L2Tp), "local" : ("local", Vpdn.Local), "loggings" : ("loggings", Vpdn.Loggings), "redundancy" : ("redundancy", Vpdn.Redundancy), "templates" : ("templates", Vpdn.Templates), "vpd-ngroups" : ("vpd_ngroups", Vpdn.VpdNgroups)}
+        self._child_container_classes = {"history" : ("history", Vpdn.History), "redundancy" : ("redundancy", Vpdn.Redundancy), "local" : ("local", Vpdn.Local), "templates" : ("templates", Vpdn.Templates), "caller-id" : ("caller_id", Vpdn.CallerId), "vpd-ngroups" : ("vpd_ngroups", Vpdn.VpdNgroups), "loggings" : ("loggings", Vpdn.Loggings), "l2tp" : ("l2tp", Vpdn.L2Tp)}
         self._child_list_classes = {}
-
-        self.enable = YLeaf(YType.empty, "enable")
 
         self.session_limit = YLeaf(YType.uint32, "session-limit")
 
-        self.soft_shut = YLeaf(YType.empty, "soft-shut")
+        self.enable = YLeaf(YType.empty, "enable")
 
-        self.caller_id = Vpdn.CallerId()
-        self.caller_id.parent = self
-        self._children_name_map["caller_id"] = "caller-id"
-        self._children_yang_names.add("caller-id")
+        self.soft_shut = YLeaf(YType.empty, "soft-shut")
 
         self.history = Vpdn.History()
         self.history.parent = self
         self._children_name_map["history"] = "history"
         self._children_yang_names.add("history")
 
-        self.l2tp = Vpdn.L2Tp()
-        self.l2tp.parent = self
-        self._children_name_map["l2tp"] = "l2tp"
-        self._children_yang_names.add("l2tp")
+        self.redundancy = Vpdn.Redundancy()
+        self.redundancy.parent = self
+        self._children_name_map["redundancy"] = "redundancy"
+        self._children_yang_names.add("redundancy")
 
         self.local = Vpdn.Local()
         self.local.parent = self
         self._children_name_map["local"] = "local"
         self._children_yang_names.add("local")
 
-        self.loggings = Vpdn.Loggings()
-        self.loggings.parent = self
-        self._children_name_map["loggings"] = "loggings"
-        self._children_yang_names.add("loggings")
-
-        self.redundancy = Vpdn.Redundancy()
-        self.redundancy.parent = self
-        self._children_name_map["redundancy"] = "redundancy"
-        self._children_yang_names.add("redundancy")
-
         self.templates = Vpdn.Templates()
         self.templates.parent = self
         self._children_name_map["templates"] = "templates"
         self._children_yang_names.add("templates")
 
+        self.caller_id = Vpdn.CallerId()
+        self.caller_id.parent = self
+        self._children_name_map["caller_id"] = "caller-id"
+        self._children_yang_names.add("caller-id")
+
         self.vpd_ngroups = Vpdn.VpdNgroups()
         self.vpd_ngroups.parent = self
         self._children_name_map["vpd_ngroups"] = "vpd-ngroups"
         self._children_yang_names.add("vpd-ngroups")
+
+        self.loggings = Vpdn.Loggings()
+        self.loggings.parent = self
+        self._children_name_map["loggings"] = "loggings"
+        self._children_yang_names.add("loggings")
+
+        self.l2tp = Vpdn.L2Tp()
+        self.l2tp.parent = self
+        self._children_name_map["l2tp"] = "l2tp"
+        self._children_yang_names.add("l2tp")
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn"
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Vpdn, ['enable', 'session_limit', 'soft_shut'], name, value)
+        self._perform_setattr(Vpdn, ['session_limit', 'enable', 'soft_shut'], name, value)
+
+
+    class History(Entity):
+        """
+        VPDN history logging
+        
+        .. attribute:: failure
+        
+        	User failure
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'tunnel-vpdn-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vpdn.History, self).__init__()
+
+            self.yang_name = "history"
+            self.yang_parent_name = "vpdn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.failure = YLeaf(YType.empty, "failure")
+            self._segment_path = lambda: "history"
+            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vpdn.History, ['failure'], name, value)
+
+
+    class Redundancy(Entity):
+        """
+        Enable VPDN redundancy
+        
+        .. attribute:: process_failures
+        
+        	Process crash configuration
+        	**type**\:   :py:class:`ProcessFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy.ProcessFailures>`
+        
+        .. attribute:: enable
+        
+        	Enable Enable VPDN redundancy. Deletion of this object also causes deletion of all associated objects under Redundancy
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'tunnel-vpdn-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vpdn.Redundancy, self).__init__()
+
+            self.yang_name = "redundancy"
+            self.yang_parent_name = "vpdn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"process-failures" : ("process_failures", Vpdn.Redundancy.ProcessFailures)}
+            self._child_list_classes = {}
+
+            self.enable = YLeaf(YType.empty, "enable")
+
+            self.process_failures = Vpdn.Redundancy.ProcessFailures()
+            self.process_failures.parent = self
+            self._children_name_map["process_failures"] = "process-failures"
+            self._children_yang_names.add("process-failures")
+            self._segment_path = lambda: "redundancy"
+            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vpdn.Redundancy, ['enable'], name, value)
+
+
+        class ProcessFailures(Entity):
+            """
+            Process crash configuration
+            
+            .. attribute:: switchover
+            
+            	Force a switchover if the process crashes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'tunnel-vpdn-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vpdn.Redundancy.ProcessFailures, self).__init__()
+
+                self.yang_name = "process-failures"
+                self.yang_parent_name = "redundancy"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.switchover = YLeaf(YType.empty, "switchover")
+                self._segment_path = lambda: "process-failures"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/redundancy/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.Redundancy.ProcessFailures, ['switchover'], name, value)
+
+
+    class Local(Entity):
+        """
+        VPDN Local radius process configuration
+        
+        .. attribute:: secret_text
+        
+        	secret password
+        	**type**\:  str
+        
+        	**length:** 1..32
+        
+        .. attribute:: path
+        
+        	local path of the saved profile
+        	**type**\:  str
+        
+        	**length:** 1..64
+        
+        .. attribute:: cache_disabled
+        
+        	Set constant integer
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: port
+        
+        	port value
+        	**type**\:  int
+        
+        	**range:** 1..65535
+        
+        
+
+        """
+
+        _prefix = 'tunnel-vpdn-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vpdn.Local, self).__init__()
+
+            self.yang_name = "local"
+            self.yang_parent_name = "vpdn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.secret_text = YLeaf(YType.str, "secret-text")
+
+            self.path = YLeaf(YType.str, "path")
+
+            self.cache_disabled = YLeaf(YType.empty, "cache-disabled")
+
+            self.port = YLeaf(YType.uint16, "port")
+            self._segment_path = lambda: "local"
+            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vpdn.Local, ['secret_text', 'path', 'cache_disabled', 'port'], name, value)
+
+
+    class Templates(Entity):
+        """
+        Table of Template
+        
+        .. attribute:: template
+        
+        	VPDN template configuration
+        	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template>`
+        
+        
+
+        """
+
+        _prefix = 'tunnel-vpdn-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Vpdn.Templates, self).__init__()
+
+            self.yang_name = "templates"
+            self.yang_parent_name = "vpdn"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {"template" : ("template", Vpdn.Templates.Template)}
+
+            self.template = YList(self)
+            self._segment_path = lambda: "templates"
+            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Vpdn.Templates, [], name, value)
+
+
+        class Template(Entity):
+            """
+            VPDN template configuration
+            
+            .. attribute:: template_name  <key>
+            
+            	VPDN template name
+            	**type**\:  str
+            
+            	**length:** 1..63
+            
+            .. attribute:: caller_id
+            
+            	Options to apply on calling station id
+            	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.CallerId>`
+            
+            .. attribute:: vpn
+            
+            	VPN ID/VRF name
+            	**type**\:   :py:class:`Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn>`
+            
+            .. attribute:: tunnel
+            
+            	L2TP tunnel commands
+            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Tunnel>`
+            
+            .. attribute:: ip
+            
+            	Set IP TOS value
+            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ip>`
+            
+            .. attribute:: ipv4
+            
+            	IPv4 settings for tunnel
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ipv4>`
+            
+            .. attribute:: cisco_avp100_format_e_enable
+            
+            	To support NAS\-Port format e in Cisco AVP 100
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: description
+            
+            	Up to 100 characters describing this VPDN template
+            	**type**\:  str
+            
+            	**length:** 1..100
+            
+            .. attribute:: l2tp_class
+            
+            	L2TP class  command
+            	**type**\:  str
+            
+            	**length:** 1..79
+            
+            .. attribute:: dsl_line_forwarding
+            
+            	Forward DSL Line Info attributes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'tunnel-vpdn-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Vpdn.Templates.Template, self).__init__()
+
+                self.yang_name = "template"
+                self.yang_parent_name = "templates"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"caller-id" : ("caller_id", Vpdn.Templates.Template.CallerId), "vpn" : ("vpn", Vpdn.Templates.Template.Vpn), "tunnel" : ("tunnel", Vpdn.Templates.Template.Tunnel), "ip" : ("ip", Vpdn.Templates.Template.Ip), "ipv4" : ("ipv4", Vpdn.Templates.Template.Ipv4)}
+                self._child_list_classes = {}
+
+                self.template_name = YLeaf(YType.str, "template-name")
+
+                self.cisco_avp100_format_e_enable = YLeaf(YType.empty, "cisco-avp100-format-e-enable")
+
+                self.description = YLeaf(YType.str, "description")
+
+                self.l2tp_class = YLeaf(YType.str, "l2tp-class")
+
+                self.dsl_line_forwarding = YLeaf(YType.empty, "dsl-line-forwarding")
+
+                self.caller_id = Vpdn.Templates.Template.CallerId()
+                self.caller_id.parent = self
+                self._children_name_map["caller_id"] = "caller-id"
+                self._children_yang_names.add("caller-id")
+
+                self.vpn = Vpdn.Templates.Template.Vpn()
+                self.vpn.parent = self
+                self._children_name_map["vpn"] = "vpn"
+                self._children_yang_names.add("vpn")
+
+                self.tunnel = Vpdn.Templates.Template.Tunnel()
+                self.tunnel.parent = self
+                self._children_name_map["tunnel"] = "tunnel"
+                self._children_yang_names.add("tunnel")
+
+                self.ip = Vpdn.Templates.Template.Ip()
+                self.ip.parent = self
+                self._children_name_map["ip"] = "ip"
+                self._children_yang_names.add("ip")
+
+                self.ipv4 = Vpdn.Templates.Template.Ipv4()
+                self.ipv4.parent = self
+                self._children_name_map["ipv4"] = "ipv4"
+                self._children_yang_names.add("ipv4")
+                self._segment_path = lambda: "template" + "[template-name='" + self.template_name.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'description', 'l2tp_class', 'dsl_line_forwarding'], name, value)
+
+
+            class CallerId(Entity):
+                """
+                Options to apply on calling station id
+                
+                .. attribute:: mask
+                
+                	Mask characters by method
+                	**type**\:  str
+                
+                	**length:** 1..63
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Templates.Template.CallerId, self).__init__()
+
+                    self.yang_name = "caller-id"
+                    self.yang_parent_name = "template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.mask = YLeaf(YType.str, "mask")
+                    self._segment_path = lambda: "caller-id"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Templates.Template.CallerId, ['mask'], name, value)
+
+
+            class Vpn(Entity):
+                """
+                VPN ID/VRF name
+                
+                .. attribute:: id
+                
+                	VPN ID
+                	**type**\:   :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn.Id>`
+                
+                .. attribute:: vrf
+                
+                	VRF name
+                	**type**\:  str
+                
+                	**length:** 1..32
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Templates.Template.Vpn, self).__init__()
+
+                    self.yang_name = "vpn"
+                    self.yang_parent_name = "template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"id" : ("id", Vpdn.Templates.Template.Vpn.Id)}
+                    self._child_list_classes = {}
+
+                    self.vrf = YLeaf(YType.str, "vrf")
+
+                    self.id = Vpdn.Templates.Template.Vpn.Id()
+                    self.id.parent = self
+                    self._children_name_map["id"] = "id"
+                    self._children_yang_names.add("id")
+                    self._segment_path = lambda: "vpn"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Templates.Template.Vpn, ['vrf'], name, value)
+
+
+                class Id(Entity):
+                    """
+                    VPN ID
+                    
+                    .. attribute:: oui
+                    
+                    	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
+                    	**type**\:  str
+                    
+                    .. attribute:: index
+                    
+                    	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-vpdn-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Vpdn.Templates.Template.Vpn.Id, self).__init__()
+
+                        self.yang_name = "id"
+                        self.yang_parent_name = "vpn"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.oui = YLeaf(YType.str, "oui")
+
+                        self.index = YLeaf(YType.str, "index")
+                        self._segment_path = lambda: "id"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vpdn.Templates.Template.Vpn.Id, ['oui', 'index'], name, value)
+
+
+            class Tunnel(Entity):
+                """
+                L2TP tunnel commands
+                
+                .. attribute:: busy_timeout
+                
+                	Busy time out value in seconds
+                	**type**\:  int
+                
+                	**range:** 60..65535
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Templates.Template.Tunnel, self).__init__()
+
+                    self.yang_name = "tunnel"
+                    self.yang_parent_name = "template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.busy_timeout = YLeaf(YType.uint32, "busy-timeout")
+                    self._segment_path = lambda: "tunnel"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Templates.Template.Tunnel, ['busy_timeout'], name, value)
+
+
+            class Ip(Entity):
+                """
+                Set IP TOS value
+                
+                .. attribute:: tos
+                
+                	Set constant integer
+                	**type**\:  int
+                
+                	**range:** \-2147483648..2147483647
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Templates.Template.Ip, self).__init__()
+
+                    self.yang_name = "ip"
+                    self.yang_parent_name = "template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.tos = YLeaf(YType.int32, "tos")
+                    self._segment_path = lambda: "ip"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Templates.Template.Ip, ['tos'], name, value)
+
+
+            class Ipv4(Entity):
+                """
+                IPv4 settings for tunnel
+                
+                .. attribute:: df_bit
+                
+                	IPv4 don't fragment bit set/clear/reflect
+                	**type**\:   :py:class:`DfBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.DfBit>`
+                
+                .. attribute:: source
+                
+                	Enter an IP address
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Vpdn.Templates.Template.Ipv4, self).__init__()
+
+                    self.yang_name = "ipv4"
+                    self.yang_parent_name = "template"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.df_bit = YLeaf(YType.enumeration, "df-bit")
+
+                    self.source = YLeaf(YType.str, "source")
+                    self._segment_path = lambda: "ipv4"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.Templates.Template.Ipv4, ['df_bit', 'source'], name, value)
 
 
     class CallerId(Entity):
@@ -244,14 +801,14 @@ class Vpdn(Entity):
             self._perform_setattr(Vpdn.CallerId, ['mask'], name, value)
 
 
-    class History(Entity):
+    class VpdNgroups(Entity):
         """
-        VPDN history logging
+        Table of VPDNgroup
         
-        .. attribute:: failure
+        .. attribute:: vpd_ngroup
         
-        	User failure
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        	vpdn\-group configuration
+        	**type**\: list of    :py:class:`VpdNgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup>`
         
         
 
@@ -261,84 +818,95 @@ class Vpdn(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Vpdn.History, self).__init__()
+            super(Vpdn.VpdNgroups, self).__init__()
 
-            self.yang_name = "history"
+            self.yang_name = "vpd-ngroups"
             self.yang_parent_name = "vpdn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self._child_container_classes = {}
-            self._child_list_classes = {}
+            self._child_list_classes = {"vpd-ngroup" : ("vpd_ngroup", Vpdn.VpdNgroups.VpdNgroup)}
 
-            self.failure = YLeaf(YType.empty, "failure")
-            self._segment_path = lambda: "history"
+            self.vpd_ngroup = YList(self)
+            self._segment_path = lambda: "vpd-ngroups"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.History, ['failure'], name, value)
+            self._perform_setattr(Vpdn.VpdNgroups, [], name, value)
 
 
-    class L2Tp(Entity):
-        """
-        L2TPv2 protocol commands
-        
-        .. attribute:: reassembly
-        
-        	L2TP IP packet reassembly enable
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: session_id
-        
-        	Session ID commands
-        	**type**\:   :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId>`
-        
-        .. attribute:: tcp_mss_adjust
-        
-        	TCP MSS adjust value. The acceptable values might be further limited depending on platform
-        	**type**\:  int
-        
-        	**range:** 1280..1460
-        
-        
-
-        """
-
-        _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vpdn.L2Tp, self).__init__()
-
-            self.yang_name = "l2tp"
-            self.yang_parent_name = "vpdn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"session-id" : ("session_id", Vpdn.L2Tp.SessionId)}
-            self._child_list_classes = {}
-
-            self.reassembly = YLeaf(YType.empty, "reassembly")
-
-            self.tcp_mss_adjust = YLeaf(YType.uint32, "tcp-mss-adjust")
-
-            self.session_id = Vpdn.L2Tp.SessionId()
-            self.session_id.parent = self
-            self._children_name_map["session_id"] = "session-id"
-            self._children_yang_names.add("session-id")
-            self._segment_path = lambda: "l2tp"
-            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.L2Tp, ['reassembly', 'tcp_mss_adjust'], name, value)
-
-
-        class SessionId(Entity):
+        class VpdNgroup(Entity):
             """
-            Session ID commands
+            vpdn\-group configuration
             
-            .. attribute:: space
+            .. attribute:: vpd_ngroupname  <key>
             
-            	Session ID space commands
-            	**type**\:   :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId.Space>`
+            	vpdn\-group name
+            	**type**\:  str
+            
+            	**length:** 1..63
+            
+            .. attribute:: vpn_id
+            
+            	Vpn id
+            	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.VpnId>`
+            
+            .. attribute:: ip
+            
+            	set ip tos value
+            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.Ip>`
+            
+            .. attribute:: dsl_line_forwarding
+            
+            	Forward DSL Line Info attributes
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: cisco_avp100_format_e_enable
+            
+            	To support NAS\-Port format e in cisco AVP 100
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: desc
+            
+            	upto 100 characters describing this VPDN group
+            	**type**\:  str
+            
+            	**length:** 1..100
+            
+            .. attribute:: attribute
+            
+            	match substring
+            	**type**\:  str
+            
+            	**length:** 1..63
+            
+            .. attribute:: l2tp_class
+            
+            	l2tp class name
+            	**type**\:  str
+            
+            	**length:** 1..79
+            
+            .. attribute:: tunnel_busy_timeout
+            
+            	Busy list timeout length
+            	**type**\:  int
+            
+            	**range:** 1..65535
+            
+            .. attribute:: vrf_name
+            
+            	Vrf name
+            	**type**\:  str
+            
+            	**length:** 1..32
+            
+            .. attribute:: sr_ctemplate
+            
+            	Source vpdn\-template
+            	**type**\:  str
+            
+            	**length:** 1..63
             
             
 
@@ -348,31 +916,62 @@ class Vpdn(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vpdn.L2Tp.SessionId, self).__init__()
+                super(Vpdn.VpdNgroups.VpdNgroup, self).__init__()
 
-                self.yang_name = "session-id"
-                self.yang_parent_name = "l2tp"
+                self.yang_name = "vpd-ngroup"
+                self.yang_parent_name = "vpd-ngroups"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"space" : ("space", Vpdn.L2Tp.SessionId.Space)}
+                self._child_container_classes = {"vpn-id" : ("vpn_id", Vpdn.VpdNgroups.VpdNgroup.VpnId), "ip" : ("ip", Vpdn.VpdNgroups.VpdNgroup.Ip)}
                 self._child_list_classes = {}
 
-                self.space = Vpdn.L2Tp.SessionId.Space()
-                self.space.parent = self
-                self._children_name_map["space"] = "space"
-                self._children_yang_names.add("space")
-                self._segment_path = lambda: "session-id"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/%s" % self._segment_path()
+                self.vpd_ngroupname = YLeaf(YType.str, "vpd-ngroupname")
+
+                self.dsl_line_forwarding = YLeaf(YType.empty, "dsl-line-forwarding")
+
+                self.cisco_avp100_format_e_enable = YLeaf(YType.empty, "cisco-avp100-format-e-enable")
+
+                self.desc = YLeaf(YType.str, "desc")
+
+                self.attribute = YLeaf(YType.str, "attribute")
+
+                self.l2tp_class = YLeaf(YType.str, "l2tp-class")
+
+                self.tunnel_busy_timeout = YLeaf(YType.uint32, "tunnel-busy-timeout")
+
+                self.vrf_name = YLeaf(YType.str, "vrf-name")
+
+                self.sr_ctemplate = YLeaf(YType.str, "sr-ctemplate")
+
+                self.vpn_id = Vpdn.VpdNgroups.VpdNgroup.VpnId()
+                self.vpn_id.parent = self
+                self._children_name_map["vpn_id"] = "vpn-id"
+                self._children_yang_names.add("vpn-id")
+
+                self.ip = Vpdn.VpdNgroups.VpdNgroup.Ip()
+                self.ip.parent = self
+                self._children_name_map["ip"] = "ip"
+                self._children_yang_names.add("ip")
+                self._segment_path = lambda: "vpd-ngroup" + "[vpd-ngroupname='" + self.vpd_ngroupname.get() + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup, ['vpd_ngroupname', 'dsl_line_forwarding', 'cisco_avp100_format_e_enable', 'desc', 'attribute', 'l2tp_class', 'tunnel_busy_timeout', 'vrf_name', 'sr_ctemplate'], name, value)
 
 
-            class Space(Entity):
+            class VpnId(Entity):
                 """
-                Session ID space commands
+                Vpn id
                 
-                .. attribute:: hierarchy
+                .. attribute:: vpn_id_oui
                 
-                	Session ID space hierarchical command
-                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
+                	**type**\:  str
+                
+                .. attribute:: vpn_id_index
+                
+                	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
+                	**type**\:  str
                 
                 
 
@@ -382,82 +981,57 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.L2Tp.SessionId.Space, self).__init__()
+                    super(Vpdn.VpdNgroups.VpdNgroup.VpnId, self).__init__()
 
-                    self.yang_name = "space"
-                    self.yang_parent_name = "session-id"
+                    self.yang_name = "vpn-id"
+                    self.yang_parent_name = "vpd-ngroup"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = False
+                    self.has_list_ancestor = True
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.hierarchy = YLeaf(YType.empty, "hierarchy")
-                    self._segment_path = lambda: "space"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/session-id/%s" % self._segment_path()
+                    self.vpn_id_oui = YLeaf(YType.str, "vpn-id-oui")
+
+                    self.vpn_id_index = YLeaf(YType.str, "vpn-id-index")
+                    self._segment_path = lambda: "vpn-id"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.L2Tp.SessionId.Space, ['hierarchy'], name, value)
+                    self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.VpnId, ['vpn_id_oui', 'vpn_id_index'], name, value)
 
 
-    class Local(Entity):
-        """
-        VPDN Local radius process configuration
-        
-        .. attribute:: cache_disabled
-        
-        	Set constant integer
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: path
-        
-        	local path of the saved profile
-        	**type**\:  str
-        
-        	**length:** 1..64
-        
-        .. attribute:: port
-        
-        	port value
-        	**type**\:  int
-        
-        	**range:** 1..65535
-        
-        .. attribute:: secret_text
-        
-        	secret password
-        	**type**\:  str
-        
-        	**length:** 1..32
-        
-        
+            class Ip(Entity):
+                """
+                set ip tos value
+                
+                .. attribute:: tos
+                
+                	ip tos value
+                	**type**\:  int
+                
+                	**range:** 0..255
+                
+                
 
-        """
+                """
 
-        _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
+                _prefix = 'tunnel-vpdn-cfg'
+                _revision = '2015-11-09'
 
-        def __init__(self):
-            super(Vpdn.Local, self).__init__()
+                def __init__(self):
+                    super(Vpdn.VpdNgroups.VpdNgroup.Ip, self).__init__()
 
-            self.yang_name = "local"
-            self.yang_parent_name = "vpdn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
+                    self.yang_name = "ip"
+                    self.yang_parent_name = "vpd-ngroup"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
 
-            self.cache_disabled = YLeaf(YType.empty, "cache-disabled")
+                    self.tos = YLeaf(YType.uint32, "tos")
+                    self._segment_path = lambda: "ip"
 
-            self.path = YLeaf(YType.str, "path")
-
-            self.port = YLeaf(YType.uint16, "port")
-
-            self.secret_text = YLeaf(YType.str, "secret-text")
-            self._segment_path = lambda: "local"
-            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.Local, ['cache_disabled', 'path', 'port', 'secret_text'], name, value)
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.Ip, ['tos'], name, value)
 
 
     class Loggings(Entity):
@@ -528,20 +1102,27 @@ class Vpdn(Entity):
                 self._perform_setattr(Vpdn.Loggings.Logging, ['option'], name, value)
 
 
-    class Redundancy(Entity):
+    class L2Tp(Entity):
         """
-        Enable VPDN redundancy
+        L2TPv2 protocol commands
         
-        .. attribute:: enable
+        .. attribute:: session_id
         
-        	Enable Enable VPDN redundancy. Deletion of this object also causes deletion of all associated objects under Redundancy
+        	Session ID commands
+        	**type**\:   :py:class:`SessionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId>`
+        
+        .. attribute:: tcp_mss_adjust
+        
+        	TCP MSS adjust value. The acceptable values might be further limited depending on platform
+        	**type**\:  int
+        
+        	**range:** 1280..1460
+        
+        .. attribute:: reassembly
+        
+        	L2TP IP packet reassembly enable
         	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
-        .. attribute:: process_failures
-        
-        	Process crash configuration
-        	**type**\:   :py:class:`ProcessFailures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Redundancy.ProcessFailures>`
-        
         
 
         """
@@ -550,36 +1131,38 @@ class Vpdn(Entity):
         _revision = '2015-11-09'
 
         def __init__(self):
-            super(Vpdn.Redundancy, self).__init__()
+            super(Vpdn.L2Tp, self).__init__()
 
-            self.yang_name = "redundancy"
+            self.yang_name = "l2tp"
             self.yang_parent_name = "vpdn"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"process-failures" : ("process_failures", Vpdn.Redundancy.ProcessFailures)}
+            self._child_container_classes = {"session-id" : ("session_id", Vpdn.L2Tp.SessionId)}
             self._child_list_classes = {}
 
-            self.enable = YLeaf(YType.empty, "enable")
+            self.tcp_mss_adjust = YLeaf(YType.uint32, "tcp-mss-adjust")
 
-            self.process_failures = Vpdn.Redundancy.ProcessFailures()
-            self.process_failures.parent = self
-            self._children_name_map["process_failures"] = "process-failures"
-            self._children_yang_names.add("process-failures")
-            self._segment_path = lambda: "redundancy"
+            self.reassembly = YLeaf(YType.empty, "reassembly")
+
+            self.session_id = Vpdn.L2Tp.SessionId()
+            self.session_id.parent = self
+            self._children_name_map["session_id"] = "session-id"
+            self._children_yang_names.add("session-id")
+            self._segment_path = lambda: "l2tp"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.Redundancy, ['enable'], name, value)
+            self._perform_setattr(Vpdn.L2Tp, ['tcp_mss_adjust', 'reassembly'], name, value)
 
 
-        class ProcessFailures(Entity):
+        class SessionId(Entity):
             """
-            Process crash configuration
+            Session ID commands
             
-            .. attribute:: switchover
+            .. attribute:: space
             
-            	Force a switchover if the process crashes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            	Session ID space commands
+            	**type**\:   :py:class:`Space <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.L2Tp.SessionId.Space>`
             
             
 
@@ -589,185 +1172,31 @@ class Vpdn(Entity):
             _revision = '2015-11-09'
 
             def __init__(self):
-                super(Vpdn.Redundancy.ProcessFailures, self).__init__()
+                super(Vpdn.L2Tp.SessionId, self).__init__()
 
-                self.yang_name = "process-failures"
-                self.yang_parent_name = "redundancy"
+                self.yang_name = "session-id"
+                self.yang_parent_name = "l2tp"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
+                self._child_container_classes = {"space" : ("space", Vpdn.L2Tp.SessionId.Space)}
                 self._child_list_classes = {}
 
-                self.switchover = YLeaf(YType.empty, "switchover")
-                self._segment_path = lambda: "process-failures"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/redundancy/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.Redundancy.ProcessFailures, ['switchover'], name, value)
-
-
-    class Templates(Entity):
-        """
-        Table of Template
-        
-        .. attribute:: template
-        
-        	VPDN template configuration
-        	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template>`
-        
-        
-
-        """
-
-        _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vpdn.Templates, self).__init__()
-
-            self.yang_name = "templates"
-            self.yang_parent_name = "vpdn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"template" : ("template", Vpdn.Templates.Template)}
-
-            self.template = YList(self)
-            self._segment_path = lambda: "templates"
-            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.Templates, [], name, value)
+                self.space = Vpdn.L2Tp.SessionId.Space()
+                self.space.parent = self
+                self._children_name_map["space"] = "space"
+                self._children_yang_names.add("space")
+                self._segment_path = lambda: "session-id"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/%s" % self._segment_path()
 
 
-        class Template(Entity):
-            """
-            VPDN template configuration
-            
-            .. attribute:: template_name  <key>
-            
-            	VPDN template name
-            	**type**\:  str
-            
-            	**length:** 1..63
-            
-            .. attribute:: caller_id
-            
-            	Options to apply on calling station id
-            	**type**\:   :py:class:`CallerId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.CallerId>`
-            
-            .. attribute:: cisco_avp100_format_e_enable
-            
-            	To support NAS\-Port format e in Cisco AVP 100
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: description
-            
-            	Up to 100 characters describing this VPDN template
-            	**type**\:  str
-            
-            	**length:** 1..100
-            
-            .. attribute:: dsl_line_forwarding
-            
-            	Forward DSL Line Info attributes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: ip
-            
-            	Set IP TOS value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ip>`
-            
-            .. attribute:: ipv4
-            
-            	IPv4 settings for tunnel
-            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Ipv4>`
-            
-            .. attribute:: l2tp_class
-            
-            	L2TP class  command
-            	**type**\:  str
-            
-            	**length:** 1..79
-            
-            .. attribute:: tunnel
-            
-            	L2TP tunnel commands
-            	**type**\:   :py:class:`Tunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Tunnel>`
-            
-            .. attribute:: vpn
-            
-            	VPN ID/VRF name
-            	**type**\:   :py:class:`Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn>`
-            
-            
-
-            """
-
-            _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vpdn.Templates.Template, self).__init__()
-
-                self.yang_name = "template"
-                self.yang_parent_name = "templates"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"caller-id" : ("caller_id", Vpdn.Templates.Template.CallerId), "ip" : ("ip", Vpdn.Templates.Template.Ip), "ipv4" : ("ipv4", Vpdn.Templates.Template.Ipv4), "tunnel" : ("tunnel", Vpdn.Templates.Template.Tunnel), "vpn" : ("vpn", Vpdn.Templates.Template.Vpn)}
-                self._child_list_classes = {}
-
-                self.template_name = YLeaf(YType.str, "template-name")
-
-                self.cisco_avp100_format_e_enable = YLeaf(YType.empty, "cisco-avp100-format-e-enable")
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.dsl_line_forwarding = YLeaf(YType.empty, "dsl-line-forwarding")
-
-                self.l2tp_class = YLeaf(YType.str, "l2tp-class")
-
-                self.caller_id = Vpdn.Templates.Template.CallerId()
-                self.caller_id.parent = self
-                self._children_name_map["caller_id"] = "caller-id"
-                self._children_yang_names.add("caller-id")
-
-                self.ip = Vpdn.Templates.Template.Ip()
-                self.ip.parent = self
-                self._children_name_map["ip"] = "ip"
-                self._children_yang_names.add("ip")
-
-                self.ipv4 = Vpdn.Templates.Template.Ipv4()
-                self.ipv4.parent = self
-                self._children_name_map["ipv4"] = "ipv4"
-                self._children_yang_names.add("ipv4")
-
-                self.tunnel = Vpdn.Templates.Template.Tunnel()
-                self.tunnel.parent = self
-                self._children_name_map["tunnel"] = "tunnel"
-                self._children_yang_names.add("tunnel")
-
-                self.vpn = Vpdn.Templates.Template.Vpn()
-                self.vpn.parent = self
-                self._children_name_map["vpn"] = "vpn"
-                self._children_yang_names.add("vpn")
-                self._segment_path = lambda: "template" + "[template-name='" + self.template_name.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'description', 'dsl_line_forwarding', 'l2tp_class'], name, value)
-
-
-            class CallerId(Entity):
+            class Space(Entity):
                 """
-                Options to apply on calling station id
+                Session ID space commands
                 
-                .. attribute:: mask
+                .. attribute:: hierarchy
                 
-                	Mask characters by method
-                	**type**\:  str
-                
-                	**length:** 1..63
+                	Session ID space hierarchical command
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -777,460 +1206,21 @@ class Vpdn(Entity):
                 _revision = '2015-11-09'
 
                 def __init__(self):
-                    super(Vpdn.Templates.Template.CallerId, self).__init__()
+                    super(Vpdn.L2Tp.SessionId.Space, self).__init__()
 
-                    self.yang_name = "caller-id"
-                    self.yang_parent_name = "template"
+                    self.yang_name = "space"
+                    self.yang_parent_name = "session-id"
                     self.is_top_level_class = False
-                    self.has_list_ancestor = True
+                    self.has_list_ancestor = False
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
-                    self.mask = YLeaf(YType.str, "mask")
-                    self._segment_path = lambda: "caller-id"
+                    self.hierarchy = YLeaf(YType.empty, "hierarchy")
+                    self._segment_path = lambda: "space"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/session-id/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Templates.Template.CallerId, ['mask'], name, value)
-
-
-            class Ip(Entity):
-                """
-                Set IP TOS value
-                
-                .. attribute:: tos
-                
-                	Set constant integer
-                	**type**\:  int
-                
-                	**range:** \-2147483648..2147483647
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Templates.Template.Ip, self).__init__()
-
-                    self.yang_name = "ip"
-                    self.yang_parent_name = "template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.tos = YLeaf(YType.int32, "tos")
-                    self._segment_path = lambda: "ip"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Templates.Template.Ip, ['tos'], name, value)
-
-
-            class Ipv4(Entity):
-                """
-                IPv4 settings for tunnel
-                
-                .. attribute:: df_bit
-                
-                	IPv4 don't fragment bit set/clear/reflect
-                	**type**\:   :py:class:`DfBit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.DfBit>`
-                
-                .. attribute:: source
-                
-                	Enter an IP address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Templates.Template.Ipv4, self).__init__()
-
-                    self.yang_name = "ipv4"
-                    self.yang_parent_name = "template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.df_bit = YLeaf(YType.enumeration, "df-bit")
-
-                    self.source = YLeaf(YType.str, "source")
-                    self._segment_path = lambda: "ipv4"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Templates.Template.Ipv4, ['df_bit', 'source'], name, value)
-
-
-            class Tunnel(Entity):
-                """
-                L2TP tunnel commands
-                
-                .. attribute:: busy_timeout
-                
-                	Busy time out value in seconds
-                	**type**\:  int
-                
-                	**range:** 60..65535
-                
-                	**units**\: second
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Templates.Template.Tunnel, self).__init__()
-
-                    self.yang_name = "tunnel"
-                    self.yang_parent_name = "template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.busy_timeout = YLeaf(YType.uint32, "busy-timeout")
-                    self._segment_path = lambda: "tunnel"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Templates.Template.Tunnel, ['busy_timeout'], name, value)
-
-
-            class Vpn(Entity):
-                """
-                VPN ID/VRF name
-                
-                .. attribute:: id
-                
-                	VPN ID
-                	**type**\:   :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.Templates.Template.Vpn.Id>`
-                
-                .. attribute:: vrf
-                
-                	VRF name
-                	**type**\:  str
-                
-                	**length:** 1..32
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.Templates.Template.Vpn, self).__init__()
-
-                    self.yang_name = "vpn"
-                    self.yang_parent_name = "template"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"id" : ("id", Vpdn.Templates.Template.Vpn.Id)}
-                    self._child_list_classes = {}
-
-                    self.vrf = YLeaf(YType.str, "vrf")
-
-                    self.id = Vpdn.Templates.Template.Vpn.Id()
-                    self.id.parent = self
-                    self._children_name_map["id"] = "id"
-                    self._children_yang_names.add("id")
-                    self._segment_path = lambda: "vpn"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.Templates.Template.Vpn, ['vrf'], name, value)
-
-
-                class Id(Entity):
-                    """
-                    VPN ID
-                    
-                    .. attribute:: index
-                    
-                    	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    .. attribute:: oui
-                    
-                    	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
-                    	**type**\:  str
-                    
-                    	**pattern:** [0\-9a\-fA\-F]{1,8}
-                    
-                    
-
-                    """
-
-                    _prefix = 'tunnel-vpdn-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Vpdn.Templates.Template.Vpn.Id, self).__init__()
-
-                        self.yang_name = "id"
-                        self.yang_parent_name = "vpn"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.index = YLeaf(YType.str, "index")
-
-                        self.oui = YLeaf(YType.str, "oui")
-                        self._segment_path = lambda: "id"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vpdn.Templates.Template.Vpn.Id, ['index', 'oui'], name, value)
-
-
-    class VpdNgroups(Entity):
-        """
-        Table of VPDNgroup
-        
-        .. attribute:: vpd_ngroup
-        
-        	vpdn\-group configuration
-        	**type**\: list of    :py:class:`VpdNgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup>`
-        
-        
-
-        """
-
-        _prefix = 'tunnel-vpdn-cfg'
-        _revision = '2015-11-09'
-
-        def __init__(self):
-            super(Vpdn.VpdNgroups, self).__init__()
-
-            self.yang_name = "vpd-ngroups"
-            self.yang_parent_name = "vpdn"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {"vpd-ngroup" : ("vpd_ngroup", Vpdn.VpdNgroups.VpdNgroup)}
-
-            self.vpd_ngroup = YList(self)
-            self._segment_path = lambda: "vpd-ngroups"
-            self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Vpdn.VpdNgroups, [], name, value)
-
-
-        class VpdNgroup(Entity):
-            """
-            vpdn\-group configuration
-            
-            .. attribute:: vpd_ngroupname  <key>
-            
-            	vpdn\-group name
-            	**type**\:  str
-            
-            	**length:** 1..63
-            
-            .. attribute:: attribute
-            
-            	match substring
-            	**type**\:  str
-            
-            	**length:** 1..63
-            
-            .. attribute:: cisco_avp100_format_e_enable
-            
-            	To support NAS\-Port format e in cisco AVP 100
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: desc
-            
-            	upto 100 characters describing this VPDN group
-            	**type**\:  str
-            
-            	**length:** 1..100
-            
-            .. attribute:: dsl_line_forwarding
-            
-            	Forward DSL Line Info attributes
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: ip
-            
-            	set ip tos value
-            	**type**\:   :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.Ip>`
-            
-            .. attribute:: l2tp_class
-            
-            	l2tp class name
-            	**type**\:  str
-            
-            	**length:** 1..79
-            
-            .. attribute:: sr_ctemplate
-            
-            	Source vpdn\-template
-            	**type**\:  str
-            
-            	**length:** 1..63
-            
-            .. attribute:: tunnel_busy_timeout
-            
-            	Busy list timeout length
-            	**type**\:  int
-            
-            	**range:** 1..65535
-            
-            .. attribute:: vpn_id
-            
-            	Vpn id
-            	**type**\:   :py:class:`VpnId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg.Vpdn.VpdNgroups.VpdNgroup.VpnId>`
-            
-            .. attribute:: vrf_name
-            
-            	Vrf name
-            	**type**\:  str
-            
-            	**length:** 1..32
-            
-            
-
-            """
-
-            _prefix = 'tunnel-vpdn-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                super(Vpdn.VpdNgroups.VpdNgroup, self).__init__()
-
-                self.yang_name = "vpd-ngroup"
-                self.yang_parent_name = "vpd-ngroups"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"ip" : ("ip", Vpdn.VpdNgroups.VpdNgroup.Ip), "vpn-id" : ("vpn_id", Vpdn.VpdNgroups.VpdNgroup.VpnId)}
-                self._child_list_classes = {}
-
-                self.vpd_ngroupname = YLeaf(YType.str, "vpd-ngroupname")
-
-                self.attribute = YLeaf(YType.str, "attribute")
-
-                self.cisco_avp100_format_e_enable = YLeaf(YType.empty, "cisco-avp100-format-e-enable")
-
-                self.desc = YLeaf(YType.str, "desc")
-
-                self.dsl_line_forwarding = YLeaf(YType.empty, "dsl-line-forwarding")
-
-                self.l2tp_class = YLeaf(YType.str, "l2tp-class")
-
-                self.sr_ctemplate = YLeaf(YType.str, "sr-ctemplate")
-
-                self.tunnel_busy_timeout = YLeaf(YType.uint32, "tunnel-busy-timeout")
-
-                self.vrf_name = YLeaf(YType.str, "vrf-name")
-
-                self.ip = Vpdn.VpdNgroups.VpdNgroup.Ip()
-                self.ip.parent = self
-                self._children_name_map["ip"] = "ip"
-                self._children_yang_names.add("ip")
-
-                self.vpn_id = Vpdn.VpdNgroups.VpdNgroup.VpnId()
-                self.vpn_id.parent = self
-                self._children_name_map["vpn_id"] = "vpn-id"
-                self._children_yang_names.add("vpn-id")
-                self._segment_path = lambda: "vpd-ngroup" + "[vpd-ngroupname='" + self.vpd_ngroupname.get() + "']"
-                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup, ['vpd_ngroupname', 'attribute', 'cisco_avp100_format_e_enable', 'desc', 'dsl_line_forwarding', 'l2tp_class', 'sr_ctemplate', 'tunnel_busy_timeout', 'vrf_name'], name, value)
-
-
-            class Ip(Entity):
-                """
-                set ip tos value
-                
-                .. attribute:: tos
-                
-                	ip tos value
-                	**type**\:  int
-                
-                	**range:** 0..255
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.VpdNgroups.VpdNgroup.Ip, self).__init__()
-
-                    self.yang_name = "ip"
-                    self.yang_parent_name = "vpd-ngroup"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.tos = YLeaf(YType.uint32, "tos")
-                    self._segment_path = lambda: "ip"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.Ip, ['tos'], name, value)
-
-
-            class VpnId(Entity):
-                """
-                Vpn id
-                
-                .. attribute:: vpn_id_index
-                
-                	VPN ID, (OUI\:VPN\-Index) format(hex), 4 bytes VPN\_Index Part
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                .. attribute:: vpn_id_oui
-                
-                	VPN ID, (OUI\:VPN\-Index) format(hex), 3 bytes OUI Part
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{1,8}
-                
-                
-
-                """
-
-                _prefix = 'tunnel-vpdn-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Vpdn.VpdNgroups.VpdNgroup.VpnId, self).__init__()
-
-                    self.yang_name = "vpn-id"
-                    self.yang_parent_name = "vpd-ngroup"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.vpn_id_index = YLeaf(YType.str, "vpn-id-index")
-
-                    self.vpn_id_oui = YLeaf(YType.str, "vpn-id-oui")
-                    self._segment_path = lambda: "vpn-id"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.VpnId, ['vpn_id_index', 'vpn_id_oui'], name, value)
+                    self._perform_setattr(Vpdn.L2Tp.SessionId.Space, ['hierarchy'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vpdn()

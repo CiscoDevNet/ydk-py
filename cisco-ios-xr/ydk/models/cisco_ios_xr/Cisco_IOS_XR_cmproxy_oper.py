@@ -95,8 +95,6 @@ class SdrInventoryVm(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-            
             .. attribute:: node_entries
             
             	VM Information
@@ -174,7 +172,12 @@ class SdrInventoryVm(Entity):
                     	Node name
                     	**type**\:  str
                     
-                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    .. attribute:: valid
+                    
+                    	valid flag
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: card_type
                     
@@ -190,19 +193,12 @@ class SdrInventoryVm(Entity):
                     
                     	**length:** 0..32
                     
-                    .. attribute:: node_ip
+                    .. attribute:: nodeid
                     
-                    	node IP address
+                    	node ID
                     	**type**\:  int
                     
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_ipv4_string
-                    
-                    	node IPv4 address string
-                    	**type**\:  str
-                    
-                    	**length:** 0..16
+                    	**range:** \-2147483648..2147483647
                     
                     .. attribute:: node_name
                     
@@ -210,27 +206,6 @@ class SdrInventoryVm(Entity):
                     	**type**\:  str
                     
                     	**length:** 0..32
-                    
-                    .. attribute:: node_sw_state
-                    
-                    	current software state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: node_sw_state_string
-                    
-                    	current software state string
-                    	**type**\:  str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: nodeid
-                    
-                    	node ID
-                    	**type**\:  int
-                    
-                    	**range:** \-2147483648..2147483647
                     
                     .. attribute:: partner_id
                     
@@ -242,20 +217,6 @@ class SdrInventoryVm(Entity):
                     .. attribute:: partner_name
                     
                     	partner name string
-                    	**type**\:  str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: prev_sw_state
-                    
-                    	previous software state
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: prev_sw_state_string
-                    
-                    	previous software state string
                     	**type**\:  str
                     
                     	**length:** 0..32
@@ -274,12 +235,47 @@ class SdrInventoryVm(Entity):
                     
                     	**length:** 0..32
                     
-                    .. attribute:: valid
+                    .. attribute:: node_sw_state
                     
-                    	valid flag
+                    	current software state
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: node_sw_state_string
+                    
+                    	current software state string
+                    	**type**\:  str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: prev_sw_state
+                    
+                    	previous software state
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: prev_sw_state_string
+                    
+                    	previous software state string
+                    	**type**\:  str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: node_ip
+                    
+                    	node IP address
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: node_ipv4_string
+                    
+                    	node IPv4 address string
+                    	**type**\:  str
+                    
+                    	**length:** 0..16
                     
                     
 
@@ -300,39 +296,39 @@ class SdrInventoryVm(Entity):
 
                         self.name = YLeaf(YType.str, "name")
 
+                        self.valid = YLeaf(YType.uint32, "valid")
+
                         self.card_type = YLeaf(YType.uint32, "card-type")
 
                         self.card_type_string = YLeaf(YType.str, "card-type-string")
 
-                        self.node_ip = YLeaf(YType.uint32, "node-ip")
-
-                        self.node_ipv4_string = YLeaf(YType.str, "node-ipv4-string")
+                        self.nodeid = YLeaf(YType.int32, "nodeid")
 
                         self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.node_sw_state = YLeaf(YType.uint32, "node-sw-state")
-
-                        self.node_sw_state_string = YLeaf(YType.str, "node-sw-state-string")
-
-                        self.nodeid = YLeaf(YType.int32, "nodeid")
 
                         self.partner_id = YLeaf(YType.int32, "partner-id")
 
                         self.partner_name = YLeaf(YType.str, "partner-name")
 
-                        self.prev_sw_state = YLeaf(YType.uint32, "prev-sw-state")
-
-                        self.prev_sw_state_string = YLeaf(YType.str, "prev-sw-state-string")
-
                         self.red_state = YLeaf(YType.uint32, "red-state")
 
                         self.red_state_string = YLeaf(YType.str, "red-state-string")
 
-                        self.valid = YLeaf(YType.uint32, "valid")
+                        self.node_sw_state = YLeaf(YType.uint32, "node-sw-state")
+
+                        self.node_sw_state_string = YLeaf(YType.str, "node-sw-state-string")
+
+                        self.prev_sw_state = YLeaf(YType.uint32, "prev-sw-state")
+
+                        self.prev_sw_state_string = YLeaf(YType.str, "prev-sw-state-string")
+
+                        self.node_ip = YLeaf(YType.uint32, "node-ip")
+
+                        self.node_ipv4_string = YLeaf(YType.str, "node-ipv4-string")
                         self._segment_path = lambda: "node-entry" + "[name='" + self.name.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'card_type', 'card_type_string', 'node_ip', 'node_ipv4_string', 'node_name', 'node_sw_state', 'node_sw_state_string', 'nodeid', 'partner_id', 'partner_name', 'prev_sw_state', 'prev_sw_state_string', 'red_state', 'red_state_string', 'valid'], name, value)
+                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SdrInventoryVm()

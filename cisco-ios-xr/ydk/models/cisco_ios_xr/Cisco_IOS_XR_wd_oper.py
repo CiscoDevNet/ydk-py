@@ -155,7 +155,10 @@ class Watchdog(Entity):
             	Node name
             	**type**\:  str
             
-            	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            .. attribute:: threshold_memory
+            
+            	Threshold memory
+            	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory>`
             
             .. attribute:: memory_state
             
@@ -166,11 +169,6 @@ class Watchdog(Entity):
             
             	Display overload control state
             	**type**\:   :py:class:`OverloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState>`
-            
-            .. attribute:: threshold_memory
-            
-            	Threshold memory
-            	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory>`
             
             
 
@@ -186,10 +184,15 @@ class Watchdog(Entity):
                 self.yang_parent_name = "nodes"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"memory-state" : ("memory_state", Watchdog.Nodes.Node.MemoryState), "overload-state" : ("overload_state", Watchdog.Nodes.Node.OverloadState), "threshold-memory" : ("threshold_memory", Watchdog.Nodes.Node.ThresholdMemory)}
+                self._child_container_classes = {"threshold-memory" : ("threshold_memory", Watchdog.Nodes.Node.ThresholdMemory), "memory-state" : ("memory_state", Watchdog.Nodes.Node.MemoryState), "overload-state" : ("overload_state", Watchdog.Nodes.Node.OverloadState)}
                 self._child_list_classes = {}
 
                 self.node_name = YLeaf(YType.str, "node-name")
+
+                self.threshold_memory = Watchdog.Nodes.Node.ThresholdMemory()
+                self.threshold_memory.parent = self
+                self._children_name_map["threshold_memory"] = "threshold-memory"
+                self._children_yang_names.add("threshold-memory")
 
                 self.memory_state = Watchdog.Nodes.Node.MemoryState()
                 self.memory_state.parent = self
@@ -200,11 +203,6 @@ class Watchdog(Entity):
                 self.overload_state.parent = self
                 self._children_name_map["overload_state"] = "overload-state"
                 self._children_yang_names.add("overload-state")
-
-                self.threshold_memory = Watchdog.Nodes.Node.ThresholdMemory()
-                self.threshold_memory.parent = self
-                self._children_name_map["threshold_memory"] = "threshold-memory"
-                self._children_yang_names.add("threshold-memory")
                 self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-wd-oper:watchdog/nodes/%s" % self._segment_path()
 
@@ -212,243 +210,19 @@ class Watchdog(Entity):
                 self._perform_setattr(Watchdog.Nodes.Node, ['node_name'], name, value)
 
 
-            class MemoryState(Entity):
-                """
-                Memory state
-                
-                .. attribute:: free_memory
-                
-                	Free memory in bytes
-                	**type**\:  int
-                
-                	**range:** 0..18446744073709551615
-                
-                	**units**\: byte
-                
-                .. attribute:: memory_state
-                
-                	State of memory
-                	**type**\:   :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.MemoryState>`
-                
-                .. attribute:: physical_memory
-                
-                	Physical memory in bytes
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                	**units**\: byte
-                
-                
-
-                """
-
-                _prefix = 'wd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Watchdog.Nodes.Node.MemoryState, self).__init__()
-
-                    self.yang_name = "memory-state"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.free_memory = YLeaf(YType.uint64, "free-memory")
-
-                    self.memory_state = YLeaf(YType.enumeration, "memory-state")
-
-                    self.physical_memory = YLeaf(YType.uint32, "physical-memory")
-                    self._segment_path = lambda: "memory-state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, ['free_memory', 'memory_state', 'physical_memory'], name, value)
-
-
-            class OverloadState(Entity):
-                """
-                Display overload control state
-                
-                .. attribute:: configured_wdsysmon_throttle
-                
-                	Configured resmon throttle
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: current_throttle
-                
-                	Current throttle information
-                	**type**\:   :py:class:`CurrentThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.CurrentThrottle>`
-                
-                .. attribute:: default_wdsysmon_throttle
-                
-                	Default resmon throttle
-                	**type**\:  int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: last_throttle
-                
-                	Last throttle information
-                	**type**\: list of    :py:class:`LastThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.LastThrottle>`
-                
-                .. attribute:: overload_control_notification
-                
-                	State of overload control notification
-                	**type**\:   :py:class:`OverloadCtrlNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.OverloadCtrlNotif>`
-                
-                
-
-                """
-
-                _prefix = 'wd-oper'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    super(Watchdog.Nodes.Node.OverloadState, self).__init__()
-
-                    self.yang_name = "overload-state"
-                    self.yang_parent_name = "node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {"current-throttle" : ("current_throttle", Watchdog.Nodes.Node.OverloadState.CurrentThrottle)}
-                    self._child_list_classes = {"last-throttle" : ("last_throttle", Watchdog.Nodes.Node.OverloadState.LastThrottle)}
-
-                    self.configured_wdsysmon_throttle = YLeaf(YType.uint32, "configured-wdsysmon-throttle")
-
-                    self.default_wdsysmon_throttle = YLeaf(YType.uint32, "default-wdsysmon-throttle")
-
-                    self.overload_control_notification = YLeaf(YType.enumeration, "overload-control-notification")
-
-                    self.current_throttle = Watchdog.Nodes.Node.OverloadState.CurrentThrottle()
-                    self.current_throttle.parent = self
-                    self._children_name_map["current_throttle"] = "current-throttle"
-                    self._children_yang_names.add("current-throttle")
-
-                    self.last_throttle = YList(self)
-                    self._segment_path = lambda: "overload-state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, ['configured_wdsysmon_throttle', 'default_wdsysmon_throttle', 'overload_control_notification'], name, value)
-
-
-                class CurrentThrottle(Entity):
-                    """
-                    Current throttle information
-                    
-                    .. attribute:: start_time
-                    
-                    	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                    	**type**\:  str
-                    
-                    	**length:** 0..25
-                    
-                    .. attribute:: throttle_duration
-                    
-                    	Current throttle duration in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'wd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, self).__init__()
-
-                        self.yang_name = "current-throttle"
-                        self.yang_parent_name = "overload-state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start_time = YLeaf(YType.str, "start-time")
-
-                        self.throttle_duration = YLeaf(YType.uint32, "throttle-duration")
-                        self._segment_path = lambda: "current-throttle"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, ['start_time', 'throttle_duration'], name, value)
-
-
-                class LastThrottle(Entity):
-                    """
-                    Last throttle information
-                    
-                    .. attribute:: start_time
-                    
-                    	Last throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                    	**type**\:  str
-                    
-                    	**length:** 0..25
-                    
-                    .. attribute:: stop_time
-                    
-                    	Last throttle stop time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
-                    	**type**\:  str
-                    
-                    	**length:** 0..25
-                    
-                    .. attribute:: throttle_duration
-                    
-                    	Last throttle duration in seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: second
-                    
-                    
-
-                    """
-
-                    _prefix = 'wd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Watchdog.Nodes.Node.OverloadState.LastThrottle, self).__init__()
-
-                        self.yang_name = "last-throttle"
-                        self.yang_parent_name = "overload-state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.start_time = YLeaf(YType.str, "start-time")
-
-                        self.stop_time = YLeaf(YType.str, "stop-time")
-
-                        self.throttle_duration = YLeaf(YType.uint32, "throttle-duration")
-                        self._segment_path = lambda: "last-throttle"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, ['start_time', 'stop_time', 'throttle_duration'], name, value)
-
-
             class ThresholdMemory(Entity):
                 """
                 Threshold memory
-                
-                .. attribute:: configured
-                
-                	Memory configured by user
-                	**type**\:   :py:class:`Configured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Configured>`
                 
                 .. attribute:: default
                 
                 	System default memory
                 	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Default>`
+                
+                .. attribute:: configured
+                
+                	Memory configured by user
+                	**type**\:   :py:class:`Configured <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.ThresholdMemory.Configured>`
                 
                 
 
@@ -464,78 +238,19 @@ class Watchdog(Entity):
                     self.yang_parent_name = "node"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
-                    self._child_container_classes = {"configured" : ("configured", Watchdog.Nodes.Node.ThresholdMemory.Configured), "default" : ("default", Watchdog.Nodes.Node.ThresholdMemory.Default)}
+                    self._child_container_classes = {"default" : ("default", Watchdog.Nodes.Node.ThresholdMemory.Default), "configured" : ("configured", Watchdog.Nodes.Node.ThresholdMemory.Configured)}
                     self._child_list_classes = {}
-
-                    self.configured = Watchdog.Nodes.Node.ThresholdMemory.Configured()
-                    self.configured.parent = self
-                    self._children_name_map["configured"] = "configured"
-                    self._children_yang_names.add("configured")
 
                     self.default = Watchdog.Nodes.Node.ThresholdMemory.Default()
                     self.default.parent = self
                     self._children_name_map["default"] = "default"
                     self._children_yang_names.add("default")
+
+                    self.configured = Watchdog.Nodes.Node.ThresholdMemory.Configured()
+                    self.configured.parent = self
+                    self._children_name_map["configured"] = "configured"
+                    self._children_yang_names.add("configured")
                     self._segment_path = lambda: "threshold-memory"
-
-
-                class Configured(Entity):
-                    """
-                    Memory configured by user
-                    
-                    .. attribute:: critical
-                    
-                    	Critical memory in bytes
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: minor
-                    
-                    	Minor memory threshold in bytes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    .. attribute:: severe
-                    
-                    	Severe memory threshold in bytes
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    	**units**\: byte
-                    
-                    
-
-                    """
-
-                    _prefix = 'wd-oper'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        super(Watchdog.Nodes.Node.ThresholdMemory.Configured, self).__init__()
-
-                        self.yang_name = "configured"
-                        self.yang_parent_name = "threshold-memory"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.critical = YLeaf(YType.uint64, "critical")
-
-                        self.minor = YLeaf(YType.uint32, "minor")
-
-                        self.severe = YLeaf(YType.uint32, "severe")
-                        self._segment_path = lambda: "configured"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, ['critical', 'minor', 'severe'], name, value)
 
 
                 class Default(Entity):
@@ -585,15 +300,6 @@ class Watchdog(Entity):
                         """
                         Configured memory
                         
-                        .. attribute:: critical
-                        
-                        	Critical memory in bytes
-                        	**type**\:  int
-                        
-                        	**range:** 0..18446744073709551615
-                        
-                        	**units**\: byte
-                        
                         .. attribute:: minor
                         
                         	Minor memory threshold in bytes
@@ -609,6 +315,15 @@ class Watchdog(Entity):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: critical
+                        
+                        	Critical memory in bytes
+                        	**type**\:  int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         	**units**\: byte
                         
@@ -629,20 +344,29 @@ class Watchdog(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.critical = YLeaf(YType.uint64, "critical")
-
                             self.minor = YLeaf(YType.uint32, "minor")
 
                             self.severe = YLeaf(YType.uint32, "severe")
+
+                            self.critical = YLeaf(YType.uint64, "critical")
                             self._segment_path = lambda: "configured-memory"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, ['critical', 'minor', 'severe'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.ConfiguredMemory, ['minor', 'severe', 'critical'], name, value)
 
 
                     class Memory(Entity):
                         """
                         Memory Information
+                        
+                        .. attribute:: physical_memory
+                        
+                        	Physical memory in bytes
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        	**units**\: byte
                         
                         .. attribute:: free_memory
                         
@@ -657,15 +381,6 @@ class Watchdog(Entity):
                         
                         	State of memory
                         	**type**\:   :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.MemoryState>`
-                        
-                        .. attribute:: physical_memory
-                        
-                        	Physical memory in bytes
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        	**units**\: byte
                         
                         
 
@@ -684,15 +399,298 @@ class Watchdog(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
+                            self.physical_memory = YLeaf(YType.uint32, "physical-memory")
+
                             self.free_memory = YLeaf(YType.uint64, "free-memory")
 
                             self.memory_state = YLeaf(YType.enumeration, "memory-state")
-
-                            self.physical_memory = YLeaf(YType.uint32, "physical-memory")
                             self._segment_path = lambda: "memory"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, ['free_memory', 'memory_state', 'physical_memory'], name, value)
+                            self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Default.Memory, ['physical_memory', 'free_memory', 'memory_state'], name, value)
+
+
+                class Configured(Entity):
+                    """
+                    Memory configured by user
+                    
+                    .. attribute:: minor
+                    
+                    	Minor memory threshold in bytes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: severe
+                    
+                    	Severe memory threshold in bytes
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: byte
+                    
+                    .. attribute:: critical
+                    
+                    	Critical memory in bytes
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
+                    
+                    
+
+                    """
+
+                    _prefix = 'wd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Watchdog.Nodes.Node.ThresholdMemory.Configured, self).__init__()
+
+                        self.yang_name = "configured"
+                        self.yang_parent_name = "threshold-memory"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.minor = YLeaf(YType.uint32, "minor")
+
+                        self.severe = YLeaf(YType.uint32, "severe")
+
+                        self.critical = YLeaf(YType.uint64, "critical")
+                        self._segment_path = lambda: "configured"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Watchdog.Nodes.Node.ThresholdMemory.Configured, ['minor', 'severe', 'critical'], name, value)
+
+
+            class MemoryState(Entity):
+                """
+                Memory state
+                
+                .. attribute:: physical_memory
+                
+                	Physical memory in bytes
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                	**units**\: byte
+                
+                .. attribute:: free_memory
+                
+                	Free memory in bytes
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
+                
+                .. attribute:: memory_state
+                
+                	State of memory
+                	**type**\:   :py:class:`MemoryState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.MemoryState>`
+                
+                
+
+                """
+
+                _prefix = 'wd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Watchdog.Nodes.Node.MemoryState, self).__init__()
+
+                    self.yang_name = "memory-state"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.physical_memory = YLeaf(YType.uint32, "physical-memory")
+
+                    self.free_memory = YLeaf(YType.uint64, "free-memory")
+
+                    self.memory_state = YLeaf(YType.enumeration, "memory-state")
+                    self._segment_path = lambda: "memory-state"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Watchdog.Nodes.Node.MemoryState, ['physical_memory', 'free_memory', 'memory_state'], name, value)
+
+
+            class OverloadState(Entity):
+                """
+                Display overload control state
+                
+                .. attribute:: current_throttle
+                
+                	Current throttle information
+                	**type**\:   :py:class:`CurrentThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.CurrentThrottle>`
+                
+                .. attribute:: overload_control_notification
+                
+                	State of overload control notification
+                	**type**\:   :py:class:`OverloadCtrlNotif <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.OverloadCtrlNotif>`
+                
+                .. attribute:: default_wdsysmon_throttle
+                
+                	Default resmon throttle
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: configured_wdsysmon_throttle
+                
+                	Configured resmon throttle
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: last_throttle
+                
+                	Last throttle information
+                	**type**\: list of    :py:class:`LastThrottle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_oper.Watchdog.Nodes.Node.OverloadState.LastThrottle>`
+                
+                
+
+                """
+
+                _prefix = 'wd-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Watchdog.Nodes.Node.OverloadState, self).__init__()
+
+                    self.yang_name = "overload-state"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {"current-throttle" : ("current_throttle", Watchdog.Nodes.Node.OverloadState.CurrentThrottle)}
+                    self._child_list_classes = {"last-throttle" : ("last_throttle", Watchdog.Nodes.Node.OverloadState.LastThrottle)}
+
+                    self.overload_control_notification = YLeaf(YType.enumeration, "overload-control-notification")
+
+                    self.default_wdsysmon_throttle = YLeaf(YType.uint32, "default-wdsysmon-throttle")
+
+                    self.configured_wdsysmon_throttle = YLeaf(YType.uint32, "configured-wdsysmon-throttle")
+
+                    self.current_throttle = Watchdog.Nodes.Node.OverloadState.CurrentThrottle()
+                    self.current_throttle.parent = self
+                    self._children_name_map["current_throttle"] = "current-throttle"
+                    self._children_yang_names.add("current-throttle")
+
+                    self.last_throttle = YList(self)
+                    self._segment_path = lambda: "overload-state"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Watchdog.Nodes.Node.OverloadState, ['overload_control_notification', 'default_wdsysmon_throttle', 'configured_wdsysmon_throttle'], name, value)
+
+
+                class CurrentThrottle(Entity):
+                    """
+                    Current throttle information
+                    
+                    .. attribute:: throttle_duration
+                    
+                    	Current throttle duration in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: start_time
+                    
+                    	Current throttle start time in format  \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	**type**\:  str
+                    
+                    	**length:** 0..25
+                    
+                    
+
+                    """
+
+                    _prefix = 'wd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, self).__init__()
+
+                        self.yang_name = "current-throttle"
+                        self.yang_parent_name = "overload-state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.throttle_duration = YLeaf(YType.uint32, "throttle-duration")
+
+                        self.start_time = YLeaf(YType.str, "start-time")
+                        self._segment_path = lambda: "current-throttle"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.CurrentThrottle, ['throttle_duration', 'start_time'], name, value)
+
+
+                class LastThrottle(Entity):
+                    """
+                    Last throttle information
+                    
+                    .. attribute:: throttle_duration
+                    
+                    	Last throttle duration in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: start_time
+                    
+                    	Last throttle start time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	**type**\:  str
+                    
+                    	**length:** 0..25
+                    
+                    .. attribute:: stop_time
+                    
+                    	Last throttle stop time in format \:day\-of\-week month date\-of\-month HH\:MM\:SS year eg\: Thu Feb 1 18\:32\:14 2011
+                    	**type**\:  str
+                    
+                    	**length:** 0..25
+                    
+                    
+
+                    """
+
+                    _prefix = 'wd-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Watchdog.Nodes.Node.OverloadState.LastThrottle, self).__init__()
+
+                        self.yang_name = "last-throttle"
+                        self.yang_parent_name = "overload-state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.throttle_duration = YLeaf(YType.uint32, "throttle-duration")
+
+                        self.start_time = YLeaf(YType.str, "start-time")
+
+                        self.stop_time = YLeaf(YType.str, "stop-time")
+                        self._segment_path = lambda: "last-throttle"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Watchdog.Nodes.Node.OverloadState.LastThrottle, ['throttle_duration', 'start_time', 'stop_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Watchdog()

@@ -127,15 +127,15 @@ class Lacp(Entity):
     	Configuration data for LACP
     	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_lacp.Lacp.Config>`
     
-    .. attribute:: interfaces
-    
-    	Enclosing container for the list of LACP\-enabled interfaces
-    	**type**\:   :py:class:`Interfaces <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces>`
-    
     .. attribute:: state
     
     	Operational state data for LACP
     	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_lacp.Lacp.State>`
+    
+    .. attribute:: interfaces
+    
+    	Enclosing container for the list of LACP\-enabled interfaces
+    	**type**\:   :py:class:`Interfaces <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces>`
     
     
 
@@ -152,7 +152,7 @@ class Lacp(Entity):
         self.yang_parent_name = "openconfig-lacp"
         self.is_top_level_class = True
         self.has_list_ancestor = False
-        self._child_container_classes = {"config" : ("config", Lacp.Config), "interfaces" : ("interfaces", Lacp.Interfaces), "state" : ("state", Lacp.State)}
+        self._child_container_classes = {"config" : ("config", Lacp.Config), "state" : ("state", Lacp.State), "interfaces" : ("interfaces", Lacp.Interfaces)}
         self._child_list_classes = {}
 
         self.config = Lacp.Config()
@@ -160,15 +160,15 @@ class Lacp(Entity):
         self._children_name_map["config"] = "config"
         self._children_yang_names.add("config")
 
-        self.interfaces = Lacp.Interfaces()
-        self.interfaces.parent = self
-        self._children_name_map["interfaces"] = "interfaces"
-        self._children_yang_names.add("interfaces")
-
         self.state = Lacp.State()
         self.state.parent = self
         self._children_name_map["state"] = "state"
         self._children_yang_names.add("state")
+
+        self.interfaces = Lacp.Interfaces()
+        self.interfaces.parent = self
+        self._children_name_map["interfaces"] = "interfaces"
+        self._children_yang_names.add("interfaces")
         self._segment_path = lambda: "openconfig-lacp:lacp"
 
 
@@ -206,6 +206,42 @@ class Lacp(Entity):
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lacp.Config, ['system_priority'], name, value)
+
+
+    class State(Entity):
+        """
+        Operational state data for LACP
+        
+        .. attribute:: system_priority
+        
+        	Sytem priority used by the node on this LAG interface. Lower value is higher priority for determining which node is the controlling system
+        	**type**\:  int
+        
+        	**range:** 0..65535
+        
+        
+
+        """
+
+        _prefix = 'oc-lacp'
+        _revision = '2016-05-26'
+
+        def __init__(self):
+            super(Lacp.State, self).__init__()
+
+            self.yang_name = "state"
+            self.yang_parent_name = "lacp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.system_priority = YLeaf(YType.uint16, "system-priority")
+            self._segment_path = lambda: "state"
+            self._absolute_path = lambda: "openconfig-lacp:lacp/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Lacp.State, ['system_priority'], name, value)
 
 
     class Interfaces(Entity):
@@ -259,15 +295,15 @@ class Lacp(Entity):
             	Configuration data for each LACP aggregate interface
             	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Config>`
             
-            .. attribute:: members
-            
-            	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
-            	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members>`
-            
             .. attribute:: state
             
             	Operational state data for each LACP aggregate interface
             	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.State>`
+            
+            .. attribute:: members
+            
+            	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
+            	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members>`
             
             
 
@@ -283,7 +319,7 @@ class Lacp(Entity):
                 self.yang_parent_name = "interfaces"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {"config" : ("config", Lacp.Interfaces.Interface.Config), "members" : ("members", Lacp.Interfaces.Interface.Members), "state" : ("state", Lacp.Interfaces.Interface.State)}
+                self._child_container_classes = {"config" : ("config", Lacp.Interfaces.Interface.Config), "state" : ("state", Lacp.Interfaces.Interface.State), "members" : ("members", Lacp.Interfaces.Interface.Members)}
                 self._child_list_classes = {}
 
                 self.name = YLeaf(YType.str, "name")
@@ -293,15 +329,15 @@ class Lacp(Entity):
                 self._children_name_map["config"] = "config"
                 self._children_yang_names.add("config")
 
-                self.members = Lacp.Interfaces.Interface.Members()
-                self.members.parent = self
-                self._children_name_map["members"] = "members"
-                self._children_yang_names.add("members")
-
                 self.state = Lacp.Interfaces.Interface.State()
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._children_yang_names.add("state")
+
+                self.members = Lacp.Interfaces.Interface.Members()
+                self.members.parent = self
+                self._children_name_map["members"] = "members"
+                self._children_yang_names.add("members")
                 self._segment_path = lambda: "interface" + "[name='" + self.name.get() + "']"
                 self._absolute_path = lambda: "openconfig-lacp:lacp/interfaces/%s" % self._segment_path()
 
@@ -312,6 +348,13 @@ class Lacp(Entity):
             class Config(Entity):
                 """
                 Configuration data for each LACP aggregate interface
+                
+                .. attribute:: name
+                
+                	Reference to the interface on which LACP should be configured.   The type of the target interface must be ieee8023adLag
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: interval
                 
@@ -327,19 +370,10 @@ class Lacp(Entity):
                 
                 	**default value**\: ACTIVE
                 
-                .. attribute:: name
-                
-                	Reference to the interface on which LACP should be configured.   The type of the target interface must be ieee8023adLag
-                	**type**\:  str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                
                 .. attribute:: system_id_mac
                 
                 	The MAC address portion of the node's System ID. This is combined with the system priority to construct the 8\-octet system\-id
                 	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                 
                 .. attribute:: system_priority
                 
@@ -365,11 +399,11 @@ class Lacp(Entity):
                     self._child_container_classes = {}
                     self._child_list_classes = {}
 
+                    self.name = YLeaf(YType.str, "name")
+
                     self.interval = YLeaf(YType.enumeration, "interval")
 
                     self.lacp_mode = YLeaf(YType.enumeration, "lacp-mode")
-
-                    self.name = YLeaf(YType.str, "name")
 
                     self.system_id_mac = YLeaf(YType.str, "system-id-mac")
 
@@ -377,7 +411,77 @@ class Lacp(Entity):
                     self._segment_path = lambda: "config"
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lacp.Interfaces.Interface.Config, ['interval', 'lacp_mode', 'name', 'system_id_mac', 'system_priority'], name, value)
+                    self._perform_setattr(Lacp.Interfaces.Interface.Config, ['name', 'interval', 'lacp_mode', 'system_id_mac', 'system_priority'], name, value)
+
+
+            class State(Entity):
+                """
+                Operational state data for each LACP aggregate
+                interface
+                
+                .. attribute:: name
+                
+                	Reference to the interface on which LACP should be configured.   The type of the target interface must be ieee8023adLag
+                	**type**\:  str
+                
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                
+                .. attribute:: interval
+                
+                	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
+                	**type**\:   :py:class:`LacpPeriodType <ydk.models.openconfig.openconfig_lacp.LacpPeriodType>`
+                
+                	**default value**\: SLOW
+                
+                .. attribute:: lacp_mode
+                
+                	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
+                	**type**\:   :py:class:`LacpActivityType <ydk.models.openconfig.openconfig_lacp.LacpActivityType>`
+                
+                	**default value**\: ACTIVE
+                
+                .. attribute:: system_id_mac
+                
+                	The MAC address portion of the node's System ID. This is combined with the system priority to construct the 8\-octet system\-id
+                	**type**\:  str
+                
+                .. attribute:: system_priority
+                
+                	Sytem priority used by the node on this LAG interface. Lower value is higher priority for determining which node is the controlling system
+                	**type**\:  int
+                
+                	**range:** 0..65535
+                
+                
+
+                """
+
+                _prefix = 'oc-lacp'
+                _revision = '2016-05-26'
+
+                def __init__(self):
+                    super(Lacp.Interfaces.Interface.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "interface"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.name = YLeaf(YType.str, "name")
+
+                    self.interval = YLeaf(YType.enumeration, "interval")
+
+                    self.lacp_mode = YLeaf(YType.enumeration, "lacp-mode")
+
+                    self.system_id_mac = YLeaf(YType.str, "system-id-mac")
+
+                    self.system_priority = YLeaf(YType.uint16, "system-priority")
+                    self._segment_path = lambda: "state"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Lacp.Interfaces.Interface.State, ['name', 'interval', 'lacp_mode', 'system_id_mac', 'system_priority'], name, value)
 
 
             class Members(Entity):
@@ -467,10 +571,27 @@ class Lacp(Entity):
                         """
                         Operational state data for aggregate members
                         
+                        .. attribute:: interface
+                        
+                        	Reference to interface member of the LACP aggregate
+                        	**type**\:  str
+                        
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                        
                         .. attribute:: activity
                         
                         	Indicates participant is active or passive
                         	**type**\:   :py:class:`LacpActivityType <ydk.models.openconfig.openconfig_lacp.LacpActivityType>`
+                        
+                        .. attribute:: timeout
+                        
+                        	The timeout type (short or long) used by the participant
+                        	**type**\:   :py:class:`LacpTimeoutType <ydk.models.openconfig.openconfig_lacp.LacpTimeoutType>`
+                        
+                        .. attribute:: synchronization
+                        
+                        	Indicates whether the participant is in\-sync or out\-of\-sync
+                        	**type**\:   :py:class:`LacpSynchronizationType <ydk.models.openconfig.openconfig_lacp.LacpSynchronizationType>`
                         
                         .. attribute:: aggregatable
                         
@@ -482,22 +603,15 @@ class Lacp(Entity):
                         	If true, the participant is collecting incoming frames on the link, otherwise false
                         	**type**\:  bool
                         
-                        .. attribute:: counters
-                        
-                        	LACP protocol counters
-                        	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member.State.Counters>`
-                        
                         .. attribute:: distributing
                         
                         	When true, the participant is distributing outgoing frames; when false, distribution is disabled
                         	**type**\:  bool
                         
-                        .. attribute:: interface
+                        .. attribute:: system_id
                         
-                        	Reference to interface member of the LACP aggregate
+                        	MAC address that defines the local system ID for the aggregate interface
                         	**type**\:  str
-                        
-                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
                         .. attribute:: oper_key
                         
@@ -511,8 +625,6 @@ class Lacp(Entity):
                         	MAC address representing the protocol partner's interface system ID
                         	**type**\:  str
                         
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
                         .. attribute:: partner_key
                         
                         	Operational value of the protocol partner's key
@@ -520,22 +632,10 @@ class Lacp(Entity):
                         
                         	**range:** 0..65535
                         
-                        .. attribute:: synchronization
+                        .. attribute:: counters
                         
-                        	Indicates whether the participant is in\-sync or out\-of\-sync
-                        	**type**\:   :py:class:`LacpSynchronizationType <ydk.models.openconfig.openconfig_lacp.LacpSynchronizationType>`
-                        
-                        .. attribute:: system_id
-                        
-                        	MAC address that defines the local system ID for the aggregate interface
-                        	**type**\:  str
-                        
-                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                        
-                        .. attribute:: timeout
-                        
-                        	The timeout type (short or long) used by the participant
-                        	**type**\:   :py:class:`LacpTimeoutType <ydk.models.openconfig.openconfig_lacp.LacpTimeoutType>`
+                        	LACP protocol counters
+                        	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_lacp.Lacp.Interfaces.Interface.Members.Member.State.Counters>`
                         
                         
 
@@ -554,7 +654,13 @@ class Lacp(Entity):
                             self._child_container_classes = {"counters" : ("counters", Lacp.Interfaces.Interface.Members.Member.State.Counters)}
                             self._child_list_classes = {}
 
+                            self.interface = YLeaf(YType.str, "interface")
+
                             self.activity = YLeaf(YType.enumeration, "activity")
+
+                            self.timeout = YLeaf(YType.enumeration, "timeout")
+
+                            self.synchronization = YLeaf(YType.enumeration, "synchronization")
 
                             self.aggregatable = YLeaf(YType.boolean, "aggregatable")
 
@@ -562,19 +668,13 @@ class Lacp(Entity):
 
                             self.distributing = YLeaf(YType.boolean, "distributing")
 
-                            self.interface = YLeaf(YType.str, "interface")
+                            self.system_id = YLeaf(YType.str, "system-id")
 
                             self.oper_key = YLeaf(YType.uint16, "oper-key")
 
                             self.partner_id = YLeaf(YType.str, "partner-id")
 
                             self.partner_key = YLeaf(YType.uint16, "partner-key")
-
-                            self.synchronization = YLeaf(YType.enumeration, "synchronization")
-
-                            self.system_id = YLeaf(YType.str, "system-id")
-
-                            self.timeout = YLeaf(YType.enumeration, "timeout")
 
                             self.counters = Lacp.Interfaces.Interface.Members.Member.State.Counters()
                             self.counters.parent = self
@@ -583,19 +683,12 @@ class Lacp(Entity):
                             self._segment_path = lambda: "state"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State, ['activity', 'aggregatable', 'collecting', 'distributing', 'interface', 'oper_key', 'partner_id', 'partner_key', 'synchronization', 'system_id', 'timeout'], name, value)
+                            self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State, ['interface', 'activity', 'timeout', 'synchronization', 'aggregatable', 'collecting', 'distributing', 'system_id', 'oper_key', 'partner_id', 'partner_key'], name, value)
 
 
                         class Counters(Entity):
                             """
                             LACP protocol counters
-                            
-                            .. attribute:: lacp_errors
-                            
-                            	Number of LACPDU illegal packet errors
-                            	**type**\:  int
-                            
-                            	**range:** 0..18446744073709551615
                             
                             .. attribute:: lacp_in_pkts
                             
@@ -632,6 +725,13 @@ class Lacp(Entity):
                             
                             	**range:** 0..18446744073709551615
                             
+                            .. attribute:: lacp_errors
+                            
+                            	Number of LACPDU illegal packet errors
+                            	**type**\:  int
+                            
+                            	**range:** 0..18446744073709551615
+                            
                             
 
                             """
@@ -649,8 +749,6 @@ class Lacp(Entity):
                                 self._child_container_classes = {}
                                 self._child_list_classes = {}
 
-                                self.lacp_errors = YLeaf(YType.uint64, "lacp-errors")
-
                                 self.lacp_in_pkts = YLeaf(YType.uint64, "lacp-in-pkts")
 
                                 self.lacp_out_pkts = YLeaf(YType.uint64, "lacp-out-pkts")
@@ -660,118 +758,12 @@ class Lacp(Entity):
                                 self.lacp_tx_errors = YLeaf(YType.uint64, "lacp-tx-errors")
 
                                 self.lacp_unknown_errors = YLeaf(YType.uint64, "lacp-unknown-errors")
+
+                                self.lacp_errors = YLeaf(YType.uint64, "lacp-errors")
                                 self._segment_path = lambda: "counters"
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State.Counters, ['lacp_errors', 'lacp_in_pkts', 'lacp_out_pkts', 'lacp_rx_errors', 'lacp_tx_errors', 'lacp_unknown_errors'], name, value)
-
-
-            class State(Entity):
-                """
-                Operational state data for each LACP aggregate
-                interface
-                
-                .. attribute:: interval
-                
-                	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
-                	**type**\:   :py:class:`LacpPeriodType <ydk.models.openconfig.openconfig_lacp.LacpPeriodType>`
-                
-                	**default value**\: SLOW
-                
-                .. attribute:: lacp_mode
-                
-                	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
-                	**type**\:   :py:class:`LacpActivityType <ydk.models.openconfig.openconfig_lacp.LacpActivityType>`
-                
-                	**default value**\: ACTIVE
-                
-                .. attribute:: name
-                
-                	Reference to the interface on which LACP should be configured.   The type of the target interface must be ieee8023adLag
-                	**type**\:  str
-                
-                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
-                
-                .. attribute:: system_id_mac
-                
-                	The MAC address portion of the node's System ID. This is combined with the system priority to construct the 8\-octet system\-id
-                	**type**\:  str
-                
-                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
-                
-                .. attribute:: system_priority
-                
-                	Sytem priority used by the node on this LAG interface. Lower value is higher priority for determining which node is the controlling system
-                	**type**\:  int
-                
-                	**range:** 0..65535
-                
-                
-
-                """
-
-                _prefix = 'oc-lacp'
-                _revision = '2016-05-26'
-
-                def __init__(self):
-                    super(Lacp.Interfaces.Interface.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "interface"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.interval = YLeaf(YType.enumeration, "interval")
-
-                    self.lacp_mode = YLeaf(YType.enumeration, "lacp-mode")
-
-                    self.name = YLeaf(YType.str, "name")
-
-                    self.system_id_mac = YLeaf(YType.str, "system-id-mac")
-
-                    self.system_priority = YLeaf(YType.uint16, "system-priority")
-                    self._segment_path = lambda: "state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Lacp.Interfaces.Interface.State, ['interval', 'lacp_mode', 'name', 'system_id_mac', 'system_priority'], name, value)
-
-
-    class State(Entity):
-        """
-        Operational state data for LACP
-        
-        .. attribute:: system_priority
-        
-        	Sytem priority used by the node on this LAG interface. Lower value is higher priority for determining which node is the controlling system
-        	**type**\:  int
-        
-        	**range:** 0..65535
-        
-        
-
-        """
-
-        _prefix = 'oc-lacp'
-        _revision = '2016-05-26'
-
-        def __init__(self):
-            super(Lacp.State, self).__init__()
-
-            self.yang_name = "state"
-            self.yang_parent_name = "lacp"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.system_priority = YLeaf(YType.uint16, "system-priority")
-            self._segment_path = lambda: "state"
-            self._absolute_path = lambda: "openconfig-lacp:lacp/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Lacp.State, ['system_priority'], name, value)
+                                self._perform_setattr(Lacp.Interfaces.Interface.Members.Member.State.Counters, ['lacp_in_pkts', 'lacp_out_pkts', 'lacp_rx_errors', 'lacp_tx_errors', 'lacp_unknown_errors', 'lacp_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Lacp()

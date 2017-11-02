@@ -201,27 +201,6 @@ class CISCOCBPTARGETMIB(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: ccbptpolicyattachtime
-            
-            	The value of sysUpTime for the last time that the corresponding ccbptTargetStatus instance transitioned to the 'active' state.  
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: ccbptpolicyinstance
-            
-            	Refers to the first accessible object in the policy  instance table used to manage policy instance information  for policy\-maps of this ccbptPolicySourceType.  Specific MIB tables are not mentioned here as the intent of this mapping is to allow for different implementations to  refer to their supported class\-based policy definition table without requiring support of a specific MIB module
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
-            .. attribute:: ccbptpolicymap
-            
-            	Refers to the first accessible object in the policy\-map definition table used to manage policy\-map information for policy\-maps for the corresponding ccbptPolicySourceType.  Specific MIB tables are not mentioned here as the intent of this mapping is to allow for different implementations to  refer to their supported class\-based policy definition table without requiring support of a specific MIB module
-            	**type**\:  str
-            
-            	**pattern:** (([0\-1](\\.[1\-3]?[0\-9]))\|(2\\.(0\|([1\-9]\\d\*))))(\\.(0\|([1\-9]\\d\*)))\*
-            
             .. attribute:: ccbpttargetstatus
             
             	The status of the policy attachment to this target.  The value for the corresponding instance of each of the  following objects must be valid before the attachment  can be activated\:     \-ccbptTargetStorageType     \-ccbptPolicyMap  Observe that no corresponding instance of any object in  this table can be modified when the value of this object is 'active'
@@ -231,6 +210,23 @@ class CISCOCBPTARGETMIB(Entity):
             
             	This object indicates how the device stores the data  contained by the conceptual row.  If an instance of this object has the value 'permanent', then this MIB definition does not require the SNMP entity to allow the instance of any object in the corresponding conceptual row to be writable through the SNMP
             	**type**\:   :py:class:`StorageType <ydk.models.cisco_ios_xe.SNMPv2_TC.StorageType>`
+            
+            .. attribute:: ccbptpolicymap
+            
+            	Refers to the first accessible object in the policy\-map definition table used to manage policy\-map information for policy\-maps for the corresponding ccbptPolicySourceType.  Specific MIB tables are not mentioned here as the intent of this mapping is to allow for different implementations to  refer to their supported class\-based policy definition table without requiring support of a specific MIB module
+            	**type**\:  str
+            
+            .. attribute:: ccbptpolicyinstance
+            
+            	Refers to the first accessible object in the policy  instance table used to manage policy instance information  for policy\-maps of this ccbptPolicySourceType.  Specific MIB tables are not mentioned here as the intent of this mapping is to allow for different implementations to  refer to their supported class\-based policy definition table without requiring support of a specific MIB module
+            	**type**\:  str
+            
+            .. attribute:: ccbptpolicyattachtime
+            
+            	The value of sysUpTime for the last time that the corresponding ccbptTargetStatus instance transitioned to the 'active' state.  
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -259,20 +255,20 @@ class CISCOCBPTARGETMIB(Entity):
 
                 self.ccbptpolicyid = YLeaf(YType.uint32, "ccbptPolicyId")
 
-                self.ccbptpolicyattachtime = YLeaf(YType.uint32, "ccbptPolicyAttachTime")
-
-                self.ccbptpolicyinstance = YLeaf(YType.str, "ccbptPolicyInstance")
-
-                self.ccbptpolicymap = YLeaf(YType.str, "ccbptPolicyMap")
-
                 self.ccbpttargetstatus = YLeaf(YType.enumeration, "ccbptTargetStatus")
 
                 self.ccbpttargetstoragetype = YLeaf(YType.enumeration, "ccbptTargetStorageType")
+
+                self.ccbptpolicymap = YLeaf(YType.str, "ccbptPolicyMap")
+
+                self.ccbptpolicyinstance = YLeaf(YType.str, "ccbptPolicyInstance")
+
+                self.ccbptpolicyattachtime = YLeaf(YType.uint32, "ccbptPolicyAttachTime")
                 self._segment_path = lambda: "ccbptTargetEntry" + "[ccbptTargetType='" + self.ccbpttargettype.get() + "']" + "[ccbptTargetId='" + self.ccbpttargetid.get() + "']" + "[ccbptTargetDir='" + self.ccbpttargetdir.get() + "']" + "[ccbptPolicySourceType='" + self.ccbptpolicysourcetype.get() + "']" + "[ccbptPolicyId='" + self.ccbptpolicyid.get() + "']"
                 self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/ccbptTargetTable/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry, ['ccbpttargettype', 'ccbpttargetid', 'ccbpttargetdir', 'ccbptpolicysourcetype', 'ccbptpolicyid', 'ccbptpolicyattachtime', 'ccbptpolicyinstance', 'ccbptpolicymap', 'ccbpttargetstatus', 'ccbpttargetstoragetype'], name, value)
+                self._perform_setattr(CISCOCBPTARGETMIB.Ccbpttargettable.Ccbpttargetentry, ['ccbpttargettype', 'ccbpttargetid', 'ccbpttargetdir', 'ccbptpolicysourcetype', 'ccbptpolicyid', 'ccbpttargetstatus', 'ccbpttargetstoragetype', 'ccbptpolicymap', 'ccbptpolicyinstance', 'ccbptpolicyattachtime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOCBPTARGETMIB()

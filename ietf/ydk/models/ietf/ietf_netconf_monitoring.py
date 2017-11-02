@@ -45,31 +45,9 @@ class NetconfDatastoreType(Enum):
 
 
 
-class GetSchema(Entity):
+class Transport(Identity):
     """
-    This operation is used to retrieve a schema from the
-    NETCONF server.
-    
-    Positive Response\:
-      The NETCONF server returns the requested schema.
-    
-    Negative Response\:
-      If requested schema does not exist, the <error\-tag> is
-      'invalid\-value'.
-    
-      If more than one schema matches the requested parameters, the
-      <error\-tag> is 'operation\-failed', and <error\-app\-tag> is
-      'data\-not\-unique'.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
+    Base identity for NETCONF transport types.
     
     
 
@@ -79,114 +57,23 @@ class GetSchema(Entity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(GetSchema, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "get-schema"
-        self.yang_parent_name = "ietf-netconf-monitoring"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = GetSchema.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = GetSchema.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
+        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
 
 
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: format
-        
-        	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
-        
-        .. attribute:: identifier
-        
-        	Identifier for the schema list entry
-        	**type**\:  str
-        
-        	**mandatory**\: True
-        
-        .. attribute:: version
-        
-        	Version of the schema requested.  If this parameter is not present, and more than one version of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:  str
-        
-        
+class SchemaFormat(Identity):
+    """
+    Base identity for data model schema languages.
+    
+    
 
-        """
+    """
 
-        _prefix = 'ncm'
-        _revision = '2010-10-04'
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
 
-        def __init__(self):
-            super(GetSchema.Input, self).__init__()
+    def __init__(self):
+        super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
 
-            self.yang_name = "input"
-            self.yang_parent_name = "get-schema"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.format = YLeaf(YType.identityref, "format")
-
-            self.identifier = YLeaf(YType.str, "identifier")
-
-            self.version = YLeaf(YType.str, "version")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(GetSchema.Input, ['format', 'identifier', 'version'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Contains the schema content
-        	**type**\:  anyxml
-        
-        
-
-        """
-
-        _prefix = 'ncm'
-        _revision = '2010-10-04'
-
-        def __init__(self):
-            super(GetSchema.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "get-schema"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(GetSchema.Output, ['data'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = GetSchema()
-        return self._top_entity
 
 class NetconfState(Entity):
     """
@@ -452,8 +339,6 @@ class NetconfState(Entity):
                     	The date and time of when the resource was locked
                     	**type**\:  str
                     
-                    	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-                    
                     	**mandatory**\: True
                     
                     
@@ -502,23 +387,21 @@ class NetconfState(Entity):
                     
                     	**mandatory**\: True
                     
-                    .. attribute:: locked_node
-                    
-                    	The list of instance\-identifiers (i.e., the locked nodes).  The scope of the partial lock is defined by the list of locked nodes
-                    	**type**\:  list of str
-                    
                     .. attribute:: locked_time
                     
                     	The date and time of when the resource was locked
                     	**type**\:  str
-                    
-                    	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
                     
                     	**mandatory**\: True
                     
                     .. attribute:: select
                     
                     	The xpath expression that was used to request the lock.  The select expression indicates the original intended scope of the lock
+                    	**type**\:  list of str
+                    
+                    .. attribute:: locked_node
+                    
+                    	The list of instance\-identifiers (i.e., the locked nodes).  The scope of the partial lock is defined by the list of locked nodes
                     	**type**\:  list of str
                     
                     
@@ -542,15 +425,15 @@ class NetconfState(Entity):
 
                         self.locked_by_session = YLeaf(YType.uint32, "locked-by-session")
 
-                        self.locked_node = YLeafList(YType.str, "locked-node")
-
                         self.locked_time = YLeaf(YType.str, "locked-time")
 
                         self.select = YLeafList(YType.str, "select")
+
+                        self.locked_node = YLeafList(YType.str, "locked-node")
                         self._segment_path = lambda: "partial-lock" + "[lock-id='" + self.lock_id.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NetconfState.Datastores.Datastore.Locks.PartialLock, ['lock_id', 'locked_by_session', 'locked_node', 'locked_time', 'select'], name, value)
+                        self._perform_setattr(NetconfState.Datastores.Datastore.Locks.PartialLock, ['lock_id', 'locked_by_session', 'locked_time', 'select', 'locked_node'], name, value)
 
 
     class Schemas(Entity):
@@ -607,6 +490,13 @@ class NetconfState(Entity):
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc). For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
             	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
             
+            .. attribute:: namespace
+            
+            	The XML namespace defined by the data model.  For YANG data models, this is the module's namespace. If the list entry describes a submodule, this field contains the namespace of the module to which the submodule belongs
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
             .. attribute:: location
             
             	One or more locations from which the schema can be retrieved.  This list SHOULD contain at least one entry per schema.  A schema entry may be located on a remote file system (e.g., reference to file system for ftp retrieval) or retrieved directly from a server supporting the <get\-schema> operation (denoted by the value 'NETCONF')
@@ -620,13 +510,6 @@ class NetconfState(Entity):
             
             
             ----
-            .. attribute:: namespace
-            
-            	The XML namespace defined by the data model.  For YANG data models, this is the module's namespace. If the list entry describes a submodule, this field contains the namespace of the module to which the submodule belongs
-            	**type**\:  str
-            
-            	**mandatory**\: True
-            
             
 
             """
@@ -650,14 +533,14 @@ class NetconfState(Entity):
 
                 self.format = YLeaf(YType.identityref, "format")
 
-                self.location = YLeafList(YType.str, "location")
-
                 self.namespace = YLeaf(YType.str, "namespace")
+
+                self.location = YLeafList(YType.str, "location")
                 self._segment_path = lambda: "schema" + "[identifier='" + self.identifier.get() + "']" + "[version='" + self.version.get() + "']" + "[format='" + self.format.get() + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/schemas/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NetconfState.Schemas.Schema, ['identifier', 'version', 'format', 'location', 'namespace'], name, value)
+                self._perform_setattr(NetconfState.Schemas.Schema, ['identifier', 'version', 'format', 'namespace', 'location'], name, value)
 
             class Location(Enum):
                 """
@@ -733,68 +616,6 @@ class NetconfState(Entity):
             
             	**range:** 1..4294967295
             
-            .. attribute:: in_bad_rpcs
-            
-            	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: in_rpcs
-            
-            	Number of correct <rpc> messages received
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: login_time
-            
-            	Time at the server at which the session was established
-            	**type**\:  str
-            
-            	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
-            
-            	**mandatory**\: True
-            
-            .. attribute:: out_notifications
-            
-            	Number of <notification> messages sent
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: out_rpc_errors
-            
-            	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: source_host
-            
-            	Host identifier of the NETCONF client.  The value returned is implementation specific (e.g., hostname, IPv4 address, IPv6 address)
-            	**type**\: one of the below types:
-            
-            	**type**\:  str
-            
-            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-            
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-            
-            
-            ----
-            
-            ----
-            	**type**\:  str
-            
-            	**pattern:** ((([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.)\*([a\-zA\-Z0\-9\_]([a\-zA\-Z0\-9\\\-\_]){0,61})?[a\-zA\-Z0\-9]\\.?)\|\\.
-            
-            
-            ----
             .. attribute:: transport
             
             	Identifies the transport for each session, e.g., 'netconf\-ssh', 'netconf\-soap', etc
@@ -808,6 +629,62 @@ class NetconfState(Entity):
             	**type**\:  str
             
             	**mandatory**\: True
+            
+            .. attribute:: source_host
+            
+            	Host identifier of the NETCONF client.  The value returned is implementation specific (e.g., hostname, IPv4 address, IPv6 address)
+            	**type**\: one of the below types:
+            
+            	**type**\:  str
+            
+            
+            ----
+            	**type**\:  str
+            
+            
+            ----
+            
+            ----
+            	**type**\:  str
+            
+            	**length:** 1..253
+            
+            
+            ----
+            .. attribute:: login_time
+            
+            	Time at the server at which the session was established
+            	**type**\:  str
+            
+            	**mandatory**\: True
+            
+            .. attribute:: in_rpcs
+            
+            	Number of correct <rpc> messages received
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: in_bad_rpcs
+            
+            	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: out_rpc_errors
+            
+            	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: out_notifications
+            
+            	Number of <notification> messages sent
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             
 
@@ -828,56 +705,40 @@ class NetconfState(Entity):
 
                 self.session_id = YLeaf(YType.uint32, "session-id")
 
-                self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
-
-                self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
-
-                self.login_time = YLeaf(YType.str, "login-time")
-
-                self.out_notifications = YLeaf(YType.uint32, "out-notifications")
-
-                self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
-
-                self.source_host = YLeaf(YType.str, "source-host")
-
                 self.transport = YLeaf(YType.identityref, "transport")
 
                 self.username = YLeaf(YType.str, "username")
+
+                self.source_host = YLeaf(YType.str, "source-host")
+
+                self.login_time = YLeaf(YType.str, "login-time")
+
+                self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
+
+                self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
+
+                self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
+
+                self.out_notifications = YLeaf(YType.uint32, "out-notifications")
                 self._segment_path = lambda: "session" + "[session-id='" + self.session_id.get() + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/sessions/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NetconfState.Sessions.Session, ['session_id', 'in_bad_rpcs', 'in_rpcs', 'login_time', 'out_notifications', 'out_rpc_errors', 'source_host', 'transport', 'username'], name, value)
+                self._perform_setattr(NetconfState.Sessions.Session, ['session_id', 'transport', 'username', 'source_host', 'login_time', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
 
 
     class Statistics(Entity):
         """
         Statistical data pertaining to the NETCONF server.
         
-        .. attribute:: dropped_sessions
+        .. attribute:: netconf_start_time
         
-        	Number of sessions that were abnormally terminated, e.g., due to idle timeout or transport close.  This counter is not incremented when a session is properly closed by a <close\-session> operation, or killed by a <kill\-session> operation
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
+        	Date and time at which the management subsystem was started
+        	**type**\:  str
         
         .. attribute:: in_bad_hellos
         
         	Number of sessions silently dropped because an invalid <hello> message was received.  This includes <hello> messages with a 'session\-id' attribute, bad namespace, and bad capability declarations
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: in_bad_rpcs
-        
-        	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
-        	**type**\:  int
-        
-        	**range:** 0..4294967295
-        
-        .. attribute:: in_rpcs
-        
-        	Number of correct <rpc> messages received
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -889,16 +750,23 @@ class NetconfState(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: netconf_start_time
+        .. attribute:: dropped_sessions
         
-        	Date and time at which the management subsystem was started
-        	**type**\:  str
+        	Number of sessions that were abnormally terminated, e.g., due to idle timeout or transport close.  This counter is not incremented when a session is properly closed by a <close\-session> operation, or killed by a <kill\-session> operation
+        	**type**\:  int
         
-        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        	**range:** 0..4294967295
         
-        .. attribute:: out_notifications
+        .. attribute:: in_rpcs
         
-        	Number of <notification> messages sent
+        	Number of correct <rpc> messages received
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: in_bad_rpcs
+        
+        	Number of messages received when an <rpc> message was expected, that were not correct <rpc> messages.  This includes XML parse errors and errors on the rpc layer
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -906,6 +774,13 @@ class NetconfState(Entity):
         .. attribute:: out_rpc_errors
         
         	Number of <rpc\-reply> messages sent that contained an <rpc\-error> element
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: out_notifications
+        
+        	Number of <notification> messages sent
         	**type**\:  int
         
         	**range:** 0..4294967295
@@ -927,34 +802,56 @@ class NetconfState(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.dropped_sessions = YLeaf(YType.uint32, "dropped-sessions")
+            self.netconf_start_time = YLeaf(YType.str, "netconf-start-time")
 
             self.in_bad_hellos = YLeaf(YType.uint32, "in-bad-hellos")
 
-            self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
+            self.in_sessions = YLeaf(YType.uint32, "in-sessions")
+
+            self.dropped_sessions = YLeaf(YType.uint32, "dropped-sessions")
 
             self.in_rpcs = YLeaf(YType.uint32, "in-rpcs")
 
-            self.in_sessions = YLeaf(YType.uint32, "in-sessions")
-
-            self.netconf_start_time = YLeaf(YType.str, "netconf-start-time")
-
-            self.out_notifications = YLeaf(YType.uint32, "out-notifications")
+            self.in_bad_rpcs = YLeaf(YType.uint32, "in-bad-rpcs")
 
             self.out_rpc_errors = YLeaf(YType.uint32, "out-rpc-errors")
+
+            self.out_notifications = YLeaf(YType.uint32, "out-notifications")
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NetconfState.Statistics, ['dropped_sessions', 'in_bad_hellos', 'in_bad_rpcs', 'in_rpcs', 'in_sessions', 'netconf_start_time', 'out_notifications', 'out_rpc_errors'], name, value)
+            self._perform_setattr(NetconfState.Statistics, ['netconf_start_time', 'in_bad_hellos', 'in_sessions', 'dropped_sessions', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NetconfState()
         return self._top_entity
 
-class SchemaFormat(Identity):
+class GetSchema(Entity):
     """
-    Base identity for data model schema languages.
+    This operation is used to retrieve a schema from the
+    NETCONF server.
+    
+    Positive Response\:
+      The NETCONF server returns the requested schema.
+    
+    Negative Response\:
+      If requested schema does not exist, the <error\-tag> is
+      'invalid\-value'.
+    
+      If more than one schema matches the requested parameters, the
+      <error\-tag> is 'operation\-failed', and <error\-app\-tag> is
+      'data\-not\-unique'.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchema.Output>`
     
     
 
@@ -964,12 +861,118 @@ class SchemaFormat(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
+        super(GetSchema, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "get-schema"
+        self.yang_parent_name = "ietf-netconf-monitoring"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = GetSchema.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = GetSchema.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
 
 
-class Transport(Identity):
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: identifier
+        
+        	Identifier for the schema list entry
+        	**type**\:  str
+        
+        	**mandatory**\: True
+        
+        .. attribute:: version
+        
+        	Version of the schema requested.  If this parameter is not present, and more than one version of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
+        	**type**\:  str
+        
+        .. attribute:: format
+        
+        	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
+        	**type**\:   :py:class:`SchemaFormat <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormat>`
+        
+        
+
+        """
+
+        _prefix = 'ncm'
+        _revision = '2010-10-04'
+
+        def __init__(self):
+            super(GetSchema.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "get-schema"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.identifier = YLeaf(YType.str, "identifier")
+
+            self.version = YLeaf(YType.str, "version")
+
+            self.format = YLeaf(YType.identityref, "format")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetSchema.Input, ['identifier', 'version', 'format'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Contains the schema content
+        	**type**\:  anyxml
+        
+        
+
+        """
+
+        _prefix = 'ncm'
+        _revision = '2010-10-04'
+
+        def __init__(self):
+            super(GetSchema.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "get-schema"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.data = YLeaf(YType.str, "data")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetSchema.Output, ['data'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = GetSchema()
+        return self._top_entity
+
+class NetconfSsh(Identity):
     """
-    Base identity for NETCONF transport types.
+    NETCONF over Secure Shell (SSH).
     
     
 
@@ -979,22 +982,7 @@ class Transport(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
-
-
-class NetconfBeep(Identity):
-    """
-    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(NetconfBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-beep")
+        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
 
 
 class NetconfSoapOverBeep(Identity):
@@ -1029,9 +1017,9 @@ class NetconfSoapOverHttps(Identity):
         super(NetconfSoapOverHttps, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-https")
 
 
-class NetconfSsh(Identity):
+class NetconfBeep(Identity):
     """
-    NETCONF over Secure Shell (SSH).
+    NETCONF over Blocks Extensible Exchange Protocol (BEEP).
     
     
 
@@ -1041,7 +1029,7 @@ class NetconfSsh(Identity):
     _revision = '2010-10-04'
 
     def __init__(self):
-        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
+        super(NetconfBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-beep")
 
 
 class NetconfTls(Identity):
@@ -1057,36 +1045,6 @@ class NetconfTls(Identity):
 
     def __init__(self):
         super(NetconfTls, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-tls")
-
-
-class Rnc(Identity):
-    """
-    Relax NG Compact Syntax
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
-
-
-class Rng(Identity):
-    """
-    Regular Language for XML Next Generation (RELAX NG).
-    
-    
-
-    """
-
-    _prefix = 'ncm'
-    _revision = '2010-10-04'
-
-    def __init__(self):
-        super(Rng, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rng")
 
 
 class Xsd(Identity):
@@ -1132,5 +1090,35 @@ class Yin(Identity):
 
     def __init__(self):
         super(Yin, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yin")
+
+
+class Rng(Identity):
+    """
+    Regular Language for XML Next Generation (RELAX NG).
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(Rng, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rng")
+
+
+class Rnc(Identity):
+    """
+    Relax NG Compact Syntax
+    
+    
+
+    """
+
+    _prefix = 'ncm'
+    _revision = '2010-10-04'
+
+    def __init__(self):
+        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
 
 

@@ -71,12 +71,12 @@ class FabVqiConfig(Entity):
         """
         Mode Type
         
-        .. attribute:: fab_mode_type
+        .. attribute:: fab_mode_type_xr
         
         	Mode Type
         	**type**\:   :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
         
-        .. attribute:: fab_mode_type_xr
+        .. attribute:: fab_mode_type
         
         	Mode Type
         	**type**\:   :py:class:`Asr9kFabMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg.Asr9kFabMode>`
@@ -98,14 +98,14 @@ class FabVqiConfig(Entity):
             self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.fab_mode_type = YLeaf(YType.enumeration, "fab-mode-type")
-
             self.fab_mode_type_xr = YLeaf(YType.enumeration, "fab-mode-type-xr")
+
+            self.fab_mode_type = YLeaf(YType.enumeration, "fab-mode-type")
             self._segment_path = lambda: "mode"
             self._absolute_path = lambda: "Cisco-IOS-XR-asr9k-fab-cfg:fab-vqi-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(FabVqiConfig.Mode, ['fab_mode_type', 'fab_mode_type_xr'], name, value)
+            self._perform_setattr(FabVqiConfig.Mode, ['fab_mode_type_xr', 'fab_mode_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FabVqiConfig()

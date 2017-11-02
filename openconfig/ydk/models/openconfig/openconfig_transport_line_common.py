@@ -27,6 +27,40 @@ class OPTICALLINEPORTTYPE(Identity):
         super(OPTICALLINEPORTTYPE, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:OPTICAL_LINE_PORT_TYPE")
 
 
+class INGRESS(Identity):
+    """
+    Ingress port, corresponding to a signal entering
+    a line device such as an amplifier or wavelength
+    router.
+    
+    
+
+    """
+
+    _prefix = 'oc-line-com'
+    _revision = '2017-07-08'
+
+    def __init__(self):
+        super(INGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:INGRESS")
+
+
+class EGRESS(Identity):
+    """
+    Egress port, corresponding to a signal exiting
+    a line device such as an amplifier or wavelength
+    router.
+    
+    
+
+    """
+
+    _prefix = 'oc-line-com'
+    _revision = '2017-07-08'
+
+    def __init__(self):
+        super(EGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:EGRESS")
+
+
 class ADD(Identity):
     """
     Add port, corresponding to a signal injected
@@ -57,40 +91,6 @@ class DROP(Identity):
 
     def __init__(self):
         super(DROP, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:DROP")
-
-
-class EGRESS(Identity):
-    """
-    Egress port, corresponding to a signal exiting
-    a line device such as an amplifier or wavelength
-    router.
-    
-    
-
-    """
-
-    _prefix = 'oc-line-com'
-    _revision = '2017-07-08'
-
-    def __init__(self):
-        super(EGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:EGRESS")
-
-
-class INGRESS(Identity):
-    """
-    Ingress port, corresponding to a signal entering
-    a line device such as an amplifier or wavelength
-    router.
-    
-    
-
-    """
-
-    _prefix = 'oc-line-com'
-    _revision = '2017-07-08'
-
-    def __init__(self):
-        super(INGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:INGRESS")
 
 
 class MONITOR(Identity):

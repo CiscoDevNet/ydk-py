@@ -101,23 +101,23 @@ class SubscriberAccounting(Entity):
             
             	**length:** 1..64
             
-            .. attribute:: accounting_method_list
-            
-            	Method list to be used when placing prepaid accounting requests
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
-            .. attribute:: author_method_list
-            
-            	Method list to be used when placing prepaid (re)authorization requests
-            	**type**\:  str
-            
-            	**length:** 1..64
-            
             .. attribute:: password
             
             	Password to be used when placing prepaid (re)authorization requests
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: volume_threshold
+            
+            	Threshold at which to send prepaid volume quota request
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: accounting_method_list
+            
+            	Method list to be used when placing prepaid accounting requests
             	**type**\:  str
             
             	**length:** 1..64
@@ -129,6 +129,18 @@ class SubscriberAccounting(Entity):
             
             	**range:** \-2147483648..2147483647
             
+            .. attribute:: author_method_list
+            
+            	Method list to be used when placing prepaid (re)authorization requests
+            	**type**\:  str
+            
+            	**length:** 1..64
+            
+            .. attribute:: traffic_direction
+            
+            	Prepaid quota traffic direction
+            	**type**\:  str
+            
             .. attribute:: time_threshold
             
             	Threshold at which to send prepaid time quota request
@@ -139,18 +151,6 @@ class SubscriberAccounting(Entity):
             .. attribute:: time_valid
             
             	Threshold for which prepaid quota is valid
-            	**type**\:  int
-            
-            	**range:** \-2147483648..2147483647
-            
-            .. attribute:: traffic_direction
-            
-            	Prepaid quota traffic direction
-            	**type**\:  str
-            
-            .. attribute:: volume_threshold
-            
-            	Threshold at which to send prepaid volume quota request
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
@@ -174,26 +174,26 @@ class SubscriberAccounting(Entity):
 
                 self.prepaid_config_name = YLeaf(YType.str, "prepaid-config-name")
 
+                self.password = YLeaf(YType.str, "password")
+
+                self.volume_threshold = YLeaf(YType.int32, "volume-threshold")
+
                 self.accounting_method_list = YLeaf(YType.str, "accounting-method-list")
+
+                self.time_hold = YLeaf(YType.int32, "time-hold")
 
                 self.author_method_list = YLeaf(YType.str, "author-method-list")
 
-                self.password = YLeaf(YType.str, "password")
-
-                self.time_hold = YLeaf(YType.int32, "time-hold")
+                self.traffic_direction = YLeaf(YType.str, "traffic-direction")
 
                 self.time_threshold = YLeaf(YType.int32, "time-threshold")
 
                 self.time_valid = YLeaf(YType.int32, "time-valid")
-
-                self.traffic_direction = YLeaf(YType.str, "traffic-direction")
-
-                self.volume_threshold = YLeaf(YType.int32, "volume-threshold")
                 self._segment_path = lambda: "prepaid-configuration" + "[prepaid-config-name='" + self.prepaid_config_name.get() + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting/prepaid-configurations/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, ['prepaid_config_name', 'accounting_method_list', 'author_method_list', 'password', 'time_hold', 'time_threshold', 'time_valid', 'traffic_direction', 'volume_threshold'], name, value)
+                self._perform_setattr(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, ['prepaid_config_name', 'password', 'volume_threshold', 'accounting_method_list', 'time_hold', 'author_method_list', 'traffic_direction', 'time_threshold', 'time_valid'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberAccounting()

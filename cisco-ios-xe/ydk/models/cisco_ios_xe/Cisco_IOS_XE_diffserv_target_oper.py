@@ -11,6 +11,21 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+class Direction(Identity):
+    """
+    This is identity of traffic direction
+    
+    
+
+    """
+
+    _prefix = 'diffserv-target-oper'
+    _revision = '2017-02-09'
+
+    def __init__(self):
+        super(Direction, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper:direction")
+
+
 class DiffservInterfacesState(Entity):
     """
     Interface configuration parameters.
@@ -208,16 +223,16 @@ class DiffservInterfacesState(Entity):
                            
                     
                     
-                    .. attribute:: classified_bytes
+                    .. attribute:: classified_pkts
                     
-                    	 Number of total bytes which filtered   to the classifier\-entry
+                    	 Number of total packets which filtered  to the classifier\-entry
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: classified_pkts
+                    .. attribute:: classified_bytes
                     
-                    	 Number of total packets which filtered  to the classifier\-entry
+                    	 Number of total bytes which filtered   to the classifier\-entry
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -248,15 +263,15 @@ class DiffservInterfacesState(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.classified_bytes = YLeaf(YType.uint64, "classified-bytes")
-
                         self.classified_pkts = YLeaf(YType.uint64, "classified-pkts")
+
+                        self.classified_bytes = YLeaf(YType.uint64, "classified-bytes")
 
                         self.classified_rate = YLeaf(YType.uint64, "classified-rate")
                         self._segment_path = lambda: "classifier-entry-statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_bytes', 'classified_pkts', 'classified_rate'], name, value)
+                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
 
 
                 class MeterStatistics(Entity):
@@ -270,16 +285,9 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..65535
                     
-                    .. attribute:: meter_failed_bytes
+                    .. attribute:: meter_succeed_pkts
                     
-                    	Bytes of packets which failed the meter
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: meter_failed_pkts
-                    
-                    	Number of packets which failed the meter
+                    	Number of packets which succeed the meter
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -291,9 +299,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: meter_succeed_pkts
+                    .. attribute:: meter_failed_pkts
                     
-                    	Number of packets which succeed the meter
+                    	Number of packets which failed the meter
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: meter_failed_bytes
+                    
+                    	Bytes of packets which failed the meter
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -317,33 +332,26 @@ class DiffservInterfacesState(Entity):
 
                         self.meter_id = YLeaf(YType.uint16, "meter-id")
 
-                        self.meter_failed_bytes = YLeaf(YType.uint64, "meter-failed-bytes")
-
-                        self.meter_failed_pkts = YLeaf(YType.uint64, "meter-failed-pkts")
+                        self.meter_succeed_pkts = YLeaf(YType.uint64, "meter-succeed-pkts")
 
                         self.meter_succeed_bytes = YLeaf(YType.uint64, "meter-succeed-bytes")
 
-                        self.meter_succeed_pkts = YLeaf(YType.uint64, "meter-succeed-pkts")
+                        self.meter_failed_pkts = YLeaf(YType.uint64, "meter-failed-pkts")
+
+                        self.meter_failed_bytes = YLeaf(YType.uint64, "meter-failed-bytes")
                         self._segment_path = lambda: "meter-statistics" + "[meter-id='" + self.meter_id.get() + "']"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_failed_bytes', 'meter_failed_pkts', 'meter_succeed_bytes', 'meter_succeed_pkts'], name, value)
+                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
 
 
                 class QueuingStatistics(Entity):
                     """
                     queue related statistics 
                     
-                    .. attribute:: drop_bytes
+                    .. attribute:: output_pkts
                     
-                    	Total number of bytes dropped 
-                    	**type**\:  int
-                    
-                    	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: drop_pkts
-                    
-                    	Total number of packets dropped 
+                    	Number of packets transmitted from queue 
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -355,9 +363,9 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: output_pkts
+                    .. attribute:: queue_size_pkts
                     
-                    	Number of packets transmitted from queue 
+                    	Number of packets currently buffered 
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -369,9 +377,16 @@ class DiffservInterfacesState(Entity):
                     
                     	**range:** 0..18446744073709551615
                     
-                    .. attribute:: queue_size_pkts
+                    .. attribute:: drop_pkts
                     
-                    	Number of packets currently buffered 
+                    	Total number of packets dropped 
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: drop_bytes
+                    
+                    	Total number of bytes dropped 
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
@@ -398,17 +413,17 @@ class DiffservInterfacesState(Entity):
                         self._child_container_classes = {"wred-stats" : ("wred_stats", DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats)}
                         self._child_list_classes = {}
 
-                        self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
-
-                        self.drop_pkts = YLeaf(YType.uint64, "drop-pkts")
+                        self.output_pkts = YLeaf(YType.uint64, "output-pkts")
 
                         self.output_bytes = YLeaf(YType.uint64, "output-bytes")
 
-                        self.output_pkts = YLeaf(YType.uint64, "output-pkts")
+                        self.queue_size_pkts = YLeaf(YType.uint64, "queue-size-pkts")
 
                         self.queue_size_bytes = YLeaf(YType.uint64, "queue-size-bytes")
 
-                        self.queue_size_pkts = YLeaf(YType.uint64, "queue-size-pkts")
+                        self.drop_pkts = YLeaf(YType.uint64, "drop-pkts")
+
+                        self.drop_bytes = YLeaf(YType.uint64, "drop-bytes")
 
                         self.wred_stats = DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats()
                         self.wred_stats.parent = self
@@ -417,23 +432,23 @@ class DiffservInterfacesState(Entity):
                         self._segment_path = lambda: "queuing-statistics"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, ['drop_bytes', 'drop_pkts', 'output_bytes', 'output_pkts', 'queue_size_bytes', 'queue_size_pkts'], name, value)
+                        self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes'], name, value)
 
 
                     class WredStats(Entity):
                         """
                         Container for WRED statistics
                         
-                        .. attribute:: early_drop_bytes
+                        .. attribute:: early_drop_pkts
                         
-                        	Early drop bytes 
+                        	Early drop packets 
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
-                        .. attribute:: early_drop_pkts
+                        .. attribute:: early_drop_bytes
                         
-                        	Early drop packets 
+                        	Early drop bytes 
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
@@ -455,32 +470,17 @@ class DiffservInterfacesState(Entity):
                             self._child_container_classes = {}
                             self._child_list_classes = {}
 
-                            self.early_drop_bytes = YLeaf(YType.uint64, "early-drop-bytes")
-
                             self.early_drop_pkts = YLeaf(YType.uint64, "early-drop-pkts")
+
+                            self.early_drop_bytes = YLeaf(YType.uint64, "early-drop-bytes")
                             self._segment_path = lambda: "wred-stats"
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_bytes', 'early_drop_pkts'], name, value)
+                            self._perform_setattr(DiffservInterfacesState.DiffservInterface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DiffservInterfacesState()
         return self._top_entity
-
-class Direction(Identity):
-    """
-    This is identity of traffic direction
-    
-    
-
-    """
-
-    _prefix = 'diffserv-target-oper'
-    _revision = '2017-02-09'
-
-    def __init__(self):
-        super(Direction, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper", "Cisco-IOS-XE-diffserv-target-oper:direction")
-
 
 class Inbound(Identity):
     """

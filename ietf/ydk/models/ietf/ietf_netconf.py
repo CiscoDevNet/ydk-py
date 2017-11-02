@@ -316,116 +316,19 @@ class ErrorTagType(Enum):
 
 
 
-class CancelCommit(Entity):
+class GetConfig(Entity):
     """
-    This operation is used to cancel an ongoing confirmed commit.
-    If the confirmed commit is persistent, the parameter
-    'persist\-id' must be given, and it must match the value of the
-    'persist' parameter.
+    Retrieve all or part of a specified configuration.
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
     
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(CancelCommit, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "cancel-commit"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = CancelCommit.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "ietf-netconf:cancel-commit"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: persist_id
-        
-        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(CancelCommit.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "cancel-commit"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:cancel-commit/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CancelCommit.Input, ['persist_id'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = CancelCommit()
-        return self._top_entity
-
-class CloseSession(Entity):
-    """
-    Request graceful termination of a NETCONF session.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(CloseSession, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "close-session"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "ietf-netconf:close-session"
-
-    def clone_ptr(self):
-        self._top_entity = CloseSession()
-        return self._top_entity
-
-class Commit(Entity):
-    """
-    Commit the candidate configuration as the device's new
-    current configuration.
-    
-    .. attribute:: input
+    .. attribute:: output
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
     
     
 
@@ -435,120 +338,26 @@ class Commit(Entity):
     _revision = '2011-06-01'
 
     def __init__(self):
-        super(Commit, self).__init__()
+        super(GetConfig, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "commit"
+        self.yang_name = "get-config"
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = Commit.Input()
+        self.input = GetConfig.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "ietf-netconf:commit"
 
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: confirm_timeout
-        
-        	The timeout interval for a confirmed commit
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
-        
-        	**units**\: seconds
-        
-        	**default value**\: 600
-        
-        .. attribute:: confirmed
-        
-        	Requests a confirmed commit
-        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-        
-        .. attribute:: persist
-        
-        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
-        	**type**\:  str
-        
-        .. attribute:: persist_id
-        
-        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
-        	**type**\:  str
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Commit.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "commit"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.confirm_timeout = YLeaf(YType.uint32, "confirm-timeout")
-
-            self.confirmed = YLeaf(YType.empty, "confirmed")
-
-            self.persist = YLeaf(YType.str, "persist")
-
-            self.persist_id = YLeaf(YType.str, "persist-id")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:commit/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Commit.Input, ['confirm_timeout', 'confirmed', 'persist', 'persist_id'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Commit()
-        return self._top_entity
-
-class CopyConfig(Entity):
-    """
-    Create or replace an entire configuration datastore with the
-    contents of another complete configuration datastore.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(CopyConfig, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "copy-config"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = CopyConfig.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "ietf-netconf:copy-config"
+        self.output = GetConfig.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf:get-config"
 
 
     class Input(Entity):
@@ -557,13 +366,13 @@ class CopyConfig(Entity):
         
         .. attribute:: source
         
-        	Particular configuration to copy from
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
+        	Particular configuration to retrieve
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
         
-        .. attribute:: target
+        .. attribute:: filter
         
-        	Particular configuration to copy to
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
+        	Subtree or XPath filter to use
+        	**type**\:  anyxml
         
         .. attribute:: with_defaults
         
@@ -578,46 +387,38 @@ class CopyConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(CopyConfig.Input, self).__init__()
+            super(GetConfig.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "copy-config"
+            self.yang_parent_name = "get-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"source" : ("source", CopyConfig.Input.Source), "target" : ("target", CopyConfig.Input.Target)}
+            self._child_container_classes = {"source" : ("source", GetConfig.Input.Source)}
             self._child_list_classes = {}
+
+            self.filter = YLeaf(YType.str, "filter")
 
             self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
 
-            self.source = CopyConfig.Input.Source()
+            self.source = GetConfig.Input.Source()
             self.source.parent = self
             self._children_name_map["source"] = "source"
             self._children_yang_names.add("source")
-
-            self.target = CopyConfig.Input.Target()
-            self.target.parent = self
-            self._children_name_map["target"] = "target"
-            self._children_yang_names.add("target")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:copy-config/%s" % self._segment_path()
+            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CopyConfig.Input, ['with_defaults'], name, value)
+            self._perform_setattr(GetConfig.Input, ['filter', 'with_defaults'], name, value)
 
 
         class Source(Entity):
             """
-            Particular configuration to copy from.
+            Particular configuration to retrieve.
             
             .. attribute:: candidate
             
             	The candidate configuration is the config source
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\:  anyxml
             
             .. attribute:: running
             
@@ -626,13 +427,8 @@ class CopyConfig(Entity):
             
             .. attribute:: startup
             
-            	The startup configuration is the config source
+            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config source
-            	**type**\:  str
             
             
 
@@ -642,7 +438,7 @@ class CopyConfig(Entity):
             _revision = '2011-06-01'
 
             def __init__(self):
-                super(CopyConfig.Input.Source, self).__init__()
+                super(GetConfig.Input.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "input"
@@ -653,120 +449,24 @@ class CopyConfig(Entity):
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
-                self.config = YLeaf(YType.str, "config")
-
                 self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
                 self._segment_path = lambda: "source"
-                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+                self._absolute_path = lambda: "ietf-netconf:get-config/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CopyConfig.Input.Source, ['candidate', 'config', 'running', 'startup', 'url'], name, value)
+                self._perform_setattr(GetConfig.Input.Source, ['candidate', 'running', 'startup'], name, value)
 
 
-        class Target(Entity):
-            """
-            Particular configuration to copy to.
-            
-            .. attribute:: candidate
-            
-            	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: running
-            
-            	The running configuration is the config target. This is optional\-to\-implement on the server
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config target
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                super(CopyConfig.Input.Target, self).__init__()
-
-                self.yang_name = "target"
-                self.yang_parent_name = "input"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.candidate = YLeaf(YType.empty, "candidate")
-
-                self.running = YLeaf(YType.empty, "running")
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-                self._segment_path = lambda: "target"
-                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(CopyConfig.Input.Target, ['candidate', 'running', 'startup', 'url'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = CopyConfig()
-        return self._top_entity
-
-class DeleteConfig(Entity):
-    """
-    Delete a configuration datastore.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(DeleteConfig, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "delete-config"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = DeleteConfig.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-        self._segment_path = lambda: "ietf-netconf:delete-config"
-
-
-    class Input(Entity):
+    class Output(Entity):
         """
         
         
-        .. attribute:: target
+        .. attribute:: data
         
-        	Particular configuration to delete
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
+        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
+        	**type**\:  anyxml
         
         
 
@@ -776,93 +476,24 @@ class DeleteConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(DeleteConfig.Input, self).__init__()
+            super(GetConfig.Output, self).__init__()
 
-            self.yang_name = "input"
-            self.yang_parent_name = "delete-config"
+            self.yang_name = "output"
+            self.yang_parent_name = "get-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"target" : ("target", DeleteConfig.Input.Target)}
+            self._child_container_classes = {}
             self._child_list_classes = {}
 
-            self.target = DeleteConfig.Input.Target()
-            self.target.parent = self
-            self._children_name_map["target"] = "target"
-            self._children_yang_names.add("target")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:delete-config/%s" % self._segment_path()
+            self.data = YLeaf(YType.str, "data")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
 
-
-        class Target(Entity):
-            """
-            Particular configuration to delete.
-            
-            .. attribute:: startup
-            
-            	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
-            
-            .. attribute:: url
-            
-            	The URL\-based configuration is the config target
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'nc'
-            _revision = '2011-06-01'
-
-            def __init__(self):
-                super(DeleteConfig.Input.Target, self).__init__()
-
-                self.yang_name = "target"
-                self.yang_parent_name = "input"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {}
-
-                self.startup = YLeaf(YType.empty, "startup")
-
-                self.url = YLeaf(YType.str, "url")
-                self._segment_path = lambda: "target"
-                self._absolute_path = lambda: "ietf-netconf:delete-config/input/%s" % self._segment_path()
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(DeleteConfig.Input.Target, ['startup', 'url'], name, value)
+        def __setattr__(self, name, value):
+            self._perform_setattr(GetConfig.Output, ['data'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = DeleteConfig()
-        return self._top_entity
-
-class DiscardChanges(Entity):
-    """
-    Revert the candidate configuration to the current
-    running configuration.
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(DiscardChanges, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "discard-changes"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-        self._segment_path = lambda: "ietf-netconf:discard-changes"
-
-    def clone_ptr(self):
-        self._top_entity = DiscardChanges()
+        self._top_entity = GetConfig()
         return self._top_entity
 
 class EditConfig(Entity):
@@ -904,10 +535,10 @@ class EditConfig(Entity):
         """
         
         
-        .. attribute:: config
+        .. attribute:: target
         
-        	Inline Config content
-        	**type**\:  anyxml
+        	Particular configuration to edit
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfig.Input.Target>`
         
         .. attribute:: default_operation
         
@@ -916,6 +547,13 @@ class EditConfig(Entity):
         
         	**default value**\: merge
         
+        .. attribute:: test_option
+        
+        	The test option to use
+        	**type**\:   :py:class:`TestOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.TestOption>`
+        
+        	**default value**\: test-then-set
+        
         .. attribute:: error_option
         
         	The error option to use
@@ -923,17 +561,10 @@ class EditConfig(Entity):
         
         	**default value**\: stop-on-error
         
-        .. attribute:: target
+        .. attribute:: config
         
-        	Particular configuration to edit
-        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfig.Input.Target>`
-        
-        .. attribute:: test_option
-        
-        	The test option to use
-        	**type**\:   :py:class:`TestOption <ydk.models.ietf.ietf_netconf.EditConfig.Input.TestOption>`
-        
-        	**default value**\: test-then-set
+        	Inline Config content
+        	**type**\:  anyxml
         
         .. attribute:: url
         
@@ -957,13 +588,13 @@ class EditConfig(Entity):
             self._child_container_classes = {"target" : ("target", EditConfig.Input.Target)}
             self._child_list_classes = {}
 
-            self.config = YLeaf(YType.str, "config")
-
             self.default_operation = YLeaf(YType.enumeration, "default-operation")
+
+            self.test_option = YLeaf(YType.enumeration, "test-option")
 
             self.error_option = YLeaf(YType.enumeration, "error-option")
 
-            self.test_option = YLeaf(YType.enumeration, "test-option")
+            self.config = YLeaf(YType.str, "config")
 
             self.url = YLeaf(YType.str, "url")
 
@@ -975,7 +606,7 @@ class EditConfig(Entity):
             self._absolute_path = lambda: "ietf-netconf:edit-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EditConfig.Input, ['config', 'default_operation', 'error_option', 'test_option', 'url'], name, value)
+            self._perform_setattr(EditConfig.Input, ['default_operation', 'test_option', 'error_option', 'config', 'url'], name, value)
 
         class DefaultOperation(Enum):
             """
@@ -1109,19 +740,15 @@ class EditConfig(Entity):
         self._top_entity = EditConfig()
         return self._top_entity
 
-class Get(Entity):
+class CopyConfig(Entity):
     """
-    Retrieve running configuration and device state information.
+    Create or replace an entire configuration datastore with the
+    contents of another complete configuration datastore.
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfig.Input>`
     
     
 
@@ -1131,163 +758,36 @@ class Get(Entity):
     _revision = '2011-06-01'
 
     def __init__(self):
-        super(Get, self).__init__()
+        super(CopyConfig, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "get"
+        self.yang_name = "copy-config"
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = Get.Input()
+        self.input = CopyConfig.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-
-        self.output = Get.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "ietf-netconf:get"
+        self._segment_path = lambda: "ietf-netconf:copy-config"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: filter
+        .. attribute:: target
         
-        	This parameter specifies the portion of the system configuration and state data to retrieve
-        	**type**\:  anyxml
-        
-        .. attribute:: with_defaults
-        
-        	The explicit defaults processing mode requested
-        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Get.Input, self).__init__()
-
-            self.yang_name = "input"
-            self.yang_parent_name = "get"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.filter = YLeaf(YType.str, "filter")
-
-            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
-            self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Get.Input, ['filter', 'with_defaults'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(Get.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "get"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(Get.Output, ['data'], name, value)
-
-    def clone_ptr(self):
-        self._top_entity = Get()
-        return self._top_entity
-
-class GetConfig(Entity):
-    """
-    Retrieve all or part of a specified configuration.
-    
-    .. attribute:: input
-    
-    	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfig.Input>`
-    
-    .. attribute:: output
-    
-    	
-    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfig.Output>`
-    
-    
-
-    """
-
-    _prefix = 'nc'
-    _revision = '2011-06-01'
-
-    def __init__(self):
-        super(GetConfig, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "get-config"
-        self.yang_parent_name = "ietf-netconf"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {}
-        self._child_list_classes = {}
-
-        self.input = GetConfig.Input()
-        self.input.parent = self
-        self._children_name_map["input"] = "input"
-        self._children_yang_names.add("input")
-
-        self.output = GetConfig.Output()
-        self.output.parent = self
-        self._children_name_map["output"] = "output"
-        self._children_yang_names.add("output")
-        self._segment_path = lambda: "ietf-netconf:get-config"
-
-
-    class Input(Entity):
-        """
-        
-        
-        .. attribute:: filter
-        
-        	Subtree or XPath filter to use
-        	**type**\:  anyxml
+        	Particular configuration to copy to
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Target>`
         
         .. attribute:: source
         
-        	Particular configuration to retrieve
-        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfig.Input.Source>`
+        	Particular configuration to copy from
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfig.Input.Source>`
         
         .. attribute:: with_defaults
         
@@ -1302,33 +802,91 @@ class GetConfig(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(GetConfig.Input, self).__init__()
+            super(CopyConfig.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "get-config"
+            self.yang_parent_name = "copy-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"source" : ("source", GetConfig.Input.Source)}
+            self._child_container_classes = {"target" : ("target", CopyConfig.Input.Target), "source" : ("source", CopyConfig.Input.Source)}
             self._child_list_classes = {}
-
-            self.filter = YLeaf(YType.str, "filter")
 
             self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
 
-            self.source = GetConfig.Input.Source()
+            self.target = CopyConfig.Input.Target()
+            self.target.parent = self
+            self._children_name_map["target"] = "target"
+            self._children_yang_names.add("target")
+
+            self.source = CopyConfig.Input.Source()
             self.source.parent = self
             self._children_name_map["source"] = "source"
             self._children_yang_names.add("source")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
+            self._absolute_path = lambda: "ietf-netconf:copy-config/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GetConfig.Input, ['filter', 'with_defaults'], name, value)
+            self._perform_setattr(CopyConfig.Input, ['with_defaults'], name, value)
+
+
+        class Target(Entity):
+            """
+            Particular configuration to copy to.
+            
+            .. attribute:: candidate
+            
+            	The candidate configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: running
+            
+            	The running configuration is the config target. This is optional\-to\-implement on the server
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config target
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                super(CopyConfig.Input.Target, self).__init__()
+
+                self.yang_name = "target"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.candidate = YLeaf(YType.empty, "candidate")
+
+                self.running = YLeaf(YType.empty, "running")
+
+                self.startup = YLeaf(YType.empty, "startup")
+
+                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CopyConfig.Input.Target, ['candidate', 'running', 'startup', 'url'], name, value)
 
 
         class Source(Entity):
             """
-            Particular configuration to retrieve.
+            Particular configuration to copy from.
             
             .. attribute:: candidate
             
@@ -1342,8 +900,18 @@ class GetConfig(Entity):
             
             .. attribute:: startup
             
-            	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
+            	The startup configuration is the config source
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config source
+            	**type**\:  str
+            
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\:  anyxml
             
             
 
@@ -1353,7 +921,7 @@ class GetConfig(Entity):
             _revision = '2011-06-01'
 
             def __init__(self):
-                super(GetConfig.Input.Source, self).__init__()
+                super(CopyConfig.Input.Source, self).__init__()
 
                 self.yang_name = "source"
                 self.yang_parent_name = "input"
@@ -1367,58 +935,28 @@ class GetConfig(Entity):
                 self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
+
+                self.url = YLeaf(YType.str, "url")
+
+                self.config = YLeaf(YType.str, "config")
                 self._segment_path = lambda: "source"
-                self._absolute_path = lambda: "ietf-netconf:get-config/input/%s" % self._segment_path()
+                self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(GetConfig.Input.Source, ['candidate', 'running', 'startup'], name, value)
-
-
-    class Output(Entity):
-        """
-        
-        
-        .. attribute:: data
-        
-        	Copy of the source datastore subset that matched the filter criteria (if any).  An empty data container indicates that the request did not produce any results
-        	**type**\:  anyxml
-        
-        
-
-        """
-
-        _prefix = 'nc'
-        _revision = '2011-06-01'
-
-        def __init__(self):
-            super(GetConfig.Output, self).__init__()
-
-            self.yang_name = "output"
-            self.yang_parent_name = "get-config"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {}
-            self._child_list_classes = {}
-
-            self.data = YLeaf(YType.str, "data")
-            self._segment_path = lambda: "output"
-            self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(GetConfig.Output, ['data'], name, value)
+                self._perform_setattr(CopyConfig.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = GetConfig()
+        self._top_entity = CopyConfig()
         return self._top_entity
 
-class KillSession(Entity):
+class DeleteConfig(Entity):
     """
-    Force the termination of a NETCONF session.
+    Delete a configuration datastore.
     
     .. attribute:: input
     
     	
-    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfig.Input>`
     
     
 
@@ -1428,35 +966,31 @@ class KillSession(Entity):
     _revision = '2011-06-01'
 
     def __init__(self):
-        super(KillSession, self).__init__()
+        super(DeleteConfig, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "kill-session"
+        self.yang_name = "delete-config"
         self.yang_parent_name = "ietf-netconf"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self._child_container_classes = {}
         self._child_list_classes = {}
 
-        self.input = KillSession.Input()
+        self.input = DeleteConfig.Input()
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._children_yang_names.add("input")
-        self._segment_path = lambda: "ietf-netconf:kill-session"
+        self._segment_path = lambda: "ietf-netconf:delete-config"
 
 
     class Input(Entity):
         """
         
         
-        .. attribute:: session_id
+        .. attribute:: target
         
-        	Particular session to kill
-        	**type**\:  int
-        
-        	**range:** 1..4294967295
-        
-        	**mandatory**\: True
+        	Particular configuration to delete
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfig.Input.Target>`
         
         
 
@@ -1466,24 +1000,65 @@ class KillSession(Entity):
         _revision = '2011-06-01'
 
         def __init__(self):
-            super(KillSession.Input, self).__init__()
+            super(DeleteConfig.Input, self).__init__()
 
             self.yang_name = "input"
-            self.yang_parent_name = "kill-session"
+            self.yang_parent_name = "delete-config"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {}
+            self._child_container_classes = {"target" : ("target", DeleteConfig.Input.Target)}
             self._child_list_classes = {}
 
-            self.session_id = YLeaf(YType.uint32, "session-id")
+            self.target = DeleteConfig.Input.Target()
+            self.target.parent = self
+            self._children_name_map["target"] = "target"
+            self._children_yang_names.add("target")
             self._segment_path = lambda: "input"
-            self._absolute_path = lambda: "ietf-netconf:kill-session/%s" % self._segment_path()
+            self._absolute_path = lambda: "ietf-netconf:delete-config/%s" % self._segment_path()
 
-        def __setattr__(self, name, value):
-            self._perform_setattr(KillSession.Input, ['session_id'], name, value)
+
+        class Target(Entity):
+            """
+            Particular configuration to delete.
+            
+            .. attribute:: startup
+            
+            	The startup configuration is the config target
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: url
+            
+            	The URL\-based configuration is the config target
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'nc'
+            _revision = '2011-06-01'
+
+            def __init__(self):
+                super(DeleteConfig.Input.Target, self).__init__()
+
+                self.yang_name = "target"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {}
+
+                self.startup = YLeaf(YType.empty, "startup")
+
+                self.url = YLeaf(YType.str, "url")
+                self._segment_path = lambda: "target"
+                self._absolute_path = lambda: "ietf-netconf:delete-config/input/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(DeleteConfig.Input.Target, ['startup', 'url'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = KillSession()
+        self._top_entity = DeleteConfig()
         return self._top_entity
 
 class Lock(Entity):
@@ -1726,6 +1301,431 @@ class Unlock(Entity):
         self._top_entity = Unlock()
         return self._top_entity
 
+class Get(Entity):
+    """
+    Retrieve running configuration and device state information.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Get.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.Get.Output>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(Get, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "get"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = Get.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+
+        self.output = Get.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._children_yang_names.add("output")
+        self._segment_path = lambda: "ietf-netconf:get"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: filter
+        
+        	This parameter specifies the portion of the system configuration and state data to retrieve
+        	**type**\:  anyxml
+        
+        .. attribute:: with_defaults
+        
+        	The explicit defaults processing mode requested
+        	**type**\:   :py:class:`WithDefaultsMode <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsMode>`
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(Get.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "get"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.filter = YLeaf(YType.str, "filter")
+
+            self.with_defaults = YLeaf(YType.enumeration, "ietf-netconf-with-defaults:with-defaults")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Get.Input, ['filter', 'with_defaults'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: data
+        
+        	Copy of the running datastore subset and/or state data that matched the filter criteria (if any). An empty data container indicates that the request did not produce any results
+        	**type**\:  anyxml
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(Get.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "get"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.data = YLeaf(YType.str, "data")
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Get.Output, ['data'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Get()
+        return self._top_entity
+
+class CloseSession(Entity):
+    """
+    Request graceful termination of a NETCONF session.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(CloseSession, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "close-session"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "ietf-netconf:close-session"
+
+    def clone_ptr(self):
+        self._top_entity = CloseSession()
+        return self._top_entity
+
+class KillSession(Entity):
+    """
+    Force the termination of a NETCONF session.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSession.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(KillSession, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "kill-session"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = KillSession.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:kill-session"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: session_id
+        
+        	Particular session to kill
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
+        
+        	**mandatory**\: True
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(KillSession.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "kill-session"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.session_id = YLeaf(YType.uint32, "session-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:kill-session/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(KillSession.Input, ['session_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = KillSession()
+        return self._top_entity
+
+class Commit(Entity):
+    """
+    Commit the candidate configuration as the device's new
+    current configuration.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.Commit.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(Commit, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "commit"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = Commit.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:commit"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: confirmed
+        
+        	Requests a confirmed commit
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: confirm_timeout
+        
+        	The timeout interval for a confirmed commit
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
+        
+        	**units**\: seconds
+        
+        	**default value**\: 600
+        
+        .. attribute:: persist
+        
+        	This parameter is used to make a confirmed commit persistent.  A persistent confirmed commit is not aborted if the NETCONF session terminates.  The only way to abort a persistent confirmed commit is to let the timer expire, or to use the <cancel\-commit> operation.  The value of this parameter is a token that must be given in the 'persist\-id' parameter of <commit> or <cancel\-commit> operations in order to confirm or cancel the persistent confirmed commit.  The token should be a random string
+        	**type**\:  str
+        
+        .. attribute:: persist_id
+        
+        	This parameter is given in order to commit a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(Commit.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "commit"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.confirmed = YLeaf(YType.empty, "confirmed")
+
+            self.confirm_timeout = YLeaf(YType.uint32, "confirm-timeout")
+
+            self.persist = YLeaf(YType.str, "persist")
+
+            self.persist_id = YLeaf(YType.str, "persist-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:commit/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Commit.Input, ['confirmed', 'confirm_timeout', 'persist', 'persist_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Commit()
+        return self._top_entity
+
+class DiscardChanges(Entity):
+    """
+    Revert the candidate configuration to the current
+    running configuration.
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(DiscardChanges, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "discard-changes"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+        self._segment_path = lambda: "ietf-netconf:discard-changes"
+
+    def clone_ptr(self):
+        self._top_entity = DiscardChanges()
+        return self._top_entity
+
+class CancelCommit(Entity):
+    """
+    This operation is used to cancel an ongoing confirmed commit.
+    If the confirmed commit is persistent, the parameter
+    'persist\-id' must be given, and it must match the value of the
+    'persist' parameter.
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommit.Input>`
+    
+    
+
+    """
+
+    _prefix = 'nc'
+    _revision = '2011-06-01'
+
+    def __init__(self):
+        super(CancelCommit, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "cancel-commit"
+        self.yang_parent_name = "ietf-netconf"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {}
+        self._child_list_classes = {}
+
+        self.input = CancelCommit.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+        self._children_yang_names.add("input")
+        self._segment_path = lambda: "ietf-netconf:cancel-commit"
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: persist_id
+        
+        	This parameter is given in order to cancel a persistent confirmed commit.  The value must be equal to the value given in the 'persist' parameter to the <commit> operation. If it does not match, the operation fails with an 'invalid\-value' error
+        	**type**\:  str
+        
+        
+
+        """
+
+        _prefix = 'nc'
+        _revision = '2011-06-01'
+
+        def __init__(self):
+            super(CancelCommit.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "cancel-commit"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {}
+            self._child_list_classes = {}
+
+            self.persist_id = YLeaf(YType.str, "persist-id")
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "ietf-netconf:cancel-commit/%s" % self._segment_path()
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CancelCommit.Input, ['persist_id'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = CancelCommit()
+        return self._top_entity
+
 class Validate(Entity):
     """
     Validates the contents of the specified configuration.
@@ -1803,11 +1803,6 @@ class Validate(Entity):
             	The candidate configuration is the config source
             	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: config
-            
-            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
-            	**type**\:  anyxml
-            
             .. attribute:: running
             
             	The running configuration is the config source
@@ -1822,6 +1817,11 @@ class Validate(Entity):
             
             	The URL\-based configuration is the config source
             	**type**\:  str
+            
+            .. attribute:: config
+            
+            	Inline Config content\: <config> element.  Represents an entire configuration datastore, not a subset of the running datastore
+            	**type**\:  anyxml
             
             
 
@@ -1842,18 +1842,18 @@ class Validate(Entity):
 
                 self.candidate = YLeaf(YType.empty, "candidate")
 
-                self.config = YLeaf(YType.str, "config")
-
                 self.running = YLeaf(YType.empty, "running")
 
                 self.startup = YLeaf(YType.empty, "startup")
 
                 self.url = YLeaf(YType.str, "url")
+
+                self.config = YLeaf(YType.str, "config")
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:validate/input/%s" % self._segment_path()
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Validate.Input.Source, ['candidate', 'config', 'running', 'startup', 'url'], name, value)
+                self._perform_setattr(Validate.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Validate()

@@ -142,6 +142,11 @@ class Components(Entity):
         	References component name
         	**type**\:  str
         
+        .. attribute:: state
+        
+        	Operational state data for each component
+        	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State>`
+        
         .. attribute:: platform_properties
         
         	Platform component properties
@@ -151,11 +156,6 @@ class Components(Entity):
         
         	Platform subcomponents
         	**type**\:   :py:class:`PlatformSubcomponents <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformSubcomponents>`
-        
-        .. attribute:: state
-        
-        	Operational state data for each component
-        	**type**\:   :py:class:`State <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State>`
         
         
 
@@ -171,10 +171,15 @@ class Components(Entity):
             self.yang_parent_name = "components"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"platform-properties" : ("platform_properties", Components.Component.PlatformProperties), "platform-subcomponents" : ("platform_subcomponents", Components.Component.PlatformSubcomponents), "state" : ("state", Components.Component.State)}
+            self._child_container_classes = {"state" : ("state", Components.Component.State), "platform-properties" : ("platform_properties", Components.Component.PlatformProperties), "platform-subcomponents" : ("platform_subcomponents", Components.Component.PlatformSubcomponents)}
             self._child_list_classes = {}
 
             self.cname = YLeaf(YType.str, "cname")
+
+            self.state = Components.Component.State()
+            self.state.parent = self
+            self._children_name_map["state"] = "state"
+            self._children_yang_names.add("state")
 
             self.platform_properties = Components.Component.PlatformProperties()
             self.platform_properties.parent = self
@@ -185,16 +190,161 @@ class Components(Entity):
             self.platform_subcomponents.parent = self
             self._children_name_map["platform_subcomponents"] = "platform-subcomponents"
             self._children_yang_names.add("platform-subcomponents")
-
-            self.state = Components.Component.State()
-            self.state.parent = self
-            self._children_name_map["state"] = "state"
-            self._children_yang_names.add("state")
             self._segment_path = lambda: "component" + "[cname='" + self.cname.get() + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-oper:components/%s" % self._segment_path()
 
         def __setattr__(self, name, value):
             self._perform_setattr(Components.Component, ['cname'], name, value)
+
+
+        class State(Entity):
+            """
+            Operational state data for each component
+            
+            .. attribute:: type
+            
+            	Type of component as identified by the system
+            	**type**\:   :py:class:`PlatformCompType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.PlatformCompType>`
+            
+            .. attribute:: id
+            
+            	Unique identifier assigned to the component by the system
+            	**type**\:  str
+            
+            .. attribute:: description
+            
+            	System\-supplied description of the component
+            	**type**\:  str
+            
+            .. attribute:: mfg_name
+            
+            	System\-supplied identifier for the manufacturer of the component.  This data is particularly useful when a component manufacturer is different than the overall device vendor
+            	**type**\:  str
+            
+            .. attribute:: version
+            
+            	System\-defined version string for a hardware, firmware, or software component
+            	**type**\:  str
+            
+            .. attribute:: serial_no
+            
+            	System\-assigned serial number of the component
+            	**type**\:  str
+            
+            .. attribute:: part_no
+            
+            	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
+            	**type**\:  str
+            
+            .. attribute:: temp
+            
+            	Temperature in degrees Celsius of the component. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
+            	**type**\:   :py:class:`Temp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State.Temp>`
+            
+            
+
+            """
+
+            _prefix = 'platform-ios-xe-oper'
+            _revision = '2017-02-06'
+
+            def __init__(self):
+                super(Components.Component.State, self).__init__()
+
+                self.yang_name = "state"
+                self.yang_parent_name = "component"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self._child_container_classes = {"temp" : ("temp", Components.Component.State.Temp)}
+                self._child_list_classes = {}
+
+                self.type = YLeaf(YType.enumeration, "type")
+
+                self.id = YLeaf(YType.str, "id")
+
+                self.description = YLeaf(YType.str, "description")
+
+                self.mfg_name = YLeaf(YType.str, "mfg-name")
+
+                self.version = YLeaf(YType.str, "version")
+
+                self.serial_no = YLeaf(YType.str, "serial-no")
+
+                self.part_no = YLeaf(YType.str, "part-no")
+
+                self.temp = Components.Component.State.Temp()
+                self.temp.parent = self
+                self._children_name_map["temp"] = "temp"
+                self._children_yang_names.add("temp")
+                self._segment_path = lambda: "state"
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Components.Component.State, ['type', 'id', 'description', 'mfg_name', 'version', 'serial_no', 'part_no'], name, value)
+
+
+            class Temp(Entity):
+                """
+                Temperature in degrees Celsius of the component. Values include
+                the instantaneous, average, minimum, and maximum statistics. If
+                avg/min/max statistics are not supported, the target is expected
+                to just supply the instant value
+                
+                .. attribute:: temp_instant
+                
+                	Instantaneous temperature value of a component
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                .. attribute:: temp_avg
+                
+                	Arithmetic mean value of the statistic over a sampling period
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                .. attribute:: temp_max
+                
+                	High water mark value of the statistic over a sampling period
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                .. attribute:: temp_min
+                
+                	Low water mark value of the statistic over a sampling period
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                
+                	**range:** \-92233720368547758.08..92233720368547758.07
+                
+                
+
+                """
+
+                _prefix = 'platform-ios-xe-oper'
+                _revision = '2017-02-06'
+
+                def __init__(self):
+                    super(Components.Component.State.Temp, self).__init__()
+
+                    self.yang_name = "temp"
+                    self.yang_parent_name = "state"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self._child_container_classes = {}
+                    self._child_list_classes = {}
+
+                    self.temp_instant = YLeaf(YType.str, "temp-instant")
+
+                    self.temp_avg = YLeaf(YType.str, "temp-avg")
+
+                    self.temp_max = YLeaf(YType.str, "temp-max")
+
+                    self.temp_min = YLeaf(YType.str, "temp-min")
+                    self._segment_path = lambda: "temp"
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.State.Temp, ['temp_instant', 'temp_avg', 'temp_max', 'temp_min'], name, value)
 
 
         class PlatformProperties(Entity):
@@ -239,6 +389,11 @@ class Components(Entity):
                 	Property name
                 	**type**\:  str
                 
+                .. attribute:: value
+                
+                	Property value
+                	**type**\:   :py:class:`Value <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty.Value>`
+                
                 .. attribute:: configurable
                 
                 	Indication of whether the property is user\-configurable
@@ -248,11 +403,6 @@ class Components(Entity):
                 
                 	Name of the parent component
                 	**type**\:  str
-                
-                .. attribute:: value
-                
-                	Property value
-                	**type**\:   :py:class:`Value <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.PlatformProperties.PlatformProperty.Value>`
                 
                 
 
@@ -291,17 +441,15 @@ class Components(Entity):
                     """
                     Property value
                     
+                    .. attribute:: string
+                    
+                    	String property value
+                    	**type**\:  str
+                    
                     .. attribute:: boolean
                     
                     	Boolean property value
                     	**type**\:  bool
-                    
-                    .. attribute:: decimal
-                    
-                    	Decimal64 property value
-                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     .. attribute:: intsixfour
                     
@@ -310,17 +458,19 @@ class Components(Entity):
                     
                     	**range:** \-9223372036854775808..9223372036854775807
                     
-                    .. attribute:: string
-                    
-                    	String property value
-                    	**type**\:  str
-                    
                     .. attribute:: uintsixfour
                     
                     	Unsigned integer64 property value
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: decimal
+                    
+                    	Decimal64 property value
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
                     
                     
 
@@ -339,19 +489,19 @@ class Components(Entity):
                         self._child_container_classes = {}
                         self._child_list_classes = {}
 
-                        self.boolean = YLeaf(YType.boolean, "boolean")
+                        self.string = YLeaf(YType.str, "string")
 
-                        self.decimal = YLeaf(YType.str, "decimal")
+                        self.boolean = YLeaf(YType.boolean, "boolean")
 
                         self.intsixfour = YLeaf(YType.int64, "intsixfour")
 
-                        self.string = YLeaf(YType.str, "string")
-
                         self.uintsixfour = YLeaf(YType.uint64, "uintsixfour")
+
+                        self.decimal = YLeaf(YType.str, "decimal")
                         self._segment_path = lambda: "value"
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty.Value, ['boolean', 'decimal', 'intsixfour', 'string', 'uintsixfour'], name, value)
+                        self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty.Value, ['string', 'boolean', 'intsixfour', 'uintsixfour', 'decimal'], name, value)
 
 
         class PlatformSubcomponents(Entity):
@@ -425,156 +575,6 @@ class Components(Entity):
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.PlatformSubcomponents.PlatformSubcomponent, ['name', 'parent_platform_component_cname_key'], name, value)
-
-
-        class State(Entity):
-            """
-            Operational state data for each component
-            
-            .. attribute:: description
-            
-            	System\-supplied description of the component
-            	**type**\:  str
-            
-            .. attribute:: id
-            
-            	Unique identifier assigned to the component by the system
-            	**type**\:  str
-            
-            .. attribute:: mfg_name
-            
-            	System\-supplied identifier for the manufacturer of the component.  This data is particularly useful when a component manufacturer is different than the overall device vendor
-            	**type**\:  str
-            
-            .. attribute:: part_no
-            
-            	System\-assigned part number for the component.  This should be present in particular if the component is also an FRU (field replacable unit)
-            	**type**\:  str
-            
-            .. attribute:: serial_no
-            
-            	System\-assigned serial number of the component
-            	**type**\:  str
-            
-            .. attribute:: temp
-            
-            	Temperature in degrees Celsius of the component. Values include the instantaneous, average, minimum, and maximum statistics. If avg/min/max statistics are not supported, the target is expected to just supply the instant value
-            	**type**\:   :py:class:`Temp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.Components.Component.State.Temp>`
-            
-            .. attribute:: type
-            
-            	Type of component as identified by the system
-            	**type**\:   :py:class:`PlatformCompType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper.PlatformCompType>`
-            
-            .. attribute:: version
-            
-            	System\-defined version string for a hardware, firmware, or software component
-            	**type**\:  str
-            
-            
-
-            """
-
-            _prefix = 'platform-ios-xe-oper'
-            _revision = '2017-02-06'
-
-            def __init__(self):
-                super(Components.Component.State, self).__init__()
-
-                self.yang_name = "state"
-                self.yang_parent_name = "component"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self._child_container_classes = {"temp" : ("temp", Components.Component.State.Temp)}
-                self._child_list_classes = {}
-
-                self.description = YLeaf(YType.str, "description")
-
-                self.id = YLeaf(YType.str, "id")
-
-                self.mfg_name = YLeaf(YType.str, "mfg-name")
-
-                self.part_no = YLeaf(YType.str, "part-no")
-
-                self.serial_no = YLeaf(YType.str, "serial-no")
-
-                self.type = YLeaf(YType.enumeration, "type")
-
-                self.version = YLeaf(YType.str, "version")
-
-                self.temp = Components.Component.State.Temp()
-                self.temp.parent = self
-                self._children_name_map["temp"] = "temp"
-                self._children_yang_names.add("temp")
-                self._segment_path = lambda: "state"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.State, ['description', 'id', 'mfg_name', 'part_no', 'serial_no', 'type', 'version'], name, value)
-
-
-            class Temp(Entity):
-                """
-                Temperature in degrees Celsius of the component. Values include
-                the instantaneous, average, minimum, and maximum statistics. If
-                avg/min/max statistics are not supported, the target is expected
-                to just supply the instant value
-                
-                .. attribute:: temp_avg
-                
-                	Arithmetic mean value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                .. attribute:: temp_instant
-                
-                	Instantaneous temperature value of a component
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                .. attribute:: temp_max
-                
-                	High water mark value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                .. attribute:: temp_min
-                
-                	Low water mark value of the statistic over a sampling period
-                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
-                
-                	**range:** \-92233720368547758.08..92233720368547758.07
-                
-                
-
-                """
-
-                _prefix = 'platform-ios-xe-oper'
-                _revision = '2017-02-06'
-
-                def __init__(self):
-                    super(Components.Component.State.Temp, self).__init__()
-
-                    self.yang_name = "temp"
-                    self.yang_parent_name = "state"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self._child_container_classes = {}
-                    self._child_list_classes = {}
-
-                    self.temp_avg = YLeaf(YType.str, "temp-avg")
-
-                    self.temp_instant = YLeaf(YType.str, "temp-instant")
-
-                    self.temp_max = YLeaf(YType.str, "temp-max")
-
-                    self.temp_min = YLeaf(YType.str, "temp-min")
-                    self._segment_path = lambda: "temp"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.State.Temp, ['temp_avg', 'temp_instant', 'temp_max', 'temp_min'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Components()

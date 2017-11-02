@@ -439,6 +439,385 @@ class Version(Enum):
 
 
 
+class Ssh1(Entity):
+    """
+    Crypto Secure Shell(SSH) data
+    
+    .. attribute:: kex
+    
+    	key exchange method data
+    	**type**\:   :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
+    
+    
+
+    """
+
+    _prefix = 'crypto-ssh-oper'
+    _revision = '2017-05-01'
+
+    def __init__(self):
+        super(Ssh1, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "ssh1"
+        self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self._child_container_classes = {"kex" : ("kex", Ssh1.Kex)}
+        self._child_list_classes = {}
+
+        self.kex = Ssh1.Kex()
+        self.kex.parent = self
+        self._children_name_map["kex"] = "kex"
+        self._children_yang_names.add("kex")
+        self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1"
+
+
+    class Kex(Entity):
+        """
+        key exchange method data
+        
+        .. attribute:: nodes
+        
+        	Node\-specific ssh session details
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
+        
+        
+
+        """
+
+        _prefix = 'crypto-ssh-oper'
+        _revision = '2017-05-01'
+
+        def __init__(self):
+            super(Ssh1.Kex, self).__init__()
+
+            self.yang_name = "kex"
+            self.yang_parent_name = "ssh1"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self._child_container_classes = {"nodes" : ("nodes", Ssh1.Kex.Nodes)}
+            self._child_list_classes = {}
+
+            self.nodes = Ssh1.Kex.Nodes()
+            self.nodes.parent = self
+            self._children_name_map["nodes"] = "nodes"
+            self._children_yang_names.add("nodes")
+            self._segment_path = lambda: "kex"
+            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/%s" % self._segment_path()
+
+
+        class Nodes(Entity):
+            """
+            Node\-specific ssh session details
+            
+            .. attribute:: node
+            
+            	SSH session details for a particular node
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
+            
+            
+
+            """
+
+            _prefix = 'crypto-ssh-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Ssh1.Kex.Nodes, self).__init__()
+
+                self.yang_name = "nodes"
+                self.yang_parent_name = "kex"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {}
+                self._child_list_classes = {"node" : ("node", Ssh1.Kex.Nodes.Node)}
+
+                self.node = YList(self)
+                self._segment_path = lambda: "nodes"
+                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/%s" % self._segment_path()
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ssh1.Kex.Nodes, [], name, value)
+
+
+            class Node(Entity):
+                """
+                SSH session details for a particular node
+                
+                .. attribute:: node_name  <key>
+                
+                	Node name
+                	**type**\:  str
+                
+                .. attribute:: incoming_sessions
+                
+                	List of incoming sessions
+                	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
+                
+                .. attribute:: outgoing_connections
+                
+                	List of outgoing connections
+                	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Ssh1.Kex.Nodes.Node, self).__init__()
+
+                    self.yang_name = "node"
+                    self.yang_parent_name = "nodes"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh1.Kex.Nodes.Node.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh1.Kex.Nodes.Node.OutgoingConnections)}
+                    self._child_list_classes = {}
+
+                    self.node_name = YLeaf(YType.str, "node-name")
+
+                    self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
+                    self.incoming_sessions.parent = self
+                    self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                    self._children_yang_names.add("incoming-sessions")
+
+                    self.outgoing_connections = Ssh1.Kex.Nodes.Node.OutgoingConnections()
+                    self.outgoing_connections.parent = self
+                    self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                    self._children_yang_names.add("outgoing-connections")
+                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh1.Kex.Nodes.Node, ['node_name'], name, value)
+
+
+                class IncomingSessions(Entity):
+                    """
+                    List of incoming sessions
+                    
+                    .. attribute:: session_detail_info
+                    
+                    	session detail info
+                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__init__()
+
+                        self.yang_name = "incoming-sessions"
+                        self.yang_parent_name = "node"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo)}
+
+                        self.session_detail_info = YList(self)
+                        self._segment_path = lambda: "incoming-sessions"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions, [], name, value)
+
+
+                    class SessionDetailInfo(Entity):
+                        """
+                        session detail info
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: key_exchange
+                        
+                        	Key exchange name
+                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                        
+                        .. attribute:: public_key
+                        
+                        	Host key algorithm
+                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
+                        
+                        .. attribute:: in_cipher
+                        
+                        	In cipher algorithm
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        .. attribute:: out_cipher
+                        
+                        	Out cipher algorithm
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        .. attribute:: in_mac
+                        
+                        	In MAC
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        .. attribute:: out_mac
+                        
+                        	Out MAC
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__init__()
+
+                            self.yang_name = "session-detail-info"
+                            self.yang_parent_name = "incoming-sessions"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.session_id = YLeaf(YType.uint32, "session-id")
+
+                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                            self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
+
+                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                            self._segment_path = lambda: "session-detail-info"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac'], name, value)
+
+
+                class OutgoingConnections(Entity):
+                    """
+                    List of outgoing connections
+                    
+                    .. attribute:: session_detail_info
+                    
+                    	session detail info
+                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__init__()
+
+                        self.yang_name = "outgoing-connections"
+                        self.yang_parent_name = "node"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self._child_container_classes = {}
+                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo)}
+
+                        self.session_detail_info = YList(self)
+                        self._segment_path = lambda: "outgoing-connections"
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections, [], name, value)
+
+
+                    class SessionDetailInfo(Entity):
+                        """
+                        session detail info
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: key_exchange
+                        
+                        	Key exchange name
+                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                        
+                        .. attribute:: public_key
+                        
+                        	Host key algorithm
+                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
+                        
+                        .. attribute:: in_cipher
+                        
+                        	In cipher algorithm
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        .. attribute:: out_cipher
+                        
+                        	Out cipher algorithm
+                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                        
+                        .. attribute:: in_mac
+                        
+                        	In MAC
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        .. attribute:: out_mac
+                        
+                        	Out MAC
+                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'crypto-ssh-oper'
+                        _revision = '2017-05-01'
+
+                        def __init__(self):
+                            super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__init__()
+
+                            self.yang_name = "session-detail-info"
+                            self.yang_parent_name = "outgoing-connections"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self._child_container_classes = {}
+                            self._child_list_classes = {}
+
+                            self.session_id = YLeaf(YType.uint32, "session-id")
+
+                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                            self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
+
+                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                            self._segment_path = lambda: "session-detail-info"
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Ssh1()
+        return self._top_entity
+
 class Ssh(Entity):
     """
     ssh
@@ -477,6 +856,11 @@ class Ssh(Entity):
         """
         Crypto SSH session
         
+        .. attribute:: rekey
+        
+        	SSH session rekey information
+        	**type**\:   :py:class:`Rekey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey>`
+        
         .. attribute:: brief
         
         	SSH session brief information
@@ -486,11 +870,6 @@ class Ssh(Entity):
         
         	SSH session detail information
         	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail>`
-        
-        .. attribute:: rekey
-        
-        	SSH session rekey information
-        	**type**\:   :py:class:`Rekey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Rekey>`
         
         
 
@@ -506,8 +885,13 @@ class Ssh(Entity):
             self.yang_parent_name = "ssh"
             self.is_top_level_class = False
             self.has_list_ancestor = False
-            self._child_container_classes = {"brief" : ("brief", Ssh.Session.Brief), "detail" : ("detail", Ssh.Session.Detail), "rekey" : ("rekey", Ssh.Session.Rekey)}
+            self._child_container_classes = {"rekey" : ("rekey", Ssh.Session.Rekey), "brief" : ("brief", Ssh.Session.Brief), "detail" : ("detail", Ssh.Session.Detail)}
             self._child_list_classes = {}
+
+            self.rekey = Ssh.Session.Rekey()
+            self.rekey.parent = self
+            self._children_name_map["rekey"] = "rekey"
+            self._children_yang_names.add("rekey")
 
             self.brief = Ssh.Session.Brief()
             self.brief.parent = self
@@ -518,617 +902,8 @@ class Ssh(Entity):
             self.detail.parent = self
             self._children_name_map["detail"] = "detail"
             self._children_yang_names.add("detail")
-
-            self.rekey = Ssh.Session.Rekey()
-            self.rekey.parent = self
-            self._children_name_map["rekey"] = "rekey"
-            self._children_yang_names.add("rekey")
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/%s" % self._segment_path()
-
-
-        class Brief(Entity):
-            """
-            SSH session brief information
-            
-            .. attribute:: incoming_sessions
-            
-            	List of incoming sessions
-            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions>`
-            
-            .. attribute:: outgoing_sessions
-            
-            	List of outgoing sessions
-            	**type**\:   :py:class:`OutgoingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions>`
-            
-            
-
-            """
-
-            _prefix = 'crypto-ssh-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Ssh.Session.Brief, self).__init__()
-
-                self.yang_name = "brief"
-                self.yang_parent_name = "session"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Brief.IncomingSessions), "outgoing-sessions" : ("outgoing_sessions", Ssh.Session.Brief.OutgoingSessions)}
-                self._child_list_classes = {}
-
-                self.incoming_sessions = Ssh.Session.Brief.IncomingSessions()
-                self.incoming_sessions.parent = self
-                self._children_name_map["incoming_sessions"] = "incoming-sessions"
-                self._children_yang_names.add("incoming-sessions")
-
-                self.outgoing_sessions = Ssh.Session.Brief.OutgoingSessions()
-                self.outgoing_sessions.parent = self
-                self._children_name_map["outgoing_sessions"] = "outgoing-sessions"
-                self._children_yang_names.add("outgoing-sessions")
-                self._segment_path = lambda: "brief"
-                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
-
-
-            class IncomingSessions(Entity):
-                """
-                List of incoming sessions
-                
-                .. attribute:: session_brief_info
-                
-                	session brief info
-                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo>`
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ssh.Session.Brief.IncomingSessions, self).__init__()
-
-                    self.yang_name = "incoming-sessions"
-                    self.yang_parent_name = "brief"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo)}
-
-                    self.session_brief_info = YList(self)
-                    self._segment_path = lambda: "incoming-sessions"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Session.Brief.IncomingSessions, [], name, value)
-
-
-                class SessionBriefInfo(Entity):
-                    """
-                    session brief info
-                    
-                    .. attribute:: authentication_type
-                    
-                    	Authentication method
-                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
-                    
-                    .. attribute:: channel_id
-                    
-                    	Channel ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connection_type
-                    
-                    	Channel Connection Type
-                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
-                    
-                    .. attribute:: host_address
-                    
-                    	Host address
-                    	**type**\:  str
-                    
-                    .. attribute:: node_name
-                    
-                    	Node name
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: session_state
-                    
-                    	SSH session state
-                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
-                    
-                    .. attribute:: user_id
-                    
-                    	User ID
-                    	**type**\:  str
-                    
-                    .. attribute:: version
-                    
-                    	SSH state version
-                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
-                    
-                    .. attribute:: vty_assigned
-                    
-                    	Boolean indicating whether line VTY line number is valid
-                    	**type**\:  bool
-                    
-                    .. attribute:: vty_line_number
-                    
-                    	VTY line number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-ssh-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__init__()
-
-                        self.yang_name = "session-brief-info"
-                        self.yang_parent_name = "incoming-sessions"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                        self.channel_id = YLeaf(YType.uint32, "channel-id")
-
-                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
-
-                        self.host_address = YLeaf(YType.str, "host-address")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.version = YLeaf(YType.enumeration, "version")
-
-                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
-
-                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
-                        self._segment_path = lambda: "session-brief-info"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, ['authentication_type', 'channel_id', 'connection_type', 'host_address', 'node_name', 'session_id', 'session_state', 'user_id', 'version', 'vty_assigned', 'vty_line_number'], name, value)
-
-
-            class OutgoingSessions(Entity):
-                """
-                List of outgoing sessions
-                
-                .. attribute:: session_brief_info
-                
-                	session brief info
-                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo>`
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ssh.Session.Brief.OutgoingSessions, self).__init__()
-
-                    self.yang_name = "outgoing-sessions"
-                    self.yang_parent_name = "brief"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo)}
-
-                    self.session_brief_info = YList(self)
-                    self._segment_path = lambda: "outgoing-sessions"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Session.Brief.OutgoingSessions, [], name, value)
-
-
-                class SessionBriefInfo(Entity):
-                    """
-                    session brief info
-                    
-                    .. attribute:: authentication_type
-                    
-                    	Authentication method
-                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
-                    
-                    .. attribute:: channel_id
-                    
-                    	Channel ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: connection_type
-                    
-                    	Channel Connection Type
-                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
-                    
-                    .. attribute:: host_address
-                    
-                    	Host address
-                    	**type**\:  str
-                    
-                    .. attribute:: node_name
-                    
-                    	Node name
-                    	**type**\:  str
-                    
-                    	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                    
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: session_state
-                    
-                    	SSH session state
-                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
-                    
-                    .. attribute:: user_id
-                    
-                    	User ID
-                    	**type**\:  str
-                    
-                    .. attribute:: version
-                    
-                    	SSH state version
-                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
-                    
-                    .. attribute:: vty_assigned
-                    
-                    	Boolean indicating whether line VTY line number is valid
-                    	**type**\:  bool
-                    
-                    .. attribute:: vty_line_number
-                    
-                    	VTY line number
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-ssh-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__init__()
-
-                        self.yang_name = "session-brief-info"
-                        self.yang_parent_name = "outgoing-sessions"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
-
-                        self.channel_id = YLeaf(YType.uint32, "channel-id")
-
-                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
-
-                        self.host_address = YLeaf(YType.str, "host-address")
-
-                        self.node_name = YLeaf(YType.str, "node-name")
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-
-                        self.session_state = YLeaf(YType.enumeration, "session-state")
-
-                        self.user_id = YLeaf(YType.str, "user-id")
-
-                        self.version = YLeaf(YType.enumeration, "version")
-
-                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
-
-                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
-                        self._segment_path = lambda: "session-brief-info"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, ['authentication_type', 'channel_id', 'connection_type', 'host_address', 'node_name', 'session_id', 'session_state', 'user_id', 'version', 'vty_assigned', 'vty_line_number'], name, value)
-
-
-        class Detail(Entity):
-            """
-            SSH session detail information
-            
-            .. attribute:: incoming_sessions
-            
-            	List of incoming sessions
-            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions>`
-            
-            .. attribute:: outgoing_connections
-            
-            	List of outgoing connections
-            	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections>`
-            
-            
-
-            """
-
-            _prefix = 'crypto-ssh-oper'
-            _revision = '2017-05-01'
-
-            def __init__(self):
-                super(Ssh.Session.Detail, self).__init__()
-
-                self.yang_name = "detail"
-                self.yang_parent_name = "session"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Detail.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh.Session.Detail.OutgoingConnections)}
-                self._child_list_classes = {}
-
-                self.incoming_sessions = Ssh.Session.Detail.IncomingSessions()
-                self.incoming_sessions.parent = self
-                self._children_name_map["incoming_sessions"] = "incoming-sessions"
-                self._children_yang_names.add("incoming-sessions")
-
-                self.outgoing_connections = Ssh.Session.Detail.OutgoingConnections()
-                self.outgoing_connections.parent = self
-                self._children_name_map["outgoing_connections"] = "outgoing-connections"
-                self._children_yang_names.add("outgoing-connections")
-                self._segment_path = lambda: "detail"
-                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
-
-
-            class IncomingSessions(Entity):
-                """
-                List of incoming sessions
-                
-                .. attribute:: session_detail_info
-                
-                	session detail info
-                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo>`
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ssh.Session.Detail.IncomingSessions, self).__init__()
-
-                    self.yang_name = "incoming-sessions"
-                    self.yang_parent_name = "detail"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.IncomingSessions.SessionDetailInfo)}
-
-                    self.session_detail_info = YList(self)
-                    self._segment_path = lambda: "incoming-sessions"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Session.Detail.IncomingSessions, [], name, value)
-
-
-                class SessionDetailInfo(Entity):
-                    """
-                    session detail info
-                    
-                    .. attribute:: in_cipher
-                    
-                    	In cipher algorithm
-                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                    
-                    .. attribute:: in_mac
-                    
-                    	In MAC
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                    
-                    .. attribute:: key_exchange
-                    
-                    	Key exchange name
-                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
-                    
-                    .. attribute:: out_cipher
-                    
-                    	Out cipher algorithm
-                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                    
-                    .. attribute:: out_mac
-                    
-                    	Out MAC
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                    
-                    .. attribute:: public_key
-                    
-                    	Host key algorithm
-                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
-                    
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-ssh-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__init__()
-
-                        self.yang_name = "session-detail-info"
-                        self.yang_parent_name = "incoming-sessions"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
-
-                        self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-                        self._segment_path = lambda: "session-detail-info"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, ['in_cipher', 'in_mac', 'key_exchange', 'out_cipher', 'out_mac', 'public_key', 'session_id'], name, value)
-
-
-            class OutgoingConnections(Entity):
-                """
-                List of outgoing connections
-                
-                .. attribute:: session_detail_info
-                
-                	session detail info
-                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo>`
-                
-                
-
-                """
-
-                _prefix = 'crypto-ssh-oper'
-                _revision = '2017-05-01'
-
-                def __init__(self):
-                    super(Ssh.Session.Detail.OutgoingConnections, self).__init__()
-
-                    self.yang_name = "outgoing-connections"
-                    self.yang_parent_name = "detail"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = False
-                    self._child_container_classes = {}
-                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo)}
-
-                    self.session_detail_info = YList(self)
-                    self._segment_path = lambda: "outgoing-connections"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Session.Detail.OutgoingConnections, [], name, value)
-
-
-                class SessionDetailInfo(Entity):
-                    """
-                    session detail info
-                    
-                    .. attribute:: in_cipher
-                    
-                    	In cipher algorithm
-                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                    
-                    .. attribute:: in_mac
-                    
-                    	In MAC
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                    
-                    .. attribute:: key_exchange
-                    
-                    	Key exchange name
-                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
-                    
-                    .. attribute:: out_cipher
-                    
-                    	Out cipher algorithm
-                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                    
-                    .. attribute:: out_mac
-                    
-                    	Out MAC
-                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                    
-                    .. attribute:: public_key
-                    
-                    	Host key algorithm
-                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
-                    
-                    .. attribute:: session_id
-                    
-                    	Session ID
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
-                    
-
-                    """
-
-                    _prefix = 'crypto-ssh-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__init__()
-
-                        self.yang_name = "session-detail-info"
-                        self.yang_parent_name = "outgoing-connections"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = False
-                        self._child_container_classes = {}
-                        self._child_list_classes = {}
-
-                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
-
-                        self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                        self.session_id = YLeaf(YType.uint32, "session-id")
-                        self._segment_path = lambda: "session-detail-info"
-                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self._segment_path()
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, ['in_cipher', 'in_mac', 'key_exchange', 'out_cipher', 'out_mac', 'public_key', 'session_id'], name, value)
 
 
         class Rekey(Entity):
@@ -1360,86 +1135,20 @@ class Ssh(Entity):
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, ['session_id', 'session_rekey_count', 'time_to_rekey', 'volume_to_rekey'], name, value)
 
-    def clone_ptr(self):
-        self._top_entity = Ssh()
-        return self._top_entity
 
-class Ssh1(Entity):
-    """
-    Crypto Secure Shell(SSH) data
-    
-    .. attribute:: kex
-    
-    	key exchange method data
-    	**type**\:   :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
-    
-    
-
-    """
-
-    _prefix = 'crypto-ssh-oper'
-    _revision = '2017-05-01'
-
-    def __init__(self):
-        super(Ssh1, self).__init__()
-        self._top_entity = None
-
-        self.yang_name = "ssh1"
-        self.yang_parent_name = "Cisco-IOS-XR-crypto-ssh-oper"
-        self.is_top_level_class = True
-        self.has_list_ancestor = False
-        self._child_container_classes = {"kex" : ("kex", Ssh1.Kex)}
-        self._child_list_classes = {}
-
-        self.kex = Ssh1.Kex()
-        self.kex.parent = self
-        self._children_name_map["kex"] = "kex"
-        self._children_yang_names.add("kex")
-        self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1"
-
-
-    class Kex(Entity):
-        """
-        key exchange method data
-        
-        .. attribute:: nodes
-        
-        	Node\-specific ssh session details
-        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
-        
-        
-
-        """
-
-        _prefix = 'crypto-ssh-oper'
-        _revision = '2017-05-01'
-
-        def __init__(self):
-            super(Ssh1.Kex, self).__init__()
-
-            self.yang_name = "kex"
-            self.yang_parent_name = "ssh1"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self._child_container_classes = {"nodes" : ("nodes", Ssh1.Kex.Nodes)}
-            self._child_list_classes = {}
-
-            self.nodes = Ssh1.Kex.Nodes()
-            self.nodes.parent = self
-            self._children_name_map["nodes"] = "nodes"
-            self._children_yang_names.add("nodes")
-            self._segment_path = lambda: "kex"
-            self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/%s" % self._segment_path()
-
-
-        class Nodes(Entity):
+        class Brief(Entity):
             """
-            Node\-specific ssh session details
+            SSH session brief information
             
-            .. attribute:: node
+            .. attribute:: incoming_sessions
             
-            	SSH session details for a particular node
-            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
+            	List of incoming sessions
+            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions>`
+            
+            .. attribute:: outgoing_sessions
+            
+            	List of outgoing sessions
+            	**type**\:   :py:class:`OutgoingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions>`
             
             
 
@@ -1449,43 +1158,36 @@ class Ssh1(Entity):
             _revision = '2017-05-01'
 
             def __init__(self):
-                super(Ssh1.Kex.Nodes, self).__init__()
+                super(Ssh.Session.Brief, self).__init__()
 
-                self.yang_name = "nodes"
-                self.yang_parent_name = "kex"
+                self.yang_name = "brief"
+                self.yang_parent_name = "session"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
-                self._child_container_classes = {}
-                self._child_list_classes = {"node" : ("node", Ssh1.Kex.Nodes.Node)}
+                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Brief.IncomingSessions), "outgoing-sessions" : ("outgoing_sessions", Ssh.Session.Brief.OutgoingSessions)}
+                self._child_list_classes = {}
 
-                self.node = YList(self)
-                self._segment_path = lambda: "nodes"
-                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/%s" % self._segment_path()
+                self.incoming_sessions = Ssh.Session.Brief.IncomingSessions()
+                self.incoming_sessions.parent = self
+                self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                self._children_yang_names.add("incoming-sessions")
 
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ssh1.Kex.Nodes, [], name, value)
+                self.outgoing_sessions = Ssh.Session.Brief.OutgoingSessions()
+                self.outgoing_sessions.parent = self
+                self._children_name_map["outgoing_sessions"] = "outgoing-sessions"
+                self._children_yang_names.add("outgoing-sessions")
+                self._segment_path = lambda: "brief"
+                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
 
 
-            class Node(Entity):
+            class IncomingSessions(Entity):
                 """
-                SSH session details for a particular node
+                List of incoming sessions
                 
-                .. attribute:: node_name  <key>
+                .. attribute:: session_brief_info
                 
-                	Node name
-                	**type**\:  str
-                
-                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
-                
-                .. attribute:: incoming_sessions
-                
-                	List of incoming sessions
-                	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
-                
-                .. attribute:: outgoing_connections
-                
-                	List of outgoing connections
-                	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
+                	session brief info
+                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo>`
                 
                 
 
@@ -1495,151 +1197,87 @@ class Ssh1(Entity):
                 _revision = '2017-05-01'
 
                 def __init__(self):
-                    super(Ssh1.Kex.Nodes.Node, self).__init__()
+                    super(Ssh.Session.Brief.IncomingSessions, self).__init__()
 
-                    self.yang_name = "node"
-                    self.yang_parent_name = "nodes"
+                    self.yang_name = "incoming-sessions"
+                    self.yang_parent_name = "brief"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh1.Kex.Nodes.Node.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh1.Kex.Nodes.Node.OutgoingConnections)}
-                    self._child_list_classes = {}
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo)}
 
-                    self.node_name = YLeaf(YType.str, "node-name")
-
-                    self.incoming_sessions = Ssh1.Kex.Nodes.Node.IncomingSessions()
-                    self.incoming_sessions.parent = self
-                    self._children_name_map["incoming_sessions"] = "incoming-sessions"
-                    self._children_yang_names.add("incoming-sessions")
-
-                    self.outgoing_connections = Ssh1.Kex.Nodes.Node.OutgoingConnections()
-                    self.outgoing_connections.parent = self
-                    self._children_name_map["outgoing_connections"] = "outgoing-connections"
-                    self._children_yang_names.add("outgoing-connections")
-                    self._segment_path = lambda: "node" + "[node-name='" + self.node_name.get() + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/%s" % self._segment_path()
+                    self.session_brief_info = YList(self)
+                    self._segment_path = lambda: "incoming-sessions"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh1.Kex.Nodes.Node, ['node_name'], name, value)
+                    self._perform_setattr(Ssh.Session.Brief.IncomingSessions, [], name, value)
 
 
-                class IncomingSessions(Entity):
+                class SessionBriefInfo(Entity):
                     """
-                    List of incoming sessions
+                    session brief info
                     
-                    .. attribute:: session_detail_info
+                    .. attribute:: session_id
                     
-                    	session detail info
-                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
+                    	Session ID
+                    	**type**\:  int
                     
+                    	**range:** 0..4294967295
                     
-
-                    """
-
-                    _prefix = 'crypto-ssh-oper'
-                    _revision = '2017-05-01'
-
-                    def __init__(self):
-                        super(Ssh1.Kex.Nodes.Node.IncomingSessions, self).__init__()
-
-                        self.yang_name = "incoming-sessions"
-                        self.yang_parent_name = "node"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self._child_container_classes = {}
-                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo)}
-
-                        self.session_detail_info = YList(self)
-                        self._segment_path = lambda: "incoming-sessions"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions, [], name, value)
-
-
-                    class SessionDetailInfo(Entity):
-                        """
-                        session detail info
-                        
-                        .. attribute:: in_cipher
-                        
-                        	In cipher algorithm
-                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                        
-                        .. attribute:: in_mac
-                        
-                        	In MAC
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                        
-                        .. attribute:: key_exchange
-                        
-                        	Key exchange name
-                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
-                        
-                        .. attribute:: out_cipher
-                        
-                        	Out cipher algorithm
-                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                        
-                        .. attribute:: out_mac
-                        
-                        	Out MAC
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                        
-                        .. attribute:: public_key
-                        
-                        	Host key algorithm
-                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
-                        
-                        .. attribute:: session_id
-                        
-                        	Session ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
-
-                        """
-
-                        _prefix = 'crypto-ssh-oper'
-                        _revision = '2017-05-01'
-
-                        def __init__(self):
-                            super(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, self).__init__()
-
-                            self.yang_name = "session-detail-info"
-                            self.yang_parent_name = "incoming-sessions"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
-
-                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
-
-                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
-
-                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
-
-                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
-
-                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
-
-                            self.public_key = YLeaf(YType.enumeration, "public-key")
-
-                            self.session_id = YLeaf(YType.uint32, "session-id")
-                            self._segment_path = lambda: "session-detail-info"
-
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, ['in_cipher', 'in_mac', 'key_exchange', 'out_cipher', 'out_mac', 'public_key', 'session_id'], name, value)
-
-
-                class OutgoingConnections(Entity):
-                    """
-                    List of outgoing connections
+                    .. attribute:: channel_id
                     
-                    .. attribute:: session_detail_info
+                    	Channel ID
+                    	**type**\:  int
                     
-                    	session detail info
-                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vty_assigned
+                    
+                    	Boolean indicating whether line VTY line number is valid
+                    	**type**\:  bool
+                    
+                    .. attribute:: vty_line_number
+                    
+                    	VTY line number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: node_name
+                    
+                    	Node name
+                    	**type**\:  str
+                    
+                    .. attribute:: session_state
+                    
+                    	SSH session state
+                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
+                    
+                    .. attribute:: user_id
+                    
+                    	User ID
+                    	**type**\:  str
+                    
+                    .. attribute:: host_address
+                    
+                    	Host address
+                    	**type**\:  str
+                    
+                    .. attribute:: version
+                    
+                    	SSH state version
+                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
+                    
+                    .. attribute:: authentication_type
+                    
+                    	Authentication method
+                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
+                    
+                    .. attribute:: connection_type
+                    
+                    	Channel Connection Type
+                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
                     
                     
 
@@ -1649,99 +1287,455 @@ class Ssh1(Entity):
                     _revision = '2017-05-01'
 
                     def __init__(self):
-                        super(Ssh1.Kex.Nodes.Node.OutgoingConnections, self).__init__()
+                        super(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, self).__init__()
 
-                        self.yang_name = "outgoing-connections"
-                        self.yang_parent_name = "node"
+                        self.yang_name = "session-brief-info"
+                        self.yang_parent_name = "incoming-sessions"
                         self.is_top_level_class = False
-                        self.has_list_ancestor = True
+                        self.has_list_ancestor = False
                         self._child_container_classes = {}
-                        self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo)}
+                        self._child_list_classes = {}
 
-                        self.session_detail_info = YList(self)
-                        self._segment_path = lambda: "outgoing-connections"
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.channel_id = YLeaf(YType.uint32, "channel-id")
+
+                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
+
+                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.session_state = YLeaf(YType.enumeration, "session-state")
+
+                        self.user_id = YLeaf(YType.str, "user-id")
+
+                        self.host_address = YLeaf(YType.str, "host-address")
+
+                        self.version = YLeaf(YType.enumeration, "version")
+
+                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
+
+                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+                        self._segment_path = lambda: "session-brief-info"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self._segment_path()
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections, [], name, value)
+                        self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, ['session_id', 'channel_id', 'vty_assigned', 'vty_line_number', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type', 'connection_type'], name, value)
 
 
-                    class SessionDetailInfo(Entity):
-                        """
-                        session detail info
-                        
-                        .. attribute:: in_cipher
-                        
-                        	In cipher algorithm
-                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                        
-                        .. attribute:: in_mac
-                        
-                        	In MAC
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                        
-                        .. attribute:: key_exchange
-                        
-                        	Key exchange name
-                        	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
-                        
-                        .. attribute:: out_cipher
-                        
-                        	Out cipher algorithm
-                        	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
-                        
-                        .. attribute:: out_mac
-                        
-                        	Out MAC
-                        	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
-                        
-                        .. attribute:: public_key
-                        
-                        	Host key algorithm
-                        	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
-                        
-                        .. attribute:: session_id
-                        
-                        	Session ID
-                        	**type**\:  int
-                        
-                        	**range:** 0..4294967295
-                        
-                        
+            class OutgoingSessions(Entity):
+                """
+                List of outgoing sessions
+                
+                .. attribute:: session_brief_info
+                
+                	session brief info
+                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo>`
+                
+                
 
-                        """
+                """
 
-                        _prefix = 'crypto-ssh-oper'
-                        _revision = '2017-05-01'
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2017-05-01'
 
-                        def __init__(self):
-                            super(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, self).__init__()
+                def __init__(self):
+                    super(Ssh.Session.Brief.OutgoingSessions, self).__init__()
 
-                            self.yang_name = "session-detail-info"
-                            self.yang_parent_name = "outgoing-connections"
-                            self.is_top_level_class = False
-                            self.has_list_ancestor = True
-                            self._child_container_classes = {}
-                            self._child_list_classes = {}
+                    self.yang_name = "outgoing-sessions"
+                    self.yang_parent_name = "brief"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"session-brief-info" : ("session_brief_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo)}
 
-                            self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
+                    self.session_brief_info = YList(self)
+                    self._segment_path = lambda: "outgoing-sessions"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
 
-                            self.in_mac = YLeaf(YType.enumeration, "in-mac")
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh.Session.Brief.OutgoingSessions, [], name, value)
 
-                            self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
 
-                            self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+                class SessionBriefInfo(Entity):
+                    """
+                    session brief info
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: channel_id
+                    
+                    	Channel ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vty_assigned
+                    
+                    	Boolean indicating whether line VTY line number is valid
+                    	**type**\:  bool
+                    
+                    .. attribute:: vty_line_number
+                    
+                    	VTY line number
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: node_name
+                    
+                    	Node name
+                    	**type**\:  str
+                    
+                    .. attribute:: session_state
+                    
+                    	SSH session state
+                    	**type**\:   :py:class:`States <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.States>`
+                    
+                    .. attribute:: user_id
+                    
+                    	User ID
+                    	**type**\:  str
+                    
+                    .. attribute:: host_address
+                    
+                    	Host address
+                    	**type**\:  str
+                    
+                    .. attribute:: version
+                    
+                    	SSH state version
+                    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Version>`
+                    
+                    .. attribute:: authentication_type
+                    
+                    	Authentication method
+                    	**type**\:   :py:class:`Authen <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Authen>`
+                    
+                    .. attribute:: connection_type
+                    
+                    	Channel Connection Type
+                    	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Connection>`
+                    
+                    
 
-                            self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                    """
 
-                            self.public_key = YLeaf(YType.enumeration, "public-key")
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2017-05-01'
 
-                            self.session_id = YLeaf(YType.uint32, "session-id")
-                            self._segment_path = lambda: "session-detail-info"
+                    def __init__(self):
+                        super(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, self).__init__()
 
-                        def __setattr__(self, name, value):
-                            self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, ['in_cipher', 'in_mac', 'key_exchange', 'out_cipher', 'out_mac', 'public_key', 'session_id'], name, value)
+                        self.yang_name = "session-brief-info"
+                        self.yang_parent_name = "outgoing-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.channel_id = YLeaf(YType.uint32, "channel-id")
+
+                        self.vty_assigned = YLeaf(YType.boolean, "vty-assigned")
+
+                        self.vty_line_number = YLeaf(YType.uint32, "vty-line-number")
+
+                        self.node_name = YLeaf(YType.str, "node-name")
+
+                        self.session_state = YLeaf(YType.enumeration, "session-state")
+
+                        self.user_id = YLeaf(YType.str, "user-id")
+
+                        self.host_address = YLeaf(YType.str, "host-address")
+
+                        self.version = YLeaf(YType.enumeration, "version")
+
+                        self.authentication_type = YLeaf(YType.enumeration, "authentication-type")
+
+                        self.connection_type = YLeaf(YType.enumeration, "connection-type")
+                        self._segment_path = lambda: "session-brief-info"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, ['session_id', 'channel_id', 'vty_assigned', 'vty_line_number', 'node_name', 'session_state', 'user_id', 'host_address', 'version', 'authentication_type', 'connection_type'], name, value)
+
+
+        class Detail(Entity):
+            """
+            SSH session detail information
+            
+            .. attribute:: incoming_sessions
+            
+            	List of incoming sessions
+            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions>`
+            
+            .. attribute:: outgoing_connections
+            
+            	List of outgoing connections
+            	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections>`
+            
+            
+
+            """
+
+            _prefix = 'crypto-ssh-oper'
+            _revision = '2017-05-01'
+
+            def __init__(self):
+                super(Ssh.Session.Detail, self).__init__()
+
+                self.yang_name = "detail"
+                self.yang_parent_name = "session"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self._child_container_classes = {"incoming-sessions" : ("incoming_sessions", Ssh.Session.Detail.IncomingSessions), "outgoing-connections" : ("outgoing_connections", Ssh.Session.Detail.OutgoingConnections)}
+                self._child_list_classes = {}
+
+                self.incoming_sessions = Ssh.Session.Detail.IncomingSessions()
+                self.incoming_sessions.parent = self
+                self._children_name_map["incoming_sessions"] = "incoming-sessions"
+                self._children_yang_names.add("incoming-sessions")
+
+                self.outgoing_connections = Ssh.Session.Detail.OutgoingConnections()
+                self.outgoing_connections.parent = self
+                self._children_name_map["outgoing_connections"] = "outgoing-connections"
+                self._children_yang_names.add("outgoing-connections")
+                self._segment_path = lambda: "detail"
+                self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+
+
+            class IncomingSessions(Entity):
+                """
+                List of incoming sessions
+                
+                .. attribute:: session_detail_info
+                
+                	session detail info
+                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Ssh.Session.Detail.IncomingSessions, self).__init__()
+
+                    self.yang_name = "incoming-sessions"
+                    self.yang_parent_name = "detail"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.IncomingSessions.SessionDetailInfo)}
+
+                    self.session_detail_info = YList(self)
+                    self._segment_path = lambda: "incoming-sessions"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh.Session.Detail.IncomingSessions, [], name, value)
+
+
+                class SessionDetailInfo(Entity):
+                    """
+                    session detail info
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: key_exchange
+                    
+                    	Key exchange name
+                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    .. attribute:: public_key
+                    
+                    	Host key algorithm
+                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
+                    
+                    .. attribute:: in_cipher
+                    
+                    	In cipher algorithm
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    .. attribute:: out_cipher
+                    
+                    	Out cipher algorithm
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    .. attribute:: in_mac
+                    
+                    	In MAC
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    .. attribute:: out_mac
+                    
+                    	Out MAC
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, self).__init__()
+
+                        self.yang_name = "session-detail-info"
+                        self.yang_parent_name = "incoming-sessions"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                        self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
+
+                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                        self._segment_path = lambda: "session-detail-info"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac'], name, value)
+
+
+            class OutgoingConnections(Entity):
+                """
+                List of outgoing connections
+                
+                .. attribute:: session_detail_info
+                
+                	session detail info
+                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo>`
+                
+                
+
+                """
+
+                _prefix = 'crypto-ssh-oper'
+                _revision = '2017-05-01'
+
+                def __init__(self):
+                    super(Ssh.Session.Detail.OutgoingConnections, self).__init__()
+
+                    self.yang_name = "outgoing-connections"
+                    self.yang_parent_name = "detail"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self._child_container_classes = {}
+                    self._child_list_classes = {"session-detail-info" : ("session_detail_info", Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo)}
+
+                    self.session_detail_info = YList(self)
+                    self._segment_path = lambda: "outgoing-connections"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ssh.Session.Detail.OutgoingConnections, [], name, value)
+
+
+                class SessionDetailInfo(Entity):
+                    """
+                    session detail info
+                    
+                    .. attribute:: session_id
+                    
+                    	Session ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: key_exchange
+                    
+                    	Key exchange name
+                    	**type**\:   :py:class:`KexName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexName>`
+                    
+                    .. attribute:: public_key
+                    
+                    	Host key algorithm
+                    	**type**\:   :py:class:`Hostkey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Hostkey>`
+                    
+                    .. attribute:: in_cipher
+                    
+                    	In cipher algorithm
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    .. attribute:: out_cipher
+                    
+                    	Out cipher algorithm
+                    	**type**\:   :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Cipher>`
+                    
+                    .. attribute:: in_mac
+                    
+                    	In MAC
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    .. attribute:: out_mac
+                    
+                    	Out MAC
+                    	**type**\:   :py:class:`Mac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Mac>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'crypto-ssh-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, self).__init__()
+
+                        self.yang_name = "session-detail-info"
+                        self.yang_parent_name = "outgoing-connections"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self._child_container_classes = {}
+                        self._child_list_classes = {}
+
+                        self.session_id = YLeaf(YType.uint32, "session-id")
+
+                        self.key_exchange = YLeaf(YType.enumeration, "key-exchange")
+
+                        self.public_key = YLeaf(YType.enumeration, "public-key")
+
+                        self.in_cipher = YLeaf(YType.enumeration, "in-cipher")
+
+                        self.out_cipher = YLeaf(YType.enumeration, "out-cipher")
+
+                        self.in_mac = YLeaf(YType.enumeration, "in-mac")
+
+                        self.out_mac = YLeaf(YType.enumeration, "out-mac")
+                        self._segment_path = lambda: "session-detail-info"
+                        self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self._segment_path()
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, ['session_id', 'key_exchange', 'public_key', 'in_cipher', 'out_cipher', 'in_mac', 'out_mac'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = Ssh1()
+        self._top_entity = Ssh()
         return self._top_entity
 
